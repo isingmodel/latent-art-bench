@@ -2,6 +2,22 @@
 
 This is the initial methodological reading list. Links point to publisher, DOI, PubMed, or public full-text pages where available.
 
+## Positioning and novelty
+
+LatentArtBench does not claim to be the first artist-style benchmark, the first distributional evaluation of art generation, or the first study of artistic mode collapse. Prior work already covers broad art classes, style-transfer metrics, artist prototypes, set-level artist signatures, prompted-artist recognition, AI-versus-human statistics, and artist-level diversity.
+
+The proposed contribution is a measurement-qualified combination of:
+
+1. source-method functional replication;
+2. reproduction uncertainty and acquisition-domain controls;
+3. held-out and leave-source-out real-group validity;
+4. frozen real-only transformations;
+5. content-matched prompt distributions;
+6. separate fidelity, specificity, coverage, contraction, and coherence outcomes;
+7. evaluator-family dependence and narrowly scoped human qualification.
+
+No component is claimed as unprecedented. The contribution succeeds only if the combined protocol changes which generator differences can be interpreted scientifically.
+
 ## Core quantitative-art lineage
 
 1. Kim, D., Son, S.-W., & Jeong, H. (2014). Large-Scale Quantitative Analysis of Painting Arts. *Scientific Reports, 4*, 7370. [https://doi.org/10.1038/srep07370](https://doi.org/10.1038/srep07370)
@@ -24,13 +40,37 @@ This is the initial methodological reading list. Links point to publisher, DOI, 
 
 9. Papia, E.-M., Kondi, A., & Constantoudis, V. (2023). Entropy and complexity analysis of AI-generated and human-made paintings. *Chaos, Solitons & Fractals, 170*, 113385. [https://doi.org/10.1016/j.chaos.2023.113385](https://doi.org/10.1016/j.chaos.2023.113385)
 
+## Generative-art benchmarks and style evaluation
+
+10. Liao, P., Li, X., Liu, X., & Keutzer, K. (2022). The ArtBench Dataset: Benchmarking Generative Models with Artworks. [https://arxiv.org/abs/2206.11404](https://arxiv.org/abs/2206.11404)
+
+11. Wright, M., & Ommer, B. (2022). ArtFID: Quantitative Evaluation of Neural Style Transfer. [https://arxiv.org/abs/2207.12280](https://arxiv.org/abs/2207.12280)
+
+12. Somepalli, G., Gupta, A., Gupta, K., Palta, S., Goldblum, M., Geiping, J., Shrivastava, A., & Goldstein, T. (2024). Measuring Style Similarity in Diffusion Models. [https://arxiv.org/abs/2404.01292](https://arxiv.org/abs/2404.01292)
+
+13. Moayeri, M., Basu, S., Balasubramanian, S., Kattakinda, P., Chengini, A., Brauneis, R., & Feizi, S. (2024). Rethinking Artistic Copyright Infringements in the Era of Text-to-Image Generative Models. [https://arxiv.org/abs/2404.08030](https://arxiv.org/abs/2404.08030)
+
+14. Asperti, A., George, F., Marras, T., Stricescu, R. C., & Zanotti, F. (2025). A Critical Assessment of Modern Generative Models’ Ability to Replicate Artistic Styles. [https://arxiv.org/abs/2502.15856](https://arxiv.org/abs/2502.15856)
+
+15. Su, G., Wang, S.-Y., Hertzmann, A., Shechtman, E., Zhu, J.-Y., & Zhang, R. (2025). Identifying Prompted Artist Names from Generated Images. [https://arxiv.org/abs/2507.18633](https://arxiv.org/abs/2507.18633)
+
+16. Frochte, J. (2026). When Style Similarity Scores Fail: Diagnosing Raw CSD Cosine in Artist-Style Evaluation. [https://arxiv.org/abs/2605.09030](https://arxiv.org/abs/2605.09030)
+
+17. Lee, J., Kim, Y., Ali, G., Kim, S., & Hwang, J.-I. (2026). Through Van Gogh’s Eyes: Global Style Transfer with Diffusion Model. [https://arxiv.org/abs/2608.11546](https://arxiv.org/abs/2608.11546)
+
+18. Asperti, A. (2026). On the Separation of Human and AI-Generated Images in CLIP Embedding Space. [https://arxiv.org/abs/2608.25609](https://arxiv.org/abs/2608.25609)
+
+## General distributional evaluation
+
+19. Naeem, M. F., Oh, S. J., Uh, Y., Choi, Y., & Yoo, J. (2020). Reliable Fidelity and Diversity Metrics for Generative Models. *Proceedings of Machine Learning Research, 119*, 7176–7185. [https://proceedings.mlr.press/v119/naeem20a.html](https://proceedings.mlr.press/v119/naeem20a.html)
+
 ## Thesis
 
-10. Lee, B. (2021). *Art and Complexity in the Era of Big Data* [Doctoral dissertation, Korea Advanced Institute of Science and Technology]. [KAIST Library record](https://library.kaist.ac.kr/search/detail/view.do?bibCtrlNo=956521)
+20. Lee, B. (2021). *Art and Complexity in the Era of Big Data* [Doctoral dissertation, Korea Advanced Institute of Science and Technology]. [KAIST Library record](https://library.kaist.ac.kr/search/detail/view.do?bibCtrlNo=956521)
 
 ## Related project code
 
-11. Kim, J., Lee, B., You, T., & Yun, J. *Art History: source code for contextual and formal vector analysis*. [https://github.com/aljinny/art-history](https://github.com/aljinny/art-history)
+21. Kim, J., Lee, B., You, T., & Yun, J. *Art History: source code for contextual and formal vector analysis*. [https://github.com/aljinny/art-history](https://github.com/aljinny/art-history)
 
 ## Reference policy
 

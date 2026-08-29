@@ -2,37 +2,56 @@
 
 ## 1. Scope
 
-LatentArtBench evaluates image-generating systems that accept language instructions and may optionally accept image conditioning. The benchmark compares multiple open-weight and closed systems. A model/version matrix will be frozen at preregistration time rather than encoded in this initial design document.
+The initial LatentArtBench study evaluates text-to-image systems under a shared, frozen content-prompt protocol. It compares multiple open-weight and closed systems. A model/version matrix will be frozen at preregistration time rather than encoded in this design document. Image conditioning is an optional later module with a separate estimand.
 
-The benchmark targets three levels of art-historical grouping:
+Before that study, the implementation plan defines a smaller development pilot with four artists, one open-weight generator, one interpretable measurement, one learned-formal measurement, and two outputs. Pilot estimates select future sample sizes and scope; they are not benchmark rankings.
 
-1. era;
-2. movement or conventional style period;
-3. individual artist.
+The initial benchmark targets two art-historical groupings:
 
-Work-level similarity is included for paired image-conditioned experiments and memorization diagnostics, but it is not treated as equivalent to style-level fidelity.
+1. movement or conventional style period;
+2. individual artist.
+
+Era is descriptive context. Work-level similarity is reserved for later paired or memorization diagnostics and is not treated as style-level fidelity. Genre, medium, phase, and movement are cross-classified covariates rather than a mandatory tree.
 
 ## 2. Primary output
 
-The primary output is a **style gap profile**, not a scalar score:
+The primary output is an **artist-distribution profile**, not a scalar score. For the initial study it reports four coordinates:
 
 \[
-\Delta_{g,t} =
-(\Delta_{\mathrm{color}},
-\Delta_{\mathrm{interaction}},
-\Delta_{\mathrm{composition}},
-\Delta_{\mathrm{complexity}},
-\Delta_{\mathrm{visual}},
+\Delta_{g,t,\pi} =
+(\Delta_{\mathrm{local}},
+\Delta_{\mathrm{spatial}},
 \Delta_{\mathrm{formal}},
-\Delta_{\mathrm{context}},
-\Delta_{\mathrm{coherence}}).
+\Delta_{\mathrm{context}}).
 \]
 
-Every module must report point estimates, uncertainty, held-out real baselines, and preprocessing sensitivity. Aggregate scoring and leaderboard policy are deliberately deferred.
+Here \(\pi\) is the frozen prompt distribution. The local coordinate uses one qualified chromatic or surface statistic, the spatial coordinate uses one qualified entropy-complexity representation, and learned formal and contextual evaluators remain separate. Low-dimensional cross-layer coherence is a secondary outcome. Every coordinate reports point estimates, uncertainty, held-out real baselines, and preprocessing sensitivity. Aggregate scoring and leaderboard policy are deliberately deferred.
 
-## 3. Feature families
+### 2.1 Construct interpretation
 
-### 3.1 Color and surface structure
+**Artist-distribution fidelity** is agreement between a generated distribution and a held-out real-work distribution under a specified prompt, sampling, preprocessing, and evaluator protocol. It is conditional on the available digital corpus, not a property of the generator alone or the essence of an artist.
+
+- **Formal feature fidelity** covers qualified color, surface, spatial, compositional, or learned-formal measurements.
+- **Contextual or iconographic fidelity** covers subjects, objects, scenes, genre, and semantic or cultural associations; it is not treated as formal style.
+- **Coverage** measures recovery of variability, effective rank, support, and, only when adequately powered, tails or substructure.
+- **Cross-layer coherence** measures dependencies among qualified layers on a common eligible set.
+- **Perceptual style fidelity** is reserved for measurements that pass the limited blinded human qualification described in the roadmap.
+
+Classification accuracy establishes group predictability, not style validity. Human agreement provides convergent evidence for a narrow perceptual claim, not an aesthetic or historical ground truth.
+
+## 3. Core and optional feature families
+
+Only the following three layers are required for the initial benchmark:
+
+1. one local or physical measurement;
+2. one spatial-complexity measurement;
+3. one learned formal evaluator plus one contextual diagnostic.
+
+The remaining methods are an extension library. Their presence in the repository does not oblige the first study to replicate or combine all of them.
+
+The preceding development pilot implements only normalized chromatic-distance/seamlessness and one frozen learned-formal evaluator. Spatial complexity and contextual diagnostics enter planning only after the pilot report.
+
+### 3.1 Core candidate: color and surface structure
 
 - rank-ordered color usage;
 - box-counting color diversity in color space;
@@ -41,7 +60,7 @@ Every module must report point estimates, uncertainty, held-out real baselines, 
 - adjacent-pixel CIELab color-difference distribution;
 - seamlessness and associated distributional descriptors.
 
-### 3.2 Multiscale color interaction
+### 3.2 Optional extension: multiscale color interaction
 
 - recursive information-theoretic partitions into quasi-homogeneous regions;
 - dominant regional hues;
@@ -51,7 +70,7 @@ Every module must report point estimates, uncertainty, held-out real baselines, 
 
 Raw partition count is not assumed to be cross-resolution comparable. Harmonized analyses will use normalized region area or an equivalent relative-scale parameter.
 
-### 3.3 Information-theoretic composition
+### 3.3 Optional extension: information-theoretic composition
 
 - first and second partition directions;
 - normalized partition ratios;
@@ -61,7 +80,7 @@ Raw partition count is not assumed to be cross-resolution comparable. Harmonized
 
 The principal source method is landscape-specific. Its primary benchmark view therefore contains landscape paintings only.
 
-### 3.4 Entropy and statistical complexity
+### 3.4 Core candidate: entropy and statistical complexity
 
 - normalized permutation entropy;
 - statistical complexity;
@@ -70,15 +89,15 @@ The principal source method is landscape-specific. Its primary benchmark view th
 
 The original two-by-two local ordinal construction remains the paper-faithful baseline. A later 75-dimensional treatment that explicitly handles tied pixel values is included as a resolution-sensitivity and interpretability extension.
 
-### 3.5 Classical and pretrained visual features
+### 3.5 Optional extension: classical and pretrained visual features
 
 - SIFT-derived descriptors or similarities;
 - low- and high-level ResNet representations;
 - independently selected modern visual encoders for robustness analysis.
 
-Features that share a model family with a tested generator must be labeled so that home-field effects can be measured.
+Features that share known architecture, objective, or data relationships with a tested generator must be labeled so that evaluator-family dependence can be measured without assuming an unobservable causal relationship.
 
-### 3.6 Learned formal and contextual representations
+### 3.6 Core candidate: learned formal and contextual representations
 
 - a Stable Diffusion autoencoder formal vector, following the cited A-vector construction;
 - a CLIP-family semantic/contextual vector, following the cited C-vector construction;
@@ -90,7 +109,7 @@ The source implementation and the harmonized implementation must be versioned se
 
 ### 4.1 Fidelity
 
-Measure the distance between generated and real target distributions. No single distributional metric is assumed to be universally optimal; validated candidates include energy distance, maximum mean discrepancy, and regularized Wasserstein distance.
+Measure the distance between generated and real target distributions with one preregistered primary statistic, normalized by held-out real-to-real variability and target-to-neighbor separation. Energy distance or a real-only-kernel MMD will be selected without access to sealed benchmark results. Regularized or sliced Wasserstein distance is a sensitivity analysis.
 
 ### 4.2 Specificity
 
@@ -98,15 +117,15 @@ Measure whether a generated sample or distribution is closer to its requested ta
 
 ### 4.3 Coverage and diversity
 
-Compare generated and real within-target variability using covariance spectra, effective rank, local support coverage, tail occupancy, and subcluster recovery. A small centroid distance does not compensate for severe coverage loss.
+The initial study uses equal-sample coverage and effective-rank contraction in a frozen real-only space. Covariance spectra, tail occupancy, and subcluster recovery are reported only when the number of independent real works supports them. A small centroid distance does not compensate for severe coverage loss.
 
-### 4.4 Hierarchical consistency
+### 4.4 Target-level heterogeneity
 
-Report era-, movement-, and artist-level results separately. A model may pass at a coarse level and fail at a fine level.
+Report movement- and artist-level results separately and calibrate both against real-data difficulty. No monotonic degradation from broad to narrow labels is assumed.
 
 ### 4.5 Cross-feature coherence
 
-Estimate the dependence structure among feature families in real training works and test whether generated works preserve it. Candidate approaches include cross-covariance comparisons, conditional density models, graph-based dependence summaries, and joint two-sample tests.
+On a common complete-case subset, estimate a preregistered low-dimensional dependence structure among the core layers and test whether generated works preserve it. Complex graphs and missing-data models are later extensions.
 
 ### 4.6 Robustness
 
@@ -140,21 +159,25 @@ Each module reports results relative to:
 
 These baselines distinguish model failure from measurement noise and ordinary within-style variability.
 
-## 7. Model comparison
+## 7. Prompt-conditional model comparison
 
-The benchmark includes multiple model families and both text-only and image-conditioned generation. The final model set will contain at least:
+The initial benchmark includes multiple text-to-image model families. The final model set will contain at least:
 
 - one reproducible open-weight generator with fixed weights and seeds;
 - one closed multimodal generator with version and access date recorded.
 
+The development pilot uses one open-weight generator only. This tests the pipeline and estimates variance; it cannot support a model-family comparison.
+
 Additional systems may be included, but all public comparisons must identify model version, interface, output resolution, generation date, and any nondeterminism that cannot be controlled.
+
+All model claims are conditional on the frozen prompt protocol, conditioning mode, repetition policy, refusal and failure handling, and output-selection policy. Artist-only, shared-content, in- or out-of-oeuvre, and negative-control prompts are reported separately rather than silently pooled.
 
 ## 8. Reporting requirements
 
 Every benchmark report must include:
 
 - corpus version and split identifiers;
-- target hierarchy and eligible paper-specific subset;
+- target labels, covariates, and eligible paper-specific subset;
 - model and evaluator versions;
 - native output size and all preprocessing operations;
 - number of canonical real works, generated images, and generation clusters;
@@ -171,7 +194,7 @@ Allowed formulations include:
 - “reproduces the target distribution in the measured feature family”;
 - “shows higher contextual than formal fidelity”;
 - “covers a narrower region than held-out real works”;
-- “supports transferable latent style fidelity under the benchmark definition.”
+- “supports artist-distribution fidelity under the specified prompt and measurement protocol.”
 
 Disallowed or unsupported formulations include:
 

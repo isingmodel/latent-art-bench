@@ -4,13 +4,17 @@
 
 This protocol prevents generated-image differences from being interpreted before the underlying measurements are shown to be reproducible, stable, and relevant to real art-historical groupings.
 
-A feature enters the benchmark only after passing three gates:
+A feature enters the initial benchmark only after passing three gates:
 
 1. functional replication;
 2. measurement stability;
 3. real-group validity.
 
 A failed feature is not silently removed. Its failure, evidence, and restricted domain are documented.
+
+The initial study qualifies only three layers: one local or physical measurement, one spatial-complexity measurement, and one learned formal evaluator with a contextual diagnostic. Other modules may be replicated independently without delaying the initial benchmark.
+
+The preceding development pilot qualifies two measurements only: normalized chromatic-distance/seamlessness and one frozen learned-formal evaluator. It stops before generation unless both pass or conditionally pass the three gates below. Pilot qualification does not automatically qualify the remaining initial-study layers.
 
 ## 2. Gate 1: Functional replication
 
@@ -109,9 +113,9 @@ Numeric reliability thresholds will be preregistered after pilot variance estima
 
 The benchmark must establish what each feature can distinguish in held-out real art before evaluating generated images.
 
-### 4.1 Hierarchical targets
+### 4.1 Cross-classified targets
 
-Test era, movement, and artist levels separately. A feature that distinguishes movements but not artists may be used only for movement-level claims.
+Test movement and artist levels separately while recording era, genre, medium, artist phase, source, and other applicable covariates. A feature that distinguishes movements but not artists may be used only for movement-level claims. A nested model is used only when the selected corpus view actually supports nesting.
 
 ### 4.2 Held-out evaluation
 
@@ -119,7 +123,7 @@ Fit all standardization, density models, classifiers, PCA, and visualization tra
 
 ### 4.3 Confounds
 
-Assess whether apparent group signal is explained by source platform, resolution, aspect ratio, digitization period, or other recorded nuisance variables. Genre and subject controls follow the domain and inclusion rules of each source method rather than being imposed uniformly on every module.
+Assess whether apparent group signal is explained by source platform, resolution, aspect ratio, digitization period, genre, subject, medium, artist phase, or other recorded nuisance variables. At minimum, report a source-prediction baseline and leave-source-out artist validity. Natural-oeuvre and content- or genre-matched analyses answer different questions and must be labeled separately.
 
 ### 4.4 Validity outcomes
 
@@ -130,6 +134,10 @@ For each feature and target level, report:
 - comparison with nuisance-only baselines;
 - stability across corpus sources;
 - the scope in which the feature is interpretable.
+
+### 4.5 Limited human qualification
+
+Human judgments are not another universal gate for every computational observable. They are required only when a metric will support a perceptual style claim. A small blinded study separates formal resemblance from subject or iconographic resemblance and includes image-level and set-level comparisons. Failure limits terminology to the named feature distribution; it does not automatically invalidate a reliable physical measurement.
 
 ## 5. Dual preprocessing tracks
 
@@ -159,6 +167,8 @@ The benchmark reproduces the source A-vector and C-vector methods but does not r
 
 If a result appears only with a closely related evaluator, it is classified as evaluator-dependent rather than a general fidelity effect.
 
+Raw distances across evaluator families are not directly comparable. Formal-contextual contrasts must be normalized by same-target real-to-real variability and target-to-neighbor separation so that evaluator headroom is not mistaken for generator behavior.
+
 ## 8. Statistical inference
 
 The inferential unit must match the claim. Large numbers of seeds do not compensate for few artists or few independent target works.
@@ -171,9 +181,17 @@ Recommended approaches include:
 - false-discovery control across feature modules;
 - sensitivity analyses across corpus and preprocessing versions.
 
+All primary distributional comparisons use equal-sample repeated subsampling. Covariance, effective-rank, and tail analyses require preregistered minimum real-work counts and dimensionality rules. Practical equivalence to a real or reproduction baseline is tested against a feature-specific margin; failure to reject a difference is not evidence of equivalence.
+
+## 9. Separation of pilots and sealed tests
+
+The calibration pilot uses real works, synthetic unit tests, reproduction pairs, and acquisition controls without examining generator rankings. It fixes preprocessing, reliability rules, nuisance checks, and candidate feature eligibility.
+
+The benchmark pilot uses a limited development subset of artists and models. It fixes prompts, endpoints, sample-size rules, and exclusions. Final test artists, prompts where applicable, and model results remain sealed until the analysis plan is frozen. Changes after unsealing require a new benchmark version.
+
 Effect sizes and uncertainty intervals are primary. Statistical significance without a comparison to held-out real variability and reproduction noise is insufficient.
 
-## 9. Audit artifacts
+## 10. Audit artifacts
 
 Every released feature module should provide:
 

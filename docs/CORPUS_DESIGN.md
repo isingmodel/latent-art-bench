@@ -8,8 +8,9 @@ LatentArtBench uses four linked corpora rather than one undifferentiated image c
 |---|---|---|
 | Reproduction calibration corpus | Estimate digitization and preprocessing noise | Multiple files representing one physical work |
 | Discovery corpus | Fit and validate the reference atlas | Western canonical real works |
-| External challenge corpus | Test geographic, canon, and exposure generalization | Non-Western and long-tail real works |
+| External-validity and ontology-transfer corpus | Test measurement transfer without assuming a universal taxonomy | Non-Western and long-tail real works |
 | Generated corpus | Evaluate model and conditioning effects | Generated outputs nested within model and target |
+| Acquisition-control corpus | Detect physical-surrogate versus born-digital domain effects | Human and generated images under documented acquisition paths |
 
 All corpora share canonical identifiers and metadata conventions, but each source method operates on a paper-appropriate view.
 
@@ -41,19 +42,26 @@ The calibration corpus should span different periods, palettes, surface organiza
 
 The initial discovery corpus focuses on Western canonical painting because the source studies and their metadata systems are predominantly grounded in that canon, and because sufficiently large artist-level samples are more readily available.
 
-Selection should preserve a hierarchy:
+Selection should preserve linked identities without imposing a universal hierarchy:
 
 \[
-\text{era} \supset \text{movement} \supset \text{artist} \supset \text{work} \supset \text{digital reproduction}.
+\text{artist} \rightarrow \text{work} \rightarrow \text{digital reproduction},
+\qquad
+\{\text{era},\text{movement},\text{genre},\text{medium},\text{phase}\}
+\text{ as cross-classified labels}.
 \]
 
 Inclusion should be based on documented eligibility, image quality, metadata confidence, and the minimum number of independent works needed for held-out validation. An artist may be eligible for movement-level analysis while remaining ineligible for artist-level distribution estimation.
 
 The discovery corpus is not presented as a universal history of art. It is a measurement-development set whose historical and geographic limitations must remain visible in every release.
 
-## 5. External challenge corpus
+The initial study should be small: a provisional feasibility envelope is 8–12 public-domain artists with enough independent works, source diversity, usable neighbors, and at least partial genre or phase coverage. The exact count and minimum works per artist are set by a blinded availability audit and power simulation, not by selecting artists that yield favorable generator results.
 
-The challenge corpus is held apart from discovery-stage evaluator fitting. It includes:
+The preceding development pilot is smaller still: four provisional artists arranged as two neighbor pairs and restricted to one adequately represented shared genre. Its work and reproduction-pair counts are audit targets for feasibility, not population-level thresholds.
+
+## 5. External-validity and ontology-transfer corpus
+
+This corpus is held apart from discovery-stage evaluator fitting. It includes:
 
 - non-Western artists, schools, and visual traditions;
 - geographically underrepresented artists;
@@ -61,9 +69,20 @@ The challenge corpus is held apart from discovery-stage evaluator fitting. It in
 - groups whose labels do not map cleanly onto Western movement taxonomies;
 - optionally, contemporary digital and user-generated visual art.
 
-The challenge stage evaluates both the generator and the benchmark representation. Poor performance may reveal inadequate model knowledge, inadequate reference data, inappropriate labels, or an observable that does not transfer beyond its original corpus.
+This stage evaluates both the generator and the benchmark representation. Measurement invariance and domain-specific real-group validity are checked before generator scores are interpreted. Poor performance may reveal inadequate model knowledge, inadequate reference data, inappropriate labels, or an observable that does not transfer beyond its original corpus. Results are not merged into a universal leaderboard, and locally meaningful ontologies are not overwritten by Western movement labels.
 
-## 6. Paper-specific views
+## 6. Acquisition-control corpus
+
+Alternative reproductions estimate variable surrogate error but cannot identify bias common to photographs or scans of physical paintings. The minimum acquisition controls are:
+
+- a source-platform classifier on real works;
+- leave-source-out artist validation;
+- a real-versus-generated source classifier used diagnostically;
+- a documented born-digital human-art subset when rights and comparability permit.
+
+Print-and-recapture experiments for real and generated images are valuable but optional unless the simpler controls show a material acquisition-domain effect.
+
+## 7. Paper-specific views
 
 The master metadata layer yields multiple eligible subsets:
 
@@ -78,7 +97,7 @@ The master metadata layer yields multiple eligible subsets:
 
 Features are not forced onto images outside the domain in which their interpretation has been validated.
 
-## 7. Metadata schema
+## 8. Metadata schema
 
 The public metadata design should include, where available:
 
@@ -94,6 +113,7 @@ The public metadata design should include, where available:
 | `movement_id` | Source and harmonized style labels retained separately |
 | `genre` | Source genre and paper-specific eligibility labels |
 | `medium` | Physical medium when documented |
+| `artist_phase` | Preregistered date- or scholarship-based career phase with provenance |
 | `dimensions` | Physical dimensions when documented |
 | `holding_institution` | Museum or collection authority |
 | `source_url` | Landing page for the digital reproduction |
@@ -105,12 +125,13 @@ The public metadata design should include, where available:
 | `file_hash` | Integrity and exact-duplicate detection |
 | `perceptual_hash` | Near-duplicate screening aid |
 | `border_status` | Presence and treatment of frame or background |
-| `split` | Train, validation, test, calibration, or challenge |
+| `split` | Train, validation, test, calibration, or external-validation |
 | `eligibility_flags` | Feature-module inclusion flags with reasons |
+| `acquisition_domain` | Physical-work surrogate, born-digital human, native generated, or controlled recapture |
 
 Labels inherited from source websites must retain provenance. A harmonized label must never silently overwrite the original label.
 
-## 8. Deduplication and split policy
+## 9. Deduplication and split policy
 
 Splitting occurs at the canonical-work level, not the file level. All reproductions of the same physical work must remain in the same inferential partition except within the dedicated calibration design.
 
@@ -118,7 +139,7 @@ Near-duplicate detection should combine metadata, file hashes, perceptual hashes
 
 Any learned evaluator or dimensionality reduction is fitted on the real training split only. Held-out real works and all generated outputs remain unseen until the evaluator is frozen.
 
-## 9. Exposure and canon variables
+## 10. Exposure and canon variables
 
 Exact training exposure is generally unobservable for closed models. The project may use preregistered proxies such as:
 
@@ -128,9 +149,9 @@ Exact training exposure is generally unobservable for closed models. The project
 - encyclopedia and search-frequency measures;
 - known inclusion in documented model-training sources.
 
-These variables must be called exposure proxies, not ground-truth training counts. Fame, availability, canon status, and training exposure are correlated but conceptually distinct.
+These variables must be called exposure proxies, not ground-truth training counts. Fame, availability, canon status, reference-corpus quality, evaluator exposure, and generator training exposure are correlated but conceptually distinct. Analyses are associational.
 
-## 10. Image standardization and derived views
+## 11. Image standardization and derived views
 
 The project preserves native files where rights and storage rules permit, then creates versioned derived views. Standard operations include:
 
@@ -143,7 +164,7 @@ The project preserves native files where rights and storage rules permit, then c
 
 Primary harmonized comparisons use only downsampling to a common supported size. Upsampling is reserved for negative controls or model-required preprocessing and must be labeled.
 
-## 11. Rights and public release
+## 12. Rights and public release
 
 The public repository will not assume that an artwork in the public domain implies unrestricted rights in every digital reproduction. Releases should prioritize:
 
@@ -156,7 +177,20 @@ The public repository will not assume that an artwork in the public domain impli
 
 Image files should be redistributed only when the digital asset license explicitly permits it. Terms of service, robots policies, attribution requirements, and jurisdiction-specific database rights must be reviewed before acquisition or release.
 
-## 12. Versioning
+## 13. Ethics and artist policy
+
+The initial benchmark prioritizes public-domain works by deceased artists. Living artists and recent copyrighted works require a separate opt-in or ethics protocol and are not necessary for the initial scientific question.
+
+Generator interaction follows these rules:
+
+- do not evade artist-name refusals or platform safeguards;
+- record refusals and observable prompt rewriting as outcomes;
+- do not present fidelity rankings as judgments of artistic worth or permission for commercial imitation;
+- review release of outputs with strong instance-level similarity or plausible memorization risk.
+
+External-validity studies do not automatically map non-Western traditions into Western movement labels. Relevant scholars, curators, or community reviewers should participate when ontology or feature interpretation materially affects the claim. Low transfer may reflect generator, data, evaluator, or ontology failure and must not be described as evidence that a tradition is intrinsically harder or less coherent.
+
+## 14. Versioning
 
 Every corpus release should record:
 

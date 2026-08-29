@@ -1,6 +1,6 @@
 # LatentArtBench
 
-**A multiscale benchmark for measuring how well generative vision-language systems reproduce the statistical and latent structure of artists and art movements.**
+**A measurement-qualified benchmark for testing how well generative image systems reproduce formal, contextual, and distributional regularities associated with artists and art movements.**
 
 > Status: research design and validation planning. No model scores or leaderboard claims have been released.
 
@@ -20,43 +20,51 @@ The project connects a methodological lineage that moves from hand-designed phys
 
 ## Central question
 
-> To what extent do generative models reproduce the multilevel statistical invariants of a target artist or art movement, rather than merely reproducing recognizable subjects or a narrow stylistic prototype?
+> Under identical content prompts, do generative models reproduce the measured formal distribution and internal diversity of a target artist, or merely a recognizable prototype?
 
-The benchmark operationalizes this question as **latent style fidelity**. It does not claim to measure consciousness, intention, aesthetic value, or a metaphysical essence of style.
+The benchmark operationalizes this question as **artist-distribution fidelity**. Formal style fidelity, contextual or iconographic fidelity, distributional coverage, and cross-layer coherence are reported separately. The project does not claim to measure consciousness, intention, aesthetic value, human-perceived authenticity, or a metaphysical essence of style.
 
 ## Design principles
 
 - **Validation before evaluation.** A feature enters the benchmark only after functional replication, measurement-stability testing, and real-group validation.
 - **Distributions, not prototypes.** Fidelity includes central tendency, variability, coverage, and cross-feature dependence.
-- **Hierarchical evaluation.** Era, movement, artist, and work-level relations are measured separately.
+- **Cross-classified evaluation.** Era, movement, artist, genre, medium, and artist phase are modeled as overlapping labels where the data require it; work-level similarity is a separate instance or memorization track.
 - **Paper-faithful and harmonized tracks.** Original preprocessing is retained for replication, while a matched multiscale track supports fair real-versus-generated comparison.
 - **Real-only reference fitting.** Dimensionality reduction and group models are fitted on real training works, frozen, and then applied to held-out real and generated images.
 - **Digitization-aware inference.** Differences must exceed the noise induced by alternative digital reproductions of the same artwork.
 - **Model pluralism.** The benchmark will compare reproducible open-weight systems and closed multimodal systems rather than generalizing from one generator.
-- **Automated evaluation.** Human ratings are outside the current scope.
+- **Automated operation, limited human qualification.** The released benchmark remains automated, while a small blinded study may be used to test whether selected metrics support perceptual style claims.
 - **Diagnostic reporting first.** A multidimensional score profile is primary; any aggregate score or leaderboard policy remains undecided.
+- **Prompts define the estimand.** Results are conditional on a frozen prompt distribution, conditioning mode, model version, and output-selection policy.
 
 ## Repository guide
 
+Start with:
+
 - [Research proposal](docs/RESEARCH_PROPOSAL.md)
+- [Initial implementation plan](docs/ROADMAP.md)
+- [Project decisions and critique disposition](docs/DECISIONS.md)
+
+Technical reference:
+
 - [Benchmark specification](docs/BENCHMARK_SPECIFICATION.md)
-- [Source-method and resolution matrix](docs/SOURCE_METHOD_MATRIX.md)
 - [Corpus design](docs/CORPUS_DESIGN.md)
 - [Validation protocol](docs/VALIDATION_PROTOCOL.md)
-- [Research roadmap](docs/ROADMAP.md)
-- [Project decisions](docs/DECISIONS.md)
+- [Source-method and resolution matrix](docs/SOURCE_METHOD_MATRIX.md)
 - [References](docs/REFERENCES.md)
 - [Contributing](CONTRIBUTING.md)
 
 ## Planned research program
 
+Implementation begins with a four-artist, two-measurement, one-generator development pilot and stops for review after its first reproducible results. This pilot is smaller than the intended benchmark and makes no model-family or artist-population claims.
+
 ### Study 1: Measurement and reference atlas
 
-Reproduce the source methods on real artworks, quantify resolution and digitization sensitivity, establish feature-specific noise floors, and build a frozen hierarchical reference atlas.
+Qualify a deliberately small core of complementary measurements, quantify resolution, reproduction, and acquisition-domain sensitivity, and build a frozen cross-classified reference atlas.
 
 ### Study 2: Generative-model benchmark
 
-Evaluate multiple generators and conditioning modes against artist- and movement-level reference distributions. Test formal-contextual asymmetry, prototype contraction, hierarchy degradation, exposure effects, and cross-feature incoherence.
+Evaluate text-to-image generators under content-matched prompts, with target specificity and prototype contraction as the primary questions and cross-layer incoherence as a secondary outcome. Image conditioning, exposure associations, memorization, and ontology transfer remain later modules.
 
 ## Data and rights
 

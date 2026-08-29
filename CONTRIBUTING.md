@@ -21,10 +21,11 @@ Please open an issue describing:
 - Report failed replications and negative results.
 - Keep source-faithful and harmonized methods distinct.
 - Avoid benchmark changes made after observing final model rankings unless they are released as a new benchmark version.
+- Keep the initial study within the scope frozen in the roadmap. Optional feature or extension work must not become an undeclared prerequisite for the MVP.
 
 ## Research-method changes
 
-A change to a metric, corpus split, target ontology, evaluator, or score must include:
+A change to a metric, prompt distribution, corpus split, target ontology, evaluator, or score must include:
 
 1. a rationale;
 2. affected source methods;

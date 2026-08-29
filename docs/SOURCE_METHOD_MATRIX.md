@@ -6,6 +6,10 @@ Historical-painting datasets and generated-image outputs do not necessarily shar
 
 The central conclusion is that generated outputs at 512 or 1024 pixels are not automatically too small for this research. Several source methods deliberately reduce images to 400, 500, 512, or 224 pixels. The more important threats are inconsistent observation scale, resampling, aspect-ratio distortion, color management, compression, and heterogeneous digital reproduction.
 
+For the initial study, this matrix is a method library rather than a checklist. The starting benchmark selects one local or physical method, one spatial-complexity method, and one learned formal evaluator plus a contextual diagnostic. Landscape composition, recursive color interaction, SIFT, and additional variants are deferred unless independently justified; they cannot delay the initial study.
+
+The first implementation cycle is narrower: it implements normalized chromatic-distance/seamlessness plus one frozen learned-formal evaluator. The spatial-complexity layer is planned only after the development-pilot report.
+
 ## Method matrix
 
 | Source method | Corpus and source-image scale | Analysis preprocessing | Resolution assessment | LatentArtBench rule |
