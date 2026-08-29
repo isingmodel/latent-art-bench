@@ -1,0 +1,38 @@
+# Local research artifacts
+tmp/
+data/
+artifacts/
+outputs/
+
+# Large and potentially copyrighted media
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.tif
+*.tiff
+*.webp
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Operating systems and editors
+.DS_Store
+.idea/
+.vscode/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
