@@ -1,0 +1,27 @@
+{
+  "alternate_screening": {
+    "accepted": 11,
+    "evaluated": 19
+  },
+  "canonical_work_count": 108,
+  "generated_at": "2026-08-30T13:42:03.066209+00:00",
+  "reproduction_count": 119,
+  "same_work_pair_count": 11,
+  "split_counts": {
+    "held_out": 32,
+    "train": 76
+  },
+  "works_by_artist": {
+    "alfred_sisley": 21,
+    "camille_pissarro": 30,
+    "claude_monet": 30,
+    "paul_cezanne": 27
+  },
+  "works_by_source": {
+    "aic": 32,
+    "cma": 10,
+    "cma_alternate_capture": 11,
+    "met": 27,
+    "nga": 39
+  }
+}

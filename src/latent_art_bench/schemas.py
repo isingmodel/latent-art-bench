@@ -43,6 +43,44 @@ class CanonicalWorkRecord(StrictModel):
         return value
 
 
+class CorpusCandidateRecord(StrictModel):
+    record_type: Literal["corpus_candidate"] = "corpus_candidate"
+    schema_version: Literal["1.0"] = "1.0"
+    source_id: Literal["aic", "cma", "met", "nga"]
+    source_object_id: str
+    artist_id: str
+    artist_name: str
+    title: str
+    creation_year: Optional[int] = None
+    creation_year_text: Optional[str] = None
+    classification: Optional[str] = None
+    medium: Optional[str] = None
+    source_url: str
+    image_url: str
+    image_width: Optional[int] = Field(default=None, gt=0)
+    image_height: Optional[int] = Field(default=None, gt=0)
+    public_domain_status: Literal["confirmed"] = "confirmed"
+    rights_basis: str
+    subjects: List[str] = Field(default_factory=list)
+    description: Optional[str] = None
+    catalog_ids: Dict[str, str] = Field(default_factory=dict)
+    wikidata_id: Optional[str] = None
+    alternate_image_urls: List[str] = Field(default_factory=list)
+    genre_score: int
+    genre_evidence: List[str] = Field(default_factory=list)
+    decision: Literal["include", "exclude", "review"]
+    decision_reason: str
+
+    @field_validator(
+        "source_object_id", "artist_id", "artist_name", "title", "source_url", "image_url"
+    )
+    @classmethod
+    def candidate_non_empty(cls, value: str) -> str:
+        if not value.strip():
+            raise ValueError("must not be blank")
+        return value
+
+
 class ReproductionRecord(StrictModel):
     record_type: Literal["reproduction"] = "reproduction"
     schema_version: Literal["1.0"] = "1.0"

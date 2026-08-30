@@ -4,10 +4,53 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Dict, Iterable, List
 
+from PIL import Image, ImageDraw
+
 from latent_art_bench.config import PilotConfig
 from latent_art_bench.evaluation.qualification import qualification_gate
 from latent_art_bench.io import utc_now, write_json
 from latent_art_bench.schemas import AnalysisResult, GenerationCallRecord, QualificationCard
+
+
+def write_generation_contact_sheet(
+    calls: Iterable[GenerationCallRecord], root: Path, output_path: Path
+) -> Path:
+    succeeded = [call for call in calls if call.status == "succeeded" and call.output_path]
+    if not succeeded:
+        raise ValueError("a generation contact sheet requires at least one successful call")
+    tile_width, image_height, label_height = 420, 336, 44
+    prompt_ids = list(dict.fromkeys(call.prompt_id for call in succeeded))
+    models = list(dict.fromkeys(call.model for call in succeeded))
+    by_cell = {(call.prompt_id, call.model): call for call in succeeded}
+    sheet = Image.new(
+        "RGB",
+        (tile_width * len(models), (image_height + label_height) * len(prompt_ids)),
+        "white",
+    )
+    draw = ImageDraw.Draw(sheet)
+    for row_index, prompt_id in enumerate(prompt_ids):
+        for column_index, model in enumerate(models):
+            call = by_cell.get((prompt_id, model))
+            if call is None or not call.output_path:
+                continue
+            path = Path(call.output_path)
+            if not path.is_absolute():
+                path = root / path
+            with Image.open(path) as source:
+                tile = source.convert("RGB")
+                tile.thumbnail((tile_width, image_height), Image.Resampling.LANCZOS)
+            x = column_index * tile_width + (tile_width - tile.width) // 2
+            y_base = row_index * (image_height + label_height)
+            y = y_base + (image_height - tile.height) // 2
+            sheet.paste(tile, (x, y))
+            draw.text(
+                (column_index * tile_width + 8, y_base + image_height + 5),
+                f"{prompt_id} | {model}",
+                fill="black",
+            )
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    sheet.save(output_path, format="JPEG", quality=92, optimize=False)
+    return output_path
 
 
 def build_pilot_report(
@@ -38,6 +81,7 @@ def build_pilot_report(
             "allowed": gate_allowed,
             "measurements": gate_decisions,
         },
+        "qualification_cards": [card.model_dump(mode="json") for card in cards],
         "generation": {
             "models": config.generation.models,
             "counts": {model: dict(counts) for model, counts in call_counts.items()},
@@ -53,11 +97,40 @@ def build_pilot_report(
         "The configuration disables scientific claims and restricts generation to `gpt-image-1` "
         "and `gpt-image-2`.",
         "",
+        "## Frozen design",
+        "",
+        f"Common corpus view: `{config.corpus.common_genre}`.",
+        "",
+        "| Target artist | Frozen neighbor |",
+        "|---|---|",
+    ]
+    artists = {artist.artist_id: artist for artist in config.corpus.selected_artists}
+    for artist in config.corpus.selected_artists:
+        lines.append(
+            f"| {artist.artist_name} | {artists[artist.neighbor_artist_id].artist_name} |"
+        )
+    lines.extend(
+        [
+            "",
         "## Qualification",
         "",
-    ]
+            "| Measurement | Status | Real works | Reproduction pairs |",
+            "|---|---|---:|---:|",
+        ]
+    )
+    cards_by_measurement = {card.measurement: card for card in cards}
     for measurement in config.measurements.required:
-        lines.append(f"- `{measurement}`: `{gate_decisions.get(measurement, 'missing')}`")
+        card = cards_by_measurement.get(measurement)
+        lines.append(
+            f"| `{measurement}` | `{gate_decisions.get(measurement, 'missing')}` | "
+            f"{card.real_work_count if card else 0} | "
+            f"{card.reproduction_pair_count if card else 0} |"
+        )
+    for measurement in config.measurements.required:
+        card = cards_by_measurement.get(measurement)
+        if card and card.reasons:
+            lines.extend(["", f"`{measurement}` evidence:"])
+            lines.extend(f"- {reason}" for reason in card.reasons)
     lines.extend(
         [
             "",
@@ -75,9 +148,12 @@ def build_pilot_report(
             rendered = ", ".join(f"{status}={count}" for status, count in sorted(counts.items()))
             lines.append(f"- `{model}`: {rendered or 'no calls'}")
         lines.append(f"- Calls using the explicit unqualified test bypass: {bypass_count}")
-    lines.extend(["", "## Pilot analysis", ""])
+    lines.extend(["", "## Scientific pilot analysis", ""])
     if not results:
-        lines.append("No qualified target-gap or specificity results are available.")
+        lines.append(
+            "No target-gap or specificity result was computed because the qualification gate "
+            "is closed. The API-test images are excluded from scientific analysis."
+        )
     else:
         lines.append(
             "| Cell | Model | Feature | Calibrated target gap (interval) | "
@@ -96,12 +172,25 @@ def build_pilot_report(
                 f"{result.calibrated_target_gap:.6g} [{target_interval}] | "
                 f"{result.specificity_margin:.6g} [{specificity_interval}] |"
             )
+        lines.extend(
+            [
+                "",
+                "A positive specificity margin means the generated distribution is closer to "
+                "the requested target than to its nearest configured neighbor, after dividing "
+                "by that target-neighbor separation.",
+            ]
+        )
     lines.extend(
         [
             "",
-            "A positive specificity margin means the generated distribution is closer to the "
-            "requested target than to its nearest configured neighbor, after dividing by that "
-            "target-neighbor separation.",
+            "## Decision",
+            "",
+            (
+                "Qualification is open; a scientific pilot analysis may proceed."
+                if gate_allowed
+                else "Stop before scientific generation. Redesign the failed measurement "
+                "contracts before gathering any additional benchmark outputs."
+            ),
             "",
         ]
     )
@@ -129,9 +218,11 @@ def write_pilot_report(
             "Decision: **pending**. Qualification is open, but a pilot analysis and review are "
             "still required.\n"
             if gate_open
-            else "Decision: **stop before scientific generation**. One or more real-only "
-            "measurement qualifications are missing, pending, or failed. Test-only API calls "
-            "made with an explicit bypass do not change this decision.\n"
+            else "Decision: **stop before scientific generation**. The real-only gate resolved "
+            "as `chromatic=fail` and `learned_formal=fail`. Test-only API calls made with an "
+            "explicit bypass do not change this decision.\n\n"
+            "Next action: redesign the learned evaluator provenance and the chromatic "
+            "compression-stability contract before acquiring more benchmark generations.\n"
         )
     )
     decision_path.write_text(decision, encoding="utf-8")

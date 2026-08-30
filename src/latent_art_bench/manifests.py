@@ -9,6 +9,7 @@ from pydantic import BaseModel, ValidationError
 from latent_art_bench.io import hash_file, read_jsonl
 from latent_art_bench.schemas import (
     CanonicalWorkRecord,
+    CorpusCandidateRecord,
     DerivedViewRecord,
     FeatureRow,
     GenerationCallRecord,
@@ -19,6 +20,7 @@ from latent_art_bench.schemas import (
 
 ManifestRecord = Union[
     CanonicalWorkRecord,
+    CorpusCandidateRecord,
     ReproductionRecord,
     DerivedViewRecord,
     FeatureRow,
@@ -29,6 +31,7 @@ ManifestRecord = Union[
 
 RECORD_TYPES: Dict[str, Type[BaseModel]] = {
     "canonical_work": CanonicalWorkRecord,
+    "corpus_candidate": CorpusCandidateRecord,
     "reproduction": ReproductionRecord,
     "derived_view": DerivedViewRecord,
     "feature": FeatureRow,
@@ -57,6 +60,8 @@ def parse_manifest(path: Path) -> List[ManifestRecord]:
 
 
 def _record_identity(record: ManifestRecord) -> Tuple[str, str]:
+    if isinstance(record, CorpusCandidateRecord):
+        return record.record_type, f"{record.source_id}:{record.source_object_id}"
     fields = {
         "canonical_work": "canonical_work_id",
         "reproduction": "reproduction_id",
@@ -79,6 +84,7 @@ def validate_records(
     counts: Dict[str, int] = defaultdict(int)
     work_splits: Dict[str, set] = defaultdict(set)
     hash_owners: Dict[str, set] = defaultdict(set)
+    perceptual_hash_owners: Dict[str, set] = defaultdict(set)
     canonical_ids = set()
     reproduction_ids = set()
     derived_ids = set()
@@ -97,6 +103,10 @@ def validate_records(
             work_splits[record.canonical_work_id].add(record.split)
             if record.sha256:
                 hash_owners[record.sha256].add(record.canonical_work_id)
+            if record.perceptual_hash:
+                perceptual_hash_owners[record.perceptual_hash].add(
+                    record.canonical_work_id
+                )
             if check_files:
                 local_path = Path(record.local_path)
                 if not local_path.is_absolute():
@@ -135,6 +145,24 @@ def validate_records(
     for digest, owners in hash_owners.items():
         if len(owners) > 1:
             errors.append(f"byte-identical reproduction assigned to multiple works: {digest}")
+    perceptual_items = sorted(perceptual_hash_owners.items())
+    for perceptual_hash, owners in perceptual_items:
+        if len(owners) > 1:
+            errors.append(
+                "identical perceptual hash assigned to multiple works "
+                f"({perceptual_hash}): {', '.join(sorted(owners))}"
+            )
+    for index, (left_hash, left_owners) in enumerate(perceptual_items):
+        for right_hash, right_owners in perceptual_items[index + 1 :]:
+            if left_owners == right_owners:
+                continue
+            hamming = (int(left_hash, 16) ^ int(right_hash, 16)).bit_count()
+            if hamming <= 4:
+                owners = sorted(left_owners | right_owners)
+                errors.append(
+                    "near-identical perceptual hashes cross canonical works "
+                    f"(distance={hamming}): {', '.join(owners)}"
+                )
 
     if canonical_ids:
         for record in rows:

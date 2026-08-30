@@ -3,13 +3,65 @@ pilot_id: pilot_0
 purpose: api_integration_test_only
 
 corpus:
-  roster_status: pending
+  roster_status: frozen
   candidate_artist_audit: configs/pilot_0/candidate_artist_audit.csv
+  candidate_work_audit: configs/pilot_0/candidate_work_audit.jsonl
+  candidate_overrides: configs/pilot_0/candidate_overrides.json
   canonical_manifest: configs/pilot_0/manifests/canonical_works.jsonl
   reproduction_manifest: configs/pilot_0/manifests/reproductions.jsonl
-  common_genre: pending_real_corpus_audit
-  target_works_per_artist: [30, 50]
+  common_genre: landscape_and_outdoor_place_scene
+  target_works_per_artist: [20, 30]
   target_reproduction_pairs: [15, 20]
+  selected_artists:
+    - artist_id: claude_monet
+      artist_name: Claude Monet
+      neighbor_artist_id: alfred_sisley
+      movements: [Impressionism]
+      authority_ids:
+        aic_agent_id: "35809"
+        cma_creator_id: "1844"
+        nga_constituent_id: "1726"
+        ulan: "500019484"
+        wikidata: Q296
+    - artist_id: alfred_sisley
+      artist_name: Alfred Sisley
+      neighbor_artist_id: claude_monet
+      movements: [Impressionism]
+      authority_ids:
+        aic_agent_id: "36707"
+        cma_creator_id: "1819"
+        nga_constituent_id: "1877"
+        ulan: "500027485"
+        wikidata: Q175130
+    - artist_id: camille_pissarro
+      artist_name: Camille Pissarro
+      neighbor_artist_id: paul_cezanne
+      movements: [Impressionism]
+      authority_ids:
+        aic_agent_id: "36211"
+        cma_creator_id: "1836"
+        nga_constituent_id: "1791"
+        ulan: "500011889"
+        wikidata: Q134741
+    - artist_id: paul_cezanne
+      artist_name: Paul Cezanne
+      neighbor_artist_id: camille_pissarro
+      movements: [Post-Impressionism]
+      authority_ids:
+        aic_agent_id: "40482"
+        cma_creator_id: "1754"
+        nga_constituent_id: "1115"
+        ulan: "500004793"
+        wikidata: Q35548
+  museum_sources: [aic, cma, met, nga]
+  aic_image_width: 1686
+  image_long_side: 1024
+  max_works_per_artist: 30
+  split_seed: 20260830
+  held_out_fraction: 0.3
+  nga_open_data_revision: 04aacd5f8baa29259a0873e00099d93bf50e7533
+  met_open_data_revision: 6fa206f0df6cf349d4fe558028d4c08e95f44eb6
+  met_open_data_sha256: de617b9c947458e426111207f81a65bd1379a151c0077d3ce29cfc22fc0b9183
 
 preprocessing:
   track: harmonized_chromatic_v1
@@ -34,7 +86,6 @@ measurements:
     normalized_histogram_lower_edges: [0.0, 0.25, 0.5, 0.75, 1.0, 1.5, 2.0, 3.0, 4.0, 6.0, 8.0]
   learned_formal:
     enabled: false
-    qualification_status: pending
     feature_version: kim2026-sd20-a-vector-source-v1
     source_repository: https://github.com/aljinny/art-history
     source_revision: 7da12358cf34dad2184f357a048c2cf114b3c4e0
@@ -49,6 +100,14 @@ qualification:
   cards:
     - configs/pilot_0/qualification/chromatic.json
     - configs/pilot_0/qualification/learned_formal.json
+  source_prediction_max_balanced_accuracy: 0.55
+  artist_prediction_min_balanced_accuracy: 0.35
+  leave_source_out_artist_min_balanced_accuracy: 0.30
+  reproduction_to_within_artist_median_ratio_max: 1.0
+  perturbation_to_within_artist_median_ratio_max: 0.5
+  perturbation_long_side: 256
+  perturbation_jpeg_quality: 85
+  random_seed: 20260830
 
 generation:
   mode: test_only

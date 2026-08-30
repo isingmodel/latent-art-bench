@@ -3,7 +3,6 @@
     "same-work reproduction calibration is limited to CMA alternate captures",
     "same-work reproduction-pair count is below the 15-pair planning target"
   ],
-  "decided_at": "2026-08-30T13:42:31.220273Z",
   "evidence_paths": [
     "reports/pilot_0/evidence/chromatic_qualification.json"
   ],
@@ -11,18 +10,14 @@
   "feature_version": "lee2018-deltae76-seamlessness-v1",
   "held_out_artist_signal_valid": true,
   "measurement": "chromatic",
-  "real_work_count": 108,
-  "reasons": [
-    "stability exceeded the frozen margin",
+  "notes": [
     "All transformations were fitted on one primary reproduction per real training work.",
     "Nearest-centroid checks are construct diagnostics, not artist-recognition claims."
   ],
-  "record_type": "qualification_card",
+  "real_work_count": 108,
   "reproduction_pair_count": 11,
   "schema_version": "1.0",
   "source_behavior_recovered": true,
   "source_confounding_controlled": true,
-  "stable_within_frozen_margin": false,
-  "status": "fail",
-  "supported_scope": []
+  "stable_within_frozen_margin": false
 }

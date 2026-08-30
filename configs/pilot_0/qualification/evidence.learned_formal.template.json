@@ -1,7 +1,7 @@
 {
   "conditional_domains": [],
   "evidence_paths": [],
-  "feature_config_hash": "9d1af8e3e7929f66f019b9f25337e6c20e4af2b40326c49b6cde3e9ad0b020c9",
+  "feature_config_hash": "259e7817a5493e2aac25ad660584853b27d159573cc8c694676406246ceb3187",
   "feature_version": "kim2026-sd20-a-vector-source-v1",
   "held_out_artist_signal_valid": false,
   "measurement": "learned_formal",

@@ -1,6 +1,8 @@
 # Local research artifacts
 tmp/
 data/
+!src/latent_art_bench/data/
+!src/latent_art_bench/data/**
 artifacts/
 outputs/
 

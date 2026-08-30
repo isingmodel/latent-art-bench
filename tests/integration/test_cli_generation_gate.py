@@ -30,7 +30,9 @@ def test_generation_dry_run_plans_exactly_two_models(tmp_path: Path) -> None:
     contents = manifest.read_text(encoding="utf-8")
     assert '"model":"gpt-image-1"' in contents
     assert '"model":"gpt-image-2"' in contents
-    assert contents.count('"record_type":"generation_call"') == 2
+    assert contents.count('"record_type":"generation_call"') == 10
+    assert contents.count('"model":"gpt-image-1"') == 5
+    assert contents.count('"model":"gpt-image-2"') == 5
     run_path = next((tmp_path / "artifacts/runs").glob("*.json"))
     run = json.loads(run_path.read_text(encoding="utf-8"))
     assert run["resolved_config"]["generation"]["models"] == [

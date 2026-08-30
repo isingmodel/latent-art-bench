@@ -2,6 +2,8 @@
 
 > Implementation note (2026-08-29): the repository now contains the WP0/WP1 substrate, the exact chromatic implementation, synthetic tests, qualification cards, and a test-only image adapter. At the user's direction, that adapter is hard-limited to `gpt-image-1` and `gpt-image-2` through a loopback OpenAI-compatible endpoint. This is an engineering exception for API tests, not a change to the scientific design: WP5 remains closed, unqualified live calls require an explicit test-only bypass, and their outputs cannot be reported as pilot evidence.
 
+> Completion note (2026-08-30): the audit selected Monet–Sisley and Pissarro–Cezanne in a shared landscape/outdoor-place corpus. The acquired slice contains 108 independent works, 119 reproductions, and 11 accepted same-work alternate captures. Chromatic qualification failed the frozen JPEG-stability margin, and the frozen learned-formal evaluator failed its reproducibility/license/checkpoint spike. The scientific branch therefore stopped before WP6 as specified. Ten explicitly bypassed API-test images (five matched prompts across `gpt-image-1` and `gpt-image-2`) were gathered through `~/dev/openai-oauth`; they are not pilot evidence.
+
 This plan covers implementation only through the first reproducible development-pilot results. It is not a full benchmark, publication, hosting, or long-term maintenance plan. The project will stop and re-plan after the pilot report because corpus availability, measurement reliability, variance, and generation cost are not yet known.
 
 ## Pilot question

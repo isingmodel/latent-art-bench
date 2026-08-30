@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
-from typing import List, Literal
+from typing import Dict, List, Literal
 
 import yaml
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
@@ -15,14 +15,48 @@ class StrictConfig(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
+class ArtistConfig(StrictConfig):
+    artist_id: str
+    artist_name: str
+    neighbor_artist_id: str
+    movements: List[str]
+    authority_ids: Dict[str, str]
+
+
 class CorpusConfig(StrictConfig):
     roster_status: Literal["pending", "frozen"]
     candidate_artist_audit: str
+    candidate_work_audit: str
+    candidate_overrides: str
     canonical_manifest: str
     reproduction_manifest: str
     common_genre: str
     target_works_per_artist: List[int]
     target_reproduction_pairs: List[int]
+    selected_artists: List[ArtistConfig]
+    museum_sources: List[Literal["aic", "cma", "met", "nga"]]
+    aic_image_width: int = Field(ge=512, le=2048)
+    image_long_side: int = Field(ge=512, le=2048)
+    max_works_per_artist: int = Field(ge=1)
+    split_seed: int
+    held_out_fraction: float = Field(gt=0, lt=0.5)
+    nga_open_data_revision: str
+    met_open_data_revision: str
+    met_open_data_sha256: str
+
+    @model_validator(mode="after")
+    def frozen_roster_is_complete(self) -> "CorpusConfig":
+        artist_ids = [artist.artist_id for artist in self.selected_artists]
+        if self.roster_status == "frozen" and len(artist_ids) != 4:
+            raise ValueError("the frozen development roster must contain exactly four artists")
+        if len(artist_ids) != len(set(artist_ids)):
+            raise ValueError("selected artist identifiers must be unique")
+        known = set(artist_ids)
+        if any(artist.neighbor_artist_id not in known for artist in self.selected_artists):
+            raise ValueError("every neighbor artist must be present in the frozen roster")
+        if set(self.museum_sources) != {"aic", "cma", "met", "nga"}:
+            raise ValueError("the corpus audit requires AIC, CMA, Met, and NGA sources")
+        return self
 
 
 class PreprocessingConfig(StrictConfig):
@@ -63,7 +97,6 @@ class ChromaticConfig(StrictConfig):
 
 class LearnedFormalConfig(StrictConfig):
     enabled: bool
-    qualification_status: Literal["pending", "pass", "conditional_pass", "fail"]
     feature_version: str
     source_repository: str
     source_revision: str
@@ -90,6 +123,14 @@ class MeasurementConfig(StrictConfig):
 class QualificationConfig(StrictConfig):
     required_before_scientific_generation: bool
     cards: List[str]
+    source_prediction_max_balanced_accuracy: float = Field(gt=0, le=1)
+    artist_prediction_min_balanced_accuracy: float = Field(ge=0, lt=1)
+    leave_source_out_artist_min_balanced_accuracy: float = Field(ge=0, lt=1)
+    reproduction_to_within_artist_median_ratio_max: float = Field(gt=0)
+    perturbation_to_within_artist_median_ratio_max: float = Field(gt=0)
+    perturbation_long_side: int = Field(ge=128)
+    perturbation_jpeg_quality: int = Field(ge=1, le=95)
+    random_seed: int
 
 
 class GenerationConfig(StrictConfig):

@@ -2,17 +2,28 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import List, Optional, cast
+from typing import Dict, List, Optional, cast
 
 import typer
 
 from latent_art_bench.config import PilotConfig, load_config
+from latent_art_bench.data.corpus import (
+    acquire_corpus,
+    acquisition_summary,
+    apply_candidate_overrides,
+    load_candidate_overrides,
+    select_candidate_works,
+    write_artist_audit_csv,
+    write_contact_sheets,
+)
+from latent_art_bench.data.museums import audit_museum_sources
 from latent_art_bench.evaluation.distances import analyze_cell
 from latent_art_bench.evaluation.qualification import (
     load_qualification_cards,
     qualification_card_from_evidence,
     qualification_gate,
 )
+from latent_art_bench.evaluation.real_only import evaluate_chromatic_real_only
 from latent_art_bench.features.chromatic import extract_chromatic_features
 from latent_art_bench.generation.openai_images import (
     ALLOWED_MODELS,
@@ -20,17 +31,23 @@ from latent_art_bench.generation.openai_images import (
     plan_generation_calls,
 )
 from latent_art_bench.io import hash_file, read_json, read_jsonl, write_json, write_jsonl
-from latent_art_bench.manifests import parse_manifest, validate_manifests
+from latent_art_bench.manifests import parse_manifest, validate_manifests, validate_records
 from latent_art_bench.preprocessing.pipeline import preprocess_reproductions
 from latent_art_bench.preprocessing.synthetic import write_synthetic_images
 from latent_art_bench.provenance import recorded_run
-from latent_art_bench.reporting.pilot import build_pilot_report, write_pilot_report
+from latent_art_bench.reporting.pilot import (
+    build_pilot_report,
+    write_generation_contact_sheet,
+    write_pilot_report,
+)
 from latent_art_bench.schemas import (
     AllowedImageModel,
     AnalysisCell,
     AnalysisResult,
     CanonicalWorkRecord,
+    CorpusCandidateRecord,
     DerivedViewRecord,
+    FeatureRow,
     GenerationCallRecord,
     PromptRecord,
     QualificationCard,
@@ -50,6 +67,13 @@ def _resolve(root: Path, path: Path) -> Path:
     return path if path.is_absolute() else root / path
 
 
+def _relative_artifact_path(path: Path, root: Path) -> str:
+    try:
+        return str(path.relative_to(root))
+    except ValueError:
+        return str(path)
+
+
 def _resolved_config(root: Path, config_path: Path) -> tuple:
     path = _resolve(root, config_path)
     return load_config(path), path
@@ -62,6 +86,139 @@ def _existing_cards(root: Path, config: PilotConfig) -> List[QualificationCard]:
 def _existing_card_paths(root: Path, config: PilotConfig) -> List[Path]:
     paths = [_resolve(root, Path(value)) for value in config.qualification.cards]
     return [path for path in paths if path.is_file()]
+
+
+@app.command("audit-corpus")
+def audit_corpus_command(
+    nga_data_dir: Path = typer.Option(..., "--nga-data-dir", help="NGA open-data data/ path."),
+    met_csv: Path = typer.Option(..., "--met-csv", help="Frozen MetObjects.csv path."),
+    config_path: Path = typer.Option(DEFAULT_CONFIG, "--config"),
+    output_manifest: Optional[Path] = typer.Option(None, "--output-manifest"),
+    root: Path = typer.Option(Path(".")),
+) -> None:
+    root = root.resolve()
+    config, resolved_config_path = _resolved_config(root, config_path)
+    nga_data_dir = _resolve(root, nga_data_dir)
+    met_csv = _resolve(root, met_csv)
+    output_manifest = _resolve(
+        root, output_manifest or Path(config.corpus.candidate_work_audit)
+    )
+    override_path = _resolve(root, Path(config.corpus.candidate_overrides))
+    artist_audit_path = _resolve(root, Path(config.corpus.candidate_artist_audit))
+    nga_inputs = [
+        nga_data_dir / "objects.csv",
+        nga_data_dir / "objects_constituents.csv",
+        nga_data_dir / "published_images.csv",
+    ]
+    with recorded_run(
+        root,
+        root / "artifacts/runs",
+        "audit-corpus",
+        {
+            "nga_data_dir": str(nga_data_dir),
+            "met_csv": str(met_csv),
+            "output_manifest": str(output_manifest),
+        },
+        config_path=resolved_config_path,
+        resolved_config=config.model_dump(mode="json"),
+        input_paths=[override_path, met_csv, *nga_inputs],
+    ) as run:
+        candidates = audit_museum_sources(config.corpus, nga_data_dir, met_csv)
+        candidates = apply_candidate_overrides(
+            candidates, load_candidate_overrides(override_path)
+        )
+        write_jsonl(output_manifest, candidates)
+        write_artist_audit_csv(artist_audit_path, config.corpus, candidates)
+        counts: Dict[str, Dict[str, int]] = {}
+        for artist in config.corpus.selected_artists:
+            artist_rows = [row for row in candidates if row.artist_id == artist.artist_id]
+            counts[artist.artist_id] = {
+                decision: sum(row.decision == decision for row in artist_rows)
+                for decision in ("include", "review", "exclude")
+            }
+        run.outputs.extend([str(output_manifest), str(artist_audit_path)])
+        typer.echo(
+            json.dumps(
+                {"candidates": len(candidates), "counts": counts},
+                sort_keys=True,
+            )
+        )
+
+
+@app.command("acquire-corpus")
+def acquire_corpus_command(
+    config_path: Path = typer.Option(DEFAULT_CONFIG, "--config"),
+    candidate_manifest: Optional[Path] = typer.Option(None, "--candidate-manifest"),
+    image_dir: Path = typer.Option(Path("data/pilot_0/source"), "--image-dir"),
+    screening_path: Path = typer.Option(
+        Path("reports/pilot_0/evidence/reproduction_screening.json"),
+        "--screening-output",
+    ),
+    summary_path: Path = typer.Option(
+        Path("reports/pilot_0/evidence/corpus_summary.json"), "--summary-output"
+    ),
+    root: Path = typer.Option(Path(".")),
+) -> None:
+    root = root.resolve()
+    config, resolved_config_path = _resolved_config(root, config_path)
+    candidate_manifest = _resolve(
+        root, candidate_manifest or Path(config.corpus.candidate_work_audit)
+    )
+    canonical_path = _resolve(root, Path(config.corpus.canonical_manifest))
+    reproduction_path = _resolve(root, Path(config.corpus.reproduction_manifest))
+    artist_audit_path = _resolve(root, Path(config.corpus.candidate_artist_audit))
+    image_dir = _resolve(root, image_dir)
+    screening_path = _resolve(root, screening_path)
+    summary_path = _resolve(root, summary_path)
+    with recorded_run(
+        root,
+        root / "artifacts/runs",
+        "acquire-corpus",
+        {
+            "candidate_manifest": str(candidate_manifest),
+            "image_dir": str(image_dir),
+        },
+        config_path=resolved_config_path,
+        resolved_config=config.model_dump(mode="json"),
+        input_paths=[candidate_manifest],
+        random_seeds={"corpus_split": config.corpus.split_seed},
+    ) as run:
+        parsed = parse_manifest(candidate_manifest)
+        candidates = [row for row in parsed if isinstance(row, CorpusCandidateRecord)]
+        if len(candidates) != len(parsed):
+            raise ValueError("acquire-corpus accepts a candidate-only manifest")
+        selected = select_candidate_works(candidates, config.corpus)
+        canonical, reproductions, screening = acquire_corpus(
+            selected, config.corpus, root, image_dir
+        )
+        validate_records([*canonical, *reproductions], root=root, check_files=True)
+        write_jsonl(canonical_path, canonical)
+        write_jsonl(reproduction_path, reproductions)
+        write_json(screening_path, {"records": screening})
+        summary = acquisition_summary(canonical, reproductions, screening)
+        write_json(summary_path, summary)
+        write_artist_audit_csv(
+            artist_audit_path,
+            config.corpus,
+            candidates,
+            canonical=canonical,
+            reproductions=reproductions,
+        )
+        contact_sheets = write_contact_sheets(
+            canonical, reproductions, root, root / "data/pilot_0/contact_sheets"
+        )
+        run.outputs.extend(
+            str(path)
+            for path in [
+                canonical_path,
+                reproduction_path,
+                screening_path,
+                summary_path,
+                artist_audit_path,
+                *contact_sheets,
+            ]
+        )
+        typer.echo(json.dumps(summary, sort_keys=True))
 
 
 @app.command("validate-manifest")
@@ -222,6 +379,90 @@ def qualify_command(
         )
 
 
+@app.command("evaluate-chromatic")
+def evaluate_chromatic_command(
+    feature_manifest: Path = typer.Option(
+        Path("artifacts/pilot_0/chromatic_features.jsonl"), "--feature-manifest"
+    ),
+    derived_manifest: Path = typer.Option(
+        Path("artifacts/pilot_0/derived_views.jsonl"), "--derived-manifest"
+    ),
+    evidence_path: Path = typer.Option(
+        Path("configs/pilot_0/qualification/evidence.chromatic.json"),
+        "--evidence-output",
+    ),
+    artifact_path: Path = typer.Option(
+        Path("reports/pilot_0/evidence/chromatic_qualification.json"),
+        "--artifact-output",
+    ),
+    config_path: Path = typer.Option(DEFAULT_CONFIG, "--config"),
+    root: Path = typer.Option(Path(".")),
+) -> None:
+    root = root.resolve()
+    config, resolved_config_path = _resolved_config(root, config_path)
+    canonical_path = _resolve(root, Path(config.corpus.canonical_manifest))
+    reproduction_path = _resolve(root, Path(config.corpus.reproduction_manifest))
+    feature_manifest = _resolve(root, feature_manifest)
+    derived_manifest = _resolve(root, derived_manifest)
+    evidence_path = _resolve(root, evidence_path)
+    artifact_path = _resolve(root, artifact_path)
+    input_paths = [
+        canonical_path,
+        reproduction_path,
+        derived_manifest,
+        feature_manifest,
+    ]
+    with recorded_run(
+        root,
+        root / "artifacts/runs",
+        "evaluate-chromatic",
+        {
+            "feature_manifest": str(feature_manifest),
+            "derived_manifest": str(derived_manifest),
+            "evidence_output": str(evidence_path),
+            "artifact_output": str(artifact_path),
+        },
+        config_path=resolved_config_path,
+        resolved_config=config.model_dump(mode="json"),
+        input_paths=input_paths,
+        random_seeds={"qualification": config.qualification.random_seed},
+    ) as run:
+        canonical = [
+            row
+            for row in parse_manifest(canonical_path)
+            if isinstance(row, CanonicalWorkRecord)
+        ]
+        reproductions = [
+            row
+            for row in parse_manifest(reproduction_path)
+            if isinstance(row, ReproductionRecord)
+        ]
+        views = [
+            row
+            for row in parse_manifest(derived_manifest)
+            if isinstance(row, DerivedViewRecord)
+        ]
+        features = [
+            row
+            for row in parse_manifest(feature_manifest)
+            if isinstance(row, FeatureRow)
+        ]
+        artifact_reference = _relative_artifact_path(artifact_path, root)
+        artifact, evidence = evaluate_chromatic_real_only(
+            config,
+            canonical,
+            reproductions,
+            views,
+            features,
+            root,
+            artifact_reference,
+        )
+        write_json(artifact_path, artifact)
+        write_json(evidence_path, evidence)
+        run.outputs.extend([str(artifact_path), str(evidence_path)])
+        typer.echo(json.dumps(artifact["decisions"], sort_keys=True))
+
+
 @app.command("generate")
 def generate_command(
     config_path: Path = typer.Option(DEFAULT_CONFIG, "--config"),
@@ -297,16 +538,19 @@ def generate_command(
                 for prompt in prompts:
                     for selected_model in selected_models:
                         for repetition in range(config.generation.repetitions):
-                            calls.append(
-                                adapter.generate(
-                                    run.run_id,
-                                    prompt,
-                                    selected_model,
-                                    repetition,
-                                    output_dir,
-                                    qualification_bypass=allow_unqualified_test_generation,
-                                )
+                            call = adapter.generate(
+                                run.run_id,
+                                prompt,
+                                selected_model,
+                                repetition,
+                                output_dir,
+                                qualification_bypass=allow_unqualified_test_generation,
                             )
+                            if call.output_path:
+                                call.output_path = _relative_artifact_path(
+                                    Path(call.output_path), root
+                                )
+                            calls.append(call)
         write_jsonl(output_manifest, calls)
         run.outputs.append(str(output_manifest))
         run.outputs.extend(call.output_path for call in calls if call.output_path)
@@ -405,6 +649,15 @@ def report_pilot_command(
     ) as run:
         markdown, summary = build_pilot_report(config, cards, calls, results)
         outputs = write_pilot_report(output_dir, markdown, summary, config)
+        if calls:
+            outputs.append(
+                write_generation_contact_sheet(
+                    calls,
+                    root,
+                    _resolve(root, Path(config.generation.output_dir))
+                    / "contact_sheet.jpg",
+                )
+            )
         run.outputs.extend(str(path) for path in outputs)
         typer.echo(
             json.dumps(

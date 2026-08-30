@@ -28,4 +28,8 @@ Thus a delta-like distribution approaches `-1`, an exponential distribution appr
 - Exact zero-distance images make the paper's ratio `0/0`. The project defines this limiting delta case as `S = -1`, coefficient of variation `0`, and an all-zero normalized-distance sample, while marking the feature row `degenerate`.
 - Image resolution remains part of the preprocessing condition. Mean normalization and seamlessness are tested for stability; they are not assumed to remove every digitization effect.
 
-The implementation is in `src/latent_art_bench/features/chromatic.py`. Synthetic tests cover solid fields, known sRGB-to-CIELab values, adjacency counts, scale invariance, and the source's delta/exponential/heavy-tail reference behavior. Real-art reproduction and held-out validity remain mandatory before the qualification card can pass.
+The implementation is in `src/latent_art_bench/features/chromatic.py`. Synthetic tests cover solid fields, known sRGB-to-CIELab values, adjacency counts, scale invariance, and the source's delta/exponential/heavy-tail reference behavior.
+
+## Pilot qualification outcome
+
+The real-only run evaluated 108 canonical works and 11 accepted same-work alternate captures. Source behavior, held-out artist signal, source prediction, leave-source-out artist signal, reproduction distance, and exact output-pixel determinism passed their frozen checks. The 256-pixel resolution perturbation was within its margin, but JPEG quality 85 produced a median standardized drift equal to `0.6928` of the within-artist held-out median, exceeding the frozen `0.5` limit. The measurement card is therefore `fail`; the other passing diagnostics do not override that result. Full values are in `reports/pilot_0/evidence/chromatic_qualification.json`.

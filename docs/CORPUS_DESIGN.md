@@ -57,7 +57,7 @@ The discovery corpus is not presented as a universal history of art. It is a mea
 
 The initial study should be small: a provisional feasibility envelope is 8–12 public-domain artists with enough independent works, source diversity, usable neighbors, and at least partial genre or phase coverage. The exact count and minimum works per artist are set by a blinded availability audit and power simulation, not by selecting artists that yield favorable generator results.
 
-The preceding development pilot is smaller still: four provisional artists arranged as two neighbor pairs and restricted to one adequately represented shared genre. Its work and reproduction-pair counts are audit targets for feasibility, not population-level thresholds.
+The development pilot is smaller still: the frozen roster is Claude Monet–Alfred Sisley and Camille Pissarro–Paul Cézanne, restricted to landscape/outdoor-place scenes. Its 108-work corpus and 11 accepted reproduction pairs are feasibility evidence, not population-level thresholds.
 
 ## 5. External-validity and ontology-transfer corpus
 

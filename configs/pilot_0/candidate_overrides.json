@@ -1,0 +1,14 @@
+{
+  "cma:115405": {
+    "decision": "include",
+    "reason": "Manual metadata review: The Pigeon Tower at Bellevue is an outdoor architectural landscape."
+  },
+  "cma:135173": {
+    "decision": "include",
+    "reason": "Manual metadata review: The Brook depicts the Arc River valley and is eligible for the outdoor-place view."
+  },
+  "cma:135185": {
+    "decision": "include",
+    "reason": "Manual metadata review: Mount Sainte-Victoire is a documented landscape painted from an outdoor site."
+  }
+}

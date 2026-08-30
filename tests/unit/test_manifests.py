@@ -1,4 +1,5 @@
 from pathlib import Path
+from typing import Optional
 
 import pytest
 
@@ -18,13 +19,20 @@ def work(work_id: str, split: str) -> CanonicalWorkRecord:
     )
 
 
-def reproduction(reproduction_id: str, work_id: str, split: str, digest: str) -> ReproductionRecord:
+def reproduction(
+    reproduction_id: str,
+    work_id: str,
+    split: str,
+    digest: str,
+    perceptual_hash: Optional[str] = None,
+) -> ReproductionRecord:
     return ReproductionRecord(
         reproduction_id=reproduction_id,
         canonical_work_id=work_id,
         source_id="source-1",
         local_path="missing-for-schema-only.png",
         sha256=digest,
+        perceptual_hash=perceptual_hash,
         split=split,
     )
 
@@ -46,6 +54,17 @@ def test_validation_detects_byte_duplicate_across_works(tmp_path: Path) -> None:
         reproduction("repro-2", "work-2", "train", "a" * 64),
     ]
     with pytest.raises(ValueError, match="byte-identical"):
+        validate_records(records, root=tmp_path)
+
+
+def test_validation_detects_near_duplicate_across_works(tmp_path: Path) -> None:
+    records = [
+        work("work-1", "train"),
+        work("work-2", "train"),
+        reproduction("repro-1", "work-1", "train", "a" * 64, "0000000000000000"),
+        reproduction("repro-2", "work-2", "train", "b" * 64, "0000000000000003"),
+    ]
+    with pytest.raises(ValueError, match="near-identical perceptual hashes"):
         validate_records(records, root=tmp_path)
 
 

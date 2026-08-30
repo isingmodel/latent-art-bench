@@ -10,7 +10,7 @@ def test_pilot_identity_hashes_are_frozen(pilot_config) -> None:
     )
     assert identities["learned_formal"] == (
         "kim2026-sd20-a-vector-source-v1",
-        "9d1af8e3e7929f66f019b9f25337e6c20e4af2b40326c49b6cde3e9ad0b020c9",
+        "259e7817a5493e2aac25ad660584853b27d159573cc8c694676406246ceb3187",
     )
 
 

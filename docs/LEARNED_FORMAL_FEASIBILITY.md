@@ -2,7 +2,7 @@
 
 ## Decision
 
-Status: **pending; not eligible for pilot generation qualification**.
+Status: **fail; not eligible for pilot generation qualification**.
 
 The intended source-faithful evaluator is the A-vector from Kim et al. (2026), [“Context-aware multimodal AI navigates hidden pathways in five centuries of art evolution”](https://doi.org/10.1073/pnas.2517969123). The pilot freezes the public code at commit [`7da12358cf34dad2184f357a048c2cf114b3c4e0`](https://github.com/aljinny/art-history/tree/7da12358cf34dad2184f357a048c2cf114b3c4e0).
 
@@ -25,4 +25,4 @@ The source preprocessing and harmonized project preprocessing must remain differ
 - No license file was present in the audited source-code revision. That prevents this MIT-licensed project from copying the source implementation.
 - The model checkpoint is not included, and its exact independently acquired bytes have not yet been hashed and recorded.
 
-These are feasibility findings, not evidence that an A-vector implementation is impossible. The next legitimate step is to obtain and hash the exact checkpoint, resolve source-code reuse terms, repair the extractor in an isolated reproduction environment, and compare its output with a published or author-supplied reference vector. The pilot will not silently substitute a different VAE, checkpoint, layer, pooling rule, or generic embedding.
+These are feasibility findings, not evidence that an A-vector implementation is impossible. They do, however, satisfy the roadmap's time-bounded stopping rule: the frozen learned-formal evaluator cannot be reproduced from the released materials, so it is recorded as a failed pilot measurement rather than left pending indefinitely. A future redesign would need to obtain and hash the exact checkpoint, resolve source-code reuse terms, repair the extractor in an isolated reproduction environment, and compare its output with a published or author-supplied reference vector. This pilot does not silently substitute a different VAE, checkpoint, layer, pooling rule, or generic embedding.

@@ -1,7 +1,7 @@
 # pilot_0 status
 
-The real-corpus and learned-formal qualification gates are still closed. There are therefore no scientific pilot results, target-gap estimates, specificity estimates, or model rankings in this directory.
+The pilot completed through its defined stop path. The frozen corpus contains 108 canonical works and 119 reproductions, but chromatic JPEG stability failed its predeclared margin and the learned-formal evaluator failed its source-faithful reproducibility spike. There are therefore no scientific target-gap estimates, specificity estimates, or model rankings in this directory.
 
-The implementation can produce the eventual human-readable report, resolved configuration, machine-readable summary, and decision memo with `latent-art-bench report-pilot`. Until both qualification cards pass or conditionally pass, the expected decision is **stop before scientific generation**.
+The generated [report](REPORT.md), machine-readable [summary](summary.json), resolved configuration, evidence files, and [decision memo](DECISION.md) record the outcome: **stop before scientific generation**.
 
-The separate [API smoke record](API_SMOKE.md) documents only that the two-model test adapter worked through the local OAuth proxy. It is not benchmark evidence.
+The separate [GPT Image API test record](API_SMOKE.md) documents ten successful, explicitly bypassed calls through `~/dev/openai-oauth`, using only `gpt-image-1` and `gpt-image-2`. Those images are local API artifacts, not benchmark evidence.

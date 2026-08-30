@@ -27,7 +27,7 @@ This file records decisions that define the current research scope. Items may ch
 21. Reproduction-pair calibration estimates variable surrogate error but does not remove common acquisition-domain bias. Source prediction, leave-source-out validation, and born-digital controls are required for source-sensitive features.
 22. Review recommendations are adopted only when they improve identification, validity, or feasible inference. Expensive controls and additional modules may be deferred when a simpler negative control addresses the same immediate risk.
 23. The first implementation cycle is a development pilot, not the benchmark. It stops after a reproducible initial-results report and decision memo.
-24. The development pilot is artist-level only: four provisional public-domain artists, two neighbor pairs, one shared genre, and one fixed open-weight generator.
+24. The development pilot is artist-level only: Claude Monet–Alfred Sisley and Camille Pissarro–Paul Cezanne, one shared landscape/outdoor-place genre, and test-only generation restricted to `gpt-image-1` and `gpt-image-2` through the local OAuth proxy.
 25. The pilot qualifies exactly two measurements before generation: normalized chromatic-distance/seamlessness and one frozen learned-formal evaluator selected before corpus results are inspected.
 26. Pilot inference is limited to calibrated target gap and target-versus-neighbor specificity. Prototype contraction, coverage, coherence, movement inference, and evaluator-family robustness are deferred until initial variance and corpus support are known.
 27. Generator integration cannot begin until the two measurements pass or conditionally pass real-only replication, stability, nuisance, and held-out validity gates.
@@ -44,8 +44,7 @@ This file records decisions that define the current research scope. Items may ch
 - archival and dataset hosting arrangements;
 - final size of the human qualification subset;
 - which optional feature modules advance beyond the core benchmark;
-- exact four-artist development roster and shared genre;
-- learned-formal checkpoint and source implementation for the development pilot;
+- a reproducible, licensed learned-formal evaluator for a future redesigned pilot;
 
 ## Decision rule
 
