@@ -31,6 +31,7 @@ This file records decisions that define the current research scope. Items may ch
 25. The pilot qualifies exactly two measurements before generation: normalized chromatic-distance/seamlessness and one frozen learned-formal evaluator selected before corpus results are inspected.
 26. Pilot inference is limited to calibrated target gap and target-versus-neighbor specificity. Prototype contraction, coverage, coherence, movement inference, and evaluator-family robustness are deferred until initial variance and corpus support are known.
 27. Generator integration cannot begin until the two measurements pass or conditionally pass real-only replication, stability, nuisance, and held-out validity gates.
+28. A narrow engineering exception permits mock, dry-run, and explicitly bypassed API-integration tests through a loopback endpoint using only `gpt-image-1` and `gpt-image-2`. The configuration disables scientific claims, bypassed prompts must be marked test-only, every call records the bypass, and these outputs cannot open WP5 or support generator comparisons.
 
 ## Open strategic decisions
 

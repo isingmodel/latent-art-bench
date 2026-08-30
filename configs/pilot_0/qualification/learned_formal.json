@@ -1,0 +1,23 @@
+{
+  "conditional_domains": [],
+  "decided_at": null,
+  "evidence_paths": [
+    "docs/LEARNED_FORMAL_FEASIBILITY.md"
+  ],
+  "feature_config_hash": "9d1af8e3e7929f66f019b9f25337e6c20e4af2b40326c49b6cde3e9ad0b020c9",
+  "feature_version": "kim2026-sd20-a-vector-source-v1",
+  "held_out_artist_signal_valid": null,
+  "measurement": "learned_formal",
+  "reasons": [
+    "The frozen upstream revision documents the intended checkpoint and latent construction, but the released extractor is not runnable as-is and the code repository has no license file. No substitute evaluator was selected."
+  ],
+  "real_work_count": 0,
+  "record_type": "qualification_card",
+  "reproduction_pair_count": 0,
+  "schema_version": "1.0",
+  "source_behavior_recovered": false,
+  "source_confounding_controlled": null,
+  "stable_within_frozen_margin": null,
+  "status": "pending",
+  "supported_scope": []
+}

@@ -1,0 +1,17 @@
+{
+  "conditional_domains": [],
+  "evidence_paths": [],
+  "feature_config_hash": "512397aad7c001c09ae404ad886bf136a63186cd343134e14fbd40fcbc13c577",
+  "feature_version": "lee2018-deltae76-seamlessness-v1",
+  "held_out_artist_signal_valid": false,
+  "measurement": "chromatic",
+  "notes": [
+    "Template only: replace booleans, counts, notes, and evidence paths with frozen real-only results."
+  ],
+  "real_work_count": 0,
+  "reproduction_pair_count": 0,
+  "schema_version": "1.0",
+  "source_behavior_recovered": false,
+  "source_confounding_controlled": false,
+  "stable_within_frozen_margin": false
+}

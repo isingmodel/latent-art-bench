@@ -1,0 +1,76 @@
+schema_version: "1.0"
+pilot_id: pilot_0
+purpose: api_integration_test_only
+
+corpus:
+  roster_status: pending
+  candidate_artist_audit: configs/pilot_0/candidate_artist_audit.csv
+  canonical_manifest: configs/pilot_0/manifests/canonical_works.jsonl
+  reproduction_manifest: configs/pilot_0/manifests/reproductions.jsonl
+  common_genre: pending_real_corpus_audit
+  target_works_per_artist: [30, 50]
+  target_reproduction_pairs: [15, 20]
+
+preprocessing:
+  track: harmonized_chromatic_v1
+  version: "1.0.0"
+  color_space: sRGB
+  alpha_background_rgb: [255, 255, 255]
+  border_policy: keep
+  resample: lanczos
+  max_long_side: 512
+  no_upsampling: true
+  output_format: png
+
+measurements:
+  required: [chromatic, learned_formal]
+  chromatic:
+    enabled: true
+    feature_version: lee2018-deltae76-seamlessness-v1
+    source_doi: 10.1371/journal.pone.0204430
+    adjacency: horizontal_and_vertical
+    standard_deviation_ddof: 0
+    degenerate_epsilon: 1.0e-12
+    normalized_histogram_lower_edges: [0.0, 0.25, 0.5, 0.75, 1.0, 1.5, 2.0, 3.0, 4.0, 6.0, 8.0]
+  learned_formal:
+    enabled: false
+    qualification_status: pending
+    feature_version: kim2026-sd20-a-vector-source-v1
+    source_repository: https://github.com/aljinny/art-history
+    source_revision: 7da12358cf34dad2184f357a048c2cf114b3c4e0
+    checkpoint: 512-base-ema.ckpt
+    input_size: [512, 512]
+    latent_shape: [4, 64, 64]
+    flatten_order: C
+    feasibility_report: docs/LEARNED_FORMAL_FEASIBILITY.md
+
+qualification:
+  required_before_scientific_generation: true
+  cards:
+    - configs/pilot_0/qualification/chromatic.json
+    - configs/pilot_0/qualification/learned_formal.json
+
+generation:
+  mode: test_only
+  scientific_claims_enabled: false
+  models: [gpt-image-1, gpt-image-2]
+  base_url: http://127.0.0.1:10531/v1
+  require_loopback: true
+  endpoint: images/generations
+  prompt_manifest: configs/pilot_0/prompts.api_smoke.jsonl
+  output_dir: outputs/pilot_0/api_smoke
+  repetitions: 1
+  size: 1024x1024
+  quality: low
+  output_format: png
+  timeout_seconds: 300
+  max_retries: 2
+
+analysis:
+  primary_distance: energy_distance
+  calibrated_target_gap_formula: (D_generated_target-D_real_real)/D_target_neighbor
+  specificity_formula: (D_generated_neighbor-D_generated_target)/D_target_neighbor
+  specificity_sign_convention: positive_means_target_closer
+  equal_sample_seed: 20260829
+  equal_sample_draws: 200
+  confidence_level: 0.95

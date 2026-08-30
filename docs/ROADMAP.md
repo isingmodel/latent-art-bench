@@ -1,5 +1,7 @@
 # Initial Implementation Plan
 
+> Implementation note (2026-08-29): the repository now contains the WP0/WP1 substrate, the exact chromatic implementation, synthetic tests, qualification cards, and a test-only image adapter. At the user's direction, that adapter is hard-limited to `gpt-image-1` and `gpt-image-2` through a loopback OpenAI-compatible endpoint. This is an engineering exception for API tests, not a change to the scientific design: WP5 remains closed, unqualified live calls require an explicit test-only bypass, and their outputs cannot be reported as pilot evidence.
+
 This plan covers implementation only through the first reproducible development-pilot results. It is not a full benchmark, publication, hosting, or long-term maintenance plan. The project will stop and re-plan after the pilot report because corpus availability, measurement reliability, variance, and generation cost are not yet known.
 
 ## Pilot question

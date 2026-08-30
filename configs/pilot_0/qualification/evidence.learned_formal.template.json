@@ -1,0 +1,17 @@
+{
+  "conditional_domains": [],
+  "evidence_paths": [],
+  "feature_config_hash": "9d1af8e3e7929f66f019b9f25337e6c20e4af2b40326c49b6cde3e9ad0b020c9",
+  "feature_version": "kim2026-sd20-a-vector-source-v1",
+  "held_out_artist_signal_valid": false,
+  "measurement": "learned_formal",
+  "notes": [
+    "Template only: do not mark this evaluator passing until the checkpoint feasibility blockers are resolved and real-only evidence artifacts exist."
+  ],
+  "real_work_count": 0,
+  "reproduction_pair_count": 0,
+  "schema_version": "1.0",
+  "source_behavior_recovered": false,
+  "source_confounding_controlled": false,
+  "stable_within_frozen_margin": false
+}
