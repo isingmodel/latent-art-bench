@@ -61,6 +61,7 @@ from latent_art_bench.io import (
 )
 from latent_art_bench.manifests import parse_manifest, validate_manifests, validate_records
 from latent_art_bench.pilot2.cli import app as pilot2_app
+from latent_art_bench.pilot3.cli import app as pilot3_app
 from latent_art_bench.preprocessing.pipeline import preprocess_reproductions
 from latent_art_bench.preprocessing.synthetic import write_synthetic_images
 from latent_art_bench.provenance import recorded_run
@@ -94,6 +95,7 @@ app = typer.Typer(
     help="Run the gated LatentArtBench development pilot.",
 )
 app.add_typer(pilot2_app, name="pilot2")
+app.add_typer(pilot3_app, name="pilot3")
 DEFAULT_CONFIG = Path("configs/pilot_0/pilot.yaml")
 
 

@@ -1,0 +1,121 @@
+{
+  "claim_boundary": "This index freezes 40 AIC/Met development works and a 12-work external holdout made of three complete official-museum blocks. It does not claim artwork bytes were opened, decoded, visually reviewed, or feature-qualified, and generation remains closed.",
+  "config": {
+    "file_sha256": "8814cec34bf662fe2fb6206f4573595fe1a3366804e0439e247d7cfd3c11389d",
+    "path": "configs/pilot_3/planning.json"
+  },
+  "decision": {
+    "design_decision": "NO_DESIGN_SELECTED_CRITERIA_UNRESOLVED",
+    "final_artist_roster_selected": true,
+    "final_sample_size_selected": true,
+    "metadata_audit_decision": "METADATA_AUDIT_COMPLETE_FREEZE_A1_READY",
+    "next_action": "begin Phase-A acquisition: rehash exact prior local reproductions when available, acquire remaining selected works, and apply the frozen decode/visual/feature qualification gates; do not begin generation",
+    "offline_evidence_bundle_verifiable": true,
+    "p3_t01_freeze_ready": true,
+    "p3_t02_baseline_recovery_passed": true,
+    "p3_t03_closed_gate_index_emitted": true,
+    "p3_t04_final_design_selected": false,
+    "p3_t05_corpus_selection_emitted": true,
+    "p3_t06_real_split_and_holdout_seal_emitted": true,
+    "phase_a_artwork_acquisition_authorized": true,
+    "phase_b_generation_authorized": false,
+    "pilot2_baseline_recovered": true,
+    "planning_bundle_emitted": true,
+    "planning_prerequisites_resolved": true,
+    "successor_metadata_audit_status": "authoritative_metadata_audit_complete_freeze_a1_ready",
+    "successor_metadata_decision": "SNAPSHOT_THRESHOLD_MET_FREEZE_A1_READY",
+    "successor_snapshot_threshold_result": "meets_configured_snapshot_thresholds"
+  },
+  "development_inputs": {
+    "candidate_metadata": {
+      "file_sha256": "0c258e7aacddcf4aa07d469d97244cc29d77854ac872d38b30c58faf04c79c5d",
+      "path": "configs/pilot_0/candidate_work_audit.jsonl",
+      "use": "metadata-only feasibility; no image bytes or derived features"
+    },
+    "pilot2_analysis": {
+      "file_sha256": "e364ca0cefcfeaac88e9b1ee3071047cf4bc35a5605808b9b81a92ebccae83e4",
+      "path": "reports/pilot_2/analysis.json",
+      "use": "development calibration and scenario construction only; never treated as confirmatory truth"
+    },
+    "pilot2_generation_completion": {
+      "file_sha256": "e82b79af63505f6dc148b797ca48e8d1b5cb98372f7e132a7c0e2d61a5ff298f",
+      "path": "reports/pilot_2/evidence/generation_completion.json",
+      "use": "development availability and refusal pattern only"
+    },
+    "pilot2_learned_formal_qualification": {
+      "file_sha256": "7458924ef8bcdd9a6d653c40e91f5987c3a5b9aa4cd7ff6e34225aa7a2e780b3",
+      "path": "reports/pilot_2/evidence/learned_formal_qualification.json",
+      "use": "machine recovery of the prior development-atlas qualification result only; never external validation"
+    }
+  },
+  "environment_lock_file_sha256": {
+    "pyproject.toml": "9da42015a9f57afd574191b26c1d710aab3b7359d44661dab700a03854f151b7",
+    "uv.lock": "99285c8ccc298b80bd711b296d90945aea07209cb4623deae5a599bc0d4c80bf"
+  },
+  "evidence": {
+    "artist_source_feasibility": {
+      "configured_snapshot_threshold_result": "meets_configured_snapshot_thresholds",
+      "file_sha256": "13cde189107d99e7a61bd156468dedd58e5e8c3f5a0d9e4c1781a2acd8b57982",
+      "path": "reports/pilot_3/evidence/artist_source_feasibility.json",
+      "semantic_sha256": "7d831268d9e02ed6dd2f563210577ec503893d533109793bc7fe2d02c856a5cc",
+      "status": "authoritative_metadata_audit_complete_freeze_a1_ready"
+    },
+    "corpus_selection": {
+      "file_sha256": "b78d05b2566c88030c3fa0a357e5d08ca53f1876d41a533c683da0251baee0d1",
+      "path": "reports/pilot_3/evidence/corpus_selection.json",
+      "semantic_sha256": "7404b8edc0f0a86c8c4b81711f65eb85f49241f08388d839a44b3974b0a48ca1",
+      "status": "freeze_a1_complete"
+    },
+    "design_sensitivity": {
+      "file_sha256": "f20c3f05f0928e18dd2b0faafca7285401cc626a90048755d1572e5d3f688ab9",
+      "path": "reports/pilot_3/evidence/design_sensitivity.json",
+      "semantic_sha256": "888dc255d2177cbeb309ac23c931e0b0195c9e678c83c4b41165a48bc1562260",
+      "status": "development_sensitivity_complete"
+    },
+    "holdout_seal": {
+      "file_sha256": "70fc83b843581855824e6ef4d4ee0cbf340b9b8a65c01272992448355eab5d64",
+      "path": "reports/pilot_3/evidence/holdout_seal.json",
+      "semantic_sha256": "9f21ce81c6b140fef44c31e5c20e69f460be09135e9c12289d0c7f0a4aedac1a",
+      "status": "external_holdout_metadata_sealed_not_acquired"
+    },
+    "pilot2_baseline_recovery": {
+      "file_sha256": "9e136db6ae05aaa244226a212b5e1001b1338050b28b4e0c9079de21e62029d0",
+      "path": "reports/pilot_3/evidence/pilot2_baseline_recovery.json",
+      "semantic_sha256": "ef42aa8333a82a4218f29ed30c6c6067a1c60235e3ab7f2885a7ea40157285ba",
+      "status": "pass"
+    }
+  },
+  "generation_gate": "closed",
+  "implementation_file_sha256": {
+    "src/latent_art_bench/cli.py": "96dc8ec8644c92dc1883769e5040787b0b04f8e328c27a38b4cd4b4b1754761c",
+    "src/latent_art_bench/io.py": "13e6372aa9814495a45700eb9e65d099c56bb1bb3032d72f7f9e00e6ba91a9b8",
+    "src/latent_art_bench/pilot3/cli.py": "17a6bd07d6278edbb89f22fcc04f1d90995f023dff70d03818f4e13847cd1b0c",
+    "src/latent_art_bench/pilot3/corpus.py": "e60b32d5dd8fb938bdb3fc5255683d6439212e856003e73c554525823574a596",
+    "src/latent_art_bench/pilot3/design.py": "fe14ce8d7158f959ac1d702775a876314287c2d3388f9c7fa813974411b45054",
+    "src/latent_art_bench/pilot3/feasibility.py": "cf36e23c9cf783dcc3c8fbfe84977eaad13cfb683b5c5d6f1b1909b047bfbe69",
+    "src/latent_art_bench/pilot3/planning.py": "ed82e883d71fa4f21429405c5e9fe879c55bd133afbb9be4f8e3b93a2be15483"
+  },
+  "offline_integrity": {
+    "artwork_bytes_opened": false,
+    "feature_or_generated_outcomes_used_by_current_computation": false,
+    "image_requests_made": false,
+    "network_requests_made": false,
+    "permitted_io": "planning config, text metadata, aggregate Pilot 2 evidence",
+    "upstream_selection_provenance_verified": true
+  },
+  "protocol": {
+    "file_sha256": "d67f6e72c2a96391e41cc053a945d516869dcc820201519723a1705be36010ff",
+    "path": "docs/PILOT_3_PROTOCOL.md",
+    "status": "development_draft_not_preregistered"
+  },
+  "record_type": "pilot3_planning_index",
+  "result_sha256": "ee0cf89db4cdd448947a37a8de04ce179176ea75fd24ea2e47c23eec6b30bf67",
+  "schema_version": "pilot3-planning-index/1.0",
+  "status": "offline_planning_and_freeze_a1_complete_generation_gate_closed",
+  "verification_file_sha256": {
+    "tests/pilot3/test_design.py": "cc57df0daa9ddb0bf0951a8b01a9c596e53077cd0e4ad3d4b15368e0c01ac94e",
+    "tests/pilot3/test_feasibility.py": "7b8366db1b183a85d2623ee8a9e15488b914fb422e07f4bccd902af044ce1d71",
+    "tests/pilot3/test_pilot3_corpus.py": "2ed774f15a25449ab05fc9a995d4f5fefdab33a2d1da49ea1fb340206561a3ae",
+    "tests/pilot3/test_planning.py": "bc92a2df3c907d7b966bcd34ffbe4204821727b59c14b0311cb828af3f6ec1c8"
+  }
+}

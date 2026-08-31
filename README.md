@@ -2,7 +2,7 @@
 
 **A measurement-gated research framework for testing how well generative image systems reproduce formal, contextual, and distributional regularities associated with artists and art movements.**
 
-> Status: `pilot_2` completed its prospectively frozen requested-label study with a passing learned-formal calibration gate and 320/320 terminal cells. Five moderation refusals left 251/256 complete feature pairs, so all four registered primary tests were not run and both requested-label hypotheses are unsupported. Scientific execution is complete, but this is not a favorable hypothesis result or a model comparison. Next-step decision: **REDESIGN**.
+> Status: `pilot_3` has a prospective 52-work Freeze-A1 real-corpus design: 40 AIC/Met development works and a sealed 12-work external holdout formed by complete Minneapolis, Dallas, and Toledo museum/provider blocks. External labels are permuted within block over all `24^3 = 13,824` assignments. No Pilot 3 artwork bytes, transport request, or generated image have been opened yet; all gates remain closed until their explicit commits.
 
 ## Motivation
 
@@ -44,6 +44,9 @@ Start with:
 - [Research proposal](docs/RESEARCH_PROPOSAL.md)
 - [Post-pilot roadmap and final R1--R8 disposition](docs/ROADMAP.md)
 - [Development-pilot implementation status](docs/IMPLEMENTATION_STATUS.md)
+- [Pilot_3 development protocol](docs/PILOT_3_PROTOCOL.md)
+- [Pilot_3 offline planning report](reports/pilot_3/PLANNING_REPORT.md)
+- [Pilot_3 planning index](reports/pilot_3/planning_index.json)
 - [Frozen pilot_2 protocol](docs/PILOT_2_PROTOCOL.md)
 - [Pilot_2 failure investigation](docs/PILOT_2_FAILURE_INVESTIGATION.md)
 - [Final pilot_2 requested-label report](reports/pilot_2/REPORT.md)
@@ -202,6 +205,39 @@ The authoritative outputs are the [final report](reports/pilot_2/REPORT.md),
 **REDESIGN**: preserve the five refusals as final outcomes, specify future moderation-
 missingness handling prospectively, and obtain authoritative executed-model evidence
 before making model claims.
+
+## Pilot_3 prospective execution
+
+The deterministic planning and metadata-only Freeze-A1 bundle can be rebuilt and verified
+without opening artwork bytes or sending an image request:
+
+```bash
+uv run --locked latent-art-bench pilot3 plan --root .
+uv run --locked latent-art-bench pilot3 verify --root .
+```
+
+The final real corpus has four artists: Alfred Sisley, Camille Pissarro, Paul Cezanne, and
+Pierre-Auguste Renoir. Development uses five works per artist from each of AIC and Met: 32
+training and eight calibration works. The sealed external holdout has one work per artist in
+each of three complete holding-institution/provider blocks: Minneapolis Institute of Art,
+Dallas Museum of Art, and Toledo Museum of Art. Those 12 works use exact official museum
+assets, never Commons-delivered substitutes. The external randomization permutes the four
+artist labels independently within each museum block and exhausts all `24^3 = 13,824`
+assignments. The metadata manifest retains 25 candidates as `not_selected`; none is a
+replacement-eligible reserve, and Freeze A1 contains no post-freeze replacement path.
+
+Results are conditional on the exact frozen museum bytes. Institution/provider blocking does
+not establish a shared camera, operator, capture date, or conservation-imaging session, and
+Pilot 3 makes no same-session or cross-digitization-robustness claim. Source images are limited
+to internal noncommercial scholarly research and are not redistributed.
+
+The future generated study remains a budget-constrained estimation pilot—16 content blocks,
+four repetitions, four named artists, and one shared control—for exactly 320 primary analytic
+`gpt-image-2` calls after every gate passes. The only accepted image-model aliases are
+`gpt-image-1` and `gpt-image-2`, and every request must traverse the pinned
+`/Users/fred/dev/openai-oauth` route. `gpt-image-1` remains historical development evidence,
+not a second Pilot 3 analytic stratum. No direct-API, browser, dated-snapshot, or alternate-model
+fallback is authorized, and requested-label acceptance is not an executed-model attestation.
 
 ## Planned research program
 

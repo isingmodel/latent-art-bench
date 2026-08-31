@@ -1,0 +1,271 @@
+{
+  "authoritative_snapshot_binding": {
+    "candidate_manifest": {
+      "file_sha256": "d421b1df04adac1277f93e12a54d03f59e5f8df74a97ebe96b549ab074041b1d",
+      "path": "configs/pilot_3/metadata/authoritative_candidates.jsonl",
+      "row_count": 130,
+      "semantic_sha256": "d7d740e36b6781b136f343e3d3d8d554b751e910cf7e44fd227f735e33e7587b"
+    },
+    "source_snapshot": {
+      "accessed_at": "2026-08-31T18:24:48.996820Z",
+      "file_sha256": "9c34cdf9948622857545d717782ee1856ec604453fcb82d58e577a0f5f2ab0da",
+      "path": "configs/pilot_3/metadata/source_snapshots.json",
+      "response_content_sha256_by_source": {
+        "aic": [
+          "0a4095b72360b5859e435c479e2724a2b2938ecaed9509329e9dcc6f11cc310a",
+          "1da9388626bda9c3262feb47d87777c39454d5545d3a46247efdab3b75ba625a",
+          "1f6b7ddfce4d33363d559d398ee788d4e9f0b6e9efa6b8521c35081b66469dcb",
+          "27663978f914c7f6274b65bb3bd9fdff18ff7be10b4eaccb3d5335c9c84f41b1",
+          "28bdf0bdf215252c3638db7ea8f1792496541e4063ee2ebe7f15e9e36a625f8e",
+          "2bc70067df0b0c2bf268f54624cee6d21d83e5beab8c6e12b87949c60722f6bc",
+          "2cfe9f0ee49506d235110822e9fb00d46a55e29723ead5715012c5f87bfda29f",
+          "3143106a1fbdf1fde73c20ffc83690abd72e5c109974eff6a0ade82210eb1fed",
+          "31b3eab5c7c9cea416e39bb7ea991c77977962741d3ba519bc49d9dc111e3d0f",
+          "3a3a74882c49240ce24fd65f1cb17192e5f224f4c96b0697d2377f5224a02f06",
+          "3d837bb9e9d7f23f5d0dcf54b9907224d135ad36d2d878730898b41c1f8d4d78",
+          "48b00e32dbf30bf9eeadcf7eca0f1edea77eb4c520ddb25ec86df1694d3ee4d8",
+          "4b510e756b5a7892700d3de0318fca13386d781e9ea9302a89d1914ba433a7b0",
+          "505dae76389f6bfc2a1657cd1ab9ade4a5959411894fbfd4327dbd79a2c77b4a",
+          "66e20862a7b4bcce9a9edc5789872a485a0eceb54f2d00ccfd7b38d9af0e6a2e",
+          "675e353ad96a1382e78d6ce0cfec89ff9144db65f015cad12e35ae9cab822b88",
+          "744c22d1b274db09a31c931a41a5659c14020774e4fa7fde2b633ef7d4aed566",
+          "77ce671281b921a690c26a0679c951bae4e7057bd692041fec000af6a42ce881",
+          "79c72abebc3a658341b870792f1f48ee9535d4d401f935ee40031bf8e0c02abd",
+          "84496408e5ce577963a7d3ce8271176eee5fbd6295abd9764ba25906cbd07371",
+          "8c483e8047d0f36d787818df60375902578ce15085bf4a2c1da8dd9acc7b1527",
+          "9067bc63091e7d350edc915374b144d108312f582695f4c59cd4a27b9980aaed",
+          "94b0e4391ceb7129070cfa2e849d4e4c86bd8976a06bf10f7557e61509943880",
+          "95cb950412c66bc35341eb16c8a71c900210fd790bfcc68510d24dcc5e83098c",
+          "963a95bece535003d1a325c83c0cbb528a2472471e38cf2a1df25d49a1efe7fd",
+          "96ae3b05b8fa649ec1a8c0a0be2f3e0f8940d6a09c0a98076d1ead029ac8ab60",
+          "9773d184a1179829438937a7f5b2f7a55d4f02fbba98fad03d8e24caa5aa5654",
+          "9b0242d2fd9e1e2e4f36ebf633d4808c0cdc2607f314481c39381b86542bc51a",
+          "9c0f98558a1dd684692c6f6368ec2cbf3655d9a03458ca67ffe0750229edabff",
+          "a05472ec51a40633481c9c48f7fa7328710416736a506bc3f68eff77953e2f71",
+          "b52e3eb59e32a53b3e07bb7ea4ca3e5813b91a9a4cc520766b20808ea4098877",
+          "ba2ced1e2eccf5071574a3190fd546b46891fba035f84d391a7ab631ed8d6589",
+          "bb66bac43a1ed087815f58a642b8fe5e0ffe5d0b9810e73be4fc374acb3a0fd8",
+          "c150a1aa4396e49354b2b160c6a1c9f12543c9affe9f1676e9f2b85e625db3c4",
+          "c2d1db5f85d1599147a2d9e6276c8b7dc27d99c7009d10e6fea0410e733b784c",
+          "c3b4a64909213c99c4acea964643ddf737b1eb56a4773e45d35b8f826b1d5958",
+          "c6505f2562fc28eee01be6b818713f0c6b7a3e3f24f9223b2765d07390d986ac",
+          "cc2e853dd69c8e5931f09fb0d98321b0588665343d53972f57462e40378cf6a9",
+          "d82ba014fd946c25e6abfeb6271641b1643b058961b5c38d4456d1f3b1d2ebb7",
+          "d97543c915d381ee9b741356c008b847562968d62564a9710d6d9e00ec3e1662",
+          "db6f9a801f5ba76977c899ac8ee80d0a38cc4bccf44b1a8d3acd2c2e630053e0",
+          "ec565ef5018a099fc278c713735ebfb2b6b5ef88dd2231e56fac99ed169a8a10",
+          "ece4e53473f3fe1431899205ef157ad857d590a78d25630851cf25c2a73a78e4",
+          "f8ffa728ed40f56553c1af73760d833871481fdeb882f36a31ffd4177c77c1d7",
+          "fedf5641ec864aafc3ceba4102114fee02810c7c6e92b0c5233aec1e57eef002"
+        ],
+        "met": [
+          "303cf85a5aefd8a10625c0cf73e5d5ad5b08f20a685c48c1aa057da9bc7ec7d4",
+          "608ebdd00946a8214a36b35d09b5e3ddff29e7a88bb723d44167781c03683043",
+          "77d2741b8b4ae4a55986b2d0ecaf6ec1e7766f57b9f77cc05541b8e344869643",
+          "de617b9c947458e426111207f81a65bd1379a151c0077d3ce29cfc22fc0b9183",
+          "f962a9c486adb0fbf5028f3843711ed5e85da8dc732ef718762d069efde0c801"
+        ],
+        "museum_balanced": [
+          "08b264b543c31039ce07c620deeaa3b7745fb8ec2693c3661c42b06ebc30fb33",
+          "455a0ec2423372e4747f6682a169da207178484f7d7624805ccdf8532377f016",
+          "571899952f872784e09727636d8151cc79ed718f49c1ee98de576728a87253e5",
+          "585cb2619900d98f61fea1531f57a54eea3d83d419cc5623452cea3b1e0ad5a7",
+          "5e634fff314c74cda70b6109bf1307e56713ed442cc75a1cf53a2d08852d24ac",
+          "762e00cfb97d054b236a081a16f283d0ac9a1446a0f07db41b9bae2386798d6b",
+          "9bf2e4a4f1a6e5bbe4deef2a17f2ad805782c205bc44e97c52b13c375255b499",
+          "a4bebc4a407d62c235b821d2bce35fbb4ca05e3cd40b995c4e28f4a45a8963e3",
+          "a9724cade0f19104218b3b934bb5b67504108a59830f7b493e4d6c171183bdc3",
+          "ac04490f200ff7dffb674fa68d5bc1781417b5ee44c17f0b91465aab54374e4e",
+          "b710e27254c468014cf7b27d0d576aee69d1db132200adf6a0fc35d528ec752f",
+          "be1d10ed276cc7c799652ad755b989ce4afa291ff7de6d1d50678803a4cd6a79",
+          "d578f7986c30b7936ea7515fc069524a3bd4a1cdb5b1e43b7d81a6e105af5595",
+          "dce824c898a63772a7ff344e4d27337bb90565d0c0d2fa7826a03733366051f2",
+          "e96d5d61a75a52ff8b4fa74a73ea76cbb7677b74ab057ec8796083aee2fb1f10",
+          "f34a1c15467b7a2055782e0a4bdc8085ec7c6bf293b46a7454abfda6923473f7"
+        ]
+      },
+      "semantic_sha256": "b21e229f2aa4f90c239338a76de507086f299cf778930f5aa8d10bda098827eb"
+    }
+  },
+  "candidate_universe_disposition": {
+    "artists": [
+      {
+        "artist_id": "alfred_sisley",
+        "artist_name": "Alfred Sisley",
+        "basis": "incumbent outdoor-place anchor with prior multi-source catalog evidence; paired prospectively with Renoir",
+        "disposition": "selected_finalist"
+      },
+      {
+        "artist_id": "armand_guillaumin",
+        "artist_name": "Armand Guillaumin",
+        "basis": "outside the two reciprocal pairs chosen for the fixed four-artist pilot; this is not a catalog-absence claim",
+        "disposition": "not_advanced_to_fresh_audit"
+      },
+      {
+        "artist_id": "berthe_morisot",
+        "artist_name": "Berthe Morisot",
+        "basis": "outside the two reciprocal pairs chosen for the fixed four-artist pilot; this is not a catalog-absence claim",
+        "disposition": "not_advanced_to_fresh_audit"
+      },
+      {
+        "artist_id": "camille_pissarro",
+        "artist_name": "Camille Pissarro",
+        "basis": "incumbent outdoor-place anchor in the prospectively retained Pissarro-Cezanne reciprocal pair",
+        "disposition": "selected_finalist"
+      },
+      {
+        "artist_id": "claude_monet",
+        "artist_name": "Claude Monet",
+        "basis": "prior project metadata had no eligible Met cell under the common acquisition design; no broader catalog-absence claim is made",
+        "disposition": "not_advanced_to_fresh_audit"
+      },
+      {
+        "artist_id": "eugene_boudin",
+        "artist_name": "Eugene Boudin",
+        "basis": "outside the two reciprocal pairs chosen for the fixed four-artist pilot; this is not a catalog-absence claim",
+        "disposition": "not_advanced_to_fresh_audit"
+      },
+      {
+        "artist_id": "gustave_caillebotte",
+        "artist_name": "Gustave Caillebotte",
+        "basis": "outside the two reciprocal pairs chosen for the fixed four-artist pilot; this is not a catalog-absence claim",
+        "disposition": "not_advanced_to_fresh_audit"
+      },
+      {
+        "artist_id": "paul_cezanne",
+        "artist_name": "Paul Cezanne",
+        "basis": "incumbent outdoor-place anchor in the prospectively retained Pissarro-Cezanne reciprocal pair",
+        "disposition": "selected_finalist"
+      },
+      {
+        "artist_id": "pierre_auguste_renoir",
+        "artist_name": "Pierre-Auguste Renoir",
+        "basis": "prior research supported outdoor-place coverage and a historically defensible reciprocal comparison with Sisley",
+        "disposition": "selected_finalist"
+      }
+    ],
+    "decision_stage": "before_fresh_authoritative_metadata_collection_and_before_any_pilot3_pixels_or_features",
+    "fresh_authoritative_audit_scope": "four_selected_finalists_only",
+    "selection_type": "purposive_finite_pilot_roster_from_prior_research_not_probability_sampling",
+    "unselected_artist_feasibility_claim": false
+  },
+  "checks": {
+    "artist_authority_ids_and_aliases_verified": true,
+    "attribution_and_painting_classification_verified": true,
+    "canonical_identity_and_duplicate_review_complete": true,
+    "common_domain_metadata_rule_verified": true,
+    "external_holdout_contains_three_complete_blocks": true,
+    "external_holdout_is_museum_balanced_only": true,
+    "independent_collection_governance_verified": true,
+    "no_artwork_or_generated_bytes_opened": true,
+    "no_features_or_effect_estimates_used": true,
+    "public_domain_and_asset_rights_basis_verified": true,
+    "raw_response_hashes_and_access_dates_bound": true,
+    "selected_cell_sizes_match_frozen_design": true
+  },
+  "claim_boundary": "Freeze A1 fixes 40 development works (five per artist in each of AIC and Met) and a 12-work external holdout comprising three complete four-artist official-museum blocks. It does not claim that any artwork file has been acquired, rehashed, decoded, visually reviewed, or feature-qualified.",
+  "config_binding": {
+    "file_sha256": "82534cc1af7bbabcd3e7a65dab961023770609b50ecd35da386eb4c65ba22a0e",
+    "path": "configs/pilot_3/corpus_freeze.json"
+  },
+  "deduplication_review": {
+    "canonical_identity_policy": "one physical museum holding per source-object/accession identity; shared Wikidata work identities would fail closed",
+    "cross_source_distinctness_verified": true,
+    "duplicate_authoritative_work_id_count": 0,
+    "eligible_unique_physical_work_count": 77,
+    "title_year_collision_count": 1,
+    "title_year_collisions_reviewed_as_distinct": [
+      {
+        "artist_id": "camille_pissarro",
+        "canonical_work_ids": [
+          "work-met-437312",
+          "work-met-437314"
+        ],
+        "creation_year": 1899,
+        "normalized_title": "the garden of the tuileries on a winter afternoon",
+        "resolution": "distinct_physical_holdings_confirmed_by_unique_museum_object_and_accession_ids"
+      }
+    ],
+    "title_year_used_for_automatic_union": false
+  },
+  "feasibility_binding": {
+    "path": "reports/pilot_3/evidence/artist_source_feasibility.json",
+    "semantic_sha256": "7d831268d9e02ed6dd2f563210577ec503893d533109793bc7fe2d02c856a5cc",
+    "status": "authoritative_metadata_audit_complete_freeze_a1_ready"
+  },
+  "freeze_a1_ready": true,
+  "historical_planning_result": {
+    "file_sha256": "0ecdb14b112533a5cdfdd27a9851427e49383191bc28f3ced89778a0973d360c",
+    "path": "reports/pilot_3/evidence/historical/artist_source_feasibility_planning_snapshot.json",
+    "preservation_role": "superseded_planning_snapshot_not_current_p3_t01",
+    "semantic_sha256": "29443bb3f3cac3b3f88d944995673d338939bed1892d925facf99ce9064a928c",
+    "status": "metadata_snapshot_audit_complete_not_freeze_ready"
+  },
+  "manifests": {
+    "corpus_selection": {
+      "file_sha256": "269369976d04431fccd1bc8b60ec7e49733d8a8537a3e38f3a974d61dca3e80a",
+      "path": "data/manifests/pilot_3/corpus_selection.jsonl",
+      "row_count": 77,
+      "rows_semantic_sha256": "e7352c239f9a18e2c789bcb0264d8e4ad4ca0bb60f6ed4c2995cf2eb4a60e25e"
+    },
+    "real_splits": {
+      "file_sha256": "0390c43435176df178a8d0e9b6c2dc407dca5a42acd6353183eb9b6198f4095f",
+      "path": "data/manifests/pilot_3/real_splits.jsonl",
+      "row_count": 77,
+      "rows_semantic_sha256": "5f86606b3e60095c9a69cfb434cc95143073076d3fd7cab6bbc7db05f7e62fed"
+    }
+  },
+  "prior_local_reproduction_reuse": {
+    "artwork_files_opened_or_hashed_by_freeze": false,
+    "canonical_works_file_sha256": "0e3b15cbf0de28cf15e3d2e5430c88aea9ee68283b392aacbc66e7dec9a52f3a",
+    "canonical_works_path": "configs/pilot_0/manifests/canonical_works.jsonl",
+    "reproductions_file_sha256": "3908a3eab4db54c8954ad4a82a50d12699517cfca800c983b79069d0afbd1f62",
+    "reproductions_path": "configs/pilot_0/manifests/reproductions.jsonl",
+    "reuse_policy": "reuse_only_after_freeze_a1_and_phase_a_rehash_matches_the_prior_manifest_sha256",
+    "selected_rows_with_prior_pointer": 0
+  },
+  "record_type": "pilot3_corpus_selection",
+  "schema_version": "pilot3-corpus-selection/1.0",
+  "selection": {
+    "artist_count": 4,
+    "development_works_per_artist_source": 5,
+    "external_works_per_artist": 3,
+    "forbidden_selection_inputs_used": [],
+    "not_selected_partition": null,
+    "not_selected_replacement_policy": "development_unselected_candidates_are_not_automatic_substitutes; external_has_no_post_freeze_replacement_and_any_failed_block_retires_external_validation",
+    "not_selected_work_count": 25,
+    "partition_counts": {
+      "development_calibration": 8,
+      "development_training": 32,
+      "external_holdout": 12
+    },
+    "replacement_eligible_reserve_work_count": 0,
+    "selected_counts_by_artist_source": {
+      "alfred_sisley": {
+        "aic": 5,
+        "met": 5,
+        "museum_balanced": 3
+      },
+      "camille_pissarro": {
+        "aic": 5,
+        "met": 5,
+        "museum_balanced": 3
+      },
+      "paul_cezanne": {
+        "aic": 5,
+        "met": 5,
+        "museum_balanced": 3
+      },
+      "pierre_auguste_renoir": {
+        "aic": 5,
+        "met": 5,
+        "museum_balanced": 3
+      }
+    },
+    "selected_work_count": 52,
+    "selection_basis": "authoritative public-domain painting metadata, frozen outdoor-place metadata rule, coverage, then deterministic preregistered ranking",
+    "source_count": 3
+  },
+  "semantic_sha256": "7404b8edc0f0a86c8c4b81711f65eb85f49241f08388d839a44b3974b0a48ca1",
+  "status": "freeze_a1_complete"
+}

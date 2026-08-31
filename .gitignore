@@ -15,6 +15,31 @@ outputs/
 *.tiff
 *.webp
 
+# Compact Pilot 3 freeze/evidence files. Raw museum bytes, normalized artwork,
+# and the 320 analytic outputs remain ignored by the directory-level rules.
+!data/
+data/*
+!data/manifests/
+data/manifests/*
+!data/manifests/pilot_3/
+!data/manifests/pilot_3/*.jsonl
+
+!artifacts/
+artifacts/*
+!artifacts/pilot_3/
+artifacts/pilot_3/*
+!artifacts/pilot_3/*.json
+!artifacts/pilot_3/*.jsonl
+!artifacts/pilot_3/a_vector_state/
+!artifacts/pilot_3/a_vector_state/*.npy
+
+!outputs/
+outputs/*
+!outputs/pilot_3/
+outputs/pilot_3/*
+!outputs/pilot_3/transport_qualification/
+!outputs/pilot_3/transport_qualification/**
+
 # Deterministic, downsampled Pilot 2 visual-QC sheets (raw outputs stay ignored).
 !reports/pilot_2/visual_qc/
 !reports/pilot_2/visual_qc/*.png

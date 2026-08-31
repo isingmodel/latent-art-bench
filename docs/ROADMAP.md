@@ -254,6 +254,39 @@ independent-digitization work before broadening scope. The final
 [failure investigation](PILOT_2_FAILURE_INVESTIGATION.md) are the authoritative
 `pilot_2` records.
 
+## Pilot_3 staged execution
+
+The successor is implemented as a sequence of fail-closed freezes. At the current prospective
+stage no Pilot 3 artwork byte, image transport request, or generated output has been opened.
+
+| Item | Frozen result | Consequence |
+|---|---|---|
+| Artist target | four named artists; era/movement metadata only | finite-roster inference; no movement or artist-population claim |
+| Candidate decision | Sisley, Pissarro, Cezanne, and Renoir advanced purposively from nine prior-research candidates before fresh collection | no fresh feasibility claim for the five unadvanced candidates |
+| Real corpus | 40 AIC/Met development works plus 12 sealed official-museum works in complete Minneapolis, Dallas, and Toledo blocks; 25 metadata-only `not_selected` candidates and zero replacement-eligible reserves | Freeze A1 can authorize development pixels only |
+| Measurement | pinned harmonized Kim A-vector, train-only PCA, exact repeat probes, calibration and one-shot external gates | claims restricted to A-vector proximity for exact bytes/pipeline |
+| Lee method | terminal paper/source-fixture review required | Lee is retired if the exact Figure 1 fixture is unavailable; no substitute crop or look-alike |
+| Generated design | 16 blocks × 4 repetitions × (4 named + 1 shared control) = 320 requests | budget-constrained estimation design; no 80%-power claim |
+| Model/transport | only `gpt-image-2` scheduled through `~/dev/openai-oauth`; `gpt-image-1` historical only | no direct, browser, snapshot, second-model, or silent fallback |
+
+The redesign corrects the failure mode exposed by Pilot 2. Availability is a separate outcome;
+all artists must contribute usable pairs; aggregate, per-artist, and artist-disparity rules are
+required; fidelity-like language is narrowed to frozen A-vector proximity; and missingness
+bounds apply only to the bounded transformed score, not raw Euclidean distance.
+
+The execution order is binding:
+
+1. commit Freeze A1 and then acquire/extract only the 40 AIC/Met development works;
+2. run eight exact repeat probes and fit/evaluate development-only PCA, centroids, calibration,
+   source diagnostics, and tau values;
+3. commit Freeze A2 and atomically unseal the three complete four-work museum blocks exactly once;
+4. stop Phase B if the one-shot external gate fails; otherwise qualify the dedicated OAuth
+   route, bind the final analysis and schedule, and commit Freeze B;
+5. execute all 320 scheduled requests without replacement or visual selection, extract the
+   frozen features, run the registered two-part analysis, and publish the full ledger/report.
+
+The canonical design and hard stops are in the [Pilot 3 protocol](PILOT_3_PROTOCOL.md).
+
 ## Explicitly outside pilot_2's core
 
 Movement-level inference, broad era classification, prototype contraction, contextual

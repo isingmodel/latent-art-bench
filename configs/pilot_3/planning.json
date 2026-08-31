@@ -1,0 +1,206 @@
+{
+  "schema_version": "pilot3-planning/1.0",
+  "status": "development_draft",
+  "generation_gate": "closed",
+  "planning_scope": "offline_metadata_and_simulation_only",
+  "artist_target_policy": {
+    "target_unit": "named_artist",
+    "era_and_movement_role": "metadata_and_stratification_only",
+    "selection_prohibition": "artists may not be selected from generated outputs, feature separability, or favorable effect estimates",
+    "shared_content_domain": "landscape_and_outdoor_place_scene"
+  },
+  "candidate_artists": [
+    {
+      "artist_id": "alfred_sisley",
+      "artist_name": "Alfred Sisley",
+      "candidate_role": "incumbent_candidate",
+      "death_year": 1899,
+      "neighbor_candidates": [
+        "claude_monet"
+      ],
+      "selection_basis": "Existing metadata-qualified landscape candidate and the frozen Monet neighbor from pilots 0-2."
+    },
+    {
+      "artist_id": "armand_guillaumin",
+      "artist_name": "Armand Guillaumin",
+      "candidate_role": "expansion_candidate",
+      "death_year": 1927,
+      "neighbor_candidates": [
+        "camille_pissarro",
+        "paul_cezanne"
+      ],
+      "selection_basis": "Public-domain landscape candidate from the Pissarro-Cezanne circle; retained only if the prospective source audit supports the common domain."
+    },
+    {
+      "artist_id": "berthe_morisot",
+      "artist_name": "Berthe Morisot",
+      "candidate_role": "expansion_candidate",
+      "death_year": 1895,
+      "neighbor_candidates": [
+        "pierre_auguste_renoir"
+      ],
+      "selection_basis": "Historically central Impressionist candidate that broadens the roster; outdoor-place availability is an explicit feasibility risk, not an assumed fact."
+    },
+    {
+      "artist_id": "camille_pissarro",
+      "artist_name": "Camille Pissarro",
+      "candidate_role": "incumbent_candidate",
+      "death_year": 1903,
+      "neighbor_candidates": [
+        "paul_cezanne",
+        "armand_guillaumin"
+      ],
+      "selection_basis": "Existing metadata-qualified landscape candidate and the frozen Cezanne neighbor from pilots 0-2."
+    },
+    {
+      "artist_id": "claude_monet",
+      "artist_name": "Claude Monet",
+      "candidate_role": "incumbent_candidate",
+      "death_year": 1926,
+      "neighbor_candidates": [
+        "alfred_sisley",
+        "eugene_boudin"
+      ],
+      "selection_basis": "Existing metadata-qualified landscape candidate and the frozen Sisley neighbor from pilots 0-2."
+    },
+    {
+      "artist_id": "eugene_boudin",
+      "artist_name": "Eugène Boudin",
+      "candidate_role": "expansion_candidate",
+      "death_year": 1898,
+      "neighbor_candidates": [
+        "claude_monet"
+      ],
+      "selection_basis": "Public-domain outdoor and coastal-painting candidate with a historically defensible relationship to Monet; source balance remains to be established."
+    },
+    {
+      "artist_id": "gustave_caillebotte",
+      "artist_name": "Gustave Caillebotte",
+      "candidate_role": "expansion_candidate",
+      "death_year": 1894,
+      "neighbor_candidates": [
+        "claude_monet",
+        "pierre_auguste_renoir"
+      ],
+      "selection_basis": "Public-domain Impressionist participant with urban and suburban outdoor scenes; the common-domain filter must be applied before selection."
+    },
+    {
+      "artist_id": "paul_cezanne",
+      "artist_name": "Paul Cezanne",
+      "candidate_role": "incumbent_candidate",
+      "death_year": 1906,
+      "neighbor_candidates": [
+        "camille_pissarro",
+        "armand_guillaumin"
+      ],
+      "selection_basis": "Existing metadata-qualified landscape candidate and the frozen Pissarro neighbor from pilots 0-2; pilot-2 refusals make availability a substantive endpoint."
+    },
+    {
+      "artist_id": "pierre_auguste_renoir",
+      "artist_name": "Pierre-Auguste Renoir",
+      "candidate_role": "expansion_candidate",
+      "death_year": 1919,
+      "neighbor_candidates": [
+        "berthe_morisot",
+        "gustave_caillebotte"
+      ],
+      "selection_basis": "Public-domain peer candidate with outdoor-place works and a known genre-mix risk that the metadata audit must resolve."
+    }
+  ],
+  "feasibility": {
+    "metadata_paths": [
+      "configs/pilot_3/metadata/authoritative_candidates.jsonl"
+    ],
+    "source_ids": [
+      "aic",
+      "met",
+      "museum_balanced"
+    ],
+    "eligible_decisions": [
+      "include"
+    ],
+    "require_confirmed_public_domain": true,
+    "min_unique_works_per_artist_source": 3,
+    "min_artist_count": 4,
+    "min_source_count": 3,
+    "physical_work_deduplication": "authoritative_identifiers_only"
+  },
+  "corpus_freeze": {
+    "config_path": "configs/pilot_3/corpus_freeze.json",
+    "config_file_sha256": "82534cc1af7bbabcd3e7a65dab961023770609b50ecd35da386eb4c65ba22a0e"
+  },
+  "pilot2_baseline_recovery": {
+    "candidate_artist_ids": [
+      "alfred_sisley",
+      "camille_pissarro",
+      "claude_monet",
+      "paul_cezanne"
+    ],
+    "source_ids": [
+      "aic",
+      "nga"
+    ],
+    "min_unique_works_per_artist_source": 5,
+    "min_artist_count": 4,
+    "min_source_count": 2
+  },
+  "design": {
+    "artist_counts": [
+      6,
+      8,
+      10
+    ],
+    "content_block_counts": [
+      8,
+      12,
+      16
+    ],
+    "repetition_counts": [
+      2,
+      3,
+      4
+    ],
+    "min_request_budget": 250,
+    "max_request_budget": 500,
+    "draws": 2000,
+    "seed": 20260903,
+    "familywise_alpha": 0.05,
+    "minimum_pair_availability": 0.9,
+    "request_count_formula": "(artist_count + one_artist_free_control) * content_blocks * repetitions * one_requested_label"
+  },
+  "development_inputs": {
+    "pilot2_analysis": {
+      "path": "reports/pilot_2/analysis.json",
+      "file_sha256": "e364ca0cefcfeaac88e9b1ee3071047cf4bc35a5605808b9b81a92ebccae83e4",
+      "use": "development calibration and scenario construction only; never treated as confirmatory truth"
+    },
+    "pilot2_generation_completion": {
+      "path": "reports/pilot_2/evidence/generation_completion.json",
+      "file_sha256": "e82b79af63505f6dc148b797ca48e8d1b5cb98372f7e132a7c0e2d61a5ff298f",
+      "use": "development availability and refusal pattern only"
+    },
+    "pilot2_learned_formal_qualification": {
+      "path": "reports/pilot_2/evidence/learned_formal_qualification.json",
+      "file_sha256": "7458924ef8bcdd9a6d653c40e91f5987c3a5b9aa4cd7ff6e34225aa7a2e780b3",
+      "use": "machine recovery of the prior development-atlas qualification result only; never external validation"
+    },
+    "candidate_metadata": {
+      "path": "configs/pilot_0/candidate_work_audit.jsonl",
+      "file_sha256": "0c258e7aacddcf4aa07d469d97244cc29d77854ac872d38b30c58faf04c79c5d",
+      "use": "metadata-only feasibility; no image bytes or derived features"
+    }
+  },
+  "future_generation_boundary": {
+    "allowed_model_families": [
+      "gpt-image-1",
+      "gpt-image-2"
+    ],
+    "generation_permitted_in_this_phase": false,
+    "future_single_label_candidate": "gpt-image-2",
+    "documented_public_api_snapshot_candidate": "gpt-image-2-2026-04-21",
+    "snapshot_status": "documented_but_not_verified_or_frozen_for_openai_oauth",
+    "gpt_image_1_role": "historical_deprecated_requested_label_evidence_only",
+    "transport": "~/dev/openai-oauth",
+    "executed_model_identity_boundary": "the existing OAuth evidence attests requested-label acceptance, not the upstream executed model"
+  }
+}

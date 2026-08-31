@@ -2,6 +2,39 @@
 
 ## Current disposition
 
+`pilot_3` now has an assembled prospective Freeze-A1 package. The authoritative finalist
+metadata audit, corpus selection, source-held split, Phase-A measurement contract, and final
+budget-constrained Phase-B estimation design are implemented. No Pilot 3 artwork byte,
+transport-conformance request, or generated output has yet been opened; the applicable gates
+remain closed until explicit freeze commits.
+
+| `pilot_3` planning layer | Current status |
+|---|---|
+| Target | named artists; eras/movements are metadata only |
+| Candidate decision | 9 prior-research candidates; 4 purposively advanced before fresh collection; no feasibility claim for the other 5 |
+| Successor metadata audit | complete for the 4 finalists, 2 development sources, and 3 official external museum/provider blocks |
+| Pilot 2 machine recovery | `pass`; counts, refusals, descriptive rows, qualification, and simulator inputs re-derived |
+| Final generated design | 16 content blocks × 4 repetitions × (4 named + 1 shared control) = 320 `gpt-image-2` requests; estimation only |
+| Real-corpus sample size | 52 selected: 32 training, 8 calibration, 12 sealed external; 25 metadata-only `not_selected` candidates; zero replacement-eligible reserves and no post-Freeze-A1 replacement |
+| External design | complete Minneapolis, Dallas, and Toledo blocks; one work per artist per block; exact within-block `24^3 = 13,824` label assignments |
+| Asset/claim boundary | exact official museum bytes; internal noncommercial research only; no redistribution, same-session, or cross-digitization claim |
+| Generation gate | closed |
+| Next authorized action | commit Freeze A1, then acquire/extract the 40 development works only |
+
+The [Pilot 3 protocol](PILOT_3_PROTOCOL.md),
+[planning report](../reports/pilot_3/PLANNING_REPORT.md), and
+[planning index](../reports/pilot_3/planning_index.json) give the exact claim and I/O
+boundaries. The assembled package does not authorize pixels until committed, and Freeze A1
+does not authorize the external holdout or generation.
+
+Development uses five works per artist from each of AIC and Met. The external holdout uses
+official assets supplied by Minneapolis Institute of Art, Dallas Museum of Art, and Toledo
+Museum of Art; Commons delivery is prohibited. Blocking controls holding institution and
+official asset provider, but published metadata do not establish a common camera, operator,
+capture date, or conservation-imaging session within a block.
+
+## Final pilot_2 disposition
+
 `pilot_2` completed its prospectively frozen generated-output phase and passed offline
 verification. Its learned-formal calibration gate is `pass`, all 320 assigned cells are
 terminal, and the registered analysis ran. The exact next-step decision is

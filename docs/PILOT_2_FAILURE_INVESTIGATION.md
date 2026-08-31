@@ -101,7 +101,7 @@ Generated images are never selected by visual quality. A completed null or negat
 a successful pilot execution; it does not authorize new prompts, more samples, exclusions, or
 threshold changes.
 
-Primary sources: Kim et al., *Scientific Reports* (2026), DOI
-`10.1038/s41598-025-30166-1`; released code at
+Primary sources: Kim et al., *Proceedings of the National Academy of Sciences* (2026), DOI
+`10.1073/pnas.2517969123`; released code at
 <https://github.com/aljinny/art-history>; Lee et al., *PLOS ONE* (2018), DOI
 `10.1371/journal.pone.0204430`.

@@ -1,0 +1,1335 @@
+{
+  "artist_source_counts": [
+    {
+      "artist_id": "alfred_sisley",
+      "artist_name": "Alfred Sisley",
+      "sources": [
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 6,
+          "eligible_unique_physical_work_count": 6,
+          "observed_row_count": 6,
+          "source_id": "aic"
+        },
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 1,
+          "eligible_unique_physical_work_count": 1,
+          "observed_row_count": 1,
+          "source_id": "cma"
+        },
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 7,
+          "eligible_unique_physical_work_count": 7,
+          "observed_row_count": 7,
+          "source_id": "met"
+        },
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 7,
+          "eligible_unique_physical_work_count": 7,
+          "observed_row_count": 7,
+          "source_id": "nga"
+        }
+      ]
+    },
+    {
+      "artist_id": "armand_guillaumin",
+      "artist_name": "Armand Guillaumin",
+      "sources": [
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 0,
+          "eligible_unique_physical_work_count": 0,
+          "observed_row_count": 0,
+          "source_id": "aic"
+        },
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 0,
+          "eligible_unique_physical_work_count": 0,
+          "observed_row_count": 0,
+          "source_id": "cma"
+        },
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 0,
+          "eligible_unique_physical_work_count": 0,
+          "observed_row_count": 0,
+          "source_id": "met"
+        },
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 0,
+          "eligible_unique_physical_work_count": 0,
+          "observed_row_count": 0,
+          "source_id": "nga"
+        }
+      ]
+    },
+    {
+      "artist_id": "berthe_morisot",
+      "artist_name": "Berthe Morisot",
+      "sources": [
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 0,
+          "eligible_unique_physical_work_count": 0,
+          "observed_row_count": 0,
+          "source_id": "aic"
+        },
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 0,
+          "eligible_unique_physical_work_count": 0,
+          "observed_row_count": 0,
+          "source_id": "cma"
+        },
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 0,
+          "eligible_unique_physical_work_count": 0,
+          "observed_row_count": 0,
+          "source_id": "met"
+        },
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 0,
+          "eligible_unique_physical_work_count": 0,
+          "observed_row_count": 0,
+          "source_id": "nga"
+        }
+      ]
+    },
+    {
+      "artist_id": "camille_pissarro",
+      "artist_name": "Camille Pissarro",
+      "sources": [
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 7,
+          "eligible_unique_physical_work_count": 7,
+          "observed_row_count": 10,
+          "source_id": "aic"
+        },
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 3,
+          "eligible_unique_physical_work_count": 3,
+          "observed_row_count": 3,
+          "source_id": "cma"
+        },
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 15,
+          "eligible_unique_physical_work_count": 15,
+          "observed_row_count": 19,
+          "source_id": "met"
+        },
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 15,
+          "eligible_unique_physical_work_count": 15,
+          "observed_row_count": 17,
+          "source_id": "nga"
+        }
+      ]
+    },
+    {
+      "artist_id": "claude_monet",
+      "artist_name": "Claude Monet",
+      "sources": [
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 32,
+          "eligible_unique_physical_work_count": 32,
+          "observed_row_count": 33,
+          "source_id": "aic"
+        },
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 3,
+          "eligible_unique_physical_work_count": 3,
+          "observed_row_count": 5,
+          "source_id": "cma"
+        },
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 0,
+          "eligible_unique_physical_work_count": 0,
+          "observed_row_count": 0,
+          "source_id": "met"
+        },
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 19,
+          "eligible_unique_physical_work_count": 19,
+          "observed_row_count": 27,
+          "source_id": "nga"
+        }
+      ]
+    },
+    {
+      "artist_id": "eugene_boudin",
+      "artist_name": "Eugène Boudin",
+      "sources": [
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 0,
+          "eligible_unique_physical_work_count": 0,
+          "observed_row_count": 0,
+          "source_id": "aic"
+        },
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 0,
+          "eligible_unique_physical_work_count": 0,
+          "observed_row_count": 0,
+          "source_id": "cma"
+        },
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 0,
+          "eligible_unique_physical_work_count": 0,
+          "observed_row_count": 0,
+          "source_id": "met"
+        },
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 0,
+          "eligible_unique_physical_work_count": 0,
+          "observed_row_count": 0,
+          "source_id": "nga"
+        }
+      ]
+    },
+    {
+      "artist_id": "gustave_caillebotte",
+      "artist_name": "Gustave Caillebotte",
+      "sources": [
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 0,
+          "eligible_unique_physical_work_count": 0,
+          "observed_row_count": 0,
+          "source_id": "aic"
+        },
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 0,
+          "eligible_unique_physical_work_count": 0,
+          "observed_row_count": 0,
+          "source_id": "cma"
+        },
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 0,
+          "eligible_unique_physical_work_count": 0,
+          "observed_row_count": 0,
+          "source_id": "met"
+        },
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 0,
+          "eligible_unique_physical_work_count": 0,
+          "observed_row_count": 0,
+          "source_id": "nga"
+        }
+      ]
+    },
+    {
+      "artist_id": "paul_cezanne",
+      "artist_name": "Paul Cezanne",
+      "sources": [
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 5,
+          "eligible_unique_physical_work_count": 5,
+          "observed_row_count": 9,
+          "source_id": "aic"
+        },
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 3,
+          "eligible_unique_physical_work_count": 3,
+          "observed_row_count": 3,
+          "source_id": "cma"
+        },
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 10,
+          "eligible_unique_physical_work_count": 10,
+          "observed_row_count": 24,
+          "source_id": "met"
+        },
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 9,
+          "eligible_unique_physical_work_count": 9,
+          "observed_row_count": 23,
+          "source_id": "nga"
+        }
+      ]
+    },
+    {
+      "artist_id": "pierre_auguste_renoir",
+      "artist_name": "Pierre-Auguste Renoir",
+      "sources": [
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 0,
+          "eligible_unique_physical_work_count": 0,
+          "observed_row_count": 0,
+          "source_id": "aic"
+        },
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 0,
+          "eligible_unique_physical_work_count": 0,
+          "observed_row_count": 0,
+          "source_id": "cma"
+        },
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 0,
+          "eligible_unique_physical_work_count": 0,
+          "observed_row_count": 0,
+          "source_id": "met"
+        },
+        {
+          "duplicate_eligible_rows_removed": 0,
+          "eligible_row_count": 0,
+          "eligible_unique_physical_work_count": 0,
+          "observed_row_count": 0,
+          "source_id": "nga"
+        }
+      ]
+    }
+  ],
+  "best_available_biclique": {
+    "allocated_physical_work_ids": {},
+    "artist_count": 0,
+    "artist_coverage": [
+      {
+        "artist_id": "alfred_sisley",
+        "cell_unique_work_counts": {
+          "aic": 6,
+          "met": 7,
+          "nga": 7
+        },
+        "maximum_disjoint_balanced_works_per_source": 6,
+        "qualifies": false
+      },
+      {
+        "artist_id": "armand_guillaumin",
+        "cell_unique_work_counts": {
+          "aic": 0,
+          "met": 0,
+          "nga": 0
+        },
+        "maximum_disjoint_balanced_works_per_source": 0,
+        "qualifies": false
+      },
+      {
+        "artist_id": "berthe_morisot",
+        "cell_unique_work_counts": {
+          "aic": 0,
+          "met": 0,
+          "nga": 0
+        },
+        "maximum_disjoint_balanced_works_per_source": 0,
+        "qualifies": false
+      },
+      {
+        "artist_id": "camille_pissarro",
+        "cell_unique_work_counts": {
+          "aic": 7,
+          "met": 15,
+          "nga": 15
+        },
+        "maximum_disjoint_balanced_works_per_source": 7,
+        "qualifies": false
+      },
+      {
+        "artist_id": "claude_monet",
+        "cell_unique_work_counts": {
+          "aic": 32,
+          "met": 0,
+          "nga": 19
+        },
+        "maximum_disjoint_balanced_works_per_source": 0,
+        "qualifies": false
+      },
+      {
+        "artist_id": "eugene_boudin",
+        "cell_unique_work_counts": {
+          "aic": 0,
+          "met": 0,
+          "nga": 0
+        },
+        "maximum_disjoint_balanced_works_per_source": 0,
+        "qualifies": false
+      },
+      {
+        "artist_id": "gustave_caillebotte",
+        "cell_unique_work_counts": {
+          "aic": 0,
+          "met": 0,
+          "nga": 0
+        },
+        "maximum_disjoint_balanced_works_per_source": 0,
+        "qualifies": false
+      },
+      {
+        "artist_id": "paul_cezanne",
+        "cell_unique_work_counts": {
+          "aic": 5,
+          "met": 10,
+          "nga": 9
+        },
+        "maximum_disjoint_balanced_works_per_source": 5,
+        "qualifies": false
+      },
+      {
+        "artist_id": "pierre_auguste_renoir",
+        "cell_unique_work_counts": {
+          "aic": 0,
+          "met": 0,
+          "nga": 0
+        },
+        "maximum_disjoint_balanced_works_per_source": 0,
+        "qualifies": false
+      }
+    ],
+    "cell_count": 0,
+    "coverage_score_denominator": 90,
+    "coverage_score_numerator": 18,
+    "meets_min_artist_count": false,
+    "minimum_observed_unique_works_per_qualifying_cell": null,
+    "qualifying_artist_ids": [],
+    "source_count": 3,
+    "source_ids": [
+      "aic",
+      "met",
+      "nga"
+    ]
+  },
+  "biclique_search": {
+    "candidate_source_set_count": 5,
+    "exact_search": true,
+    "ranking_basis": [
+      "meets_min_artist_count",
+      "if threshold meeting: artist_source_cell_count, artist_count, source_count",
+      "if threshold not meeting: artist_count, coverage_score, source_count",
+      "source_ids_lexicographic_tiebreak"
+    ],
+    "searched_source_sets": [
+      {
+        "allocated_physical_work_ids": {},
+        "artist_count": 0,
+        "artist_coverage": [
+          {
+            "artist_id": "alfred_sisley",
+            "cell_unique_work_counts": {
+              "aic": 6,
+              "met": 7,
+              "nga": 7
+            },
+            "maximum_disjoint_balanced_works_per_source": 6,
+            "qualifies": false
+          },
+          {
+            "artist_id": "armand_guillaumin",
+            "cell_unique_work_counts": {
+              "aic": 0,
+              "met": 0,
+              "nga": 0
+            },
+            "maximum_disjoint_balanced_works_per_source": 0,
+            "qualifies": false
+          },
+          {
+            "artist_id": "berthe_morisot",
+            "cell_unique_work_counts": {
+              "aic": 0,
+              "met": 0,
+              "nga": 0
+            },
+            "maximum_disjoint_balanced_works_per_source": 0,
+            "qualifies": false
+          },
+          {
+            "artist_id": "camille_pissarro",
+            "cell_unique_work_counts": {
+              "aic": 7,
+              "met": 15,
+              "nga": 15
+            },
+            "maximum_disjoint_balanced_works_per_source": 7,
+            "qualifies": false
+          },
+          {
+            "artist_id": "claude_monet",
+            "cell_unique_work_counts": {
+              "aic": 32,
+              "met": 0,
+              "nga": 19
+            },
+            "maximum_disjoint_balanced_works_per_source": 0,
+            "qualifies": false
+          },
+          {
+            "artist_id": "eugene_boudin",
+            "cell_unique_work_counts": {
+              "aic": 0,
+              "met": 0,
+              "nga": 0
+            },
+            "maximum_disjoint_balanced_works_per_source": 0,
+            "qualifies": false
+          },
+          {
+            "artist_id": "gustave_caillebotte",
+            "cell_unique_work_counts": {
+              "aic": 0,
+              "met": 0,
+              "nga": 0
+            },
+            "maximum_disjoint_balanced_works_per_source": 0,
+            "qualifies": false
+          },
+          {
+            "artist_id": "paul_cezanne",
+            "cell_unique_work_counts": {
+              "aic": 5,
+              "met": 10,
+              "nga": 9
+            },
+            "maximum_disjoint_balanced_works_per_source": 5,
+            "qualifies": false
+          },
+          {
+            "artist_id": "pierre_auguste_renoir",
+            "cell_unique_work_counts": {
+              "aic": 0,
+              "met": 0,
+              "nga": 0
+            },
+            "maximum_disjoint_balanced_works_per_source": 0,
+            "qualifies": false
+          }
+        ],
+        "cell_count": 0,
+        "coverage_score_denominator": 90,
+        "coverage_score_numerator": 18,
+        "meets_min_artist_count": false,
+        "minimum_observed_unique_works_per_qualifying_cell": null,
+        "qualifying_artist_ids": [],
+        "source_count": 3,
+        "source_ids": [
+          "aic",
+          "met",
+          "nga"
+        ]
+      },
+      {
+        "allocated_physical_work_ids": {},
+        "artist_count": 0,
+        "artist_coverage": [
+          {
+            "artist_id": "alfred_sisley",
+            "cell_unique_work_counts": {
+              "aic": 6,
+              "cma": 1,
+              "nga": 7
+            },
+            "maximum_disjoint_balanced_works_per_source": 1,
+            "qualifies": false
+          },
+          {
+            "artist_id": "armand_guillaumin",
+            "cell_unique_work_counts": {
+              "aic": 0,
+              "cma": 0,
+              "nga": 0
+            },
+            "maximum_disjoint_balanced_works_per_source": 0,
+            "qualifies": false
+          },
+          {
+            "artist_id": "berthe_morisot",
+            "cell_unique_work_counts": {
+              "aic": 0,
+              "cma": 0,
+              "nga": 0
+            },
+            "maximum_disjoint_balanced_works_per_source": 0,
+            "qualifies": false
+          },
+          {
+            "artist_id": "camille_pissarro",
+            "cell_unique_work_counts": {
+              "aic": 7,
+              "cma": 3,
+              "nga": 15
+            },
+            "maximum_disjoint_balanced_works_per_source": 3,
+            "qualifies": false
+          },
+          {
+            "artist_id": "claude_monet",
+            "cell_unique_work_counts": {
+              "aic": 32,
+              "cma": 3,
+              "nga": 19
+            },
+            "maximum_disjoint_balanced_works_per_source": 3,
+            "qualifies": false
+          },
+          {
+            "artist_id": "eugene_boudin",
+            "cell_unique_work_counts": {
+              "aic": 0,
+              "cma": 0,
+              "nga": 0
+            },
+            "maximum_disjoint_balanced_works_per_source": 0,
+            "qualifies": false
+          },
+          {
+            "artist_id": "gustave_caillebotte",
+            "cell_unique_work_counts": {
+              "aic": 0,
+              "cma": 0,
+              "nga": 0
+            },
+            "maximum_disjoint_balanced_works_per_source": 0,
+            "qualifies": false
+          },
+          {
+            "artist_id": "paul_cezanne",
+            "cell_unique_work_counts": {
+              "aic": 5,
+              "cma": 3,
+              "nga": 9
+            },
+            "maximum_disjoint_balanced_works_per_source": 3,
+            "qualifies": false
+          },
+          {
+            "artist_id": "pierre_auguste_renoir",
+            "cell_unique_work_counts": {
+              "aic": 0,
+              "cma": 0,
+              "nga": 0
+            },
+            "maximum_disjoint_balanced_works_per_source": 0,
+            "qualifies": false
+          }
+        ],
+        "cell_count": 0,
+        "coverage_score_denominator": 90,
+        "coverage_score_numerator": 10,
+        "meets_min_artist_count": false,
+        "minimum_observed_unique_works_per_qualifying_cell": null,
+        "qualifying_artist_ids": [],
+        "source_count": 3,
+        "source_ids": [
+          "aic",
+          "cma",
+          "nga"
+        ]
+      },
+      {
+        "allocated_physical_work_ids": {},
+        "artist_count": 0,
+        "artist_coverage": [
+          {
+            "artist_id": "alfred_sisley",
+            "cell_unique_work_counts": {
+              "aic": 6,
+              "cma": 1,
+              "met": 7,
+              "nga": 7
+            },
+            "maximum_disjoint_balanced_works_per_source": 1,
+            "qualifies": false
+          },
+          {
+            "artist_id": "armand_guillaumin",
+            "cell_unique_work_counts": {
+              "aic": 0,
+              "cma": 0,
+              "met": 0,
+              "nga": 0
+            },
+            "maximum_disjoint_balanced_works_per_source": 0,
+            "qualifies": false
+          },
+          {
+            "artist_id": "berthe_morisot",
+            "cell_unique_work_counts": {
+              "aic": 0,
+              "cma": 0,
+              "met": 0,
+              "nga": 0
+            },
+            "maximum_disjoint_balanced_works_per_source": 0,
+            "qualifies": false
+          },
+          {
+            "artist_id": "camille_pissarro",
+            "cell_unique_work_counts": {
+              "aic": 7,
+              "cma": 3,
+              "met": 15,
+              "nga": 15
+            },
+            "maximum_disjoint_balanced_works_per_source": 3,
+            "qualifies": false
+          },
+          {
+            "artist_id": "claude_monet",
+            "cell_unique_work_counts": {
+              "aic": 32,
+              "cma": 3,
+              "met": 0,
+              "nga": 19
+            },
+            "maximum_disjoint_balanced_works_per_source": 0,
+            "qualifies": false
+          },
+          {
+            "artist_id": "eugene_boudin",
+            "cell_unique_work_counts": {
+              "aic": 0,
+              "cma": 0,
+              "met": 0,
+              "nga": 0
+            },
+            "maximum_disjoint_balanced_works_per_source": 0,
+            "qualifies": false
+          },
+          {
+            "artist_id": "gustave_caillebotte",
+            "cell_unique_work_counts": {
+              "aic": 0,
+              "cma": 0,
+              "met": 0,
+              "nga": 0
+            },
+            "maximum_disjoint_balanced_works_per_source": 0,
+            "qualifies": false
+          },
+          {
+            "artist_id": "paul_cezanne",
+            "cell_unique_work_counts": {
+              "aic": 5,
+              "cma": 3,
+              "met": 10,
+              "nga": 9
+            },
+            "maximum_disjoint_balanced_works_per_source": 3,
+            "qualifies": false
+          },
+          {
+            "artist_id": "pierre_auguste_renoir",
+            "cell_unique_work_counts": {
+              "aic": 0,
+              "cma": 0,
+              "met": 0,
+              "nga": 0
+            },
+            "maximum_disjoint_balanced_works_per_source": 0,
+            "qualifies": false
+          }
+        ],
+        "cell_count": 0,
+        "coverage_score_denominator": 90,
+        "coverage_score_numerator": 7,
+        "meets_min_artist_count": false,
+        "minimum_observed_unique_works_per_qualifying_cell": null,
+        "qualifying_artist_ids": [],
+        "source_count": 4,
+        "source_ids": [
+          "aic",
+          "cma",
+          "met",
+          "nga"
+        ]
+      },
+      {
+        "allocated_physical_work_ids": {},
+        "artist_count": 0,
+        "artist_coverage": [
+          {
+            "artist_id": "alfred_sisley",
+            "cell_unique_work_counts": {
+              "aic": 6,
+              "cma": 1,
+              "met": 7
+            },
+            "maximum_disjoint_balanced_works_per_source": 1,
+            "qualifies": false
+          },
+          {
+            "artist_id": "armand_guillaumin",
+            "cell_unique_work_counts": {
+              "aic": 0,
+              "cma": 0,
+              "met": 0
+            },
+            "maximum_disjoint_balanced_works_per_source": 0,
+            "qualifies": false
+          },
+          {
+            "artist_id": "berthe_morisot",
+            "cell_unique_work_counts": {
+              "aic": 0,
+              "cma": 0,
+              "met": 0
+            },
+            "maximum_disjoint_balanced_works_per_source": 0,
+            "qualifies": false
+          },
+          {
+            "artist_id": "camille_pissarro",
+            "cell_unique_work_counts": {
+              "aic": 7,
+              "cma": 3,
+              "met": 15
+            },
+            "maximum_disjoint_balanced_works_per_source": 3,
+            "qualifies": false
+          },
+          {
+            "artist_id": "claude_monet",
+            "cell_unique_work_counts": {
+              "aic": 32,
+              "cma": 3,
+              "met": 0
+            },
+            "maximum_disjoint_balanced_works_per_source": 0,
+            "qualifies": false
+          },
+          {
+            "artist_id": "eugene_boudin",
+            "cell_unique_work_counts": {
+              "aic": 0,
+              "cma": 0,
+              "met": 0
+            },
+            "maximum_disjoint_balanced_works_per_source": 0,
+            "qualifies": false
+          },
+          {
+            "artist_id": "gustave_caillebotte",
+            "cell_unique_work_counts": {
+              "aic": 0,
+              "cma": 0,
+              "met": 0
+            },
+            "maximum_disjoint_balanced_works_per_source": 0,
+            "qualifies": false
+          },
+          {
+            "artist_id": "paul_cezanne",
+            "cell_unique_work_counts": {
+              "aic": 5,
+              "cma": 3,
+              "met": 10
+            },
+            "maximum_disjoint_balanced_works_per_source": 3,
+            "qualifies": false
+          },
+          {
+            "artist_id": "pierre_auguste_renoir",
+            "cell_unique_work_counts": {
+              "aic": 0,
+              "cma": 0,
+              "met": 0
+            },
+            "maximum_disjoint_balanced_works_per_source": 0,
+            "qualifies": false
+          }
+        ],
+        "cell_count": 0,
+        "coverage_score_denominator": 90,
+        "coverage_score_numerator": 7,
+        "meets_min_artist_count": false,
+        "minimum_observed_unique_works_per_qualifying_cell": null,
+        "qualifying_artist_ids": [],
+        "source_count": 3,
+        "source_ids": [
+          "aic",
+          "cma",
+          "met"
+        ]
+      },
+      {
+        "allocated_physical_work_ids": {},
+        "artist_count": 0,
+        "artist_coverage": [
+          {
+            "artist_id": "alfred_sisley",
+            "cell_unique_work_counts": {
+              "cma": 1,
+              "met": 7,
+              "nga": 7
+            },
+            "maximum_disjoint_balanced_works_per_source": 1,
+            "qualifies": false
+          },
+          {
+            "artist_id": "armand_guillaumin",
+            "cell_unique_work_counts": {
+              "cma": 0,
+              "met": 0,
+              "nga": 0
+            },
+            "maximum_disjoint_balanced_works_per_source": 0,
+            "qualifies": false
+          },
+          {
+            "artist_id": "berthe_morisot",
+            "cell_unique_work_counts": {
+              "cma": 0,
+              "met": 0,
+              "nga": 0
+            },
+            "maximum_disjoint_balanced_works_per_source": 0,
+            "qualifies": false
+          },
+          {
+            "artist_id": "camille_pissarro",
+            "cell_unique_work_counts": {
+              "cma": 3,
+              "met": 15,
+              "nga": 15
+            },
+            "maximum_disjoint_balanced_works_per_source": 3,
+            "qualifies": false
+          },
+          {
+            "artist_id": "claude_monet",
+            "cell_unique_work_counts": {
+              "cma": 3,
+              "met": 0,
+              "nga": 19
+            },
+            "maximum_disjoint_balanced_works_per_source": 0,
+            "qualifies": false
+          },
+          {
+            "artist_id": "eugene_boudin",
+            "cell_unique_work_counts": {
+              "cma": 0,
+              "met": 0,
+              "nga": 0
+            },
+            "maximum_disjoint_balanced_works_per_source": 0,
+            "qualifies": false
+          },
+          {
+            "artist_id": "gustave_caillebotte",
+            "cell_unique_work_counts": {
+              "cma": 0,
+              "met": 0,
+              "nga": 0
+            },
+            "maximum_disjoint_balanced_works_per_source": 0,
+            "qualifies": false
+          },
+          {
+            "artist_id": "paul_cezanne",
+            "cell_unique_work_counts": {
+              "cma": 3,
+              "met": 10,
+              "nga": 9
+            },
+            "maximum_disjoint_balanced_works_per_source": 3,
+            "qualifies": false
+          },
+          {
+            "artist_id": "pierre_auguste_renoir",
+            "cell_unique_work_counts": {
+              "cma": 0,
+              "met": 0,
+              "nga": 0
+            },
+            "maximum_disjoint_balanced_works_per_source": 0,
+            "qualifies": false
+          }
+        ],
+        "cell_count": 0,
+        "coverage_score_denominator": 90,
+        "coverage_score_numerator": 7,
+        "meets_min_artist_count": false,
+        "minimum_observed_unique_works_per_qualifying_cell": null,
+        "qualifying_artist_ids": [],
+        "source_count": 3,
+        "source_ids": [
+          "cma",
+          "met",
+          "nga"
+        ]
+      }
+    ]
+  },
+  "candidate_artists": [
+    {
+      "artist_id": "alfred_sisley",
+      "artist_name": "Alfred Sisley",
+      "coverage_interpretation": "observed_snapshot_counts",
+      "eligible_row_count": 21,
+      "eligible_source_ids": [
+        "aic",
+        "cma",
+        "met",
+        "nga"
+      ],
+      "observed_metadata": true,
+      "observed_row_count": 21,
+      "observed_source_ids": [
+        "aic",
+        "cma",
+        "met",
+        "nga"
+      ]
+    },
+    {
+      "artist_id": "armand_guillaumin",
+      "artist_name": "Armand Guillaumin",
+      "coverage_interpretation": "unknown_no_local_metadata_not_zero_works",
+      "eligible_row_count": 0,
+      "eligible_source_ids": [],
+      "observed_metadata": false,
+      "observed_row_count": 0,
+      "observed_source_ids": []
+    },
+    {
+      "artist_id": "berthe_morisot",
+      "artist_name": "Berthe Morisot",
+      "coverage_interpretation": "unknown_no_local_metadata_not_zero_works",
+      "eligible_row_count": 0,
+      "eligible_source_ids": [],
+      "observed_metadata": false,
+      "observed_row_count": 0,
+      "observed_source_ids": []
+    },
+    {
+      "artist_id": "camille_pissarro",
+      "artist_name": "Camille Pissarro",
+      "coverage_interpretation": "observed_snapshot_counts",
+      "eligible_row_count": 40,
+      "eligible_source_ids": [
+        "aic",
+        "cma",
+        "met",
+        "nga"
+      ],
+      "observed_metadata": true,
+      "observed_row_count": 49,
+      "observed_source_ids": [
+        "aic",
+        "cma",
+        "met",
+        "nga"
+      ]
+    },
+    {
+      "artist_id": "claude_monet",
+      "artist_name": "Claude Monet",
+      "coverage_interpretation": "observed_snapshot_counts",
+      "eligible_row_count": 54,
+      "eligible_source_ids": [
+        "aic",
+        "cma",
+        "nga"
+      ],
+      "observed_metadata": true,
+      "observed_row_count": 65,
+      "observed_source_ids": [
+        "aic",
+        "cma",
+        "nga"
+      ]
+    },
+    {
+      "artist_id": "eugene_boudin",
+      "artist_name": "Eugène Boudin",
+      "coverage_interpretation": "unknown_no_local_metadata_not_zero_works",
+      "eligible_row_count": 0,
+      "eligible_source_ids": [],
+      "observed_metadata": false,
+      "observed_row_count": 0,
+      "observed_source_ids": []
+    },
+    {
+      "artist_id": "gustave_caillebotte",
+      "artist_name": "Gustave Caillebotte",
+      "coverage_interpretation": "unknown_no_local_metadata_not_zero_works",
+      "eligible_row_count": 0,
+      "eligible_source_ids": [],
+      "observed_metadata": false,
+      "observed_row_count": 0,
+      "observed_source_ids": []
+    },
+    {
+      "artist_id": "paul_cezanne",
+      "artist_name": "Paul Cezanne",
+      "coverage_interpretation": "observed_snapshot_counts",
+      "eligible_row_count": 27,
+      "eligible_source_ids": [
+        "aic",
+        "cma",
+        "met",
+        "nga"
+      ],
+      "observed_metadata": true,
+      "observed_row_count": 59,
+      "observed_source_ids": [
+        "aic",
+        "cma",
+        "met",
+        "nga"
+      ]
+    },
+    {
+      "artist_id": "pierre_auguste_renoir",
+      "artist_name": "Pierre-Auguste Renoir",
+      "coverage_interpretation": "unknown_no_local_metadata_not_zero_works",
+      "eligible_row_count": 0,
+      "eligible_source_ids": [],
+      "observed_metadata": false,
+      "observed_row_count": 0,
+      "observed_source_ids": []
+    }
+  ],
+  "claim_boundary": {
+    "cross_source_distinctness_verified": false,
+    "external_catalog_coverage_claimed": false,
+    "freeze_a1_ready": false,
+    "raw_response_hashes_and_access_dates_verified": false,
+    "snapshot_scope": "only manifests listed in input_evidence or supplied in memory",
+    "source_governance_and_independence_verified": false,
+    "threshold_not_met_interpretation": "only the supplied local metadata snapshot cannot satisfy the configured thresholds",
+    "unobserved_candidate_interpretation": "unknown coverage; absence from supplied metadata is not evidence of zero works"
+  },
+  "config": {
+    "candidate_artists": [
+      {
+        "artist_id": "alfred_sisley",
+        "artist_name": "Alfred Sisley"
+      },
+      {
+        "artist_id": "armand_guillaumin",
+        "artist_name": "Armand Guillaumin"
+      },
+      {
+        "artist_id": "berthe_morisot",
+        "artist_name": "Berthe Morisot"
+      },
+      {
+        "artist_id": "camille_pissarro",
+        "artist_name": "Camille Pissarro"
+      },
+      {
+        "artist_id": "claude_monet",
+        "artist_name": "Claude Monet"
+      },
+      {
+        "artist_id": "eugene_boudin",
+        "artist_name": "Eugène Boudin"
+      },
+      {
+        "artist_id": "gustave_caillebotte",
+        "artist_name": "Gustave Caillebotte"
+      },
+      {
+        "artist_id": "paul_cezanne",
+        "artist_name": "Paul Cezanne"
+      },
+      {
+        "artist_id": "pierre_auguste_renoir",
+        "artist_name": "Pierre-Auguste Renoir"
+      }
+    ],
+    "eligible_decisions": [
+      "include"
+    ],
+    "min_artist_count": 8,
+    "min_source_count": 3,
+    "min_unique_works_per_artist_source": 10,
+    "require_confirmed_public_domain": true,
+    "source_ids": [
+      "aic",
+      "cma",
+      "met",
+      "nga"
+    ]
+  },
+  "configured_snapshot_threshold_result": "does_not_meet_configured_snapshot_thresholds",
+  "deduplication": {
+    "cross_source_duplicate_group_count": 0,
+    "duplicate_group_count": 0,
+    "duplicate_groups": [],
+    "duplicate_rows_removed": 0,
+    "identity_fields": [
+      "physical_work_id",
+      "canonical_work_id",
+      "wikidata_id",
+      "catalog_ids",
+      "source_id",
+      "source_object_id"
+    ],
+    "identity_policy": "transitive union of authoritative metadata identifiers; no title/year, path, URL, image hash, pixel, feature, or outcome inference",
+    "rows_without_authoritative_identity_beyond_source_object_count": 0,
+    "unique_physical_work_count": 194
+  },
+  "eligibility_scope": {
+    "artifact_reapplies_full_domain_rules": false,
+    "confirmed_public_domain_flag_required": true,
+    "decision_values_accepted": [
+      "include"
+    ],
+    "rights_basis_reverified": false,
+    "trusted_snapshot_flag": "upstream decision=include",
+    "upstream_attribution_object_type_common_domain_and_acquisition_eligibility_reverified": false
+  },
+  "freeze_readiness": {
+    "freeze_a1_ready": false,
+    "readiness_decision": "BLOCKED_UNVERIFIED_METADATA_GOVERNANCE_AND_IDENTITY",
+    "readiness_transition_supported_by_this_schema": false,
+    "unverified_prerequisites": [
+      "upstream attribution, painting/object-type, common-domain, and acquisition-rights eligibility",
+      "source governance and acquisition-source independence",
+      "raw authoritative metadata-response hashes and access dates",
+      "cross-source distinctness beyond shared catalog identifiers"
+    ]
+  },
+  "input_evidence": [
+    {
+      "format": "jsonl",
+      "manifest_bytes_sha256": "0c258e7aacddcf4aa07d469d97244cc29d77854ac872d38b30c58faf04c79c5d",
+      "manifest_path": "configs/pilot_0/candidate_work_audit.jsonl",
+      "referenced_asset_io_performed": false,
+      "row_count": 194
+    }
+  ],
+  "input_summary": {
+    "ignored_field_names": [
+      "alternate_image_urls",
+      "classification",
+      "creation_year",
+      "creation_year_text",
+      "decision_reason",
+      "description",
+      "genre_evidence",
+      "genre_score",
+      "image_height",
+      "image_url",
+      "image_width",
+      "medium",
+      "record_type",
+      "rights_basis",
+      "schema_version",
+      "source_url",
+      "subjects",
+      "title"
+    ],
+    "observed_field_names": [
+      "alternate_image_urls",
+      "artist_id",
+      "artist_name",
+      "catalog_ids",
+      "classification",
+      "creation_year",
+      "creation_year_text",
+      "decision",
+      "decision_reason",
+      "description",
+      "genre_evidence",
+      "genre_score",
+      "image_height",
+      "image_url",
+      "image_width",
+      "medium",
+      "public_domain_status",
+      "record_type",
+      "rights_basis",
+      "schema_version",
+      "source_id",
+      "source_object_id",
+      "source_url",
+      "subjects",
+      "title",
+      "wikidata_id"
+    ],
+    "row_count": 194,
+    "selection_projection_semantic_sha256": "69d2a19db835fabe3b6ca3b5d5ac55e5899ab4b4151d9f0c429c0ba4dfcade02",
+    "source_ids_considered": [
+      "aic",
+      "cma",
+      "met",
+      "nga"
+    ]
+  },
+  "metadata_only_guarantee": {
+    "forbidden_signal_policy": "reject",
+    "forbidden_signal_types": [
+      "generated outputs",
+      "generation/model/prompt records",
+      "feature vectors or embeddings",
+      "distances and effect estimates",
+      "inferential results"
+    ],
+    "image_or_referenced_asset_io": "none",
+    "manifest_loader_io": "manifest bytes only",
+    "selection_fields_used": [
+      "artist_id",
+      "artist_name",
+      "source_id",
+      "source_object_id",
+      "physical_work_id",
+      "canonical_work_id",
+      "wikidata_id",
+      "catalog_ids",
+      "decision",
+      "public_domain_status"
+    ],
+    "status": "pass"
+  },
+  "observed_candidate_artist_ids": [
+    "alfred_sisley",
+    "camille_pissarro",
+    "claude_monet",
+    "paul_cezanne"
+  ],
+  "out_of_scope_observed_artists": [],
+  "schema_version": "pilot3_artist_source_feasibility/1.0",
+  "semantic_sha256": "29443bb3f3cac3b3f88d944995673d338939bed1892d925facf99ce9064a928c",
+  "status": "metadata_snapshot_audit_complete_not_freeze_ready",
+  "threshold_meeting_biclique": null,
+  "threshold_result_reasons": [
+    {
+      "code": "observed_candidate_artist_shortfall",
+      "observed_candidate_artist_count": 4,
+      "required_candidate_artist_count": 8
+    },
+    {
+      "best_available_artist_count": 0,
+      "code": "balanced_biclique_not_found",
+      "required_artist_count": 8,
+      "required_unique_works_per_artist_source": 10
+    }
+  ],
+  "unobserved_candidate_artist_ids": [
+    "armand_guillaumin",
+    "berthe_morisot",
+    "eugene_boudin",
+    "gustave_caillebotte",
+    "pierre_auguste_renoir"
+  ]
+}

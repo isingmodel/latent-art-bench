@@ -1,0 +1,14 @@
+{
+  "disposition": "excluded",
+  "effect_on_generation_authority": "none; all other gates remain required",
+  "generation_authorized": false,
+  "human_validity_claim_allowed": false,
+  "network_image_or_human_subject_io": "none",
+  "post_output_addition_allowed": false,
+  "reason": "This finite estimation pilot uses only the frozen automated A-vector-proximity construct; no rater protocol is added after seeing outputs.",
+  "record_type": "pilot3_human_validation_disposition",
+  "resolves_task_id": "P3-T10",
+  "schema_version": "pilot3-human-validation-disposition/1.0",
+  "semantic_sha256": "18f6f69cbe85de34e91a8f7f52238ff4dbba4a3344f365f5bd82577248ffb24b",
+  "status": "excluded"
+}

@@ -1,0 +1,134 @@
+{
+  "schema_version": "pilot3-phase-a/1.0",
+  "status": "prospective_before_external_unseal",
+  "finite_roster": {
+    "artist_ids": [
+      "alfred_sisley",
+      "camille_pissarro",
+      "paul_cezanne",
+      "pierre_auguste_renoir"
+    ],
+    "artist_superpopulation_claim": false,
+    "neighbor_map": {
+      "alfred_sisley": "pierre_auguste_renoir",
+      "camille_pissarro": "paul_cezanne",
+      "paul_cezanne": "camille_pissarro",
+      "pierre_auguste_renoir": "alfred_sisley"
+    }
+  },
+  "source_roles": {
+    "aic": "development",
+    "met": "development",
+    "museum_balanced": "external_holdout"
+  },
+  "allocation": {
+    "training_per_artist": 8,
+    "calibration_per_artist": 2,
+    "external_per_artist": 3,
+    "training_per_artist_development_source": 4,
+    "calibration_per_artist_development_source": 1,
+    "external_collection_block_count": 3,
+    "external_per_artist_collection_block": 1,
+    "external_replacement_policy": "none_after_freeze"
+  },
+  "input_domain": {
+    "decoded_width_strict_min": 410,
+    "decoded_height_strict_min": 410,
+    "long_to_short_aspect_strict_max": 2.0,
+    "released_code_area_predicate": "decoded_width_times_height_strictly_greater_than_410_squared",
+    "upsampling_allowed": false
+  },
+  "common_preprocessing": {
+    "protocol_version": "pilot3-common-lossless-png-v1",
+    "color_space": "sRGB",
+    "alpha_background_rgb": [255, 255, 255],
+    "border_policy": "keep",
+    "resample": "lanczos",
+    "max_long_side": 1024,
+    "no_upsampling": true,
+    "output_format": "png"
+  },
+  "acquisition_http": {
+    "method": "GET",
+    "follow_redirects": true,
+    "timeout_seconds": 120.0,
+    "max_attempts": 4,
+    "max_response_bytes": 134217728,
+    "trust_env": false,
+    "retry_backoff_seconds": [1.0, 2.0, 4.0],
+    "retryable_status_codes": [408, 409, 425, 429],
+    "retryable_status_class": 5,
+    "retryable_transport_errors": true,
+    "retryable_invalid_content_type": true
+  },
+  "a_vector": {
+    "feature_version": "kim2026-a-vector-harmonized-png-seeded-p3-v1",
+    "raw_dimension": 16384,
+    "latent_policy": "seeded_posterior_sample",
+    "base_seed": 20260901,
+    "source_repository": "https://github.com/aljinny/art-history",
+    "source_revision": "7da12358cf34dad2184f357a048c2cf114b3c4e0",
+    "source_checkout_dir": "artifacts/sources/kim-art-history",
+    "model_repository": "Manojb/stable-diffusion-2-base",
+    "model_revision": "64bf7b4f10eee35494b38d55c06c0c78cf8b44d0",
+    "model_snapshot_dir": "artifacts/models/sd2-base-vae",
+    "model_config_sha256": "6b194a1bad5f6ab0431cc254088949b814f75d0c3230483ad8fc6be2cc1495a0",
+    "model_weights_sha256": "a1d993488569e928462932c8c38a0760b874d166399b14414135bd9c42df5815",
+    "full_checkpoint_sha256": "d635794c1fedfdfa261e065370bea59c651fc9bfa65dc6d67ad29e11869a1824",
+    "device": "mps",
+    "input_size": [512, 512],
+    "latent_shape": [4, 64, 64],
+    "latent_scale": 0.18215,
+    "flatten_order": "C",
+    "pca_variance_target": 0.95,
+    "pca_component_cap_rule": "n_training_minus_1",
+    "pca_whiten": false,
+    "classifier": "nearest_artist_centroid_euclidean"
+  },
+  "development_gate": {
+    "exact_repeat_probe_per_artist_development_source": 1,
+    "calibration_balanced_accuracy_strict_min": 0.25,
+    "calibration_mean_target_neighbor_margin_strict_min": 0.0,
+    "source_predictability_is_diagnostic_only": true,
+    "tau_target_rule": "median_positive_calibration_distance_to_own_training_centroid",
+    "tau_specificity_rule": "median_positive_absolute_calibration_own_minus_neighbor_distance_margin"
+  },
+  "external_gate": {
+    "balanced_accuracy_strict_min": 0.25,
+    "per_artist_recall_min": 0.2,
+    "mean_target_neighbor_margin_strict_min": 0.0,
+    "permutation_scheme": "exhaustive_independent_artist_label_permutations_within_each_complete_collection_block",
+    "permutation_assignment_count": 13824,
+    "multiplicity": "two one-sided external tests with Holm familywise alpha 0.05",
+    "single_unseal": true
+  },
+  "cross_digitization_boundary": {
+    "independent_reproductions_required": false,
+    "reason": "Kim et al. do not define a cross-digitization validation requirement and eligible independent byte-level reproductions are unavailable prospectively for the balanced corpus.",
+    "allowed_claim": "A-vector proximity conditional on the exact frozen museum image bytes and preprocessing contract",
+    "forbidden_claims": [
+      "cross-digitization robustness",
+      "artist fidelity",
+      "style fidelity",
+      "authorship attribution"
+    ]
+  },
+  "paths": {
+    "split_manifest": "data/manifests/pilot_3/real_splits.jsonl",
+    "prior_reproduction_manifest": "configs/pilot_0/manifests/reproductions.jsonl",
+    "development_acquisition_intents": "artifacts/pilot_3/development_acquisition_intents.jsonl",
+    "external_acquisition_intents": "artifacts/pilot_3/external_acquisition_intents.jsonl",
+    "development_acquisition_attempts": "artifacts/pilot_3/development_acquisition_http_attempts.jsonl",
+    "external_acquisition_attempts": "artifacts/pilot_3/external_acquisition_http_attempts.jsonl",
+    "development_acquisitions": "artifacts/pilot_3/development_acquisitions.jsonl",
+    "external_acquisitions": "artifacts/pilot_3/external_acquisitions.jsonl",
+    "raw_dir": "artifacts/pilot_3/real_raw",
+    "normalized_dir": "artifacts/pilot_3/real_normalized",
+    "development_features": "artifacts/pilot_3/development_a_vectors.jsonl",
+    "external_features": "artifacts/pilot_3/external_a_vectors.jsonl",
+    "determinism_probes": "artifacts/pilot_3/determinism_probes.jsonl",
+    "state_dir": "artifacts/pilot_3/a_vector_state",
+    "protocol_evidence": "reports/pilot_3/evidence/a_vector_protocol.json",
+    "external_result": "reports/pilot_3/evidence/a_vector_external_validation.json"
+  }
+}

@@ -1,0 +1,959 @@
+{
+  "claim_boundary": "Pass means the planning code exactly re-derived its Pilot 2 development inputs and recovered the prior 4-artist by 2-source, 5-work threshold. It does not mean Pilot 2 hypotheses passed or that Pilot 3 is feasible.",
+  "corpus_balance_recovery": {
+    "artist_source_counts": [
+      {
+        "artist_id": "alfred_sisley",
+        "artist_name": "Alfred Sisley",
+        "sources": [
+          {
+            "duplicate_eligible_rows_removed": 0,
+            "eligible_row_count": 6,
+            "eligible_unique_physical_work_count": 6,
+            "observed_row_count": 6,
+            "source_id": "aic"
+          },
+          {
+            "duplicate_eligible_rows_removed": 0,
+            "eligible_row_count": 7,
+            "eligible_unique_physical_work_count": 7,
+            "observed_row_count": 7,
+            "source_id": "nga"
+          }
+        ]
+      },
+      {
+        "artist_id": "camille_pissarro",
+        "artist_name": "Camille Pissarro",
+        "sources": [
+          {
+            "duplicate_eligible_rows_removed": 0,
+            "eligible_row_count": 7,
+            "eligible_unique_physical_work_count": 7,
+            "observed_row_count": 10,
+            "source_id": "aic"
+          },
+          {
+            "duplicate_eligible_rows_removed": 0,
+            "eligible_row_count": 15,
+            "eligible_unique_physical_work_count": 15,
+            "observed_row_count": 17,
+            "source_id": "nga"
+          }
+        ]
+      },
+      {
+        "artist_id": "claude_monet",
+        "artist_name": "Claude Monet",
+        "sources": [
+          {
+            "duplicate_eligible_rows_removed": 0,
+            "eligible_row_count": 32,
+            "eligible_unique_physical_work_count": 32,
+            "observed_row_count": 33,
+            "source_id": "aic"
+          },
+          {
+            "duplicate_eligible_rows_removed": 0,
+            "eligible_row_count": 19,
+            "eligible_unique_physical_work_count": 19,
+            "observed_row_count": 27,
+            "source_id": "nga"
+          }
+        ]
+      },
+      {
+        "artist_id": "paul_cezanne",
+        "artist_name": "Paul Cezanne",
+        "sources": [
+          {
+            "duplicate_eligible_rows_removed": 0,
+            "eligible_row_count": 5,
+            "eligible_unique_physical_work_count": 5,
+            "observed_row_count": 9,
+            "source_id": "aic"
+          },
+          {
+            "duplicate_eligible_rows_removed": 0,
+            "eligible_row_count": 9,
+            "eligible_unique_physical_work_count": 9,
+            "observed_row_count": 23,
+            "source_id": "nga"
+          }
+        ]
+      }
+    ],
+    "best_available_biclique": {
+      "allocated_physical_work_ids": {
+        "alfred_sisley": {
+          "aic": [
+            "catalog:aic:16633",
+            "catalog:aic:37741",
+            "catalog:aic:58984",
+            "catalog:aic:73054",
+            "catalog:aic:81561"
+          ],
+          "nga": [
+            "wikidata:Q19820353",
+            "wikidata:Q20188749",
+            "wikidata:Q20188791",
+            "wikidata:Q20188840",
+            "wikidata:Q20188853"
+          ]
+        },
+        "camille_pissarro": {
+          "aic": [
+            "catalog:aic:110541",
+            "catalog:aic:153799",
+            "catalog:aic:20530",
+            "catalog:aic:45838",
+            "catalog:aic:6005"
+          ],
+          "nga": [
+            "wikidata:Q19013860",
+            "wikidata:Q20188368",
+            "wikidata:Q20188708",
+            "wikidata:Q20188748",
+            "wikidata:Q20188754"
+          ]
+        },
+        "claude_monet": {
+          "aic": [
+            "catalog:aic:100191",
+            "catalog:aic:103139",
+            "catalog:aic:111318",
+            "catalog:aic:14598",
+            "catalog:aic:14620"
+          ],
+          "nga": [
+            "wikidata:Q12858617",
+            "wikidata:Q20188702",
+            "wikidata:Q20188741",
+            "wikidata:Q20188756",
+            "wikidata:Q20188762"
+          ]
+        },
+        "paul_cezanne": {
+          "aic": [
+            "catalog:aic:109418",
+            "catalog:aic:14556",
+            "catalog:aic:16487",
+            "catalog:aic:191564",
+            "catalog:aic:45240"
+          ],
+          "nga": [
+            "wikidata:Q20188764",
+            "wikidata:Q20188815",
+            "wikidata:Q20188858",
+            "wikidata:Q20189631",
+            "wikidata:Q20189870"
+          ]
+        }
+      },
+      "artist_count": 4,
+      "artist_coverage": [
+        {
+          "artist_id": "alfred_sisley",
+          "cell_unique_work_counts": {
+            "aic": 6,
+            "nga": 7
+          },
+          "maximum_disjoint_balanced_works_per_source": 6,
+          "qualifies": true
+        },
+        {
+          "artist_id": "camille_pissarro",
+          "cell_unique_work_counts": {
+            "aic": 7,
+            "nga": 15
+          },
+          "maximum_disjoint_balanced_works_per_source": 7,
+          "qualifies": true
+        },
+        {
+          "artist_id": "claude_monet",
+          "cell_unique_work_counts": {
+            "aic": 32,
+            "nga": 19
+          },
+          "maximum_disjoint_balanced_works_per_source": 19,
+          "qualifies": true
+        },
+        {
+          "artist_id": "paul_cezanne",
+          "cell_unique_work_counts": {
+            "aic": 5,
+            "nga": 9
+          },
+          "maximum_disjoint_balanced_works_per_source": 5,
+          "qualifies": true
+        }
+      ],
+      "cell_count": 8,
+      "coverage_score_denominator": 20,
+      "coverage_score_numerator": 20,
+      "meets_min_artist_count": true,
+      "minimum_observed_unique_works_per_qualifying_cell": 5,
+      "qualifying_artist_ids": [
+        "alfred_sisley",
+        "camille_pissarro",
+        "claude_monet",
+        "paul_cezanne"
+      ],
+      "source_count": 2,
+      "source_ids": [
+        "aic",
+        "nga"
+      ]
+    },
+    "biclique_search": {
+      "candidate_source_set_count": 1,
+      "exact_search": true,
+      "ranking_basis": [
+        "meets_min_artist_count",
+        "if threshold meeting: artist_source_cell_count, artist_count, source_count",
+        "if threshold not meeting: artist_count, coverage_score, source_count",
+        "source_ids_lexicographic_tiebreak"
+      ],
+      "searched_source_sets": [
+        {
+          "allocated_physical_work_ids": {
+            "alfred_sisley": {
+              "aic": [
+                "catalog:aic:16633",
+                "catalog:aic:37741",
+                "catalog:aic:58984",
+                "catalog:aic:73054",
+                "catalog:aic:81561"
+              ],
+              "nga": [
+                "wikidata:Q19820353",
+                "wikidata:Q20188749",
+                "wikidata:Q20188791",
+                "wikidata:Q20188840",
+                "wikidata:Q20188853"
+              ]
+            },
+            "camille_pissarro": {
+              "aic": [
+                "catalog:aic:110541",
+                "catalog:aic:153799",
+                "catalog:aic:20530",
+                "catalog:aic:45838",
+                "catalog:aic:6005"
+              ],
+              "nga": [
+                "wikidata:Q19013860",
+                "wikidata:Q20188368",
+                "wikidata:Q20188708",
+                "wikidata:Q20188748",
+                "wikidata:Q20188754"
+              ]
+            },
+            "claude_monet": {
+              "aic": [
+                "catalog:aic:100191",
+                "catalog:aic:103139",
+                "catalog:aic:111318",
+                "catalog:aic:14598",
+                "catalog:aic:14620"
+              ],
+              "nga": [
+                "wikidata:Q12858617",
+                "wikidata:Q20188702",
+                "wikidata:Q20188741",
+                "wikidata:Q20188756",
+                "wikidata:Q20188762"
+              ]
+            },
+            "paul_cezanne": {
+              "aic": [
+                "catalog:aic:109418",
+                "catalog:aic:14556",
+                "catalog:aic:16487",
+                "catalog:aic:191564",
+                "catalog:aic:45240"
+              ],
+              "nga": [
+                "wikidata:Q20188764",
+                "wikidata:Q20188815",
+                "wikidata:Q20188858",
+                "wikidata:Q20189631",
+                "wikidata:Q20189870"
+              ]
+            }
+          },
+          "artist_count": 4,
+          "artist_coverage": [
+            {
+              "artist_id": "alfred_sisley",
+              "cell_unique_work_counts": {
+                "aic": 6,
+                "nga": 7
+              },
+              "maximum_disjoint_balanced_works_per_source": 6,
+              "qualifies": true
+            },
+            {
+              "artist_id": "camille_pissarro",
+              "cell_unique_work_counts": {
+                "aic": 7,
+                "nga": 15
+              },
+              "maximum_disjoint_balanced_works_per_source": 7,
+              "qualifies": true
+            },
+            {
+              "artist_id": "claude_monet",
+              "cell_unique_work_counts": {
+                "aic": 32,
+                "nga": 19
+              },
+              "maximum_disjoint_balanced_works_per_source": 19,
+              "qualifies": true
+            },
+            {
+              "artist_id": "paul_cezanne",
+              "cell_unique_work_counts": {
+                "aic": 5,
+                "nga": 9
+              },
+              "maximum_disjoint_balanced_works_per_source": 5,
+              "qualifies": true
+            }
+          ],
+          "cell_count": 8,
+          "coverage_score_denominator": 20,
+          "coverage_score_numerator": 20,
+          "meets_min_artist_count": true,
+          "minimum_observed_unique_works_per_qualifying_cell": 5,
+          "qualifying_artist_ids": [
+            "alfred_sisley",
+            "camille_pissarro",
+            "claude_monet",
+            "paul_cezanne"
+          ],
+          "source_count": 2,
+          "source_ids": [
+            "aic",
+            "nga"
+          ]
+        }
+      ]
+    },
+    "candidate_artists": [
+      {
+        "artist_id": "alfred_sisley",
+        "artist_name": "Alfred Sisley",
+        "coverage_interpretation": "observed_snapshot_counts",
+        "eligible_row_count": 21,
+        "eligible_source_ids": [
+          "aic",
+          "cma",
+          "met",
+          "nga"
+        ],
+        "observed_metadata": true,
+        "observed_row_count": 21,
+        "observed_source_ids": [
+          "aic",
+          "cma",
+          "met",
+          "nga"
+        ]
+      },
+      {
+        "artist_id": "camille_pissarro",
+        "artist_name": "Camille Pissarro",
+        "coverage_interpretation": "observed_snapshot_counts",
+        "eligible_row_count": 40,
+        "eligible_source_ids": [
+          "aic",
+          "cma",
+          "met",
+          "nga"
+        ],
+        "observed_metadata": true,
+        "observed_row_count": 49,
+        "observed_source_ids": [
+          "aic",
+          "cma",
+          "met",
+          "nga"
+        ]
+      },
+      {
+        "artist_id": "claude_monet",
+        "artist_name": "Claude Monet",
+        "coverage_interpretation": "observed_snapshot_counts",
+        "eligible_row_count": 54,
+        "eligible_source_ids": [
+          "aic",
+          "cma",
+          "nga"
+        ],
+        "observed_metadata": true,
+        "observed_row_count": 65,
+        "observed_source_ids": [
+          "aic",
+          "cma",
+          "nga"
+        ]
+      },
+      {
+        "artist_id": "paul_cezanne",
+        "artist_name": "Paul Cezanne",
+        "coverage_interpretation": "observed_snapshot_counts",
+        "eligible_row_count": 27,
+        "eligible_source_ids": [
+          "aic",
+          "cma",
+          "met",
+          "nga"
+        ],
+        "observed_metadata": true,
+        "observed_row_count": 59,
+        "observed_source_ids": [
+          "aic",
+          "cma",
+          "met",
+          "nga"
+        ]
+      }
+    ],
+    "claim_boundary": {
+      "cross_source_distinctness_verified": false,
+      "external_catalog_coverage_claimed": false,
+      "freeze_a1_ready": false,
+      "raw_response_hashes_and_access_dates_verified": false,
+      "snapshot_scope": "only manifests listed in input_evidence or supplied in memory",
+      "source_governance_and_independence_verified": false,
+      "threshold_not_met_interpretation": "only the supplied local metadata snapshot cannot satisfy the configured thresholds",
+      "unobserved_candidate_interpretation": "unknown coverage; absence from supplied metadata is not evidence of zero works"
+    },
+    "config": {
+      "candidate_artists": [
+        {
+          "artist_id": "alfred_sisley",
+          "artist_name": "Alfred Sisley"
+        },
+        {
+          "artist_id": "camille_pissarro",
+          "artist_name": "Camille Pissarro"
+        },
+        {
+          "artist_id": "claude_monet",
+          "artist_name": "Claude Monet"
+        },
+        {
+          "artist_id": "paul_cezanne",
+          "artist_name": "Paul Cezanne"
+        }
+      ],
+      "eligible_decisions": [
+        "include"
+      ],
+      "min_artist_count": 4,
+      "min_source_count": 2,
+      "min_unique_works_per_artist_source": 5,
+      "require_confirmed_public_domain": true,
+      "source_ids": [
+        "aic",
+        "nga"
+      ]
+    },
+    "configured_snapshot_threshold_result": "meets_configured_snapshot_thresholds",
+    "deduplication": {
+      "cross_source_duplicate_group_count": 0,
+      "duplicate_group_count": 0,
+      "duplicate_groups": [],
+      "duplicate_rows_removed": 0,
+      "identity_fields": [
+        "physical_work_id",
+        "canonical_work_id",
+        "wikidata_id",
+        "catalog_ids",
+        "source_id",
+        "source_object_id"
+      ],
+      "identity_policy": "transitive union of authoritative metadata identifiers; no title/year, path, URL, image hash, pixel, feature, or outcome inference",
+      "rows_without_authoritative_identity_beyond_source_object_count": 0,
+      "unique_physical_work_count": 194
+    },
+    "eligibility_scope": {
+      "artifact_reapplies_full_domain_rules": false,
+      "confirmed_public_domain_flag_required": true,
+      "decision_values_accepted": [
+        "include"
+      ],
+      "rights_basis_reverified": false,
+      "trusted_snapshot_flag": "upstream decision=include",
+      "upstream_attribution_object_type_common_domain_and_acquisition_eligibility_reverified": false
+    },
+    "freeze_readiness": {
+      "freeze_a1_ready": false,
+      "readiness_decision": "BLOCKED_UNVERIFIED_METADATA_GOVERNANCE_AND_IDENTITY",
+      "readiness_transition_supported_by_this_schema": false,
+      "unverified_prerequisites": [
+        "upstream attribution, painting/object-type, common-domain, and acquisition-rights eligibility",
+        "source governance and acquisition-source independence",
+        "raw authoritative metadata-response hashes and access dates",
+        "cross-source distinctness beyond shared catalog identifiers"
+      ]
+    },
+    "input_evidence": [
+      {
+        "format": "jsonl",
+        "manifest_bytes_sha256": "0c258e7aacddcf4aa07d469d97244cc29d77854ac872d38b30c58faf04c79c5d",
+        "manifest_path": "configs/pilot_0/candidate_work_audit.jsonl",
+        "referenced_asset_io_performed": false,
+        "row_count": 194
+      }
+    ],
+    "input_summary": {
+      "ignored_field_names": [
+        "alternate_image_urls",
+        "classification",
+        "creation_year",
+        "creation_year_text",
+        "decision_reason",
+        "description",
+        "genre_evidence",
+        "genre_score",
+        "image_height",
+        "image_url",
+        "image_width",
+        "medium",
+        "record_type",
+        "rights_basis",
+        "schema_version",
+        "source_url",
+        "subjects",
+        "title"
+      ],
+      "observed_field_names": [
+        "alternate_image_urls",
+        "artist_id",
+        "artist_name",
+        "catalog_ids",
+        "classification",
+        "creation_year",
+        "creation_year_text",
+        "decision",
+        "decision_reason",
+        "description",
+        "genre_evidence",
+        "genre_score",
+        "image_height",
+        "image_url",
+        "image_width",
+        "medium",
+        "public_domain_status",
+        "record_type",
+        "rights_basis",
+        "schema_version",
+        "source_id",
+        "source_object_id",
+        "source_url",
+        "subjects",
+        "title",
+        "wikidata_id"
+      ],
+      "row_count": 194,
+      "selection_projection_semantic_sha256": "69d2a19db835fabe3b6ca3b5d5ac55e5899ab4b4151d9f0c429c0ba4dfcade02",
+      "source_ids_considered": [
+        "aic",
+        "nga"
+      ]
+    },
+    "metadata_only_guarantee": {
+      "forbidden_signal_policy": "reject",
+      "forbidden_signal_types": [
+        "generated outputs",
+        "generation/model/prompt records",
+        "feature vectors or embeddings",
+        "distances and effect estimates",
+        "inferential results"
+      ],
+      "image_or_referenced_asset_io": "none",
+      "manifest_loader_io": "manifest bytes only",
+      "selection_fields_used": [
+        "artist_id",
+        "artist_name",
+        "source_id",
+        "source_object_id",
+        "physical_work_id",
+        "canonical_work_id",
+        "wikidata_id",
+        "catalog_ids",
+        "decision",
+        "public_domain_status"
+      ],
+      "status": "pass"
+    },
+    "observed_candidate_artist_ids": [
+      "alfred_sisley",
+      "camille_pissarro",
+      "claude_monet",
+      "paul_cezanne"
+    ],
+    "out_of_scope_observed_artists": [],
+    "schema_version": "pilot3_artist_source_feasibility/1.0",
+    "semantic_sha256": "1bafba5573d336adecfcd2984324a8493ff64afb5ecac219937b1835bbae18da",
+    "status": "metadata_snapshot_audit_complete_not_freeze_ready",
+    "threshold_meeting_biclique": {
+      "allocated_physical_work_ids": {
+        "alfred_sisley": {
+          "aic": [
+            "catalog:aic:16633",
+            "catalog:aic:37741",
+            "catalog:aic:58984",
+            "catalog:aic:73054",
+            "catalog:aic:81561"
+          ],
+          "nga": [
+            "wikidata:Q19820353",
+            "wikidata:Q20188749",
+            "wikidata:Q20188791",
+            "wikidata:Q20188840",
+            "wikidata:Q20188853"
+          ]
+        },
+        "camille_pissarro": {
+          "aic": [
+            "catalog:aic:110541",
+            "catalog:aic:153799",
+            "catalog:aic:20530",
+            "catalog:aic:45838",
+            "catalog:aic:6005"
+          ],
+          "nga": [
+            "wikidata:Q19013860",
+            "wikidata:Q20188368",
+            "wikidata:Q20188708",
+            "wikidata:Q20188748",
+            "wikidata:Q20188754"
+          ]
+        },
+        "claude_monet": {
+          "aic": [
+            "catalog:aic:100191",
+            "catalog:aic:103139",
+            "catalog:aic:111318",
+            "catalog:aic:14598",
+            "catalog:aic:14620"
+          ],
+          "nga": [
+            "wikidata:Q12858617",
+            "wikidata:Q20188702",
+            "wikidata:Q20188741",
+            "wikidata:Q20188756",
+            "wikidata:Q20188762"
+          ]
+        },
+        "paul_cezanne": {
+          "aic": [
+            "catalog:aic:109418",
+            "catalog:aic:14556",
+            "catalog:aic:16487",
+            "catalog:aic:191564",
+            "catalog:aic:45240"
+          ],
+          "nga": [
+            "wikidata:Q20188764",
+            "wikidata:Q20188815",
+            "wikidata:Q20188858",
+            "wikidata:Q20189631",
+            "wikidata:Q20189870"
+          ]
+        }
+      },
+      "artist_count": 4,
+      "artist_coverage": [
+        {
+          "artist_id": "alfred_sisley",
+          "cell_unique_work_counts": {
+            "aic": 6,
+            "nga": 7
+          },
+          "maximum_disjoint_balanced_works_per_source": 6,
+          "qualifies": true
+        },
+        {
+          "artist_id": "camille_pissarro",
+          "cell_unique_work_counts": {
+            "aic": 7,
+            "nga": 15
+          },
+          "maximum_disjoint_balanced_works_per_source": 7,
+          "qualifies": true
+        },
+        {
+          "artist_id": "claude_monet",
+          "cell_unique_work_counts": {
+            "aic": 32,
+            "nga": 19
+          },
+          "maximum_disjoint_balanced_works_per_source": 19,
+          "qualifies": true
+        },
+        {
+          "artist_id": "paul_cezanne",
+          "cell_unique_work_counts": {
+            "aic": 5,
+            "nga": 9
+          },
+          "maximum_disjoint_balanced_works_per_source": 5,
+          "qualifies": true
+        }
+      ],
+      "cell_count": 8,
+      "coverage_score_denominator": 20,
+      "coverage_score_numerator": 20,
+      "meets_min_artist_count": true,
+      "minimum_observed_unique_works_per_qualifying_cell": 5,
+      "qualifying_artist_ids": [
+        "alfred_sisley",
+        "camille_pissarro",
+        "claude_monet",
+        "paul_cezanne"
+      ],
+      "source_count": 2,
+      "source_ids": [
+        "aic",
+        "nga"
+      ]
+    },
+    "threshold_result_reasons": [],
+    "unobserved_candidate_artist_ids": []
+  },
+  "record_type": "pilot3_pilot2_baseline_recovery",
+  "recovered_analysis": {
+    "all_four_primary_hypotheses_supported": false,
+    "incomplete_artist_ids": [
+      "paul_cezanne"
+    ],
+    "itt": {
+      "by_requested_label": {
+        "gpt-image-1": {
+          "complete_feature_pairs": 124,
+          "expected_cells": 160,
+          "expected_pairs": 128,
+          "failed_after_retry_cap_cells": 0,
+          "failed_pairs": 0,
+          "feature_missing_pairs": 0,
+          "missing_cells": 0,
+          "missing_pairs": 0,
+          "observed_cells": 160,
+          "refused_cells": 4,
+          "refused_pairs": 4,
+          "retryable_failure_cells": 0,
+          "succeeded_cells": 156,
+          "succeeded_without_feature_cells": 0,
+          "terminal_cells": 160,
+          "terminal_failure_cells": 0
+        },
+        "gpt-image-2": {
+          "complete_feature_pairs": 127,
+          "expected_cells": 160,
+          "expected_pairs": 128,
+          "failed_after_retry_cap_cells": 0,
+          "failed_pairs": 0,
+          "feature_missing_pairs": 0,
+          "missing_cells": 0,
+          "missing_pairs": 0,
+          "observed_cells": 160,
+          "refused_cells": 1,
+          "refused_pairs": 1,
+          "retryable_failure_cells": 0,
+          "succeeded_cells": 159,
+          "succeeded_without_feature_cells": 0,
+          "terminal_cells": 160,
+          "terminal_failure_cells": 0
+        }
+      },
+      "complete_feature_pairs": 251,
+      "expected_named_control_pairs": 256,
+      "refused_pairs": 5
+    },
+    "primary_descriptive_estimates": [
+      {
+        "complete_pair_population": "available_complete_pairs_descriptive",
+        "estimand": "specificity_difference_in_differences",
+        "estimate": 5.61071384398275,
+        "hypothesis_supported": false,
+        "requested_model_label": "gpt-image-1",
+        "test_status": "not_tested_incomplete_feature_grid"
+      },
+      {
+        "complete_pair_population": "available_complete_pairs_descriptive",
+        "estimand": "target_improvement",
+        "estimate": 8.649239199662748,
+        "hypothesis_supported": false,
+        "requested_model_label": "gpt-image-1",
+        "test_status": "not_tested_incomplete_feature_grid"
+      },
+      {
+        "complete_pair_population": "available_complete_pairs_descriptive",
+        "estimand": "specificity_difference_in_differences",
+        "estimate": 6.501271305254391,
+        "hypothesis_supported": false,
+        "requested_model_label": "gpt-image-2",
+        "test_status": "not_tested_incomplete_feature_grid"
+      },
+      {
+        "complete_pair_population": "available_complete_pairs_descriptive",
+        "estimand": "target_improvement",
+        "estimate": 9.92626856829949,
+        "hypothesis_supported": false,
+        "requested_model_label": "gpt-image-2",
+        "test_status": "not_tested_incomplete_feature_grid"
+      }
+    ],
+    "refused_pair_count_by_artist": {
+      "alfred_sisley": 0,
+      "camille_pissarro": 0,
+      "claude_monet": 0,
+      "paul_cezanne": 5
+    },
+    "scientific_completion": {
+      "analysis_executed": true,
+      "does_not_imply_hypothesis_support": true,
+      "exact_assignment_grid_accounted_for": true,
+      "feature_estimand_grid_complete": false,
+      "protocol_preconditions_met": true,
+      "reasons": [
+        "terminal refusals, failures, or missing features prevent a complete feature estimand"
+      ],
+      "status": "complete"
+    }
+  },
+  "recovered_generation": {
+    "all_cells_succeeded": false,
+    "all_cells_terminal": true,
+    "attempt_count": 320,
+    "by_requested_model_label": {
+      "gpt-image-1": {
+        "refused": 4,
+        "succeeded": 156
+      },
+      "gpt-image-2": {
+        "refused": 1,
+        "succeeded": 159
+      }
+    },
+    "cell_count": 320,
+    "disposition_counts": {
+      "refused": 5,
+      "succeeded": 315
+    },
+    "successful_output_count": 315
+  },
+  "recovered_learned_formal_qualification": {
+    "atlas_work_count": 40,
+    "checks": {
+      "all_40_acquired_images_meet_area_and_aspect_domain": true,
+      "all_40_native_images_meet_area_and_aspect_domain": true,
+      "all_feature_extraction_contracts_are_pinned": true,
+      "at_least_one_exact_repeat_probe_per_artist": true,
+      "constrained_permutation_p_at_most_0_05": true,
+      "each_pooled_classifier_held_source_ba_strictly_above_chance": true,
+      "pca_reached_95_percent_with_train_only_rank": true,
+      "pooled_held_artist_ba_strictly_above_chance": true
+    },
+    "held_out_work_count": 16,
+    "reasons": [],
+    "record_type": "pilot2_learned_qualification",
+    "result_sha256": "7e2734c403399e544595e4c88f361ad82398a88a57657f938cb40e30502a7842",
+    "schema_version": "2.0",
+    "status": "pass",
+    "train_work_count": 24
+  },
+  "schema_version": "pilot3-pilot2-baseline-recovery/1.0",
+  "semantic_sha256": "ef42aa8333a82a4218f29ed30c6c6067a1c60235e3ab7f2885a7ea40157285ba",
+  "source_bindings": {
+    "analysis": {
+      "file_sha256": "e364ca0cefcfeaac88e9b1ee3071047cf4bc35a5605808b9b81a92ebccae83e4",
+      "path": "reports/pilot_2/analysis.json",
+      "use": "development calibration and scenario construction only; never treated as confirmatory truth"
+    },
+    "generation_completion": {
+      "file_sha256": "e82b79af63505f6dc148b797ca48e8d1b5cb98372f7e132a7c0e2d61a5ff298f",
+      "path": "reports/pilot_2/evidence/generation_completion.json",
+      "use": "development availability and refusal pattern only"
+    },
+    "learned_formal_qualification": {
+      "file_sha256": "7458924ef8bcdd9a6d653c40e91f5987c3a5b9aa4cd7ff6e34225aa7a2e780b3",
+      "path": "reports/pilot_2/evidence/learned_formal_qualification.json",
+      "use": "machine recovery of the prior development-atlas qualification result only; never external validation"
+    }
+  },
+  "status": "pass",
+  "verified_simulator_inputs": {
+    "descriptive_complete_pair_artist_estimate_range": {
+      "gpt-image-1": {
+        "specificity_difference_in_differences": [
+          -6.943118151171107,
+          15.603853027828134
+        ],
+        "target_improvement": [
+          1.7803884985334972,
+          14.37466076534324
+        ]
+      },
+      "gpt-image-2": {
+        "specificity_difference_in_differences": [
+          -6.853109103150654,
+          14.524930353662038
+        ],
+        "target_improvement": [
+          3.071581995843801,
+          15.066876135509323
+        ]
+      }
+    },
+    "descriptive_complete_pair_content_block_sample_sd": {
+      "gpt-image-1": {
+        "specificity_difference_in_differences": 1.6085094023309372,
+        "target_improvement": 5.710051668006982
+      },
+      "gpt-image-2": {
+        "specificity_difference_in_differences": 1.9679478664387795,
+        "target_improvement": 5.509064487646692
+      }
+    },
+    "design": {
+      "artists": 4,
+      "content_blocks": 8,
+      "named_requests": 256,
+      "repetitions": 4,
+      "requested_label_strata": 2,
+      "shared_control_requests": 64,
+      "total_requests": 320
+    },
+    "refusal_observations": {
+      "all_refusals_artist_id": "paul_cezanne",
+      "by_requested_label": {
+        "gpt-image-1": {
+          "count": 4,
+          "denominator": 160
+        },
+        "gpt-image-2": {
+          "count": 1,
+          "denominator": 160
+        }
+      },
+      "named_rate": 0.01953125,
+      "named_total": 5,
+      "one_artist_named_count": 5,
+      "one_artist_named_denominator": 64,
+      "overall_rate": 0.015625,
+      "remaining_artist_named_count": 0,
+      "remaining_artist_named_denominator": 192,
+      "shared_control_total": 0,
+      "technical_failure_total": 0,
+      "total": 5
+    },
+    "source_result_sha256": "a7fb58770ced0315a5963f1cd9606d91dd10ec30a324196af7720da85b82025c"
+  }
+}

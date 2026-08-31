@@ -1,0 +1,83 @@
+{
+  "execution_schedule": {
+    "assignment_manifest_order": "frozen_runtime_image_preflight_request_first_then_deterministic_seeded_sha256_rank_of_remaining_request_identities",
+    "max_parallel": 4,
+    "namespace": "pilot3-assignment-order-v1",
+    "physical_send_order": "runtime_image_preflight_first_then_canonical_sequence_batches_ascending; no_within_batch_post_order_claim_under_parallelism",
+    "runtime_image_preflight": "the frozen autumn_vineyard repetition-one artist-free request is the first analytic request after the generation gate opens, provides fail-stop runtime and output revalidation only, remains an assigned analytic control in the 320-request grid, and does not resolve P3-T11",
+    "runtime_image_preflight_request_id": "p3-b16-r01-control",
+    "seed": 20260903
+  },
+  "generation_adapter_contract": {
+    "adapter": "latent_art_bench.pilot3.generation.adapt_t12_manifests_to_generation",
+    "cell_count": 320,
+    "generation_grid_sha256": "ff7652a84f53690bdab9aa7a7557c0a3a34dae777b9e93136c278c6e618a762a",
+    "generation_schedule_sha256": "79a303cdcf88515cd6e173f3498621fbd7eebfe805f3079f0a9f04eee598ab2d",
+    "ordering_basis": "t12_canonical_sequence",
+    "secondary_reordering_allowed": false,
+    "source_prompt_manifest_file_sha256": "ed66038b1e96549339f26751c4bcf2d5ee69b06d68c951bf27a47902e8b62c65",
+    "source_prompt_manifest_semantic_sha256": "2776151e780f5b83e7a5683d1714280ee9fcbec182f1422304984b1f78ab3fc0",
+    "source_repetition_rule": "manifest_1_through_4_maps_bijectively_to_internal_0_through_3",
+    "source_schedule_manifest_file_sha256": "9c15f007f2bbc7a644922228ab3ca5379697174d1f97c8c11672b7b9da0d5b4a",
+    "source_schedule_manifest_semantic_sha256": "04c3a79b280c90f22c51a688f86b8360f6af91484f889d68db637892a4e449db",
+    "source_to_generation_bijection_sha256": "9b7d3088f0b9417d15fa304c5a38c77becb58159d7d3a3adf483a4dea8451d43"
+  },
+  "generation_authorized": false,
+  "network_or_image_requests_made": false,
+  "pairing_contract": {
+    "artist_count": 4,
+    "artist_free_prompt_count": 16,
+    "content_block_count": 16,
+    "control_sharing_unit": "content_block_by_repetition",
+    "named_control_pair_count": 256,
+    "named_prompt_count": 64,
+    "named_request_count": 256,
+    "only_named_control_text_difference": "The named prompt inserts the frozen named-artist clause after the common prefix; every other character is shared with its artist-free control.",
+    "repetitions": 4,
+    "shared_control_request_count": 64
+  },
+  "phase_b_design": {
+    "file_sha256": "b29f3dcfb244917bc52be5919306664da21e2f56b1a82c099a772a498dad6e32",
+    "path": "reports/pilot_3/evidence/phase_b_design.json"
+  },
+  "prompt_manifest": {
+    "file_sha256": "ed66038b1e96549339f26751c4bcf2d5ee69b06d68c951bf27a47902e8b62c65",
+    "path": "data/manifests/pilot_3/prompts.jsonl",
+    "row_count": 80,
+    "semantic_sha256": "2776151e780f5b83e7a5683d1714280ee9fcbec182f1422304984b1f78ab3fc0"
+  },
+  "record_type": "pilot3_prompt_schedule_contract",
+  "request_contract": {
+    "allowed_model_families": [
+      "gpt-image-1",
+      "gpt-image-2"
+    ],
+    "direct_api_browser_or_fallback_allowed": false,
+    "endpoint": "/v1/images/generations",
+    "gpt_image_1_role": "permitted_family_and_historical_development_evidence_only_not_scheduled",
+    "parameters": {
+      "model": "gpt-image-2",
+      "n": 1,
+      "output_format": "png",
+      "quality": "low",
+      "size": "auto"
+    },
+    "scheduled_requested_labels": [
+      "gpt-image-2"
+    ],
+    "transport": "~/dev/openai-oauth"
+  },
+  "resolves_task_id": "P3-T12",
+  "retry_identity": "any future technical retry must preserve semantic_request_sha256 exactly; this contract itself does not authorize or send a request",
+  "schedule_manifest": {
+    "file_sha256": "9c15f007f2bbc7a644922228ab3ca5379697174d1f97c8c11672b7b9da0d5b4a",
+    "path": "data/manifests/pilot_3/schedule.jsonl",
+    "row_count": 320,
+    "semantic_sha256": "04c3a79b280c90f22c51a688f86b8360f6af91484f889d68db637892a4e449db"
+  },
+  "schedule_order": "the frozen runtime image preflight is the first analytic request and remains in the 320-request grid; it is not P3-T11. Remaining JSONL lines and contiguous sequence values follow the deterministic seeded SHA-256 rank of frozen request identity, with request_id as a collision tie-break; downstream adapters preserve this batch-dispatch order without a second ranking, while no within-batch physical POST ordering is claimed under four-way parallelism",
+  "schema_version": "pilot3-prompt-schedule-contract/1.0",
+  "semantic_sha256": "96991d8d51c80b820fd6c007aa8178a41104a4e466a84dbfd4070b7be90b9c22",
+  "status": "frozen_offline_pending_phase_a_transport_and_generation_gate",
+  "visual_selection_allowed": false
+}

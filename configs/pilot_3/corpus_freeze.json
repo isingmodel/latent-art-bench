@@ -1,0 +1,205 @@
+{
+  "schema_version": "pilot3-corpus-freeze-config/1.0",
+  "status": "freeze_a1_requested",
+  "content_domain": "landscape_and_outdoor_place_scene",
+  "candidate_universe_disposition": {
+    "decision_stage": "before_fresh_authoritative_metadata_collection_and_before_any_pilot3_pixels_or_features",
+    "selection_type": "purposive_finite_pilot_roster_from_prior_research_not_probability_sampling",
+    "fresh_authoritative_audit_scope": "four_selected_finalists_only",
+    "unselected_artist_feasibility_claim": false,
+    "artists": [
+      {
+        "artist_id": "alfred_sisley",
+        "artist_name": "Alfred Sisley",
+        "disposition": "selected_finalist",
+        "basis": "incumbent outdoor-place anchor with prior multi-source catalog evidence; paired prospectively with Renoir"
+      },
+      {
+        "artist_id": "armand_guillaumin",
+        "artist_name": "Armand Guillaumin",
+        "disposition": "not_advanced_to_fresh_audit",
+        "basis": "outside the two reciprocal pairs chosen for the fixed four-artist pilot; this is not a catalog-absence claim"
+      },
+      {
+        "artist_id": "berthe_morisot",
+        "artist_name": "Berthe Morisot",
+        "disposition": "not_advanced_to_fresh_audit",
+        "basis": "outside the two reciprocal pairs chosen for the fixed four-artist pilot; this is not a catalog-absence claim"
+      },
+      {
+        "artist_id": "camille_pissarro",
+        "artist_name": "Camille Pissarro",
+        "disposition": "selected_finalist",
+        "basis": "incumbent outdoor-place anchor in the prospectively retained Pissarro-Cezanne reciprocal pair"
+      },
+      {
+        "artist_id": "claude_monet",
+        "artist_name": "Claude Monet",
+        "disposition": "not_advanced_to_fresh_audit",
+        "basis": "prior project metadata had no eligible Met cell under the common acquisition design; no broader catalog-absence claim is made"
+      },
+      {
+        "artist_id": "eugene_boudin",
+        "artist_name": "Eugene Boudin",
+        "disposition": "not_advanced_to_fresh_audit",
+        "basis": "outside the two reciprocal pairs chosen for the fixed four-artist pilot; this is not a catalog-absence claim"
+      },
+      {
+        "artist_id": "gustave_caillebotte",
+        "artist_name": "Gustave Caillebotte",
+        "disposition": "not_advanced_to_fresh_audit",
+        "basis": "outside the two reciprocal pairs chosen for the fixed four-artist pilot; this is not a catalog-absence claim"
+      },
+      {
+        "artist_id": "paul_cezanne",
+        "artist_name": "Paul Cezanne",
+        "disposition": "selected_finalist",
+        "basis": "incumbent outdoor-place anchor in the prospectively retained Pissarro-Cezanne reciprocal pair"
+      },
+      {
+        "artist_id": "pierre_auguste_renoir",
+        "artist_name": "Pierre-Auguste Renoir",
+        "disposition": "selected_finalist",
+        "basis": "prior research supported outdoor-place coverage and a historically defensible reciprocal comparison with Sisley"
+      }
+    ]
+  },
+  "candidate_manifest": {
+    "path": "configs/pilot_3/metadata/authoritative_candidates.jsonl",
+    "file_sha256": "d421b1df04adac1277f93e12a54d03f59e5f8df74a97ebe96b549ab074041b1d",
+    "semantic_sha256": "d7d740e36b6781b136f343e3d3d8d554b751e910cf7e44fd227f735e33e7587b"
+  },
+  "source_snapshot": {
+    "path": "configs/pilot_3/metadata/source_snapshots.json",
+    "file_sha256": "9c34cdf9948622857545d717782ee1856ec604453fcb82d58e577a0f5f2ab0da",
+    "semantic_sha256": "b21e229f2aa4f90c239338a76de507086f299cf778930f5aa8d10bda098827eb"
+  },
+  "external_block_roster": {
+    "path": "configs/pilot_3/external_museum_blocks.json",
+    "file_sha256": "31e235ca034676f2db40783ff6420207d987ab511ee4b56364a657f737ba54fb",
+    "semantic_sha256": "89c725e8b0a4b8cdc02df0cd052f5279329727cdb88e188c6d7860a092295c34"
+  },
+  "historical_planning_feasibility": {
+    "path": "reports/pilot_3/evidence/historical/artist_source_feasibility_planning_snapshot.json",
+    "file_sha256": "0ecdb14b112533a5cdfdd27a9851427e49383191bc28f3ced89778a0973d360c"
+  },
+  "prior_local_corpus": {
+    "canonical_works_path": "configs/pilot_0/manifests/canonical_works.jsonl",
+    "canonical_works_file_sha256": "0e3b15cbf0de28cf15e3d2e5430c88aea9ee68283b392aacbc66e7dec9a52f3a",
+    "reproductions_path": "configs/pilot_0/manifests/reproductions.jsonl",
+    "reproductions_file_sha256": "3908a3eab4db54c8954ad4a82a50d12699517cfca800c983b79069d0afbd1f62",
+    "reuse_policy": "reuse_only_after_freeze_a1_and_phase_a_rehash_matches_the_prior_manifest_sha256"
+  },
+  "artists": [
+    {
+      "artist_id": "alfred_sisley",
+      "artist_name": "Alfred Sisley",
+      "aliases": ["Alfred Sisley"],
+      "authority_ids": {
+        "aic_agent_id": "36707",
+        "met_constituent_id": "165111",
+        "nga_constituent_id": "1877",
+        "ulan": "500027485",
+        "wikidata": "Q175130"
+      }
+    },
+    {
+      "artist_id": "camille_pissarro",
+      "artist_name": "Camille Pissarro",
+      "aliases": ["Camille Pissarro", "Camille Jacob Pissarro"],
+      "authority_ids": {
+        "aic_agent_id": "36211",
+        "met_constituent_id": "162257",
+        "nga_constituent_id": "1791",
+        "ulan": "500001924",
+        "wikidata": "Q134741"
+      }
+    },
+    {
+      "artist_id": "paul_cezanne",
+      "artist_name": "Paul Cezanne",
+      "aliases": ["Paul Cezanne", "Paul Cézanne"],
+      "authority_ids": {
+        "aic_agent_id": "40482",
+        "met_constituent_id": "161761",
+        "nga_constituent_id": "1115",
+        "ulan": "500004793",
+        "wikidata": "Q35548"
+      }
+    },
+    {
+      "artist_id": "pierre_auguste_renoir",
+      "artist_name": "Pierre-Auguste Renoir",
+      "aliases": ["Pierre-Auguste Renoir", "Pierre Auguste Renoir", "Auguste Renoir"],
+      "authority_ids": {
+        "aic_agent_id": "36351",
+        "met_constituent_id": "162302",
+        "nga_constituent_id": "1823",
+        "ulan": "500115467",
+        "wikidata": "Q39931"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "aic",
+      "source_name": "Art Institute of Chicago",
+      "source_role": "development",
+      "snapshot_id": "aic-live-2026-08-31T18:24:48.996820Z",
+      "collection_governance": "Art Institute of Chicago",
+      "asset_governance": "Art Institute of Chicago IIIF"
+    },
+    {
+      "source_id": "met",
+      "source_name": "Metropolitan Museum of Art",
+      "source_role": "development",
+      "snapshot_id": "met-openaccess-6fa206f0df6cf349d4fe558028d4c08e95f44eb6",
+      "collection_governance": "Metropolitan Museum of Art",
+      "asset_governance": "Met Open Access record with exact frozen delivery URL"
+    },
+    {
+      "source_id": "museum_balanced",
+      "source_name": "Three complete official holding-institution image-service blocks",
+      "source_role": "external",
+      "snapshot_id": "museum-balanced-live-2026-08-31T18:24:48.996820Z",
+      "collection_governance": "Minneapolis Institute of Art, Dallas Museum of Art, and Toledo Museum of Art",
+      "asset_governance": "Exact official institutional image services under scoped research-use terms"
+    }
+  ],
+  "selection": {
+    "development_works_per_artist_source": 5,
+    "external_works_per_artist": 3,
+    "selection_namespace": "latent-art-bench/pilot3/freeze-a1/selection/v1",
+    "ranking_rule": "development_sources_use_descending_metadata_outdoor_score_then_namespaced_sha256; external_source_is_the_complete_prospectively_frozen_three_block_roster",
+    "replacement_eligible_reserves_included": false,
+    "external_block_design": {
+      "source_id": "museum_balanced",
+      "primary_block_ids": ["minneapolis", "dallas", "toledo"],
+      "replacement_eligible_reserve_block_ids": [],
+      "replacement_unit": "none_after_freeze",
+      "works_per_artist_per_block": 1,
+      "permutation_unit": "complete_holding_institution_block"
+    }
+  },
+  "split": {
+    "partition_namespace": "latent-art-bench/pilot3/freeze-a1/split/v1",
+    "development_source_ids": ["aic", "met"],
+    "external_source_ids": ["museum_balanced"],
+    "calibration_works_per_artist_development_source": 1,
+    "selected_partition_counts_per_artist": {
+      "development_training": 8,
+      "development_calibration": 2,
+      "external_holdout": 3
+    },
+    "not_selected_partition": null,
+    "not_selected_replacement_policy": "development_unselected_candidates_are_not_automatic_substitutes; external_has_no_post_freeze_replacement_and_any_failed_block_retires_external_validation"
+  },
+  "selection_prohibitions": [
+    "artwork_pixels",
+    "generated_outputs",
+    "feature_vectors",
+    "embedding_distances",
+    "effect_estimates",
+    "inferential_results"
+  ]
+}
