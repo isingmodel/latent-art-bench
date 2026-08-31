@@ -1,10 +1,11 @@
 from __future__ import annotations
 
 import subprocess
+import time
 from pathlib import Path
 
 import pytest
-from PIL import Image
+from PIL import Image, ImageCms, PngImagePlugin
 from typer.testing import CliRunner
 
 from latent_art_bench.cli import app as root_app
@@ -13,16 +14,18 @@ from latent_art_bench.pilot3.execution import (
     FREEZE_B_CODE_CLOSURE,
     FREEZE_B_EVIDENCE_CLOSURE,
     FREEZE_B_OPERATIONAL_CLOSURE,
+    GENERATED_PREPROCESSING_SCHEMA,
     GENERATION_AUTHORIZATION_CLOSED,
     GENERATION_AUTHORIZATION_OPEN,
     Pilot3ExecutionError,
     _generation_authorization_payload,
     _generation_terminal_category,
     _jsonl_file_sha256,
-    _pilot2_preprocessing_from_phase_a,
+    _pilot3_preprocessing_from_phase_a,
     _preprocess_generated_output,
     _require_committed_closure,
     _rows_by_request,
+    _verified_p3_t07_closure_paths,
     _verify_generation_gate_closure,
     _verify_preprocessing_row,
     _verify_seal,
@@ -33,8 +36,54 @@ from latent_art_bench.pilot3.execution import (
 )
 from latent_art_bench.pilot3.generation import GenerationAttempt
 from latent_art_bench.pilot3.phasea import load_phase_a_config
+from latent_art_bench.pilot3.preprocessing import (
+    PILOT3_NORMALIZATION_PROTOCOL_VERSION,
+)
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
+
+
+def _normalization_contract(
+    config: dict[str, object], *, amendment_sha256: str = "4" * 64
+) -> dict[str, object]:
+    payload: dict[str, object] = {
+        "record_type": "pilot3_generated_normalization_contract",
+        "schema_version": "pilot3-generated-normalization-contract/1.0",
+        "normalization_protocol_version": PILOT3_NORMALIZATION_PROTOCOL_VERSION,
+        "base_common_preprocessing_config_sha256": stable_hash(
+            config["common_preprocessing"]
+        ),
+        "effective_preprocessing_contract_sha256": "1" * 64,
+        "metadata_policy": (
+            "apply_embedded_icc_to_pixels_then_emit_only_ihdr_idat_iend"
+        ),
+        "incident": {
+            "path": "reports/pilot_3/evidence/preprocessing_determinism_incident.json",
+            "file_sha256": "2" * 64,
+            "incident_sha256": "3" * 64,
+        },
+        "amendment": {
+            "path": "reports/pilot_3/evidence/preprocessing_determinism_amendment.json",
+            "file_sha256": "5" * 64,
+            "authorization_sha256": amendment_sha256,
+        },
+        "normalization_revalidations": {
+            "path": "artifacts/pilot_3/development_normalization_revalidations.jsonl",
+            "file_sha256": "6" * 64,
+            "semantic_sha256": "7" * 64,
+            "row_count": 12,
+        },
+        "implementation": {
+            "canonicalizer_path": "src/latent_art_bench/pilot3/preprocessing.py",
+            "canonicalizer_file_sha256": "8" * 64,
+            "amendment_document_path": (
+                "docs/PILOT_3_PREPROCESSING_DETERMINISM_AMENDMENT.md"
+            ),
+            "amendment_document_file_sha256": "9" * 64,
+        },
+        "a_vector_protocol_result_sha256": "a" * 64,
+    }
+    return {**payload, "contract_sha256": stable_hash(payload)}
 
 
 def _attempt(
@@ -122,7 +171,7 @@ def test_self_seal_and_jsonl_byte_hash_are_exact(tmp_path: Path) -> None:
 
 def test_rows_by_request_rejects_duplicate_identity(tmp_path: Path) -> None:
     unsigned = {
-        "schema_version": "pilot3-generated-preprocessing/1.0",
+        "schema_version": GENERATED_PREPROCESSING_SCHEMA,
         "request_id": "duplicate",
     }
     row = {**unsigned, "record_sha256": stable_hash(unsigned)}
@@ -131,14 +180,24 @@ def test_rows_by_request_rejects_duplicate_identity(tmp_path: Path) -> None:
     with pytest.raises(Pilot3ExecutionError, match="duplicated"):
         _rows_by_request(
             path,
-            schema="pilot3-generated-preprocessing/1.0",
+            schema=GENERATED_PREPROCESSING_SCHEMA,
             label="rows",
         )
 
 
 def test_generated_preprocessing_recomputes_exact_bytes(tmp_path: Path) -> None:
     source = tmp_path / "source.png"
-    Image.new("RGB", (512, 512), (40, 80, 120)).save(source, format="PNG")
+    source_profile = ImageCms.ImageCmsProfile(
+        ImageCms.createProfile("sRGB")
+    ).tobytes()
+    source_metadata = PngImagePlugin.PngInfo()
+    source_metadata.add_text("nondeterministic-container-metadata", "must be removed")
+    Image.new("RGB", (512, 512), (40, 80, 120)).save(
+        source,
+        format="PNG",
+        icc_profile=source_profile,
+        pnginfo=source_metadata,
+    )
     output = {
         "output_path": source.as_posix(),
         "output_sha256": hash_file(source),
@@ -149,13 +208,49 @@ def test_generated_preprocessing_recomputes_exact_bytes(tmp_path: Path) -> None:
         "schedule_row_sha256": "a" * 64,
     }
     config = read_json(REPOSITORY_ROOT / "configs/pilot_3/phase_a.json")
-    row = _preprocess_generated_output(tmp_path, output, schedule, config)
+    contract = _normalization_contract(config)
+    row = _preprocess_generated_output(
+        tmp_path,
+        output,
+        schedule,
+        config,
+        normalization_contract=contract,
+    )
+    first_profile_time = ImageCms.ImageCmsProfile(
+        ImageCms.createProfile("sRGB")
+    ).tobytes()[24:36]
+    deadline = time.monotonic() + 2.0
+    while True:
+        second_profile_time = ImageCms.ImageCmsProfile(
+            ImageCms.createProfile("sRGB")
+        ).tobytes()[24:36]
+        if second_profile_time != first_profile_time:
+            break
+        if time.monotonic() >= deadline:
+            pytest.fail("LittleCMS profile creation time did not cross a wall-clock second")
+        time.sleep(0.01)
+    repeated = _preprocess_generated_output(
+        tmp_path,
+        output,
+        schedule,
+        config,
+        normalization_contract=contract,
+    )
+    assert repeated == row
+    assert row["normalized_png_metadata_free"] is True
+    normalized_path = tmp_path / str(row["normalized_png_path"])
+    with Image.open(normalized_path) as normalized:
+        normalized.load()
+        assert normalized.info == {}
+        assert normalized.mode == "RGB"
+        assert normalized.getpixel((0, 0)) == (40, 80, 120)
     _verify_preprocessing_row(
         tmp_path,
         row,
         output=output,
         schedule_row=schedule,
         phase_a_config=config,
+        normalization_contract=contract,
     )
     changed = dict(row)
     changed["source_width"] = 513
@@ -169,17 +264,31 @@ def test_generated_preprocessing_recomputes_exact_bytes(tmp_path: Path) -> None:
             output=output,
             schedule_row=schedule,
             phase_a_config=config,
+            normalization_contract=contract,
+        )
+    different_contract = _normalization_contract(
+        config, amendment_sha256="b" * 64
+    )
+    with pytest.raises(Pilot3ExecutionError, match="provenance is stale"):
+        _verify_preprocessing_row(
+            tmp_path,
+            row,
+            output=output,
+            schedule_row=schedule,
+            phase_a_config=config,
+            normalization_contract=different_contract,
         )
 
 
 def test_generated_preprocessing_runtime_equals_frozen_phase_a_contract() -> None:
     config = load_phase_a_config(REPOSITORY_ROOT)
-    runtime = _pilot2_preprocessing_from_phase_a(config)
+    runtime = _pilot3_preprocessing_from_phase_a(config)
     assert runtime.max_long_side == config["common_preprocessing"]["max_long_side"]
+    assert PILOT3_NORMALIZATION_PROTOCOL_VERSION.endswith("metadata-free")
     mutated = {**config, "common_preprocessing": dict(config["common_preprocessing"])}
     mutated["common_preprocessing"]["max_long_side"] = 512
     with pytest.raises(Pilot3ExecutionError, match="does not equal"):
-        _pilot2_preprocessing_from_phase_a(mutated)
+        _pilot3_preprocessing_from_phase_a(mutated)
 
 
 def test_committed_clean_closure_rejects_dirty_and_untracked_files(
@@ -206,6 +315,25 @@ def test_committed_clean_closure_rejects_dirty_and_untracked_files(
     untracked.write_text("new\n", encoding="utf-8")
     with pytest.raises(Pilot3ExecutionError, match="not committed and clean"):
         _require_committed_closure(tmp_path, [Path("untracked.txt")])
+
+
+def test_p3_t07_closure_paths_reject_escape_and_stale_bytes(tmp_path: Path) -> None:
+    frozen = tmp_path / "frozen.txt"
+    frozen.write_text("frozen\n", encoding="utf-8")
+    protocol = {"closure_file_sha256": {"frozen.txt": hash_file(frozen)}}
+    assert _verified_p3_t07_closure_paths(tmp_path, protocol) == (
+        Path("frozen.txt"),
+    )
+
+    escaped = {
+        "closure_file_sha256": {"../outside.txt": "a" * 64},
+    }
+    with pytest.raises(Pilot3ExecutionError, match="escapes the repository"):
+        _verified_p3_t07_closure_paths(tmp_path, escaped)
+
+    frozen.write_text("mutated\n", encoding="utf-8")
+    with pytest.raises(Pilot3ExecutionError, match="closure is stale"):
+        _verified_p3_t07_closure_paths(tmp_path, protocol)
 
 
 def test_per_request_gate_detects_closure_mutation_before_next_post(
@@ -365,8 +493,10 @@ def test_freeze_b_closure_contains_scientific_code_tests_and_t11_evidence() -> N
     operational = {path.as_posix() for path in FREEZE_B_OPERATIONAL_CLOSURE}
     assert {
         "configs/pilot_3/external_museum_blocks.json",
+        "docs/PILOT_3_PREPROCESSING_DETERMINISM_AMENDMENT.md",
         "src/latent_art_bench/pilot3/execution.py",
         "src/latent_art_bench/pilot3/generation.py",
+        "src/latent_art_bench/pilot3/preprocessing.py",
         "src/latent_art_bench/pilot3/qualification.py",
         "src/latent_art_bench/pilot3/analysis.py",
         "tests/pilot3/test_execution.py",
@@ -374,11 +504,14 @@ def test_freeze_b_closure_contains_scientific_code_tests_and_t11_evidence() -> N
     assert {
         "reports/pilot_3/evidence/account_authorization.json",
         "reports/pilot_3/evidence/model_documentation.json",
+        "reports/pilot_3/evidence/preprocessing_determinism_incident.json",
+        "reports/pilot_3/evidence/preprocessing_determinism_amendment.json",
         "reports/pilot_3/evidence/transport_qualification.json",
         "artifacts/pilot_3/external_unseal_receipt.json",
         "artifacts/pilot_3/transport_qualification_post_intents.jsonl",
         "artifacts/pilot_3/transport_qualification_attempts.jsonl",
         "artifacts/pilot_3/development_acquisition_http_attempts.jsonl",
+        "artifacts/pilot_3/development_normalization_revalidations.jsonl",
         "artifacts/pilot_3/external_acquisition_http_attempts.jsonl",
     }.issubset(evidence)
     assert operational == {"configs/pilot_3/generation_authorization.json"}

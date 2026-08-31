@@ -4,6 +4,8 @@ import copy
 import io
 import os
 import plistlib
+import subprocess
+import sys
 import time
 from pathlib import Path
 from typing import Iterator
@@ -11,8 +13,9 @@ from typing import Iterator
 import httpx
 import numpy as np
 import pytest
-from PIL import Image
+from PIL import Image, ImageCms, PngImagePlugin
 
+from latent_art_bench.features.learned_formal import learned_formal_vector_sha256
 from latent_art_bench.io import (
     canonical_json,
     hash_bytes,
@@ -21,12 +24,22 @@ from latent_art_bench.io import (
     stable_hash,
     write_json,
 )
+from latent_art_bench.pilot2.config import Pilot2PreprocessingConfig
 from latent_art_bench.pilot3.phasea import (
     _EXTRACTION_RUNTIME_KEYS,
     EXPECTED_ARTISTS,
     EXPECTED_EXTERNAL_BLOCKS,
     EXTERNAL_SOURCE,
+    NORMALIZATION_REVALIDATION_LEDGER_PATH,
+    PREPROCESSING_AMENDMENT_DOC_PATH,
+    PREPROCESSING_AMENDMENT_PATH,
+    PREPROCESSING_HISTORICAL_BLOB_PATHS,
+    PREPROCESSING_INCIDENT_PATH,
+    PREPROCESSING_INCIDENT_SHA256,
+    PREPROCESSING_INCIDENT_WORK_ID,
+    PREPROCESSING_PROSPECTIVE_FORBIDDEN_PATHS,
     Pilot3PhaseAError,
+    _acquire_real_partition_locked,
     _acquisition_phase_lock,
     _aic_development_splits,
     _append_jsonl_fsync,
@@ -36,33 +49,49 @@ from latent_art_bench.pilot3.phasea import (
     _decode_and_normalize,
     _directory_stat_evidence,
     _download_image_bytes,
+    _effective_preprocessing_contract_sha256,
     _external_transaction_lock,
     _file_bindings,
     _freeze_a1_closure_paths,
+    _git_introduction_commit,
     _holm_checks,
     _http_attempt_start,
     _parse_where_froms_binary_plist,
     _permutation_p_values,
+    _preprocessing_amendment_payload,
     _read_canonical_http_attempt_events,
+    _read_canonical_normalization_revalidations,
     _read_completed_browser_file,
+    _require_strict_git_ancestor,
     _selected_feature_rows,
     _self_hash,
     _single_runtime_environment,
     _validate_browser_attempt_terminal,
+    _validated_determinism_probes,
     _verified_browser_attempt_histories,
     _verified_http_attempt_histories,
     _verify_acquisition_http_history,
+    _verify_historical_aic_browser_recovery_authorization,
     _write_exclusive_json,
+    authorize_preprocessing_determinism_amendment,
+    create_normalization_revalidations,
+    effective_acquisition_rows,
     evaluate_external_holdout,
     import_aic_browser_recovery_directory,
     load_phase_a_config,
     load_real_splits,
     prepare_aic_browser_recovery,
     require_development_freeze,
+    run_determinism_probes,
     validate_real_splits,
     verify_a_vector_protocol,
     verify_external_holdout_result,
     verify_self_hash,
+)
+from latent_art_bench.pilot3.preprocessing import (
+    PILOT3_NORMALIZATION_PROTOCOL_VERSION,
+    pilot3_common_png_bytes,
+    png_chunk_types,
 )
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -129,6 +158,9 @@ def _attempt_fixture(tmp_path: Path) -> tuple[dict, dict]:
             "raw_dir": "raw",
         }
     }
+    config_path = tmp_path / "configs/pilot_3/phase_a.json"
+    config_path.parent.mkdir(parents=True)
+    config_path.write_text("{}\n", encoding="utf-8")
     intent = {
         "record_type": "pilot3_real_acquisition_intent",
         "schema_version": "1.0",
@@ -144,7 +176,7 @@ def _attempt_fixture(tmp_path: Path) -> tuple[dict, dict]:
 
 def _browser_integration_fixture(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
-) -> tuple[dict, dict, dict]:
+) -> tuple[dict, dict, dict, dict]:
     config = copy.deepcopy(load_phase_a_config(ROOT))
     config["paths"] = {
         **config["paths"],
@@ -174,9 +206,28 @@ def _browser_integration_fixture(
         "delivery_height": 512,
     }
     authorization = {"authorization_sha256": "a" * 64}
+    amendment = {
+        "authorization_sha256": "b" * 64,
+        "normalization_protocol_version": PILOT3_NORMALIZATION_PROTOCOL_VERSION,
+        "effective_preprocessing_contract_sha256": (
+            _effective_preprocessing_contract_sha256(config)
+        ),
+    }
     monkeypatch.setattr(
-        "latent_art_bench.pilot3.phasea.verify_aic_browser_recovery_authorization",
+        "latent_art_bench.pilot3.phasea._verify_historical_aic_browser_recovery_authorization",
         lambda *_args, **_kwargs: authorization,
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.require_preprocessing_incident_resolution",
+        lambda *_args, **_kwargs: {"amendment": amendment, "corrections": {}},
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.require_development_freeze",
+        lambda *_args, **_kwargs: {},
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.verify_preprocessing_determinism_incident",
+        lambda *_args, **_kwargs: {"incident_sha256": "c" * 64},
     )
     monkeypatch.setattr(
         "latent_art_bench.pilot3.phasea.load_phase_a_config",
@@ -186,7 +237,7 @@ def _browser_integration_fixture(
         "latent_art_bench.pilot3.phasea._aic_development_splits",
         lambda *_args, **_kwargs: [split],
     )
-    return config, split, authorization
+    return config, split, authorization, amendment
 
 
 def _response(status: int, content: bytes, content_type: str) -> httpx.Response:
@@ -312,6 +363,735 @@ def test_aic_browser_recovery_scope_is_only_exact_development_urls() -> None:
         and row["image_url"].endswith("/default.jpg")
         for row in rows
     )
+
+
+def test_pilot3_v2_normalization_reproduces_exact_incident_difference_set() -> None:
+    config = load_phase_a_config(ROOT)
+    acquisitions = read_jsonl(
+        ROOT / "artifacts/pilot_3/development_acquisitions.jsonl"
+    )[:12]
+    required_cas = [
+        ROOT / acquisition[path_key]
+        for acquisition in acquisitions
+        for path_key in ("raw_path", "normalized_path")
+    ]
+    if not all(path.is_file() for path in required_cas):
+        pytest.skip(
+            "exact incident revalidation is an operational test requiring local ignored CAS"
+        )
+    splits = {
+        row["canonical_work_id"]: row for row in load_real_splits(ROOT, config)
+    }
+    changed: list[str] = []
+    for acquisition in acquisitions:
+        split = splits[acquisition["canonical_work_id"]]
+        raw = (ROOT / acquisition["raw_path"]).read_bytes()
+        _decode, first = _decode_and_normalize(
+            raw,
+            config,
+            expected_width=split["delivery_width"],
+            expected_height=split["delivery_height"],
+        )
+        _decode, second = _decode_and_normalize(
+            raw,
+            config,
+            expected_width=split["delivery_width"],
+            expected_height=split["delivery_height"],
+        )
+        assert first == second
+        assert png_chunk_types(first)[0] == "IHDR"
+        assert png_chunk_types(first)[-1] == "IEND"
+        with Image.open(io.BytesIO(first)) as effective, Image.open(
+            ROOT / acquisition["normalized_path"]
+        ) as historical:
+            effective.load()
+            historical.load()
+            assert effective.info == {}
+            assert effective.mode == historical.mode == "RGB"
+            assert effective.size == historical.size
+            assert effective.tobytes() == historical.tobytes()
+        if hash_bytes(first) != acquisition["normalized_sha256"]:
+            changed.append(acquisition["canonical_work_id"])
+            assert hash_bytes(first) == (
+                "45386bd86bbea9adfa200748ab795821f5a1ddc3ae1ebbc33b813b87723af2ee"
+            )
+            command = (
+                "from pathlib import Path; "
+                "from latent_art_bench.io import hash_bytes; "
+                "from latent_art_bench.pilot3.phasea import "
+                "_decode_and_normalize,load_phase_a_config; "
+                f"r=Path({str(ROOT)!r}); c=load_phase_a_config(r); "
+                f"p=(r/Path({str(acquisition['raw_path'])!r})).read_bytes(); "
+                f"_,b=_decode_and_normalize(p,c,expected_width={split['delivery_width']},"
+                f"expected_height={split['delivery_height']}); print(hash_bytes(b))"
+            )
+            environment = dict(os.environ)
+            environment["PYTHONPATH"] = str(ROOT / "src")
+            fresh_hash = subprocess.run(
+                [sys.executable, "-c", command],
+                cwd=ROOT,
+                env=environment,
+                check=True,
+                capture_output=True,
+                text=True,
+            ).stdout.strip()
+            assert fresh_hash == hash_bytes(first)
+    assert changed == [PREPROCESSING_INCIDENT_WORK_ID]
+
+
+def test_pilot3_v2_png_is_identical_in_a_fresh_process_with_icc_exif_alpha(
+    tmp_path: Path,
+) -> None:
+    source_path = tmp_path / "synthetic-profiled.png"
+    source = Image.new("RGBA", (37, 29), (17, 83, 149, 211))
+    source.putpixel((3, 5), (250, 4, 99, 31))
+    profile = ImageCms.ImageCmsProfile(ImageCms.createProfile("sRGB")).tobytes()
+    exif = Image.Exif()
+    exif[274] = 6
+    text = PngImagePlugin.PngInfo()
+    text.add_text("Creation Time", "changes-every-run")
+    source.save(
+        source_path,
+        format="PNG",
+        icc_profile=profile,
+        exif=exif,
+        pnginfo=text,
+    )
+    with Image.open(source_path) as image:
+        local, _size = pilot3_common_png_bytes(
+            image, Pilot2PreprocessingConfig()
+        )
+    command = (
+        "from pathlib import Path; from PIL import Image; "
+        "from latent_art_bench.io import hash_bytes; "
+        "from latent_art_bench.pilot2.config import Pilot2PreprocessingConfig; "
+        "from latent_art_bench.pilot3.preprocessing import pilot3_common_png_bytes; "
+        f"p=Path({str(source_path)!r}); "
+        "im=Image.open(p); b,_=pilot3_common_png_bytes(im,Pilot2PreprocessingConfig()); "
+        "im.close(); print(hash_bytes(b))"
+    )
+    environment = dict(os.environ)
+    environment["PYTHONPATH"] = str(ROOT / "src")
+    fresh_hash = subprocess.run(
+        [sys.executable, "-c", command],
+        cwd=ROOT,
+        env=environment,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    assert fresh_hash == hash_bytes(local)
+    chunks = png_chunk_types(local)
+    assert chunks[0] == "IHDR" and chunks[-1] == "IEND"
+    assert set(chunks) == {"IHDR", "IDAT", "IEND"}
+    with Image.open(io.BytesIO(local)) as verified:
+        verified.load()
+        assert verified.mode == "RGB"
+        assert verified.info == {}
+
+
+def test_normalization_revalidation_reader_rejects_torn_and_noncanonical_rows(
+    tmp_path: Path,
+) -> None:
+    path = tmp_path / "revalidations.jsonl"
+    path.write_bytes(b'{"record_type":"test"}')
+    with pytest.raises(Pilot3PhaseAError, match="torn final row"):
+        _read_canonical_normalization_revalidations(path)
+    path.write_bytes(b'{"record_type": "test"}\n')
+    with pytest.raises(Pilot3PhaseAError, match="not canonical JSON"):
+        _read_canonical_normalization_revalidations(path)
+
+
+def test_preprocessing_evidence_commits_must_be_strictly_ordered(
+    tmp_path: Path,
+) -> None:
+    with pytest.raises(Pilot3PhaseAError, match="strictly after"):
+        _require_strict_git_ancestor(
+            tmp_path,
+            "a" * 40,
+            "a" * 40,
+            "normalization revalidation was not committed strictly after the amendment",
+        )
+
+
+def test_preprocessing_evidence_chronology_uses_real_git_commits(
+    tmp_path: Path,
+) -> None:
+    repository = tmp_path / "repository"
+    repository.mkdir()
+    subprocess.run(["git", "init", "--quiet"], cwd=repository, check=True)
+    subprocess.run(
+        ["git", "config", "user.email", "pilot3-test@example.invalid"],
+        cwd=repository,
+        check=True,
+    )
+    subprocess.run(
+        ["git", "config", "user.name", "Pilot 3 Test"],
+        cwd=repository,
+        check=True,
+    )
+
+    commits = []
+    for relative, content, message in (
+        ("implementation.py", "v2 implementation\n", "implementation"),
+        ("amendment.json", '{"authorized":true}\n', "amendment"),
+        ("revalidations.jsonl", '{"sequence":1}\n', "revalidation"),
+    ):
+        path = repository / relative
+        path.write_text(content, encoding="utf-8")
+        subprocess.run(["git", "add", relative], cwd=repository, check=True)
+        subprocess.run(
+            ["git", "commit", "--quiet", "-m", message],
+            cwd=repository,
+            check=True,
+        )
+        commits.append(
+            subprocess.run(
+                ["git", "rev-parse", "HEAD"],
+                cwd=repository,
+                check=True,
+                capture_output=True,
+                text=True,
+            ).stdout.strip()
+        )
+
+    implementation_commit, amendment_commit, revalidation_commit = commits
+    assert _git_introduction_commit(repository, "amendment.json") == amendment_commit
+    assert (
+        _git_introduction_commit(repository, "revalidations.jsonl")
+        == revalidation_commit
+    )
+    amendment_parent = subprocess.run(
+        ["git", "rev-parse", f"{amendment_commit}^"],
+        cwd=repository,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    assert amendment_parent == implementation_commit
+    _require_strict_git_ancestor(
+        repository,
+        amendment_commit,
+        revalidation_commit,
+        "revalidation must follow amendment",
+    )
+    with pytest.raises(Pilot3PhaseAError, match="strictly later"):
+        _require_strict_git_ancestor(
+            repository,
+            amendment_commit,
+            amendment_commit,
+            "correction must be committed strictly later",
+        )
+
+
+def test_preprocessing_amendment_rejects_changed_pilot2_serializer(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    historical_sha = "a" * 64
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.load_phase_a_config",
+        lambda *_args, **_kwargs: {
+            "paths": {"split_manifest": "data/manifests/pilot_3/real_splits.jsonl"}
+        },
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea._aic_development_splits",
+        lambda *_args, **_kwargs: [],
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea._git_blob_evidence",
+        lambda _root, _commit, _relative: {
+            "git_blob_object_id": "1" * 40,
+            "file_sha256": historical_sha,
+        },
+    )
+
+    def fake_hash(path: Path) -> str:
+        if str(path).endswith("src/latent_art_bench/pilot2/preprocessing.py"):
+            return "b" * 64
+        return historical_sha
+
+    monkeypatch.setattr("latent_art_bench.pilot3.phasea.hash_file", fake_hash)
+    assert "src/latent_art_bench/pilot2/preprocessing.py" in (
+        PREPROCESSING_HISTORICAL_BLOB_PATHS
+    )
+    with pytest.raises(Pilot3PhaseAError, match="immutable base path"):
+        _preprocessing_amendment_payload(
+            tmp_path,
+            original_authorization={
+                "recovery_implementation_file_sha256": {},
+                "phase_a_config_file_sha256": historical_sha,
+                "split_manifest_file_sha256": historical_sha,
+            },
+            incident={"acquisition_bindings": []},
+            remediation_implementation_git_commit="2" * 40,
+        )
+
+
+def test_amendment_authorizer_freeze_failure_writes_nothing(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.verify_preprocessing_determinism_incident",
+        lambda *_args, **_kwargs: {},
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.require_development_freeze",
+        lambda *_args, **_kwargs: (_ for _ in ()).throw(
+            Pilot3PhaseAError("Freeze-A1 path is dirty")
+        ),
+    )
+    with pytest.raises(Pilot3PhaseAError, match="dirty"):
+        authorize_preprocessing_determinism_amendment(tmp_path)
+    assert not (tmp_path / PREPROCESSING_AMENDMENT_PATH).exists()
+    assert not (tmp_path / NORMALIZATION_REVALIDATION_LEDGER_PATH).exists()
+
+
+def test_normalization_creator_freeze_failure_writes_no_cas_or_ledger(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.verify_preprocessing_determinism_amendment",
+        lambda *_args, **_kwargs: {},
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.require_development_freeze",
+        lambda *_args, **_kwargs: (_ for _ in ()).throw(
+            Pilot3PhaseAError("Freeze-A1 path is dirty")
+        ),
+    )
+    with pytest.raises(Pilot3PhaseAError, match="dirty"):
+        create_normalization_revalidations(tmp_path)
+    assert not (tmp_path / NORMALIZATION_REVALIDATION_LEDGER_PATH).exists()
+    assert not (tmp_path / "artifacts/pilot_3/real_normalized").exists()
+
+
+def test_normalization_revalidation_resumes_an_exact_partial_prefix_offline(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    work_ids = [f"work-aic-{index}" for index in range(11)] + [
+        PREPROCESSING_INCIDENT_WORK_ID
+    ]
+    config = {
+        "common_preprocessing": {"protocol_version": "frozen-v1"},
+        "paths": {"normalized_dir": "artifacts/pilot_3/real_normalized"},
+    }
+    base_sha = stable_hash(config["common_preprocessing"])
+    originals = []
+    splits = {}
+    normalized_by_raw: dict[bytes, bytes] = {}
+    for index, work_id in enumerate(work_ids):
+        raw = f"raw-{index}".encode()
+        effective = f"normalized-{index}".encode()
+        historical = b"legacy-container" if work_id == PREPROCESSING_INCIDENT_WORK_ID else effective
+        raw_path = tmp_path / "raw" / f"{index}.bin"
+        old_path = tmp_path / "old" / f"{index}.png"
+        raw_path.parent.mkdir(parents=True, exist_ok=True)
+        old_path.parent.mkdir(parents=True, exist_ok=True)
+        raw_path.write_bytes(raw)
+        old_path.write_bytes(historical)
+        originals.append(
+            {
+                "canonical_work_id": work_id,
+                "record_sha256": f"{index + 1:064x}",
+                "raw_path": raw_path.relative_to(tmp_path).as_posix(),
+                "raw_sha256": hash_bytes(raw),
+                "raw_byte_count": len(raw),
+                "normalized_path": old_path.relative_to(tmp_path).as_posix(),
+                "normalized_sha256": hash_bytes(historical),
+                "normalized_byte_count": len(historical),
+                "phase_a_config_file_sha256": "a" * 64,
+                "common_preprocessing_config_sha256": base_sha,
+            }
+        )
+        splits[work_id] = {
+            "canonical_work_id": work_id,
+            "delivery_width": 640,
+            "delivery_height": 512,
+        }
+        normalized_by_raw[raw] = effective
+    amendment = {
+        "authorization_sha256": "b" * 64,
+        "normalization_protocol_version": PILOT3_NORMALIZATION_PROTOCOL_VERSION,
+    }
+    incident = {"incident_sha256": "c" * 64}
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.verify_preprocessing_determinism_amendment",
+        lambda *_args, **_kwargs: amendment,
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.require_development_freeze",
+        lambda *_args, **_kwargs: {},
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.verify_preprocessing_determinism_incident",
+        lambda *_args, **_kwargs: incident,
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.load_phase_a_config",
+        lambda *_args, **_kwargs: config,
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea._incident_acquisition_rows",
+        lambda *_args, **_kwargs: (originals, splits),
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea._decode_and_normalize",
+        lambda payload, *_args, **_kwargs: ({}, normalized_by_raw[payload]),
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea._normalized_rgb_pixel_sha256",
+        lambda _payload: "d" * 64,
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.httpx.Client",
+        lambda *_args, **_kwargs: pytest.fail("offline repair must not use HTTP"),
+    )
+    append_count = 0
+
+    def crash_after_five(path: Path, row: dict) -> None:
+        nonlocal append_count
+        _append_jsonl_fsync(path, row)
+        append_count += 1
+        if append_count == 5:
+            raise RuntimeError("simulated crash after durable append")
+
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea._append_jsonl_fsync", crash_after_five
+    )
+    with pytest.raises(RuntimeError, match="simulated crash"):
+        create_normalization_revalidations(tmp_path)
+    assert len(
+        _read_canonical_normalization_revalidations(
+            tmp_path / NORMALIZATION_REVALIDATION_LEDGER_PATH
+        )
+    ) == 5
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea._append_jsonl_fsync", _append_jsonl_fsync
+    )
+    rows = create_normalization_revalidations(tmp_path)
+    assert len(rows) == 12
+    assert sum(row["disposition"] == "revalidated_unchanged" for row in rows) == 11
+    assert [
+        row["canonical_work_id"]
+        for row in rows
+        if row["disposition"] == "superseded"
+    ] == [PREPROCESSING_INCIDENT_WORK_ID]
+    assert not any(
+        (tmp_path / relative).exists()
+        for relative in PREPROCESSING_PROSPECTIVE_FORBIDDEN_PATHS
+    )
+
+
+def test_historical_browser_authorization_requires_incident_commit_blob(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    authorization_path = (
+        tmp_path / "reports/pilot_3/evidence/aic_browser_recovery_authorization.json"
+    )
+    authorization_path.parent.mkdir(parents=True)
+    authorization_path.write_bytes(b"{}\n")
+    calls = 0
+
+    def fake_run(*_args: object, **_kwargs: object) -> subprocess.CompletedProcess[bytes]:
+        nonlocal calls
+        calls += 1
+        return subprocess.CompletedProcess(
+            args=[], returncode=0 if calls == 1 else 1, stdout=b"{}\n", stderr=b""
+        )
+
+    monkeypatch.setattr("latent_art_bench.pilot3.phasea.subprocess.run", fake_run)
+    with pytest.raises(Pilot3PhaseAError, match="exact historical Git blob"):
+        _verify_historical_aic_browser_recovery_authorization(
+            tmp_path,
+            incident={
+                "incident_sha256": PREPROCESSING_INCIDENT_SHA256,
+                "original_browser_authorization": {"file_sha256": hash_bytes(b"{}\n")},
+            },
+            require_committed=True,
+        )
+
+
+def test_effective_acquisition_view_has_uniform_v2_lineage(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    config = {"common_preprocessing": {"protocol_version": "frozen-v1"}}
+    base_sha = stable_hash(config["common_preprocessing"])
+    effective_sha = _effective_preprocessing_contract_sha256(config)
+    amendment = {"authorization_sha256": "a" * 64}
+    historical = {
+        "canonical_work_id": "historical",
+        "record_sha256": "1" * 64,
+        "normalized_path": "old.png",
+        "normalized_sha256": "2" * 64,
+        "normalized_byte_count": 10,
+        "common_preprocessing_config_sha256": base_sha,
+    }
+    correction = {
+        "disposition": "superseded",
+        "original_acquisition_record_sha256": historical["record_sha256"],
+        "effective_normalized_path": "new.png",
+        "effective_normalized_sha256": "3" * 64,
+        "effective_normalized_byte_count": 9,
+        "normalization_protocol_version": PILOT3_NORMALIZATION_PROTOCOL_VERSION,
+        "preprocessing_determinism_amendment_sha256": amendment[
+            "authorization_sha256"
+        ],
+        "base_common_preprocessing_config_sha256": base_sha,
+        "effective_preprocessing_contract_sha256": effective_sha,
+        "effective_acquisition_sha256": "4" * 64,
+        "record_sha256": "5" * 64,
+    }
+    current = {
+        "canonical_work_id": "current",
+        "record_sha256": "6" * 64,
+        "normalized_path": "current.png",
+        "normalized_sha256": "7" * 64,
+        "normalized_byte_count": 8,
+        "normalization_protocol_version": PILOT3_NORMALIZATION_PROTOCOL_VERSION,
+        "preprocessing_determinism_amendment_sha256": amendment[
+            "authorization_sha256"
+        ],
+        "base_common_preprocessing_config_sha256": base_sha,
+        "common_preprocessing_config_sha256": effective_sha,
+        "effective_preprocessing_contract_sha256": effective_sha,
+    }
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.verify_preprocessing_determinism_amendment",
+        lambda *_args, **_kwargs: amendment,
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.verify_normalization_revalidations",
+        lambda *_args, **_kwargs: {"historical": correction},
+    )
+    effective = effective_acquisition_rows(
+        tmp_path,
+        config,
+        "development",
+        {"historical": historical, "current": current},
+    )
+    assert effective["historical"]["normalized_path"] == "new.png"
+    assert effective["current"]["normalized_path"] == "current.png"
+    for row in effective.values():
+        assert row["base_common_preprocessing_config_sha256"] == base_sha
+        assert row["common_preprocessing_config_sha256"] == effective_sha
+        assert row["effective_preprocessing_contract_sha256"] == effective_sha
+        assert row["normalization_protocol_version"] == (
+            PILOT3_NORMALIZATION_PROTOCOL_VERSION
+        )
+
+
+def test_determinism_probe_writer_round_trips_through_validator(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    sources = ("aic", "met")
+    splits = []
+    acquisitions: dict[str, dict] = {}
+    effective: dict[str, dict] = {}
+    features: dict[str, dict] = {}
+    vector = np.asarray([1.25, -2.5, 5.0], dtype=np.float32)
+    vector_sha = learned_formal_vector_sha256(vector)
+    base_sha = "1" * 64
+    effective_contract_sha = "2" * 64
+    amendment_sha = "3" * 64
+    for index, (artist, source) in enumerate(
+        (artist, source) for artist in EXPECTED_ARTISTS for source in sources
+    ):
+        work_id = f"work-{index:02d}"
+        split = {
+            "canonical_work_id": work_id,
+            "artist_id": artist,
+            "source_id": source,
+            "partition": "development_training",
+        }
+        splits.append(split)
+        acquisitions[work_id] = {"canonical_work_id": work_id}
+        effective[work_id] = {
+            "canonical_work_id": work_id,
+            "normalized_path": f"normalized/{work_id}.png",
+            "normalized_sha256": f"{index + 10:064x}",
+            "normalization_protocol_version": (
+                PILOT3_NORMALIZATION_PROTOCOL_VERSION
+            ),
+            "base_common_preprocessing_config_sha256": base_sha,
+            "common_preprocessing_config_sha256": effective_contract_sha,
+            "preprocessing_determinism_amendment_sha256": amendment_sha,
+            "effective_preprocessing_contract_sha256": effective_contract_sha,
+            "effective_acquisition_sha256": f"{index + 100:064x}",
+            "normalization_revalidation_record_sha256": f"{index + 200:064x}",
+        }
+        features[work_id] = {
+            **split,
+            "vector_sha256": vector_sha,
+            "extraction_metadata": {"seed": 7000 + index},
+        }
+    config = {
+        "paths": {
+            "development_acquisitions": "ledgers/acquisitions.jsonl",
+            "development_features": "ledgers/features.jsonl",
+            "determinism_probes": "ledgers/determinism_probes.jsonl",
+        },
+        "a_vector": {"base_seed": 17, "device": "cpu"},
+    }
+    for row in acquisitions.values():
+        _append_jsonl_fsync(
+            tmp_path / config["paths"]["development_acquisitions"], row
+        )
+    for row in features.values():
+        _append_jsonl_fsync(tmp_path / config["paths"]["development_features"], row)
+
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.require_preprocessing_incident_resolution",
+        lambda *_args, **_kwargs: {},
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.require_development_freeze",
+        lambda *_args, **_kwargs: {},
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.load_phase_a_config",
+        lambda *_args, **_kwargs: config,
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.load_real_splits",
+        lambda *_args, **_kwargs: splits,
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.effective_acquisition_rows",
+        lambda *_args, **_kwargs: effective,
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea._verify_existing_acquisition",
+        lambda *_args, **_kwargs: None,
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea._verify_feature",
+        lambda *_args, **_kwargs: None,
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea._load_vae",
+        lambda *_args, **_kwargs: object(),
+    )
+
+    class _Repeated:
+        def __init__(self) -> None:
+            self.vector = vector
+
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.extract_learned_formal",
+        lambda *_args, **_kwargs: _Repeated(),
+    )
+
+    written = run_determinism_probes(tmp_path)
+    validated = _validated_determinism_probes(
+        tmp_path, config, list(features.values())
+    )
+
+    assert validated == written
+    assert len(validated) == len(EXPECTED_ARTISTS) * len(sources)
+    assert all(
+        row["base_common_preprocessing_config_sha256"] == base_sha for row in written
+    )
+    assert all(
+        row["common_preprocessing_config_sha256"] == effective_contract_sha
+        for row in written
+    )
+
+
+@pytest.mark.parametrize("relative", PREPROCESSING_PROSPECTIVE_FORBIDDEN_PATHS)
+def test_preprocessing_amendment_boundary_rejects_every_downstream_path(
+    tmp_path: Path, relative: str
+) -> None:
+    from latent_art_bench.pilot3.phasea import (
+        _require_preprocessing_amendment_prospective_boundary,
+    )
+
+    candidate = tmp_path / relative
+    candidate.mkdir(parents=True)
+    state = {
+        "determinism_probe_path": "absent/determinism.jsonl",
+        "development_feature_path": "absent/features.jsonl",
+        "external_unseal_receipt_path": "absent/receipt.json",
+        "p3_t07_path": "absent/protocol.json",
+        "determinism_probes_exist": False,
+        "development_features_exist": False,
+        "external_unseal_receipt_exists": False,
+        "external_acquisition_attempts_exist": False,
+        "external_acquisition_intents_exist": False,
+        "external_acquisitions_exist": False,
+        "external_features_exist": False,
+        "external_result_exists": False,
+        "gpt_image_requests_made": False,
+        "gpt_image_transport_opened": False,
+        "p3_t07_exists": False,
+    }
+    with pytest.raises(Pilot3PhaseAError, match="no longer prospective"):
+        _require_preprocessing_amendment_prospective_boundary(
+            tmp_path, {"state_boundary": state}
+        )
+
+
+def test_post_incident_http_start_is_rejected_before_request(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    config, intent = _attempt_fixture(tmp_path)
+    incident = tmp_path / PREPROCESSING_INCIDENT_PATH
+    incident.parent.mkdir(parents=True)
+    incident.write_text("{}\n", encoding="utf-8")
+    _FakeHTTPClient.call_count = 0
+    _FakeHTTPClient.outcomes = [_response(200, b"must-not-run", "image/jpeg")]
+    monkeypatch.setattr("latent_art_bench.pilot3.phasea.httpx.Client", _FakeHTTPClient)
+    with pytest.raises(Pilot3PhaseAError, match="requires the committed v2 amendment"):
+        _download_image_bytes(tmp_path, config, "development", intent)
+    assert _FakeHTTPClient.call_count == 0
+    assert (tmp_path / "attempts.jsonl").read_bytes() == b""
+
+
+def test_generic_resume_cannot_create_a_remaining_aic_network_intent(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    splits = [
+        {
+            "canonical_work_id": f"work-aic-{index}",
+            "partition": "development_training",
+            "source_id": "aic",
+        }
+        for index in range(40)
+    ]
+    config = {
+        "paths": {
+            "development_acquisition_intents": "intents.jsonl",
+            "development_acquisition_attempts": "attempts.jsonl",
+            "development_acquisitions": "acquisitions.jsonl",
+        }
+    }
+    config_path = tmp_path / "configs/pilot_3/phase_a.json"
+    config_path.parent.mkdir(parents=True)
+    config_path.write_text("{}\n", encoding="utf-8")
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.load_phase_a_config",
+        lambda *_args, **_kwargs: config,
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.load_real_splits",
+        lambda *_args, **_kwargs: splits,
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.require_preprocessing_incident_resolution",
+        lambda *_args, **_kwargs: {"amendment": {}, "corrections": {}},
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.require_development_freeze",
+        lambda *_args, **_kwargs: {},
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.httpx.Client",
+        lambda *_args, **_kwargs: pytest.fail("network request must not start"),
+    )
+    with pytest.raises(Pilot3PhaseAError, match="browser-recovery prepare"):
+        _acquire_real_partition_locked(tmp_path, phase="development")
+    assert not (tmp_path / "intents.jsonl").exists()
+    assert (tmp_path / "attempts.jsonl").read_bytes() == b""
 
 
 def test_where_froms_parser_requires_a_bounded_binary_url_array() -> None:
@@ -520,7 +1300,7 @@ def test_browser_attempt_terminal_binds_start_prefix_xattr_and_cas(
 def test_browser_prepare_rejects_a_preexisting_download_directory(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
-    _config, split, _authorization = _browser_integration_fixture(
+    _config, split, _authorization, _amendment = _browser_integration_fixture(
         tmp_path, monkeypatch
     )
     download_directory = tmp_path / "downloads" / "attempt"
@@ -533,10 +1313,57 @@ def test_browser_prepare_rejects_a_preexisting_download_directory(
         )
 
 
+def test_browser_prepare_freeze_failure_has_no_durable_side_effect(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    _config, split, _authorization, _amendment = _browser_integration_fixture(
+        tmp_path, monkeypatch
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.require_development_freeze",
+        lambda *_args, **_kwargs: (_ for _ in ()).throw(
+            Pilot3PhaseAError("Freeze-A1 path is dirty")
+        ),
+    )
+    download_directory = tmp_path / "downloads" / "attempt"
+    with pytest.raises(Pilot3PhaseAError, match="dirty"):
+        prepare_aic_browser_recovery(
+            tmp_path, split["canonical_work_id"], download_directory
+        )
+    assert not download_directory.exists()
+    assert not (tmp_path / "artifacts/intents.jsonl").exists()
+    assert not (
+        tmp_path / "artifacts/pilot_3/development_browser_recoveries.jsonl"
+    ).exists()
+    assert not (
+        tmp_path / "artifacts/pilot_3/development_browser_directory_intents.jsonl"
+    ).exists()
+
+
+def test_browser_prepare_rejects_an_already_acquired_target(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    config, split, _authorization, _amendment = _browser_integration_fixture(
+        tmp_path, monkeypatch
+    )
+    acquisition_path = tmp_path / config["paths"]["development_acquisitions"]
+    _append_jsonl_fsync(
+        acquisition_path,
+        {"canonical_work_id": split["canonical_work_id"], "record_sha256": "a" * 64},
+    )
+    download_directory = tmp_path / "downloads" / "attempt"
+    with pytest.raises(Pilot3PhaseAError, match="already acquired"):
+        prepare_aic_browser_recovery(
+            tmp_path, split["canonical_work_id"], download_directory
+        )
+    assert not download_directory.exists()
+    assert not (tmp_path / "artifacts/intents.jsonl").exists()
+
+
 def test_browser_prepare_import_and_crash_resume_are_end_to_end(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
-    config, split, _authorization = _browser_integration_fixture(
+    config, split, _authorization, _amendment = _browser_integration_fixture(
         tmp_path, monkeypatch
     )
     download_parent = tmp_path / "downloads"
@@ -610,7 +1437,7 @@ def test_browser_prepare_import_and_crash_resume_are_end_to_end(
 def test_browser_journal_rejects_two_unmatched_starts(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
-    config, split, authorization = _browser_integration_fixture(
+    config, split, authorization, amendment = _browser_integration_fixture(
         tmp_path, monkeypatch
     )
     download_parent = tmp_path / "downloads"
@@ -634,7 +1461,11 @@ def test_browser_journal_rejects_two_unmatched_starts(
     }
     with pytest.raises(Pilot3PhaseAError, match="multiple unmatched starts"):
         _verified_browser_attempt_histories(
-            tmp_path, config, authorization, intents
+            tmp_path,
+            config,
+            authorization,
+            intents,
+            normalization_amendment=amendment,
         )
 
 
@@ -649,6 +1480,11 @@ def test_p3_t07_closure_requires_all_browser_recovery_evidence(
         "artifacts/pilot_3/development_browser_recoveries.jsonl",
         "docs/PILOT_3_AIC_BROWSER_RECOVERY.md",
         "scripts/import_pilot3_browser_acquisition.py",
+        str(PREPROCESSING_INCIDENT_PATH),
+        str(PREPROCESSING_AMENDMENT_PATH),
+        str(NORMALIZATION_REVALIDATION_LEDGER_PATH),
+        str(PREPROCESSING_AMENDMENT_DOC_PATH),
+        "src/latent_art_bench/pilot3/preprocessing.py",
     }
     assert required.issubset(closure)
     with pytest.raises(Pilot3PhaseAError, match="closure path is missing"):
@@ -682,6 +1518,10 @@ def test_p3_t07_feature_selection_reverifies_acquisition_provenance(
     monkeypatch.setattr(
         "latent_art_bench.pilot3.phasea._verify_feature",
         lambda *_args, **_kwargs: calls.append("feature"),
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.effective_acquisition_rows",
+        lambda *_args, **_kwargs: {"work-aic-test": acquisition},
     )
 
     assert _selected_feature_rows(
@@ -1138,6 +1978,10 @@ def test_acquisition_record_must_bind_exact_http_attempt_history(
         "browser_terminal_event_sha256": None,
         "browser_authorization_sha256": None,
     }
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.require_preprocessing_incident_resolution",
+        lambda *_args, **_kwargs: {"amendment": {}, "corrections": {}},
+    )
     _verify_acquisition_http_history(row, tmp_path, config, intent)
     row["http_attempt_history_semantic_sha256"] = "0" * 64
     with pytest.raises(Pilot3PhaseAError, match="binding is stale"):
@@ -1264,6 +2108,10 @@ def test_protocol_verifier_rejects_self_hashed_forged_statistics(
     monkeypatch.setattr(
         "latent_art_bench.pilot3.phasea._a_vector_protocol_payload",
         lambda *_args: {"balanced_accuracy": 0.25},
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.require_preprocessing_incident_resolution",
+        lambda *_args, **_kwargs: {},
     )
     with pytest.raises(Pilot3PhaseAError, match="deterministic recomputation"):
         verify_a_vector_protocol(tmp_path)

@@ -9,8 +9,11 @@ from pathlib import Path
 
 from latent_art_bench.pilot3.phasea import (
     authorize_aic_browser_recovery,
+    authorize_preprocessing_determinism_amendment,
+    create_normalization_revalidations,
     import_aic_browser_recovery_directory,
     prepare_aic_browser_recovery,
+    require_preprocessing_incident_resolution,
     verify_aic_browser_recovery_authorization,
 )
 
@@ -50,6 +53,21 @@ def _parser() -> argparse.ArgumentParser:
         help="non-symlink directory whose direct completed files are inspected",
     )
     subparsers.add_parser("verify", help="verify the committed authorization and closure")
+    subparsers.add_parser(
+        "authorize-preprocessing-amendment",
+        help=(
+            "write the prospective Pilot-3 v2 normalization authorization; "
+            "performs no image, browser, feature, or network I/O"
+        ),
+    )
+    subparsers.add_parser(
+        "revalidate-normalization",
+        help="append the exact 12-row offline v1-to-v2 normalization revalidation",
+    )
+    subparsers.add_parser(
+        "verify-preprocessing-remediation",
+        help="verify the committed amendment and complete committed revalidation ledger",
+    )
     return parser
 
 
@@ -86,13 +104,58 @@ def main() -> None:
             "record_sha256": [row["record_sha256"] for row in result],
             "network_or_browser_request_performed": False,
         }
-    else:
-        result = verify_aic_browser_recovery_authorization(root)
+    elif arguments.command == "verify":
+        if (root / "reports/pilot_3/evidence/preprocessing_determinism_incident.json").is_file():
+            resolution = require_preprocessing_incident_resolution(root)
+            result = resolution["amendment"]
+            summary = {
+                "status": "historical_browser_authorization_verified_through_remediation",
+                "authorization_sha256": result[
+                    "original_browser_authorization_sha256"
+                ],
+                "target_count": result["target_count"],
+                "normalization_amendment_sha256": result["authorization_sha256"],
+                "normalization_revalidation_count": len(resolution["corrections"]),
+                "network_or_browser_request_performed": False,
+            }
+        else:
+            result = verify_aic_browser_recovery_authorization(root)
+            summary = {
+                "status": "verified",
+                "authorization_sha256": result["authorization_sha256"],
+                "target_count": result["target_count"],
+                "network_or_browser_request_performed": False,
+            }
+    elif arguments.command == "authorize-preprocessing-amendment":
+        result = authorize_preprocessing_determinism_amendment(root)
         summary = {
-            "status": "verified",
+            "status": result["status"],
             "authorization_sha256": result["authorization_sha256"],
-            "target_count": result["target_count"],
-            "network_or_browser_request_performed": False,
+            "normalization_protocol_version": result[
+                "normalization_protocol_version"
+            ],
+            "network_browser_image_or_feature_operation_performed": False,
+        }
+    elif arguments.command == "revalidate-normalization":
+        rows = create_normalization_revalidations(root)
+        summary = {
+            "status": "normalization_revalidation_appended",
+            "row_count": len(rows),
+            "superseded_work_ids": [
+                row["canonical_work_id"]
+                for row in rows
+                if row["disposition"] == "superseded"
+            ],
+            "network_browser_or_feature_operation_performed": False,
+        }
+    else:
+        result = require_preprocessing_incident_resolution(root)
+        summary = {
+            "status": "preprocessing_incident_resolved",
+            "authorization_sha256": result["amendment"]["authorization_sha256"],
+            "revalidation_count": len(result["corrections"]),
+            "network_browser_or_feature_operation_performed": False,
+            "local_image_revalidation_performed": True,
         }
     print(json.dumps(summary, indent=2, sort_keys=True))
 

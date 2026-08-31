@@ -39,7 +39,6 @@ from latent_art_bench.io import (
     write_jsonl,
 )
 from latent_art_bench.pilot2.config import Pilot2PreprocessingConfig
-from latent_art_bench.pilot2.preprocessing import common_png_bytes
 from latent_art_bench.pilot3.analysis import (
     PRIMARY_OUTCOMES,
     _analyze_phase_b_core_for_verified_inputs,
@@ -79,17 +78,27 @@ from latent_art_bench.pilot3.generation import (
     verify_successful_output_artifacts,
 )
 from latent_art_bench.pilot3.phasea import (
+    NORMALIZATION_REVALIDATION_LEDGER_PATH,
+    PREPROCESSING_AMENDMENT_DOC_PATH,
+    PREPROCESSING_AMENDMENT_PATH,
+    PREPROCESSING_INCIDENT_PATH,
     Pilot3PhaseAError,
     _load_vae,
     _verify_existing_acquisition,
     _verify_feature,
+    effective_acquisition_rows,
     load_frozen_a_vector_state,
     load_phase_a_config,
     load_real_splits,
     project_a_vectors,
+    require_preprocessing_incident_resolution,
     verify_a_vector_protocol,
     verify_external_holdout_result,
     verify_self_hash,
+)
+from latent_art_bench.pilot3.preprocessing import (
+    PILOT3_NORMALIZATION_PROTOCOL_VERSION,
+    pilot3_common_png_bytes,
 )
 from latent_art_bench.pilot3.qualification import (
     TRANSPORT_QUALIFICATION_ARTIFACT_PATH,
@@ -127,10 +136,13 @@ GENERATION_AUTHORIZATION_CLOSED = "closed"
 GENERATION_AUTHORIZATION_OPEN = "preregistered_generation_gate_open"
 TERMINAL_ROW_SCHEMA = "pilot3-terminal-disposition/2.0"
 TERMINAL_ENVELOPE_SCHEMA = "pilot3-terminal-disposition-manifest/2.0"
-GENERATED_PREPROCESSING_SCHEMA = "pilot3-generated-preprocessing/1.0"
+GENERATED_PREPROCESSING_SCHEMA = "pilot3-generated-preprocessing/2.0"
+GENERATED_NORMALIZATION_CONTRACT_SCHEMA = (
+    "pilot3-generated-normalization-contract/1.0"
+)
 GENERATED_A_VECTOR_SCHEMA = "pilot3-generated-a-vector/1.0"
 GENERATED_DISTANCE_SCHEMA = "pilot3-generated-a-vector-distance/1.0"
-GENERATED_MEASUREMENT_SCHEMA = "pilot3-generated-a-vector-measurement/1.0"
+GENERATED_MEASUREMENT_SCHEMA = "pilot3-generated-a-vector-measurement/2.0"
 COMPLETION_SCHEMA = "pilot3-scientific-completion/2.0"
 REQUIREMENT_AUDIT_SCHEMA = "pilot3-requirement-audit/1.0"
 ARTIFACT_INDEX_SCHEMA = "pilot3-artifact-index/1.0"
@@ -145,6 +157,9 @@ CANONICAL_PATHS: Dict[str, Path] = {
     "a_vector_protocol": Path("reports/pilot_3/evidence/a_vector_protocol.json"),
     "a_vector_external": Path("reports/pilot_3/evidence/a_vector_external_validation.json"),
     "external_unseal_receipt": Path("artifacts/pilot_3/external_unseal_receipt.json"),
+    "preprocessing_incident": PREPROCESSING_INCIDENT_PATH,
+    "preprocessing_amendment": PREPROCESSING_AMENDMENT_PATH,
+    "normalization_revalidations": NORMALIZATION_REVALIDATION_LEDGER_PATH,
     "transport_qualification": Path("reports/pilot_3/evidence/transport_qualification.json"),
     "account_authorization": Path("reports/pilot_3/evidence/account_authorization.json"),
     "model_documentation": Path("reports/pilot_3/evidence/model_documentation.json"),
@@ -193,6 +208,7 @@ FREEZE_B_CODE_CLOSURE: Tuple[Path, ...] = tuple(
         "pyproject.toml",
         "uv.lock",
         "docs/PILOT_3_PROTOCOL.md",
+        "docs/PILOT_3_PREPROCESSING_DETERMINISM_AMENDMENT.md",
         "configs/pilot_3/study.json",
         "configs/pilot_3/phase_a.json",
         "configs/pilot_3/corpus_freeze.json",
@@ -223,6 +239,7 @@ FREEZE_B_CODE_CLOSURE: Tuple[Path, ...] = tuple(
         "src/latent_art_bench/pilot3/lee.py",
         "src/latent_art_bench/pilot3/phasea.py",
         "src/latent_art_bench/pilot3/planning.py",
+        "src/latent_art_bench/pilot3/preprocessing.py",
         "src/latent_art_bench/pilot3/qualification.py",
         "src/latent_art_bench/pilot3/transport.py",
         "tests/pilot3/test_design.py",
@@ -249,6 +266,8 @@ FREEZE_B_EVIDENCE_CLOSURE: Tuple[Path, ...] = tuple(
         "reports/pilot_3/evidence/design_sensitivity.json",
         "reports/pilot_3/evidence/corpus_selection.json",
         "reports/pilot_3/evidence/holdout_seal.json",
+        "reports/pilot_3/evidence/preprocessing_determinism_incident.json",
+        "reports/pilot_3/evidence/preprocessing_determinism_amendment.json",
         "reports/pilot_3/evidence/a_vector_protocol.json",
         "reports/pilot_3/evidence/a_vector_external_validation.json",
         "artifacts/pilot_3/external_unseal_receipt.json",
@@ -268,6 +287,7 @@ FREEZE_B_EVIDENCE_CLOSURE: Tuple[Path, ...] = tuple(
         "artifacts/pilot_3/development_acquisition_http_attempts.jsonl",
         "artifacts/pilot_3/external_acquisition_http_attempts.jsonl",
         "artifacts/pilot_3/development_acquisitions.jsonl",
+        "artifacts/pilot_3/development_normalization_revalidations.jsonl",
         "artifacts/pilot_3/external_acquisitions.jsonl",
         "artifacts/pilot_3/development_a_vectors.jsonl",
         "artifacts/pilot_3/external_a_vectors.jsonl",
@@ -659,6 +679,27 @@ def _verify_p3_t11(root: Path) -> Tuple[Dict[str, Any], Path]:
     return expected, output_path
 
 
+def _verified_p3_t07_closure_paths(
+    root: Path, protocol: Mapping[str, Any]
+) -> Tuple[Path, ...]:
+    """Return only safe, byte-current paths from P3-T07's complete closure."""
+
+    closure = protocol.get("closure_file_sha256")
+    if not isinstance(closure, Mapping) or not closure:
+        raise Pilot3ExecutionError("P3-T07 has no closure hashes")
+    paths: List[Path] = []
+    for relative, expected in closure.items():
+        if not isinstance(relative, str) or not _is_sha256(expected):
+            raise Pilot3ExecutionError("P3-T07 closure contains an invalid binding")
+        path = Path(relative)
+        if path.is_absolute() or ".." in path.parts:
+            raise Pilot3ExecutionError("P3-T07 closure path escapes the repository")
+        if hash_file(_require_file(root, path)) != expected:
+            raise Pilot3ExecutionError(f"P3-T07 closure is stale: {relative}")
+        paths.append(path)
+    return tuple(sorted(paths))
+
+
 def _verify_phase_a_artifacts(
     root: Path,
     protocol: Mapping[str, Any],
@@ -691,15 +732,7 @@ def _verify_phase_a_artifacts(
     if external.get("a_vector_protocol_result_sha256") != protocol.get("result_sha256"):
         raise Pilot3ExecutionError("P3-T08 does not bind the exact frozen P3-T07")
     load_frozen_a_vector_state(_root(root), protocol)
-    closure = protocol.get("closure_file_sha256")
-    if not isinstance(closure, Mapping) or not closure:
-        raise Pilot3ExecutionError("P3-T07 has no closure hashes")
-    for relative, expected in closure.items():
-        if not isinstance(relative, str) or not _is_sha256(expected):
-            raise Pilot3ExecutionError("P3-T07 closure contains an invalid binding")
-        path = _require_file(root, Path(relative))
-        if hash_file(path) != expected:
-            raise Pilot3ExecutionError(f"P3-T07 closure is stale: {relative}")
+    _verified_p3_t07_closure_paths(root, protocol)
 
     config_paths = phase_config["paths"]
     split_rows = load_real_splits(_root(root), phase_config)
@@ -724,6 +757,7 @@ def _verify_phase_a_artifacts(
         ("external", "external_acquisitions"),
     ):
         path = _require_file(root, Path(config_paths[key]))
+        originals: Dict[str, Dict[str, Any]] = {}
         for index, raw in enumerate(read_jsonl(path), 1):
             if not isinstance(raw, Mapping):
                 raise Pilot3ExecutionError(f"{phase} acquisition row {index} is not an object")
@@ -731,6 +765,7 @@ def _verify_phase_a_artifacts(
             work_id = row.get("canonical_work_id")
             if (
                 not isinstance(work_id, str)
+                or work_id in originals
                 or work_id in acquisition_rows
                 or work_id not in split_by_work
             ):
@@ -753,7 +788,24 @@ def _verify_phase_a_artifacts(
                     else None
                 ),
             )
-            acquisition_rows[work_id] = row
+            originals[work_id] = row
+        try:
+            effective = effective_acquisition_rows(
+                _root(root),
+                phase_config,
+                phase,
+                originals,
+                require_committed=True,
+            )
+        except Pilot3PhaseAError as exc:
+            raise Pilot3ExecutionError(
+                f"Phase-A effective acquisition resolution failed: {exc}"
+            ) from exc
+        if set(effective) != set(originals):
+            raise Pilot3ExecutionError(
+                f"{phase} effective acquisition coverage differs from its base ledger"
+            )
+        acquisition_rows.update(effective)
     if set(acquisition_rows) != set(split_by_work):
         raise Pilot3ExecutionError("Phase-A acquisition coverage is not the exact frozen split")
 
@@ -1192,6 +1244,13 @@ def _phase_b_prerequisites(root: Path) -> Dict[str, Dict[str, Any]]:
         values["p3_t07_a_vector_protocol"],
         values["p3_t08_a_vector_external_validation"],
     )
+    bindings["pre_p3_t07_preprocessing_determinism_resolution"] = (
+        _generated_normalization_contract(
+            root,
+            load_phase_a_config(root),
+            values["p3_t07_a_vector_protocol"],
+        )
+    )
     t11 = values["p3_t11_transport_qualification"]
     if (
         t11.get("requested_model_label") != EXPECTED_REQUESTED_LABEL
@@ -1455,12 +1514,21 @@ def build_generation_gate(root: Path) -> Dict[str, Any]:
     if expected_fingerprint != fingerprint.fingerprint_sha256:
         raise Pilot3ExecutionError("P3-T11 does not bind the canonical runtime fingerprint")
 
+    protocol_raw = read_json(
+        _require_file(resolved_root, CANONICAL_PATHS["a_vector_protocol"])
+    )
+    if not isinstance(protocol_raw, Mapping):
+        raise Pilot3ExecutionError("P3-T07 is not a JSON object")
+    p3_t07_closure_paths = _verified_p3_t07_closure_paths(
+        resolved_root, protocol_raw
+    )
     qualification_output = Path(prerequisites["p3_t11_neutral_output"]["path"])
     closure_paths = sorted(
         set(
             FREEZE_B_CODE_CLOSURE
             + FREEZE_B_EVIDENCE_CLOSURE
             + FREEZE_B_OPERATIONAL_CLOSURE
+            + p3_t07_closure_paths
         )
         | {qualification_output}
     )
@@ -2156,7 +2224,7 @@ def _verify_protocol_config(
     root: Path,
     protocol: Mapping[str, Any],
     phase_a_config: Mapping[str, Any],
-) -> None:
+) -> Dict[str, Any]:
     config_path = _require_file(root, CANONICAL_PATHS["phase_a_config"])
     if (
         protocol.get("phase_a_config") != phase_a_config
@@ -2166,13 +2234,14 @@ def _verify_protocol_config(
     runtime = protocol.get("runtime_environment")
     if not isinstance(runtime, Mapping) or not runtime:
         raise Pilot3ExecutionError("P3-T07 lacks its frozen extraction runtime")
-    _pilot2_preprocessing_from_phase_a(phase_a_config)
+    _pilot3_preprocessing_from_phase_a(phase_a_config)
+    return _generated_normalization_contract(root, phase_a_config, protocol)
 
 
-def _pilot2_preprocessing_from_phase_a(
+def _pilot3_preprocessing_from_phase_a(
     phase_a_config: Mapping[str, Any],
 ) -> Pilot2PreprocessingConfig:
-    """Prove the frozen Pilot-3 wrapper executes the exact common PNG transform."""
+    """Validate the frozen v1 pixel transform beneath Pilot 3's v2 container overlay."""
 
     runtime = Pilot2PreprocessingConfig()
     expected = runtime.model_dump(mode="json")
@@ -2182,6 +2251,215 @@ def _pilot2_preprocessing_from_phase_a(
             "Phase-A common preprocessing does not equal the executed PNG transform"
         )
     return runtime
+
+
+def _verify_generated_normalization_contract(
+    value: Mapping[str, Any],
+    phase_a_config: Mapping[str, Any],
+    *,
+    expected_protocol_result_sha256: Optional[str] = None,
+) -> Dict[str, Any]:
+    contract = dict(value)
+    required = {
+        "record_type",
+        "schema_version",
+        "normalization_protocol_version",
+        "base_common_preprocessing_config_sha256",
+        "effective_preprocessing_contract_sha256",
+        "metadata_policy",
+        "incident",
+        "amendment",
+        "normalization_revalidations",
+        "implementation",
+        "a_vector_protocol_result_sha256",
+        "contract_sha256",
+    }
+    if set(contract) != required:
+        raise Pilot3ExecutionError("generated normalization contract field set is stale")
+    _verify_seal(
+        contract,
+        field="contract_sha256",
+        label="generated normalization contract",
+    )
+    if (
+        contract.get("record_type") != "pilot3_generated_normalization_contract"
+        or contract.get("schema_version") != GENERATED_NORMALIZATION_CONTRACT_SCHEMA
+        or contract.get("normalization_protocol_version")
+        != PILOT3_NORMALIZATION_PROTOCOL_VERSION
+        or contract.get("base_common_preprocessing_config_sha256")
+        != stable_hash(phase_a_config["common_preprocessing"])
+        or contract.get("metadata_policy")
+        != "apply_embedded_icc_to_pixels_then_emit_only_ihdr_idat_iend"
+        or not _is_sha256(contract.get("effective_preprocessing_contract_sha256"))
+        or not _is_sha256(contract.get("a_vector_protocol_result_sha256"))
+    ):
+        raise Pilot3ExecutionError("generated normalization contract is stale")
+    if (
+        expected_protocol_result_sha256 is not None
+        and contract["a_vector_protocol_result_sha256"]
+        != expected_protocol_result_sha256
+    ):
+        raise Pilot3ExecutionError(
+            "generated normalization contract binds a different P3-T07"
+        )
+    nested = {
+        "incident": (
+            {"path", "file_sha256", "incident_sha256"},
+            PREPROCESSING_INCIDENT_PATH,
+            "incident_sha256",
+        ),
+        "amendment": (
+            {"path", "file_sha256", "authorization_sha256"},
+            PREPROCESSING_AMENDMENT_PATH,
+            "authorization_sha256",
+        ),
+        "normalization_revalidations": (
+            {"path", "file_sha256", "semantic_sha256", "row_count"},
+            NORMALIZATION_REVALIDATION_LEDGER_PATH,
+            "semantic_sha256",
+        ),
+        "implementation": (
+            {
+                "canonicalizer_path",
+                "canonicalizer_file_sha256",
+                "amendment_document_path",
+                "amendment_document_file_sha256",
+            },
+            None,
+            None,
+        ),
+    }
+    for name, (fields, path, semantic_field) in nested.items():
+        row = contract.get(name)
+        if not isinstance(row, Mapping) or set(row) != fields:
+            raise Pilot3ExecutionError(
+                f"generated normalization contract {name} binding is malformed"
+            )
+        if path is not None and row.get("path") != path.as_posix():
+            raise Pilot3ExecutionError(
+                f"generated normalization contract {name} path is noncanonical"
+            )
+        for field in fields:
+            if field.endswith("sha256") and not _is_sha256(row.get(field)):
+                raise Pilot3ExecutionError(
+                    f"generated normalization contract {name} hash is malformed"
+                )
+        if semantic_field is not None and not _is_sha256(row.get(semantic_field)):
+            raise Pilot3ExecutionError(
+                f"generated normalization contract {name} semantic hash is malformed"
+            )
+    implementation = contract["implementation"]
+    if (
+        implementation["canonicalizer_path"]
+        != "src/latent_art_bench/pilot3/preprocessing.py"
+        or implementation["amendment_document_path"]
+        != PREPROCESSING_AMENDMENT_DOC_PATH.as_posix()
+        or not isinstance(contract["normalization_revalidations"]["row_count"], int)
+        or isinstance(contract["normalization_revalidations"]["row_count"], bool)
+        or contract["normalization_revalidations"]["row_count"] < 1
+    ):
+        raise Pilot3ExecutionError("generated normalization contract is incomplete")
+    return contract
+
+
+def _generated_normalization_contract(
+    root: Path,
+    phase_a_config: Mapping[str, Any],
+    protocol: Mapping[str, Any],
+) -> Dict[str, Any]:
+    """Bind generated derivatives to the committed incident remediation lineage."""
+
+    try:
+        resolution = require_preprocessing_incident_resolution(_root(root))
+    except Pilot3PhaseAError as exc:
+        raise Pilot3ExecutionError(
+            f"preprocessing incident resolution does not verify: {exc}"
+        ) from exc
+    amendment = resolution.get("amendment")
+    corrections = resolution.get("corrections")
+    if not isinstance(amendment, Mapping) or not isinstance(corrections, Mapping):
+        raise Pilot3ExecutionError("preprocessing incident resolution is malformed")
+    correction_rows = sorted(
+        (dict(row) for row in corrections.values()),
+        key=lambda row: int(row["sequence"]),
+    )
+    incident_path = _require_file(root, PREPROCESSING_INCIDENT_PATH)
+    amendment_path = _require_file(root, PREPROCESSING_AMENDMENT_PATH)
+    correction_path = _require_file(root, NORMALIZATION_REVALIDATION_LEDGER_PATH)
+    canonicalizer_path = _require_file(
+        root, Path("src/latent_art_bench/pilot3/preprocessing.py")
+    )
+    amendment_doc_path = _require_file(root, PREPROCESSING_AMENDMENT_DOC_PATH)
+    effective = amendment.get("effective_preprocessing_contract")
+    if (
+        amendment.get("normalization_protocol_version")
+        != PILOT3_NORMALIZATION_PROTOCOL_VERSION
+        or not isinstance(effective, Mapping)
+        or effective.get("base_common_preprocessing")
+        != phase_a_config.get("common_preprocessing")
+        or amendment.get("effective_preprocessing_contract_sha256")
+        != stable_hash(effective)
+    ):
+        raise Pilot3ExecutionError(
+            "preprocessing amendment disagrees with the generated transform"
+        )
+    closure = protocol.get("closure_file_sha256")
+    required_closure = {
+        PREPROCESSING_INCIDENT_PATH.as_posix(): hash_file(incident_path),
+        PREPROCESSING_AMENDMENT_PATH.as_posix(): hash_file(amendment_path),
+        NORMALIZATION_REVALIDATION_LEDGER_PATH.as_posix(): hash_file(correction_path),
+        PREPROCESSING_AMENDMENT_DOC_PATH.as_posix(): hash_file(amendment_doc_path),
+        "src/latent_art_bench/pilot3/preprocessing.py": hash_file(canonicalizer_path),
+    }
+    if not isinstance(closure, Mapping) or any(
+        closure.get(path) != digest for path, digest in required_closure.items()
+    ):
+        raise Pilot3ExecutionError(
+            "P3-T07 does not bind the preprocessing incident resolution"
+        )
+    payload: Dict[str, Any] = {
+        "record_type": "pilot3_generated_normalization_contract",
+        "schema_version": GENERATED_NORMALIZATION_CONTRACT_SCHEMA,
+        "normalization_protocol_version": PILOT3_NORMALIZATION_PROTOCOL_VERSION,
+        "base_common_preprocessing_config_sha256": stable_hash(
+            phase_a_config["common_preprocessing"]
+        ),
+        "effective_preprocessing_contract_sha256": amendment[
+            "effective_preprocessing_contract_sha256"
+        ],
+        "metadata_policy": (
+            "apply_embedded_icc_to_pixels_then_emit_only_ihdr_idat_iend"
+        ),
+        "incident": {
+            "path": PREPROCESSING_INCIDENT_PATH.as_posix(),
+            "file_sha256": hash_file(incident_path),
+            "incident_sha256": amendment["incident_sha256"],
+        },
+        "amendment": {
+            "path": PREPROCESSING_AMENDMENT_PATH.as_posix(),
+            "file_sha256": hash_file(amendment_path),
+            "authorization_sha256": amendment["authorization_sha256"],
+        },
+        "normalization_revalidations": {
+            "path": NORMALIZATION_REVALIDATION_LEDGER_PATH.as_posix(),
+            "file_sha256": hash_file(correction_path),
+            "semantic_sha256": stable_hash(correction_rows),
+            "row_count": len(correction_rows),
+        },
+        "implementation": {
+            "canonicalizer_path": "src/latent_art_bench/pilot3/preprocessing.py",
+            "canonicalizer_file_sha256": hash_file(canonicalizer_path),
+            "amendment_document_path": PREPROCESSING_AMENDMENT_DOC_PATH.as_posix(),
+            "amendment_document_file_sha256": hash_file(amendment_doc_path),
+        },
+        "a_vector_protocol_result_sha256": protocol["result_sha256"],
+    }
+    contract = _seal(payload, field="contract_sha256")
+    return _verify_generated_normalization_contract(
+        contract,
+        phase_a_config,
+        expected_protocol_result_sha256=str(protocol["result_sha256"]),
+    )
 
 
 def _rows_by_request(
@@ -2215,8 +2493,13 @@ def _verify_preprocessing_row(
     output: Mapping[str, Any],
     schedule_row: Mapping[str, Any],
     phase_a_config: Mapping[str, Any],
+    normalization_contract: Mapping[str, Any],
 ) -> None:
     _verify_seal(row, field="record_sha256", label="generated preprocessing row")
+    verified_contract = _verify_generated_normalization_contract(
+        normalization_contract,
+        phase_a_config,
+    )
     if (
         row.get("request_id") != schedule_row.get("request_id")
         or row.get("schedule_row_sha256") != schedule_row.get("schedule_row_sha256")
@@ -2224,6 +2507,7 @@ def _verify_preprocessing_row(
         or row.get("requested_model_label") != EXPECTED_REQUESTED_LABEL
         or row.get("common_preprocessing_config_sha256")
         != stable_hash(phase_a_config["common_preprocessing"])
+        or row.get("normalization_contract") != verified_contract
     ):
         raise Pilot3ExecutionError("generated preprocessing provenance is stale")
     source_path = _resolve_recorded(root, row.get("source_png_path"))
@@ -2261,8 +2545,8 @@ def _verify_preprocessing_row(
                 < float(domain["long_to_short_aspect_strict_max"]),
                 "released_code_area_predicate": width * height > 410 * 410,
             }
-            normalized, normalized_size = common_png_bytes(
-                image, _pilot2_preprocessing_from_phase_a(phase_a_config)
+            normalized, normalized_size = pilot3_common_png_bytes(
+                image, _pilot3_preprocessing_from_phase_a(phase_a_config)
             )
     except Exception as exc:
         raise Pilot3ExecutionError(
@@ -2285,7 +2569,11 @@ def _verify_preprocessing_row(
     ):
         raise Pilot3ExecutionError("generated preprocessing does not recompute exactly")
     expected_row = _preprocess_generated_output(
-        root, output, schedule_row, phase_a_config
+        root,
+        output,
+        schedule_row,
+        phase_a_config,
+        normalization_contract=verified_contract,
     )
     if dict(row) != expected_row:
         raise Pilot3ExecutionError("generated preprocessing row is not canonical")
@@ -2389,7 +2677,13 @@ def _preprocess_generated_output(
     output: Mapping[str, Any],
     schedule_row: Mapping[str, Any],
     phase_a_config: Mapping[str, Any],
+    *,
+    normalization_contract: Mapping[str, Any],
 ) -> Dict[str, Any]:
+    verified_contract = _verify_generated_normalization_contract(
+        normalization_contract,
+        phase_a_config,
+    )
     source_path = _resolve_recorded(root, output.get("output_path"))
     if not source_path.is_file() or hash_file(source_path) != output.get("output_sha256"):
         raise Pilot3ExecutionError("generated source PNG is missing or stale")
@@ -2411,8 +2705,8 @@ def _preprocess_generated_output(
                 raise Pilot3ExecutionError(
                     "successful output no longer satisfies PNG/Kim input eligibility"
                 )
-            normalized, normalized_size = common_png_bytes(
-                image, _pilot2_preprocessing_from_phase_a(phase_a_config)
+            normalized, normalized_size = pilot3_common_png_bytes(
+                image, _pilot3_preprocessing_from_phase_a(phase_a_config)
             )
     except Pilot3ExecutionError:
         raise
@@ -2445,6 +2739,8 @@ def _preprocess_generated_output(
         "normalized_width": normalized_size[0],
         "normalized_height": normalized_size[1],
         "common_preprocessing_config_sha256": stable_hash(phase_a_config["common_preprocessing"]),
+        "normalization_contract": verified_contract,
+        "normalized_png_metadata_free": True,
         "visual_selection_or_exclusion_used": False,
     }
     return _seal(payload, field="record_sha256")
@@ -2553,7 +2849,9 @@ def measure_generated_outputs(root: Path) -> Dict[str, Any]:
     verify_self_hash(protocol)
     if protocol.get("status") != "frozen":
         raise Pilot3ExecutionError("P3-T07 is not frozen")
-    _verify_protocol_config(resolved_root, protocol, phase_a_config)
+    normalization_contract = _verify_protocol_config(
+        resolved_root, protocol, phase_a_config
+    )
 
     schedule_rows = validate_schedule(
         read_jsonl(_require_file(resolved_root, CANONICAL_PATHS["schedule_manifest"]))
@@ -2603,7 +2901,11 @@ def measure_generated_outputs(root: Path) -> Dict[str, Any]:
         existing_preprocessing = preprocessing_rows.get(request_id)
         if existing_preprocessing is None:
             existing_preprocessing = _preprocess_generated_output(
-                resolved_root, output, schedule_row, phase_a_config
+                resolved_root,
+                output,
+                schedule_row,
+                phase_a_config,
+                normalization_contract=normalization_contract,
             )
             _append_jsonl_fsync(preprocessing_path, existing_preprocessing)
             preprocessing_rows[request_id] = existing_preprocessing
@@ -2613,6 +2915,7 @@ def measure_generated_outputs(root: Path) -> Dict[str, Any]:
             output=output,
             schedule_row=schedule_row,
             phase_a_config=phase_a_config,
+            normalization_contract=normalization_contract,
         )
 
         existing_feature = feature_rows.get(request_id)
@@ -2662,6 +2965,7 @@ def measure_generated_outputs(root: Path) -> Dict[str, Any]:
             _require_file(resolved_root, CANONICAL_PATHS["schedule_manifest"])
         ),
         "a_vector_protocol_result_sha256": protocol["result_sha256"],
+        "normalization_contract": normalization_contract,
         "a_vector_state_files": state_files,
         "successful_generated_png_count": len(expected_successes),
         "preprocessed_png_count": len(preprocessing_values),
@@ -2720,7 +3024,9 @@ def verify_generated_measurement(root: Path) -> Dict[str, Any]:
         raise Pilot3ExecutionError("generated measurement is not complete")
 
     phase_a_config = load_phase_a_config(resolved_root)
-    _verify_protocol_config(resolved_root, protocol, phase_a_config)
+    normalization_contract = _verify_protocol_config(
+        resolved_root, protocol, phase_a_config
+    )
     schedule_rows = validate_schedule(
         read_jsonl(_require_file(resolved_root, CANONICAL_PATHS["schedule_manifest"]))
     )
@@ -2761,6 +3067,7 @@ def verify_generated_measurement(root: Path) -> Dict[str, Any]:
             output=outputs[request_id],
             schedule_row=schedule_by_request[request_id],
             phase_a_config=phase_a_config,
+            normalization_contract=normalization_contract,
         )
         _verify_feature_row(
             features[request_id],
@@ -2834,6 +3141,7 @@ def verify_generated_measurement(root: Path) -> Dict[str, Any]:
             _require_file(resolved_root, CANONICAL_PATHS["schedule_manifest"])
         ),
         "a_vector_protocol_result_sha256": protocol["result_sha256"],
+        "normalization_contract": normalization_contract,
         "a_vector_state_files": state_files,
         "successful_generated_png_count": len(expected_successes),
         "preprocessed_png_count": len(preprocessing),
@@ -3601,6 +3909,28 @@ def _artifact_index_payload(
                         root, _resolve_recorded(root, row.get(field))
                     )
                 )
+    try:
+        normalization_resolution = require_preprocessing_incident_resolution(root)
+    except Pilot3PhaseAError as exc:
+        raise Pilot3ExecutionError(
+            f"artifact index cannot verify preprocessing incident resolution: {exc}"
+        ) from exc
+    corrections = normalization_resolution.get("corrections")
+    if not isinstance(corrections, Mapping):
+        raise Pilot3ExecutionError(
+            "artifact index preprocessing correction map is malformed"
+        )
+    for row in corrections.values():
+        if not isinstance(row, Mapping):
+            raise Pilot3ExecutionError(
+                "artifact index preprocessing correction row is malformed"
+            )
+        for field in ("original_normalized_path", "effective_normalized_path"):
+            dynamic_paths.add(
+                _repository_relative_artifact(
+                    root, _resolve_recorded(root, row.get(field))
+                )
+            )
     attempt_ledger = AppendOnlyAttemptLedger(
         _require_file(root, CANONICAL_PATHS["generation_attempts"])
     )
