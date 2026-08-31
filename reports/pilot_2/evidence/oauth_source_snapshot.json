@@ -1,0 +1,311 @@
+{
+  "checkout_path": "/Users/fred/dev/openai-oauth",
+  "dirty": true,
+  "dirty_runtime_source_capture_complete": true,
+  "excluded_dirty_paths": [
+    ".turbo/cache/0622e58dca4e3d32-manifest.json",
+    ".turbo/cache/0622e58dca4e3d32-meta.json",
+    ".turbo/cache/0622e58dca4e3d32.tar.zst",
+    ".turbo/cache/0b74f6d1d11426f8-manifest.json",
+    ".turbo/cache/0b74f6d1d11426f8-meta.json",
+    ".turbo/cache/0b74f6d1d11426f8.tar.zst",
+    ".turbo/cache/27813c81d7ba4fef-manifest.json",
+    ".turbo/cache/27813c81d7ba4fef-meta.json",
+    ".turbo/cache/27813c81d7ba4fef.tar.zst",
+    ".turbo/cache/28a159f87de25aa8-manifest.json",
+    ".turbo/cache/28a159f87de25aa8-meta.json",
+    ".turbo/cache/28a159f87de25aa8.tar.zst",
+    ".turbo/cache/7bf447066de9b42c-manifest.json",
+    ".turbo/cache/7bf447066de9b42c-meta.json",
+    ".turbo/cache/7bf447066de9b42c.tar.zst",
+    ".turbo/cache/dbe6cc749b6f8b1c-manifest.json",
+    ".turbo/cache/dbe6cc749b6f8b1c-meta.json",
+    ".turbo/cache/dbe6cc749b6f8b1c.tar.zst",
+    "README.md",
+    "packages/openai-oauth-core/.turbo/turbo-test.log",
+    "packages/openai-oauth-core/.turbo/turbo-typecheck.log",
+    "packages/openai-oauth-core/node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+    "packages/openai-oauth-provider/.turbo/turbo-test.log",
+    "packages/openai-oauth-provider/.turbo/turbo-typecheck.log",
+    "packages/openai-oauth-provider/README.md",
+    "packages/openai-oauth-provider/node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+    "packages/openai-oauth-provider/test/provider.test.ts",
+    "packages/openai-oauth/.turbo/turbo-test.log",
+    "packages/openai-oauth/.turbo/turbo-typecheck.log",
+    "packages/openai-oauth/README.md",
+    "packages/openai-oauth/node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+    "packages/openai-oauth/test/models.test.ts",
+    "packages/openai-oauth/test/node-server.test.ts",
+    "packages/openai-oauth/test/server.test.ts"
+  ],
+  "files": [
+    {
+      "current_sha256": "4b8d72638023cb6b9ce104ee049d5d3b67314fbdb4aa19f76c4a2c1c31173cb3",
+      "current_size_bytes": 51545,
+      "path": "bun.lock",
+      "state": "present",
+      "tracked_at_head": true
+    },
+    {
+      "current_sha256": "329828fd155bda172b9dc5c4f3b81bf7cca281a904339440b10a65f57183fd0b",
+      "current_size_bytes": 751,
+      "path": "package.json",
+      "state": "present",
+      "tracked_at_head": true
+    },
+    {
+      "current_sha256": "8afd64f685af8cdee26f35c26cf42d2ac4275987fd4a8316725a0c2b07ec6d18",
+      "current_size_bytes": 437,
+      "path": "packages/openai-oauth-core/package.json",
+      "state": "present",
+      "tracked_at_head": true
+    },
+    {
+      "current_sha256": "20d7321ae0cae9f273730656873929818fa8acdbdf13b71e8f2c57ee0cacf37c",
+      "current_size_bytes": 10043,
+      "path": "packages/openai-oauth-core/src/auth.ts",
+      "state": "present",
+      "tracked_at_head": true
+    },
+    {
+      "current_sha256": "ab0507b1768cfd051e1f82d73946d5582163fd4dd7591b371463957c6c59c66b",
+      "current_size_bytes": 298,
+      "path": "packages/openai-oauth-core/src/image-models.ts",
+      "state": "present",
+      "tracked_at_head": false
+    },
+    {
+      "current_sha256": "cf45fa62e8b4e52e83c45f1faa194422cef03d23d3d8898d0db9fc9bf736a544",
+      "current_size_bytes": 759,
+      "path": "packages/openai-oauth-core/src/index.ts",
+      "state": "present",
+      "tracked_at_head": true
+    },
+    {
+      "current_sha256": "3eb06365a3f68d9bb396ac414274f18a0eb68b20789bb1a31d4f5d826f9d40d0",
+      "current_size_bytes": 3335,
+      "path": "packages/openai-oauth-core/src/sse.ts",
+      "state": "present",
+      "tracked_at_head": true
+    },
+    {
+      "current_sha256": "18df135914067c753d61a51010933668928ee83f8fed7439b5bcfef02c357fe1",
+      "current_size_bytes": 5674,
+      "path": "packages/openai-oauth-core/src/state.ts",
+      "state": "present",
+      "tracked_at_head": true
+    },
+    {
+      "current_sha256": "9d895e831dce9f4154453b5c8286e5709dd569bccc47d683df89dfbe875f72ff",
+      "current_size_bytes": 10785,
+      "path": "packages/openai-oauth-core/src/transport.ts",
+      "state": "present",
+      "tracked_at_head": true
+    },
+    {
+      "current_sha256": "c642c3e7bd0136242e9171bd36b35551f4f8789fa3cb9ea4d1cebb5bb884d682",
+      "current_size_bytes": 147,
+      "path": "packages/openai-oauth-core/tsconfig.json",
+      "state": "present",
+      "tracked_at_head": true
+    },
+    {
+      "current_sha256": "26fe31bd17ba582837a6e2af7c41a8009c99075973987b6be3f4becdb5df2804",
+      "current_size_bytes": 1152,
+      "path": "packages/openai-oauth-provider/package.json",
+      "state": "present",
+      "tracked_at_head": true
+    },
+    {
+      "current_sha256": "e3fed527a8b54cd1a4739da2d273fed3671920ec7c9c72a14f65568a77f1e0e4",
+      "current_size_bytes": 203,
+      "path": "packages/openai-oauth-provider/src/auth.ts",
+      "state": "present",
+      "tracked_at_head": true
+    },
+    {
+      "current_sha256": "30b6d635efa579ef7c9ce8a65d6cbbefc69df270cfbfde164c7f642a6a814d41",
+      "current_size_bytes": 336,
+      "path": "packages/openai-oauth-provider/src/index.ts",
+      "state": "present",
+      "tracked_at_head": true
+    },
+    {
+      "current_sha256": "08121a4064cfd2b6639d041ae83db66a1075c31c765a7376b5f728818a0a0030",
+      "current_size_bytes": 9189,
+      "path": "packages/openai-oauth-provider/src/provider.ts",
+      "state": "present",
+      "tracked_at_head": true
+    },
+    {
+      "current_sha256": "407c224f4d2bfcd85a21e26f78a0a8591c6d8f89a950489078073c7d5e67386a",
+      "current_size_bytes": 166,
+      "path": "packages/openai-oauth-provider/tsconfig.json",
+      "state": "present",
+      "tracked_at_head": true
+    },
+    {
+      "current_sha256": "16cdb46eb036df761f92a411e62896eaefc19431de722350b803ac859284801b",
+      "current_size_bytes": 1121,
+      "path": "packages/openai-oauth/package.json",
+      "state": "present",
+      "tracked_at_head": true
+    },
+    {
+      "current_sha256": "c205b3d14106e00345825e1b546527875c436283ab34d869b7e0e9483bf0a020",
+      "current_size_bytes": 3493,
+      "path": "packages/openai-oauth/src/chat-completions.ts",
+      "state": "present",
+      "tracked_at_head": true
+    },
+    {
+      "current_sha256": "e0e000909ea8603cab9f788589ebca91a28c7d46437edb6b10f9cfc37fb89bbc",
+      "current_size_bytes": 5232,
+      "path": "packages/openai-oauth/src/chat-messages.ts",
+      "state": "present",
+      "tracked_at_head": true
+    },
+    {
+      "current_sha256": "a794707895b69e4144741077503fac99591c059748758aa501b3349da31df982",
+      "current_size_bytes": 6400,
+      "path": "packages/openai-oauth/src/chat-stream.ts",
+      "state": "present",
+      "tracked_at_head": true
+    },
+    {
+      "current_sha256": "2c16045024559db21f4d42bff7492339dee4797acc6613183e9b4aa2b13e0738",
+      "current_size_bytes": 5968,
+      "path": "packages/openai-oauth/src/cli-app.ts",
+      "state": "present",
+      "tracked_at_head": true
+    },
+    {
+      "current_sha256": "fb0f36ca569c73f4bdb336934a9989b1bd5878c56d9a23d4c326b265e6a354c2",
+      "current_size_bytes": 2289,
+      "path": "packages/openai-oauth/src/cli-logging.ts",
+      "state": "present",
+      "tracked_at_head": true
+    },
+    {
+      "current_sha256": "ddb968f2db4aa0b24ced9f64fb5097dfcb8376b0a5755eabcbd7c376a65ee2d1",
+      "current_size_bytes": 208,
+      "path": "packages/openai-oauth/src/cli.ts",
+      "state": "present",
+      "tracked_at_head": true
+    },
+    {
+      "current_sha256": "25ee6fe00dc96edecc3483415177071635dc9d3d51e8a55de38a608fbfa16aa4",
+      "current_size_bytes": 2158,
+      "path": "packages/openai-oauth/src/images.ts",
+      "state": "present",
+      "tracked_at_head": false
+    },
+    {
+      "current_sha256": "af58692edd1a9dfbe34ae9ff95b826ee5ef17e5c16b209033f5d95c60f7571e3",
+      "current_size_bytes": 240,
+      "path": "packages/openai-oauth/src/index.ts",
+      "state": "present",
+      "tracked_at_head": true
+    },
+    {
+      "current_sha256": "d2d1eff02d16375caeea41fb3de6a7d7407f117368fb101d34de01fe91d1a76d",
+      "current_size_bytes": 738,
+      "path": "packages/openai-oauth/src/logging.ts",
+      "state": "present",
+      "tracked_at_head": true
+    },
+    {
+      "current_sha256": "6986a184f1a1b9c983489e9cc25a887d674ec6ef98e891394f781623ae06dbb4",
+      "current_size_bytes": 7161,
+      "path": "packages/openai-oauth/src/models.ts",
+      "state": "present",
+      "tracked_at_head": true
+    },
+    {
+      "current_sha256": "3366ff8a78c7c38f7821834c4b8feea41a405a43503aea76105c79dd666187ad",
+      "current_size_bytes": 1610,
+      "path": "packages/openai-oauth/src/responses.ts",
+      "state": "present",
+      "tracked_at_head": true
+    },
+    {
+      "current_sha256": "e61468ece2fe46aa6219fa61399581bc94bd220e7c3379e8ba235ef44c605622",
+      "current_size_bytes": 4690,
+      "path": "packages/openai-oauth/src/server.ts",
+      "state": "present",
+      "tracked_at_head": true
+    },
+    {
+      "current_sha256": "90e3ab1aaf1ffda3c67277778abf4773a10c5129f640ce7331c9d3f70ac08355",
+      "current_size_bytes": 6436,
+      "path": "packages/openai-oauth/src/shared.ts",
+      "state": "present",
+      "tracked_at_head": true
+    },
+    {
+      "current_sha256": "82e1a7425a38f0f4477945c292a1b43437770ae6ce8cce2f403e325291f52228",
+      "current_size_bytes": 2782,
+      "path": "packages/openai-oauth/src/types.ts",
+      "state": "present",
+      "tracked_at_head": true
+    },
+    {
+      "current_sha256": "177d9cc906c669f69968b0d22d2b6633d0b3e0b5755e39327f1b5afe74fa4686",
+      "current_size_bytes": 2021,
+      "path": "packages/openai-oauth/src/update-check.ts",
+      "state": "present",
+      "tracked_at_head": true
+    },
+    {
+      "current_sha256": "407c224f4d2bfcd85a21e26f78a0a8591c6d8f89a950489078073c7d5e67386a",
+      "current_size_bytes": 166,
+      "path": "packages/openai-oauth/tsconfig.json",
+      "state": "present",
+      "tracked_at_head": true
+    },
+    {
+      "current_sha256": "9fa7a19d3a2946fcedc345b262160283980f39b54edce547e4306b3da1c5866a",
+      "current_size_bytes": 292,
+      "path": "turbo.json",
+      "state": "present",
+      "tracked_at_head": true
+    }
+  ],
+  "git_head": "7dbbdea0e94a5e542b0af34dcb11c5957b158bed",
+  "git_remote": "https://github.com/isingmodel/codex-oauth.git",
+  "git_status_porcelain": " M README.md\n M packages/openai-oauth-core/src/index.ts\n M packages/openai-oauth-provider/README.md\n M packages/openai-oauth-provider/src/index.ts\n M packages/openai-oauth-provider/src/provider.ts\n M packages/openai-oauth/README.md\n M packages/openai-oauth/src/models.ts\n M packages/openai-oauth/src/server.ts\n M packages/openai-oauth/src/shared.ts\n M packages/openai-oauth/src/types.ts\n M packages/openai-oauth/test/models.test.ts\n M packages/openai-oauth/test/node-server.test.ts\n M packages/openai-oauth/test/server.test.ts\n?? .turbo/cache/0622e58dca4e3d32-manifest.json\n?? .turbo/cache/0622e58dca4e3d32-meta.json\n?? .turbo/cache/0622e58dca4e3d32.tar.zst\n?? .turbo/cache/0b74f6d1d11426f8-manifest.json\n?? .turbo/cache/0b74f6d1d11426f8-meta.json\n?? .turbo/cache/0b74f6d1d11426f8.tar.zst\n?? .turbo/cache/27813c81d7ba4fef-manifest.json\n?? .turbo/cache/27813c81d7ba4fef-meta.json\n?? .turbo/cache/27813c81d7ba4fef.tar.zst\n?? .turbo/cache/28a159f87de25aa8-manifest.json\n?? .turbo/cache/28a159f87de25aa8-meta.json\n?? .turbo/cache/28a159f87de25aa8.tar.zst\n?? .turbo/cache/7bf447066de9b42c-manifest.json\n?? .turbo/cache/7bf447066de9b42c-meta.json\n?? .turbo/cache/7bf447066de9b42c.tar.zst\n?? .turbo/cache/dbe6cc749b6f8b1c-manifest.json\n?? .turbo/cache/dbe6cc749b6f8b1c-meta.json\n?? .turbo/cache/dbe6cc749b6f8b1c.tar.zst\n?? packages/openai-oauth-core/.turbo/turbo-test.log\n?? packages/openai-oauth-core/.turbo/turbo-typecheck.log\n?? packages/openai-oauth-core/node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json\n?? packages/openai-oauth-core/src/image-models.ts\n?? packages/openai-oauth-provider/.turbo/turbo-test.log\n?? packages/openai-oauth-provider/.turbo/turbo-typecheck.log\n?? packages/openai-oauth-provider/node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json\n?? packages/openai-oauth-provider/test/provider.test.ts\n?? packages/openai-oauth/.turbo/turbo-test.log\n?? packages/openai-oauth/.turbo/turbo-typecheck.log\n?? packages/openai-oauth/node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json\n?? packages/openai-oauth/src/images.ts\n",
+  "relevant_roots": [
+    "packages/openai-oauth/src/",
+    "packages/openai-oauth-core/src/",
+    "packages/openai-oauth-provider/src/",
+    "bun.lock",
+    "package.json",
+    "packages/openai-oauth-core/package.json",
+    "packages/openai-oauth-core/tsconfig.json",
+    "packages/openai-oauth-provider/package.json",
+    "packages/openai-oauth-provider/tsconfig.json",
+    "packages/openai-oauth/package.json",
+    "packages/openai-oauth/tsconfig.json",
+    "tsconfig.json",
+    "turbo.json"
+  ],
+  "runtime_source_dirty_paths": [
+    "packages/openai-oauth-core/src/image-models.ts",
+    "packages/openai-oauth-core/src/index.ts",
+    "packages/openai-oauth-provider/src/index.ts",
+    "packages/openai-oauth-provider/src/provider.ts",
+    "packages/openai-oauth/src/images.ts",
+    "packages/openai-oauth/src/models.ts",
+    "packages/openai-oauth/src/server.ts",
+    "packages/openai-oauth/src/shared.ts",
+    "packages/openai-oauth/src/types.ts"
+  ],
+  "schema_version": "pilot2-oauth-source-snapshot-v1",
+  "source_snapshot_sha256": "0cda7da897c87bcd14b31c1445106e3af02965ba035894c59b9530454e70a17e",
+  "tracked_diff": "diff --git a/packages/openai-oauth-core/src/index.ts b/packages/openai-oauth-core/src/index.ts\nindex 2e6eb61..c77ce3d 100644\n--- a/packages/openai-oauth-core/src/index.ts\n+++ b/packages/openai-oauth-core/src/index.ts\n@@ -5,6 +5,11 @@ export {\n \tparseJwtClaims,\n \tresolveAuthFileCandidates,\n } from \"./auth.js\"\n+export {\n+\tGPT_IMAGE_MODELS,\n+\ttype GptImageModelId,\n+\tisGptImageModel,\n+} from \"./image-models.js\"\n export {\n \tcollectCompletedResponseFromSse,\n \titerateServerSentEvents,\ndiff --git a/packages/openai-oauth-provider/src/index.ts b/packages/openai-oauth-provider/src/index.ts\nindex 8b62d3a..5873656 100644\n--- a/packages/openai-oauth-provider/src/index.ts\n+++ b/packages/openai-oauth-provider/src/index.ts\n@@ -1,6 +1,7 @@\n export type { AuthLoaderOptions, EffectiveAuth } from \"./auth.js\"\n export { deriveAccountId, loadAuthTokens, parseJwtClaims } from \"./auth.js\"\n export type {\n+\tOpenAIOAuthImageModelId,\n \tOpenAIOAuthModelId,\n \tOpenAIOAuthProvider,\n \tOpenAIOAuthProviderSettings,\ndiff --git a/packages/openai-oauth-provider/src/provider.ts b/packages/openai-oauth-provider/src/provider.ts\nindex 52f3ebc..a3ac2c4 100644\n--- a/packages/openai-oauth-provider/src/provider.ts\n+++ b/packages/openai-oauth-provider/src/provider.ts\n@@ -1,5 +1,9 @@\n-import { OpenAIResponsesLanguageModel } from \"@ai-sdk/openai/internal\"\n import {\n+\tOpenAIImageModel,\n+\tOpenAIResponsesLanguageModel,\n+} from \"@ai-sdk/openai/internal\"\n+import {\n+\ttype ImageModelV3,\n \ttype LanguageModelV3,\n \ttype LanguageModelV3Content,\n \ttype LanguageModelV3FinishReason,\n@@ -15,9 +19,12 @@ import {\n \ttype CodexOAuthSettings,\n \tcreateCodexOAuthFetch,\n \tDEFAULT_CODEX_BASE_URL,\n+\ttype GptImageModelId,\n+\tisGptImageModel,\n } from \"../../openai-oauth-core/src/index.js\"\n \n export type OpenAIOAuthModelId = string\n+export type OpenAIOAuthImageModelId = GptImageModelId\n \n export type OpenAIOAuthProviderSettings = CodexOAuthSettings & {\n \tname?: string\n@@ -32,6 +39,37 @@ type OpenAIConfig = {\n \tfileIdPrefixes?: readonly string[]\n }\n \n+const isRecord = (value: unknown): value is Record<string, unknown> =>\n+\ttypeof value === \"object\" && value !== null && !Array.isArray(value)\n+\n+// @ai-sdk/openai versions before 3.0.54 treat gpt-image-2 as a legacy image\n+// model and add response_format, which GPT Image models do not accept.\n+const createImageOAuthFetch =\n+\t(oauthFetch: FetchFunction): FetchFunction =>\n+\tasync (input, init) => {\n+\t\tif (typeof init?.body !== \"string\") {\n+\t\t\treturn oauthFetch(input, init)\n+\t\t}\n+\n+\t\ttry {\n+\t\t\tconst body = JSON.parse(init.body) as unknown\n+\t\t\tif (\n+\t\t\t\tisRecord(body) &&\n+\t\t\t\tbody.model === \"gpt-image-2\" &&\n+\t\t\t\tbody.response_format === \"b64_json\"\n+\t\t\t) {\n+\t\t\t\tconst normalized = { ...body }\n+\t\t\t\tdelete normalized.response_format\n+\t\t\t\treturn oauthFetch(input, {\n+\t\t\t\t\t...init,\n+\t\t\t\t\tbody: JSON.stringify(normalized),\n+\t\t\t\t})\n+\t\t\t}\n+\t\t} catch {}\n+\n+\t\treturn oauthFetch(input, init)\n+\t}\n+\n const emptyUsage = (): LanguageModelV3Usage => ({\n \tinputTokens: {\n \t\ttotal: undefined,\n@@ -256,9 +294,17 @@ class CodexResponsesLanguageModel extends OpenAIResponsesLanguageModel {\n \t}\n }\n \n+class CodexImageModel extends OpenAIImageModel {\n+\toverride get maxImagesPerCall(): number {\n+\t\treturn isGptImageModel(this.modelId) ? 10 : super.maxImagesPerCall\n+\t}\n+}\n+\n export interface OpenAIOAuthProvider extends ProviderV3 {\n \t(modelId: OpenAIOAuthModelId): LanguageModelV3\n \tlanguageModel(modelId: OpenAIOAuthModelId): LanguageModelV3\n+\timage(modelId: OpenAIOAuthImageModelId): ImageModelV3\n+\timageModel(modelId: OpenAIOAuthImageModelId): ImageModelV3\n }\n \n export const createOpenAIOAuth = (\n@@ -267,6 +313,7 @@ export const createOpenAIOAuth = (\n \tconst baseURL = settings.baseURL ?? DEFAULT_CODEX_BASE_URL\n \tconst providerName = settings.name ?? \"openai\"\n \tconst oauthFetch = createCodexOAuthFetch(settings)\n+\tconst imageOAuthFetch = createImageOAuthFetch(oauthFetch)\n \n \tconst config: OpenAIConfig = {\n \t\tprovider: `${providerName}.responses`,\n@@ -278,6 +325,12 @@ export const createOpenAIOAuth = (\n \n \tconst createModel = (modelId: OpenAIOAuthModelId) =>\n \t\tnew CodexResponsesLanguageModel(modelId, config)\n+\tconst createImageModel = (modelId: OpenAIOAuthImageModelId) =>\n+\t\tnew CodexImageModel(modelId, {\n+\t\t\t...config,\n+\t\t\tprovider: `${providerName}.image`,\n+\t\t\tfetch: imageOAuthFetch,\n+\t\t})\n \n \tconst providerFn = (modelId: OpenAIOAuthModelId) => createModel(modelId)\n \tconst specificationVersion: ProviderV3[\"specificationVersion\"] = \"v3\"\n@@ -285,12 +338,11 @@ export const createOpenAIOAuth = (\n \treturn Object.assign(providerFn, {\n \t\tspecificationVersion,\n \t\tlanguageModel: createModel,\n+\t\timage: createImageModel,\n+\t\timageModel: createImageModel,\n \t\tembeddingModel: (modelId: string) => {\n \t\t\tthrow new NoSuchModelError({ modelId, modelType: \"embeddingModel\" })\n \t\t},\n-\t\timageModel: (modelId: string) => {\n-\t\t\tthrow new NoSuchModelError({ modelId, modelType: \"imageModel\" })\n-\t\t},\n \t})\n }\n \ndiff --git a/packages/openai-oauth/src/models.ts b/packages/openai-oauth/src/models.ts\nindex 72b1fb7..4af331a 100644\n--- a/packages/openai-oauth/src/models.ts\n+++ b/packages/openai-oauth/src/models.ts\n@@ -1,6 +1,9 @@\n import { execFile } from \"node:child_process\"\n import { promisify } from \"node:util\"\n-import type { CodexOAuthClient } from \"../../openai-oauth-core/src/index.js\"\n+import {\n+\ttype CodexOAuthClient,\n+\tGPT_IMAGE_MODELS,\n+} from \"../../openai-oauth-core/src/index.js\"\n \n const MODELS_CACHE_TTL_MS = 5 * 60 * 1000\n const CODEX_VERSION_CACHE_TTL_MS = 60 * 60 * 1000\n@@ -232,7 +235,10 @@ export const resolveOpenAIOAuthModels = async (\n \t\treturn uniqueStrings(configuredModels)\n \t}\n \n-\treturn fetchAvailableModels(client, dependencies)\n+\treturn uniqueStrings([\n+\t\t...(await fetchAvailableModels(client, dependencies)),\n+\t\t...GPT_IMAGE_MODELS,\n+\t])\n }\n \n export const createModelResolver = (\ndiff --git a/packages/openai-oauth/src/server.ts b/packages/openai-oauth/src/server.ts\nindex cc3aef1..45ab997 100644\n--- a/packages/openai-oauth/src/server.ts\n+++ b/packages/openai-oauth/src/server.ts\n@@ -9,6 +9,7 @@ import {\n \ttype OpenAIOAuthProvider,\n } from \"../../openai-oauth-provider/src/index.js\"\n import { handleChatCompletionsRequest } from \"./chat-completions.js\"\n+import { handleImageRequest } from \"./images.js\"\n import { createRequestLogger } from \"./logging.js\"\n import { createModelResolver } from \"./models.js\"\n import { handleResponsesRequest } from \"./responses.js\"\n@@ -80,6 +81,14 @@ const handleRoutes = async (\n \t\treturn handleChatCompletionsRequest(request, provider, requestLogger)\n \t}\n \n+\tif (request.method === \"POST\" && url.pathname === \"/v1/images/generations\") {\n+\t\treturn handleImageRequest(request, client, \"/images/generations\")\n+\t}\n+\n+\tif (request.method === \"POST\" && url.pathname === \"/v1/images/edits\") {\n+\t\treturn handleImageRequest(request, client, \"/images/edits\")\n+\t}\n+\n \treturn toErrorResponse(\"Route not found.\", 404, \"not_found_error\")\n }\n \ndiff --git a/packages/openai-oauth/src/shared.ts b/packages/openai-oauth/src/shared.ts\nindex ca15e5f..9bda559 100644\n--- a/packages/openai-oauth/src/shared.ts\n+++ b/packages/openai-oauth/src/shared.ts\n@@ -152,8 +152,32 @@ export const resolveModels = (\n ): string[] | undefined =>\n \tArray.isArray(models) && models.length > 0 ? [...models] : undefined\n \n+const strippedUpstreamResponseHeaders = [\n+\t\"connection\",\n+\t\"content-encoding\",\n+\t\"content-length\",\n+\t\"keep-alive\",\n+\t\"proxy-authenticate\",\n+\t\"proxy-authorization\",\n+\t\"proxy-connection\",\n+\t\"te\",\n+\t\"trailer\",\n+\t\"transfer-encoding\",\n+\t\"upgrade\",\n+]\n+\n export const copyUpstreamResponse = (response: Response): Response => {\n \tconst headers = new Headers(response.headers)\n+\tconst connectionHeaders = headers.get(\"connection\")\n+\tif (connectionHeaders) {\n+\t\tfor (const header of connectionHeaders.split(\",\")) {\n+\t\t\theaders.delete(header.trim())\n+\t\t}\n+\t}\n+\tfor (const header of strippedUpstreamResponseHeaders) {\n+\t\theaders.delete(header)\n+\t}\n+\n \tfor (const [key, value] of Object.entries(corsHeaders)) {\n \t\theaders.set(key, value)\n \t}\ndiff --git a/packages/openai-oauth/src/types.ts b/packages/openai-oauth/src/types.ts\nindex f8712a1..1955a3f 100644\n--- a/packages/openai-oauth/src/types.ts\n+++ b/packages/openai-oauth/src/types.ts\n@@ -1,5 +1,8 @@\n import type { Server as HttpServer } from \"node:http\"\n-import type { CodexOAuthSettings } from \"../../openai-oauth-core/src/index.js\"\n+import {\n+\ttype CodexOAuthSettings,\n+\tGPT_IMAGE_MODELS,\n+} from \"../../openai-oauth-core/src/index.js\"\n \n export type JsonValue =\n \t| null\n@@ -118,6 +121,7 @@ export const defaultOpenAIOAuthModels: readonly string[] = [\n \t\"gpt-5.1\",\n \t\"gpt-5.1-codex\",\n \t\"gpt-5.1-codex-max\",\n+\t...GPT_IMAGE_MODELS,\n ]\n \n export type OpenAIOAuthServerOptions = CodexOAuthSettings & {\n",
+  "tracked_diff_sha256": "baa962a7ee43fc85b72120d948688e41b26a96ca1104a2a0976c3ea4bb85f4dd",
+  "untracked_source_contents": {
+    "packages/openai-oauth-core/src/image-models.ts": "export const GPT_IMAGE_MODELS = [\"gpt-image-1\", \"gpt-image-2\"] as const\n\nexport type GptImageModelId = (typeof GPT_IMAGE_MODELS)[number]\n\nexport const isGptImageModel = (model: unknown): model is GptImageModelId =>\n\ttypeof model === \"string\" &&\n\tGPT_IMAGE_MODELS.includes(model as GptImageModelId)\n",
+    "packages/openai-oauth/src/images.ts": "import {\n\ttype CodexOAuthClient,\n\tGPT_IMAGE_MODELS,\n\tisGptImageModel,\n} from \"../../openai-oauth-core/src/index.js\"\nimport { copyUpstreamResponse, isRecord, toErrorResponse } from \"./shared.js\"\n\nexport type ImageEndpoint = \"/images/generations\" | \"/images/edits\"\n\nconst invalidModelResponse = (): Response =>\n\ttoErrorResponse(`\\`model\\` must be one of: ${GPT_IMAGE_MODELS.join(\", \")}.`)\n\nconst validateImageModel = async (\n\tbody: Blob,\n\tcontentType: string | null,\n\tendpoint: ImageEndpoint,\n): Promise<Response | undefined> => {\n\tif (endpoint === \"/images/generations\") {\n\t\tif (!contentType?.toLowerCase().startsWith(\"application/json\")) {\n\t\t\treturn toErrorResponse(\n\t\t\t\t\"Image generation requests must use application/json.\",\n\t\t\t)\n\t\t}\n\n\t\tlet value: unknown\n\t\ttry {\n\t\t\tvalue = JSON.parse(await body.text())\n\t\t} catch {\n\t\t\treturn toErrorResponse(\"Request body must be valid JSON.\")\n\t\t}\n\n\t\treturn isRecord(value) && isGptImageModel(value.model)\n\t\t\t? undefined\n\t\t\t: invalidModelResponse()\n\t}\n\n\tif (!contentType?.toLowerCase().startsWith(\"multipart/form-data\")) {\n\t\treturn toErrorResponse(\"Image edit requests must use multipart/form-data.\")\n\t}\n\n\tlet form: FormData\n\ttry {\n\t\tform = await new Response(body, {\n\t\t\theaders: { \"content-type\": contentType },\n\t\t}).formData()\n\t} catch {\n\t\treturn toErrorResponse(\"Request body must be valid multipart form data.\")\n\t}\n\n\treturn isGptImageModel(form.get(\"model\")) ? undefined : invalidModelResponse()\n}\n\nexport const handleImageRequest = async (\n\trequest: Request,\n\tclient: CodexOAuthClient,\n\tendpoint: ImageEndpoint,\n): Promise<Response> => {\n\tconst headers = new Headers()\n\tconst contentType = request.headers.get(\"content-type\")\n\tconst accept = request.headers.get(\"accept\")\n\tconst body = await request.blob()\n\tconst validationError = await validateImageModel(body, contentType, endpoint)\n\tif (validationError) {\n\t\treturn validationError\n\t}\n\n\tif (contentType) {\n\t\theaders.set(\"content-type\", contentType)\n\t}\n\tif (accept) {\n\t\theaders.set(\"accept\", accept)\n\t}\n\n\tconst upstream = await client.request(endpoint, {\n\t\tmethod: \"POST\",\n\t\theaders,\n\t\tbody,\n\t\tsignal: request.signal,\n\t})\n\n\treturn copyUpstreamResponse(upstream)\n}\n"
+  }
+}

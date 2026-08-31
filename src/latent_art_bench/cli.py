@@ -60,6 +60,7 @@ from latent_art_bench.io import (
     write_jsonl,
 )
 from latent_art_bench.manifests import parse_manifest, validate_manifests, validate_records
+from latent_art_bench.pilot2.cli import app as pilot2_app
 from latent_art_bench.preprocessing.pipeline import preprocess_reproductions
 from latent_art_bench.preprocessing.synthetic import write_synthetic_images
 from latent_art_bench.provenance import recorded_run
@@ -92,6 +93,7 @@ app = typer.Typer(
     no_args_is_help=True,
     help="Run the gated LatentArtBench development pilot.",
 )
+app.add_typer(pilot2_app, name="pilot2")
 DEFAULT_CONFIG = Path("configs/pilot_0/pilot.yaml")
 
 

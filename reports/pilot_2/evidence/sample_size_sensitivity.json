@@ -1,0 +1,105 @@
+{
+  "claim_boundary": "standardized-effect sensitivity only; not an empirical effect estimate, not a full simulation of bootstrap/source-sign criteria, and not evidence that an unsupported result proves absence",
+  "decision": "retain eight content blocks and four repetitions as a resource-bounded feasibility pilot: eight blocks provide useful exact-test resolution and four repetitions stabilize each block mean, but the top-level n remains eight and modest standardized effects are not assumed to have 80% power",
+  "design_version": "pilot2-standardized-sign-flip-sensitivity-v1",
+  "evidence_sha256": "78e1f2ecc77accebf9028496cdbfb4b90998363ef3817c4a5c9d488687ff085a",
+  "exact_sign_flip_resolution": {
+    "assignment_count": 256,
+    "block_count_sensitivity": [
+      {
+        "assignment_count": 16,
+        "block_count": 4,
+        "four_equal_minimum_can_pass_strict_0_05": false,
+        "four_equal_minimum_holm_adjusted_p": 0.25,
+        "minimum_attainable_p": 0.0625
+      },
+      {
+        "assignment_count": 32,
+        "block_count": 5,
+        "four_equal_minimum_can_pass_strict_0_05": false,
+        "four_equal_minimum_holm_adjusted_p": 0.125,
+        "minimum_attainable_p": 0.03125
+      },
+      {
+        "assignment_count": 64,
+        "block_count": 6,
+        "four_equal_minimum_can_pass_strict_0_05": false,
+        "four_equal_minimum_holm_adjusted_p": 0.0625,
+        "minimum_attainable_p": 0.015625
+      },
+      {
+        "assignment_count": 128,
+        "block_count": 7,
+        "four_equal_minimum_can_pass_strict_0_05": true,
+        "four_equal_minimum_holm_adjusted_p": 0.03125,
+        "minimum_attainable_p": 0.0078125
+      },
+      {
+        "assignment_count": 256,
+        "block_count": 8,
+        "four_equal_minimum_can_pass_strict_0_05": true,
+        "four_equal_minimum_holm_adjusted_p": 0.015625,
+        "minimum_attainable_p": 0.00390625
+      }
+    ],
+    "largest_attainable_p_below_strict_0_0125": 0.01171875,
+    "maximum_passing_exceedance_count_under_strict_0_0125": 3,
+    "minimum_attainable_p": 0.00390625
+  },
+  "frozen_design": {
+    "content_block_count": 8,
+    "familywise_alpha": 0.05,
+    "primary_hypothesis_family_size": 4,
+    "repetitions_per_block": 4,
+    "strict_raw_p_sensitivity_threshold": 0.0125,
+    "top_level_inference_unit": "content_block"
+  },
+  "record_type": "pilot2_sample_size_sensitivity",
+  "schema_version": "2.0",
+  "simulation": {
+    "data_generating_assumption": "independent standardized block means X_b ~ Normal(delta, 1)",
+    "decision_event": "exact one-sided sign-flip p < 0.0125",
+    "draws_per_effect": 100000,
+    "results": [
+      {
+        "draw_count": 100000,
+        "estimated_probability": 0.13056,
+        "passing_draw_count": 13056,
+        "standardized_block_mean_effect": 0.5
+      },
+      {
+        "draw_count": 100000,
+        "estimated_probability": 0.2874,
+        "passing_draw_count": 28740,
+        "standardized_block_mean_effect": 0.75
+      },
+      {
+        "draw_count": 100000,
+        "estimated_probability": 0.49231,
+        "passing_draw_count": 49231,
+        "standardized_block_mean_effect": 1.0
+      },
+      {
+        "draw_count": 100000,
+        "estimated_probability": 0.69519,
+        "passing_draw_count": 69519,
+        "standardized_block_mean_effect": 1.25
+      },
+      {
+        "draw_count": 100000,
+        "estimated_probability": 0.84778,
+        "passing_draw_count": 84778,
+        "standardized_block_mean_effect": 1.5
+      }
+    ],
+    "seed": 20260901,
+    "standardized_effect_grid": [
+      0.5,
+      0.75,
+      1.0,
+      1.25,
+      1.5
+    ]
+  },
+  "status": "pass"
+}

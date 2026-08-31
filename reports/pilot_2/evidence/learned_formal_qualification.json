@@ -1,0 +1,484 @@
+{
+  "atlas_work_count": 40,
+  "checks": {
+    "all_40_acquired_images_meet_area_and_aspect_domain": true,
+    "all_40_native_images_meet_area_and_aspect_domain": true,
+    "all_feature_extraction_contracts_are_pinned": true,
+    "at_least_one_exact_repeat_probe_per_artist": true,
+    "constrained_permutation_p_at_most_0_05": true,
+    "each_pooled_classifier_held_source_ba_strictly_above_chance": true,
+    "pca_reached_95_percent_with_train_only_rank": true,
+    "pooled_held_artist_ba_strictly_above_chance": true
+  },
+  "determinism_probes": [
+    {
+      "artist_id": "alfred_sisley",
+      "canonical_work_id": "work-aic-16633",
+      "derived_png_sha256": "e17df45ac707a8a5093226de3b96e7a6774b9d04362f13456c4a54b2e2f37552",
+      "exact_equal": true,
+      "feature_version": "kim2026-a-vector-harmonized-png-seeded-v1",
+      "first_vector_sha256": "499829596c48acffa7d6c43364a6c8d89e6ba9e582fc52a97af9c2192f6a4885",
+      "second_vector_sha256": "499829596c48acffa7d6c43364a6c8d89e6ba9e582fc52a97af9c2192f6a4885",
+      "seed": 2385873106742384968
+    },
+    {
+      "artist_id": "camille_pissarro",
+      "canonical_work_id": "work-aic-6005",
+      "derived_png_sha256": "cfb03c1d00cdf64c2ed85e799935856ec6ad1c293ce0e6bd1b5fc9225d115eb7",
+      "exact_equal": true,
+      "feature_version": "kim2026-a-vector-harmonized-png-seeded-v1",
+      "first_vector_sha256": "bbadb85864a3a5bce62e83b08b16d1eda9f64bf99515ae677cf31e929a2cc2d3",
+      "second_vector_sha256": "bbadb85864a3a5bce62e83b08b16d1eda9f64bf99515ae677cf31e929a2cc2d3",
+      "seed": 3236147353322285481
+    },
+    {
+      "artist_id": "claude_monet",
+      "canonical_work_id": "work-aic-16544",
+      "derived_png_sha256": "1bf5926288a10674e7d47ef083bff55f8c942cfb158122c71324a71d98e3b986",
+      "exact_equal": true,
+      "feature_version": "kim2026-a-vector-harmonized-png-seeded-v1",
+      "first_vector_sha256": "7058e47f3ab14fadd9fc3429ff0476abab6a5c81505caa17edecf47d7530d079",
+      "second_vector_sha256": "7058e47f3ab14fadd9fc3429ff0476abab6a5c81505caa17edecf47d7530d079",
+      "seed": 3504182883287086158
+    },
+    {
+      "artist_id": "paul_cezanne",
+      "canonical_work_id": "work-aic-109418",
+      "derived_png_sha256": "70519a63099c5ba691adc5b519eef09276cf9eac6f8725d4729e866a2ee5ebd6",
+      "exact_equal": true,
+      "feature_version": "kim2026-a-vector-harmonized-png-seeded-v1",
+      "first_vector_sha256": "070bb2eebd19a4645cb6fcd8d0377337f1953e75b926b2068cc0646e86463462",
+      "second_vector_sha256": "070bb2eebd19a4645cb6fcd8d0377337f1953e75b926b2068cc0646e86463462",
+      "seed": 5870444887190534845
+    }
+  ],
+  "development_diagnostics": {
+    "claim_boundary": "diagnostic_only_not_used_by_any_qualification_check",
+    "opposite_source_transfer": {
+      "aic": {
+        "classification": {
+          "balanced_accuracy": 0.25,
+          "expected_labels": [
+            "claude_monet",
+            "camille_pissarro",
+            "claude_monet",
+            "paul_cezanne",
+            "camille_pissarro",
+            "paul_cezanne",
+            "alfred_sisley",
+            "alfred_sisley"
+          ],
+          "per_class_recall": {
+            "alfred_sisley": 0.0,
+            "camille_pissarro": 0.5,
+            "claude_monet": 0.0,
+            "paul_cezanne": 0.5
+          },
+          "predicted_labels": [
+            "camille_pissarro",
+            "camille_pissarro",
+            "camille_pissarro",
+            "paul_cezanne",
+            "claude_monet",
+            "camille_pissarro",
+            "claude_monet",
+            "claude_monet"
+          ],
+          "test_work_ids": [
+            "work-aic-103139",
+            "work-aic-110541",
+            "work-aic-14624",
+            "work-aic-191564",
+            "work-aic-20530",
+            "work-aic-45240",
+            "work-aic-58984",
+            "work-aic-96559"
+          ]
+        },
+        "held_source_id": "aic",
+        "pca": {
+          "basis_sha256": "f7356733e47e28db9e92f9947123c94079dd68871deb9d9f7148970ed73fa49b",
+          "component_cap": 11,
+          "component_count": 11,
+          "cumulative_explained_variance": 1.0,
+          "fit_work_ids": [
+            "work-nga-177090",
+            "work-nga-178254",
+            "work-nga-46673",
+            "work-nga-52165",
+            "work-nga-52187",
+            "work-nga-52198",
+            "work-nga-52227",
+            "work-nga-53119",
+            "work-nga-53120",
+            "work-nga-66436",
+            "work-nga-71550",
+            "work-nga-72886"
+          ],
+          "input_dimension": 16384,
+          "mean_sha256": "e1f314ecb6f93510dbfdfc08ef6f536e8682a517b4320d6c057cb9c5304e00da",
+          "state_sha256": "427a496f048a18f2e25500703038f7880e615e0cd1763ca4c8a2c48bb3a1523a",
+          "variance_target": 0.95,
+          "variance_target_reached": true
+        },
+        "role": "development_non_gating"
+      },
+      "nga": {
+        "classification": {
+          "balanced_accuracy": 0.375,
+          "expected_labels": [
+            "paul_cezanne",
+            "claude_monet",
+            "camille_pissarro",
+            "alfred_sisley",
+            "paul_cezanne",
+            "alfred_sisley",
+            "camille_pissarro",
+            "claude_monet"
+          ],
+          "per_class_recall": {
+            "alfred_sisley": 1.0,
+            "camille_pissarro": 0.0,
+            "claude_monet": 0.0,
+            "paul_cezanne": 0.5
+          },
+          "predicted_labels": [
+            "paul_cezanne",
+            "alfred_sisley",
+            "alfred_sisley",
+            "alfred_sisley",
+            "alfred_sisley",
+            "alfred_sisley",
+            "alfred_sisley",
+            "camille_pissarro"
+          ],
+          "test_work_ids": [
+            "work-nga-45866",
+            "work-nga-52186",
+            "work-nga-52199",
+            "work-nga-52226",
+            "work-nga-53122",
+            "work-nga-62641",
+            "work-nga-66430",
+            "work-nga-72138"
+          ]
+        },
+        "held_source_id": "nga",
+        "pca": {
+          "basis_sha256": "80b121fd9b2001c9a1b8de4749d3fea96d8f2437b7c358ccaca18ce1f991ec87",
+          "component_cap": 11,
+          "component_count": 11,
+          "cumulative_explained_variance": 1.0,
+          "fit_work_ids": [
+            "work-aic-109418",
+            "work-aic-14556",
+            "work-aic-16487",
+            "work-aic-16544",
+            "work-aic-16633",
+            "work-aic-37741",
+            "work-aic-6005",
+            "work-aic-73054",
+            "work-aic-81545",
+            "work-aic-81551",
+            "work-aic-86998",
+            "work-aic-87000"
+          ],
+          "input_dimension": 16384,
+          "mean_sha256": "70a1e64b16c8c2fe5c3ef2dba4de2b0d1275936725366ecf8669e23651ff52fc",
+          "state_sha256": "f81847c41e59051c68aa25ce8fcc1cb4967157bb3dba39fd568d3d8b78e4c06d",
+          "variance_target": 0.95,
+          "variance_target_reached": true
+        },
+        "role": "development_non_gating"
+      }
+    },
+    "pooled_source_label_predictability": {
+      "chance_balanced_accuracy": 0.5,
+      "classification": {
+        "balanced_accuracy": 0.8125,
+        "expected_labels": [
+          "aic",
+          "aic",
+          "aic",
+          "aic",
+          "aic",
+          "aic",
+          "aic",
+          "aic",
+          "nga",
+          "nga",
+          "nga",
+          "nga",
+          "nga",
+          "nga",
+          "nga",
+          "nga"
+        ],
+        "per_class_recall": {
+          "aic": 0.75,
+          "nga": 0.875
+        },
+        "predicted_labels": [
+          "aic",
+          "aic",
+          "aic",
+          "aic",
+          "aic",
+          "aic",
+          "nga",
+          "nga",
+          "aic",
+          "nga",
+          "nga",
+          "nga",
+          "nga",
+          "nga",
+          "nga",
+          "nga"
+        ],
+        "test_work_ids": [
+          "work-aic-103139",
+          "work-aic-110541",
+          "work-aic-14624",
+          "work-aic-191564",
+          "work-aic-20530",
+          "work-aic-45240",
+          "work-aic-58984",
+          "work-aic-96559",
+          "work-nga-45866",
+          "work-nga-52186",
+          "work-nga-52199",
+          "work-nga-52226",
+          "work-nga-53122",
+          "work-nga-62641",
+          "work-nga-66430",
+          "work-nga-72138"
+        ]
+      },
+      "role": "development_non_gating",
+      "shared_pca_state_sha256": "c634fdc66fb40c2d35e9660fbc6d1f23dfa7b8ec39ca51eb90243f6856ebbbd5",
+      "source_classifier_state_sha256": "f1f2cf3e098755346c6c080554c0c57964b0914262c87c75165765b345fe17fe"
+    }
+  },
+  "feature_config_sha256": "1a9729d7eda68c7ceb089fb98a1c735454505d0736189d5380fc9501af95b51a",
+  "feature_version": "kim2026-a-vector-harmonized-png-seeded-v1",
+  "held_out_work_count": 16,
+  "input_acquired_manifest_sha256": "0a9576a6eacbff59d5cd5ffb8598a41e673daad4e5eef48d32456b6957e592b6",
+  "input_feature_manifest_sha256": "96d54387a3004b143891eb8220c68fbc743c01f219057d646757c2e7fc6fc4c3",
+  "measurement": "learned_formal",
+  "pca": {
+    "basis_sha256": "6567d846f885b81f3257bae041306532521e7bb9f239aef2952bf60486748ede",
+    "component_cap": 23,
+    "component_count": 22,
+    "cumulative_explained_variance": 0.9707404656392272,
+    "fit_work_ids": [
+      "work-aic-109418",
+      "work-aic-14556",
+      "work-aic-16487",
+      "work-aic-16544",
+      "work-aic-16633",
+      "work-aic-37741",
+      "work-aic-6005",
+      "work-aic-73054",
+      "work-aic-81545",
+      "work-aic-81551",
+      "work-aic-86998",
+      "work-aic-87000",
+      "work-nga-177090",
+      "work-nga-178254",
+      "work-nga-46673",
+      "work-nga-52165",
+      "work-nga-52187",
+      "work-nga-52198",
+      "work-nga-52227",
+      "work-nga-53119",
+      "work-nga-53120",
+      "work-nga-66436",
+      "work-nga-71550",
+      "work-nga-72886"
+    ],
+    "input_dimension": 16384,
+    "mean_sha256": "77baf0c86c2d91b7d1544d0ae1d46440c7da070908624c7a0d2add672065417f",
+    "state_sha256": "c634fdc66fb40c2d35e9660fbc6d1f23dfa7b8ec39ca51eb90243f6856ebbbd5",
+    "variance_target": 0.95,
+    "variance_target_reached": true
+  },
+  "permutation": {
+    "draws": 9999,
+    "exceedance_count": 215,
+    "observed_statistic": 0.5,
+    "p_value": 0.0216,
+    "scheme": "artist_labels_within_source_by_split",
+    "seed": 20260901,
+    "statistic": "pooled_held_balanced_accuracy",
+    "threshold": 0.05
+  },
+  "pooled_artist_classifier_state_sha256": "6afb22ad69d22adec172686466637c0e0bc2924db305205bfa4f02bb28f9e701",
+  "pooled_classifier_held_by_source": {
+    "aic": {
+      "classification": {
+        "balanced_accuracy": 0.625,
+        "expected_labels": [
+          "claude_monet",
+          "camille_pissarro",
+          "claude_monet",
+          "paul_cezanne",
+          "camille_pissarro",
+          "paul_cezanne",
+          "alfred_sisley",
+          "alfred_sisley"
+        ],
+        "per_class_recall": {
+          "alfred_sisley": 0.5,
+          "camille_pissarro": 0.5,
+          "claude_monet": 0.5,
+          "paul_cezanne": 1.0
+        },
+        "predicted_labels": [
+          "paul_cezanne",
+          "camille_pissarro",
+          "claude_monet",
+          "paul_cezanne",
+          "claude_monet",
+          "paul_cezanne",
+          "alfred_sisley",
+          "camille_pissarro"
+        ],
+        "test_work_ids": [
+          "work-aic-103139",
+          "work-aic-110541",
+          "work-aic-14624",
+          "work-aic-191564",
+          "work-aic-20530",
+          "work-aic-45240",
+          "work-aic-58984",
+          "work-aic-96559"
+        ]
+      },
+      "classifier_fit_work_count": 24,
+      "sample_size_note": "n=8 held works per source; balanced accuracy is a coarse discrete estimate",
+      "shared_artist_classifier_state_sha256": "6afb22ad69d22adec172686466637c0e0bc2924db305205bfa4f02bb28f9e701",
+      "shared_pca_state_sha256": "c634fdc66fb40c2d35e9660fbc6d1f23dfa7b8ec39ca51eb90243f6856ebbbd5",
+      "source_id": "aic",
+      "test_work_count": 8
+    },
+    "nga": {
+      "classification": {
+        "balanced_accuracy": 0.375,
+        "expected_labels": [
+          "paul_cezanne",
+          "claude_monet",
+          "camille_pissarro",
+          "alfred_sisley",
+          "paul_cezanne",
+          "alfred_sisley",
+          "camille_pissarro",
+          "claude_monet"
+        ],
+        "per_class_recall": {
+          "alfred_sisley": 1.0,
+          "camille_pissarro": 0.0,
+          "claude_monet": 0.0,
+          "paul_cezanne": 0.5
+        },
+        "predicted_labels": [
+          "paul_cezanne",
+          "alfred_sisley",
+          "alfred_sisley",
+          "alfred_sisley",
+          "alfred_sisley",
+          "alfred_sisley",
+          "alfred_sisley",
+          "camille_pissarro"
+        ],
+        "test_work_ids": [
+          "work-nga-45866",
+          "work-nga-52186",
+          "work-nga-52199",
+          "work-nga-52226",
+          "work-nga-53122",
+          "work-nga-62641",
+          "work-nga-66430",
+          "work-nga-72138"
+        ]
+      },
+      "classifier_fit_work_count": 24,
+      "sample_size_note": "n=8 held works per source; balanced accuracy is a coarse discrete estimate",
+      "shared_artist_classifier_state_sha256": "6afb22ad69d22adec172686466637c0e0bc2924db305205bfa4f02bb28f9e701",
+      "shared_pca_state_sha256": "c634fdc66fb40c2d35e9660fbc6d1f23dfa7b8ec39ca51eb90243f6856ebbbd5",
+      "source_id": "nga",
+      "test_work_count": 8
+    }
+  },
+  "pooled_held": {
+    "balanced_accuracy": 0.5,
+    "expected_labels": [
+      "claude_monet",
+      "camille_pissarro",
+      "claude_monet",
+      "paul_cezanne",
+      "camille_pissarro",
+      "paul_cezanne",
+      "alfred_sisley",
+      "alfred_sisley",
+      "paul_cezanne",
+      "claude_monet",
+      "camille_pissarro",
+      "alfred_sisley",
+      "paul_cezanne",
+      "alfred_sisley",
+      "camille_pissarro",
+      "claude_monet"
+    ],
+    "per_class_recall": {
+      "alfred_sisley": 0.75,
+      "camille_pissarro": 0.25,
+      "claude_monet": 0.25,
+      "paul_cezanne": 0.75
+    },
+    "predicted_labels": [
+      "paul_cezanne",
+      "camille_pissarro",
+      "claude_monet",
+      "paul_cezanne",
+      "claude_monet",
+      "paul_cezanne",
+      "alfred_sisley",
+      "camille_pissarro",
+      "paul_cezanne",
+      "alfred_sisley",
+      "alfred_sisley",
+      "alfred_sisley",
+      "alfred_sisley",
+      "alfred_sisley",
+      "alfred_sisley",
+      "camille_pissarro"
+    ],
+    "test_work_ids": [
+      "work-aic-103139",
+      "work-aic-110541",
+      "work-aic-14624",
+      "work-aic-191564",
+      "work-aic-20530",
+      "work-aic-45240",
+      "work-aic-58984",
+      "work-aic-96559",
+      "work-nga-45866",
+      "work-nga-52186",
+      "work-nga-52199",
+      "work-nga-52226",
+      "work-nga-53122",
+      "work-nga-62641",
+      "work-nga-66430",
+      "work-nga-72138"
+    ]
+  },
+  "qualification_config_sha256": "1a9729d7eda68c7ceb089fb98a1c735454505d0736189d5380fc9501af95b51a",
+  "qualification_contract_sha256": "dcda1649a16b519744677954ecf5905971a0052bb25c54cd446a064e36d34737",
+  "reasons": [],
+  "record_type": "pilot2_learned_qualification",
+  "result_sha256": "7e2734c403399e544595e4c88f361ad82398a88a57657f938cb40e30502a7842",
+  "schema_version": "2.0",
+  "status": "pass",
+  "train_work_count": 24
+}

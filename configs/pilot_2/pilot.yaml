@@ -1,0 +1,125 @@
+schema_version: "2.0"
+pilot_id: pilot_2
+protocol_status: prospectively_frozen
+protocol_document: docs/PILOT_2_PROTOCOL.md
+protocol_document_sha256: 9237aad13aaa18a6b6c661d5d3d4e97457cbd7950eccf5ff3733c8ecd1af46cf
+corpus:
+  candidate_audit: configs/pilot_0/candidate_work_audit.jsonl
+  selection_namespace: pilot2-v1|20260901
+  artist_ids:
+    - alfred_sisley
+    - camille_pissarro
+    - claude_monet
+    - paul_cezanne
+  source_ids:
+    - aic
+    - nga
+  works_per_artist_source: 5
+  train_per_artist_source: 3
+  held_out_per_artist_source: 2
+  atlas_manifest: configs/pilot_2/manifests/atlas.jsonl
+  atlas_manifest_sha256: ced3f0ff13732a978dc7f41a0e4ab8ef4e69ba1279cedc1e1f660cd233ea8e74
+  real_image_manifest: configs/pilot_2/manifests/real_images.jsonl
+  real_image_manifest_sha256: 0c8fc83546c02521bf90e71b88efb5cd202609d0f912dbbd3a868018f6160e4f
+preprocessing:
+  protocol_version: pilot2-common-lossless-png-v1
+  color_space: sRGB
+  alpha_background_rgb: [255, 255, 255]
+  border_policy: keep
+  resample: lanczos
+  max_long_side: 1024
+  no_upsampling: true
+  output_format: png
+learned_formal:
+  protocol_version: pilot2-learned-primary-v2
+  feature_version: kim2026-a-vector-harmonized-png-seeded-v1
+  raw_dimension: 16384
+  latent_policy: seeded_posterior_sample
+  base_seed: 20260901
+  source_repository: https://github.com/aljinny/art-history
+  source_revision: 7da12358cf34dad2184f357a048c2cf114b3c4e0
+  model_repository: Manojb/stable-diffusion-2-base
+  model_revision: 64bf7b4f10eee35494b38d55c06c0c78cf8b44d0
+  model_config_sha256: 6b194a1bad5f6ab0431cc254088949b814f75d0c3230483ad8fc6be2cc1495a0
+  model_weights_sha256: a1d993488569e928462932c8c38a0760b874d166399b14414135bd9c42df5815
+  model_snapshot_dir: artifacts/models/sd2-base-vae
+  source_checkout_dir: artifacts/sources/kim-art-history
+  full_checkpoint_sha256: d635794c1fedfdfa261e065370bea59c651fc9bfa65dc6d67ad29e11869a1824
+  model_verification_report: reports/pilot_1/evidence/learned_formal_model_verification.json
+  model_verification_report_sha256: b847cc733c1b9b6f02246c0357b2f13841cb0f7dbf27d41c7bcf1cf6732bce27
+  device: mps
+  opencv_version: 4.14.0
+  opencv_build_sha256: c201b5ba726b7370afc3cb0d338454e2964afe1aa907849908b27850ecc043cf
+  pillow_version: 11.3.0
+  jpeg_codec_version: "6.2"
+  python_version: 3.13.11
+  platform_system: Darwin
+  platform_release: 25.6.0
+  platform_machine: arm64
+  numpy_version: 2.5.2
+  torch_version: 2.13.0
+  diffusers_version: 0.40.0
+  torch_mps_built: true
+  torch_mps_available: true
+  pca_variance_target: 0.95
+  pca_component_cap_rule: n_train_minus_1
+  pca_whiten: false
+  classifier: nearest_artist_centroid_euclidean
+  pooled_held_artist_ba_strict_min: 0.25
+  pooled_classifier_held_by_source_artist_ba_strict_min: 0.25
+  permutation_scheme: artist_labels_within_source_by_split
+  permutation_statistic: pooled_held_balanced_accuracy
+  permutation_draws: 9999
+  permutation_seed: 20260901
+  permutation_p_max: 0.05
+measurements:
+  primary: [learned_formal]
+  secondary: [chromatic]
+generation:
+  models: [gpt-image-1, gpt-image-2]
+  base_url: http://127.0.0.1:10532/v1
+  endpoint: images/generations
+  prompt_manifest: configs/pilot_2/prompts.jsonl
+  prompt_manifest_sha256: 4492121b4233d1b1fdadd5785a8164c7e1b5877de557893f4d8973b318b4af2b
+  generation_cells_manifest: configs/pilot_2/generation_cells.jsonl
+  generation_cells_manifest_sha256: 60041850ba70d691334111f63698415b1b480a635f587c788de8050786d9f9fa
+  generation_schedule: configs/pilot_2/generation_schedule.json
+  generation_schedule_sha256: 91934bf8b63ab07a357977301b3bd76c791f1365fcde806c29199f84b1c705ed
+  runtime_revalidation_ledger: reports/pilot_2/evidence/generation_runtime_revalidations.jsonl
+  post_intent_ledger: artifacts/pilot_2/generation_post_intents.jsonl
+  attempt_receipt_manifest: reports/pilot_2/evidence/generation_attempt_receipts.json
+  output_dir: outputs/pilot_2/gpt_images
+  transport_fingerprint: reports/pilot_2/evidence/oauth_runtime_fingerprint.json
+  transport_fingerprint_sha256: 26a47d8cd59dbd9d499cdd703411d691b9cc63083228951d6fbcc85e22a452ad
+  transport_source_snapshot: reports/pilot_2/evidence/oauth_source_snapshot.json
+  transport_source_snapshot_sha256: 433a53a7327d4f79a088abaae22cc58dc33dce8808542c9032a5c93dd114af7e
+  content_block_count: 8
+  prompt_variants_per_block: 5
+  target_artist_prompts_per_block: 4
+  artist_free_prompts_per_block: 1
+  repetitions: 4
+  size: auto
+  quality: low
+  output_format: png
+  max_attempts_per_cell: 10
+  max_parallel: 4
+  schedule_namespace: pilot2-generation-order-v1
+  schedule_seed: 20260901
+  timeout_seconds: 300.0
+analysis:
+  resampling_unit: content_block_then_repetition
+  bootstrap_draws: 10000
+  confidence_level: 0.95
+  random_seed: 20260901
+design:
+  sensitivity_artifact: reports/pilot_2/evidence/sample_size_sensitivity.json
+  sensitivity_artifact_sha256: 7c6f3fa75c367d80422481b36a3eb5ecbc64037bb2df5ebf7f7fb78d97c6157f
+  design_version: pilot2-standardized-sign-flip-sensitivity-v1
+  simulation_draws: 100000
+  simulation_seed: 20260901
+  standardized_effects: [0.5, 0.75, 1.0, 1.25, 1.5]
+  top_level_block_count: 8
+  repetitions_per_block: 4
+qualification_artifacts:
+  learned_result: reports/pilot_2/evidence/learned_formal_qualification.json
+  learned_card: configs/pilot_2/qualification/learned_formal.json
