@@ -1,0 +1,42 @@
+{
+  "conditional_domains": [
+    "the primary scientific domain is lossless PNG; Lee et al. make no JPEG claim",
+    "codec sensitivities apply only to normalized sources with native long side >=1024",
+    "same-work calibration applies only to represented alternate-capture sources",
+    "classification checks are construct diagnostics, not artist-recognition claims",
+    "resolution claims are reported separately for each independently derived branch"
+  ],
+  "decided_at": "2026-08-31T01:04:26.067258Z",
+  "evidence_artifact_sha256": "aab262dd6dcc7c5302df4947871448603c4424ad888c164ec91e38834f0f1aa4",
+  "evidence_paths": [
+    "reports/pilot_1/evidence/chromatic_qualification.json"
+  ],
+  "feature_config_hash": "f22cd6d8a63e2d6f43049e546b6dff439c1f9874ddbc6c69425f6fea91b6f4ec",
+  "feature_version": "lee2018-seamlessness-s-v2",
+  "held_out_artist_signal_valid": true,
+  "input_feature_manifest_sha256": null,
+  "measurement": "chromatic",
+  "qualification_contract_hash": "5a14531a9fb1480c6e4f00398998ce897e0bd225833355952acd01661b7cf5d5",
+  "qualification_result_sha256": "85e048304270fc0757ea24ff6aa2e5f403295c1baa4bddae39860cf3c486c452",
+  "real_work_count": 108,
+  "reasons": [
+    "source behavior was not recovered",
+    "stability exceeded the frozen margin",
+    "source confounding was not controlled",
+    "The Q85 4:2:0 branch remains an unsupported diagnostic; it is not part of a scientific pass.",
+    "Unsupported: JPEG recompression after scientific canonicalization was not qualified",
+    "Unsupported: upsampling sources below a requested branch size was not qualified",
+    "Unsupported: Lee et al.'s real-image full normalized-distribution collapse across sizes",
+    "Unsupported: museum-source robustness in every held-source fold",
+    "Unsupported: diagnostic matched 1024 Q85 4:2:0 codec perturbation; this does not veto the lossless PNG scientific domain",
+    "Unsupported: same-work reproduction generalization beyond exact versioned primary files"
+  ],
+  "record_type": "qualification_card",
+  "reproduction_pair_count": 7,
+  "schema_version": "1.0",
+  "source_behavior_recovered": false,
+  "source_confounding_controlled": false,
+  "stable_within_frozen_margin": false,
+  "status": "fail",
+  "supported_scope": []
+}

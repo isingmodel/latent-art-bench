@@ -1,39 +1,185 @@
 # Development-pilot implementation status
 
-The roadmap has been completed through its defined stop path. “Complete” here means that each gate reached an evidence-backed outcome; it does not mean that failed measurements were forced through to a scientific generator comparison.
+## Current disposition
 
-| Work package | Engineering result | Scientific result |
-|---|---|---|
-| WP0: pilot contract | Frozen in `configs/pilot_0/pilot.yaml` | Monet–Sisley and Pissarro–Cézanne; shared landscape/outdoor-place scene |
-| WP1: reproducible substrate | Config-driven CLI, strict records, provenance, leakage guards, deterministic fixtures, and tests | Passed on synthetic fixtures |
-| WP2: real corpus | Official AIC, CMA, Met, and NGA audit/adapters; rights and hash manifests; browser-assisted AIC CDN fallback | 108 canonical works, 119 reproductions, 11 accepted same-work pairs; reproduction scope is narrower than planned |
-| WP3: preprocessing | EXIF, ICC-to-sRGB, alpha handling, aspect-preserving Lanczos, lossless content addressing | 119/119 inputs reproduced with exact output-pixel identity |
-| WP4: measurements | Lee et al. chromatic measurement implemented and evaluated; frozen Kim et al. A-vector feasibility spike closed | Chromatic source behavior recovered; learned-formal evaluator failed reproducibility prerequisites |
-| WP5: real-only qualification | Computed reproduction, perturbation, held-out artist, source prediction, and leave-source-out diagnostics | Chromatic `fail` on frozen JPEG stability; learned-formal `fail`; scientific gate closed |
-| WP6: generation freeze | Scientific branch not opened. Test adapter remains hard-limited to `gpt-image-1` and `gpt-image-2` on loopback | Ten bypassed API-test calls succeeded; not benchmark evidence |
-| WP7: reporting | Human-readable report, machine-readable evidence, resolved config, call accounting, and decision memo | Decision: stop before scientific generation and redesign the learned/stability contract |
+The implementation cycle is complete, but the scientific comparison is not qualified.
+`pilot_0` followed its frozen failure path. The separately versioned `pilot_1` redesign
+also produced two `fail` cards, so its scientific gate is closed.
 
-## Frozen corpus
+| Layer | Final status |
+|---|---|
+| Chromatic qualification | `fail` |
+| Learned-formal qualification | `fail` |
+| Scientific generation/analysis | closed |
+| Engineering traversal | complete through explicit test-only feature-preparation and analysis bypasses |
+| Scientific claims | disabled |
 
-| Artist | Neighbor | Canonical works |
+The authoritative artifacts are the [final report](../reports/pilot_1/REPORT.md),
+[evidence anchor](../reports/pilot_1/EVIDENCE.md), and
+[failure investigation](FAILURE_INVESTIGATION.md). “Complete” means that the software,
+provenance, failure accounting, and test-only diagnostics ran end to end. It does not
+mean that either measurement or requested model label passed scientific validation.
+
+## Frozen artist-level corpus
+
+The target is the artist, not an era or movement. Era and movement labels remain
+cross-classified metadata because an era is too heterogeneous to substitute for an
+artist-level target and would change the estimand from target-versus-neighbor
+specificity. The roster was selected from the prior museum-source and common-genre
+research, without using generated outputs or favorable feature separation.
+
+| Artist | Frozen neighbor | Canonical works |
 |---|---|---:|
 | Claude Monet | Alfred Sisley | 30 |
 | Alfred Sisley | Claude Monet | 21 |
-| Camille Pissarro | Paul Cézanne | 30 |
-| Paul Cézanne | Camille Pissarro | 27 |
+| Camille Pissarro | Paul Cezanne | 30 |
+| Paul Cezanne | Camille Pissarro | 27 |
 
-The selection rule used museum metadata only. Movement labels remain metadata; they were not used as the target. Primary sources overlap across artists, and all selected assets have an explicit public-domain/open-access basis. Images and derived arrays remain ignored local data; portable manifests, hashes, source URLs, aggregate evidence, and reports are tracked.
+The shared view is landscape/outdoor-place scenes. The corpus contains 108 canonical
+works, split into 76 training and 32 held-out works, with 119 reproductions. Eleven
+alternate files represent only seven independent physical works.
 
-## Qualification outcome
+## Final pilot_1 qualification
 
-The chromatic feature recovered its preregistered delta, exponential, heavy-tail, and scale-invariance behaviors. On the real corpus, held-out artist balanced accuracy was `0.3507`, held-out source balanced accuracy was `0.1896`, and leave-source-out train artist balanced accuracy was `0.4050`. Median same-work reproduction distance was `0.5730` of median within-artist held-out distance.
+### Chromatic v2: fail
 
-Exact preprocessing pixels were deterministic for 119/119 reproductions. Resolution drift at a 256-pixel long side was `0.4937` of the within-artist median, inside the frozen `0.5` margin. JPEG-quality-85 drift was `0.6928`, outside that margin. The chromatic card is therefore `fail`, despite passing its other checks.
+The scalar Lee seamlessness formula passed its synthetic probes, but this was not enough
+to recover the paper's defining empirical behavior. The full mean-rescaled chromatic-
+distance distribution collapse was ineligible: all 108 primaries lack a clear border
+review, the schema lacks explicit partial-image and serious-damage review fields, none
+of the 108 files supports the paper's 3000 px maximum without upsampling, and 17 of 108
+exceeded the project's distributional K-S margin on at least one available branch.
 
-The learned-formal card is `fail`: the frozen upstream script is not runnable as released, the audited code revision has no reusable license, the exact checkpoint bytes are unavailable, and no reference vector exists for source-faithful verification. The roadmap forbids replacing it after viewing the corpus.
+| Check | Exact final result | Disposition |
+|---|---:|---|
+| Formula behavior | verified | necessary but insufficient |
+| Lee input eligibility | 0/108 border-clear primaries | failed |
+| Full normalized-distribution collapse | `ineligible` | failed source-behavior recovery |
+| Held-out artist balanced accuracy | `0.3506944444` | narrowly above the aggregate floor |
+| Held-out source balanced accuracy | `0.2416666667` | diagnostic only |
+| Leave-source-out artist balanced accuracy | pooled `0.3369674185` | not every fold passed |
+| Direct 400/500 ratio, 95% interval | `0.0819375820`, `[0.0580938772, 0.1279254608]` | isolated supported sensitivity |
+| Direct 256/500 ratio, 95% interval | `0.2604446675`, `[0.1718565735, 0.3900617693]` | isolated supported sensitivity |
+| Q95 4:4:4 ratio, 95% interval | `0.0558064356`, `[0.0414253939, 0.0804704261]` | isolated supported sensitivity |
+| Q85 4:2:0 ratio, 95% interval | `0.4325558376`, `[0.2634302557, 0.6231027032]` | failed; upper bound exceeds `0.5` |
+| Same-work reproduction ratio, 95% interval | `0.5882766278`, `[0.2433774343, 1.8285907947]` | failed; upper bound exceeds `1.0` |
 
-## GPT Image API test
+The per-artist recall was Sisley `0.8333`, Monet `0.4444`, Pissarro `0.0`, and
+Cezanne `0.125`. The leave-source-out folds were AIC `0.3277`, CMA `0.0`, Met `0.2`,
+and NGA `0.3729`; a favorable pooled value cannot hide the failed folds. The final
+qualification-card supported scope is empty.
 
-The local `~/dev/openai-oauth` proxy passed health and model-discovery checks. Five matched landscape prompts—four artist targets plus one artist-free control—were sent once to each allowed model. All five `gpt-image-1` and all five `gpt-image-2` calls succeeded without retry, produced valid PNG files, and recorded content hashes and actual dimensions. These ten calls used the explicit unqualified-test bypass and cannot change the scientific stop decision.
+### Learned-formal v2: fail
 
-See `reports/pilot_0/API_SMOKE.md`, `reports/pilot_0/evidence/chromatic_qualification.json`, and `reports/pilot_0/DECISION.md` for the durable evidence.
+The clean-room source-compatible extractor produced 119 finite 16,384-value A-vectors.
+The recovered full `512-base-ema.ckpt` and pinned Diffusers VAE agree bit-for-bit for all
+248 mapped tensors: 83,653,863 float32 values and 334,615,452 logical bytes. This verifies
+the two recovered containers, not the authors' unpublished A-vectors, RNG state, or the
+identity of the exact checkpoint used in the paper.
+
+| Check | Exact final result | Disposition |
+|---|---:|---|
+| Determinism probes | 4/4 byte- and metadata-exact | repaired seeded policy verified |
+| Held-out artist balanced accuracy | `0.53125` | diagnostic only |
+| Held-out source balanced accuracy | `0.5375` | diagnostic only |
+| Nested leave-source-out artist balanced accuracy | `0.4126566416` | pooled diagnostic only |
+| Primary PCA | 32 components; `0.6152142296` retained variance | failed the frozen `0.95` target |
+| Same-work reproduction ratio, 95% interval | `0.7423170871`, `[0.5108065957, 1.1001825090]` | failed; upper bound exceeds `1.0` |
+| Kim released-source native-area domain | 108/108 primaries eligible | passed strict `width * height > 410 * 410` screen |
+| Kim aspect-ratio domain | 107/108 primaries eligible | failed |
+| Artist-by-source split coverage | incomplete | failed source-confounding control |
+
+`reproduction-cma-136510-primary` is 900 x 419 (aspect ratio 2.148), outside Kim et
+al.'s strict `< 2` domain. Missing cells include Sisley-CMA training, Monet-CMA training,
+and Monet-Met in both splits. The final qualification-card supported scope is empty.
+
+The implementation now pins the observed Python, platform, Torch, Diffusers, NumPy,
+OpenCV, Pillow, JPEG, and MPS environment. This improves reproducibility but does not
+repair the failed scientific design.
+
+### Unresolved learned-feature codec confound
+
+All 119 real inputs are JPEG, while all 40 generated outputs are PNG. The recovered Kim
+source path writes the 512 x 512 intermediate with the source extension, so origin and
+intermediate codec are perfectly associated:
+
+```text
+real image      -> JPEG intermediate -> VAE
+generated image -> PNG intermediate  -> VAE
+```
+
+The source-faithful path is valid for source-method replication, but it is not an
+unconfounded real-versus-generated comparison. A future scientific run must cross codec
+with origin and use the same lossless primary intermediate for both origins.
+
+## API-test boundary and completed traversal
+
+The retained generation ledger has 41 attempt records for 40 resolved frozen cells: 20
+successful files requested as `gpt-image-1`, 20 requested as `gpt-image-2`, and one
+preserved `gpt-image-1` moderation refusal before the identical frozen cell succeeded on
+explicit retry. The generation records themselves report zero qualification-bypass
+calls.
+
+Those names are requested labels only. `~/dev/openai-oauth` was launched without an
+upstream override and routes its compatibility endpoint to the ChatGPT Codex backend,
+not to the public `api.openai.com` Images API. The retained responses contain no
+authoritative executed-model identity, so an image-1-versus-image-2 comparison is not
+supported.
+
+All 40 successful requests specified `1024x1024`; 0 of 40 returned files matched that
+contract. Nine returned sizes were observed, with widths 1392-1412 px and heights
+1114-1130 px. This 40-of-40 mismatch is systematic and is not a reason to keep retrying.
+
+After the final cards failed, generated-feature preparation and analysis ran only with
+the explicit `--allow-unqualified-test-preparation` and
+`--allow-unqualified-test-analysis` flags. Provenance carries that bypass into every
+downstream cell. The result set contains exactly 16 named-artist cells and 64 matched
+artist-free pairs. They are engineering diagnostics, not scientific observations. All
+16 specificity reference-resampling ranges include zero; those ranges resample only the
+real reference side, hold the generated side fixed at `n=4`, and are not inferential
+confidence intervals.
+
+| Artist-free diagnostic | Requested label | Pairs | Median raw distance |
+|---|---|---:|---:|
+| Chromatic | `gpt-image-1` | 16 | `0.0587337` |
+| Chromatic | `gpt-image-2` | 16 | `0.0797196` |
+| Learned formal | `gpt-image-1` | 16 | `99.4847` |
+| Learned formal | `gpt-image-2` | 16 | `96.8956` |
+
+The exact per-cell target-gap and specificity values are reproduced, without promotion
+to scientific results, in the [final report](../reports/pilot_1/REPORT.md#test-only-distribution-diagnostics).
+
+## Work-package disposition
+
+| Work package | Engineering disposition | Scientific disposition |
+|---|---|---|
+| WP0-WP3 | frozen contract, corpus, preprocessing, and provenance complete | development inputs only |
+| WP4-WP5 | both measurement implementations and final evaluations complete | both cards `fail`; gate closed |
+| WP6-WP7 | generation attested; test-only preparation, analysis, and report complete | not opened for scientific inference |
+
+No scientific task remains inside `pilot_1`. The next scientific work is a new,
+prospectively frozen `pilot_2`, not another retry or retrospective relabeling of these
+results. Its required design changes are specified in the
+[failure investigation](FAILURE_INVESTIGATION.md).
+
+## Evidence identities
+
+- Chromatic evidence SHA-256: `aab262dd6dcc7c5302df4947871448603c4424ad888c164ec91e38834f0f1aa4`
+- Learned-formal evidence SHA-256: `eeadf841101eddda157447ee3cdff1770e7f46c94c930ffdbbae334ac97c5033`
+- Generation attestation SHA-256: `477a3626013b3ee9140f76cfdbb76b6e996b6973222d6b3fcc72fed5fdf45764`
+- Analysis-results SHA-256: `eb9cda2a8fcc4226b1798426635699a8bfbb6b70bd8c1f85823ff7e782129576`
+
+The complete content-addressed ledger is in
+[`reports/pilot_1/EVIDENCE.md`](../reports/pilot_1/EVIDENCE.md). The locked finalization
+command sequence is documented in the [README](../README.md#development-pilot-commands).
+
+## Clean-checkout verification boundary
+
+The final artifact index records 196 entries and 46 run records. The repository commits
+the compact qualification, model-verification, attestation, analysis, report, and index
+snapshots. Raw museum images, all generated PNGs, model weights, the source checkout,
+derived views, and high-dimensional feature/vector manifests remain ignored local files.
+The evidence anchor records their identities and retention status, but a clean checkout
+cannot byte-verify or recompute bytes that are not distributed. Public verification is
+therefore limited to the committed compact snapshots and the internal hash links among
+them.

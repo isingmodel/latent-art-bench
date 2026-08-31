@@ -1,6 +1,6 @@
 # References
 
-This is the initial methodological reading list. Links point to publisher, DOI, PubMed, or public full-text pages where available.
+This is the methodological reading list used by the implementation and failure investigation. Links point to publisher, DOI, PubMed, public full text, official product documentation, or exact source revisions where available.
 
 ## Positioning and novelty
 
@@ -22,7 +22,7 @@ No component is claimed as unprecedented. The contribution succeeds only if the 
 
 1. Kim, D., Son, S.-W., & Jeong, H. (2014). Large-Scale Quantitative Analysis of Painting Arts. *Scientific Reports, 4*, 7370. [https://doi.org/10.1038/srep07370](https://doi.org/10.1038/srep07370)
 
-2. Lee, B., Kim, D., Sun, S., Jeong, H., & Park, J. (2018). Heterogeneity in chromatic distance in images and characterization of massive painting data set. *PLOS ONE, 13*(9), e0204430. [https://doi.org/10.1371/journal.pone.0204430](https://doi.org/10.1371/journal.pone.0204430)
+2. Lee, B., Kim, D., Sun, S., Jeong, H., & Park, J. (2018). Heterogeneity in chromatic distance in images and characterization of massive painting data set. *PLOS ONE, 13*(9), e0204430. [DOI](https://doi.org/10.1371/journal.pone.0204430); [PLOS full article and figures](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0204430)
 
 3. Seo, M. K., Shin, I.-S., Han, S. K., Lee, B., & Jeong, H. (2018). Information-Theoretic Analysis of Color Interaction in Artistic Paintings. *New Physics: Sae Mulli, 68*(6), 693–699. [https://doi.org/10.3938/NPSM.68.693](https://doi.org/10.3938/NPSM.68.693)
 
@@ -34,7 +34,9 @@ No component is claimed as unprecedented. The contribution succeeds only if the 
 
 7. Tarozo, M. M., Pessa, A. A. B., Zunino, L., Rosso, O. A., Perc, M., & Ribeiro, H. V. (2025). Two-by-two ordinal patterns in art paintings. *PNAS Nexus, 4*(3), pgaf092. [https://doi.org/10.1093/pnasnexus/pgaf092](https://doi.org/10.1093/pnasnexus/pgaf092)
 
-8. Kim, J., Lee, B., You, T., & Yun, J. (2026). Context-aware multimodal AI navigates hidden pathways in five centuries of art evolution. *Proceedings of the National Academy of Sciences, 123*(30), e2517969123. [https://doi.org/10.1073/pnas.2517969123](https://doi.org/10.1073/pnas.2517969123)
+8. Kim, J., Lee, B., You, T., & Yun, J. (2026). Context-aware multimodal AI navigates hidden pathways in five centuries of art evolution. *Proceedings of the National Academy of Sciences, 123*(30), e2517969123. [DOI/version of record](https://doi.org/10.1073/pnas.2517969123); [PubMed record](https://pubmed.ncbi.nlm.nih.gov/42497200/); [public full text and supplement at PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC13416963/)
+
+For implementation scope, Lee et al.'s source behavior is the collapse of the complete mean-rescaled adjacent-pixel distance distribution across the Figure 1 resolutions, not merely evaluation of scalar seamlessness `S`. Its data section also documents exclusions for partial captures, non-rectangular frames, serious damage, and photographs. Kim et al.'s methods specify the SD2 512-base checkpoint, forced 512x512 inputs, an aspect-ratio exclusion at 2, a low-resolution exclusion, and a 16,384-dimensional autoencoder vector. Project-specific K-S margins, deterministic seed repair, PCA limits, and reproduction margins are adaptations rather than claims about either paper.
 
 ## Direct AI and human-art comparison
 
@@ -70,8 +72,28 @@ No component is claimed as unprecedented. The contribution succeeds only if the 
 
 ## Related project code
 
-21. Kim, J., Lee, B., You, T., & Yun, J. *Art History: source code for contextual and formal vector analysis*. [https://github.com/aljinny/art-history](https://github.com/aljinny/art-history)
+21. Kim, J., Lee, B., You, T., & Yun, J. *Art History: source code for contextual and formal vector analysis*. Frozen source revision [`7da12358cf34dad2184f357a048c2cf114b3c4e0`](https://github.com/aljinny/art-history/tree/7da12358cf34dad2184f357a048c2cf114b3c4e0); [`make_resize_img.py`](https://github.com/aljinny/art-history/blob/7da12358cf34dad2184f357a048c2cf114b3c4e0/001_Scripts/make_resize_img.py); [`make_a-vector.py`](https://github.com/aljinny/art-history/blob/7da12358cf34dad2184f357a048c2cf114b3c4e0/001_Scripts/make_a-vector.py). The audited nested source-code checkout was clean at this exact revision. It lives under the outer repository's ignored `artifacts/` tree, so that clean status does not mean the checkout, raw paintings, model files, or extracted vectors are committed by this project. No explicit reuse license was identified, so the project treats the source as method evidence and maintains a clean-room implementation.
+
+## Pinned learned-formal model artifacts
+
+22. Stable Diffusion 2 base public mirror, frozen revision [`64bf7b4f10eee35494b38d55c06c0c78cf8b44d0`](https://huggingface.co/Manojb/stable-diffusion-2-base/tree/64bf7b4f10eee35494b38d55c06c0c78cf8b44d0). Full [`512-base-ema.ckpt`](https://huggingface.co/Manojb/stable-diffusion-2-base/blob/64bf7b4f10eee35494b38d55c06c0c78cf8b44d0/512-base-ema.ckpt), SHA-256 `d635794c1fedfdfa261e065370bea59c651fc9bfa65dc6d67ad29e11869a1824`, 5,214,864,007 bytes.
+
+23. Stable Diffusion 2 base VAE [`config.json`](https://huggingface.co/Manojb/stable-diffusion-2-base/blob/64bf7b4f10eee35494b38d55c06c0c78cf8b44d0/vae/config.json), SHA-256 `6b194a1bad5f6ab0431cc254088949b814f75d0c3230483ad8fc6be2cc1495a0`, 716 bytes.
+
+24. Stable Diffusion 2 base VAE [`diffusion_pytorch_model.safetensors`](https://huggingface.co/Manojb/stable-diffusion-2-base/blob/64bf7b4f10eee35494b38d55c06c0c78cf8b44d0/vae/diffusion_pytorch_model.safetensors), SHA-256 `a1d993488569e928462932c8c38a0760b874d166399b14414135bd9c42df5815`, 334,643,276 bytes.
+
+The public mirror is a pinned provenance location. The bitwise mapping check verifies that its 248 VAE tensors equal the corresponding first-stage tensors in the recovered checkpoint; neither the mirror nor that check proves this was the exact file used by Kim et al.
+
+## GPT Image API and transport references
+
+25. OpenAI. *GPT-Image-1 model*. Official OpenAI documentation for the model and `v1/images/generations` endpoint. [https://developers.openai.com/api/docs/models/gpt-image-1](https://developers.openai.com/api/docs/models/gpt-image-1)
+
+26. OpenAI. *GPT-Image-2 model*. Official OpenAI documentation for the model and `v1/images/generations` endpoint. [https://developers.openai.com/api/docs/models/gpt-image-2](https://developers.openai.com/api/docs/models/gpt-image-2)
+
+27. OpenAI. *Image generation*. Official OpenAI guide to image generation. [https://developers.openai.com/api/docs/guides/image-generation](https://developers.openai.com/api/docs/guides/image-generation)
+
+28. `isingmodel/codex-oauth`. User-maintained OpenAI-compatible OAuth proxy used locally for the API integration test. [Repository](https://github.com/isingmodel/codex-oauth); test-time Git HEAD [`7dbbdea0e94a5e542b0af34dcb11c5957b158bed`](https://github.com/isingmodel/codex-oauth/tree/7dbbdea0e94a5e542b0af34dcb11c5957b158bed). The image-support implementation had uncommitted changes, so the commit is only a repository anchor; retained content hashes and request/output evidence, not this commit alone, describe the tested transport.
 
 ## Reference policy
 
-This list will be expanded during the systematic literature review. Bibliographic metadata should be checked against the version of record before manuscript submission. Method implementations must cite the exact paper, supplement, code repository, and commit used.
+This list will be expanded during the systematic literature review. Bibliographic metadata should be checked against the version of record before manuscript submission. Method implementations must cite the exact paper, supplement, code repository and commit, model revision, and artifact hashes used. Public mirrors are provenance locations, not a claim that their maintainers authored the underlying model. Official OpenAI API documentation supports the compatible request shape and named endpoints; it does not document or validate the separate local proxy-to-ChatGPT-Codex route used in this run.

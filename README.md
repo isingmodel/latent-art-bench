@@ -1,8 +1,8 @@
 # LatentArtBench
 
-**A measurement-qualified benchmark for testing how well generative image systems reproduce formal, contextual, and distributional regularities associated with artists and art movements.**
+**A measurement-gated research framework for testing how well generative image systems reproduce formal, contextual, and distributional regularities associated with artists and art movements.**
 
-> Status: development pilot completed through its preregistered stop path. The real corpus was acquired and the two measurement gates resolved as failures, so no scientific model scores or leaderboard claims were produced. A separate two-model GPT Image API grid is retained as test-only evidence.
+> Status: `pilot_0` and `pilot_1` both ended with failed measurement qualification. The `pilot_1` scientific gate is closed. A separate test-only engineering traversal resolved 40 frozen generation cells through `~/dev/openai-oauth`, requesting only `gpt-image-1` and `gpt-image-2`; it does not enable a scientific score, ranking, or leaderboard claim.
 
 ## Motivation
 
@@ -42,10 +42,13 @@ The benchmark operationalizes this question as **artist-distribution fidelity**.
 Start with:
 
 - [Research proposal](docs/RESEARCH_PROPOSAL.md)
-- [Initial implementation plan](docs/ROADMAP.md)
+- [Post-pilot roadmap and pilot_2 design](docs/ROADMAP.md)
 - [Development-pilot implementation status](docs/IMPLEMENTATION_STATUS.md)
+- [Failure investigation and source-paper audit](docs/FAILURE_INVESTIGATION.md)
 - [Development-pilot artist selection](docs/ARTIST_SELECTION.md)
 - [Project decisions and critique disposition](docs/DECISIONS.md)
+- [Final pilot_1 test-only report](reports/pilot_1/REPORT.md)
+- [Final pilot_1 evidence anchor](reports/pilot_1/EVIDENCE.md)
 
 Technical reference:
 
@@ -61,42 +64,84 @@ Technical reference:
 The implementation is config-driven and uses a locked Python environment. It includes strict JSONL schemas, canonical-work leakage checks, deterministic sRGB preprocessing, the Lee et al. chromatic-distance/seamlessness feature, qualification cards, target-gap analysis, and provenance-aware reporting.
 
 ```bash
-uv sync --extra dev
-uv run latent-art-bench synthetic-dry-run
-uv run pytest
+uv sync --locked --extra dev --extra learned
+uv run --locked latent-art-bench synthetic-dry-run
+uv run --locked pytest
 ```
 
-The frozen corpus audit uses official AIC and CMA APIs plus frozen NGA and Met Open Access snapshots. After supplying those local snapshot paths, the real-only path is:
+The frozen corpus audit uses official AIC and CMA APIs plus frozen NGA and Met Open Access snapshots. After supplying those local snapshot paths, the historical `pilot_0` path is:
 
 ```bash
-uv run latent-art-bench audit-corpus --nga-data-dir /path/to/nga/data --met-csv /path/to/MetObjects.csv
-uv run latent-art-bench acquire-corpus
-uv run latent-art-bench preprocess
-uv run latent-art-bench extract-features artifacts/pilot_0/derived_views.jsonl
-uv run latent-art-bench evaluate-chromatic
-uv run latent-art-bench qualify \
+uv run --locked latent-art-bench audit-corpus --nga-data-dir /path/to/nga/data --met-csv /path/to/MetObjects.csv
+uv run --locked latent-art-bench acquire-corpus
+uv run --locked latent-art-bench preprocess
+uv run --locked latent-art-bench extract-features artifacts/pilot_0/derived_views.jsonl
+uv run --locked latent-art-bench evaluate-chromatic
+uv run --locked latent-art-bench qualify \
   configs/pilot_0/qualification/evidence.chromatic.json \
   configs/pilot_0/qualification/evidence.learned_formal.json \
   --output-dir configs/pilot_0/qualification
-uv run latent-art-bench report-pilot
+uv run --locked latent-art-bench report-pilot
 ```
 
-The image adapter is test-only and rejects every model except `gpt-image-1` and `gpt-image-2`. It defaults to the loopback endpoint exposed by `~/dev/openai-oauth` and needs no API key:
+`pilot_1` tests repaired implementations without changing the historical `pilot_0` cards. Populate `artifacts/models/sd2-base-vae/` with the pinned VAE files documented in [the learned-formal feasibility report](docs/LEARNED_FORMAL_FEASIBILITY.md), then run the real-data preparation and extraction steps:
 
 ```bash
-# Safe request-plan test; never contacts the endpoint.
-uv run latent-art-bench generate --dry-run
-
-# Live API smoke test before WP5 requires this conspicuous exception.
-# Every supplied prompt is marked test_only=true.
-uv run latent-art-bench generate --allow-unqualified-test-generation
+uv run --locked latent-art-bench preprocess \
+  --config configs/pilot_1/pilot.yaml \
+  --output-manifest artifacts/pilot_1/derived_views.jsonl \
+  --output-dir artifacts/pilot_1/derived
+uv run --locked latent-art-bench extract-features artifacts/pilot_1/derived_views.jsonl \
+  --config configs/pilot_1/pilot.yaml \
+  --output-manifest artifacts/pilot_1/chromatic_features.jsonl
+uv run --locked latent-art-bench extract-learned-formal artifacts/pilot_1/derived_views.jsonl
 ```
 
-Live bypassed images are API-test artifacts only. They cannot be used as benchmark evidence, and the normal command remains blocked because both real-only qualification cards failed. See [the image API contract](docs/IMAGE_API_TESTING.md), [the chromatic contract](docs/CHROMATIC_METHOD.md), and [the learned-formal feasibility spike](docs/LEARNED_FORMAL_FEASIBILITY.md).
+The locked finalization sequence below verifies the recovered model, reruns both final real-only evaluations, writes the failed qualification cards, attests the already gathered generation ledger, and reproduces the engineering-only diagnostics. The checkpoint argument must be the pinned 5,214,864,007-byte file whose SHA-256 is recorded in the configuration.
+
+```bash
+uv run --locked latent-art-bench verify-learned-formal-model \
+  --full-checkpoint /path/to/512-base-ema.ckpt
+uv run --locked latent-art-bench evaluate-chromatic-v2
+uv run --locked latent-art-bench evaluate-learned-formal-v2
+uv run --locked latent-art-bench qualify \
+  configs/pilot_1/qualification/evidence.chromatic.json \
+  configs/pilot_1/qualification/evidence.learned_formal.json \
+  --config configs/pilot_1/pilot.yaml \
+  --output-dir configs/pilot_1/qualification
+uv run --locked latent-art-bench attest-generation-manifest \
+  artifacts/pilot_1/generation_calls.jsonl \
+  --config configs/pilot_1/pilot.yaml
+uv run --locked latent-art-bench prepare-generated-features \
+  artifacts/pilot_1/generation_calls.jsonl \
+  --config configs/pilot_1/pilot.yaml \
+  --allow-unqualified-test-preparation
+uv run --locked latent-art-bench build-pilot-analysis-cells \
+  --config configs/pilot_1/pilot.yaml
+uv run --locked latent-art-bench analyze-pilot \
+  artifacts/pilot_1/analysis_cells.jsonl \
+  --config configs/pilot_1/pilot.yaml \
+  --output-manifest artifacts/pilot_1/analysis_results.jsonl \
+  --allow-unqualified-test-analysis
+uv run --locked latent-art-bench report-pilot \
+  --config configs/pilot_1/pilot.yaml \
+  --generation-manifest artifacts/pilot_1/generation_calls.jsonl \
+  --analysis-cells artifacts/pilot_1/analysis_cells.jsonl \
+  --analysis-manifest artifacts/pilot_1/analysis_results.jsonl \
+  --output-dir reports/pilot_1
+```
+
+The two cards written by this sequence are both `fail`, so ordinary scientific feature preparation and analysis remain blocked. The two explicit flags above are the only route used to finish the engineering traversal; they mark the generated features and all downstream cells as `api_integration_test_only`.
+
+The retained ledger contains 41 attempts for 40 resolved cells: 20 successful files per requested label plus one preserved `gpt-image-1` refusal before an exact-cell retry succeeded. All 40 requests asked for `1024x1024`; 0 of 40 returned files matched that size. The local proxy routes to the ChatGPT Codex backend, not the public `api.openai.com` Images API, and the retained responses do not verify which backend model executed. The resulting 16 named-artist cells and 64 artist-free matched pairs are therefore non-scientific diagnostics. All 16 specificity reference-resampling ranges include zero; they are not inferential confidence intervals.
+
+See the [final report](reports/pilot_1/REPORT.md), [evidence anchor](reports/pilot_1/EVIDENCE.md), [failure investigation](docs/FAILURE_INVESTIGATION.md), [image API contract](docs/IMAGE_API_TESTING.md), [chromatic contract](docs/CHROMATIC_METHOD.md), and [learned-formal feasibility report](docs/LEARNED_FORMAL_FEASIBILITY.md).
+
+A clean checkout contains the compact report, qualification, attestation, analysis, and evidence-index snapshots. Raw museum images, generated PNGs, model/source checkouts, derived views, and high-dimensional feature or vector manifests remain ignored local artifacts. Their identities are recorded in the evidence anchor, but a clean checkout cannot byte-verify or recompute absent local bytes.
 
 ## Planned research program
 
-Implementation begins with a four-artist, two-measurement, one-generator development pilot and stops for review after its first reproducible results. This pilot is smaller than the intended benchmark and makes no model-family or artist-population claims.
+The completed development cycle used four artists, two measurements, and two requested image-model labels. It is smaller than the intended benchmark and makes no model-family or artist-population claims.
 
 ### Study 1: Measurement and reference atlas
 
@@ -108,7 +153,7 @@ Evaluate text-to-image generators under content-matched prompts, with target spe
 
 ## Data and rights
 
-This repository will not redistribute copyrighted artwork files unless their licenses explicitly permit redistribution. Public releases should prioritize code, checksums, canonical identifiers, source URLs, metadata, derived non-reconstructive features, and documented acquisition procedures. See the [corpus design](docs/CORPUS_DESIGN.md) for details.
+This repository will not redistribute copyrighted artwork files unless their licenses explicitly permit redistribution. Public releases prioritize code, checksums, canonical identifiers, source URLs, metadata, compact non-reconstructive evidence snapshots, and documented acquisition procedures. See the [corpus design](docs/CORPUS_DESIGN.md) for details.
 
 ## License
 

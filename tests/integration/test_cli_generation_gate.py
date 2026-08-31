@@ -58,3 +58,21 @@ def test_live_generation_is_blocked_without_qualification_or_bypass(tmp_path: Pa
     )
     assert result.exit_code != 0
     assert "qualification gate is closed" in str(result.exception)
+
+
+def test_exact_cell_retry_is_blocked_when_qualification_is_closed(tmp_path: Path) -> None:
+    runner = CliRunner()
+    result = runner.invoke(
+        app,
+        [
+            "retry-generation-failures",
+            str(tmp_path / "calls.jsonl"),
+            "--root",
+            str(tmp_path),
+            "--config",
+            str(REPOSITORY_ROOT / "configs/pilot_0/pilot.yaml"),
+        ],
+    )
+
+    assert result.exit_code != 0
+    assert "qualification gate is closed" in str(result.exception)

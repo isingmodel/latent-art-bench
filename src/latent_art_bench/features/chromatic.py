@@ -62,7 +62,7 @@ def chromatic_summary(distances: np.ndarray, config: ChromaticConfig) -> Dict[st
     lower_edges = np.asarray(config.normalized_histogram_lower_edges, dtype=np.float64)
     bins = np.concatenate((lower_edges, np.array([np.inf])))
     counts, _ = np.histogram(normalized, bins=bins)
-    vector = counts.astype(np.float64) / float(values.size)
+    normalized_histogram = counts.astype(np.float64) / float(values.size)
     quantiles = np.quantile(normalized, [0.05, 0.25, 0.5, 0.75, 0.95])
     scalars = {
         "distance_count": float(values.size),
@@ -76,7 +76,23 @@ def chromatic_summary(distances: np.ndarray, config: ChromaticConfig) -> Dict[st
         "normalized_q75": float(quantiles[3]),
         "normalized_q95": float(quantiles[4]),
     }
-    return {"vector": vector.tolist(), "scalars": scalars, "degenerate": degenerate}
+    representation = config.vector_representation or "normalized_histogram"
+    if representation == "normalized_histogram":
+        vector = normalized_histogram
+    elif representation == "seamlessness":
+        vector = np.asarray([seamlessness], dtype=np.float64)
+    elif representation == "seamlessness_plus_hellinger":
+        vector = np.concatenate(
+            (np.asarray([seamlessness], dtype=np.float64), np.sqrt(normalized_histogram))
+        )
+    else:  # pragma: no cover - Pydantic prevents this for configured runs.
+        raise ValueError(f"unknown chromatic vector representation: {representation}")
+    return {
+        "vector": vector.tolist(),
+        "normalized_histogram": normalized_histogram.tolist(),
+        "scalars": scalars,
+        "degenerate": degenerate,
+    }
 
 
 def extract_chromatic_feature(
@@ -96,7 +112,7 @@ def extract_chromatic_feature(
     with Image.open(path) as image:
         rgb = np.asarray(image.convert("RGB"), dtype=np.uint8)
     summary = chromatic_summary(adjacent_chromatic_distances(rgb), config)
-    config_hash = stable_hash(config.model_dump(mode="json"))
+    config_hash = stable_hash(config.model_dump(mode="json", exclude_none=True))
     feature_id = stable_hash(
         {
             "view": view.derived_view_id,

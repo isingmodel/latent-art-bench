@@ -4,6 +4,7 @@ from typing import Dict
 
 import numpy as np
 
+from latent_art_bench.io import stable_hash
 from latent_art_bench.schemas import AnalysisCell, AnalysisResult
 
 
@@ -117,7 +118,25 @@ def analyze_cell(
         cell_id=cell.cell_id,
         target_artist_id=cell.target_artist_id,
         model=cell.model,
+        measurement=cell.measurement,
         feature_name=cell.feature_name,
+        feature_version=cell.feature_version,
+        feature_config_hash=cell.feature_config_hash,
+        qualification_contract_hash=cell.qualification_contract_hash,
+        qualification_evidence_artifact_sha256=(
+            cell.qualification_evidence_artifact_sha256
+        ),
+        real_feature_manifest_sha256=cell.real_feature_manifest_sha256,
+        generated_feature_manifest_sha256=cell.generated_feature_manifest_sha256,
+        generation_manifest_sha256=cell.generation_manifest_sha256,
+        generation_attestation_sha256=cell.generation_attestation_sha256,
+        reference_transform_state_sha256=cell.reference_transform_state_sha256,
+        qualified_reference_transform_state_sha256=(
+            cell.qualified_reference_transform_state_sha256
+        ),
+        engineering_scope=cell.engineering_scope,
+        preparation_qualification_bypass=cell.preparation_qualification_bypass,
+        analysis_cell_sha256=stable_hash(cell.model_dump(mode="json")),
         target_gap=float(estimates[:, 0].mean()),
         real_real_gap=float(estimates[:, 1].mean()),
         nearest_neighbor_id=nearest_neighbor_id,
@@ -130,4 +149,5 @@ def analyze_cell(
         subsample_size=sample_size,
         subsample_draws=draws,
         confidence_level=confidence_level,
+        interval_kind="real_reference_subsampling_quantiles",
     )

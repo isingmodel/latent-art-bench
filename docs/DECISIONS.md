@@ -28,10 +28,26 @@ This file records decisions that define the current research scope. Items may ch
 22. Review recommendations are adopted only when they improve identification, validity, or feasible inference. Expensive controls and additional modules may be deferred when a simpler negative control addresses the same immediate risk.
 23. The first implementation cycle is a development pilot, not the benchmark. It stops after a reproducible initial-results report and decision memo.
 24. The development pilot is artist-level only: Claude Monet–Alfred Sisley and Camille Pissarro–Paul Cezanne, one shared landscape/outdoor-place genre, and test-only generation restricted to `gpt-image-1` and `gpt-image-2` through the local OAuth proxy.
-25. The pilot qualifies exactly two measurements before generation: normalized chromatic-distance/seamlessness and one frozen learned-formal evaluator selected before corpus results are inspected.
+25. The pilot evaluates exactly two measurements before any scientific generation: normalized chromatic-distance/seamlessness and one frozen learned-formal evaluator selected before corpus results are inspected.
 26. Pilot inference is limited to calibrated target gap and target-versus-neighbor specificity. Prototype contraction, coverage, coherence, movement inference, and evaluator-family robustness are deferred until initial variance and corpus support are known.
-27. Generator integration cannot begin until the two measurements pass or conditionally pass real-only replication, stability, nuisance, and held-out validity gates.
-28. A narrow engineering exception permits mock, dry-run, and explicitly bypassed API-integration tests through a loopback endpoint using only `gpt-image-1` and `gpt-image-2`. The configuration disables scientific claims, bypassed prompts must be marked test-only, every call records the bypass, and these outputs cannot open WP5 or support generator comparisons.
+27. Scientific generator evaluation cannot begin unless both measurements pass their real-only replication, stability, nuisance, source-control, and held-out validity gates. `pilot_1` did not meet that rule: both final cards are `fail` and its scientific gate is closed.
+28. A narrow engineering exception permits mock, dry-run, and explicitly marked API-integration work through a loopback endpoint using only `gpt-image-1` and `gpt-image-2`. The final engineering traversal required explicit generated-feature-preparation and analysis bypasses. Bypass provenance must follow every downstream record, and the outputs cannot support scientific generator comparisons.
+29. `pilot_1` is a post-failure redesign, not a retrospective pass for `pilot_0`. Its repaired implementations ran successfully, but neither has a supported scientific scope in the final cards.
+30. A retry is permitted only for a transient transport failure or unresolved frozen prompt/model/repetition cell. It must preserve every prior attempt and keep the exact request identity. Retrying cannot repair systematic response-size mismatch, failed measurement qualification, or design confounding, and must never continue until a statistical rule happens to pass.
+31. The retained `pilot_1` ledger contains 41 attempts for 40 resolved cells: 20 successful files per requested label and one preserved `gpt-image-1` refusal before an exact-cell retry succeeded. All 40 requests asked for `1024x1024`, and 0 of 40 outputs matched that size.
+32. The strings `gpt-image-1` and `gpt-image-2` are requested labels in this evidence. The local `~/dev/openai-oauth` compatibility service routed to the ChatGPT Codex backend, not the public `api.openai.com` Images API, and did not return an authoritative executed-model identity. No comparison between the two requested labels is scientifically permitted.
+33. The final 16 named-artist cells and 64 artist-free matched pairs are test-only engineering diagnostics. All 16 specificity reference-resampling ranges include zero; these ranges omit generator and prompt-cluster uncertainty and are not inferential confidence intervals.
+34. Artist is the target unit for this development research. Era and movement remain cross-classified metadata and future covariates, not substitute target labels. The frozen pairs remain Monet-Sisley and Pissarro-Cezanne because the prior metadata, source-overlap, rights, and common-genre research supported those artist-level comparisons.
+35. Further scientific work requires a prospectively frozen `pilot_2` on new or sealed evidence. `pilot_1` will not be relabeled, repeatedly rerun, or threshold-adjusted after inspection.
+36. The committed public evidence is deliberately compact. Raw media, model weights, source checkouts, derived views, and high-dimensional vectors stay ignored local. Their recorded hashes establish provenance references, but a clean checkout can byte-verify only the committed snapshots and evidence anchor, not absent local artifacts.
+
+## Current evidence
+
+The final disposition is recorded in the [pilot_1 report](../reports/pilot_1/REPORT.md),
+the [content-addressed evidence anchor](../reports/pilot_1/EVIDENCE.md), and the
+[failure investigation and way forward](FAILURE_INVESTIGATION.md). Where an earlier
+design intention conflicts with those final artifacts, the failed cards and closed gate
+govern.
 
 ## Open strategic decisions
 
@@ -44,7 +60,7 @@ This file records decisions that define the current research scope. Items may ch
 - archival and dataset hosting arrangements;
 - final size of the human qualification subset;
 - which optional feature modules advance beyond the core benchmark;
-- a reproducible, licensed learned-formal evaluator for a future redesigned pilot;
+- an author-supplied or independently produced A-vector reference fixture and broader external validation of the clean-room evaluator;
 
 ## Decision rule
 

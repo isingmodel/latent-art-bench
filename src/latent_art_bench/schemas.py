@@ -6,7 +6,22 @@ from typing import Any, Dict, List, Literal, Optional
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 AllowedImageModel = Literal["gpt-image-1", "gpt-image-2"]
+FeatureMeasurement = Literal["chromatic", "learned_formal"]
 Split = Literal["train", "held_out", "unassigned"]
+
+
+def normalize_feature_measurement(value: str) -> FeatureMeasurement:
+    """Return the config/card measurement key for a persisted feature name."""
+
+    aliases: Dict[str, FeatureMeasurement] = {
+        "chromatic": "chromatic",
+        "chromatic_distance_seamlessness": "chromatic",
+        "learned_formal": "learned_formal",
+    }
+    try:
+        return aliases[value]
+    except KeyError as exc:
+        raise ValueError(f"unknown feature measurement name: {value}") from exc
 
 
 class StrictModel(BaseModel):
@@ -158,6 +173,7 @@ class FeatureRow(StrictModel):
     feature_config_hash: str
     vector: List[float]
     scalars: Dict[str, float]
+    extraction_metadata: Dict[str, Any] = Field(default_factory=dict)
     status: Literal["ok", "degenerate", "failed"]
     failure_reason: Optional[str] = None
 
@@ -195,6 +211,12 @@ class GenerationCallRecord(StrictModel):
     requested_quality: str
     requested_output_format: str
     repetition: int = Field(ge=0)
+    prompt_record_sha256: Optional[str] = None
+    generation_config_sha256: Optional[str] = None
+    request_identity_sha256: Optional[str] = None
+    request_identity_provenance: Optional[
+        Literal["native_pre_request", "legacy_run_attestation"]
+    ] = None
     status: Literal["planned", "succeeded", "refused", "failed"]
     qualification_bypass: bool = False
     started_at: datetime
@@ -214,8 +236,15 @@ class GenerationCallRecord(StrictModel):
 class QualificationEvidence(StrictModel):
     schema_version: Literal["1.0"] = "1.0"
     measurement: str
+    qualification_result_status: Optional[
+        Literal["pass", "conditional_pass", "fail"]
+    ] = None
     feature_version: str
     feature_config_hash: str
+    qualification_contract_hash: Optional[str] = None
+    qualification_result_sha256: Optional[str] = None
+    evidence_artifact_sha256: Optional[str] = None
+    input_feature_manifest_sha256: Optional[str] = None
     real_work_count: int = Field(ge=0)
     reproduction_pair_count: int = Field(ge=0)
     source_behavior_recovered: bool
@@ -223,6 +252,7 @@ class QualificationEvidence(StrictModel):
     held_out_artist_signal_valid: bool
     source_confounding_controlled: bool
     conditional_domains: List[str] = Field(default_factory=list)
+    supported_scope: List[str] = Field(default_factory=list)
     evidence_paths: List[str] = Field(default_factory=list)
     notes: List[str] = Field(default_factory=list)
 
@@ -234,6 +264,10 @@ class QualificationCard(StrictModel):
     status: Literal["pending", "pass", "conditional_pass", "fail"]
     feature_version: str
     feature_config_hash: str
+    qualification_contract_hash: Optional[str] = None
+    qualification_result_sha256: Optional[str] = None
+    evidence_artifact_sha256: Optional[str] = None
+    input_feature_manifest_sha256: Optional[str] = None
     source_behavior_recovered: Optional[bool] = None
     stable_within_frozen_margin: Optional[bool] = None
     held_out_artist_signal_valid: Optional[bool] = None
@@ -277,11 +311,66 @@ class AnalysisCell(StrictModel):
     cell_id: str
     target_artist_id: str
     model: AllowedImageModel
+    measurement: FeatureMeasurement
     feature_name: str
+    feature_version: str
+    feature_config_hash: str
+    qualification_contract_hash: Optional[str] = None
+    qualification_evidence_artifact_sha256: str
+    real_feature_manifest_sha256: str
+    generated_feature_manifest_sha256: str
+    generation_manifest_sha256: str
+    generation_attestation_sha256: str
+    reference_transform_state_sha256: str
+    qualified_reference_transform_state_sha256: Optional[str] = None
+    engineering_scope: Literal["api_integration_test_only"] = (
+        "api_integration_test_only"
+    )
+    preparation_qualification_bypass: bool = False
     target_train_vectors: List[List[float]]
     target_held_out_vectors: List[List[float]]
     generated_vectors: List[List[float]]
     neighbor_vectors: Dict[str, List[List[float]]]
+
+    @model_validator(mode="after")
+    def identities_are_consistent(self) -> "AnalysisCell":
+        if normalize_feature_measurement(self.feature_name) != self.measurement:
+            raise ValueError("analysis-cell measurement disagrees with feature_name")
+        if self.measurement == "learned_formal":
+            if self.qualified_reference_transform_state_sha256 is None:
+                raise ValueError("learned-formal cell lacks its qualified PCA state")
+            if (
+                self.reference_transform_state_sha256
+                != self.qualified_reference_transform_state_sha256
+            ):
+                raise ValueError("learned-formal cell does not use its qualified PCA state")
+        elif self.qualified_reference_transform_state_sha256 is not None:
+            raise ValueError("chromatic cells cannot declare a qualified PCA state")
+        return self
+
+    @field_validator(
+        "feature_config_hash",
+        "qualification_evidence_artifact_sha256",
+        "real_feature_manifest_sha256",
+        "generated_feature_manifest_sha256",
+        "generation_manifest_sha256",
+        "generation_attestation_sha256",
+        "reference_transform_state_sha256",
+    )
+    @classmethod
+    def required_sha256(cls, value: str) -> str:
+        if len(value) != 64 or any(c not in "0123456789abcdef" for c in value):
+            raise ValueError("provenance hashes must be lowercase SHA-256 values")
+        return value
+
+    @field_validator("qualified_reference_transform_state_sha256")
+    @classmethod
+    def optional_sha256(cls, value: Optional[str]) -> Optional[str]:
+        if value is not None and (
+            len(value) != 64 or any(c not in "0123456789abcdef" for c in value)
+        ):
+            raise ValueError("qualified PCA state must be a lowercase SHA-256")
+        return value
 
 
 class AnalysisResult(StrictModel):
@@ -289,7 +378,23 @@ class AnalysisResult(StrictModel):
     cell_id: str
     target_artist_id: str
     model: AllowedImageModel
+    measurement: FeatureMeasurement
     feature_name: str
+    feature_version: str
+    feature_config_hash: str
+    qualification_contract_hash: Optional[str] = None
+    qualification_evidence_artifact_sha256: str
+    real_feature_manifest_sha256: str
+    generated_feature_manifest_sha256: str
+    generation_manifest_sha256: str
+    generation_attestation_sha256: str
+    reference_transform_state_sha256: str
+    qualified_reference_transform_state_sha256: Optional[str] = None
+    engineering_scope: Literal["api_integration_test_only"] = (
+        "api_integration_test_only"
+    )
+    preparation_qualification_bypass: bool = False
+    analysis_cell_sha256: str
     target_gap: float
     real_real_gap: float
     nearest_neighbor_id: str
@@ -302,6 +407,50 @@ class AnalysisResult(StrictModel):
     subsample_size: int = Field(ge=1)
     subsample_draws: int = Field(ge=1)
     confidence_level: float = Field(gt=0, lt=1)
+    interval_kind: Literal["real_reference_subsampling_quantiles"] = (
+        "real_reference_subsampling_quantiles"
+    )
     specificity_sign_convention: Literal["positive_means_target_closer"] = (
         "positive_means_target_closer"
     )
+
+    @model_validator(mode="after")
+    def identities_are_consistent(self) -> "AnalysisResult":
+        if normalize_feature_measurement(self.feature_name) != self.measurement:
+            raise ValueError("analysis-result measurement disagrees with feature_name")
+        if self.measurement == "learned_formal":
+            if self.qualified_reference_transform_state_sha256 is None:
+                raise ValueError("learned-formal result lacks its qualified PCA state")
+            if (
+                self.reference_transform_state_sha256
+                != self.qualified_reference_transform_state_sha256
+            ):
+                raise ValueError("learned-formal result does not use its qualified PCA state")
+        elif self.qualified_reference_transform_state_sha256 is not None:
+            raise ValueError("chromatic results cannot declare a qualified PCA state")
+        return self
+
+    @field_validator(
+        "feature_config_hash",
+        "qualification_evidence_artifact_sha256",
+        "real_feature_manifest_sha256",
+        "generated_feature_manifest_sha256",
+        "generation_manifest_sha256",
+        "generation_attestation_sha256",
+        "reference_transform_state_sha256",
+        "analysis_cell_sha256",
+    )
+    @classmethod
+    def required_sha256(cls, value: str) -> str:
+        if len(value) != 64 or any(c not in "0123456789abcdef" for c in value):
+            raise ValueError("provenance hashes must be lowercase SHA-256 values")
+        return value
+
+    @field_validator("qualified_reference_transform_state_sha256")
+    @classmethod
+    def optional_sha256(cls, value: Optional[str]) -> Optional[str]:
+        if value is not None and (
+            len(value) != 64 or any(c not in "0123456789abcdef" for c in value)
+        ):
+            raise ValueError("qualified PCA state must be a lowercase SHA-256")
+        return value

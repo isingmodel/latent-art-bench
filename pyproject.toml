@@ -24,6 +24,13 @@ dev = [
   "pytest-cov>=5,<7",
   "ruff>=0.8,<1",
 ]
+learned = [
+  "accelerate>=1.10,<2",
+  "diffusers>=0.35,<1",
+  "opencv-python-headless>=4.11,<5",
+  "safetensors>=0.6,<1",
+  "torch>=2.7,<3",
+]
 
 [project.scripts]
 latent-art-bench = "latent_art_bench.cli:app"
