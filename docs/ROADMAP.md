@@ -86,11 +86,18 @@ The exact finalization sequence for the existing generation ledger is in the
 The bypasses apply to generated-feature preparation and analysis, and their status is
 carried into every downstream record. They do not turn failed qualification into a pass.
 
-## Prospective pilot_2 roadmap
+## Original prospective pilot_2 roadmap
 
 `pilot_2` must be a new protocol on new or sealed evidence. It must not reuse the
 `pilot_1` label, relax a threshold after seeing a result, or retry until an interval
 crosses a desired boundary.
+
+R1--R8 below are retained as the original post-`pilot_1` target. The executed
+`pilot_2` deliberately narrowed several of them: the already observed real atlas was
+used as development/calibration evidence, Lee-derived chromatic measurements became
+secondary descriptions, and the OAuth transport supported only requested-label—not
+executed-model—claims. The final disposition table after R8 records those differences
+rather than retrospectively marking every original exit as complete.
 
 ### R1. Preregister immutable scientific boundaries
 
@@ -205,6 +212,47 @@ the null or when any required measurement gate fails.
 
 **Exit:** produce a new content-addressed report and select exactly one decision: go,
 narrow, redesign, or stop.
+
+## Final pilot_2 disposition against R1--R8
+
+The prospectively frozen generated-output phase completed its registered execution.
+All 320 logical cells reached terminal outcomes in 320 attempts: 315 succeeded and five
+were moderation refusals (`gpt-image-1`: four; `gpt-image-2`: one). There were no retries,
+indeterminate interrupted sends, or technical failures. The resulting learned-formal
+feature grid contains 251 of 256 named/control pairs (`gpt-image-1`: 124/128;
+`gpt-image-2`: 127/128).
+
+Scientific execution status is `complete`, meaning the frozen assignment ledger and
+analysis were carried through and fully accounted for. It does **not** mean that either
+hypothesis was supported. Because neither requested-label stratum has its complete
+128-pair feature grid, all four registered primary tests are
+`not_tested_incomplete_feature_grid`, with no confirmatory interval or sign-flip result.
+The available-pair descriptive target/specificity estimates are respectively
+`8.6492391997` / `5.6107138440` for `gpt-image-1` and `9.9262685683` /
+`6.5012713053` for `gpt-image-2`; the AIC-only and NGA-only descriptive signs are
+positive for all four rows. These values do not support a cross-label comparison or an
+executed-model claim.
+
+| Roadmap item | Final pilot_2 disposition | Claim boundary |
+|---|---|---|
+| R1 | Complete for the prospective generated-output phase | The real atlas and its held features were already development/calibration evidence, so this is not a fully independent preregistration of the measurement study. |
+| R2 | Complete for the narrowed AIC/NGA atlas | The frozen table has four artists by two sources by five physical works, split 3 train / 2 held in every cell; it is not a broader artist or institution sample. |
+| R3 | Partial | Every retained primary A-vector input passes the Kim area/aspect domain and common normalization contract. The original two-reviewer Lee eligibility exit was not completed. |
+| R4 | Unmet | Formula probes and fixed-500-pixel chromatic descriptions were completed, but Lee et al.'s full-distribution collapse was not replicated or used as a gate. |
+| R5 | Complete only for the narrowed harmonized primary | The lossless-origin-balanced A-vector, deterministic probes, train-only PCA, pooled qualification, and per-source held diagnostics passed. The original JPEG sensitivity, independent-reproduction stability, and fold-refit package was not completed. |
+| R6 | Unmet | Independent digitizations with documented capture ancestry were not acquired; robustness across digitizations is explicitly unclaimed. |
+| R7 | Unmet | The frozen OAuth runtime proves exact requested labels, requests, and returned files, but it does not attest the upstream executed model. No label ranking or `gpt-image-1` versus `gpt-image-2` superiority estimand is reported. |
+| R8 | Complete only under the revised pilot_2 protocol | The frozen grid was generated and evaluated under one unchanged analysis specification, then content-addressed. The original R8 dependency on completed R4 and authoritative-model R7 exits remains unmet. |
+
+**Next-step decision: REDESIGN.** A successor must preserve the five refusals as the
+final `pilot_2` outcomes rather than replacing them. It should decide prospectively how
+the confirmatory estimand handles moderation missingness, obtain authoritative
+executed-model evidence before making model claims, and address the still-unmet Lee and
+independent-digitization work before broadening scope. The final
+[requested-label report](../reports/pilot_2/REPORT.md),
+[frozen protocol](PILOT_2_PROTOCOL.md), and
+[failure investigation](PILOT_2_FAILURE_INVESTIGATION.md) are the authoritative
+`pilot_2` records.
 
 ## Explicitly outside pilot_2's core
 

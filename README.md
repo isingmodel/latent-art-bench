@@ -2,7 +2,7 @@
 
 **A measurement-gated research framework for testing how well generative image systems reproduce formal, contextual, and distributional regularities associated with artists and art movements.**
 
-> Status: `pilot_0` and `pilot_1` both ended with failed measurement qualification. The `pilot_1` scientific gate is closed. A separate test-only engineering traversal resolved 40 frozen generation cells through `~/dev/openai-oauth`, requesting only `gpt-image-1` and `gpt-image-2`; it does not enable a scientific score, ranking, or leaderboard claim.
+> Status: `pilot_2` completed its prospectively frozen requested-label study with a passing learned-formal calibration gate and 320/320 terminal cells. Five moderation refusals left 251/256 complete feature pairs, so all four registered primary tests were not run and both requested-label hypotheses are unsupported. Scientific execution is complete, but this is not a favorable hypothesis result or a model comparison. Next-step decision: **REDESIGN**.
 
 ## Motivation
 
@@ -42,8 +42,13 @@ The benchmark operationalizes this question as **artist-distribution fidelity**.
 Start with:
 
 - [Research proposal](docs/RESEARCH_PROPOSAL.md)
-- [Post-pilot roadmap and pilot_2 design](docs/ROADMAP.md)
+- [Post-pilot roadmap and final R1--R8 disposition](docs/ROADMAP.md)
 - [Development-pilot implementation status](docs/IMPLEMENTATION_STATUS.md)
+- [Frozen pilot_2 protocol](docs/PILOT_2_PROTOCOL.md)
+- [Pilot_2 failure investigation](docs/PILOT_2_FAILURE_INVESTIGATION.md)
+- [Final pilot_2 requested-label report](reports/pilot_2/REPORT.md)
+- [Final pilot_2 artifact index](reports/pilot_2/artifact_index.json)
+- [Post-result all-cell visual-QC manifest](reports/pilot_2/visual_qc/manifest.json)
 - [Failure investigation and source-paper audit](docs/FAILURE_INVESTIGATION.md)
 - [Development-pilot artist selection](docs/ARTIST_SELECTION.md)
 - [Project decisions and critique disposition](docs/DECISIONS.md)
@@ -137,11 +142,75 @@ The retained ledger contains 41 attempts for 40 resolved cells: 20 successful fi
 
 See the [final report](reports/pilot_1/REPORT.md), [evidence anchor](reports/pilot_1/EVIDENCE.md), [failure investigation](docs/FAILURE_INVESTIGATION.md), [image API contract](docs/IMAGE_API_TESTING.md), [chromatic contract](docs/CHROMATIC_METHOD.md), and [learned-formal feasibility report](docs/LEARNED_FORMAL_FEASIBILITY.md).
 
-A clean checkout contains the compact report, qualification, attestation, analysis, and evidence-index snapshots. Raw museum images, generated PNGs, model/source checkouts, derived views, and high-dimensional feature or vector manifests remain ignored local artifacts. Their identities are recorded in the evidence anchor, but a clean checkout cannot byte-verify or recompute absent local bytes.
+For `pilot_1`, a clean checkout contains the compact report, qualification, attestation,
+analysis, and evidence-index snapshots. Raw museum images, generated PNGs, model/source
+checkouts, derived views, and high-dimensional feature or vector manifests remain ignored
+local artifacts. Their identities are recorded in its evidence anchor, but a clean checkout
+cannot byte-verify or recompute absent local bytes.
+
+## Final pilot_2 outcome and verification
+
+`pilot_2` requested only `gpt-image-1` and `gpt-image-2` through the frozen
+`~/dev/openai-oauth` checkout. Those strings define separate operational strata: the
+facade does not attest which upstream model executed, no cross-label superiority estimand
+was registered, and the result does not rank the labels.
+
+The frozen grid reached 320 terminal outcomes in 320 attempts. All 320 attempts have an
+observed exchange; there were no retries, indeterminate interrupted sends, or technical
+failures. The outcomes were 315 successful PNGs and five moderation refusals:
+
+| Requested label | Terminal cells | Successes | Refusals | Complete feature pairs |
+|---|---:|---:|---:|---:|
+| `gpt-image-1` | 160 | 156 | 4 | 124/128 |
+| `gpt-image-2` | 160 | 159 | 1 | 127/128 |
+| Total | 320 | 315 | 5 | 251/256 |
+
+The deterministic post-result visual audit contains 16 contact sheets covering every
+cell exactly once, with the five refusals shown as placeholders. It is explicitly post
+hoc, non-gating, and selection-free; it did not alter eligibility, measurements,
+estimates, or conclusions. See the [visual-QC manifest](reports/pilot_2/visual_qc/manifest.json).
+
+The learned-formal calibration gate passed and the scientific execution status is
+`complete`, but the complete-grid inferential condition did not. Both requested-label
+hypotheses are unsupported and all four primary rows are
+`not_tested_incomplete_feature_grid`. Available-pair descriptive target-improvement /
+specificity-DiD estimates are `8.6492391997` / `5.6107138440` for `gpt-image-1` and
+`9.9262685683` / `6.5012713053` for `gpt-image-2`. AIC-only and NGA-only signs are
+positive for all four descriptions; there are no confirmatory confidence intervals,
+familywise lower bounds, or exact sign-flip p-values for these incomplete strata.
+
+The one-time prospective workflow was: validate the frozen manifests; run the two in-grid
+conformance cells with `pilot2 conform --execute`; finish the frozen grid with
+`pilot2 generate --execute`; run `pilot2 prepare-generated`, `pilot2 analyze`, and
+`pilot2 report`; then verify the complete evidence graph. The network commands append
+runtime evidence and are not the final read-only replay path. Use only the following
+command to verify the finalized local evidence without sending image requests:
+
+```bash
+uv run --locked latent-art-bench pilot2 verify --root .
+```
+
+That command requires the complete retained local evidence graph. The committed compact
+report and 36-entry artifact index preserve identities, but ignored generated PNGs,
+high-dimensional vectors, derived inputs, and local model/source artifacts are not made
+recomputable merely by cloning the repository.
+
+The authoritative outputs are the [final report](reports/pilot_2/REPORT.md),
+[frozen protocol](docs/PILOT_2_PROTOCOL.md),
+[pilot_2 failure investigation](docs/PILOT_2_FAILURE_INVESTIGATION.md), and
+[artifact index](reports/pilot_2/artifact_index.json). The exact next-step decision is
+**REDESIGN**: preserve the five refusals as final outcomes, specify future moderation-
+missingness handling prospectively, and obtain authoritative executed-model evidence
+before making model claims.
 
 ## Planned research program
 
-The completed development cycle used four artists, two measurements, and two requested image-model labels. It is smaller than the intended benchmark and makes no model-family or artist-population claims.
+The completed pilots used four artists, two measurement families, and two requested
+image-model labels. `pilot_2` supplied a qualified narrowed A-vector path and an accounted
+requested-label run, but did not complete the Lee replication, independent-digitization,
+or executed-model-identification roadmap exits. It is smaller than the intended benchmark
+and makes no model-family or artist-population claims. The next research phase is a
+redesign, not a retry of refused cells or a retrospective change to the frozen analysis.
 
 ### Study 1: Measurement and reference atlas
 

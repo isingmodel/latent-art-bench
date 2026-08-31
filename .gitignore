@@ -15,6 +15,10 @@ outputs/
 *.tiff
 *.webp
 
+# Deterministic, downsampled Pilot 2 visual-QC sheets (raw outputs stay ignored).
+!reports/pilot_2/visual_qc/
+!reports/pilot_2/visual_qc/*.png
+
 # Python
 __pycache__/
 *.py[cod]

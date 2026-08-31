@@ -2,25 +2,80 @@
 
 ## Current disposition
 
-The implementation cycle is complete, but the scientific comparison is not qualified.
-`pilot_0` followed its frozen failure path. The separately versioned `pilot_1` redesign
-also produced two `fail` cards, so its scientific gate is closed.
+`pilot_2` completed its prospectively frozen generated-output phase and passed offline
+verification. Its learned-formal calibration gate is `pass`, all 320 assigned cells are
+terminal, and the registered analysis ran. The exact next-step decision is
+**REDESIGN**.
 
-| Layer | Final status |
+| `pilot_2` layer | Final status |
 |---|---|
-| Chromatic qualification | `fail` |
-| Learned-formal qualification | `fail` |
-| Scientific generation/analysis | closed |
-| Engineering traversal | complete through explicit test-only feature-preparation and analysis bypasses |
-| Scientific claims | disabled |
+| Learned-formal qualification | `pass` on the fixed development/calibration atlas |
+| OAuth transport conformance | `pass` for exact requested-label acceptance and returned PNGs; no executed-model attestation |
+| Generation | 320/320 terminal; 315 successes and 5 moderation refusals |
+| Attempt accounting | 320 attempts; 320 observed exchanges; 0 retries, indeterminate sends, or technical failures |
+| Learned-formal feature estimand | incomplete: 251/256 named/control pairs |
+| Scientific execution | `complete`; this records execution/accounting, not hypothesis support |
+| Registered hypotheses | both requested-label strata unsupported and all four primary tests not tested because each stratum is incomplete |
+| Cross-label/model claim | none registered or supported |
+| Next-step decision | **REDESIGN** |
 
-The authoritative artifacts are the [final report](../reports/pilot_1/REPORT.md),
-[evidence anchor](../reports/pilot_1/EVIDENCE.md), and
-[failure investigation](FAILURE_INVESTIGATION.md). “Complete” means that the software,
-provenance, failure accounting, and test-only diagnostics ran end to end. It does not
-mean that either measurement or requested model label passed scientific validation.
+The five refusals are final intention-to-request outcomes, not cells to replace or retry.
+They comprise four `gpt-image-1` cells and one `gpt-image-2` cell. Consequently,
+`gpt-image-1` has 124/128 complete named/control feature pairs and `gpt-image-2` has
+127/128, for 251/256 overall. There are no missing successful features and no unresolved
+ledger cells.
 
-## Frozen artist-level corpus
+The available-pair values below are descriptive because the registered complete-grid
+tests did not run. All AIC-only and NGA-only signs are positive, but that fact cannot
+substitute for the absent familywise lower bounds and exact sign-flip tests.
+
+| Requested label | Complete pairs | Target improvement | Specificity DiD | Registered test | Support |
+|---|---:|---:|---:|---|---|
+| `gpt-image-1` | 124/128 | `8.6492391997` | `5.6107138440` | `not_tested_incomplete_feature_grid` | unsupported |
+| `gpt-image-2` | 127/128 | `9.9262685683` | `6.5012713053` | `not_tested_incomplete_feature_grid` | unsupported |
+
+These are separate operational requested-label strata. The local OAuth facade does not
+provide authoritative upstream executed-model identity, and no cross-label superiority
+estimand was registered. The learned-formal qualification pass is a measurement
+precondition; it is not evidence that either generated-output hypothesis passed.
+
+Authoritative `pilot_2` records are the [final report](../reports/pilot_2/REPORT.md),
+[frozen protocol](PILOT_2_PROTOCOL.md),
+[pilot_2 failure investigation](PILOT_2_FAILURE_INVESTIGATION.md), and
+[artifact index](../reports/pilot_2/artifact_index.json). Principal content identities
+are:
+
+- protocol document: `9237aad13aaa18a6b6c661d5d3d4e97457cbd7950eccf5ff3733c8ecd1af46cf`;
+- qualification result: `7e2734c403399e544595e4c88f361ad82398a88a57657f938cb40e30502a7842`;
+- generation completion: `85446d312fe673e528736277d8aeef86936c2f2fbcc4b42130473d4b532b2f29`;
+- requested-label analysis: `a7fb58770ced0315a5963f1cd9606d91dd10ec30a324196af7720da85b82025c`;
+- chromatic secondary: `e459dcec8e92ba566df6b4d4e19ccc761b3deb7e8fabf3c62d12f98d89f97977`;
+- artifact-index payload: `846b14b1c7cda5428a9010d7efe682f26c8db0587dba7d2b812403fb5173e026`.
+
+A separate [post-result visual-QC manifest](../reports/pilot_2/visual_qc/manifest.json)
+covers all 320 cells in 16 deterministic sheets (315 thumbnails and five refusal
+placeholders). Its semantic SHA-256 is
+`6f883b3942af51afae2def871692014b295c9a39357f7b5a449d1c4e7a7f8457`.
+This audit is explicitly post hoc, selection-free, non-gating, and outside the frozen
+analysis artifact index.
+
+The `pilot_2` artifact index contains 36 records. Full offline `pilot2 verify` requires
+the retained local attempt ledger, feature manifests, derived inputs, generated PNGs, and
+model/source artifacts. The compact committed report and index preserve their identities,
+but a clean checkout cannot recompute or byte-verify ignored artifacts that are absent.
+
+“Complete” means the frozen study was executed and accounted for. It does not mean the
+256-pair feature estimand was complete or that a hypothesis was supported. An unsupported
+result here is not proof that artist conditioning is absent.
+
+## Historical pilot_1 disposition
+
+`pilot_0` followed its frozen failure path. The separately versioned `pilot_1` redesign
+produced two `fail` cards, so its scientific gate remained closed. The following sections
+retain that historical record; none of its failed cards is changed by the later
+`pilot_2` qualification.
+
+### Frozen artist-level corpus
 
 The target is the artist, not an era or movement. Era and movement labels remain
 cross-classified metadata because an era is too heterogeneous to substitute for an
@@ -39,9 +94,9 @@ The shared view is landscape/outdoor-place scenes. The corpus contains 108 canon
 works, split into 76 training and 32 held-out works, with 119 reproductions. Eleven
 alternate files represent only seven independent physical works.
 
-## Final pilot_1 qualification
+### Final pilot_1 qualification
 
-### Chromatic v2: fail
+#### Chromatic v2: fail
 
 The scalar Lee seamlessness formula passed its synthetic probes, but this was not enough
 to recover the paper's defining empirical behavior. The full mean-rescaled chromatic-
@@ -69,7 +124,7 @@ Cezanne `0.125`. The leave-source-out folds were AIC `0.3277`, CMA `0.0`, Met `0
 and NGA `0.3729`; a favorable pooled value cannot hide the failed folds. The final
 qualification-card supported scope is empty.
 
-### Learned-formal v2: fail
+#### Learned-formal v2: fail
 
 The clean-room source-compatible extractor produced 119 finite 16,384-value A-vectors.
 The recovered full `512-base-ema.ckpt` and pinned Diffusers VAE agree bit-for-bit for all
@@ -97,7 +152,7 @@ The implementation now pins the observed Python, platform, Torch, Diffusers, Num
 OpenCV, Pillow, JPEG, and MPS environment. This improves reproducibility but does not
 repair the failed scientific design.
 
-### Unresolved learned-feature codec confound
+#### Unresolved learned-feature codec confound
 
 All 119 real inputs are JPEG, while all 40 generated outputs are PNG. The recovered Kim
 source path writes the 512 x 512 intermediate with the source extension, so origin and
@@ -112,7 +167,7 @@ The source-faithful path is valid for source-method replication, but it is not a
 unconfounded real-versus-generated comparison. A future scientific run must cross codec
 with origin and use the same lossless primary intermediate for both origins.
 
-## API-test boundary and completed traversal
+### API-test boundary and completed traversal
 
 The retained generation ledger has 41 attempt records for 40 resolved frozen cells: 20
 successful files requested as `gpt-image-1`, 20 requested as `gpt-image-2`, and one
@@ -149,7 +204,7 @@ confidence intervals.
 The exact per-cell target-gap and specificity values are reproduced, without promotion
 to scientific results, in the [final report](../reports/pilot_1/REPORT.md#test-only-distribution-diagnostics).
 
-## Work-package disposition
+### Work-package disposition
 
 | Work package | Engineering disposition | Scientific disposition |
 |---|---|---|
@@ -157,12 +212,12 @@ to scientific results, in the [final report](../reports/pilot_1/REPORT.md#test-o
 | WP4-WP5 | both measurement implementations and final evaluations complete | both cards `fail`; gate closed |
 | WP6-WP7 | generation attested; test-only preparation, analysis, and report complete | not opened for scientific inference |
 
-No scientific task remains inside `pilot_1`. The next scientific work is a new,
-prospectively frozen `pilot_2`, not another retry or retrospective relabeling of these
-results. Its required design changes are specified in the
-[failure investigation](FAILURE_INVESTIGATION.md).
+No scientific task remains inside `pilot_1`. Its next planned work was the separately
+frozen `pilot_2` now summarized above; neither pilot permits another retry or retrospective
+relabeling of its results. The next project-level action is the `pilot_2` **REDESIGN**
+decision, not mutation of either completed ledger.
 
-## Evidence identities
+### Pilot_1 evidence identities
 
 - Chromatic evidence SHA-256: `aab262dd6dcc7c5302df4947871448603c4424ad888c164ec91e38834f0f1aa4`
 - Learned-formal evidence SHA-256: `eeadf841101eddda157447ee3cdff1770e7f46c94c930ffdbbae334ac97c5033`
@@ -173,7 +228,7 @@ The complete content-addressed ledger is in
 [`reports/pilot_1/EVIDENCE.md`](../reports/pilot_1/EVIDENCE.md). The locked finalization
 command sequence is documented in the [README](../README.md#development-pilot-commands).
 
-## Clean-checkout verification boundary
+### Pilot_1 clean-checkout verification boundary
 
 The final artifact index records 196 entries and 46 run records. The repository commits
 the compact qualification, model-verification, attestation, analysis, report, and index
