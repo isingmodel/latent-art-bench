@@ -13,19 +13,25 @@ is fsynced before a prior local file is opened or an HTTP request is sent.
 
 from __future__ import annotations
 
+import base64
+import ctypes
 import hashlib
 import io
 import json
 import math
 import os
 import platform
+import plistlib
+import stat
 import subprocess
 import time
+import uuid
 from collections import Counter
 from contextlib import contextmanager
 from itertools import permutations, product
 from pathlib import Path
 from typing import Any, Dict, Iterable, Iterator, List, Mapping, Optional, Sequence, Tuple
+from urllib.parse import urlsplit
 
 import httpx
 import numpy as np
@@ -91,6 +97,35 @@ EXPECTED_SOURCES = (*DEVELOPMENT_SOURCES, EXTERNAL_SOURCE)
 
 EXTERNAL_UNSEAL_RECEIPT_SCHEMA = "pilot3-external-unseal-receipt/1.0"
 HTTP_ATTEMPT_SCHEMA = "pilot3-real-acquisition-http-attempt/1.0"
+BROWSER_RECOVERY_AUTHORIZATION_SCHEMA = (
+    "pilot3-aic-browser-recovery-authorization/1.0"
+)
+BROWSER_RECOVERY_SCHEMA = "pilot3-real-acquisition-browser-recovery/1.0"
+BROWSER_RECOVERY_AUTHORIZATION_PATH = Path(
+    "reports/pilot_3/evidence/aic_browser_recovery_authorization.json"
+)
+BROWSER_RECOVERY_LEDGER_PATH = Path(
+    "artifacts/pilot_3/development_browser_recoveries.jsonl"
+)
+BROWSER_DIRECTORY_INTENT_LEDGER_PATH = Path(
+    "artifacts/pilot_3/development_browser_directory_intents.jsonl"
+)
+BROWSER_RECOVERY_SCRIPT_PATH = Path(
+    "scripts/import_pilot3_browser_acquisition.py"
+)
+BROWSER_RECOVERY_AMENDMENT_PATH = Path(
+    "docs/PILOT_3_AIC_BROWSER_RECOVERY.md"
+)
+BROWSER_RECOVERY_IMPLEMENTATION_PATHS = (
+    "src/latent_art_bench/pilot3/phasea.py",
+    str(BROWSER_RECOVERY_SCRIPT_PATH),
+    str(BROWSER_RECOVERY_AMENDMENT_PATH),
+)
+AIC_IMAGE_PROVIDER = "Art Institute of Chicago IIIF"
+AIC_IMAGE_HOST = "www.artic.edu"
+WHERE_FROMS_XATTR = "com.apple.metadata:kMDItemWhereFroms"
+QUARANTINE_XATTR = "com.apple.quarantine"
+MAX_WHERE_FROMS_PLIST_BYTES = 64 * 1024
 MAX_HTTP_ATTEMPTS = 4
 MAX_HTTP_RESPONSE_BYTES = 128 * 1024 * 1024
 HTTP_STREAM_CHUNK_BYTES = 64 * 1024
@@ -451,6 +486,7 @@ def _freeze_a1_closure_paths() -> List[str]:
             "data/manifests/pilot_3/real_splits.jsonl",
             "data/manifests/pilot_3/prompts.jsonl",
             "data/manifests/pilot_3/schedule.jsonl",
+            str(BROWSER_RECOVERY_AMENDMENT_PATH),
             "docs/PILOT_3_PROTOCOL.md",
             "reports/pilot_3/planning_index.json",
             "reports/pilot_3/evidence/analysis_contract.json",
@@ -477,6 +513,7 @@ def _freeze_a1_closure_paths() -> List[str]:
             "src/latent_art_bench/pilot3/lee.py",
             "src/latent_art_bench/pilot3/phasea.py",
             "src/latent_art_bench/pilot3/planning.py",
+            str(BROWSER_RECOVERY_SCRIPT_PATH),
             "tests/pilot3/test_design.py",
             "tests/pilot3/test_design_freeze.py",
             "tests/pilot3/test_feasibility.py",
@@ -1113,6 +1150,1745 @@ def _response_evidence_from_terminal(terminal: Mapping[str, Any]) -> Dict[str, A
     }
 
 
+def _aic_development_splits(
+    root: Path, config: Mapping[str, Any]
+) -> List[Dict[str, Any]]:
+    rows = [
+        row
+        for row in load_real_splits(root, config)
+        if row["source_id"] == "aic" and row["partition"] in DEVELOPMENT_PARTITIONS
+    ]
+    if len(rows) != 20:
+        raise Pilot3PhaseAError(
+            f"AIC browser-recovery scope requires exactly 20 works, found {len(rows)}"
+        )
+    if len({str(row["image_url"]) for row in rows}) != len(rows):
+        raise Pilot3PhaseAError("AIC browser-recovery URLs are not one-to-one with works")
+    for row in rows:
+        parsed = urlsplit(str(row["image_url"]))
+        if (
+            row.get("asset_provider") != AIC_IMAGE_PROVIDER
+            or row.get("collection_block_id") != "aic"
+            or parsed.scheme != "https"
+            or parsed.hostname != AIC_IMAGE_HOST
+            or parsed.username is not None
+            or parsed.password is not None
+            or parsed.port is not None
+            or not parsed.path.startswith("/iiif/2/")
+            or not parsed.path.endswith("/default.jpg")
+            or parsed.query
+            or parsed.fragment
+        ):
+            raise Pilot3PhaseAError(
+                "AIC browser-recovery target is outside the exact frozen provider domain: "
+                + str(row.get("canonical_work_id"))
+            )
+    return sorted(rows, key=lambda row: str(row["canonical_work_id"]))
+
+
+def _aic_challenge_evidence(
+    root: Path,
+    config: Mapping[str, Any],
+    rows: Sequence[Mapping[str, Any]],
+) -> Tuple[Dict[str, Any], Dict[str, Any], List[Dict[str, Any]]]:
+    """Return the unique scripted-client 403 that triggered provider recovery.
+
+    The evidence supports only an observed provider-layer access challenge.  It does not
+    identify Cloudflare or any other upstream component.
+    """
+
+    intent_path = _phase_ledger_path(
+        root, config, "development", "acquisition_intents"
+    )
+    intents = _read_existing_rows(intent_path, "intent_id")
+    rows_by_work = {str(row["canonical_work_id"]): dict(row) for row in rows}
+    all_development_work_ids = {
+        str(row["canonical_work_id"])
+        for row in load_real_splits(root, config)
+        if row["partition"] in DEVELOPMENT_PARTITIONS
+    }
+    by_work: Dict[str, Dict[str, Any]] = {}
+    for intent in intents.values():
+        work_id = str(intent.get("canonical_work_id", ""))
+        if not work_id or work_id not in all_development_work_ids:
+            raise Pilot3PhaseAError(
+                "AIC recovery authorization found an out-of-scope development intent"
+            )
+        if work_id not in rows_by_work:
+            continue
+        if work_id in by_work:
+            raise Pilot3PhaseAError("AIC recovery authorization found a duplicate AIC intent")
+        by_work[work_id] = intent
+    first = rows[0]
+    first_work_id = str(first["canonical_work_id"])
+    intent = by_work.get(first_work_id)
+    if intent is None:
+        raise Pilot3PhaseAError(
+            "AIC recovery requires the first frozen AIC work's durable network intent"
+        )
+    expected_intent = _acquisition_intent(
+        first,
+        acquisition_route="network",
+        phase_a_config_file_sha256=hash_file(_resolve(root, DEFAULT_CONFIG)),
+        external_protocol_result_sha256=None,
+        external_unseal_receipt_sha256=None,
+    )
+    if intent != expected_intent:
+        raise Pilot3PhaseAError("AIC challenge intent is not the exact frozen network intent")
+    histories = _verified_http_attempt_histories(
+        root, config, "development", intents
+    )
+    history = histories[str(intent["intent_id"])]
+    if len(history) != 2:
+        raise Pilot3PhaseAError(
+            "AIC recovery requires exactly one completed scripted-client attempt"
+        )
+    start, terminal = history
+    if (
+        terminal.get("outcome") != "http_status_failure"
+        or terminal.get("http_status") != 403
+        or terminal.get("content_type") != "text/html"
+        or terminal.get("resolved_url") != intent["image_url"]
+        or terminal.get("response_complete") is not True
+        or terminal.get("retryable") is not False
+        or type(terminal.get("response_byte_count")) is not int
+        or int(terminal["response_byte_count"]) <= 0
+        or not _is_sha256(terminal.get("response_sha256"))
+        or terminal.get("raw_path") is not None
+    ):
+        raise Pilot3PhaseAError(
+            "AIC recovery trigger is not the exact observed HTTP 403 HTML response"
+        )
+    return intent, terminal, history
+
+
+def _browser_recovery_target_bindings(
+    rows: Sequence[Mapping[str, Any]],
+) -> List[Dict[str, Any]]:
+    return [
+        {
+            "canonical_work_id": row["canonical_work_id"],
+            "image_url": row["image_url"],
+            "delivery_width": row["delivery_width"],
+            "delivery_height": row["delivery_height"],
+            "partition": row["partition"],
+            "split_row_sha256": row["row_sha256"],
+        }
+        for row in rows
+    ]
+
+
+def _browser_recovery_authorization_payload(
+    root: Path,
+    config: Mapping[str, Any],
+    rows: Sequence[Mapping[str, Any]],
+    intent: Mapping[str, Any],
+    terminal: Mapping[str, Any],
+    history: Sequence[Mapping[str, Any]],
+    *,
+    pre_recovery_freeze_a1_git_commit: str,
+) -> Dict[str, Any]:
+    return {
+        "record_type": "pilot3_aic_browser_recovery_authorization",
+        "schema_version": BROWSER_RECOVERY_AUTHORIZATION_SCHEMA,
+        "status": (
+            "authorized_before_fresh_recovery_downloads_and_before_any_browser_file_admission"
+        ),
+        "authorization_scope": "exact_frozen_aic_development_image_urls_only",
+        "provider": AIC_IMAGE_PROVIDER,
+        "provider_hostname": AIC_IMAGE_HOST,
+        "target_count": len(rows),
+        "target_bindings": _browser_recovery_target_bindings(rows),
+        "phase_a_config_file_sha256": hash_file(_resolve(root, DEFAULT_CONFIG)),
+        "split_manifest_file_sha256": hash_file(
+            _resolve(root, config["paths"]["split_manifest"])
+        ),
+        "pre_recovery_freeze_a1_git_commit": pre_recovery_freeze_a1_git_commit,
+        "recovery_implementation_file_sha256": {
+            relative: hash_file(_resolve(root, relative))
+            for relative in BROWSER_RECOVERY_IMPLEMENTATION_PATHS
+        },
+        "trigger": {
+            "claim": "observed_aic_scripted_client_http_403_html_response",
+            "cloudflare_attribution_claimed": False,
+            "canonical_work_id": intent["canonical_work_id"],
+            "intent_id": intent["intent_id"],
+            "intent_sha256": stable_hash(intent),
+            "http_attempt_id": terminal["attempt_id"],
+            "http_terminal_event_sha256": terminal["event_sha256"],
+            "http_attempt_history_semantic_sha256": stable_hash(list(history)),
+            "http_status": terminal["http_status"],
+            "content_type": terminal["content_type"],
+            "resolved_url": terminal["resolved_url"],
+            "response_byte_count": terminal["response_byte_count"],
+            "response_sha256": terminal["response_sha256"],
+        },
+        "browser_intent_rule": (
+            "the_trigger_work_retains_its_failed_network_intent;_the_other_19_works_"
+            "receive_first_route_browser_recovery_intents_before_navigation"
+        ),
+        "where_froms_requirement": (
+            "binary_com.apple.metadata:kMDItemWhereFroms_contains_the_exact_frozen_url"
+        ),
+        "download_directory_policy": (
+            "one_create_exclusive_empty_bound_directory_per_attempt;_exactly_one_new_"
+            "direct_regular_file;_birth_ctime_and_quarantine_not_before_start"
+        ),
+        "diagnostic_browser_fetch_disposition": {
+            "canonical_work_id": "work-aic-100026",
+            "image_url": (
+                "https://www.artic.edu/iiif/2/bda9058b-5be6-37d0-e5a6-"
+                "926584540757/full/951,1125/0/default.jpg"
+            ),
+            "raw_sha256": (
+                "1703506070e75a50978132507031ec04693aa776a0e437afa238fb3227545fd5"
+            ),
+            "raw_byte_count": 699_009,
+            "downloaded_before_authorization_for_transport_diagnosis": True,
+            "visually_inspected": False,
+            "feature_extracted": False,
+            "admitted_to_analytic_artifacts": False,
+            "eligible_for_later_import": False,
+            "disposition": "quarantined_and_ineligible;_fresh_post-start_download_required",
+        },
+        "corpus_url_dimensions_or_provider_changed": False,
+        "external_holdout_access_authorized": False,
+        "fresh_recovery_navigation_download_or_admission_performed_by_authorizer": False,
+    }
+
+
+def _require_base_freeze_for_recovery_authorization(root: Path) -> None:
+    """Verify Freeze A1 while allowing only the prospective recovery amendment to be dirty."""
+
+    corpus = read_json(root / "reports/pilot_3/evidence/corpus_selection.json")
+    if not isinstance(corpus, dict) or corpus.get("status") != "freeze_a1_complete":
+        raise Pilot3PhaseAError("AIC recovery authorization requires Freeze A1")
+    verify_self_hash(corpus, "semantic_sha256")
+    try:
+        verify_planning_bundle(root)
+        verify_phase_b_freeze_bundle(root)
+    except Exception as exc:
+        raise Pilot3PhaseAError(
+            "AIC recovery authorization requires current deterministic freeze bundles"
+        ) from exc
+    amendment_paths = {
+        *BROWSER_RECOVERY_IMPLEMENTATION_PATHS,
+        "tests/pilot3/test_phasea.py",
+    }
+    for relative in _freeze_a1_closure_paths():
+        if relative in amendment_paths:
+            continue
+        if not _git_path_committed_and_clean(root, relative):
+            raise Pilot3PhaseAError(
+                "base Freeze-A1 closure is not committed and clean: " + relative
+            )
+
+
+def authorize_aic_browser_recovery(root: Path) -> Dict[str, Any]:
+    """Create the one prospective provider-recovery authorization, without image I/O."""
+
+    root = Path(root).expanduser().resolve()
+    _require_base_freeze_for_recovery_authorization(root)
+    config = load_phase_a_config(root)
+    rows = _aic_development_splits(root, config)
+    path = _resolve(root, BROWSER_RECOVERY_AUTHORIZATION_PATH)
+    if path.is_file():
+        observed = read_json(path)
+        if not isinstance(observed, dict):
+            raise Pilot3PhaseAError("AIC browser-recovery authorization is malformed")
+        verify_aic_browser_recovery_authorization(
+            root, require_committed=False, require_complete_closure=False
+        )
+        return observed
+    if _read_existing_rows(
+        _phase_ledger_path(root, config, "development", "acquisitions"),
+        "canonical_work_id",
+    ):
+        raise Pilot3PhaseAError(
+            "AIC recovery authorization must precede development acquisition records"
+        )
+    for ledger_relative in (
+        BROWSER_DIRECTORY_INTENT_LEDGER_PATH,
+        BROWSER_RECOVERY_LEDGER_PATH,
+    ):
+        ledger_path = _resolve(root, ledger_relative)
+        if ledger_path.is_file() and ledger_path.stat().st_size:
+            raise Pilot3PhaseAError(
+                "AIC recovery authorization must precede browser directory/attempt events"
+            )
+    intent, terminal, history = _aic_challenge_evidence(root, config, rows)
+    payload = _browser_recovery_authorization_payload(
+        root,
+        config,
+        rows,
+        intent,
+        terminal,
+        history,
+        pre_recovery_freeze_a1_git_commit=_git_head(root),
+    )
+    authorization = _self_hash(payload, "authorization_sha256")
+    _write_exclusive_json(path, authorization)
+    return authorization
+
+
+def verify_aic_browser_recovery_authorization(
+    root: Path,
+    *,
+    require_committed: bool = True,
+    require_complete_closure: bool = True,
+) -> Dict[str, Any]:
+    """Verify the authorization and, for execution, its committed amendment closure."""
+
+    root = Path(root).expanduser().resolve()
+    config = load_phase_a_config(root)
+    path = _resolve(root, BROWSER_RECOVERY_AUTHORIZATION_PATH)
+    if not path.is_file():
+        raise Pilot3PhaseAError("AIC browser-recovery authorization is missing")
+    authorization = read_json(path)
+    if not isinstance(authorization, dict):
+        raise Pilot3PhaseAError("AIC browser-recovery authorization is malformed")
+    required = {
+        "record_type",
+        "schema_version",
+        "status",
+        "authorization_scope",
+        "provider",
+        "provider_hostname",
+        "target_count",
+        "target_bindings",
+        "phase_a_config_file_sha256",
+        "split_manifest_file_sha256",
+        "pre_recovery_freeze_a1_git_commit",
+        "recovery_implementation_file_sha256",
+        "trigger",
+        "browser_intent_rule",
+        "where_froms_requirement",
+        "download_directory_policy",
+        "corpus_url_dimensions_or_provider_changed",
+        "external_holdout_access_authorized",
+        "diagnostic_browser_fetch_disposition",
+        "fresh_recovery_navigation_download_or_admission_performed_by_authorizer",
+        "authorization_sha256",
+    }
+    if set(authorization) != required:
+        raise Pilot3PhaseAError("AIC browser-recovery authorization field set is stale")
+    verify_self_hash(authorization, "authorization_sha256")
+    rows = _aic_development_splits(root, config)
+    intent, terminal, history = _aic_challenge_evidence(root, config, rows)
+    implementation = authorization.get("recovery_implementation_file_sha256")
+    if not isinstance(implementation, Mapping) or set(implementation) != set(
+        BROWSER_RECOVERY_IMPLEMENTATION_PATHS
+    ):
+        raise Pilot3PhaseAError("AIC recovery implementation closure is incomplete")
+    expected_static = {
+        "record_type": "pilot3_aic_browser_recovery_authorization",
+        "schema_version": BROWSER_RECOVERY_AUTHORIZATION_SCHEMA,
+        "status": (
+            "authorized_before_fresh_recovery_downloads_and_before_any_browser_file_admission"
+        ),
+        "authorization_scope": "exact_frozen_aic_development_image_urls_only",
+        "provider": AIC_IMAGE_PROVIDER,
+        "provider_hostname": AIC_IMAGE_HOST,
+        "target_count": 20,
+        "target_bindings": _browser_recovery_target_bindings(rows),
+        "phase_a_config_file_sha256": hash_file(_resolve(root, DEFAULT_CONFIG)),
+        "split_manifest_file_sha256": hash_file(
+            _resolve(root, config["paths"]["split_manifest"])
+        ),
+        "trigger": _browser_recovery_authorization_payload(
+            root,
+            config,
+            rows,
+            intent,
+            terminal,
+            history,
+            pre_recovery_freeze_a1_git_commit=str(
+                authorization["pre_recovery_freeze_a1_git_commit"]
+            ),
+        )["trigger"],
+        "browser_intent_rule": (
+            "the_trigger_work_retains_its_failed_network_intent;_the_other_19_works_"
+            "receive_first_route_browser_recovery_intents_before_navigation"
+        ),
+        "where_froms_requirement": (
+            "binary_com.apple.metadata:kMDItemWhereFroms_contains_the_exact_frozen_url"
+        ),
+        "download_directory_policy": (
+            "one_create_exclusive_empty_bound_directory_per_attempt;_exactly_one_new_"
+            "direct_regular_file;_birth_ctime_and_quarantine_not_before_start"
+        ),
+        "diagnostic_browser_fetch_disposition": {
+            "canonical_work_id": "work-aic-100026",
+            "image_url": (
+                "https://www.artic.edu/iiif/2/bda9058b-5be6-37d0-e5a6-"
+                "926584540757/full/951,1125/0/default.jpg"
+            ),
+            "raw_sha256": (
+                "1703506070e75a50978132507031ec04693aa776a0e437afa238fb3227545fd5"
+            ),
+            "raw_byte_count": 699_009,
+            "downloaded_before_authorization_for_transport_diagnosis": True,
+            "visually_inspected": False,
+            "feature_extracted": False,
+            "admitted_to_analytic_artifacts": False,
+            "eligible_for_later_import": False,
+            "disposition": "quarantined_and_ineligible;_fresh_post-start_download_required",
+        },
+        "corpus_url_dimensions_or_provider_changed": False,
+        "external_holdout_access_authorized": False,
+        "fresh_recovery_navigation_download_or_admission_performed_by_authorizer": False,
+    }
+    if any(authorization.get(key) != value for key, value in expected_static.items()):
+        raise Pilot3PhaseAError("AIC browser-recovery authorization is stale")
+    for relative, digest in implementation.items():
+        path_value = _resolve(root, str(relative))
+        if not _is_sha256(digest) or not path_value.is_file() or hash_file(path_value) != digest:
+            raise Pilot3PhaseAError(
+                "AIC recovery implementation hash is stale: " + str(relative)
+            )
+        if require_committed and not _git_path_committed_and_clean(root, str(relative)):
+            raise Pilot3PhaseAError(
+                "AIC recovery implementation is not committed and clean: "
+                + str(relative)
+            )
+    commit = authorization.get("pre_recovery_freeze_a1_git_commit")
+    if not isinstance(commit, str) or len(commit) != 40:
+        raise Pilot3PhaseAError("AIC recovery authorization has an invalid base commit")
+    ancestry = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", commit, "HEAD"],
+        cwd=root,
+        check=False,
+        capture_output=True,
+    )
+    if ancestry.returncode != 0:
+        raise Pilot3PhaseAError("AIC recovery base commit is not an ancestor of HEAD")
+    if require_complete_closure:
+        require_development_freeze(root)
+    if require_committed and not _git_path_committed_and_clean(
+        root, str(BROWSER_RECOVERY_AUTHORIZATION_PATH)
+    ):
+        raise Pilot3PhaseAError(
+            "AIC browser-recovery authorization is not committed and clean"
+        )
+    return authorization
+
+
+def _fgetxattr_bytes(descriptor: int, name: str) -> bytes:
+    """Read one Darwin extended attribute from an already-open file descriptor."""
+
+    if platform.system() != "Darwin":
+        raise Pilot3PhaseAError(
+            "AIC browser recovery requires Darwin fgetxattr provenance semantics"
+        )
+    library = ctypes.CDLL(None, use_errno=True)
+    function = library.fgetxattr
+    function.argtypes = [
+        ctypes.c_int,
+        ctypes.c_char_p,
+        ctypes.c_void_p,
+        ctypes.c_size_t,
+        ctypes.c_uint32,
+        ctypes.c_int,
+    ]
+    function.restype = ctypes.c_ssize_t
+    encoded_name = name.encode("utf-8")
+    size = int(function(descriptor, encoded_name, None, 0, 0, 0))
+    if size < 0:
+        error = ctypes.get_errno()
+        raise OSError(error, os.strerror(error), name)
+    if size <= 0 or size > MAX_WHERE_FROMS_PLIST_BYTES:
+        raise Pilot3PhaseAError("browser provenance xattr has an invalid byte size")
+    buffer = ctypes.create_string_buffer(size)
+    observed = int(function(descriptor, encoded_name, buffer, size, 0, 0))
+    if observed < 0:
+        error = ctypes.get_errno()
+        raise OSError(error, os.strerror(error), name)
+    if observed != size:
+        raise Pilot3PhaseAError("browser WhereFroms xattr changed while being read")
+    return bytes(buffer.raw[:observed])
+
+
+def _parse_where_froms_binary_plist(payload: bytes) -> List[str]:
+    if (
+        not payload.startswith(b"bplist00")
+        or not payload
+        or len(payload) > MAX_WHERE_FROMS_PLIST_BYTES
+    ):
+        raise Pilot3PhaseAError("browser WhereFroms evidence is not a bounded binary plist")
+    try:
+        decoded = plistlib.loads(payload, fmt=plistlib.FMT_BINARY)
+    except Exception as exc:
+        raise Pilot3PhaseAError("browser WhereFroms binary plist cannot be decoded") from exc
+    if (
+        not isinstance(decoded, list)
+        or not decoded
+        or len(decoded) > 16
+        or any(
+            not isinstance(value, str)
+            or not value
+            or len(value.encode("utf-8")) > 8192
+            for value in decoded
+        )
+    ):
+        raise Pilot3PhaseAError("browser WhereFroms plist is not a bounded URL array")
+    return list(decoded)
+
+
+def _parse_quarantine_xattr(payload: bytes) -> Dict[str, Any]:
+    if not payload or len(payload) > 4096:
+        raise Pilot3PhaseAError("browser quarantine xattr has an invalid byte size")
+    try:
+        decoded = payload.decode("ascii")
+    except UnicodeDecodeError as exc:
+        raise Pilot3PhaseAError("browser quarantine xattr is not ASCII") from exc
+    fields = decoded.split(";")
+    if len(fields) != 4:
+        raise Pilot3PhaseAError("browser quarantine xattr has the wrong field count")
+    flags, timestamp_hex, agent, identifier = fields
+    if (
+        len(flags) != 4
+        or any(character not in "0123456789abcdefABCDEF" for character in flags)
+        or len(timestamp_hex) != 8
+        or any(
+            character not in "0123456789abcdefABCDEF"
+            for character in timestamp_hex
+        )
+        or len(agent.encode("ascii")) > 256
+    ):
+        raise Pilot3PhaseAError("browser quarantine flags/timestamp/agent is malformed")
+    try:
+        parsed_uuid = uuid.UUID(identifier)
+    except (ValueError, AttributeError) as exc:
+        raise Pilot3PhaseAError("browser quarantine UUID is malformed") from exc
+    if str(parsed_uuid).casefold() != identifier.casefold():
+        raise Pilot3PhaseAError("browser quarantine UUID is not canonical")
+    return {
+        "flags_hex": flags.casefold(),
+        "download_time_unix_seconds": int(timestamp_hex, 16),
+        "agent": agent,
+        "uuid": str(parsed_uuid),
+    }
+
+
+def _lexical_absolute_path(path: Path) -> Path:
+    expanded = Path(path).expanduser()
+    return Path(os.path.abspath(os.fspath(expanded)))
+
+
+def _browser_file_where_froms(path: Path) -> Tuple[bytes, List[str]]:
+    """Probe provenance without following a file symlink."""
+
+    candidate = _lexical_absolute_path(path)
+    before = os.lstat(candidate)
+    if not stat.S_ISREG(before.st_mode) or stat.S_ISLNK(before.st_mode):
+        raise Pilot3PhaseAError("browser input is not a direct regular non-symlink file")
+    if candidate.name.casefold().endswith(".crdownload"):
+        raise Pilot3PhaseAError("browser input is an incomplete .crdownload file")
+    nofollow = getattr(os, "O_NOFOLLOW", None)
+    if nofollow is None:
+        raise Pilot3PhaseAError("runtime lacks O_NOFOLLOW for browser provenance")
+    descriptor = os.open(candidate, os.O_RDONLY | nofollow)
+    try:
+        opened = os.fstat(descriptor)
+        if (
+            not stat.S_ISREG(opened.st_mode)
+            or opened.st_dev != before.st_dev
+            or opened.st_ino != before.st_ino
+        ):
+            raise Pilot3PhaseAError("browser input changed before provenance inspection")
+        raw_xattr = _fgetxattr_bytes(descriptor, WHERE_FROMS_XATTR)
+        urls = _parse_where_froms_binary_plist(raw_xattr)
+    finally:
+        os.close(descriptor)
+    return raw_xattr, urls
+
+
+def _read_completed_browser_file(
+    path: Path,
+    config: Mapping[str, Any],
+    split: Mapping[str, Any],
+) -> Tuple[bytes, bytes, List[str], Dict[str, Any], Dict[str, Any], bytes]:
+    """Read xattr and bytes from the same no-follow descriptor, then decode exactly once."""
+
+    candidate = _lexical_absolute_path(path)
+    before = os.lstat(candidate)
+    if not stat.S_ISREG(before.st_mode) or stat.S_ISLNK(before.st_mode):
+        raise Pilot3PhaseAError("browser input is not a direct regular non-symlink file")
+    if candidate.name.casefold().endswith(".crdownload"):
+        raise Pilot3PhaseAError("browser input is an incomplete .crdownload file")
+    maximum = _acquisition_response_limit(config)
+    if before.st_size <= 0 or before.st_size > maximum:
+        raise Pilot3PhaseAError("browser input violates the frozen response-byte cap")
+    nofollow = getattr(os, "O_NOFOLLOW", None)
+    if nofollow is None:
+        raise Pilot3PhaseAError("runtime lacks O_NOFOLLOW for browser provenance")
+    descriptor = os.open(candidate, os.O_RDONLY | nofollow)
+    try:
+        opened = os.fstat(descriptor)
+        if (
+            not stat.S_ISREG(opened.st_mode)
+            or opened.st_dev != before.st_dev
+            or opened.st_ino != before.st_ino
+            or opened.st_size != before.st_size
+        ):
+            raise Pilot3PhaseAError("browser input changed before same-fd import")
+        raw_xattr = _fgetxattr_bytes(descriptor, WHERE_FROMS_XATTR)
+        urls = _parse_where_froms_binary_plist(raw_xattr)
+        if str(split["image_url"]) not in urls:
+            raise Pilot3PhaseAError(
+                "browser WhereFroms does not contain the exact frozen image URL"
+            )
+        chunks: List[bytes] = []
+        count = 0
+        while True:
+            chunk = os.read(descriptor, HTTP_STREAM_CHUNK_BYTES)
+            if not chunk:
+                break
+            count += len(chunk)
+            if count > maximum:
+                raise Pilot3PhaseAError(
+                    "browser input exceeds the frozen response-byte cap while reading"
+                )
+            chunks.append(chunk)
+        after = os.fstat(descriptor)
+        if (
+            after.st_dev != opened.st_dev
+            or after.st_ino != opened.st_ino
+            or after.st_size != opened.st_size
+            or after.st_mtime_ns != opened.st_mtime_ns
+            or count != opened.st_size
+        ):
+            raise Pilot3PhaseAError("browser input changed during same-fd import")
+    finally:
+        os.close(descriptor)
+    payload = b"".join(chunks)
+    decode, normalized = _decode_and_normalize(
+        payload,
+        config,
+        expected_width=int(split["delivery_width"]),
+        expected_height=int(split["delivery_height"]),
+    )
+    if decode["decoded_format"] != "jpeg":
+        raise Pilot3PhaseAError("AIC browser input is not a decoded JPEG image")
+    stat_evidence = {
+        "device": opened.st_dev,
+        "inode": opened.st_ino,
+        "mode": opened.st_mode,
+        "size": opened.st_size,
+        "mtime_ns": opened.st_mtime_ns,
+    }
+    return payload, raw_xattr, urls, stat_evidence, decode, normalized
+
+
+def _read_bound_browser_download(
+    download_directory: Path,
+    start: Mapping[str, Any],
+    config: Mapping[str, Any],
+    split: Mapping[str, Any],
+) -> Tuple[
+    Path,
+    bytes,
+    bytes,
+    List[str],
+    bytes,
+    Dict[str, Any],
+    Dict[str, Any],
+    Dict[str, Any],
+    Dict[str, Any],
+    bytes,
+]:
+    """Read the sole post-start direct file through its bound directory descriptor."""
+
+    directory = _lexical_absolute_path(download_directory)
+    if str(directory) != start.get("download_directory_path"):
+        raise Pilot3PhaseAError("import directory differs from the prepared directory")
+    nofollow = getattr(os, "O_NOFOLLOW", None)
+    odirectory = getattr(os, "O_DIRECTORY", None)
+    if nofollow is None or odirectory is None:
+        raise Pilot3PhaseAError("runtime lacks no-follow directory descriptors")
+    directory_descriptor = os.open(directory, os.O_RDONLY | nofollow | odirectory)
+    try:
+        directory_stat = _directory_stat_evidence(os.fstat(directory_descriptor))
+        start_stat = start.get("download_directory_stat_at_start")
+        if (
+            not isinstance(start_stat, Mapping)
+            or directory_stat["device"] != start_stat.get("device")
+            or directory_stat["inode"] != start_stat.get("inode")
+            or not stat.S_ISDIR(directory_stat["mode"])
+        ):
+            raise Pilot3PhaseAError("prepared browser directory identity was replaced")
+        names = sorted(os.listdir(directory_descriptor))
+        if len(names) != 1:
+            raise Pilot3PhaseAError(
+                "prepared browser directory must contain exactly one newly appearing file"
+            )
+        name = names[0]
+        if not name or "/" in name or name.casefold().endswith(".crdownload"):
+            raise Pilot3PhaseAError("prepared browser file name is incomplete or malformed")
+        listed_stat = os.stat(
+            name, dir_fd=directory_descriptor, follow_symlinks=False
+        )
+        if not stat.S_ISREG(listed_stat.st_mode) or stat.S_ISLNK(listed_stat.st_mode):
+            raise Pilot3PhaseAError("prepared browser entry is not a direct regular file")
+        maximum = _acquisition_response_limit(config)
+        if listed_stat.st_size <= 0 or listed_stat.st_size > maximum:
+            raise Pilot3PhaseAError("browser input violates the frozen response-byte cap")
+        file_descriptor = os.open(
+            name,
+            os.O_RDONLY | nofollow,
+            dir_fd=directory_descriptor,
+        )
+        try:
+            opened = os.fstat(file_descriptor)
+            if (
+                not stat.S_ISREG(opened.st_mode)
+                or opened.st_dev != listed_stat.st_dev
+                or opened.st_ino != listed_stat.st_ino
+                or opened.st_size != listed_stat.st_size
+            ):
+                raise Pilot3PhaseAError("browser file changed before same-fd import")
+            source_stat = _directory_stat_evidence(opened)
+            raw_where_froms = _fgetxattr_bytes(file_descriptor, WHERE_FROMS_XATTR)
+            urls = _parse_where_froms_binary_plist(raw_where_froms)
+            if str(split["image_url"]) not in urls:
+                raise Pilot3PhaseAError(
+                    "browser WhereFroms does not contain the exact frozen image URL"
+                )
+            raw_quarantine = _fgetxattr_bytes(file_descriptor, QUARANTINE_XATTR)
+            quarantine = _parse_quarantine_xattr(raw_quarantine)
+            start_seconds = int(start["start_not_before_wall_time_ns"]) // 1_000_000_000
+            if (
+                source_stat["birthtime_ns"] // 1_000_000_000 < start_seconds
+                or source_stat["ctime_ns"] // 1_000_000_000 < start_seconds
+                or int(quarantine["download_time_unix_seconds"]) < start_seconds
+            ):
+                raise Pilot3PhaseAError(
+                    "browser candidate predates its fsynced attempt start"
+                )
+            chunks: List[bytes] = []
+            count = 0
+            while True:
+                chunk = os.read(file_descriptor, HTTP_STREAM_CHUNK_BYTES)
+                if not chunk:
+                    break
+                count += len(chunk)
+                if count > maximum:
+                    raise Pilot3PhaseAError(
+                        "browser input exceeds the frozen byte cap while reading"
+                    )
+                chunks.append(chunk)
+            after = os.fstat(file_descriptor)
+            if (
+                after.st_dev != opened.st_dev
+                or after.st_ino != opened.st_ino
+                or after.st_size != opened.st_size
+                or after.st_mtime_ns != opened.st_mtime_ns
+                or after.st_ctime_ns != opened.st_ctime_ns
+                or count != opened.st_size
+            ):
+                raise Pilot3PhaseAError("browser input changed during same-fd import")
+        finally:
+            os.close(file_descriptor)
+        after_directory = _directory_stat_evidence(os.fstat(directory_descriptor))
+        if (
+            after_directory["device"] != directory_stat["device"]
+            or after_directory["inode"] != directory_stat["inode"]
+            or sorted(os.listdir(directory_descriptor)) != [name]
+        ):
+            raise Pilot3PhaseAError("browser directory changed during import")
+    finally:
+        os.close(directory_descriptor)
+    payload = b"".join(chunks)
+    decode, normalized = _decode_and_normalize(
+        payload,
+        config,
+        expected_width=int(split["delivery_width"]),
+        expected_height=int(split["delivery_height"]),
+    )
+    if decode["decoded_format"] != "jpeg":
+        raise Pilot3PhaseAError("AIC browser input is not a decoded JPEG image")
+    return (
+        directory / name,
+        payload,
+        raw_where_froms,
+        urls,
+        raw_quarantine,
+        quarantine,
+        source_stat,
+        after_directory,
+        decode,
+        normalized,
+    )
+
+
+def _read_canonical_browser_events(path: Path) -> List[Dict[str, Any]]:
+    if not path.is_file():
+        return []
+    payload = path.read_bytes()
+    if not payload:
+        return []
+    if not payload.endswith(b"\n"):
+        raise Pilot3PhaseAError("browser recovery ledger has a torn final row")
+    if b"\r" in payload:
+        raise Pilot3PhaseAError("browser recovery ledger has non-canonical newlines")
+    events: List[Dict[str, Any]] = []
+    for index, raw_line in enumerate(payload.splitlines(), start=1):
+        try:
+            decoded = raw_line.decode("utf-8")
+            row = json.loads(decoded)
+        except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+            raise Pilot3PhaseAError(
+                f"browser recovery event {index} is not canonical JSON"
+            ) from exc
+        if not isinstance(row, dict) or canonical_json(row) != decoded:
+            raise Pilot3PhaseAError(
+                f"browser recovery event {index} is not a canonical JSON object"
+            )
+        events.append(row)
+    return events
+
+
+def _directory_stat_evidence(value: os.stat_result) -> Dict[str, Any]:
+    birthtime = getattr(value, "st_birthtime", None)
+    if birthtime is None:
+        raise Pilot3PhaseAError("Darwin directory/file birthtime evidence is unavailable")
+    return {
+        "device": value.st_dev,
+        "inode": value.st_ino,
+        "mode": value.st_mode,
+        "size": value.st_size,
+        "mtime_ns": value.st_mtime_ns,
+        "ctime_ns": value.st_ctime_ns,
+        "birthtime_ns": int(float(birthtime) * 1_000_000_000),
+    }
+
+
+def _read_directory_intents(path: Path) -> List[Dict[str, Any]]:
+    rows = _read_canonical_browser_events(path)
+    previous: Optional[str] = None
+    prior: List[Dict[str, Any]] = []
+    seen_works: set[str] = set()
+    seen_paths: set[str] = set()
+    for sequence, row in enumerate(rows, start=1):
+        required = {
+            "record_type",
+            "schema_version",
+            "directory_intent_sequence",
+            "previous_directory_intent_sha256",
+            "expected_ledger_prefix_sha256",
+            "authorization_sha256",
+            "canonical_work_id",
+            "download_directory_path",
+            "directory_must_not_exist_at_intent_write",
+            "intent_written_before_mkdir_wall_time_ns",
+            "directory_intent_id",
+            "record_sha256",
+        }
+        if set(row) != required:
+            raise Pilot3PhaseAError("browser directory-intent field set is stale")
+        verify_self_hash(row, "record_sha256")
+        work_id = str(row.get("canonical_work_id", ""))
+        if (
+            row.get("record_type") != "pilot3_browser_download_directory_intent"
+            or row.get("schema_version") != BROWSER_RECOVERY_SCHEMA
+            or row.get("directory_intent_sequence") != sequence
+            or row.get("previous_directory_intent_sha256") != previous
+            or row.get("expected_ledger_prefix_sha256") != stable_hash(prior)
+            or row.get("directory_must_not_exist_at_intent_write") is not True
+            or type(row.get("intent_written_before_mkdir_wall_time_ns")) is not int
+            or int(row["intent_written_before_mkdir_wall_time_ns"]) <= 0
+            or not isinstance(row.get("download_directory_path"), str)
+            or not Path(str(row["download_directory_path"])).is_absolute()
+            or work_id in seen_works
+            or str(row["download_directory_path"]) in seen_paths
+        ):
+            raise Pilot3PhaseAError("browser directory-intent ledger is stale")
+        identity = {
+            "authorization_sha256": row["authorization_sha256"],
+            "canonical_work_id": work_id,
+            "download_directory_path": row["download_directory_path"],
+        }
+        if row.get("directory_intent_id") != (
+            f"p3-browser-dir-{stable_hash(identity)[:24]}"
+        ):
+            raise Pilot3PhaseAError("browser directory-intent identity is stale")
+        prior.append(row)
+        previous = str(row["record_sha256"])
+        seen_works.add(work_id)
+        seen_paths.add(str(row["download_directory_path"]))
+    return rows
+
+
+def _browser_directory_intent(
+    authorization: Mapping[str, Any],
+    canonical_work_id: str,
+    download_directory: Path,
+    prior: Sequence[Mapping[str, Any]],
+) -> Dict[str, Any]:
+    absolute = str(_lexical_absolute_path(download_directory))
+    identity = {
+        "authorization_sha256": authorization["authorization_sha256"],
+        "canonical_work_id": canonical_work_id,
+        "download_directory_path": absolute,
+    }
+    payload = {
+        "record_type": "pilot3_browser_download_directory_intent",
+        "schema_version": BROWSER_RECOVERY_SCHEMA,
+        "directory_intent_sequence": len(prior) + 1,
+        "previous_directory_intent_sha256": (
+            prior[-1]["record_sha256"] if prior else None
+        ),
+        "expected_ledger_prefix_sha256": stable_hash(list(prior)),
+        **identity,
+        "directory_must_not_exist_at_intent_write": True,
+        "intent_written_before_mkdir_wall_time_ns": time.time_ns(),
+        "directory_intent_id": f"p3-browser-dir-{stable_hash(identity)[:24]}",
+    }
+    return _self_hash(payload, "record_sha256")
+
+
+def _browser_attempt_start(
+    *,
+    authorization: Mapping[str, Any],
+    split: Mapping[str, Any],
+    intent: Mapping[str, Any],
+    directory_intent: Mapping[str, Any],
+    download_directory_stat: Mapping[str, Any],
+    start_not_before_wall_time_ns: int,
+    start_not_before_monotonic_ns: int,
+    event_sequence: int,
+    previous_event_sha256: Optional[str],
+    prior_events: Sequence[Mapping[str, Any]],
+) -> Dict[str, Any]:
+    identity = {
+        "authorization_sha256": authorization["authorization_sha256"],
+        "canonical_work_id": split["canonical_work_id"],
+        "intent_id": intent["intent_id"],
+        "intent_sha256": stable_hash(intent),
+        "image_url": split["image_url"],
+    }
+    payload = {
+        "record_type": "pilot3_real_acquisition_browser_attempt_start",
+        "schema_version": BROWSER_RECOVERY_SCHEMA,
+        "event_type": "start",
+        "event_sequence": event_sequence,
+        "previous_event_sha256": previous_event_sha256,
+        "expected_ledger_prefix_sha256": stable_hash(list(prior_events)),
+        **identity,
+        "browser_attempt_id": f"p3-real-browser-{stable_hash(identity)[:24]}",
+        "directory_intent_id": directory_intent["directory_intent_id"],
+        "directory_intent_record_sha256": directory_intent["record_sha256"],
+        "download_directory_path": directory_intent["download_directory_path"],
+        "download_directory_stat_at_start": dict(download_directory_stat),
+        "empty_directory_snapshot": {
+            "direct_entry_names": [],
+            "direct_entry_names_sha256": stable_hash([]),
+        },
+        "directory_created_exclusively_by_prepare": True,
+        "start_not_before_wall_time_ns": start_not_before_wall_time_ns,
+        "start_not_before_monotonic_ns": start_not_before_monotonic_ns,
+        "acquisition_intent_route": intent["acquisition_route"],
+        "artist_id": split["artist_id"],
+        "asset_provider": split["asset_provider"],
+        "source_id": split["source_id"],
+        "partition": split["partition"],
+        "source_url": split["source_url"],
+        "delivery_width": split["delivery_width"],
+        "delivery_height": split["delivery_height"],
+        "browser_action": "navigate_exact_frozen_image_url_then_download",
+        "where_froms_xattr_required": WHERE_FROMS_XATTR,
+        "max_response_bytes": MAX_HTTP_RESPONSE_BYTES,
+        "external_holdout_access_authorized": False,
+        "browser_navigation_or_download_performed_by_start_writer": False,
+    }
+    return _self_hash(payload, "event_sha256")
+
+
+def _browser_attempt_terminal(
+    start: Mapping[str, Any],
+    *,
+    source_file: Path,
+    source_file_stat: Mapping[str, Any],
+    raw_xattr: bytes,
+    where_froms_urls: Sequence[str],
+    raw_quarantine_xattr: bytes,
+    quarantine_evidence: Mapping[str, Any],
+    download_directory_stat_at_import: Mapping[str, Any],
+    payload: bytes,
+    raw_path: Path,
+    decode: Mapping[str, Any],
+    normalized: bytes,
+    normalized_path: Path,
+    root: Path,
+    prior_events: Sequence[Mapping[str, Any]],
+) -> Dict[str, Any]:
+    record = {
+        "record_type": "pilot3_real_acquisition_browser_attempt_terminal",
+        "schema_version": BROWSER_RECOVERY_SCHEMA,
+        "event_type": "terminal",
+        "event_sequence": len(prior_events) + 1,
+        "previous_event_sha256": (
+            prior_events[-1]["event_sha256"] if prior_events else None
+        ),
+        "expected_ledger_prefix_sha256": stable_hash(list(prior_events)),
+        "authorization_sha256": start["authorization_sha256"],
+        "canonical_work_id": start["canonical_work_id"],
+        "intent_id": start["intent_id"],
+        "intent_sha256": start["intent_sha256"],
+        "image_url": start["image_url"],
+        "browser_attempt_id": start["browser_attempt_id"],
+        "start_event_sha256": start["event_sha256"],
+        "outcome": "imported_exact_browser_download",
+        "browser_transport": "darwin_browser_download_wherefroms_import",
+        "source_file_path": str(_lexical_absolute_path(source_file)),
+        "source_file_stat": dict(source_file_stat),
+        "download_directory_path": start["download_directory_path"],
+        "download_directory_stat_at_import": dict(
+            download_directory_stat_at_import
+        ),
+        "candidate_direct_entry_name": source_file.name,
+        "where_froms_plist_base64": base64.b64encode(raw_xattr).decode("ascii"),
+        "where_froms_plist_byte_count": len(raw_xattr),
+        "where_froms_plist_sha256": hash_bytes(raw_xattr),
+        "where_froms_urls": list(where_froms_urls),
+        "quarantine_xattr_base64": base64.b64encode(raw_quarantine_xattr).decode(
+            "ascii"
+        ),
+        "quarantine_xattr_byte_count": len(raw_quarantine_xattr),
+        "quarantine_xattr_sha256": hash_bytes(raw_quarantine_xattr),
+        "quarantine_evidence": dict(quarantine_evidence),
+        "freshness_not_before_wall_time_ns": start[
+            "start_not_before_wall_time_ns"
+        ],
+        "raw_path": _portable(raw_path, root),
+        "raw_sha256": hash_bytes(payload),
+        "raw_byte_count": len(payload),
+        "normalized_path": _portable(normalized_path, root),
+        "normalized_sha256": hash_bytes(normalized),
+        "normalized_byte_count": len(normalized),
+        "decode_evidence": dict(decode),
+        "external_holdout_accessed": False,
+        "httpx_success_claimed": False,
+    }
+    return _self_hash(record, "event_sha256")
+
+
+def _validate_browser_attempt_terminal(
+    root: Path,
+    config: Mapping[str, Any],
+    start: Mapping[str, Any],
+    terminal: Mapping[str, Any],
+    prior_events: Sequence[Mapping[str, Any]],
+) -> None:
+    required = {
+        "record_type",
+        "schema_version",
+        "event_type",
+        "event_sequence",
+        "previous_event_sha256",
+        "expected_ledger_prefix_sha256",
+        "authorization_sha256",
+        "canonical_work_id",
+        "intent_id",
+        "intent_sha256",
+        "image_url",
+        "browser_attempt_id",
+        "start_event_sha256",
+        "outcome",
+        "browser_transport",
+        "source_file_path",
+        "source_file_stat",
+        "download_directory_path",
+        "download_directory_stat_at_import",
+        "candidate_direct_entry_name",
+        "where_froms_plist_base64",
+        "where_froms_plist_byte_count",
+        "where_froms_plist_sha256",
+        "where_froms_urls",
+        "quarantine_xattr_base64",
+        "quarantine_xattr_byte_count",
+        "quarantine_xattr_sha256",
+        "quarantine_evidence",
+        "freshness_not_before_wall_time_ns",
+        "raw_path",
+        "raw_sha256",
+        "raw_byte_count",
+        "normalized_path",
+        "normalized_sha256",
+        "normalized_byte_count",
+        "decode_evidence",
+        "external_holdout_accessed",
+        "httpx_success_claimed",
+        "event_sha256",
+    }
+    if set(terminal) != required:
+        raise Pilot3PhaseAError("browser attempt terminal field set is stale")
+    verify_self_hash(terminal, "event_sha256")
+    if (
+        terminal.get("record_type")
+        != "pilot3_real_acquisition_browser_attempt_terminal"
+        or terminal.get("schema_version") != BROWSER_RECOVERY_SCHEMA
+        or terminal.get("event_type") != "terminal"
+        or terminal.get("event_sequence") != len(prior_events) + 1
+        or terminal.get("previous_event_sha256")
+        != (prior_events[-1]["event_sha256"] if prior_events else None)
+        or terminal.get("expected_ledger_prefix_sha256")
+        != stable_hash(list(prior_events))
+        or terminal.get("start_event_sha256") != start.get("event_sha256")
+        or any(
+            terminal.get(key) != start.get(key)
+            for key in (
+                "authorization_sha256",
+                "canonical_work_id",
+                "intent_id",
+                "intent_sha256",
+                "image_url",
+                "browser_attempt_id",
+            )
+        )
+        or terminal.get("outcome") != "imported_exact_browser_download"
+        or terminal.get("browser_transport")
+        != "darwin_browser_download_wherefroms_import"
+        or terminal.get("external_holdout_accessed") is not False
+        or terminal.get("httpx_success_claimed") is not False
+    ):
+        raise Pilot3PhaseAError("browser attempt terminal does not bind its start")
+    source_file_path = terminal.get("source_file_path")
+    source_stat = terminal.get("source_file_stat")
+    stat_fields = {
+        "device",
+        "inode",
+        "mode",
+        "size",
+        "mtime_ns",
+        "ctime_ns",
+        "birthtime_ns",
+    }
+    directory_stat = terminal.get("download_directory_stat_at_import")
+    if (
+        not isinstance(source_file_path, str)
+        or not Path(source_file_path).is_absolute()
+        or not isinstance(source_stat, Mapping)
+        or set(source_stat) != stat_fields
+        or any(type(source_stat.get(key)) is not int for key in source_stat)
+        or not stat.S_ISREG(int(source_stat["mode"]))
+        or int(source_stat["size"]) != terminal.get("raw_byte_count")
+        or terminal.get("download_directory_path")
+        != start.get("download_directory_path")
+        or not isinstance(directory_stat, Mapping)
+        or set(directory_stat) != stat_fields
+        or any(type(directory_stat.get(key)) is not int for key in directory_stat)
+        or not stat.S_ISDIR(int(directory_stat["mode"]))
+        or directory_stat.get("device")
+        != start.get("download_directory_stat_at_start", {}).get("device")
+        or directory_stat.get("inode")
+        != start.get("download_directory_stat_at_start", {}).get("inode")
+        or not isinstance(terminal.get("candidate_direct_entry_name"), str)
+        or not terminal.get("candidate_direct_entry_name")
+        or Path(source_file_path).name != terminal.get("candidate_direct_entry_name")
+        or str(Path(source_file_path).parent)
+        != terminal.get("download_directory_path")
+    ):
+        raise Pilot3PhaseAError("browser source-file evidence is malformed")
+    encoded_plist = terminal.get("where_froms_plist_base64")
+    if not isinstance(encoded_plist, str):
+        raise Pilot3PhaseAError("browser WhereFroms base64 evidence is malformed")
+    try:
+        raw_xattr = base64.b64decode(encoded_plist, validate=True)
+    except Exception as exc:
+        raise Pilot3PhaseAError("browser WhereFroms base64 evidence cannot be decoded") from exc
+    urls = _parse_where_froms_binary_plist(raw_xattr)
+    if (
+        terminal.get("where_froms_plist_byte_count") != len(raw_xattr)
+        or terminal.get("where_froms_plist_sha256") != hash_bytes(raw_xattr)
+        or terminal.get("where_froms_urls") != urls
+        or start["image_url"] not in urls
+    ):
+        raise Pilot3PhaseAError("browser WhereFroms evidence is stale or URL-mismatched")
+    encoded_quarantine = terminal.get("quarantine_xattr_base64")
+    if not isinstance(encoded_quarantine, str):
+        raise Pilot3PhaseAError("browser quarantine base64 evidence is malformed")
+    try:
+        raw_quarantine = base64.b64decode(encoded_quarantine, validate=True)
+    except Exception as exc:
+        raise Pilot3PhaseAError("browser quarantine base64 cannot be decoded") from exc
+    quarantine = _parse_quarantine_xattr(raw_quarantine)
+    start_ns = start.get("start_not_before_wall_time_ns")
+    start_seconds = (
+        int(start_ns) // 1_000_000_000 if type(start_ns) is int else -1
+    )
+    if (
+        terminal.get("quarantine_xattr_byte_count") != len(raw_quarantine)
+        or terminal.get("quarantine_xattr_sha256") != hash_bytes(raw_quarantine)
+        or terminal.get("quarantine_evidence") != quarantine
+        or terminal.get("freshness_not_before_wall_time_ns") != start_ns
+        or source_stat["birthtime_ns"] // 1_000_000_000 < start_seconds
+        or source_stat["ctime_ns"] // 1_000_000_000 < start_seconds
+        or quarantine["download_time_unix_seconds"] < start_seconds
+    ):
+        raise Pilot3PhaseAError("browser quarantine/freshness evidence is stale")
+    raw_sha = terminal.get("raw_sha256")
+    raw_count = terminal.get("raw_byte_count")
+    if not _is_sha256(raw_sha) or type(raw_count) is not int or raw_count <= 0:
+        raise Pilot3PhaseAError("browser raw-byte evidence is malformed")
+    expected_raw_path = (
+        _resolve(root, config["paths"]["raw_dir"])
+        / str(raw_sha)[:2]
+        / f"{raw_sha}.bin"
+    )
+    if (
+        terminal.get("raw_path") != _portable(expected_raw_path, root)
+        or not expected_raw_path.is_file()
+        or expected_raw_path.stat().st_size != raw_count
+        or hash_file(expected_raw_path) != raw_sha
+    ):
+        raise Pilot3PhaseAError("browser raw CAS object is missing or stale")
+    payload = expected_raw_path.read_bytes()
+    split = {
+        "delivery_width": start["delivery_width"],
+        "delivery_height": start["delivery_height"],
+    }
+    decode, normalized = _decode_and_normalize(
+        payload,
+        config,
+        expected_width=int(split["delivery_width"]),
+        expected_height=int(split["delivery_height"]),
+    )
+    if decode.get("decoded_format") != "jpeg" or terminal.get("decode_evidence") != decode:
+        raise Pilot3PhaseAError("browser decoded JPEG evidence is stale")
+    normalized_sha = hash_bytes(normalized)
+    expected_normalized_path = (
+        _resolve(root, config["paths"]["normalized_dir"])
+        / normalized_sha[:2]
+        / f"{normalized_sha}.png"
+    )
+    if (
+        terminal.get("normalized_sha256") != normalized_sha
+        or terminal.get("normalized_byte_count") != len(normalized)
+        or terminal.get("normalized_path")
+        != _portable(expected_normalized_path, root)
+        or not expected_normalized_path.is_file()
+        or hash_file(expected_normalized_path) != normalized_sha
+    ):
+        raise Pilot3PhaseAError("browser normalized CAS object is missing or stale")
+
+
+def _verified_browser_attempt_histories(
+    root: Path,
+    config: Mapping[str, Any],
+    authorization: Mapping[str, Any],
+    intents: Mapping[str, Mapping[str, Any]],
+) -> Dict[str, List[Dict[str, Any]]]:
+    rows = _aic_development_splits(root, config)
+    rows_by_work = {str(row["canonical_work_id"]): row for row in rows}
+    histories: Dict[str, List[Dict[str, Any]]] = {
+        str(intent["intent_id"]): []
+        for intent in intents.values()
+        if str(intent.get("canonical_work_id", "")) in rows_by_work
+    }
+    events = _read_canonical_browser_events(
+        _resolve(root, BROWSER_RECOVERY_LEDGER_PATH)
+    )
+    directory_intents = _read_directory_intents(
+        _resolve(root, BROWSER_DIRECTORY_INTENT_LEDGER_PATH)
+    )
+    directory_intents_by_id = {
+        str(row["directory_intent_id"]): row for row in directory_intents
+    }
+    previous: Optional[str] = None
+    prior_events: List[Dict[str, Any]] = []
+    starts_by_attempt: Dict[str, Dict[str, Any]] = {}
+    terminal_attempts: set[str] = set()
+    work_starts: set[str] = set()
+    active_start: Optional[Dict[str, Any]] = None
+    for sequence, event in enumerate(events, start=1):
+        if (
+            event.get("event_sequence") != sequence
+            or event.get("previous_event_sha256") != previous
+            or event.get("expected_ledger_prefix_sha256")
+            != stable_hash(prior_events)
+        ):
+            raise Pilot3PhaseAError("browser recovery ledger chain or CAS prefix is stale")
+        event_type = event.get("event_type")
+        if event_type == "start":
+            if active_start is not None:
+                raise Pilot3PhaseAError(
+                    "browser recovery journal has multiple unmatched starts"
+                )
+            work_id = str(event.get("canonical_work_id", ""))
+            intent_id = str(event.get("intent_id", ""))
+            split = rows_by_work.get(work_id)
+            intent = intents.get(intent_id)
+            if split is None or intent is None or work_id in work_starts:
+                raise Pilot3PhaseAError(
+                    "browser attempt start is duplicate or outside the AIC scope"
+                )
+            directory_intent = directory_intents_by_id.get(
+                str(event.get("directory_intent_id", ""))
+            )
+            directory_stat = event.get("download_directory_stat_at_start")
+            if (
+                directory_intent is None
+                or directory_intent.get("record_sha256")
+                != event.get("directory_intent_record_sha256")
+                or directory_intent.get("canonical_work_id") != work_id
+                or directory_intent.get("authorization_sha256")
+                != authorization.get("authorization_sha256")
+                or not isinstance(directory_stat, Mapping)
+                or set(directory_stat)
+                != {
+                    "device",
+                    "inode",
+                    "mode",
+                    "size",
+                    "mtime_ns",
+                    "ctime_ns",
+                    "birthtime_ns",
+                }
+                or any(type(value) is not int for value in directory_stat.values())
+                or not stat.S_ISDIR(int(directory_stat["mode"]))
+                or event.get("empty_directory_snapshot")
+                != {
+                    "direct_entry_names": [],
+                    "direct_entry_names_sha256": stable_hash([]),
+                }
+                or event.get("directory_created_exclusively_by_prepare") is not True
+                or type(event.get("start_not_before_wall_time_ns")) is not int
+                or type(event.get("start_not_before_monotonic_ns")) is not int
+                or int(event["start_not_before_wall_time_ns"])
+                < int(directory_intent["intent_written_before_mkdir_wall_time_ns"])
+            ):
+                raise Pilot3PhaseAError("browser start directory evidence is malformed")
+            expected = _browser_attempt_start(
+                authorization=authorization,
+                split=split,
+                intent=intent,
+                directory_intent=directory_intent,
+                download_directory_stat=directory_stat,
+                start_not_before_wall_time_ns=int(
+                    event["start_not_before_wall_time_ns"]
+                ),
+                start_not_before_monotonic_ns=int(
+                    event["start_not_before_monotonic_ns"]
+                ),
+                event_sequence=sequence,
+                previous_event_sha256=previous,
+                prior_events=prior_events,
+            )
+            if event != expected:
+                raise Pilot3PhaseAError("browser attempt start is stale")
+            attempt_id = str(event["browser_attempt_id"])
+            if attempt_id in starts_by_attempt:
+                raise Pilot3PhaseAError("browser attempt identity is duplicated")
+            starts_by_attempt[attempt_id] = event
+            work_starts.add(work_id)
+            histories[intent_id].append(event)
+            active_start = event
+        elif event_type == "terminal":
+            attempt_id = str(event.get("browser_attempt_id", ""))
+            start = starts_by_attempt.get(attempt_id)
+            if (
+                start is None
+                or attempt_id in terminal_attempts
+                or active_start is None
+                or active_start.get("browser_attempt_id") != attempt_id
+            ):
+                raise Pilot3PhaseAError(
+                    "browser terminal lacks a unique preceding attempt start"
+                )
+            _validate_browser_attempt_terminal(root, config, start, event, prior_events)
+            histories[str(start["intent_id"])].append(event)
+            terminal_attempts.add(attempt_id)
+            active_start = None
+        else:
+            raise Pilot3PhaseAError("browser recovery event has an unknown type")
+        prior_events.append(event)
+        previous = str(event.get("event_sha256", ""))
+    return histories
+
+
+def prepare_aic_browser_recovery(
+    root: Path, canonical_work_id: str, download_directory: Path
+) -> Dict[str, Any]:
+    """Fsync one exact browser intent/start before that work's fresh navigation."""
+
+    root = Path(root).expanduser().resolve()
+    requested_directory = _lexical_absolute_path(download_directory)
+    with _acquisition_phase_lock(root, "development"):
+        authorization = verify_aic_browser_recovery_authorization(root)
+        config = load_phase_a_config(root)
+        rows = _aic_development_splits(root, config)
+        rows_by_work = {str(row["canonical_work_id"]): row for row in rows}
+        split = rows_by_work.get(canonical_work_id)
+        if split is None:
+            raise Pilot3PhaseAError(
+                "browser prepare work is not in the frozen AIC development scope"
+            )
+        intent_path = _phase_ledger_path(
+            root, config, "development", "acquisition_intents"
+        )
+        intents = _read_existing_rows(intent_path, "intent_id")
+        by_work: Dict[str, Dict[str, Any]] = {}
+        for intent in intents.values():
+            work_id = str(intent.get("canonical_work_id", ""))
+            if work_id in by_work:
+                raise Pilot3PhaseAError("development acquisition intents duplicate a work")
+            by_work[work_id] = intent
+        first_work_id = str(rows[0]["canonical_work_id"])
+        route = "network" if canonical_work_id == first_work_id else "browser_recovery"
+        expected = _acquisition_intent(
+            split,
+            acquisition_route=route,
+            phase_a_config_file_sha256=hash_file(_resolve(root, DEFAULT_CONFIG)),
+            external_protocol_result_sha256=None,
+            external_unseal_receipt_sha256=None,
+        )
+        existing = by_work.get(canonical_work_id)
+        if existing is not None and existing != expected:
+            raise Pilot3PhaseAError(
+                "AIC browser-recovery acquisition intent route is stale: "
+                + canonical_work_id
+            )
+        if existing is None:
+            _append_jsonl_fsync(intent_path, expected)
+            intents[str(expected["intent_id"])] = expected
+            by_work[canonical_work_id] = expected
+        http_histories = _verified_http_attempt_histories(
+            root, config, "development", intents
+        )
+        histories = _verified_browser_attempt_histories(
+            root, config, authorization, intents
+        )
+        acquisitions = _read_existing_rows(
+            _phase_ledger_path(root, config, "development", "acquisitions"),
+            "canonical_work_id",
+        )
+        intents_by_id = {str(intent["intent_id"]): intent for intent in intents.values()}
+        for completed_intent_id, completed_history in histories.items():
+            if len(completed_history) != 2:
+                continue
+            completed_start, completed_terminal = completed_history
+            completed_work_id = str(completed_start["canonical_work_id"])
+            if completed_work_id in acquisitions:
+                continue
+            completed_split = rows_by_work[completed_work_id]
+            completed_intent = intents_by_id[completed_intent_id]
+            completed_payload = _resolve(
+                root, str(completed_terminal["raw_path"])
+            ).read_bytes()
+            acquisitions[completed_work_id] = _materialize_real_acquisition(
+                root,
+                config,
+                completed_split,
+                completed_intent,
+                completed_payload,
+                _browser_response_evidence(completed_terminal),
+                http_histories[completed_intent_id],
+                acquisition_completion_route="browser_download_import",
+                browser_terminal=completed_terminal,
+                external_unseal_token=None,
+                external_unseal_receipt_sha256=None,
+            )
+        pending = [
+            history[0]
+            for history in histories.values()
+            if len(history) == 1 and history[0].get("event_type") == "start"
+        ]
+        if pending and any(
+            event.get("canonical_work_id") != canonical_work_id for event in pending
+        ):
+            raise Pilot3PhaseAError(
+                "an earlier browser start is unmatched; reconcile it before another start"
+            )
+        ledger_path = _resolve(root, BROWSER_RECOVERY_LEDGER_PATH)
+        _ensure_durable_file(ledger_path)
+        events = _read_canonical_browser_events(ledger_path)
+        intent = by_work[canonical_work_id]
+        history = histories[str(intent["intent_id"])]
+        if history:
+            if history[0].get("download_directory_path") != str(requested_directory):
+                raise Pilot3PhaseAError(
+                    "prepared browser work is bound to a different download directory"
+                )
+            return history[0]
+        directory_intent_path = _resolve(
+            root, BROWSER_DIRECTORY_INTENT_LEDGER_PATH
+        )
+        _ensure_durable_file(directory_intent_path)
+        directory_intents = _read_directory_intents(directory_intent_path)
+        by_directory_work = {
+            str(row["canonical_work_id"]): row for row in directory_intents
+        }
+        directory_intent = by_directory_work.get(canonical_work_id)
+        if directory_intent is None:
+            if os.path.lexists(requested_directory):
+                raise Pilot3PhaseAError(
+                    "prepared browser download directory must not already exist"
+                )
+            parent_stat = os.lstat(requested_directory.parent)
+            if not stat.S_ISDIR(parent_stat.st_mode) or stat.S_ISLNK(parent_stat.st_mode):
+                raise Pilot3PhaseAError(
+                    "browser download directory parent must be a non-symlink directory"
+                )
+            directory_intent = _browser_directory_intent(
+                authorization,
+                canonical_work_id,
+                requested_directory,
+                directory_intents,
+            )
+            _append_jsonl_fsync(directory_intent_path, directory_intent)
+            directory_intents.append(directory_intent)
+            try:
+                os.mkdir(requested_directory, 0o700)
+            except FileExistsError as exc:
+                raise Pilot3PhaseAError(
+                    "browser download directory appeared after its durable intent"
+                ) from exc
+        else:
+            if directory_intent.get("download_directory_path") != str(
+                requested_directory
+            ):
+                raise Pilot3PhaseAError(
+                    "browser directory intent is bound to a different path"
+                )
+            if not os.path.lexists(requested_directory):
+                os.mkdir(requested_directory, 0o700)
+        nofollow = getattr(os, "O_NOFOLLOW", None)
+        odirectory = getattr(os, "O_DIRECTORY", None)
+        if nofollow is None or odirectory is None:
+            raise Pilot3PhaseAError(
+                "runtime lacks no-follow directory descriptors for browser recovery"
+            )
+        directory_descriptor = os.open(
+            requested_directory, os.O_RDONLY | nofollow | odirectory
+        )
+        try:
+            download_directory_stat = _directory_stat_evidence(
+                os.fstat(directory_descriptor)
+            )
+            direct_entry_names = sorted(os.listdir(directory_descriptor))
+            if direct_entry_names:
+                raise Pilot3PhaseAError(
+                    "prepared browser download directory is not exactly empty"
+                )
+            if (
+                download_directory_stat["birthtime_ns"] // 1_000_000_000
+                < int(directory_intent["intent_written_before_mkdir_wall_time_ns"])
+                // 1_000_000_000
+            ):
+                raise Pilot3PhaseAError(
+                    "browser download directory predates its durable creation intent"
+                )
+            start_wall_time_ns = time.time_ns()
+            start_monotonic_ns = time.monotonic_ns()
+        finally:
+            os.close(directory_descriptor)
+        if not history:
+            start = _browser_attempt_start(
+                authorization=authorization,
+                split=split,
+                intent=intent,
+                directory_intent=directory_intent,
+                download_directory_stat=download_directory_stat,
+                start_not_before_wall_time_ns=start_wall_time_ns,
+                start_not_before_monotonic_ns=start_monotonic_ns,
+                event_sequence=len(events) + 1,
+                previous_event_sha256=(
+                    str(events[-1]["event_sha256"]) if events else None
+                ),
+                prior_events=events,
+            )
+            _append_jsonl_fsync(ledger_path, start)
+            events.append(start)
+            history.append(start)
+        verified = _verified_browser_attempt_histories(
+            root, config, authorization, intents
+        )
+        result = verified[str(intent["intent_id"])][0]
+        if result.get("canonical_work_id") != canonical_work_id:
+            raise Pilot3PhaseAError("AIC browser recovery prepared the wrong work")
+        return result
+
+
+def import_aic_browser_recovery_directory(
+    root: Path, directory: Path
+) -> List[Dict[str, Any]]:
+    """Reconcile completed direct browser downloads into the append-only recovery journal."""
+
+    root = Path(root).expanduser().resolve()
+    source_directory = _lexical_absolute_path(directory)
+    directory_stat = os.lstat(source_directory)
+    if not stat.S_ISDIR(directory_stat.st_mode) or stat.S_ISLNK(directory_stat.st_mode):
+        raise Pilot3PhaseAError("browser import directory must be a direct non-symlink directory")
+    with _acquisition_phase_lock(root, "development"):
+        authorization = verify_aic_browser_recovery_authorization(root)
+        config = load_phase_a_config(root)
+        rows = _aic_development_splits(root, config)
+        rows_by_work = {str(row["canonical_work_id"]): row for row in rows}
+        intents = _read_existing_rows(
+            _phase_ledger_path(root, config, "development", "acquisition_intents"),
+            "intent_id",
+        )
+        histories = _verified_browser_attempt_histories(
+            root, config, authorization, intents
+        )
+        http_histories = _verified_http_attempt_histories(
+            root, config, "development", intents
+        )
+        matching_histories = [
+            history
+            for history in histories.values()
+            if history
+            and history[0].get("download_directory_path") == str(source_directory)
+        ]
+        if len(matching_histories) != 1:
+            raise Pilot3PhaseAError(
+                "import directory is not bound to exactly one browser attempt"
+            )
+        history = matching_histories[0]
+        start = history[0]
+        work_id = str(start["canonical_work_id"])
+        split = rows_by_work[work_id]
+        intent = intents[str(start["intent_id"])]
+        (
+            candidate,
+            payload,
+            raw_xattr,
+            urls,
+            raw_quarantine,
+            quarantine,
+            source_stat,
+            import_directory_stat,
+            decode,
+            normalized,
+        ) = _read_bound_browser_download(source_directory, start, config, split)
+        ledger_path = _resolve(root, BROWSER_RECOVERY_LEDGER_PATH)
+        events = _read_canonical_browser_events(ledger_path)
+        if len(history) == 2:
+            terminal = history[-1]
+            if terminal.get("raw_sha256") != hash_bytes(payload):
+                raise Pilot3PhaseAError(
+                    "completed browser attempt conflicts with the bound download"
+                )
+        else:
+            if len(history) != 1:
+                raise Pilot3PhaseAError("browser attempt history has a stale event count")
+            raw_sha = hash_bytes(payload)
+            raw_path = (
+                _resolve(root, config["paths"]["raw_dir"])
+                / raw_sha[:2]
+                / f"{raw_sha}.bin"
+            )
+            normalized_sha = hash_bytes(normalized)
+            normalized_path = (
+                _resolve(root, config["paths"]["normalized_dir"])
+                / normalized_sha[:2]
+                / f"{normalized_sha}.png"
+            )
+            for path, content, digest in (
+                (raw_path, payload, raw_sha),
+                (normalized_path, normalized, normalized_sha),
+            ):
+                if path.exists() and hash_file(path) != digest:
+                    raise Pilot3PhaseAError(f"browser CAS collision at {path}")
+                if not path.exists():
+                    _atomic_bytes(path, content)
+            terminal = _browser_attempt_terminal(
+                start,
+                source_file=candidate,
+                source_file_stat=source_stat,
+                raw_xattr=raw_xattr,
+                where_froms_urls=urls,
+                raw_quarantine_xattr=raw_quarantine,
+                quarantine_evidence=quarantine,
+                download_directory_stat_at_import=import_directory_stat,
+                payload=payload,
+                raw_path=raw_path,
+                decode=decode,
+                normalized=normalized,
+                normalized_path=normalized_path,
+                root=root,
+                prior_events=events,
+            )
+            _validate_browser_attempt_terminal(root, config, start, terminal, events)
+            _append_jsonl_fsync(ledger_path, terminal)
+            events.append(terminal)
+            histories[str(intent["intent_id"])].append(terminal)
+        acquisition = _materialize_real_acquisition(
+            root,
+            config,
+            split,
+            intent,
+            payload,
+            _browser_response_evidence(terminal),
+            http_histories[str(intent["intent_id"])],
+            acquisition_completion_route="browser_download_import",
+            browser_terminal=terminal,
+            external_unseal_token=None,
+            external_unseal_receipt_sha256=None,
+        )
+        _verified_browser_attempt_histories(root, config, authorization, intents)
+        return [acquisition]
+
+
+def _browser_recovery_for_intent(
+    root: Path,
+    config: Mapping[str, Any],
+    intent: Mapping[str, Any],
+) -> Optional[Tuple[bytes, Dict[str, Any], Dict[str, Any]]]:
+    if str(intent.get("source_id", "aic")) not in {"", "aic"}:
+        return None
+    authorization_path = _resolve(root, BROWSER_RECOVERY_AUTHORIZATION_PATH)
+    ledger_path = _resolve(root, BROWSER_RECOVERY_LEDGER_PATH)
+    if not authorization_path.is_file() or not ledger_path.is_file():
+        return None
+    authorization = verify_aic_browser_recovery_authorization(root)
+    intents = _read_existing_rows(
+        _phase_ledger_path(root, config, "development", "acquisition_intents"),
+        "intent_id",
+    )
+    histories = _verified_browser_attempt_histories(
+        root, config, authorization, intents
+    )
+    history = histories.get(str(intent["intent_id"]), [])
+    if not history:
+        return None
+    if len(history) == 1:
+        raise Pilot3PhaseAError(
+            "prepared browser recovery has no imported terminal for "
+            + str(intent["canonical_work_id"])
+        )
+    terminal = history[-1]
+    payload = _resolve(root, str(terminal["raw_path"])).read_bytes()
+    return payload, _browser_response_evidence(terminal), terminal
+
+
+def _browser_response_evidence(terminal: Mapping[str, Any]) -> Dict[str, Any]:
+    return {
+        "transport": "darwin_browser_download_wherefroms_import",
+        "browser_attempt_id": terminal["browser_attempt_id"],
+        "browser_start_event_sha256": terminal["start_event_sha256"],
+        "browser_terminal_event_sha256": terminal["event_sha256"],
+        "browser_authorization_sha256": terminal["authorization_sha256"],
+        "where_froms_plist_sha256": terminal["where_froms_plist_sha256"],
+        "where_froms_urls": terminal["where_froms_urls"],
+        "quarantine_xattr_sha256": terminal["quarantine_xattr_sha256"],
+        "quarantine_evidence": terminal["quarantine_evidence"],
+        "download_directory_path": terminal["download_directory_path"],
+        "download_directory_device": terminal["download_directory_stat_at_import"][
+            "device"
+        ],
+        "download_directory_inode": terminal["download_directory_stat_at_import"][
+            "inode"
+        ],
+        "candidate_direct_entry_name": terminal["candidate_direct_entry_name"],
+        "freshness_not_before_wall_time_ns": terminal[
+            "freshness_not_before_wall_time_ns"
+        ],
+        "httpx_success_claimed": False,
+    }
+
+
 def _download_image_bytes(
     root: Path,
     config: Mapping[str, Any],
@@ -1461,7 +3237,10 @@ def _verify_acquisition_http_history(
     ]
     starts = history[::2]
     successful_terminal: Optional[Mapping[str, Any]] = None
-    if expected_intent.get("acquisition_route") == "network":
+    completion_route = row.get("acquisition_completion_route")
+    intent_route = expected_intent.get("acquisition_route")
+    browser_terminal: Optional[Mapping[str, Any]] = None
+    if intent_route == "network" and completion_route == "httpx_get":
         if not history or history[-1].get("outcome") != "success":
             raise Pilot3PhaseAError("network acquisition lacks a successful HTTP history")
         successful_terminal = history[-1]
@@ -1474,14 +3253,76 @@ def _verify_acquisition_http_history(
             != _response_evidence_from_terminal(successful_terminal)
         ):
             raise Pilot3PhaseAError("network acquisition disagrees with HTTP success evidence")
-    elif expected_intent.get("acquisition_route") == "prior_local_reproduction":
+    elif (
+        intent_route in {"network", "browser_recovery"}
+        and completion_route == "browser_download_import"
+    ):
+        if intent_route == "network":
+            if (
+                len(history) != 2
+                or history[-1].get("outcome") != "http_status_failure"
+                or history[-1].get("http_status") != 403
+            ):
+                raise Pilot3PhaseAError(
+                    "trigger browser acquisition must retain its exact failed HTTP history"
+                )
+        elif history:
+            raise Pilot3PhaseAError(
+                "first-route browser acquisition unexpectedly has HTTP attempts"
+            )
+        authorization = verify_aic_browser_recovery_authorization(root)
+        browser_histories = _verified_browser_attempt_histories(
+            root, config, authorization, intents
+        )
+        browser_history = browser_histories.get(str(expected_intent["intent_id"]), [])
+        if len(browser_history) != 2:
+            raise Pilot3PhaseAError("browser acquisition lacks a completed browser attempt")
+        browser_terminal = browser_history[-1]
+        if (
+            browser_terminal.get("raw_path") != row.get("raw_path")
+            or browser_terminal.get("raw_sha256") != row.get("raw_sha256")
+            or browser_terminal.get("raw_byte_count") != row.get("raw_byte_count")
+            or row.get("response_evidence")
+            != _browser_response_evidence(browser_terminal)
+            or row.get("browser_attempt_id")
+            != browser_terminal.get("browser_attempt_id")
+            or row.get("browser_terminal_event_sha256")
+            != browser_terminal.get("event_sha256")
+            or row.get("browser_authorization_sha256")
+            != browser_terminal.get("authorization_sha256")
+        ):
+            raise Pilot3PhaseAError(
+                "browser acquisition disagrees with browser terminal evidence"
+            )
+    elif intent_route == "prior_local_reproduction" and completion_route == (
+        "prior_local_reproduction"
+    ):
         if history:
             raise Pilot3PhaseAError("prior-local acquisition unexpectedly has HTTP attempts")
         response = row.get("response_evidence")
         if not isinstance(response, Mapping) or response.get("technical_attempt_count") != 0:
             raise Pilot3PhaseAError("prior-local acquisition has stale response evidence")
     else:
-        raise Pilot3PhaseAError("acquisition intent has an unknown route")
+        raise Pilot3PhaseAError("acquisition intent/completion route combination is unknown")
+    expected_browser_binding = {
+        "browser_attempt_id": (
+            browser_terminal["browser_attempt_id"]
+            if browser_terminal is not None
+            else None
+        ),
+        "browser_terminal_event_sha256": (
+            browser_terminal["event_sha256"]
+            if browser_terminal is not None
+            else None
+        ),
+        "browser_authorization_sha256": (
+            browser_terminal["authorization_sha256"]
+            if browser_terminal is not None
+            else None
+        ),
+    }
+    if any(row.get(key) != value for key, value in expected_browser_binding.items()):
+        raise Pilot3PhaseAError("acquisition browser-attempt binding is stale")
     expected_binding = {
         "http_attempt_ids": [str(start["attempt_id"]) for start in starts],
         "http_attempt_count": len(starts),
@@ -1603,6 +3444,145 @@ def _acquisition_phase_lock(root: Path, phase: str) -> Iterator[None]:
         os.close(descriptor)
 
 
+def _materialize_real_acquisition(
+    root: Path,
+    config: Mapping[str, Any],
+    split: Mapping[str, Any],
+    intent: Mapping[str, Any],
+    payload: bytes,
+    response_evidence: Mapping[str, Any],
+    http_history: Sequence[Mapping[str, Any]],
+    *,
+    acquisition_completion_route: str,
+    browser_terminal: Optional[Mapping[str, Any]],
+    external_unseal_token: Optional[str],
+    external_unseal_receipt_sha256: Optional[str],
+) -> Dict[str, Any]:
+    """Create one canonical acquisition row from its already-durable byte transport."""
+
+    phase = "external" if split["partition"] == EXTERNAL_PARTITION else "development"
+    acquisition_path = _phase_ledger_path(root, config, phase, "acquisitions")
+    acquisitions = _read_existing_rows(acquisition_path, "canonical_work_id")
+    work_id = str(split["canonical_work_id"])
+    existing = acquisitions.get(work_id)
+    if existing is not None:
+        _verify_existing_acquisition(
+            existing,
+            root,
+            split,
+            config,
+            external_unseal_token,
+            expected_external_receipt_sha256=external_unseal_receipt_sha256,
+        )
+        return existing
+    decode, normalized = _decode_and_normalize(
+        payload,
+        config,
+        expected_width=int(split["delivery_width"]),
+        expected_height=int(split["delivery_height"]),
+    )
+    raw_sha = hash_bytes(payload)
+    normalized_sha = hash_bytes(normalized)
+    raw_path = _resolve(root, config["paths"]["raw_dir"]) / raw_sha[:2] / f"{raw_sha}.bin"
+    normalized_path = (
+        _resolve(root, config["paths"]["normalized_dir"])
+        / normalized_sha[:2]
+        / f"{normalized_sha}.png"
+    )
+    for path, content, digest in (
+        (raw_path, payload, raw_sha),
+        (normalized_path, normalized, normalized_sha),
+    ):
+        if path.exists() and hash_file(path) != digest:
+            raise Pilot3PhaseAError(f"acquisition CAS collision at {path}")
+        if not path.exists():
+            _atomic_bytes(path, content)
+    successful_http_terminal = (
+        http_history[-1]
+        if http_history and http_history[-1].get("outcome") == "success"
+        else None
+    )
+    record_payload = {
+        "record_type": "pilot3_real_acquisition",
+        "schema_version": "1.0",
+        "canonical_work_id": work_id,
+        "artist_id": split["artist_id"],
+        "asset_provider": split["asset_provider"],
+        "collection_block_id": split["collection_block_id"],
+        "museum_accession": split["museum_accession"],
+        "source_id": split["source_id"],
+        "source_object_id": split["source_object_id"],
+        "partition": split["partition"],
+        "intent_id": intent["intent_id"],
+        "acquisition_route": intent["acquisition_route"],
+        "acquisition_completion_route": acquisition_completion_route,
+        "image_url": split["image_url"],
+        "source_url": split["source_url"],
+        "delivery_width": split["delivery_width"],
+        "delivery_height": split["delivery_height"],
+        "phase_a_config_file_sha256": hash_file(_resolve(root, DEFAULT_CONFIG)),
+        "external_protocol_result_sha256": (
+            external_unseal_token if phase == "external" else None
+        ),
+        "external_unseal_receipt_sha256": external_unseal_receipt_sha256,
+        "raw_path": _portable(raw_path, root),
+        "raw_sha256": raw_sha,
+        "raw_byte_count": len(payload),
+        "normalized_path": _portable(normalized_path, root),
+        "normalized_sha256": normalized_sha,
+        "normalized_byte_count": len(normalized),
+        "common_preprocessing_config_sha256": stable_hash(
+            config["common_preprocessing"]
+        ),
+        "http_attempt_ids": [
+            str(event["attempt_id"])
+            for event in http_history
+            if event["event_type"] == "start"
+        ],
+        "http_attempt_count": len(http_history) // 2,
+        "http_attempt_event_count": len(http_history),
+        "http_attempt_history_semantic_sha256": stable_hash(list(http_history)),
+        "successful_http_attempt_id": (
+            successful_http_terminal["attempt_id"]
+            if successful_http_terminal is not None
+            else None
+        ),
+        "successful_http_terminal_event_sha256": (
+            successful_http_terminal["event_sha256"]
+            if successful_http_terminal is not None
+            else None
+        ),
+        "browser_attempt_id": (
+            browser_terminal["browser_attempt_id"]
+            if browser_terminal is not None
+            else None
+        ),
+        "browser_terminal_event_sha256": (
+            browser_terminal["event_sha256"]
+            if browser_terminal is not None
+            else None
+        ),
+        "browser_authorization_sha256": (
+            browser_terminal["authorization_sha256"]
+            if browser_terminal is not None
+            else None
+        ),
+        **decode,
+        "response_evidence": dict(response_evidence),
+    }
+    record = _self_hash(record_payload, "record_sha256")
+    _append_jsonl_fsync(acquisition_path, record)
+    _verify_existing_acquisition(
+        record,
+        root,
+        split,
+        config,
+        external_unseal_token,
+        expected_external_receipt_sha256=external_unseal_receipt_sha256,
+    )
+    return record
+
+
 def acquire_real_partition(
     root: Path,
     *,
@@ -1693,7 +3673,6 @@ def _acquire_real_partition_locked(
 
     for split in splits:
         work_id = str(split["canonical_work_id"])
-        partition = str(split["partition"])
         if work_id in acquisitions:
             _verify_existing_acquisition(
                 acquisitions[work_id],
@@ -1705,7 +3684,12 @@ def _acquire_real_partition_locked(
             )
             continue
 
-        acquisition_route = "network"
+        existing_intent = intents_by_work.get(work_id)
+        acquisition_route = (
+            str(existing_intent["acquisition_route"])
+            if existing_intent is not None
+            else "network"
+        )
         prior_path: Optional[Path] = None
         prior_expected_sha: Optional[str] = None
         prior_pointer_path = split.get("prior_local_reproduction_path")
@@ -1734,7 +3718,6 @@ def _acquire_real_partition_locked(
             external_unseal_receipt_sha256=external_receipt_sha256,
         )
         intent_id = str(intent["intent_id"])
-        existing_intent = intents_by_work.get(work_id)
         if existing_intent is not None and existing_intent != intent:
             raise Pilot3PhaseAError(
                 f"durable acquisition intent changed or its route drifted: {work_id}"
@@ -1744,6 +3727,7 @@ def _acquire_real_partition_locked(
             intents[intent_id] = intent
             intents_by_work[work_id] = intent
 
+        browser_terminal: Optional[Mapping[str, Any]] = None
         if prior_path is not None:
             payload = prior_path.read_bytes()
             if hash_bytes(payload) != prior_expected_sha:
@@ -1762,84 +3746,42 @@ def _acquire_real_partition_locked(
                 raise Pilot3PhaseAError(
                     f"prior-local acquisition has recorded HTTP attempts: {work_id}"
                 )
+            completion_route = "prior_local_reproduction"
         else:
-            payload, response_evidence, http_history = _download_image_bytes(
-                root, config, phase, intent
+            browser_recovery = (
+                _browser_recovery_for_intent(root, config, intent)
+                if phase == "development" and split["source_id"] == "aic"
+                else None
             )
+            if browser_recovery is not None:
+                payload, response_evidence, browser_terminal = browser_recovery
+                http_history = _verified_http_attempt_histories(
+                    root, config, phase, intents
+                )[intent_id]
+                completion_route = "browser_download_import"
+            else:
+                if acquisition_route == "browser_recovery":
+                    raise Pilot3PhaseAError(
+                        "first-route browser intent has no completed recovery terminal"
+                    )
+                payload, response_evidence, http_history = _download_image_bytes(
+                    root, config, phase, intent
+                )
+                completion_route = "httpx_get"
 
-        decode, normalized = _decode_and_normalize(
-            payload,
+        record = _materialize_real_acquisition(
+            root,
             config,
-            expected_width=int(split["delivery_width"]),
-            expected_height=int(split["delivery_height"]),
+            split,
+            intent,
+            payload,
+            response_evidence,
+            http_history,
+            acquisition_completion_route=completion_route,
+            browser_terminal=browser_terminal,
+            external_unseal_token=external_unseal_token,
+            external_unseal_receipt_sha256=external_receipt_sha256,
         )
-        raw_sha = hash_bytes(payload)
-        normalized_sha = hash_bytes(normalized)
-        raw_path = _resolve(root, paths["raw_dir"]) / raw_sha[:2] / f"{raw_sha}.bin"
-        normalized_path = (
-            _resolve(root, paths["normalized_dir"])
-            / normalized_sha[:2]
-            / f"{normalized_sha}.png"
-        )
-        if raw_path.exists() and hash_file(raw_path) != raw_sha:
-            raise Pilot3PhaseAError(f"raw content-address collision at {raw_path}")
-        if normalized_path.exists() and hash_file(normalized_path) != normalized_sha:
-            raise Pilot3PhaseAError(f"PNG content-address collision at {normalized_path}")
-        if not raw_path.exists():
-            _atomic_bytes(raw_path, payload)
-        if not normalized_path.exists():
-            _atomic_bytes(normalized_path, normalized)
-
-        record_payload = {
-            "record_type": "pilot3_real_acquisition",
-            "schema_version": "1.0",
-            "canonical_work_id": work_id,
-            "artist_id": split["artist_id"],
-            "asset_provider": split["asset_provider"],
-            "collection_block_id": split["collection_block_id"],
-            "museum_accession": split["museum_accession"],
-            "source_id": split["source_id"],
-            "source_object_id": split["source_object_id"],
-            "partition": partition,
-            "intent_id": intent_id,
-            "acquisition_route": acquisition_route,
-            "image_url": split["image_url"],
-            "source_url": split["source_url"],
-            "delivery_width": split["delivery_width"],
-            "delivery_height": split["delivery_height"],
-            "phase_a_config_file_sha256": config_sha,
-            "external_protocol_result_sha256": (
-                external_unseal_token if phase == "external" else None
-            ),
-            "external_unseal_receipt_sha256": external_receipt_sha256,
-            "raw_path": _portable(raw_path, root),
-            "raw_sha256": raw_sha,
-            "raw_byte_count": len(payload),
-            "normalized_path": _portable(normalized_path, root),
-            "normalized_sha256": normalized_sha,
-            "normalized_byte_count": len(normalized),
-            "common_preprocessing_config_sha256": stable_hash(
-                config["common_preprocessing"]
-            ),
-            "http_attempt_ids": [
-                str(event["attempt_id"])
-                for event in http_history
-                if event["event_type"] == "start"
-            ],
-            "http_attempt_count": len(http_history) // 2,
-            "http_attempt_event_count": len(http_history),
-            "http_attempt_history_semantic_sha256": stable_hash(http_history),
-            "successful_http_attempt_id": (
-                http_history[-1]["attempt_id"] if http_history else None
-            ),
-            "successful_http_terminal_event_sha256": (
-                http_history[-1]["event_sha256"] if http_history else None
-            ),
-            **decode,
-            "response_evidence": response_evidence,
-        }
-        record = _self_hash(record_payload, "record_sha256")
-        _append_jsonl_fsync(acquisition_path, record)
         acquisitions[work_id] = record
 
     result = [acquisitions[str(row["canonical_work_id"])] for row in splits]
@@ -2350,6 +4292,11 @@ def _closure_paths(config: Mapping[str, Any]) -> List[str]:
         "reports/pilot_3/evidence/holdout_seal.json",
         "reports/pilot_3/evidence/lee_replication.json",
         "reports/pilot_3/evidence/human_validation_disposition.json",
+        str(BROWSER_RECOVERY_AUTHORIZATION_PATH),
+        str(BROWSER_RECOVERY_LEDGER_PATH),
+        str(BROWSER_DIRECTORY_INTENT_LEDGER_PATH),
+        str(BROWSER_RECOVERY_AMENDMENT_PATH),
+        str(BROWSER_RECOVERY_SCRIPT_PATH),
         "docs/PILOT_3_PROTOCOL.md",
         "src/latent_art_bench/io.py",
         "src/latent_art_bench/features/learned_formal.py",
@@ -2424,6 +4371,14 @@ def _selected_feature_rows(
     for split in split_rows:
         work_id = str(split["canonical_work_id"])
         feature = feature_rows[work_id]
+        if split["partition"] in DEVELOPMENT_PARTITIONS:
+            _verify_existing_acquisition(
+                acquisition_rows[work_id],
+                root,
+                split,
+                config,
+                None,
+            )
         _verify_feature(feature, acquisition_rows[work_id], split, config)
         result.append(feature)
     return sorted(result, key=lambda row: str(row["canonical_work_id"]))

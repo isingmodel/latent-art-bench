@@ -1,6 +1,10 @@
 from __future__ import annotations
 
+import copy
 import io
+import os
+import plistlib
+import time
 from pathlib import Path
 from typing import Iterator
 
@@ -9,7 +13,14 @@ import numpy as np
 import pytest
 from PIL import Image
 
-from latent_art_bench.io import canonical_json, hash_bytes, read_json, stable_hash, write_json
+from latent_art_bench.io import (
+    canonical_json,
+    hash_bytes,
+    read_json,
+    read_jsonl,
+    stable_hash,
+    write_json,
+)
 from latent_art_bench.pilot3.phasea import (
     _EXTRACTION_RUNTIME_KEYS,
     EXPECTED_ARTISTS,
@@ -17,24 +28,36 @@ from latent_art_bench.pilot3.phasea import (
     EXTERNAL_SOURCE,
     Pilot3PhaseAError,
     _acquisition_phase_lock,
+    _aic_development_splits,
     _append_jsonl_fsync,
+    _browser_attempt_start,
+    _browser_attempt_terminal,
     _closure_paths,
     _decode_and_normalize,
+    _directory_stat_evidence,
     _download_image_bytes,
     _external_transaction_lock,
+    _file_bindings,
     _freeze_a1_closure_paths,
     _holm_checks,
     _http_attempt_start,
+    _parse_where_froms_binary_plist,
     _permutation_p_values,
     _read_canonical_http_attempt_events,
+    _read_completed_browser_file,
+    _selected_feature_rows,
     _self_hash,
     _single_runtime_environment,
+    _validate_browser_attempt_terminal,
+    _verified_browser_attempt_histories,
     _verified_http_attempt_histories,
     _verify_acquisition_http_history,
     _write_exclusive_json,
     evaluate_external_holdout,
+    import_aic_browser_recovery_directory,
     load_phase_a_config,
     load_real_splits,
+    prepare_aic_browser_recovery,
     require_development_freeze,
     validate_real_splits,
     verify_a_vector_protocol,
@@ -117,6 +140,53 @@ def _attempt_fixture(tmp_path: Path) -> tuple[dict, dict]:
     }
     _append_jsonl_fsync(tmp_path / "intents.jsonl", intent)
     return config, intent
+
+
+def _browser_integration_fixture(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> tuple[dict, dict, dict]:
+    config = copy.deepcopy(load_phase_a_config(ROOT))
+    config["paths"] = {
+        **config["paths"],
+        "development_acquisition_intents": "artifacts/intents.jsonl",
+        "development_acquisition_attempts": "artifacts/http.jsonl",
+        "development_acquisitions": "artifacts/acquisitions.jsonl",
+        "raw_dir": "artifacts/raw",
+        "normalized_dir": "artifacts/normalized",
+    }
+    canonical_config = tmp_path / "configs/pilot_3/phase_a.json"
+    canonical_config.parent.mkdir(parents=True)
+    canonical_config.write_text("{}\n", encoding="utf-8")
+    split = {
+        "canonical_work_id": "work-aic-test",
+        "artist_id": "alfred_sisley",
+        "asset_provider": "Art Institute of Chicago IIIF",
+        "collection_block_id": "aic",
+        "museum_accession": "test.1",
+        "source_id": "aic",
+        "source_object_id": "test",
+        "partition": "development_training",
+        "source_url": "https://www.artic.edu/artworks/test",
+        "image_url": (
+            "https://www.artic.edu/iiif/2/frozen/full/640,512/0/default.jpg"
+        ),
+        "delivery_width": 640,
+        "delivery_height": 512,
+    }
+    authorization = {"authorization_sha256": "a" * 64}
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.verify_aic_browser_recovery_authorization",
+        lambda *_args, **_kwargs: authorization,
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.load_phase_a_config",
+        lambda *_args, **_kwargs: config,
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea._aic_development_splits",
+        lambda *_args, **_kwargs: [split],
+    )
+    return config, split, authorization
 
 
 def _response(status: int, content: bytes, content_type: str) -> httpx.Response:
@@ -227,11 +297,405 @@ def test_canonical_external_split_binds_namespaced_roster_ids() -> None:
     assert {row["source_object_id"] for row in external} == expected_ids
 
 
+def test_aic_browser_recovery_scope_is_only_exact_development_urls() -> None:
+    config = load_phase_a_config(ROOT)
+    rows = _aic_development_splits(ROOT, config)
+
+    assert len(rows) == 20
+    assert {row["source_id"] for row in rows} == {"aic"}
+    assert {row["asset_provider"] for row in rows} == {
+        "Art Institute of Chicago IIIF"
+    }
+    assert all(row["partition"].startswith("development_") for row in rows)
+    assert all(
+        row["image_url"].startswith("https://www.artic.edu/iiif/2/")
+        and row["image_url"].endswith("/default.jpg")
+        for row in rows
+    )
+
+
+def test_where_froms_parser_requires_a_bounded_binary_url_array() -> None:
+    url = "https://www.artic.edu/iiif/2/frozen/full/900,700/0/default.jpg"
+    payload = plistlib.dumps([url, url], fmt=plistlib.FMT_BINARY, sort_keys=False)
+
+    assert _parse_where_froms_binary_plist(payload) == [url, url]
+    with pytest.raises(Pilot3PhaseAError, match="binary plist"):
+        _parse_where_froms_binary_plist(
+            plistlib.dumps([url], fmt=plistlib.FMT_XML, sort_keys=False)
+        )
+    with pytest.raises(Pilot3PhaseAError, match="URL array"):
+        _parse_where_froms_binary_plist(
+            plistlib.dumps({"url": url}, fmt=plistlib.FMT_BINARY, sort_keys=False)
+        )
+
+
+def test_browser_file_reads_xattr_and_jpeg_from_same_nofollow_fd(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    config = load_phase_a_config(ROOT)
+    buffer = io.BytesIO()
+    Image.new("RGB", (640, 512), (20, 40, 60)).save(buffer, format="JPEG")
+    source = tmp_path / "default.jpg"
+    source.write_bytes(buffer.getvalue())
+    exact_url = (
+        "https://www.artic.edu/iiif/2/frozen/full/640,512/0/default.jpg"
+    )
+    raw_xattr = plistlib.dumps(
+        [exact_url, exact_url], fmt=plistlib.FMT_BINARY, sort_keys=False
+    )
+    observed_descriptors: list[int] = []
+
+    def fake_fgetxattr(descriptor: int, name: str) -> bytes:
+        assert name == "com.apple.metadata:kMDItemWhereFroms"
+        os.fstat(descriptor)
+        observed_descriptors.append(descriptor)
+        return raw_xattr
+
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea._fgetxattr_bytes", fake_fgetxattr
+    )
+    payload, observed_xattr, urls, source_stat, decode, normalized = (
+        _read_completed_browser_file(
+            source,
+            config,
+            {
+                "image_url": exact_url,
+                "delivery_width": 640,
+                "delivery_height": 512,
+            },
+        )
+    )
+
+    assert observed_descriptors
+    assert payload == buffer.getvalue()
+    assert observed_xattr == raw_xattr
+    assert urls == [exact_url, exact_url]
+    assert source_stat["size"] == len(payload)
+    assert decode["decoded_format"] == "jpeg"
+    assert decode["decoded_width"] == 640
+    assert normalized.startswith(b"\x89PNG\r\n\x1a\n")
+
+    link = tmp_path / "linked.jpg"
+    link.symlink_to(source)
+    with pytest.raises(Pilot3PhaseAError, match="non-symlink"):
+        _read_completed_browser_file(
+            link,
+            config,
+            {
+                "image_url": exact_url,
+                "delivery_width": 640,
+                "delivery_height": 512,
+            },
+        )
+
+
+def test_browser_attempt_terminal_binds_start_prefix_xattr_and_cas(
+    tmp_path: Path,
+) -> None:
+    config = load_phase_a_config(ROOT)
+    config["paths"] = {
+        **config["paths"],
+        "raw_dir": "raw",
+        "normalized_dir": "normalized",
+    }
+    exact_url = (
+        "https://www.artic.edu/iiif/2/frozen/full/640,512/0/default.jpg"
+    )
+    split = {
+        "canonical_work_id": "work-aic-test",
+        "artist_id": "alfred_sisley",
+        "asset_provider": "Art Institute of Chicago IIIF",
+        "source_id": "aic",
+        "partition": "development_training",
+        "source_url": "https://www.artic.edu/artworks/test",
+        "image_url": exact_url,
+        "delivery_width": 640,
+        "delivery_height": 512,
+    }
+    intent = {
+        "intent_id": "p3-real-intent-browser-test",
+        "canonical_work_id": split["canonical_work_id"],
+        "acquisition_route": "browser_recovery",
+        "image_url": exact_url,
+    }
+    authorization = {"authorization_sha256": "a" * 64}
+    download_directory = tmp_path / "download"
+    download_directory.mkdir()
+    directory_identity = {
+        "authorization_sha256": authorization["authorization_sha256"],
+        "canonical_work_id": split["canonical_work_id"],
+        "download_directory_path": str(download_directory),
+    }
+    directory_intent = _self_hash(
+        {
+            "directory_intent_id": (
+                f"p3-browser-dir-{stable_hash(directory_identity)[:24]}"
+            ),
+            **directory_identity,
+        },
+        "record_sha256",
+    )
+    start_wall_time_ns = time.time_ns()
+    start = _browser_attempt_start(
+        authorization=authorization,
+        split=split,
+        intent=intent,
+        directory_intent=directory_intent,
+        download_directory_stat=_directory_stat_evidence(download_directory.stat()),
+        start_not_before_wall_time_ns=start_wall_time_ns,
+        start_not_before_monotonic_ns=time.monotonic_ns(),
+        event_sequence=1,
+        previous_event_sha256=None,
+        prior_events=[],
+    )
+    buffer = io.BytesIO()
+    Image.new("RGB", (640, 512), (80, 100, 120)).save(buffer, format="JPEG")
+    payload = buffer.getvalue()
+    decode, normalized = _decode_and_normalize(
+        payload, config, expected_width=640, expected_height=512
+    )
+    raw_sha = hash_bytes(payload)
+    normalized_sha = hash_bytes(normalized)
+    raw_path = tmp_path / "raw" / raw_sha[:2] / f"{raw_sha}.bin"
+    normalized_path = (
+        tmp_path / "normalized" / normalized_sha[:2] / f"{normalized_sha}.png"
+    )
+    raw_path.parent.mkdir(parents=True)
+    normalized_path.parent.mkdir(parents=True)
+    raw_path.write_bytes(payload)
+    normalized_path.write_bytes(normalized)
+    source = download_directory / "default.jpg"
+    source.write_bytes(payload)
+    raw_xattr = plistlib.dumps(
+        [exact_url], fmt=plistlib.FMT_BINARY, sort_keys=False
+    )
+    opened = _directory_stat_evidence(source.stat())
+    raw_quarantine = (
+        f"0281;{start_wall_time_ns // 1_000_000_000:08x};;"
+        "5A0245E5-C0F0-4870-AEE3-CF5F1D34B8CB"
+    ).encode("ascii")
+    terminal = _browser_attempt_terminal(
+        start,
+        source_file=source,
+        source_file_stat=opened,
+        raw_xattr=raw_xattr,
+        where_froms_urls=[exact_url],
+        raw_quarantine_xattr=raw_quarantine,
+        quarantine_evidence={
+            "flags_hex": "0281",
+            "download_time_unix_seconds": start_wall_time_ns // 1_000_000_000,
+            "agent": "",
+            "uuid": "5a0245e5-c0f0-4870-aee3-cf5f1d34b8cb",
+        },
+        download_directory_stat_at_import=_directory_stat_evidence(
+            download_directory.stat()
+        ),
+        payload=payload,
+        raw_path=raw_path,
+        decode=decode,
+        normalized=normalized,
+        normalized_path=normalized_path,
+        root=tmp_path,
+        prior_events=[start],
+    )
+
+    _validate_browser_attempt_terminal(tmp_path, config, start, terminal, [start])
+    assert terminal["httpx_success_claimed"] is False
+    assert terminal["expected_ledger_prefix_sha256"] == stable_hash([start])
+
+    tampered = {
+        **terminal,
+        "quarantine_evidence": {
+            **terminal["quarantine_evidence"],
+            "download_time_unix_seconds": 0,
+        },
+    }
+    tampered = _self_hash(tampered, "event_sha256")
+    with pytest.raises(Pilot3PhaseAError, match="quarantine/freshness"):
+        _validate_browser_attempt_terminal(
+            tmp_path, config, start, tampered, [start]
+        )
+
+
+def test_browser_prepare_rejects_a_preexisting_download_directory(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    _config, split, _authorization = _browser_integration_fixture(
+        tmp_path, monkeypatch
+    )
+    download_directory = tmp_path / "downloads" / "attempt"
+    download_directory.mkdir(parents=True)
+    (download_directory / "preexisting.jpg").write_bytes(b"not a fresh download")
+
+    with pytest.raises(Pilot3PhaseAError, match="must not already exist"):
+        prepare_aic_browser_recovery(
+            tmp_path, split["canonical_work_id"], download_directory
+        )
+
+
+def test_browser_prepare_import_and_crash_resume_are_end_to_end(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    config, split, _authorization = _browser_integration_fixture(
+        tmp_path, monkeypatch
+    )
+    download_parent = tmp_path / "downloads"
+    download_parent.mkdir()
+    download_directory = download_parent / "attempt-1"
+    start = prepare_aic_browser_recovery(
+        tmp_path, split["canonical_work_id"], download_directory
+    )
+    assert download_directory.is_dir()
+    assert list(download_directory.iterdir()) == []
+    assert start["download_directory_path"] == str(download_directory)
+
+    buffer = io.BytesIO()
+    Image.new("RGB", (640, 512), (25, 50, 75)).save(buffer, format="JPEG")
+    candidate = download_directory / "default.jpg"
+    candidate.write_bytes(buffer.getvalue())
+    where_froms = plistlib.dumps(
+        [split["image_url"]], fmt=plistlib.FMT_BINARY, sort_keys=False
+    )
+    quarantine_seconds = max(
+        int(time.time()), start["start_not_before_wall_time_ns"] // 1_000_000_000
+    )
+    quarantine = (
+        f"0281;{quarantine_seconds:08x};;"
+        "5A0245E5-C0F0-4870-AEE3-CF5F1D34B8CB"
+    ).encode("ascii")
+
+    def fake_fgetxattr(_descriptor: int, name: str) -> bytes:
+        if name == "com.apple.metadata:kMDItemWhereFroms":
+            return where_froms
+        if name == "com.apple.quarantine":
+            return quarantine
+        raise AssertionError(name)
+
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea._fgetxattr_bytes", fake_fgetxattr
+    )
+    materialized: list[str] = []
+
+    def fake_materialize(
+        _root: Path,
+        _config: dict,
+        row: dict,
+        *_args: object,
+        **_kwargs: object,
+    ) -> dict:
+        materialized.append(str(row["canonical_work_id"]))
+        return {
+            "canonical_work_id": row["canonical_work_id"],
+            "record_sha256": "b" * 64,
+        }
+
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea._materialize_real_acquisition",
+        fake_materialize,
+    )
+    first = import_aic_browser_recovery_directory(tmp_path, download_directory)
+    assert first[0]["canonical_work_id"] == split["canonical_work_id"]
+    ledger = tmp_path / "artifacts/pilot_3/development_browser_recoveries.jsonl"
+    assert [row["event_type"] for row in read_jsonl(ledger)] == ["start", "terminal"]
+
+    # Simulate a crash after terminal persistence but before durable acquisition materialization:
+    # re-importing the unchanged bound file must not append another terminal.
+    second = import_aic_browser_recovery_directory(tmp_path, download_directory)
+    assert second == first
+    assert len(read_jsonl(ledger)) == 2
+    assert materialized == [split["canonical_work_id"], split["canonical_work_id"]]
+    assert config["paths"]["development_acquisition_attempts"] == "artifacts/http.jsonl"
+
+
+def test_browser_journal_rejects_two_unmatched_starts(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    config, split, authorization = _browser_integration_fixture(
+        tmp_path, monkeypatch
+    )
+    download_parent = tmp_path / "downloads"
+    download_parent.mkdir()
+    download_directory = download_parent / "attempt-1"
+    first = prepare_aic_browser_recovery(
+        tmp_path, split["canonical_work_id"], download_directory
+    )
+    ledger = tmp_path / "artifacts/pilot_3/development_browser_recoveries.jsonl"
+    forged = {
+        **first,
+        "event_sequence": 2,
+        "previous_event_sha256": first["event_sha256"],
+        "expected_ledger_prefix_sha256": stable_hash([first]),
+    }
+    forged = _self_hash(forged, "event_sha256")
+    _append_jsonl_fsync(ledger, forged)
+    intents = {
+        row["intent_id"]: row
+        for row in read_jsonl(tmp_path / "artifacts/intents.jsonl")
+    }
+    with pytest.raises(Pilot3PhaseAError, match="multiple unmatched starts"):
+        _verified_browser_attempt_histories(
+            tmp_path, config, authorization, intents
+        )
+
+
+def test_p3_t07_closure_requires_all_browser_recovery_evidence(
+    tmp_path: Path,
+) -> None:
+    config = load_phase_a_config(ROOT)
+    closure = set(_closure_paths(config))
+    required = {
+        "reports/pilot_3/evidence/aic_browser_recovery_authorization.json",
+        "artifacts/pilot_3/development_browser_directory_intents.jsonl",
+        "artifacts/pilot_3/development_browser_recoveries.jsonl",
+        "docs/PILOT_3_AIC_BROWSER_RECOVERY.md",
+        "scripts/import_pilot3_browser_acquisition.py",
+    }
+    assert required.issubset(closure)
+    with pytest.raises(Pilot3PhaseAError, match="closure path is missing"):
+        _file_bindings(tmp_path, required)
+
+
+def test_p3_t07_feature_selection_reverifies_acquisition_provenance(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    split = {
+        "canonical_work_id": "work-aic-test",
+        "partition": "development_training",
+    }
+    acquisition = {"canonical_work_id": "work-aic-test"}
+    feature = {"canonical_work_id": "work-aic-test"}
+    calls: list[str] = []
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea.load_real_splits",
+        lambda *_args: [split],
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea._combined_phase_rows",
+        lambda _root, _config, kind, *_args: {
+            "work-aic-test": feature if kind == "features" else acquisition
+        },
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea._verify_existing_acquisition",
+        lambda *_args, **_kwargs: calls.append("acquisition"),
+    )
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea._verify_feature",
+        lambda *_args, **_kwargs: calls.append("feature"),
+    )
+
+    assert _selected_feature_rows(
+        tmp_path, {"paths": {}}, {"development_training"}
+    ) == [feature]
+    assert calls == ["acquisition", "feature"]
+
+
 def test_development_gate_requires_committed_freeze_a1_closure(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     closure = set(_freeze_a1_closure_paths())
     assert {
+        "docs/PILOT_3_AIC_BROWSER_RECOVERY.md",
         "docs/PILOT_3_PROTOCOL.md",
         "configs/pilot_3/generation_authorization.json",
         "src/latent_art_bench/pilot3/analysis.py",
@@ -241,6 +705,7 @@ def test_development_gate_requires_committed_freeze_a1_closure(
         "tests/pilot3/test_design.py",
         "tests/pilot3/test_feasibility.py",
         "tests/pilot3/test_planning.py",
+        "scripts/import_pilot3_browser_acquisition.py",
         "configs/pilot_3/external_museum_blocks.json",
     }.issubset(closure)
     monkeypatch.setattr(
@@ -658,6 +1123,7 @@ def test_acquisition_record_must_bind_exact_http_attempt_history(
         "partition": "development_training",
         "intent_id": intent["intent_id"],
         "acquisition_route": "network",
+        "acquisition_completion_route": "httpx_get",
         "raw_path": terminal["raw_path"],
         "raw_sha256": terminal["response_sha256"],
         "raw_byte_count": len(payload),
@@ -668,6 +1134,9 @@ def test_acquisition_record_must_bind_exact_http_attempt_history(
         "http_attempt_history_semantic_sha256": stable_hash(history),
         "successful_http_attempt_id": terminal["attempt_id"],
         "successful_http_terminal_event_sha256": terminal["event_sha256"],
+        "browser_attempt_id": None,
+        "browser_terminal_event_sha256": None,
+        "browser_authorization_sha256": None,
     }
     _verify_acquisition_http_history(row, tmp_path, config, intent)
     row["http_attempt_history_semantic_sha256"] = "0" * 64
