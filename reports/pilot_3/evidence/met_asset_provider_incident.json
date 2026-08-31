@@ -1,0 +1,176 @@
+{
+  "record_type": "pilot3_met_asset_provider_incident",
+  "schema_version": "pilot3-met-asset-provider-incident/1.0",
+  "status": "transport_succeeded_but_protocol_ineligible_not_admitted",
+  "detected_at_git_commit": "87b3f230d9429e284bb2896feb076351184d282e",
+  "trigger": {
+    "canonical_work_id": "work-met-435877",
+    "intent_id": "p3-real-intent-63cb52844a5a356db8aad804",
+    "intent_sha256": "5fda750431bdea582f843337b20bb0ddea4987c85d55d6c24a133247a64880da",
+    "http_start_event_sha256": "ce673be507ea8ead6f5e3ecc6ba86916e6782e1237ece02c6b1e76e907171155",
+    "http_terminal_event_sha256": "2895ffddc9d51bd0da21c5da30f59487c7f4a753708fdc580dd1a39d490e42ae",
+    "http_outcome": "success",
+    "raw_path": "artifacts/pilot_3/real_raw/99/9962da1b50b57d9e91c7756ba492a668eb54d0883316137a17ff7e4212f36c39.bin",
+    "raw_sha256": "9962da1b50b57d9e91c7756ba492a668eb54d0883316137a17ff7e4212f36c39",
+    "raw_byte_count": 512912,
+    "decoded_format": "JPEG",
+    "decoded_mode": "RGB",
+    "decoded_width": 1280,
+    "decoded_height": 1037,
+    "frozen_delivery_width": 1024,
+    "frozen_delivery_height": 830,
+    "admission_result": "rejected_before_normalization_or_acquisition_materialization"
+  },
+  "root_cause": {
+    "primary": "all_20_selected_met_rows_bind_wikimedia_commons_delivery_even_though_the_frozen_protocol_requires_exact_official_museum_image_assets_and_forbids_wikimedia_commons_image_bytes",
+    "secondary": "the_metadata_collector_combined_a_wikimedia_1280_pixel_bucket_thumburl_with_the_logical_1024_pixel_thumbwidth_and_thumbheight_returned_for_a_1024_pixel_request",
+    "scope": {
+      "selected_met_row_count": 20,
+      "provider_ineligible_selected_met_row_count": 20,
+      "delivery_geometry_mismatch_selected_met_row_count": 19,
+      "delivery_geometry_match_but_provider_ineligible_canonical_work_id": "work-met-437308",
+      "authoritative_met_row_count": 77,
+      "authoritative_met_geometry_mismatch_count": 76,
+      "included_met_row_count": 42,
+      "included_met_geometry_mismatch_count": 41
+    }
+  },
+  "frozen_protocol_bindings": {
+    "protocol_path": "docs/PILOT_3_PROTOCOL.md",
+    "protocol_file_sha256": "d67f6e72c2a96391e41cc053a945d516869dcc820201519723a1705be36010ff",
+    "protocol_rule": "wikimedia_commons_may_not_supply_pilot3_image_bytes_or_act_as_a_fallback_delivery_path",
+    "planning_report_path": "reports/pilot_3/PLANNING_REPORT.md",
+    "planning_report_file_sha256": "480d3b85eb2af2f91f4fa23f00d19db752ae218577e096542d93d1ca4665ba21",
+    "planning_rule": "a_metadata_rights_acquisition_corruption_input_domain_or_provenance_failure_closes_the_affected_path_and_requires_a_new_untouched_protocol",
+    "corpus_selection_path": "data/manifests/pilot_3/corpus_selection.jsonl",
+    "corpus_selection_file_sha256": "269369976d04431fccd1bc8b60ec7e49733d8a8537a3e38f3a974d61dca3e80a",
+    "authoritative_candidates_path": "configs/pilot_3/metadata/authoritative_candidates.jsonl",
+    "authoritative_candidates_file_sha256": "d421b1df04adac1277f93e12a54d03f59e5f8df74a97ebe96b549ab074041b1d",
+    "authoritative_candidates_row_count": 130,
+    "authoritative_candidates_semantic_sha256": "d7d740e36b6781b136f343e3d3d8d554b751e910cf7e44fd227f735e33e7587b",
+    "real_splits_path": "data/manifests/pilot_3/real_splits.jsonl",
+    "real_splits_file_sha256": "0390c43435176df178a8d0e9b6c2dc407dca5a42acd6353183eb9b6198f4095f",
+    "collector_path": "scripts/collect_pilot3_authoritative_metadata.py",
+    "collector_file_sha256": "83c205f07829277007c160fdb17b7371dc0b93314af863e49a11781020f70a36"
+  },
+  "selected_met_canonical_work_ids": [
+    "work-met-435877",
+    "work-met-435878",
+    "work-met-435879",
+    "work-met-435880",
+    "work-met-435885",
+    "work-met-437299",
+    "work-met-437307",
+    "work-met-437308",
+    "work-met-437310",
+    "work-met-437426",
+    "work-met-437427",
+    "work-met-437431",
+    "work-met-437436",
+    "work-met-437680",
+    "work-met-437682",
+    "work-met-437683",
+    "work-met-437685",
+    "work-met-437686",
+    "work-met-438738",
+    "work-met-459111"
+  ],
+  "preprocessing_scope_failure": {
+    "amendment_path": "reports/pilot_3/evidence/preprocessing_determinism_amendment.json",
+    "amendment_file_sha256": "2aafe9e264b3c9df59734d9fd03737ca86c8f2a2ceaeffe210b3b649ce4c840b",
+    "amendment_authorization_sha256": "4b8617941c934893489d6d3d73ec54b9c6bc57088c2c5d55524ffe972f1fba31",
+    "authorized_scope": "exact_frozen_aic_development_image_urls_only",
+    "incorrect_binding_detected": "the_met_http_start_and_terminal_bind_the_aic_only_amendment_because_runtime_validation_checked_normalization_version_but_not_amendment_target_membership",
+    "disposition": "the_met_events_are_preserved_but_the_amendment_binding_does_not_authorize_admission"
+  },
+  "ledger_checkpoint": {
+    "development_acquisition_intents": {
+      "path": "artifacts/pilot_3/development_acquisition_intents.jsonl",
+      "row_count": 21,
+      "file_sha256": "96e8d5b0b090e1fbbf6faaf7e2bd4651b2a6766bd370ee029d86f3dce03d68b4",
+      "semantic_sha256": "c36c59fce19019a6a4857f318a127f5f5dba7fc24fb2eef3fecf778d0626f865",
+      "last_row_sha256": null
+    },
+    "development_acquisition_http_attempts": {
+      "path": "artifacts/pilot_3/development_acquisition_http_attempts.jsonl",
+      "row_count": 4,
+      "file_sha256": "0b176b377747c5a6dc320e804d8a64d3ed639b25b6a85eca4bc015de20e9a164",
+      "semantic_sha256": "cc10e8a0aedd510e41418ee4167c214edf133b96cd5135cef01694d58c567306",
+      "last_row_sha256": "2895ffddc9d51bd0da21c5da30f59487c7f4a753708fdc580dd1a39d490e42ae"
+    },
+    "development_acquisitions": {
+      "path": "artifacts/pilot_3/development_acquisitions.jsonl",
+      "row_count": 20,
+      "file_sha256": "5fa3f18b8a373fd112f7f2f3a5e7b2b5b40895d943f2e0c3f64a3f0547b54816",
+      "semantic_sha256": "79e2d98be48dd5d37b4bdff4c0153a8ce7ea49878d44fddeaa9be593f6e7f2d1",
+      "last_row_sha256": "fbc00456e80d9fde00d532924ac557ef3967bb17778d0a60f9c24d4c784635d6"
+    },
+    "development_browser_directory_intents": {
+      "path": "artifacts/pilot_3/development_browser_directory_intents.jsonl",
+      "row_count": 20,
+      "file_sha256": "26a6ed1b81130d415e5441f121b44f0eeef350fa94722f12b05028d47501a8e4",
+      "semantic_sha256": "c903e1e09bdbb827d7628f8597f2eacefe16861baec44c380bfd7499f4b06215",
+      "last_row_sha256": "721c283767d5df417029eb3e1956273158ca0a0fff9bcbefa4c5a832a44764a2"
+    },
+    "development_browser_recoveries": {
+      "path": "artifacts/pilot_3/development_browser_recoveries.jsonl",
+      "row_count": 40,
+      "file_sha256": "fe7655935087b7d5d50b28b96d5e389bb69cec426f4e5d47e7d5e08df2e692f8",
+      "semantic_sha256": "a57d004a6bf9e949074cc13b2cda05c64edfa87d302edea091b7c63d113a349b",
+      "last_row_sha256": "9f95640edd7948183d6e9e0d7c4579241c245219f6d272fd2f4f3998ffcd5844"
+    },
+    "development_normalization_revalidations": {
+      "path": "artifacts/pilot_3/development_normalization_revalidations.jsonl",
+      "row_count": 12,
+      "file_sha256": "2eef58f210a04dbad8ffb1cd32ec03387b2120c26823ac664f2a230aacde35b2",
+      "semantic_sha256": "579b2a62720dc4d42951c162116e5150248872ad4ab1bb1f56a9d378f66baca5",
+      "last_row_sha256": "ebc2e64977967d73b37cd9f850997c5eb60c8d43bc751e739fd2874f8a3536d7"
+    }
+  },
+  "state_boundary": {
+    "aic_development_acquisition_count": 20,
+    "met_development_acquisition_count": 0,
+    "met_normalized_artifact_count": 0,
+    "determinism_probe_path": "artifacts/pilot_3/determinism_probes.jsonl",
+    "determinism_probes_exist": false,
+    "development_feature_path": "artifacts/pilot_3/development_a_vectors.jsonl",
+    "development_features_exist": false,
+    "p3_t07_path": "reports/pilot_3/evidence/a_vector_protocol.json",
+    "p3_t07_exists": false,
+    "external_unseal_receipt_path": "artifacts/pilot_3/external_unseal_receipt.json",
+    "external_unseal_receipt_exists": false,
+    "external_acquisition_intents_exist": false,
+    "external_acquisition_attempts_exist": false,
+    "external_acquisitions_exist": false,
+    "external_features_exist": false,
+    "external_result_exists": false,
+    "gpt_image_transport_opened": false,
+    "gpt_image_requests_made": false
+  },
+  "quarantine": {
+    "commons_http_terminal_is_a_valid_transport_success": true,
+    "commons_raw_cas_must_be_preserved": true,
+    "eligible_for_normalization": false,
+    "eligible_for_acquisition_materialization": false,
+    "eligible_for_feature_extraction": false,
+    "eligible_for_retry_or_reuse_in_the_successor_protocol": false
+  },
+  "preservation": {
+    "ledger_rows_rewritten_or_removed": false,
+    "http_terminal_reclassified": false,
+    "raw_cas_removed_or_rewritten": false,
+    "commons_request_retried_after_detection": false,
+    "additional_met_image_network_requests_after_detection": false,
+    "quarantined_raw_re_read_for_programmatic_format_geometry_and_hash_validation": true,
+    "artwork_visually_inspected": false,
+    "feature_extraction_performed": false
+  },
+  "authorization_effect": {
+    "original_freeze_a1_met_delivery_path": "closed",
+    "incident_authorizes_successor_protocol": false,
+    "incident_authorizes_metadata_access": false,
+    "incident_authorizes_image_access": false
+  },
+  "required_resolution": "new_prospectively_committed_official_met_primaryimage_protocol_namespace_with_metadata_only_refreeze_before_any_official_met_image_request_no_commons_fallback_no_replacement_and_full_lineage_into_p3_t07_and_p3_t14",
+  "incident_sha256": "5279df2c0e46b193a855585305b55b69e23f5df80f234940c48efa876e0cbbb7"
+}
