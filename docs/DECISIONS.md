@@ -1,6 +1,12 @@
 # Project Decisions
 
-This file records decisions that define the current research scope. Items may change only through a documented revision.
+> **Historical decision log:** later Pilot 2 and Pilot 3 records supersede this file's
+> “Current evidence” section. See [STATUS.md](STATUS.md) for current operational state. The
+> numbered decisions remain in place as research history rather than being renumbered or
+> rewritten after results.
+
+This file records decisions that defined the research scope at the time they were written.
+They remain historical unless a later pilot record or the current status page supersedes them.
 
 ## Confirmed decisions
 

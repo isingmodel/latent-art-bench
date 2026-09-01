@@ -1,6 +1,9 @@
 # Contributing
 
-LatentArtBench is currently in the research-design and validation stage. Contributions are welcome when they improve methodological clarity, reproducibility, corpus governance, or implementation fidelity.
+LatentArtBench is preparing for a project reboot after the Pilot 3 Met R2 cohort closed.
+Contributions are welcome when they simplify the reusable implementation, improve
+methodological clarity, reproducibility, corpus governance, or implementation fidelity. Read
+the [current status](docs/STATUS.md) before proposing work.
 
 ## Before contributing
 
@@ -36,6 +39,23 @@ A change to a metric, prompt distribution, corpus split, target ontology, evalua
 ## Pull requests
 
 Pull requests should be focused and include a concise validation summary. Documentation-only contributions should verify internal links and references. Code contributions should include tests and a reproducible command or notebook.
+
+The standard offline checks are:
+
+```bash
+uv run --locked ruff check .
+uv run --locked pytest -q -m "not live"
+```
+
+Do not use `pilot2 verify` or `pilot3 verify` as general current-branch health checks; their
+known hash-bound failures are recorded in [the status page](docs/STATUS.md). The standard test
+suite must not make live museum, browser, proxy, or image-generation requests. Any intentionally
+maintained legacy live transport test must use the `live` marker and run only with explicit
+user authorization.
+
+Historical protocols, reports, and append-only ledgers should stay at their existing paths.
+New scientific work must use a new versioned study namespace rather than altering a closed
+pilot.
 
 ## Conduct
 
