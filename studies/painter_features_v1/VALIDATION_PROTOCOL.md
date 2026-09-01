@@ -1,6 +1,6 @@
 # Painter-feature validation protocol
 
-Protocol version: `painter_features_v1/validation/1.3`
+Protocol version: `painter_features_v1/validation/1.4`
 
 Status: prospective design framework; not executable until a separately reviewed freeze artifact
 fixes the corpus, estimators, simulations, SESOIs, thresholds, and terminal actions
@@ -264,11 +264,14 @@ execution-freeze artifact. At minimum, a core painter feature must:
 - satisfy the connected common-support, minimum-count, and fixed-weight invariants;
 - exceed chance/equivalence bounds with multiplicity-controlled uncertainty on work-held-out,
   leave-source-out, leave-content-family-out, and joint leave-source-by-content-out tasks;
-- at every required transfer endpoint, require the simultaneously calibrated lower confidence
-  bound for each target-versus-hard-neighbor margin on the one frozen panel-wide support to exceed
-  that margin's separately frozen positive SESOI (equivalently, require the jointly calibrated
-  panel-worst lower bound to exceed its frozen SESOI); sign retention alone is diagnostic and
-  cannot qualify a coordinate;
+- at every required transfer endpoint (e), require the simultaneously calibrated lower
+  confidence bound for each target-versus-hard-neighbor margin (M_{a,h,e}) on the one frozen
+  panel-wide support to exceed that margin's separately frozen positive SESOI
+  (delta_{a,h,e}). When expressed as one panel statistic, define
+  (T_{a,e}^{panel}=\min_{h\in H_a}\{M_{a,h,e}-\delta_{a,h,e}\}) and require its simultaneously
+  calibrated lower bound to exceed zero. The SESOI is subtracted before taking the minimum, so
+  neighbor-specific margins are not treated as if they shared one threshold. Sign retention alone
+  is diagnostic and cannot qualify a coordinate;
 - show calibrated uncertainty rather than only rank accuracy;
 - add out-of-sample information beyond source/content/medium/date baselines; and
 - avoid a source-prediction advantage that can account for painter performance; and

@@ -8,8 +8,12 @@ Second-pass review: [GitHub comment](https://github.com/isingmodel/latent-art-be
 
 Third-pass review: [GitHub comment](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5489036477)
 
-Response status: third pass requested further changes; all third-pass P1 and P2 revisions are
-implemented locally; closure requires a fourth reviewer inspection of the updated PR
+Fourth-pass review: [GitHub approval](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5489144824)
+
+Response status: fourth pass approved exact head `9561a99f`; all P1 and P2 findings are closed at
+the prospective design-framework level. The one nonblocking P3 notation clarification is
+incorporated in the final closure-only revision; its exact-head confirmation is recorded externally
+on the PR rather than triggering another metadata-only commit.
 
 ## 1. Response policy
 
@@ -47,12 +51,13 @@ external data, or generation services.
 
 | Third-pass finding | Revision | Primary artifacts | Pre-fourth-pass status |
 |---|---|---|---|
-| P1-T1 stale alternate panel and generator rule | Rewrote review 05 around one immutable `target + all hard neighbors` support and weights; prohibited pairwise aggregation; made both worst and lower-tail specificity rules simultaneous; and aligned the six binding plus two mandatory nongating outcomes with the canonical documents. | review 05 | Implemented; fourth-pass verification pending |
-| P1-T2 sign-only real hard-neighbor gate | Replaced sign retention with simultaneous lower confidence bounds above frozen positive SESOIs for every hard-neighbor margin, or the equivalently jointly calibrated panel-worst margin, at every required transfer endpoint. Sign alone is diagnostic. | `VALIDATION_PROTOCOL.md` 1.3 | Implemented; fourth-pass verification pending |
-| P2-T1 confirmatory FDR ambiguity | Restricted FDR to labeled exploratory coordinates that cannot qualify a method or support a project-level claim; all confirmatory selection and success decisions use strong experiment-wide FWER control. | review 05 | Implemented; fourth-pass verification pending |
-| P2-T2 H9 standalone-success ambiguity | Renamed H9 as human prompt-movement evidence for G2 only and prohibited it from establishing canonical fidelity or rescuing a failed binding conjunct. | review 04 | Implemented; fourth-pass verification pending |
-| P2-T3 author labels | Corrected PF023 to Qi, Taeb, and Hughes; corrected PF029 to Redies and Brachmann; and reconciled the Qi/Taeb order in review 01. | `EVIDENCE_MATRIX.csv`; review 01 | Implemented; final identity audit and fourth-pass verification pending |
-| P3 pass provenance | Replaced the single reviewed range with an exact pass table and clarified that exact objects and verdicts are preserved in Git history and linked GitHub comments. | `SKEPTICAL_REVIEW.md` | Implemented |
+| P1-T1 stale alternate panel and generator rule | Rewrote review 05 around one immutable `target + all hard neighbors` support and weights; prohibited pairwise aggregation; made both worst and lower-tail specificity rules simultaneous; and aligned the six binding plus two mandatory nongating outcomes with the canonical documents. | review 05 | Fourth pass verified closed |
+| P1-T2 sign-only real hard-neighbor gate | Replaced sign retention with simultaneous lower confidence bounds above frozen positive SESOIs for every hard-neighbor margin at every required transfer endpoint. Sign alone is diagnostic. Protocol 1.4 additionally defines the adjusted panel statistic `min_h(M_h - delta_h)` for heterogeneous neighbor SESOIs. | `VALIDATION_PROTOCOL.md` 1.4 | Fourth pass verified the P1 closed; P3 notation clarified afterward |
+| P2-T1 confirmatory FDR ambiguity | Restricted FDR to labeled exploratory coordinates that cannot qualify a method or support a project-level claim; all confirmatory selection and success decisions use strong experiment-wide FWER control. | review 05 | Fourth pass verified closed |
+| P2-T2 H9 standalone-success ambiguity | Renamed H9 as human prompt-movement evidence for G2 only and prohibited it from establishing canonical fidelity or rescuing a failed binding conjunct. | review 04 | Fourth pass verified closed |
+| P2-T3 author labels | Corrected PF023 to Qi, Taeb, and Hughes; corrected PF029 to Redies and Brachmann; and reconciled the Qi/Taeb order in review 01. | `EVIDENCE_MATRIX.csv`; review 01 | Fourth pass verified closed |
+| P3 pass provenance | Replaced the single reviewed range with an exact pass table and clarified that exact objects and verdicts are preserved in Git history and linked GitHub comments. | `SKEPTICAL_REVIEW.md` | Fourth pass accepted |
+| P3 heterogeneous-neighbor SESOI notation | Replaced the ambiguous “equivalent panel-worst” phrase with an explicit subtract-before-minimum statistic and applied the same rule to the generated worst and lower-tail summaries. | validation protocol 1.4; review 05; research report 1.4 | Incorporated; narrow exact-head confirmation required |
 
 ## 4. Changed claim boundary
 
@@ -71,18 +76,20 @@ The revision makes the following hierarchy explicit:
 Failure lowers the disposition. Nothing in the revised PR qualifies an actual painter coordinate,
 opens a historical holdout, or authorizes generation.
 
-## 5. Verification required before closure
+## 5. Closure verification record
 
-The following evidence is required before this response can be marked closed:
+The fourth pass independently verified all P1 and P2 closures at exact head `9561a99f`. It also
+rechecked the 138-by-11 matrix, all source and stable identifiers, 102 DOI joins, the 36 non-DOI
+identities, local Markdown links, diff integrity, and Ruff. The approval explicitly states that it
+qualifies no coordinate and authorizes no empirical operation.
 
-- all matrix rows parse and every source ID remains unique;
-- DOI/title/method identities reconcile across matrix, bibliography, and reviews;
-- local Markdown links resolve;
-- prohibited overclaim phrases are absent;
-- `git diff --check`, Ruff, and the full offline test suite pass;
-- the revised commit is pushed to PR #1; and
-- the same skeptical reviewer inspects the revised diff and explicitly reports whether each P1 and
-  P2 finding is closed, narrowed, or still open.
+Local evidence-bearing-workspace QA additionally passed all 490 offline tests. The reviewer's
+isolated exact-commit checkout reported 487 passed and one skipped; its only two failures required
+the intentionally uncommitted historical Lee PDF. That known historical-evidence dependency is
+unrelated to this documentation-only revision and is not “fixed” by committing or replacing the
+ignored evidence byte.
 
-The final verification record and re-review verdict will be appended after those steps; they are
-not predeclared successful.
+The final closure-only commit adds this record and the reviewer's nonblocking heterogeneous-SESOI
+notation. A narrow exact-head confirmation is kept as a public PR comment rather than recursively
+amending this file after every confirmation. The final user report and PR body link that external
+confirmation.

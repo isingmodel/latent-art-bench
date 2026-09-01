@@ -131,13 +131,21 @@ S_{a,h}=D\!\left(Q_a^*,P_h^*(\cdot;A_a^{panel})\right)
        -D\!\left(Q_a^*,P_a^*(\cdot;A_a^{panel})\right),\qquad h\in H_a,
 \]
 
-and retain the full vector. The binding decision requires **both** the panel-worst margin and the
-prespecified lower quantile across eligible content-by-neighbor cells to have simultaneous lower
-confidence bounds above their separately frozen SESOIs. A favorable average, minimum, or quantile
-cannot substitute for the other rule. If only pairwise supports exist, their margins may be
-reported with explicit domains, but they cannot be combined into a panel minimum, lower quantile,
-omnibus specificity decision, or canonical painter-fidelity claim. Broad negatives are diagnostic
-calibrators and never replace a failed hard neighbor.
+and retain the full vector. With neighbor-specific SESOIs (delta_{a,h}) and cell-specific SESOIs
+(delta_{a,h,q}), define the binding adjusted summaries
+
+\[
+T_a^{worst}=\min_{h\in H_a}\{S_{a,h}-\delta_{a,h}\},\qquad
+T_a^{tail}=Q_{\tau}\{S_{a,h,q}-\delta_{a,h,q}\}.
+\]
+
+Both summaries must have simultaneous lower confidence bounds above zero. Subtracting each frozen
+SESOI before the minimum or quantile prevents a panel with heterogeneous thresholds from being
+treated as if it shared one cutoff. A favorable average or one favorable summary cannot substitute
+for the other rule. If only pairwise supports exist, their margins may be reported with explicit
+domains, but they cannot be combined into a panel minimum, lower quantile, omnibus specificity
+decision, or canonical painter-fidelity claim. Broad negatives are diagnostic calibrators and
+never replace a failed hard neighbor.
 
 The named-versus-control prompt effect remains a separate causal estimand under a frozen
 generator, prompt, and seed policy:

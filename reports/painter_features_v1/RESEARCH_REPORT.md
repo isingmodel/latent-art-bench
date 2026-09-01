@@ -1,6 +1,6 @@
 # Painter Features v1: relaunch process and research result
 
-Report version: 1.3
+Report version: 1.4
 
 Report date: 2026-09-01
 
@@ -664,10 +664,13 @@ nested at the source level; selection that sees all sources limits the claim to 
 performance. Confirmatory distributions are standardized over a frozen shared-support nuisance
 distribution rather than silently changing composition by painter.
 
-At every required transfer endpoint, each target-versus-hard-neighbor margin on the immutable
-panel-wide support must have a simultaneously calibrated lower confidence bound above its frozen
-positive SESOI; the equivalent jointly calibrated panel-worst rule is permitted. A merely positive
-point estimate is diagnostic and cannot qualify a painter-associated coordinate.
+At every required transfer endpoint (e), each target-versus-hard-neighbor margin (M_{a,h,e}) on
+the immutable panel-wide support must have a simultaneously calibrated lower confidence bound above
+its frozen positive SESOI (delta_{a,h,e}). A one-number representation is
+(T_{a,e}^{panel}=\min_{h\in H_a}\{M_{a,h,e}-\delta_{a,h,e}\}), whose simultaneously calibrated
+lower bound must exceed zero. The SESOI is subtracted before the minimum, so neighbor-specific
+thresholds are preserved. A merely positive point estimate is diagnostic and cannot qualify a
+painter-associated coordinate.
 
 ### Gate 5 — human convergent and discriminant evidence
 
@@ -950,13 +953,15 @@ The process retained criticism rather than silently editing it away:
 | 1 | `612d09e4..c70589fc` | request changes | [comment](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5488634370) |
 | 2 | `c70589fc..e93a8ece` | request changes | [comment](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5488825142) |
 | 3 | `e93a8ece..f3497b7d` | request changes | [comment](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5489036477) |
+| 4 | `f3497b7d..9561a99f` | approve | [comment](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5489144824) |
 
 The first pass found no basis for treating the package as ready for empirical execution and
 identified the material defects below. By the third pass, the reviewer had verified closure of all
 original and second-pass defects in the authoritative protocols, but found two stale false-positive
-paths and three P2 integrity problems elsewhere in the package. At report version 1.3 those new
-corrections are implemented locally, but **they are not marked closed until the reviewer inspects
-the next exact PR head**.
+paths and three P2 integrity problems elsewhere in the package. Report version 1.3 corrected them;
+the fourth pass verified every P1 and P2 closed and approved exact head `9561a99f` at the
+prospective design-framework level. Report version 1.4 incorporates the reviewer's one nonblocking
+notation clarification without relaxing the approved per-neighbor rule.
 
 | Priority | Skeptical finding | Required disposition | Recorded response before final closure |
 |---|---|---|---|
@@ -988,12 +993,32 @@ revised diff.
 
 | Priority | Third-pass finding | Revision in report version 1.3 | Status |
 |---|---|---|---|
-| P1 | Review 05 retained unstandardized references, worst **or** lower-tail specificity, and an incomplete generated-success rule. | Rewrote it around one immutable target-plus-all-hard-neighbors support/weight system, prohibited pairwise aggregation, required both specificity rules, and used the canonical six binding plus two mandatory nongating outcomes. | Fourth-pass verification pending. |
-| P1 | Validation Gate 4 allowed real painter qualification from sign-only hard-neighbor margins. | Required, at every transfer endpoint, simultaneous lower bounds above frozen positive SESOIs for every neighbor or the jointly calibrated panel-worst margin; sign alone is diagnostic. | Fourth-pass verification pending. |
-| P2 | Review 05 permitted confirmatory FDR. | Reserved FDR for exploratory coordinates that cannot qualify a method or support a project-level claim; retained strong experiment-wide FWER for all confirmatory decisions. | Fourth-pass verification pending. |
-| P2 | Human gate H9 could be read as standalone generative success. | Restricted H9 to human prompt-movement evidence for G2 and stated that it cannot establish canonical fidelity or rescue any failed conjunct. | Fourth-pass verification pending. |
-| P2 | PF023 and PF029 had wrong short-citation author labels. | Corrected them to Qi, Taeb, and Hughes and to Redies and Brachmann, including the corresponding thematic-review label. | Fourth-pass identity verification pending. |
-| P3 | The living skeptical-review file showed only one reviewed range and called its edited prose immutable. | Added an exact pass table and located immutability in Git history and the linked public comments. | Implemented. |
+| P1 | Review 05 retained unstandardized references, worst **or** lower-tail specificity, and an incomplete generated-success rule. | Rewrote it around one immutable target-plus-all-hard-neighbors support/weight system, prohibited pairwise aggregation, required both specificity rules, and used the canonical six binding plus two mandatory nongating outcomes. | Fourth pass verified closed. |
+| P1 | Validation Gate 4 allowed real painter qualification from sign-only hard-neighbor margins. | Required, at every transfer endpoint, simultaneous lower bounds above frozen positive SESOIs for every neighbor; sign alone is diagnostic. | Fourth pass verified closed. |
+| P2 | Review 05 permitted confirmatory FDR. | Reserved FDR for exploratory coordinates that cannot qualify a method or support a project-level claim; retained strong experiment-wide FWER for all confirmatory decisions. | Fourth pass verified closed. |
+| P2 | Human gate H9 could be read as standalone generative success. | Restricted H9 to human prompt-movement evidence for G2 and stated that it cannot establish canonical fidelity or rescue any failed conjunct. | Fourth pass verified closed. |
+| P2 | PF023 and PF029 had wrong short-citation author labels. | Corrected them to Qi, Taeb, and Hughes and to Redies and Brachmann, including the corresponding thematic-review label. | Fourth pass verified closed. |
+| P3 | The living skeptical-review file showed only one reviewed range and called its edited prose immutable. | Added an exact pass table and located immutability in Git history and the linked public comments. | Fourth pass accepted. |
+
+### 18.2 Fourth-pass verdict and nonblocking clarification
+
+The [fourth-pass approval](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5489144824)
+states that no P0-P2 finding remains. It does **not** qualify a coordinate, establish an empirical
+painter feature, or authorize acquisition, extraction, holdout access, transport, or generation.
+
+The reviewer made one P3 notation suggestion: when hard neighbors have different SESOIs, an
+unadjusted minimum margin is not interchangeable with testing every margin against its own
+threshold. The final protocol therefore defines
+
+\[
+T_{a,e}^{panel}=\min_{h\in H_a}\{M_{a,h,e}-\delta_{a,h,e}\}
+\]
+
+and requires its simultaneous lower bound to exceed zero. Review 05 applies the corresponding
+subtract-before-aggregation rule to both generated worst and lower-tail specificity summaries.
+This makes the approved fail-closed rule explicit; it does not weaken it. The final closure-only
+commit receives a narrow exact-head check recorded externally on PR #1 so that recording the check
+does not create an endless sequence of new metadata commits.
 
 ## 19. Quality assurance record
 
@@ -1006,5 +1031,29 @@ At initial report creation:
 - no unresolved drafting marker appeared in the protocols or reviews; and
 - the project remained documentation-only, with no artwork, model, or generated-image operation.
 
-Final whitespace, link, repository, test, PR, and skeptical re-review checks are appended only
-after the review/revision cycle; this report does not predeclare them successful.
+After the fourth-pass approval and final P3 clarification, the evidence-bearing workspace passed:
+
+- `git diff --check` on the closure revision;
+- a valid 138-row, 11-column evidence matrix with 138 unique source IDs and 138 unique stable
+  identifiers;
+- the reconciled review-depth, evidence-grade, and disposition totals;
+- 201 bibliography entries, 201 links, and 201 unique links;
+- all 102 DOI-keyed matrix-to-bibliography joins after URL decoding;
+- the corrected Qi–Taeb–Hughes and Redies–Brachmann identities across the matrix, bibliography,
+  and thematic review;
+- all repository-local Markdown links, with no absolute user path or unresolved drafting marker;
+- targeted assertions for immutable panel support, both hard-neighbor rules, six binding outcomes,
+  exploratory-only FDR, G2-only H9, and subtract-before-aggregation SESOI statistics;
+- `uv run --locked ruff check .`; and
+- `uv run --locked pytest -q -m "not live"`: **490 passed in 53.52 seconds**.
+
+The skeptical reviewer independently passed diff, matrix, identity, DOI, link, and Ruff checks at
+approved head `9561a99f`. Its isolated exact-commit checkout reported 487 passed and one skipped;
+the only two failures required the intentionally uncommitted historical Lee PDF. The local
+evidence-bearing workspace retains that byte and passed all 490 tests. The project does not mask
+the clean-checkout limitation by altering frozen historical evidence or committing the ignored
+PDF.
+
+The final closure commit contains documentation and the nonblocking adjusted-SESOI clarification
+only. Its narrow exact-head reviewer confirmation is kept in the public PR record rather than
+added recursively to this file. No empirical operation occurred during QA or review.

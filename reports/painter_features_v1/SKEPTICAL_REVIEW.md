@@ -9,9 +9,12 @@ Review passes:
 | 1 | `612d09e4..c70589fc` | **request changes** | [comment](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5488634370) |
 | 2 | `c70589fc..e93a8ece` | **request changes** | [comment](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5488825142) |
 | 3 | `e93a8ece..f3497b7d` | **request changes** | [comment](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5489036477) |
+| 4 | `f3497b7d..9561a99f` | **approve** | [comment](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5489144824) |
 
-Review status: three passes complete; all recommended **request changes**; fourth-pass closure
-review pending
+Review status: four passes complete; the fourth **approved** the prospective design framework with
+no remaining P0-P2 finding. Its nonblocking P3 notation clarification is incorporated in the final
+closure-only revision, whose exact-head check is recorded externally on the PR to avoid a recursive
+metadata commit.
 
 Reviewer role: independent skeptical researcher subagent; the reviewer made no project edits
 
@@ -373,3 +376,48 @@ same Qi/Taeb order in the thematic interpretable-feature review.
 The third-pass reviewer also requested this pass-by-pass range table because the previous single
 range did not describe the living review artifact. The reviewer audited committed objects only,
 made no project edits, and required another exact-head review after correction.
+
+## 9. Fourth-pass approval
+
+The same reviewer inspected exact head `9561a99f741e04216279d34183993f25985ac289` and posted an
+[approve verdict](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5489144824).
+No P0, P1, or P2 finding remained. The reviewer verified that:
+
+- review 05 uses one immutable target-plus-all-hard-neighbor support and weight system, prohibits
+  pairwise aggregation, requires both specificity rules, and states the six binding plus two
+  mandatory nongating outcome families;
+- Validation Gate 4 requires simultaneous lower bounds above frozen positive SESOIs for every
+  hard neighbor at every required transfer endpoint, while sign alone is diagnostic;
+- strong experiment-wide FWER governs qualification, winner selection, external confirmation,
+  and generated-success claims, while FDR is exploratory-only;
+- H9 supports only G2 human prompt-movement evidence and cannot establish painter fidelity;
+- PF023 and PF029 author identities reconcile across primary metadata, bibliography, matrix, and
+  thematic review; and
+- the review, response, and report preserve the three request-changes rounds without predeclaring
+  closure.
+
+The approval is strictly at the prospective design-framework level. It qualifies no coordinate,
+establishes no empirical painter feature, and authorizes no acquisition, extraction, holdout
+access, transport, or generation.
+
+### Nonblocking P3 clarification incorporated after approval
+
+The reviewer noted that calling a panel-worst rule “equivalent” to per-neighbor SESOI tests is
+ambiguous when neighbors have different SESOIs. Validation protocol 1.4 and report 1.4 therefore
+define the adjusted panel statistic explicitly:
+
+\[
+T_{a,e}^{panel}=\min_{h\in H_a}\{M_{a,h,e}-\delta_{a,h,e}\},
+\]
+
+with simultaneous uncertainty and a required lower bound above zero. Review 05 applies the same
+subtract-before-aggregation rule to both the generated panel-worst and lower-tail statistics. This
+is a clarification of the already approved fail-closed per-neighbor rule, not a relaxed criterion.
+
+The reviewer's committed-object QA passed diff integrity, the 138-by-11 evidence matrix and source
+identity checks, DOI joins, local Markdown links, and Ruff. In an isolated exact-commit checkout,
+the suite reported 487 passed and one skipped; two failures required an intentionally uncommitted
+historical Lee PDF and were unrelated to the documentation-only revision. In the evidence-bearing
+workspace, where that preserved historical byte exists, the full offline suite passed all 490
+tests. The final closure-only commit requires one narrow exact-head confirmation recorded on the
+PR; adding that later URL here would itself create a new unreviewed commit.
