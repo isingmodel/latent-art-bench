@@ -1,0 +1,27 @@
+{
+  "claim_ceiling": "At most a checksum-preserving reacquisition of historically exposed NGA delivery objects; no holdout, feature, painter, reproduction, transfer, or external-confirmation claim.",
+  "decision": "REJECT",
+  "findings": [
+    {
+      "finding": "All eight proposed rows had identical historical asset URLs, local pixels, and feature outcomes in Pilots 0 and 1; normalized identity matching was incomplete.",
+      "priority": "P0"
+    },
+    {
+      "finding": "The collector did not enforce every artifact and runtime hash bound by the freeze.",
+      "priority": "P1"
+    },
+    {
+      "finding": "Successful transport had no defined admission transition, and the acquisition manifest omitted protocol-required provenance fields.",
+      "priority": "P1"
+    },
+    {
+      "finding": "Failure categories, prior-ledger validation, review-decision validation, proxy isolation, and content-encoding handling were insufficiently exact.",
+      "priority": "P1"
+    }
+  ],
+  "review_scope": "Independent skeptical review of checklist items 01-19, historical exposure, bound hashes, collection logic, and collector behavior.",
+  "reviewed_design_original_path": "studies/painter_features_v1/execution/COLLECTION_FREEZE_1.json",
+  "reviewed_design_sha256": "bbac960afdf54e1d5ab7999b507fc5c33dc22d2b07a5317531cf90d2cd7fa255",
+  "reviewer_role": "independent_professionally_skeptical_methods_reviewer_subagent",
+  "schema_version": "painter-features-v1-collection-review/1.0"
+}

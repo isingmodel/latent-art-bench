@@ -19,6 +19,7 @@ features, real-only qualification gates, provenance checks, and frozen study wor
 | Pilot 1 | Engineering traversal complete; scientific gate closed | [Pilot 1 report](reports/pilot_1/REPORT.md) |
 | Pilot 2 | Execution complete; primary tests not run because both requested-label feature-pair grids were incomplete; decision `REDESIGN` | [Pilot 2 report](reports/pilot_2/REPORT.md) |
 | Pilot 3 | Freeze A1 complete; 20 AIC development works acquired; Met R2 cohort closed on HTTP 403 before Met image acquisition | [Reboot status](docs/STATUS.md) |
+| Painter Features v1 | Standalone method protocol complete; execution freeze not created; no empirical operation authorized | [Canonical measurement protocol](studies/painter_features_v1/MEASUREMENT_PROTOCOL.md) |
 
 No Pilot 3 development A-vectors, repeat probes, external-holdout access, image-generation
 transport qualification, or analytic generation exist.
@@ -28,14 +29,15 @@ transport qualification, or analytic generation exist.
 Read these in order:
 
 1. [Current status and reboot boundary](docs/STATUS.md)
-2. [Architecture map](docs/ARCHITECTURE.md)
-3. [Documentation index](docs/INDEX.md)
-4. [Artifact retention policy](docs/ARTIFACTS.md)
-5. [Agent guidance](AGENTS.md)
+2. [Canonical Painter Features v1 measurement protocol](studies/painter_features_v1/MEASUREMENT_PROTOCOL.md)
+3. [Architecture map](docs/ARCHITECTURE.md)
+4. [Documentation index](docs/INDEX.md)
+5. [Artifact retention policy](docs/ARTIFACTS.md)
+6. [Agent guidance](AGENTS.md)
 
-The research motivation and intended construct remain documented in the
-[research proposal](docs/RESEARCH_PROPOSAL.md). Frozen protocols and historical result files
-are evidence snapshots, not mutable status pages.
+The canonical Painter Features v1 protocol is the active research plan. The older
+[research proposal](docs/RESEARCH_PROPOSAL.md), frozen protocols, and historical result files are
+background or evidence snapshots, not alternative current plans.
 
 ## Development setup
 
@@ -65,6 +67,7 @@ one of those commands green.
 | `src/latent_art_bench/` | Shared library, root CLI, and versioned pilot implementations |
 | `tests/` | Unit, integration, and pilot-specific offline tests |
 | `configs/` | Versioned study inputs; see [config index](configs/README.md) |
+| `studies/` | Versioned reboot studies; each active study names one canonical plan |
 | `docs/` | Mutable indexes/status plus frozen protocols and method references |
 | `reports/` | Compact study results and committed evidence |
 | `data/manifests/` | Compact tracked manifests; each record retains its own rights boundary |
@@ -100,7 +103,9 @@ Treat Pilots 0–3 as immutable study history. A reboot may reuse well-tested sh
 but it should define a new namespace, a small explicit objective, repository-relative
 provenance, and a clean separation between tracked evidence and ignored workspace bytes.
 Network access, external-holdout access, and generation remain closed unless a new prospective
-protocol explicitly authorizes them.
+protocol explicitly authorizes them. For the active reboot, use only the
+[Painter Features v1 measurement protocol](studies/painter_features_v1/MEASUREMENT_PROTOCOL.md);
+its [`old/` archive](studies/painter_features_v1/old/) is noncanonical.
 
 ## License
 

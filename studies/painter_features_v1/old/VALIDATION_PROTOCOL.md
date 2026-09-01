@@ -1,4 +1,12 @@
-# Painter-feature validation protocol
+# Archived painter-feature validation protocol
+
+Archive status: noncanonical review record; retained for methodological provenance only
+
+Canonical replacement: [`../MEASUREMENT_PROTOCOL.md`](../MEASUREMENT_PROTOCOL.md), version 2.0
+
+Do not use this file to plan or authorize a study. Its real-image validation requirements were
+consolidated into the standalone canonical measurement protocol. This archived text may explain
+earlier review decisions but cannot supply a missing requirement or override the canonical file.
 
 Protocol version: `painter_features_v1/validation/1.5`
 
@@ -401,4 +409,5 @@ defines requirements for a future study; it does not reopen them.
 | `not_executed` | required inputs, rights, artifacts, or eligible observations were unavailable |
 
 Each disposition is attached to a version and a claim domain, not permanently to an algorithm
-name. The same vocabulary is defined in `../../literature_reviews/METHOD_DECISIONS.md`.
+name. The same vocabulary was also recorded in
+`../../../literature_reviews/METHOD_DECISIONS.md` during the earlier design review.

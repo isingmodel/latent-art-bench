@@ -13,27 +13,42 @@ their original locations because many paths and hashes are evidence-bound.
 - [Config index](../configs/README.md) — version and mutability of study inputs.
 - [Contributing](../CONTRIBUTING.md) — development and validation expectations.
 
-## Research framing and methods
+## Current Painter Features v1 research
 
 - [Painter-feature relaunch overview](../studies/painter_features_v1/README.md)
-- [Painter-feature measurement protocol](../studies/painter_features_v1/MEASUREMENT_PROTOCOL.md)
-- [Painter-feature validation protocol](../studies/painter_features_v1/VALIDATION_PROTOCOL.md)
-- [Painter-feature analysis and claims](../studies/painter_features_v1/ANALYSIS_AND_CLAIMS.md)
+- [**Canonical painter-feature measurement protocol**](../studies/painter_features_v1/MEASUREMENT_PROTOCOL.md)
 - [Painter-feature literature review](../literature_reviews/README.md)
 - [Literature evidence synthesis](../literature_reviews/SYNTHESIS.md)
 - [Painter-feature method decisions](../literature_reviews/METHOD_DECISIONS.md)
 - [Relaunch process and result report](../reports/painter_features_v1/RESEARCH_REPORT.md)
+
+Only the measurement protocol is the active plan. The overview is navigation, and the
+literature and report files are supporting evidence rather than alternate protocols.
+
+## Legacy research references (noncanonical)
+
 - [Research proposal](RESEARCH_PROPOSAL.md)
 - [Benchmark specification](BENCHMARK_SPECIFICATION.md)
 - [Corpus design](CORPUS_DESIGN.md)
-- [Validation protocol](VALIDATION_PROTOCOL.md)
+- [Legacy validation protocol](VALIDATION_PROTOCOL.md)
 - [Chromatic method](CHROMATIC_METHOD.md)
 - [Learned-formal feasibility](LEARNED_FORMAL_FEASIBILITY.md)
 - [Source-method matrix](SOURCE_METHOD_MATRIX.md)
 - [References](REFERENCES.md)
 
-These documents describe the broader research program. Some operational examples predate the
-latest pilots; consult [STATUS.md](STATUS.md) before treating a command as current.
+These documents describe earlier versions of the broader research program. They may supply
+background or provenance, but they are not part of the Painter Features v1 plan and must not
+override its canonical measurement protocol. Some operational examples predate the latest
+pilots; consult [STATUS.md](STATUS.md) before treating a command as current.
+
+## Archived painter-feature predecessor plans
+
+- [Archive index](../studies/painter_features_v1/old/README.md)
+- [Superseded validation protocol](../studies/painter_features_v1/old/VALIDATION_PROTOCOL.md)
+- [Superseded analysis and claims policy](../studies/painter_features_v1/old/ANALYSIS_AND_CLAIMS.md)
+
+These files preserve review provenance only. They are noncanonical and must not be combined with
+the version 2.0 measurement protocol.
 
 ## Pilot 3 frozen design and incident record
 

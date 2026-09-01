@@ -1,0 +1,220 @@
+{
+  "artifact_contract": {
+    "max_response_bytes": 26214400,
+    "minimum_short_edge_pixels": 512,
+    "preservation_only": true,
+    "required_codec": "JPEG",
+    "required_mime": "image/jpeg"
+  },
+  "checklist": {
+    "01_research_target": {
+      "claim_domain": "finite metadata-defined oil-on-canvas landscape/outdoor-place works dated 1865-1885",
+      "claim_status": "corpus_only_no_feature_or_painter_claim",
+      "hard_neighbor": "paul_cezanne",
+      "no_painter_superpopulation_claim": true,
+      "status": "present",
+      "target_painter": "camille_pissarro"
+    },
+    "02_comparison_panels": {
+      "broad_negative": {
+        "artist_id": "alfred_sisley",
+        "rationale": "A historically proximate outdoor-landscape painter outside the reciprocal Pissarro-Cezanne hard-neighbor pair; used only as a conservative calibration comparator."
+      },
+      "hard_neighbor": {
+        "artist_id": "paul_cezanne",
+        "rationale": "Pissarro and Cezanne worked together and shared outdoor motifs; the pair was selected in earlier metadata-only planning before Painter Features v1 outcomes."
+      },
+      "status": "present"
+    },
+    "03_work_frame_rights_and_acquisition": {
+      "asset_endpoint": "https://api.nga.gov/iiif/{published_image_uuid}/full/!1024,1024/0/default.jpg",
+      "asset_license": "CC0",
+      "collection_frame_path": "data/manifests/painter_features_v1/collection_frame.jsonl",
+      "collection_frame_sha256": "5d0ed526807d7590037ce433639c1a0d537b8da664aa8561000b47e427ff534a",
+      "exact_work_count": 8,
+      "provider": "National Gallery of Art, Washington",
+      "provider_workflow_id": "nga_iiif_openaccess_v2",
+      "redirects_allowed": false,
+      "replacement_allowed": false,
+      "request_count_per_work": 1,
+      "retry_count": 0,
+      "rights_policy_checked_at": "2026-09-02",
+      "rights_policy_urls": [
+        "https://www.nga.gov/artworks/free-images-and-open-access",
+        "https://www.nga.gov/terms-and-notices"
+      ],
+      "status": "present"
+    },
+    "04_joint_support_and_weights": {
+      "broad_negative_counts": {
+        "aic_historical_development": 3,
+        "nga_new_holdout": 2
+      },
+      "common_cell": {
+        "content_family": "landscape_or_outdoor_place",
+        "date_band": "1865_1885",
+        "medium_support": "oil_on_canvas"
+      },
+      "inferential_weights": "not_applicable_no_feature_estimate",
+      "status": "present",
+      "target_panel_counts_per_painter": {
+        "aic_historical_development": 3,
+        "nga_new_holdout": 3
+      }
+    },
+    "05_reproduction_incidence_and_rank": {
+      "capture_class": "one institutional delivery from one capture family per physical work",
+      "claim_ceiling": "no digital-derivative or reproduction-associated claim",
+      "independent_capture_pairs": 0,
+      "rank_audit": "provider and capture are inseparable; Gate 3 is structurally not executable",
+      "status": "present"
+    },
+    "06_partitions": {
+      "development": {
+        "count": 9,
+        "path": "data/manifests/painter_features_v1/development_references.jsonl",
+        "prior_exposure": "Pilot 2 feature outcomes exist; development use only",
+        "sha256": "e87f1408f8e23ab835a6d8e257b8c022d0e30bacf64584577f0b6c5a1b1eb894"
+      },
+      "external_confirmation": "not_authorized",
+      "human_criterion": "not_applicable",
+      "method_fixtures": "not_part_of_collection_operation",
+      "qualification_holdout": {
+        "count": 8,
+        "pixel_opening_rule": "acquisition and integrity inspection only; no feature extraction or visual outcome selection",
+        "work_overlap_with_pilot2_or_selected_pilot3": 0
+      },
+      "status": "present"
+    },
+    "07_preprocessing": {
+      "normalization_authorized": false,
+      "operation": "preserve exact received bytes and decode once for admission metadata",
+      "orientation_transform": "none",
+      "resampling": "none",
+      "status": "present"
+    },
+    "08_feature_cards": {
+      "attempted_family_list": [],
+      "feature_extraction_authorized": false,
+      "reason": "This freeze authorizes collection and preservation only.",
+      "status": "present"
+    },
+    "09_runtime_and_fixtures": {
+      "collector_path": "scripts/collect_painter_features_v1.py",
+      "collector_sha256": "ce5612b96215ace57f33ffadb892d0a1b6dff81221985e95d6dc10850cfc820d",
+      "git_head_at_design": "d2ec3a7ea936a9890d69232b91eaabc95175ede7",
+      "httpx": "0.28.1",
+      "pillow": "11.3.0",
+      "pyproject_sha256": "9da42015a9f57afd574191b26c1d710aab3b7359d44661dab700a03854f151b7",
+      "python": "3.13.11",
+      "status": "present",
+      "uv_lock_sha256": "99285c8ccc298b80bd711b296d90945aea07209cb4623deae5a599bc0d4c80bf"
+    },
+    "10_estimators_and_selection": {
+      "feature_estimator": "not_applicable",
+      "outcome_guided_selection": false,
+      "selection_algorithm": "exact enumerated rows in acquisition_sequence order",
+      "status": "present"
+    },
+    "11_simulation_and_minimum_counts": {
+      "collection_success_minimum": "8 of 8 exact rows admitted",
+      "design_floor_per_target_nga_cell": 2,
+      "simulation_path": "reports/painter_features_v1/evidence/collection_design_simulation.json",
+      "simulation_sha256": "2046dfd04a834492d8bd4b7390feea347818f84126fe824bada4e493982c5c60",
+      "status": "present"
+    },
+    "12_sesoi_and_equivalence": {
+      "feature_sesoi_table": [],
+      "reason": "No feature, perturbation, reproduction, painter-margin, or gate decision is attempted.",
+      "status": "present",
+      "technical_admission_thresholds": {
+        "byte_count": "1..26214400",
+        "codec": "JPEG",
+        "http_status": 200,
+        "mime": "image/jpeg",
+        "short_edge_pixels_minimum": 512
+      }
+    },
+    "13_multiplicity": {
+      "hypothesis_tests": [],
+      "multiplicity_tree": "not_applicable_no_scientific_test",
+      "status": "present"
+    },
+    "14_denominator_and_missingness": {
+      "intended_denominator": 8,
+      "mnar_scientific_analysis": "not_applicable_no_feature_estimate",
+      "no_replacement": true,
+      "partial_batch_disposition": "partial_collection_no_inference",
+      "required_completion_proportion": 1.0,
+      "status": "present"
+    },
+    "15_human_task": {
+      "human_perceptual_claim": false,
+      "human_task": "not_applicable",
+      "status": "present"
+    },
+    "16_external_opening": {
+      "external_core_claim": false,
+      "external_opening": "not_authorized",
+      "future_rule": "A future external workflow requires a new reviewed execution freeze and must remain unopened until then.",
+      "status": "present"
+    },
+    "17_outputs_storage_and_retention": {
+      "compact_manifest_root": "data/manifests/painter_features_v1",
+      "raw_path_rule": "research_workspace/painter_features_v1/raw/{sha256_prefix}/{sha256}.jpg",
+      "redistribution": "Raw artwork bytes are ignored and are not committed; compact CC0 provenance and hashes may be committed.",
+      "retention": "Raw bytes and append-only ledgers are retained; corrections supersede and never overwrite.",
+      "status": "present",
+      "workspace_root": "research_workspace/painter_features_v1"
+    },
+    "18_terminal_actions": {
+      "corrupt_or_undecodable": "record terminal failure, stop batch, no replacement",
+      "fixture_or_freeze_hash_failure": "send no request",
+      "http_redirect_non_200_or_transport_failure": "record terminal failure, stop batch, no retry or fallback",
+      "mime_codec_dimension_or_byte_limit_failure": "record terminal failure, stop batch, no replacement",
+      "partial_existing_ledger": "refuse resume or resend; require prospective adjudication",
+      "status": "present",
+      "support_below_floor": "not_executed for later measurement"
+    },
+    "19_independent_review": {
+      "approval_mechanism": "A separate immutable authorization seal must bind this file's exact SHA-256 and an approved independent review record before the collector can run.",
+      "collector_behavior_before_approval": "refuse",
+      "status": "present"
+    }
+  },
+  "collection_frame_path": "data/manifests/painter_features_v1/collection_frame.jsonl",
+  "collection_frame_sha256": "5d0ed526807d7590037ce433639c1a0d537b8da664aa8561000b47e427ff534a",
+  "freeze_id": "painter_features_v1/collection/1.0",
+  "historical_inputs": [
+    {
+      "path": "configs/pilot_0/candidate_work_audit.jsonl",
+      "role": "metadata-only source census and eligibility evidence",
+      "sha256": "0c258e7aacddcf4aa07d469d97244cc29d77854ac872d38b30c58faf04c79c5d"
+    },
+    {
+      "path": "configs/pilot_2/manifests/real_images.jsonl",
+      "role": "prior-pixel-exposure denylist and development-reference identity",
+      "sha256": "0c8fc83546c02521bf90e71b88efb5cd202609d0f912dbbd3a868018f6160e4f"
+    },
+    {
+      "path": "data/manifests/pilot_3/corpus_selection.jsonl",
+      "role": "selected-work overlap denylist only; no cohort reuse",
+      "sha256": "269369976d04431fccd1bc8b60ec7e49733d8a8537a3e38f3a974d61dca3e80a"
+    }
+  ],
+  "protocol_id": "painter_features_v1/measurement/2.0",
+  "protocol_path": "studies/painter_features_v1/MEASUREMENT_PROTOCOL.md",
+  "protocol_sha256": "888795c7ab79937d064eeb4be426731b74245fbda25479268d092661938cbd86",
+  "schema_version": "painter-features-v1-collection-freeze/1.0",
+  "scope": {
+    "acquisition_only": true,
+    "external_access": false,
+    "feature_extraction": false,
+    "generated_images": false,
+    "historical_bytes_copied_or_reclassified": false,
+    "human_data": false,
+    "normalization": false
+  },
+  "status": "sealed_for_independent_review",
+  "workspace_root": "research_workspace/painter_features_v1"
+}

@@ -1,11 +1,16 @@
 # Painter Features v1: relaunch process and research result
 
-Report version: 1.6
+Report version: 1.7
 
 Report date: 2026-09-01
 
 Study status: literature synthesis and prospective design framework documented; not executable
 or preregistered; no empirical execution authorized
+
+Canonical-plan notice: this report is a historical account of the relaunch process and its
+intermediate design decisions. It is supporting evidence, not an active protocol. The sole
+current plan is
+[`studies/painter_features_v1/MEASUREMENT_PROTOCOL.md`](../../studies/painter_features_v1/MEASUREMENT_PROTOCOL.md).
 
 ## 1. Executive summary
 
@@ -900,8 +905,8 @@ measure and report.
 
 - studies/painter_features_v1/README.md
 - studies/painter_features_v1/MEASUREMENT_PROTOCOL.md
-- studies/painter_features_v1/VALIDATION_PROTOCOL.md
-- studies/painter_features_v1/ANALYSIS_AND_CLAIMS.md
+- studies/painter_features_v1/old/VALIDATION_PROTOCOL.md
+- studies/painter_features_v1/old/ANALYSIS_AND_CLAIMS.md
 
 ### Review and response
 
@@ -1306,10 +1311,12 @@ At the approved methodological head 88e14ef, the branch contained the following 
 | Process and skeptical-review record | 3 | 1,630 | Full research report, living skeptical review, and finding-by-finding response |
 | **Total** | **20** | **5,929** | **One linked, documentation-only research package** |
 
-Section 16 lists every file. The evidence matrix is the source-level disposition authority; the
-thematic reviews contain method detail; the synthesis compares families; the method ledger fixes
-prospective decisions; and the three study documents are the canonical design framework. This
-report summarizes those artifacts but does not supersede their binding details.
+Section 16 lists every file at that historical head. At that stage, the evidence matrix was the
+source-level disposition authority, the thematic reviews supplied method detail, the synthesis
+compared families, the method ledger fixed prospective decisions, and three study documents
+jointly formed the design framework. That multi-document arrangement was later retired. The
+current sole canonical plan is the version 2.0 measurement protocol named at the top of this
+report; the two predecessor study documents now live under `studies/painter_features_v1/old/`.
 
 ### 20.8 Git and skeptical-review revision history
 

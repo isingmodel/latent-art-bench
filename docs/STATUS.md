@@ -18,28 +18,37 @@ further work in a new versioned namespace.
 
 ## Painter-feature relaunch
 
-The first new scientific reboot is now designed under studies/painter_features_v1. Following
-Pilot 2, its target is a **painter-associated distribution across held physical works**, not a
-generic feature of one painting and not era or movement classification.
+The first new scientific reboot is designed under `studies/painter_features_v1`. Its target is a
+**painter-associated distribution across held physical works**, not a generic feature of one
+painting and not era or movement classification.
+
+There is one canonical active plan:
+`studies/painter_features_v1/MEASUREMENT_PROTOCOL.md`, protocol version 2.0. It is a standalone
+real-image measurement protocol containing the construct, sampling and observation model,
+preprocessing, feature algorithms, qualification gates, inference, outputs, execution-freeze
+checklist, and claim ceilings.
 
 The design package contains:
 
+- the standalone canonical measurement protocol;
 - a structured literature review with 138 evidence-matrix records and a 201-source audited
   bibliography, including the exact Kim et al. paper/code audit;
-- an explicit audit of Pilot 2's painter signal, source signal, opposite-source transfer,
-  nearly saturated PCA geometry, centroid limitation, and incomplete generated-output grid;
 - candidate interpretable color, spatial, wavelet, ordinal, and composition coordinates;
 - separately named learned-appearance and contextual diagnostics;
 - independent-reproduction, perturbation, leave-source-out, leave-content-out, human, and
   external-confirmation gates; and
-- separate later estimands for absolute target fit, one-versus-many specificity, precision,
-  coverage, contraction, prompt movement, and availability.
+- a 19-item checklist for the next execution-freeze artifact.
+
+The former standalone validation and analysis documents are archived under
+`studies/painter_features_v1/old/` as noncanonical review provenance. They must not be combined
+with or used to relax protocol 2.0.
 
 This is a prospective design result, not execution authorization. No new artwork was acquired,
 no historical or external holdout was opened, no feature was extracted, no model weight was
 downloaded, and no image was generated. A new frozen execution protocol must specify painters,
 crossed sources/content/phases/media, independent reproductions, rights, precision simulations,
-thresholds, artifacts, and partitions before any of those actions.
+thresholds, artifacts, partitions, decision rules, and terminal actions before any of those
+operations.
 
 ## What exists
 
@@ -113,11 +122,11 @@ painter-feature measurement study. Good future work may reuse shared determinist
 preprocessing, provenance, and test utilities, but it must not inherit a closed acquisition or
 generation authorization.
 
-The next design decision is whether a real-only execution protocol meets the new literature,
-measurement, and validation requirements. Do not combine that qualification execution with a
-generated-image study. Any approved execution should use repository-relative paths, keep mutable
-status separate from immutable evidence, and put all large runtime bytes under one clearly
-ignored workspace boundary.
+The next authorized research artifact is one real-only execution freeze satisfying all 19 items
+in Section 12 of the canonical Painter Features v1 measurement protocol. Do not combine that
+qualification execution with a generated-image study. Any approved execution should use
+repository-relative paths, keep mutable status separate from immutable evidence, and put all
+large runtime bytes under one clearly ignored workspace boundary.
 
 ## Explicitly closed actions
 

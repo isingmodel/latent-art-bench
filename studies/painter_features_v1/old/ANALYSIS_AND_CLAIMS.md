@@ -1,4 +1,13 @@
-# Analysis, estimands, and claims policy
+# Archived analysis, estimands, and claims policy
+
+Archive status: noncanonical review record; retained for methodological provenance only
+
+Canonical replacement: [`../MEASUREMENT_PROTOCOL.md`](../MEASUREMENT_PROTOCOL.md), version 2.0
+
+Do not use this file to plan or authorize a study. Its real-image estimands, inference,
+multiplicity, missingness, and claim rules were consolidated into the standalone canonical
+measurement protocol. This archived text cannot supply a missing requirement or override the
+canonical file.
 
 Protocol version: `painter_features_v1/analysis/1.3`
 
