@@ -4,7 +4,9 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from typing import Callable
 
+import httpx
 import typer
 
 from latent_art_bench.pilot3.execution import (
@@ -20,6 +22,18 @@ from latent_art_bench.pilot3.execution import (
     write_generation_gate,
     write_qualification_authorization,
     write_terminal_envelope,
+)
+from latent_art_bench.pilot3.met_r2 import (
+    TransportResponse as MetR2TransportResponse,
+)
+from latent_art_bench.pilot3.met_r2 import (
+    acquire_official_images,
+    capture_official_metadata,
+    freeze_metadata_targets,
+    write_offline_authorization,
+)
+from latent_art_bench.pilot3.normalization_scope import (
+    write_normalization_scope_authorization,
 )
 from latent_art_bench.pilot3.phasea import (
     DEFAULT_CONFIG as DEFAULT_PHASE_A_CONFIG,
@@ -43,6 +57,24 @@ app = typer.Typer(
     no_args_is_help=True,
     help="Plan and run the separately gated Pilot 3 study.",
 )
+
+
+def _met_r2_requester(
+    client: httpx.Client, *, accept: str
+) -> Callable[[str], MetR2TransportResponse]:
+    """Adapt one redirect-disabled HTTP GET to the R2 transport envelope."""
+
+    def request(url: str) -> MetR2TransportResponse:
+        response = client.get(url, headers={"Accept": accept})
+        return MetR2TransportResponse(
+            status_code=response.status_code,
+            body=response.content,
+            headers=dict(response.headers),
+            final_url=str(response.url),
+            redirect_chain=tuple(str(item.url) for item in response.history),
+        )
+
+    return request
 
 
 @app.command("plan")
@@ -93,6 +125,126 @@ def verify_command(
                 "status": "verified",
                 "generation_gate": index["generation_gate"],
                 "result_sha256": index["result_sha256"],
+            },
+            indent=2,
+            sort_keys=True,
+        )
+    )
+
+
+@app.command("authorize-met-r2")
+def authorize_met_r2_command(
+    root: Path = typer.Option(Path("."), "--root", help="Repository root."),
+) -> None:
+    """Write the offline official-Met authorization; performs no network access."""
+
+    result = write_offline_authorization(root)
+    typer.echo(
+        json.dumps(
+            {
+                "status": result["status"],
+                "authorization_sha256": result["authorization_sha256"],
+                "metadata_request_count": 0,
+                "image_request_count": 0,
+            },
+            indent=2,
+            sort_keys=True,
+        )
+    )
+
+
+@app.command("capture-met-r2-metadata")
+def capture_met_r2_metadata_command(
+    root: Path = typer.Option(Path("."), "--root", help="Repository root."),
+) -> None:
+    """Capture the twenty fixed official-Met object records exactly once each."""
+
+    with httpx.Client(
+        follow_redirects=False,
+        timeout=120.0,
+        trust_env=False,
+    ) as client:
+        rows = capture_official_metadata(
+            root,
+            _met_r2_requester(client, accept="application/json"),
+        )
+    typer.echo(
+        json.dumps(
+            {
+                "status": "metadata_captured",
+                "terminal_count": len(rows),
+                "successful_terminal_count": sum(
+                    row["outcome"] == "success" for row in rows
+                ),
+                "image_request_count": 0,
+            },
+            indent=2,
+            sort_keys=True,
+        )
+    )
+
+
+@app.command("freeze-met-r2-metadata")
+def freeze_met_r2_metadata_command(
+    root: Path = typer.Option(Path("."), "--root", help="Repository root."),
+) -> None:
+    """Freeze the twenty metadata-derived primaryImage URLs without network I/O."""
+
+    result = freeze_metadata_targets(root)
+    typer.echo(
+        json.dumps(
+            {
+                "status": result["status"],
+                "freeze_sha256": result["freeze_sha256"],
+                "image_request_count": 0,
+            },
+            indent=2,
+            sort_keys=True,
+        )
+    )
+
+
+@app.command("acquire-met-r2-images")
+def acquire_met_r2_images_command(
+    root: Path = typer.Option(Path("."), "--root", help="Repository root."),
+) -> None:
+    """Acquire the committed twenty-image official-Met primaryImage cohort."""
+
+    with httpx.Client(
+        follow_redirects=False,
+        timeout=120.0,
+        trust_env=False,
+    ) as client:
+        rows = acquire_official_images(
+            root,
+            _met_r2_requester(client, accept="image/jpeg"),
+        )
+    typer.echo(
+        json.dumps(
+            {
+                "status": "all_20_official_primary_images_eligible",
+                "acquisition_count": len(rows),
+                "cohort_observation_sha256": rows[0]["cohort_observation_sha256"],
+            },
+            indent=2,
+            sort_keys=True,
+        )
+    )
+
+
+@app.command("authorize-normalization-scope")
+def authorize_normalization_scope_command(
+    root: Path = typer.Option(Path("."), "--root", help="Repository root."),
+) -> None:
+    """Authorize exact Met, external, and generated normalization membership."""
+
+    result = write_normalization_scope_authorization(root)
+    typer.echo(
+        json.dumps(
+            {
+                "status": result["status"],
+                "authorization_sha256": result["authorization_sha256"],
+                "network_request_count": 0,
             },
             indent=2,
             sort_keys=True,

@@ -56,6 +56,9 @@ from latent_art_bench.pilot3.phasea import (
     _git_introduction_commit,
     _holm_checks,
     _http_attempt_start,
+    _http_attempt_terminal,
+    _materialize_met_r2_development_acquisitions,
+    _met_r2_normalized_acquisition,
     _parse_where_froms_binary_plist,
     _permutation_p_values,
     _preprocessing_amendment_payload,
@@ -67,11 +70,13 @@ from latent_art_bench.pilot3.phasea import (
     _self_hash,
     _single_runtime_environment,
     _validate_browser_attempt_terminal,
+    _validate_http_attempt_terminal,
     _validated_determinism_probes,
     _verified_browser_attempt_histories,
     _verified_http_attempt_histories,
     _verify_acquisition_http_history,
     _verify_historical_aic_browser_recovery_authorization,
+    _verify_scope_member,
     _write_exclusive_json,
     authorize_preprocessing_determinism_amendment,
     create_normalization_revalidations,
@@ -86,6 +91,7 @@ from latent_art_bench.pilot3.phasea import (
     validate_real_splits,
     verify_a_vector_protocol,
     verify_external_holdout_result,
+    verify_preprocessing_determinism_amendment,
     verify_self_hash,
 )
 from latent_art_bench.pilot3.preprocessing import (
@@ -628,6 +634,50 @@ def test_preprocessing_amendment_rejects_changed_pilot2_serializer(
         )
 
 
+def test_preprocessing_amendment_reconstructs_orchestration_from_bound_commit(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    from latent_art_bench.pilot3 import phasea
+
+    live_hash_file = phasea.hash_file
+    orchestration_path = ROOT / "tests/pilot3/test_phasea.py"
+
+    def changed_live_orchestration_hash(path: Path) -> str:
+        if Path(path).resolve() == orchestration_path.resolve():
+            return "f" * 64
+        return live_hash_file(path)
+
+    monkeypatch.setattr(phasea, "hash_file", changed_live_orchestration_hash)
+    amendment = verify_preprocessing_determinism_amendment(
+        ROOT, require_committed=False
+    )
+
+    assert amendment["authorization_sha256"] == (
+        "4b8617941c934893489d6d3d73ec54b9c6bc57088c2c5d55524ffe972f1fba31"
+    )
+    assert amendment["remediation_implementation_git_commit"] == (
+        "d9ed9a22246cc02edf636b6d6369214f0098a0d5"
+    )
+
+
+def test_preprocessing_amendment_rejects_changed_live_canonicalizer(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    from latent_art_bench.pilot3 import phasea
+
+    live_hash_file = phasea.hash_file
+    canonicalizer_path = ROOT / "src/latent_art_bench/pilot3/preprocessing.py"
+
+    def changed_live_canonicalizer_hash(path: Path) -> str:
+        if Path(path).resolve() == canonicalizer_path.resolve():
+            return "f" * 64
+        return live_hash_file(path)
+
+    monkeypatch.setattr(phasea, "hash_file", changed_live_canonicalizer_hash)
+    with pytest.raises(Pilot3PhaseAError, match="immutable canonicalizer"):
+        verify_preprocessing_determinism_amendment(ROOT, require_committed=False)
+
+
 def test_amendment_authorizer_freeze_failure_writes_nothing(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
@@ -821,6 +871,7 @@ def test_effective_acquisition_view_has_uniform_v2_lineage(
     amendment = {"authorization_sha256": "a" * 64}
     historical = {
         "canonical_work_id": "historical",
+        "source_id": "aic",
         "record_sha256": "1" * 64,
         "normalized_path": "old.png",
         "normalized_sha256": "2" * 64,
@@ -844,6 +895,7 @@ def test_effective_acquisition_view_has_uniform_v2_lineage(
     }
     current = {
         "canonical_work_id": "current",
+        "source_id": "aic",
         "record_sha256": "6" * 64,
         "normalized_path": "current.png",
         "normalized_sha256": "7" * 64,
@@ -878,6 +930,223 @@ def test_effective_acquisition_view_has_uniform_v2_lineage(
         assert row["effective_preprocessing_contract_sha256"] == effective_sha
         assert row["normalization_protocol_version"] == (
             PILOT3_NORMALIZATION_PROTOCOL_VERSION
+        )
+        assert row["normalization_authorization_schema"] == (
+            "pilot3-preprocessing-determinism-amendment/1.0"
+        )
+        assert row["normalization_authorization_sha256"] == "a" * 64
+
+
+def test_external_http_events_bind_generic_scope_not_aic_amendment(
+    tmp_path: Path,
+) -> None:
+    config, intent = _attempt_fixture(tmp_path)
+    authority = {
+        "schema_version": "pilot3-normalization-scope-extension/1.0",
+        "authorization_sha256": "a" * 64,
+        "normalization_implementation": {
+            "protocol_version": PILOT3_NORMALIZATION_PROTOCOL_VERSION,
+            "effective_preprocessing_contract_sha256": "b" * 64,
+        },
+    }
+    start = _http_attempt_start(
+        phase="external",
+        intent=intent,
+        attempt_number=1,
+        event_sequence=1,
+        previous_event_sha256=None,
+        max_response_bytes=1024,
+        normalization_authorization=authority,
+    )
+    assert start["normalization_authorization_schema"] == authority["schema_version"]
+    assert start["normalization_authorization_sha256"] == "a" * 64
+    assert "preprocessing_determinism_amendment_sha256" not in start
+    terminal = _http_attempt_terminal(
+        start,
+        outcome="exception_failure",
+        retryable=False,
+        exception_class="RuntimeError",
+        exception_family="non_transport_exception",
+    )
+    _validate_http_attempt_terminal(tmp_path, config, start, terminal)
+
+
+def test_met_r2_bridge_uses_only_official_digital_fields_and_full_lineage(
+    tmp_path: Path,
+) -> None:
+    config = read_json(ROOT / "configs/pilot_3/phase_a.json")
+    config_path = tmp_path / "configs/pilot_3/phase_a.json"
+    config_path.parent.mkdir(parents=True)
+    config_path.write_bytes((ROOT / "configs/pilot_3/phase_a.json").read_bytes())
+    image = io.BytesIO()
+    Image.new("RGB", (640, 512), (12, 34, 56)).save(image, format="JPEG")
+    decode, normalized = _decode_and_normalize(image.getvalue(), config)
+    split = {
+        "canonical_work_id": "work-met-435877",
+        "artist_id": "paul_cezanne",
+        "collection_block_id": "met",
+        "museum_accession": "29.100.64",
+        "source_id": "met",
+        "source_object_id": "435877",
+        "partition": "development_training",
+        "row_sha256": "1" * 64,
+        "selection_sha256": "2" * 64,
+        "source_url": "http://www.metmuseum.org/art/collection/search/435877",
+        "image_url": "https://thumb.wikimedia.org/legacy-commons.jpg",
+        "asset_provider": "Wikimedia Commons P18 delivery for Met work",
+    }
+    target = {
+        "r2_asset_id": "met-r2-primaryimage-435877",
+        "physical_work_id": split["canonical_work_id"],
+        "object_id": split["source_object_id"],
+        "artist_id": split["artist_id"],
+        "partition": split["partition"],
+        "row_sha256": "3" * 64,
+        "primary_image_url": "https://images.metmuseum.org/CRDImages/ep/original/DT1.jpg",
+    }
+    authorization = {
+        "authorization_sha256": "4" * 64,
+        "targets": [
+            {
+                **{
+                    key: target[key]
+                    for key in (
+                        "r2_asset_id",
+                        "physical_work_id",
+                        "object_id",
+                        "artist_id",
+                        "partition",
+                    )
+                },
+                "object_endpoint": (
+                    "https://collectionapi.metmuseum.org/public/collection/v1/objects/435877"
+                ),
+                "accession_number": split["museum_accession"],
+                "frozen_split_row_sha256": split["row_sha256"],
+                "frozen_selection_sha256": split["selection_sha256"],
+            }
+        ],
+    }
+    r2_acquisition = {
+        **{
+            key: target[key]
+            for key in (
+                "r2_asset_id",
+                "physical_work_id",
+                "object_id",
+                "artist_id",
+                "partition",
+                "primary_image_url",
+            )
+        },
+        "target_row_sha256": target["row_sha256"],
+        "record_sha256": "5" * 64,
+        "cohort_observation_sha256": "6" * 64,
+        "image_terminal_event_sha256": "7" * 64,
+        "raw_image_path": "artifacts/pilot_3/met_r2/image_raw/aa/aa.bin",
+        "raw_image_sha256": "8" * 64,
+        "raw_image_byte_count": len(image.getvalue()),
+        "decoded_width": decode["decoded_width"],
+        "decoded_height": decode["decoded_height"],
+        "decoded_format": str(decode["decoded_format"]).upper(),
+        "decoded_mode": decode["decoded_mode"],
+        "domain_checks": decode["domain_checks"],
+    }
+    scope = {
+        "authorization_sha256": "9" * 64,
+        "eligible_membership": {
+            "met_r2": {
+                "members": [
+                    {
+                        "physical_work_id": split["canonical_work_id"],
+                        "object_id": split["source_object_id"],
+                        "artist_id": split["artist_id"],
+                        "partition": split["partition"],
+                        "primary_image_url": target["primary_image_url"],
+                        "target_row_sha256": target["row_sha256"],
+                    }
+                ]
+            }
+        },
+    }
+    normalized_path = tmp_path / "artifacts/pilot_3/real_normalized/result.png"
+    row = _met_r2_normalized_acquisition(
+        tmp_path,
+        config,
+        split,
+        authorization,
+        target,
+        {"freeze_sha256": "b" * 64},
+        r2_acquisition,
+        scope,
+        normalized=normalized,
+        decode=decode,
+        normalized_path=normalized_path,
+    )
+    assert row["schema_version"] == "3.0"
+    assert row["asset_provider"] == "The Metropolitan Museum of Art primaryImage"
+    assert row["image_url"] == target["primary_image_url"]
+    assert row["delivery_width"] == 640
+    assert row["delivery_height"] == 512
+    assert row["preprocessing_determinism_amendment_sha256"] is None
+    assert row["normalization_authorization_sha256"] == "9" * 64
+    assert row["r2_image_acquisition_record_sha256"] == "5" * 64
+    assert "wikimedia" not in canonical_json(row).casefold()
+
+    wrong_scope = copy.deepcopy(scope)
+    wrong_scope["eligible_membership"]["met_r2"]["members"][0][
+        "primary_image_url"
+    ] = "https://images.metmuseum.org/not-the-frozen-primary.jpg"
+    with pytest.raises(Pilot3PhaseAError, match="exact Met R2 asset"):
+        _verify_scope_member(
+            wrong_scope,
+            split,
+            primary_image_url=target["primary_image_url"],
+            target_row_sha256=target["row_sha256"],
+        )
+
+
+def test_met_r2_bridge_writes_nothing_before_committed_complete_closure(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    splits = [
+        {
+            "canonical_work_id": f"work-met-{index}",
+            "source_id": "met",
+        }
+        for index in range(20)
+    ]
+    config = {
+        "paths": {
+            "normalized_dir": "normalized",
+            "development_acquisitions": "acquisitions.jsonl",
+        }
+    }
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.phasea._require_met_r2_normalization_inputs",
+        lambda *_args, **_kwargs: (_ for _ in ()).throw(
+            Pilot3PhaseAError("committed complete Met R2 evidence is required")
+        ),
+    )
+    with pytest.raises(Pilot3PhaseAError, match="committed complete"):
+        _materialize_met_r2_development_acquisitions(
+            tmp_path, config, splits, {}
+        )
+    assert not (tmp_path / "acquisitions.jsonl").exists()
+    assert not (tmp_path / "normalized").exists()
+    reversed_prefix = {
+        splits[1]["canonical_work_id"]: {
+            **splits[1],
+            "schema_version": "3.0",
+        },
+        splits[0]["canonical_work_id"]: {
+            **splits[0],
+            "schema_version": "3.0",
+        },
+    }
+    with pytest.raises(Pilot3PhaseAError, match="deterministic prefix"):
+        _materialize_met_r2_development_acquisitions(
+            tmp_path, config, splits, reversed_prefix
         )
 
 
@@ -1251,8 +1520,7 @@ def test_browser_attempt_terminal_binds_start_prefix_xattr_and_cas(
     )
     opened = _directory_stat_evidence(source.stat())
     raw_quarantine = (
-        f"0281;{start_wall_time_ns // 1_000_000_000:08x};;"
-        "5A0245E5-C0F0-4870-AEE3-CF5F1D34B8CB"
+        f"0281;{start_wall_time_ns // 1_000_000_000:08x};;5A0245E5-C0F0-4870-AEE3-CF5F1D34B8CB"
     ).encode("ascii")
     terminal = _browser_attempt_terminal(
         start,
@@ -1485,6 +1753,19 @@ def test_p3_t07_closure_requires_all_browser_recovery_evidence(
         str(NORMALIZATION_REVALIDATION_LEDGER_PATH),
         str(PREPROCESSING_AMENDMENT_DOC_PATH),
         "src/latent_art_bench/pilot3/preprocessing.py",
+        "reports/pilot_3/evidence/met_asset_provider_incident.json",
+        "reports/pilot_3/evidence/met_r2_authorization.json",
+        "reports/pilot_3/evidence/met_r2_metadata_freeze.json",
+        "reports/pilot_3/evidence/normalization_scope_extension.json",
+        "artifacts/pilot_3/met_r2_metadata_attempts.jsonl",
+        "artifacts/pilot_3/met_r2_image_attempts.jsonl",
+        "artifacts/pilot_3/met_r2_image_acquisitions.jsonl",
+        "data/manifests/pilot_3/met_r2_targets.jsonl",
+        "docs/PILOT_3_R2_OFFICIAL_MET.md",
+        "src/latent_art_bench/pilot3/met_r2.py",
+        "src/latent_art_bench/pilot3/normalization_scope.py",
+        "tests/pilot3/test_met_r2.py",
+        "tests/pilot3/test_normalization_scope.py",
     }
     assert required.issubset(closure)
     with pytest.raises(Pilot3PhaseAError, match="closure path is missing"):

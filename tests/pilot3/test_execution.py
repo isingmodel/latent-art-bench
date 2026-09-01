@@ -23,6 +23,7 @@ from latent_art_bench.pilot3.execution import (
     _jsonl_file_sha256,
     _pilot3_preprocessing_from_phase_a,
     _preprocess_generated_output,
+    _qualification_committed_closure,
     _require_committed_closure,
     _rows_by_request,
     _verified_p3_t07_closure_paths,
@@ -185,7 +186,13 @@ def test_rows_by_request_rejects_duplicate_identity(tmp_path: Path) -> None:
         )
 
 
-def test_generated_preprocessing_recomputes_exact_bytes(tmp_path: Path) -> None:
+def test_generated_preprocessing_recomputes_exact_bytes(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setattr(
+        "latent_art_bench.pilot3.execution._verify_generated_normalization_contract",
+        lambda _root, value, _config, **_kwargs: dict(value),
+    )
     source = tmp_path / "source.png"
     source_profile = ImageCms.ImageCmsProfile(
         ImageCms.createProfile("sRGB")
@@ -485,6 +492,15 @@ def test_closed_authorization_cannot_transition_after_p3_t14_exists(
     )
     with pytest.raises(Pilot3ExecutionError, match="already exists"):
         write_generation_gate(tmp_path)
+
+
+def test_qualification_closure_uses_canonical_external_attempt_path() -> None:
+    config = load_phase_a_config(REPOSITORY_ROOT)
+    protocol = {"closure_file_sha256": {"protocol-bound.txt": "a" * 64}}
+
+    paths = _qualification_committed_closure(REPOSITORY_ROOT, protocol)
+
+    assert Path(config["paths"]["external_acquisition_attempts"]) in paths
 
 
 def test_freeze_b_closure_contains_scientific_code_tests_and_t11_evidence() -> None:

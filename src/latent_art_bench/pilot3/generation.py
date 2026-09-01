@@ -2234,12 +2234,32 @@ def _attempt_from_exchange(
     payload = _base_attempt(cell, intent, transport, fingerprint, exchange)
     if exchange.transport_error_kind is not None:
         retryable = exchange.transport_error_retryable is True
+        if not retryable:
+            payload.update(
+                {
+                    "post_exchange_observed": False,
+                    "outcome": "terminal_failure",
+                    "retry_classification": (
+                        "not_retryable_indeterminate_after_interruption"
+                    ),
+                    "request_label_accepted": False,
+                    "failure_kind": "indeterminate_after_interruption",
+                    "failure_reason": sanitize_external_text(
+                        "physical POST may have executed before the transport "
+                        f"failed with {exchange.transport_error_kind}: "
+                        + (
+                            exchange.transport_error_reason
+                            or exchange.transport_error_kind
+                        ),
+                        1000,
+                    ),
+                }
+            )
+            return GenerationAttempt.model_validate(payload)
         payload.update(
             {
-                "outcome": "retryable_failure" if retryable else "terminal_failure",
-                "retry_classification": (
-                    "retryable_transport" if retryable else "not_retryable_transport"
-                ),
+                "outcome": "retryable_failure",
+                "retry_classification": "retryable_transport",
                 "request_label_accepted": False,
                 "failure_kind": sanitize_external_text(
                     exchange.transport_error_kind, 200

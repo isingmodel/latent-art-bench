@@ -66,6 +66,8 @@ from latent_art_bench.pilot2.learned_formal import (
     predict_nearest_centroid,
     transform_with_pca,
 )
+from latent_art_bench.pilot3 import met_r2 as pilot3_met_r2
+from latent_art_bench.pilot3 import normalization_scope as pilot3_normalization_scope
 from latent_art_bench.pilot3.design_freeze import verify_phase_b_freeze_bundle
 from latent_art_bench.pilot3.planning import verify_planning_bundle
 from latent_art_bench.pilot3.preprocessing import (
@@ -137,12 +139,24 @@ NORMALIZATION_REVALIDATION_LEDGER_PATH = Path(
 PREPROCESSING_AMENDMENT_DOC_PATH = Path(
     "docs/PILOT_3_PREPROCESSING_DETERMINISM_AMENDMENT.md"
 )
-PREPROCESSING_AMENDMENT_SCHEMA = (
-    "pilot3-preprocessing-determinism-amendment/1.0"
+PREPROCESSING_AMENDMENT_SCHEMA = "pilot3-preprocessing-determinism-amendment/1.0"
+MET_R2_NORMALIZED_ACQUISITION_SCHEMA = "3.0"
+MET_R2_ASSET_PROVIDER = "The Metropolitan Museum of Art primaryImage"
+GENERIC_NORMALIZATION_LINEAGE_FIELDS = (
+    "normalization_authorization_schema",
+    "normalization_authorization_sha256",
 )
-NORMALIZATION_REVALIDATION_SCHEMA = (
-    "pilot3-normalization-revalidation-supersession/1.0"
+MET_R2_LINEAGE_FIELDS = (
+    "digital_asset_protocol_namespace",
+    "r2_asset_id",
+    "r2_authorization_sha256",
+    "r2_metadata_freeze_sha256",
+    "r2_target_row_sha256",
+    "r2_image_terminal_event_sha256",
+    "r2_image_acquisition_record_sha256",
+    "r2_cohort_observation_sha256",
 )
+NORMALIZATION_REVALIDATION_SCHEMA = "pilot3-normalization-revalidation-supersession/1.0"
 PREPROCESSING_INCIDENT_SCHEMA = "pilot3-preprocessing-determinism-incident/1.0"
 PREPROCESSING_INCIDENT_COMMIT = "582fc07ad34e90f0ba585f88a7e3efce8236780c"
 PREPROCESSING_HISTORICAL_IMPLEMENTATION_COMMIT = (
@@ -162,6 +176,9 @@ PREPROCESSING_AMENDMENT_IMPLEMENTATION_PATHS = (
     str(PREPROCESSING_AMENDMENT_DOC_PATH),
     "tests/pilot3/test_phasea.py",
     "tests/pilot3/test_execution.py",
+)
+PREPROCESSING_AMENDMENT_CANONICALIZER_PATHS = (
+    "src/latent_art_bench/pilot3/preprocessing.py",
 )
 PREPROCESSING_HISTORICAL_BLOB_PATHS = (
     "pyproject.toml",
@@ -825,6 +842,7 @@ def _http_attempt_start(
     previous_event_sha256: Optional[str],
     max_response_bytes: int,
     normalization_amendment: Optional[Mapping[str, Any]] = None,
+    normalization_authorization: Optional[Mapping[str, Any]] = None,
 ) -> Dict[str, Any]:
     headers = _http_request_headers(str(intent["source_url"]))
     request_identity = {
@@ -838,6 +856,8 @@ def _http_attempt_start(
         "trust_env": False,
     }
     lineage: Dict[str, Any] = {}
+    if normalization_amendment is not None and normalization_authorization is not None:
+        raise Pilot3PhaseAError("HTTP start received two normalization authorities")
     if normalization_amendment is not None:
         if (
             normalization_amendment.get("normalization_protocol_version")
@@ -853,6 +873,34 @@ def _http_attempt_start(
             "effective_preprocessing_contract_sha256": (
                 normalization_amendment["effective_preprocessing_contract_sha256"]
             ),
+        }
+    elif normalization_authorization is not None:
+        implementation = normalization_authorization.get("normalization_implementation")
+        if (
+            normalization_authorization.get("schema_version")
+            != pilot3_normalization_scope.SCHEMA_VERSION
+            or not _is_sha256(normalization_authorization.get("authorization_sha256"))
+            or not isinstance(implementation, Mapping)
+            or implementation.get("protocol_version")
+            != PILOT3_NORMALIZATION_PROTOCOL_VERSION
+            or not _is_sha256(
+                implementation.get("effective_preprocessing_contract_sha256")
+            )
+        ):
+            raise Pilot3PhaseAError(
+                "HTTP start received a stale normalization authority"
+            )
+        lineage = {
+            "normalization_protocol_version": PILOT3_NORMALIZATION_PROTOCOL_VERSION,
+            "normalization_authorization_schema": (
+                pilot3_normalization_scope.SCHEMA_VERSION
+            ),
+            "normalization_authorization_sha256": normalization_authorization[
+                "authorization_sha256"
+            ],
+            "effective_preprocessing_contract_sha256": implementation[
+                "effective_preprocessing_contract_sha256"
+            ],
         }
     attempt_identity = {
         "phase": phase,
@@ -914,6 +962,8 @@ def _http_attempt_terminal(
         for key in (
             "normalization_protocol_version",
             "preprocessing_determinism_amendment_sha256",
+            "normalization_authorization_schema",
+            "normalization_authorization_sha256",
             "effective_preprocessing_contract_sha256",
         )
         if key in start
@@ -993,16 +1043,23 @@ def _validate_http_attempt_terminal(
         "exception_family",
         "event_sha256",
     }
-    lineage_keys = {
+    legacy_lineage_keys = {
         "normalization_protocol_version",
         "preprocessing_determinism_amendment_sha256",
         "effective_preprocessing_contract_sha256",
     }
-    present_lineage = lineage_keys & set(start)
-    if present_lineage not in (set(), lineage_keys):
+    generic_lineage_keys = {
+        "normalization_protocol_version",
+        "normalization_authorization_schema",
+        "normalization_authorization_sha256",
+        "effective_preprocessing_contract_sha256",
+    }
+    all_lineage_keys = legacy_lineage_keys | generic_lineage_keys
+    present_lineage = all_lineage_keys & set(start)
+    if present_lineage not in (set(), legacy_lineage_keys, generic_lineage_keys):
         raise Pilot3PhaseAError("HTTP attempt start has partial preprocessing lineage")
     if present_lineage:
-        required |= lineage_keys
+        required |= present_lineage
     if set(terminal) != required:
         raise Pilot3PhaseAError("HTTP attempt terminal has a stale field set")
     verify_self_hash(terminal, "event_sha256")
@@ -1023,7 +1080,7 @@ def _validate_http_attempt_terminal(
                 "intent_sha256",
                 "attempt_number",
                 "attempt_id",
-                *sorted(lineage_keys),
+                *sorted(present_lineage),
             )
         )
         or type(terminal.get("retryable")) is not bool
@@ -1224,6 +1281,7 @@ def _verified_http_attempt_histories(
     intents: Mapping[str, Mapping[str, Any]],
     *,
     normalization_amendment: Optional[Mapping[str, Any]] = None,
+    normalization_authorization: Optional[Mapping[str, Any]] = None,
 ) -> Dict[str, List[Dict[str, Any]]]:
     """Verify the append-only start/terminal journal and return histories by intent."""
 
@@ -1259,11 +1317,18 @@ def _verified_http_attempt_histories(
             ]
         except (UnicodeDecodeError, json.JSONDecodeError) as exc:
             raise Pilot3PhaseAError("incident HTTP journal blob is malformed") from exc
-    lineage_keys = {
+    legacy_lineage_keys = {
         "normalization_protocol_version",
         "preprocessing_determinism_amendment_sha256",
         "effective_preprocessing_contract_sha256",
     }
+    generic_lineage_keys = {
+        "normalization_protocol_version",
+        "normalization_authorization_schema",
+        "normalization_authorization_sha256",
+        "effective_preprocessing_contract_sha256",
+    }
+    all_lineage_keys = legacy_lineage_keys | generic_lineage_keys
     for index, event in enumerate(_read_canonical_http_attempt_events(path), start=1):
         if (
             event.get("event_sequence") != index
@@ -1282,16 +1347,24 @@ def _verified_http_attempt_histories(
                 raise Pilot3PhaseAError("HTTP attempt start is not bound to a network intent")
             history = histories[str(intent_id)]
             attempt_number = len(history) // 2 + 1
-            event_lineage = lineage_keys & set(event)
-            if event_lineage not in (set(), lineage_keys):
-                raise Pilot3PhaseAError("HTTP attempt start has partial preprocessing lineage")
-            is_v2 = event_lineage == lineage_keys
+            event_lineage = all_lineage_keys & set(event)
+            if event_lineage not in (
+                set(),
+                legacy_lineage_keys,
+                generic_lineage_keys,
+            ):
+                raise Pilot3PhaseAError(
+                    "HTTP attempt start has partial preprocessing lineage"
+                )
+            is_legacy_v2 = event_lineage == legacy_lineage_keys
+            is_generic_v2 = event_lineage == generic_lineage_keys
+            is_v2 = is_legacy_v2 or is_generic_v2
             if incident_path.is_file() and not is_v2:
                 if index > len(historical_events) or event != historical_events[index - 1]:
                     raise Pilot3PhaseAError(
                         "post-incident HTTP start lacks the v2 technical amendment"
                     )
-            if is_v2 and (
+            if is_legacy_v2 and (
                 normalization_amendment is None
                 or event.get("normalization_protocol_version")
                 != PILOT3_NORMALIZATION_PROTOCOL_VERSION
@@ -1303,6 +1376,20 @@ def _verified_http_attempt_histories(
                 raise Pilot3PhaseAError(
                     "HTTP attempt start lacks the authorized v2 normalization lineage"
                 )
+            if is_generic_v2 and (
+                normalization_authorization is None
+                or event.get("normalization_protocol_version")
+                != PILOT3_NORMALIZATION_PROTOCOL_VERSION
+                or event.get("normalization_authorization_schema")
+                != pilot3_normalization_scope.SCHEMA_VERSION
+                or event.get("normalization_authorization_sha256")
+                != normalization_authorization.get("authorization_sha256")
+                or event.get("effective_preprocessing_contract_sha256")
+                != _effective_preprocessing_contract_sha256(config)
+            ):
+                raise Pilot3PhaseAError(
+                    "HTTP attempt start lacks the exact normalization-scope lineage"
+                )
             expected = _http_attempt_start(
                 phase=phase,
                 intent=intent,
@@ -1310,7 +1397,12 @@ def _verified_http_attempt_histories(
                 event_sequence=index,
                 previous_event_sha256=previous_event_sha256,
                 max_response_bytes=_acquisition_response_limit(config),
-                normalization_amendment=(normalization_amendment if is_v2 else None),
+                normalization_amendment=(
+                    normalization_amendment if is_legacy_v2 else None
+                ),
+                normalization_authorization=(
+                    normalization_authorization if is_generic_v2 else None
+                ),
             )
             if event != expected:
                 raise Pilot3PhaseAError("HTTP attempt start is stale or out of sequence")
@@ -1328,8 +1420,11 @@ def _verified_http_attempt_histories(
             if active is None:
                 raise Pilot3PhaseAError("HTTP attempt terminal has no preceding start")
             _validate_http_attempt_terminal(root, config, active, event)
-            if incident_path.is_file() and not (lineage_keys & set(active)):
-                if index > len(historical_events) or event != historical_events[index - 1]:
+            if incident_path.is_file() and not (all_lineage_keys & set(active)):
+                if (
+                    index > len(historical_events)
+                    or event != historical_events[index - 1]
+                ):
                     raise Pilot3PhaseAError(
                         "post-incident HTTP terminal lacks the v2 technical amendment"
                     )
@@ -2166,6 +2261,18 @@ def _preprocessing_amendment_payload(
             raise Pilot3PhaseAError(
                 "preprocessing remediation changed an immutable base path: " + relative
             )
+    remediation_implementation = {
+        relative: _git_blob_evidence(
+            root, remediation_implementation_git_commit, relative
+        )["file_sha256"]
+        for relative in PREPROCESSING_AMENDMENT_IMPLEMENTATION_PATHS
+    }
+    for relative in PREPROCESSING_AMENDMENT_CANONICALIZER_PATHS:
+        if hash_file(_resolve(root, relative)) != remediation_implementation[relative]:
+            raise Pilot3PhaseAError(
+                "preprocessing remediation changed an immutable canonicalizer: "
+                + relative
+            )
     acquired_work_ids = [
         str(binding["canonical_work_id"])
         for binding in incident["acquisition_bindings"]
@@ -2200,10 +2307,7 @@ def _preprocessing_amendment_payload(
             PREPROCESSING_HISTORICAL_IMPLEMENTATION_COMMIT
         ),
         "historical_browser_implementation_blobs": historical,
-        "remediation_implementation_file_sha256": {
-            relative: hash_file(_resolve(root, relative))
-            for relative in PREPROCESSING_AMENDMENT_IMPLEMENTATION_PATHS
-        },
+        "remediation_implementation_file_sha256": remediation_implementation,
         "remediation_implementation_git_commit": (
             remediation_implementation_git_commit
         ),
@@ -2288,8 +2392,7 @@ def _require_preprocessing_amendment_prospective_boundary(
             "git",
             "show",
             (
-                f"{PREPROCESSING_INCIDENT_COMMIT}:"
-                "configs/pilot_3/generation_authorization.json"
+                f"{PREPROCESSING_INCIDENT_COMMIT}:configs/pilot_3/generation_authorization.json"
             ),
         ],
         cwd=root,
@@ -3094,6 +3197,8 @@ def _browser_attempt_terminal(
     for key in (
         "normalization_protocol_version",
         "preprocessing_determinism_amendment_sha256",
+        "normalization_authorization_schema",
+        "normalization_authorization_sha256",
         "effective_preprocessing_contract_sha256",
     ):
         if key in start:
@@ -3978,6 +4083,7 @@ def _download_image_bytes(
     intent: Mapping[str, Any],
     *,
     normalization_amendment: Optional[Mapping[str, Any]] = None,
+    normalization_authorization: Optional[Mapping[str, Any]] = None,
 ) -> Tuple[bytes, Dict[str, Any], List[Dict[str, Any]]]:
     """Resume or execute a network GET with durable evidence for every attempt."""
 
@@ -3989,10 +4095,11 @@ def _download_image_bytes(
     if intents.get(str(intent["intent_id"])) != dict(intent):
         raise Pilot3PhaseAError("network acquisition intent is missing or stale")
     if _resolve(root, PREPROCESSING_INCIDENT_PATH).is_file() and (
-        normalization_amendment is None
+        normalization_amendment is None and normalization_authorization is None
     ):
         raise Pilot3PhaseAError(
-            "post-incident HTTP acquisition requires the committed v2 amendment"
+            "post-incident HTTP acquisition requires the committed v2 amendment "
+            "or normalization-scope authority"
         )
     history = _verified_http_attempt_histories(
         root,
@@ -4000,9 +4107,8 @@ def _download_image_bytes(
         phase,
         intents,
         normalization_amendment=normalization_amendment,
-    )[
-        str(intent["intent_id"])
-    ]
+        normalization_authorization=normalization_authorization,
+    )[str(intent["intent_id"])]
     all_events = _read_canonical_http_attempt_events(attempt_path)
     if history and history[-1]["outcome"] == "success":
         terminal = history[-1]
@@ -4030,6 +4136,7 @@ def _download_image_bytes(
             ),
             max_response_bytes=max_response_bytes,
             normalization_amendment=normalization_amendment,
+            normalization_authorization=normalization_authorization,
         )
         _append_jsonl_fsync(attempt_path, start)
         all_events.append(start)
@@ -4291,6 +4398,106 @@ def _effective_preprocessing_contract(config: Mapping[str, Any]) -> Dict[str, An
 
 def _effective_preprocessing_contract_sha256(config: Mapping[str, Any]) -> str:
     return stable_hash(_effective_preprocessing_contract(config))
+
+
+def _require_normalization_scope(
+    root: Path, config: Mapping[str, Any]
+) -> Dict[str, Any]:
+    """Require the committed exact-member authority for non-AIC inputs."""
+
+    try:
+        scope = pilot3_normalization_scope.require_committed_normalization_scope_authorization(
+            root
+        )
+    except pilot3_normalization_scope.Pilot3NormalizationScopeError as exc:
+        raise Pilot3PhaseAError(
+            "the committed normalization-scope authority is required"
+        ) from exc
+    implementation = scope.get("normalization_implementation")
+    if (
+        not isinstance(implementation, Mapping)
+        or implementation.get("protocol_version")
+        != PILOT3_NORMALIZATION_PROTOCOL_VERSION
+        or implementation.get("effective_preprocessing_contract")
+        != _effective_preprocessing_contract(config)
+        or implementation.get("effective_preprocessing_contract_sha256")
+        != _effective_preprocessing_contract_sha256(config)
+        or not _is_sha256(scope.get("authorization_sha256"))
+    ):
+        raise Pilot3PhaseAError(
+            "normalization-scope authority binds a stale preprocessing contract"
+        )
+    return scope
+
+
+def _normalization_authority_lineage(
+    authorization: Mapping[str, Any], *, schema: str
+) -> Dict[str, str]:
+    sha256 = authorization.get("authorization_sha256")
+    if not _is_sha256(sha256):
+        raise Pilot3PhaseAError("normalization authority lacks a valid self-hash")
+    return {
+        "normalization_authorization_schema": schema,
+        "normalization_authorization_sha256": str(sha256),
+    }
+
+
+def _verify_scope_member(
+    scope: Mapping[str, Any],
+    split: Mapping[str, Any],
+    *,
+    primary_image_url: Optional[str] = None,
+    target_row_sha256: Optional[str] = None,
+) -> None:
+    eligible = scope.get("eligible_membership")
+    if not isinstance(eligible, Mapping):
+        raise Pilot3PhaseAError("normalization scope lacks eligible membership")
+    source_id = str(split.get("source_id", ""))
+    if source_id == "met":
+        section = eligible.get("met_r2")
+        members = section.get("members") if isinstance(section, Mapping) else None
+        expected = {
+            "physical_work_id": split.get("canonical_work_id"),
+            "object_id": str(split.get("source_object_id")),
+            "artist_id": split.get("artist_id"),
+            "partition": split.get("partition"),
+            "primary_image_url": primary_image_url,
+            "target_row_sha256": target_row_sha256,
+        }
+        matches = [
+            member
+            for member in members or []
+            if isinstance(member, Mapping)
+            and all(member.get(key) == value for key, value in expected.items())
+        ]
+        if len(matches) != 1:
+            raise Pilot3PhaseAError(
+                "normalization scope does not contain the exact Met R2 asset"
+            )
+        return
+    if split.get("partition") == EXTERNAL_PARTITION:
+        section = eligible.get("external_official_assets")
+        members = section.get("members") if isinstance(section, Mapping) else None
+        expected = {
+            "asset_id": split.get("canonical_work_id"),
+            "source_object_id": split.get("source_object_id"),
+            "artist_id": split.get("artist_id"),
+            "collection_block_id": split.get("collection_block_id"),
+            "image_url": split.get("image_url"),
+            "split_row_sha256": split.get("row_sha256"),
+        }
+        matches = [
+            member
+            for member in members or []
+            if isinstance(member, Mapping)
+            and all(member.get(key) == value for key, value in expected.items())
+        ]
+        if len(matches) != 1:
+            raise Pilot3PhaseAError(
+                "normalization scope does not contain the exact external asset"
+            )
+        return
+    raise Pilot3PhaseAError("normalization-scope membership is unknown for this split")
 
 
 def _normalization_revalidation_row(
@@ -4708,18 +4915,71 @@ def effective_acquisition_rows(
         else {}
     )
     result: Dict[str, Dict[str, Any]] = {}
+    scope: Optional[Dict[str, Any]] = None
     for work_id, original in source.items():
         correction = corrections.get(str(work_id))
         if correction is not None:
+            if original.get("source_id") != "aic":
+                raise Pilot3PhaseAError(
+                    "legacy normalization revalidation escaped its AIC-only scope"
+                )
             if correction["original_acquisition_record_sha256"] != original.get(
                 "record_sha256"
             ):
                 raise Pilot3PhaseAError(
                     "normalization revalidation binds a different acquisition"
                 )
-            result[str(work_id)] = _effective_acquisition_from_revalidation(
-                original, correction
+            effective = _effective_acquisition_from_revalidation(original, correction)
+            effective.update(
+                _normalization_authority_lineage(
+                    amendment, schema=PREPROCESSING_AMENDMENT_SCHEMA
+                )
             )
+            result[str(work_id)] = effective
+            continue
+        if original.get("schema_version") == MET_R2_NORMALIZED_ACQUISITION_SCHEMA:
+            scope = scope or _require_normalization_scope(root, config)
+            if (
+                original.get("source_id") not in {"met", EXTERNAL_SOURCE}
+                or original.get("normalization_protocol_version")
+                != PILOT3_NORMALIZATION_PROTOCOL_VERSION
+                or original.get("preprocessing_determinism_amendment_sha256")
+                is not None
+                or original.get("base_common_preprocessing_config_sha256")
+                != stable_hash(config["common_preprocessing"])
+                or original.get("common_preprocessing_config_sha256")
+                != _effective_preprocessing_contract_sha256(config)
+                or original.get("effective_preprocessing_contract_sha256")
+                != _effective_preprocessing_contract_sha256(config)
+                or original.get("normalization_authorization_schema")
+                != pilot3_normalization_scope.SCHEMA_VERSION
+                or original.get("normalization_authorization_sha256")
+                != scope["authorization_sha256"]
+            ):
+                raise Pilot3PhaseAError(
+                    "schema-v3 acquisition lacks the exact normalization scope: "
+                    + str(work_id)
+                )
+            effective = dict(original)
+            effective_identity = {
+                "original_acquisition_record_sha256": original["record_sha256"],
+                "normalization_authorization_schema": (
+                    pilot3_normalization_scope.SCHEMA_VERSION
+                ),
+                "normalization_authorization_sha256": scope["authorization_sha256"],
+                "normalization_protocol_version": (
+                    PILOT3_NORMALIZATION_PROTOCOL_VERSION
+                ),
+                "effective_normalized_sha256": original["normalized_sha256"],
+            }
+            effective.update(
+                {
+                    "original_acquisition_record_sha256": original["record_sha256"],
+                    "normalization_revalidation_record_sha256": None,
+                    "effective_acquisition_sha256": stable_hash(effective_identity),
+                }
+            )
+            result[str(work_id)] = effective
             continue
         if (
             original.get("normalization_protocol_version")
@@ -4734,6 +4994,11 @@ def effective_acquisition_rows(
                 + str(work_id)
             )
         effective = dict(original)
+        effective.update(
+            _normalization_authority_lineage(
+                amendment, schema=PREPROCESSING_AMENDMENT_SCHEMA
+            )
+        )
         effective_identity = {
             "original_acquisition_record_sha256": original["record_sha256"],
             "preprocessing_determinism_amendment_sha256": amendment[
@@ -4760,6 +5025,12 @@ def effective_acquisition_rows(
             != _effective_preprocessing_contract_sha256(config)
             or not _is_sha256(effective.get("effective_acquisition_sha256"))
             or not _is_sha256(effective.get("original_acquisition_record_sha256"))
+            or effective.get("normalization_authorization_schema")
+            not in {
+                PREPROCESSING_AMENDMENT_SCHEMA,
+                pilot3_normalization_scope.SCHEMA_VERSION,
+            }
+            or not _is_sha256(effective.get("normalization_authorization_sha256"))
         ):
             raise Pilot3PhaseAError(
                 "effective acquisition has inconsistent v2 lineage: " + work_id
@@ -4775,6 +5046,268 @@ def require_preprocessing_incident_resolution(root: Path) -> Dict[str, Any]:
         root, require_committed=True, require_complete=True
     )
     return {"amendment": amendment, "corrections": corrections}
+
+
+def _require_met_r2_normalization_inputs(
+    root: Path, config: Mapping[str, Any]
+) -> Tuple[
+    Dict[str, Any],
+    List[Dict[str, Any]],
+    Dict[str, Any],
+    List[Dict[str, Any]],
+    Dict[str, Any],
+]:
+    """Load the committed all-20 official-image cohort and exact scope authority."""
+
+    try:
+        authorization, targets, freeze, acquisitions = (
+            pilot3_met_r2.require_committed_image_acquisitions(root)
+        )
+    except pilot3_met_r2.Pilot3MetR2Error as exc:
+        raise Pilot3PhaseAError(
+            "committed complete Met R2 official-image evidence is required"
+        ) from exc
+    scope = _require_normalization_scope(root, config)
+    met_scope = scope["eligible_membership"]["met_r2"]
+    if met_scope.get("authorization_sha256") != authorization.get(
+        "authorization_sha256"
+    ) or met_scope.get("metadata_freeze_sha256") != freeze.get("freeze_sha256"):
+        raise Pilot3PhaseAError(
+            "normalization scope does not bind the committed Met R2 closure"
+        )
+    return authorization, targets, freeze, acquisitions, scope
+
+
+def _met_r2_normalized_acquisition(
+    root: Path,
+    config: Mapping[str, Any],
+    split: Mapping[str, Any],
+    authorization: Mapping[str, Any],
+    target: Mapping[str, Any],
+    freeze: Mapping[str, Any],
+    r2_acquisition: Mapping[str, Any],
+    scope: Mapping[str, Any],
+    *,
+    normalized: bytes,
+    decode: Mapping[str, Any],
+    normalized_path: Path,
+) -> Dict[str, Any]:
+    """Construct the deterministic schema-v3 bridge without legacy Commons fields."""
+
+    work_id = str(split["canonical_work_id"])
+    object_id = str(split["source_object_id"])
+    authorization_targets = authorization.get("targets")
+    bound_targets = [
+        value
+        for value in authorization_targets or []
+        if isinstance(value, Mapping)
+        and value.get("physical_work_id") == work_id
+        and str(value.get("object_id")) == object_id
+    ]
+    if len(bound_targets) != 1:
+        raise Pilot3PhaseAError("Met R2 authorization target is missing or duplicated")
+    authorized_target = bound_targets[0]
+    expected_physical = {
+        "physical_work_id": work_id,
+        "object_id": object_id,
+        "artist_id": split["artist_id"],
+        "partition": split["partition"],
+    }
+    for candidate, label in (
+        (target, "target"),
+        (r2_acquisition, "image acquisition"),
+    ):
+        if any(candidate.get(key) != value for key, value in expected_physical.items()):
+            raise Pilot3PhaseAError(f"Met R2 {label} changed physical-work identity")
+    if (
+        target.get("r2_asset_id") != r2_acquisition.get("r2_asset_id")
+        or target.get("row_sha256") != r2_acquisition.get("target_row_sha256")
+        or target.get("primary_image_url") != r2_acquisition.get("primary_image_url")
+        or authorized_target.get("r2_asset_id") != target.get("r2_asset_id")
+        or authorized_target.get("frozen_split_row_sha256") != split.get("row_sha256")
+        or authorized_target.get("frozen_selection_sha256")
+        != split.get("selection_sha256")
+        or authorized_target.get("accession_number") != split.get("museum_accession")
+    ):
+        raise Pilot3PhaseAError("Met R2 digital target lineage is inconsistent")
+    _verify_scope_member(
+        scope,
+        split,
+        primary_image_url=str(target["primary_image_url"]),
+        target_row_sha256=str(target["row_sha256"]),
+    )
+    if (
+        decode.get("decoded_width") != r2_acquisition.get("decoded_width")
+        or decode.get("decoded_height") != r2_acquisition.get("decoded_height")
+        or str(decode.get("decoded_format", "")).upper()
+        != r2_acquisition.get("decoded_format")
+        or decode.get("decoded_mode") != r2_acquisition.get("decoded_mode")
+        or decode.get("domain_checks") != r2_acquisition.get("domain_checks")
+    ):
+        raise Pilot3PhaseAError(
+            "Met R2 normalization does not match first-response geometry"
+        )
+    raw_path = str(r2_acquisition["raw_image_path"])
+    raw_sha256 = str(r2_acquisition["raw_image_sha256"])
+    raw_byte_count = r2_acquisition["raw_image_byte_count"]
+    normalized_sha256 = hash_bytes(normalized)
+    lineage = _normalization_authority_lineage(
+        scope, schema=pilot3_normalization_scope.SCHEMA_VERSION
+    )
+    payload = {
+        "record_type": "pilot3_real_acquisition",
+        "schema_version": MET_R2_NORMALIZED_ACQUISITION_SCHEMA,
+        "canonical_work_id": work_id,
+        "artist_id": split["artist_id"],
+        "collection_block_id": split["collection_block_id"],
+        "museum_accession": split["museum_accession"],
+        "source_id": split["source_id"],
+        "source_object_id": object_id,
+        "partition": split["partition"],
+        "frozen_split_row_sha256": split["row_sha256"],
+        "physical_work_source_url": split["source_url"],
+        "asset_provider": MET_R2_ASSET_PROVIDER,
+        "image_url": target["primary_image_url"],
+        "source_url": authorized_target["object_endpoint"],
+        "delivery_width": decode["decoded_width"],
+        "delivery_height": decode["decoded_height"],
+        "acquisition_route": "met_r2_official_primary_image",
+        "acquisition_completion_route": "met_r2_committed_image_acquisition",
+        "phase_a_config_file_sha256": hash_file(_resolve(root, DEFAULT_CONFIG)),
+        "external_protocol_result_sha256": None,
+        "external_unseal_receipt_sha256": None,
+        "raw_path": raw_path,
+        "raw_sha256": raw_sha256,
+        "raw_byte_count": raw_byte_count,
+        "normalized_path": _portable(normalized_path, root),
+        "normalized_sha256": normalized_sha256,
+        "normalized_byte_count": len(normalized),
+        "base_common_preprocessing_config_sha256": stable_hash(
+            config["common_preprocessing"]
+        ),
+        "common_preprocessing_config_sha256": (
+            _effective_preprocessing_contract_sha256(config)
+        ),
+        "normalization_protocol_version": PILOT3_NORMALIZATION_PROTOCOL_VERSION,
+        "preprocessing_determinism_amendment_sha256": None,
+        "effective_preprocessing_contract_sha256": (
+            _effective_preprocessing_contract_sha256(config)
+        ),
+        **lineage,
+        "digital_asset_protocol_namespace": pilot3_met_r2.NAMESPACE,
+        "r2_asset_id": target["r2_asset_id"],
+        "r2_authorization_sha256": authorization["authorization_sha256"],
+        "r2_metadata_freeze_sha256": freeze["freeze_sha256"],
+        "r2_target_row_sha256": target["row_sha256"],
+        "r2_image_terminal_event_sha256": r2_acquisition["image_terminal_event_sha256"],
+        "r2_image_acquisition_record_sha256": r2_acquisition["record_sha256"],
+        "r2_cohort_observation_sha256": r2_acquisition["cohort_observation_sha256"],
+        **dict(decode),
+        "response_evidence": {
+            "transport": "committed_met_r2_official_primaryImage",
+            "metadata_freeze_sha256": freeze["freeze_sha256"],
+            "target_row_sha256": target["row_sha256"],
+            "image_terminal_event_sha256": r2_acquisition[
+                "image_terminal_event_sha256"
+            ],
+            "image_acquisition_record_sha256": r2_acquisition["record_sha256"],
+            "cohort_observation_sha256": r2_acquisition["cohort_observation_sha256"],
+        },
+    }
+    return _self_hash(payload, "record_sha256")
+
+
+def _materialize_met_r2_development_acquisitions(
+    root: Path,
+    config: Mapping[str, Any],
+    splits: Sequence[Mapping[str, Any]],
+    acquisitions: Dict[str, Dict[str, Any]],
+) -> None:
+    """Append only the exact committed official-Met cohort to the legacy ledger."""
+
+    met_splits = [row for row in splits if row.get("source_id") == "met"]
+    if len(met_splits) != 20:
+        raise Pilot3PhaseAError("Met R2 bridge requires exactly twenty frozen works")
+    expected_met_order = [str(row["canonical_work_id"]) for row in met_splits]
+    existing_met_order = [
+        str(row.get("canonical_work_id"))
+        for row in acquisitions.values()
+        if row.get("source_id") == "met"
+    ]
+    if existing_met_order != expected_met_order[: len(existing_met_order)]:
+        raise Pilot3PhaseAError(
+            "persisted Met R2 normalized acquisitions are not a deterministic prefix"
+        )
+    for work_id, existing in acquisitions.items():
+        if existing.get("source_id") == "met" and existing.get("schema_version") != (
+            MET_R2_NORMALIZED_ACQUISITION_SCHEMA
+        ):
+            raise Pilot3PhaseAError(
+                "legacy Met/Commons acquisition is quarantined and cannot be admitted: "
+                + work_id
+            )
+    authorization, targets, freeze, r2_acquisitions, scope = (
+        _require_met_r2_normalization_inputs(root, config)
+    )
+    target_by_work = {str(row["physical_work_id"]): row for row in targets}
+    r2_by_work = {str(row["physical_work_id"]): row for row in r2_acquisitions}
+    expected_ids = {str(row["canonical_work_id"]) for row in met_splits}
+    if set(target_by_work) != expected_ids or set(r2_by_work) != expected_ids:
+        raise Pilot3PhaseAError(
+            "Met R2 closure is not the exact frozen twenty-work cohort"
+        )
+
+    prepared: List[Tuple[Mapping[str, Any], bytes, Path, Dict[str, Any]]] = []
+    normalized_dir = _resolve(root, config["paths"]["normalized_dir"])
+    for split in met_splits:
+        work_id = str(split["canonical_work_id"])
+        r2_acquisition = r2_by_work[work_id]
+        raw_path = _resolve(root, str(r2_acquisition["raw_image_path"]))
+        raw_payload = raw_path.read_bytes()
+        if hash_bytes(raw_payload) != r2_acquisition.get("raw_image_sha256") or len(
+            raw_payload
+        ) != r2_acquisition.get("raw_image_byte_count"):
+            raise Pilot3PhaseAError("Met R2 raw CAS changed after cohort verification")
+        decode, normalized = _decode_and_normalize(raw_payload, config)
+        normalized_sha256 = hash_bytes(normalized)
+        normalized_path = (
+            normalized_dir / normalized_sha256[:2] / f"{normalized_sha256}.png"
+        )
+        row = _met_r2_normalized_acquisition(
+            root,
+            config,
+            split,
+            authorization,
+            target_by_work[work_id],
+            freeze,
+            r2_acquisition,
+            scope,
+            normalized=normalized,
+            decode=decode,
+            normalized_path=normalized_path,
+        )
+        existing = acquisitions.get(work_id)
+        if existing is not None and existing != row:
+            raise Pilot3PhaseAError(
+                "persisted Met R2 normalized acquisition is stale: " + work_id
+            )
+        prepared.append((split, normalized, normalized_path, row))
+
+    acquisition_path = _phase_ledger_path(root, config, "development", "acquisitions")
+    for split, normalized, normalized_path, row in prepared:
+        work_id = str(split["canonical_work_id"])
+        if (
+            normalized_path.exists()
+            and hash_file(normalized_path) != row["normalized_sha256"]
+        ):
+            raise Pilot3PhaseAError(
+                "Met R2 normalization CAS collision at " + str(normalized_path)
+            )
+        if not normalized_path.exists():
+            _atomic_bytes(normalized_path, normalized)
+        if work_id not in acquisitions:
+            _append_jsonl_fsync(acquisition_path, row)
+            acquisitions[work_id] = row
 
 
 def _acquisition_intent(
@@ -4818,9 +5351,13 @@ def _verify_acquisition_http_history(
 ) -> None:
     resolution = require_preprocessing_incident_resolution(root)
     normalization_amendment = resolution["amendment"]
-    phase = (
-        "external" if row.get("partition") == EXTERNAL_PARTITION else "development"
-    )
+    phase = "external" if row.get("partition") == EXTERNAL_PARTITION else "development"
+    normalization_authorization: Optional[Mapping[str, Any]] = None
+    if phase == "external" and row.get("schema_version") == (
+        MET_R2_NORMALIZED_ACQUISITION_SCHEMA
+    ):
+        normalization_authorization = _require_normalization_scope(root, config)
+        normalization_amendment = None
     intent_path = _phase_ledger_path(root, config, phase, "acquisition_intents")
     attempts_path = _phase_ledger_path(root, config, phase, "acquisition_attempts")
     if not attempts_path.is_file():
@@ -4844,9 +5381,8 @@ def _verify_acquisition_http_history(
         phase,
         intents,
         normalization_amendment=normalization_amendment,
-    )[
-        str(expected_intent["intent_id"])
-    ]
+        normalization_authorization=normalization_authorization,
+    )[str(expected_intent["intent_id"])]
     starts = history[::2]
     successful_terminal: Optional[Mapping[str, Any]] = None
     completion_route = row.get("acquisition_completion_route")
@@ -4960,6 +5496,65 @@ def _verify_acquisition_http_history(
         raise Pilot3PhaseAError("acquisition HTTP-attempt binding is stale")
 
 
+def _verify_existing_met_r2_acquisition(
+    row: Mapping[str, Any],
+    root: Path,
+    split: Mapping[str, Any],
+    config: Mapping[str, Any],
+) -> None:
+    if split.get("source_id") != "met":
+        raise Pilot3PhaseAError("Met R2 schema is attached to a non-Met split")
+    authorization, targets, freeze, acquisitions, scope = (
+        _require_met_r2_normalization_inputs(root, config)
+    )
+    work_id = str(split["canonical_work_id"])
+    target_by_work = {str(value["physical_work_id"]): value for value in targets}
+    r2_by_work = {str(value["physical_work_id"]): value for value in acquisitions}
+    if work_id not in target_by_work or work_id not in r2_by_work:
+        raise Pilot3PhaseAError("Met R2 acquisition is outside the complete cohort")
+    r2_acquisition = r2_by_work[work_id]
+    raw_path = _resolve(root, str(r2_acquisition["raw_image_path"]))
+    raw_payload = raw_path.read_bytes()
+    decode, normalized = _decode_and_normalize(raw_payload, config)
+    normalized_sha256 = hash_bytes(normalized)
+    normalized_path = (
+        _resolve(root, config["paths"]["normalized_dir"])
+        / normalized_sha256[:2]
+        / f"{normalized_sha256}.png"
+    )
+    expected = _met_r2_normalized_acquisition(
+        root,
+        config,
+        split,
+        authorization,
+        target_by_work[work_id],
+        freeze,
+        r2_acquisition,
+        scope,
+        normalized=normalized,
+        decode=decode,
+        normalized_path=normalized_path,
+    )
+    if dict(row) != expected:
+        raise Pilot3PhaseAError("existing Met R2 normalized acquisition is stale")
+    if (
+        not normalized_path.is_file()
+        or normalized_path.stat().st_size != len(normalized)
+        or hash_file(normalized_path) != normalized_sha256
+        or normalized_path.read_bytes() != normalized
+    ):
+        raise Pilot3PhaseAError("Met R2 normalized CAS is missing or stale")
+    legacy_url = str(split.get("image_url", ""))
+    if (
+        row.get("asset_provider") == split.get("asset_provider")
+        or row.get("image_url") == legacy_url
+        or "wikimedia" in str(row.get("asset_provider", "")).casefold()
+        or "wikimedia" in str(row.get("image_url", "")).casefold()
+        or "/real_raw/" in str(row.get("raw_path", ""))
+    ):
+        raise Pilot3PhaseAError("legacy Commons digital asset escaped quarantine")
+
+
 def _verify_existing_acquisition(
     row: Mapping[str, Any],
     root: Path,
@@ -4972,6 +5567,18 @@ def _verify_existing_acquisition(
     resolution = require_preprocessing_incident_resolution(root)
     amendment = resolution["amendment"]
     verify_self_hash(row, "record_sha256")
+    if row.get("schema_version") == MET_R2_NORMALIZED_ACQUISITION_SCHEMA and (
+        split.get("source_id") == "met"
+    ):
+        if (
+            external_unseal_token is not None
+            or expected_external_receipt_sha256 is not None
+        ):
+            raise Pilot3PhaseAError(
+                "development Met R2 acquisition received external state"
+            )
+        _verify_existing_met_r2_acquisition(row, root, split, config)
+        return
     expected_identity = {
         key: split[key]
         for key in (
@@ -5020,8 +5627,31 @@ def _verify_existing_acquisition(
         external_unseal_receipt_sha256=expected_receipt,
     )
     _verify_acquisition_http_history(row, root, config, expected_intent)
-    is_v2 = row.get("schema_version") == "2.0"
-    if is_v2:
+    is_v2 = row.get("schema_version") in {
+        "2.0",
+        MET_R2_NORMALIZED_ACQUISITION_SCHEMA,
+    }
+    is_generic_v2 = row.get("schema_version") == MET_R2_NORMALIZED_ACQUISITION_SCHEMA
+    if is_generic_v2:
+        scope = _require_normalization_scope(root, config)
+        _verify_scope_member(scope, split)
+        if (
+            row.get("normalization_protocol_version")
+            != PILOT3_NORMALIZATION_PROTOCOL_VERSION
+            or row.get("preprocessing_determinism_amendment_sha256") is not None
+            or row.get("normalization_authorization_schema")
+            != pilot3_normalization_scope.SCHEMA_VERSION
+            or row.get("normalization_authorization_sha256")
+            != scope["authorization_sha256"]
+            or row.get("base_common_preprocessing_config_sha256")
+            != stable_hash(config["common_preprocessing"])
+            or row.get("common_preprocessing_config_sha256")
+            != _effective_preprocessing_contract_sha256(config)
+            or row.get("effective_preprocessing_contract_sha256")
+            != _effective_preprocessing_contract_sha256(config)
+        ):
+            raise Pilot3PhaseAError("schema-v3 acquisition binds stale preprocessing")
+    elif is_v2:
         if (
             row.get("normalization_protocol_version")
             != PILOT3_NORMALIZATION_PROTOCOL_VERSION
@@ -5119,6 +5749,7 @@ def _materialize_real_acquisition(
     external_unseal_token: Optional[str],
     external_unseal_receipt_sha256: Optional[str],
     normalization_amendment: Optional[Mapping[str, Any]] = None,
+    normalization_authorization: Optional[Mapping[str, Any]] = None,
 ) -> Dict[str, Any]:
     """Create one canonical acquisition row from its already-durable byte transport."""
 
@@ -5137,14 +5768,54 @@ def _materialize_real_acquisition(
             expected_external_receipt_sha256=external_unseal_receipt_sha256,
         )
         return existing
-    if normalization_amendment is None:
+    if normalization_amendment is not None and normalization_authorization is not None:
         raise Pilot3PhaseAError(
-            "new acquisition requires the preprocessing-determinism amendment"
+            "new acquisition received two normalization authorities"
         )
-    if normalization_amendment.get("normalization_protocol_version") != (
-        PILOT3_NORMALIZATION_PROTOCOL_VERSION
-    ):
-        raise Pilot3PhaseAError("new acquisition received a stale normalization amendment")
+    if normalization_amendment is None and normalization_authorization is None:
+        raise Pilot3PhaseAError(
+            "new acquisition requires a committed normalization authority"
+        )
+    if normalization_amendment is not None:
+        if normalization_amendment.get("normalization_protocol_version") != (
+            PILOT3_NORMALIZATION_PROTOCOL_VERSION
+        ):
+            raise Pilot3PhaseAError(
+                "new acquisition received a stale normalization amendment"
+            )
+        schema_version = "2.0"
+        normalization_lineage: Dict[str, Any] = {
+            "preprocessing_determinism_amendment_sha256": (
+                normalization_amendment["authorization_sha256"]
+            )
+        }
+    else:
+        assert normalization_authorization is not None
+        _verify_scope_member(normalization_authorization, split)
+        implementation = normalization_authorization.get("normalization_implementation")
+        if (
+            not isinstance(implementation, Mapping)
+            or implementation.get("protocol_version")
+            != PILOT3_NORMALIZATION_PROTOCOL_VERSION
+            or implementation.get("effective_preprocessing_contract_sha256")
+            != _effective_preprocessing_contract_sha256(config)
+        ):
+            raise Pilot3PhaseAError(
+                "new acquisition received a stale normalization scope"
+            )
+        schema_version = MET_R2_NORMALIZED_ACQUISITION_SCHEMA
+        normalization_lineage = {
+            "preprocessing_determinism_amendment_sha256": None,
+            **_normalization_authority_lineage(
+                normalization_authorization,
+                schema=pilot3_normalization_scope.SCHEMA_VERSION,
+            ),
+            "digital_asset_protocol_namespace": (
+                "pilot3-external-official-assets"
+                if split.get("partition") == EXTERNAL_PARTITION
+                else "pilot3-normalization-scope-member"
+            ),
+        }
     decode, normalized = _decode_and_normalize(
         payload,
         config,
@@ -5174,7 +5845,7 @@ def _materialize_real_acquisition(
     )
     record_payload = {
         "record_type": "pilot3_real_acquisition",
-        "schema_version": "2.0",
+        "schema_version": schema_version,
         "canonical_work_id": work_id,
         "artist_id": split["artist_id"],
         "asset_provider": split["asset_provider"],
@@ -5208,9 +5879,7 @@ def _materialize_real_acquisition(
             _effective_preprocessing_contract_sha256(config)
         ),
         "normalization_protocol_version": PILOT3_NORMALIZATION_PROTOCOL_VERSION,
-        "preprocessing_determinism_amendment_sha256": normalization_amendment[
-            "authorization_sha256"
-        ],
+        **normalization_lineage,
         "effective_preprocessing_contract_sha256": (
             _effective_preprocessing_contract_sha256(config)
         ),
@@ -5302,6 +5971,7 @@ def _acquire_real_partition_locked(
     config = load_phase_a_config(root, config_path)
     resolution = require_preprocessing_incident_resolution(root)
     normalization_amendment = resolution["amendment"]
+    normalization_authorization: Optional[Mapping[str, Any]] = None
     external_receipt_sha256: Optional[str] = None
     if phase not in {"development", "external"}:
         raise ValueError("phase must be development or external")
@@ -5314,6 +5984,7 @@ def _acquire_real_partition_locked(
         external_receipt_sha256 = verify_external_unseal_receipt(
             root, config, protocol
         )["receipt_sha256"]
+        normalization_authorization = _require_normalization_scope(root, config)
         allowed = {EXTERNAL_PARTITION}
     else:
         require_development_freeze(root)
@@ -5335,6 +6006,10 @@ def _acquire_real_partition_locked(
     _ensure_durable_file(attempt_path)
     intents = _read_existing_rows(intent_path, "intent_id")
     acquisitions = _read_existing_rows(acquisition_path, "canonical_work_id")
+    if phase == "development" and any(
+        split.get("source_id") == "met" for split in splits
+    ):
+        _materialize_met_r2_development_acquisitions(root, config, splits, acquisitions)
     config_sha = hash_file(_resolve(root, config_path))
     split_work_ids = {str(row["canonical_work_id"]) for row in splits}
     if not set(acquisitions).issubset(split_work_ids):
@@ -5356,7 +6031,10 @@ def _acquire_real_partition_locked(
         config,
         phase,
         intents,
-        normalization_amendment=normalization_amendment,
+        normalization_amendment=(
+            normalization_amendment if phase == "development" else None
+        ),
+        normalization_authorization=normalization_authorization,
     )
 
     for split in splits:
@@ -5453,7 +6131,10 @@ def _acquire_real_partition_locked(
                 config,
                 phase,
                 intents,
-                normalization_amendment=normalization_amendment,
+                normalization_amendment=(
+                    normalization_amendment if phase == "development" else None
+                ),
+                normalization_authorization=normalization_authorization,
             )[intent_id]
             if http_history:
                 raise Pilot3PhaseAError(
@@ -5473,7 +6154,10 @@ def _acquire_real_partition_locked(
                     config,
                     phase,
                     intents,
-                    normalization_amendment=normalization_amendment,
+                    normalization_amendment=(
+                        normalization_amendment if phase == "development" else None
+                    ),
+                    normalization_authorization=normalization_authorization,
                 )[intent_id]
                 completion_route = "browser_download_import"
             else:
@@ -5486,7 +6170,10 @@ def _acquire_real_partition_locked(
                     config,
                     phase,
                     intent,
-                    normalization_amendment=normalization_amendment,
+                    normalization_amendment=(
+                        normalization_amendment if phase == "development" else None
+                    ),
+                    normalization_authorization=normalization_authorization,
                 )
                 completion_route = "httpx_get"
 
@@ -5502,7 +6189,10 @@ def _acquire_real_partition_locked(
             browser_terminal=browser_terminal,
             external_unseal_token=external_unseal_token,
             external_unseal_receipt_sha256=external_receipt_sha256,
-            normalization_amendment=normalization_amendment,
+            normalization_amendment=(
+                normalization_amendment if phase == "development" else None
+            ),
+            normalization_authorization=normalization_authorization,
         )
         acquisitions[work_id] = record
 
@@ -5563,21 +6253,33 @@ def _verify_feature(
     *,
     expected_runtime: Optional[Mapping[str, Any]] = None,
 ) -> None:
-    if row.get("record_type") != "pilot3_real_a_vector" or row.get("schema_version") != "2.0":
+    expected_schema = (
+        "3.0"
+        if _is_sha256(acquisition.get("normalization_authorization_sha256"))
+        else "2.0"
+    )
+    if (
+        row.get("record_type") != "pilot3_real_a_vector"
+        or row.get("schema_version") != expected_schema
+    ):
         raise Pilot3PhaseAError("A-vector row schema is stale")
     for key in (
         "canonical_work_id",
         "artist_id",
-        "asset_provider",
         "collection_block_id",
-        "delivery_height",
-        "delivery_width",
         "museum_accession",
         "source_id",
         "partition",
     ):
         if row.get(key) != split.get(key):
             raise Pilot3PhaseAError(f"A-vector {key} disagrees with the frozen split")
+    digital_fields = ("asset_provider", "delivery_height", "delivery_width")
+    if expected_schema == "3.0":
+        digital_fields = (*digital_fields, "image_url")
+    if any(row.get(key) != acquisition.get(key) for key in digital_fields):
+        raise Pilot3PhaseAError(
+            "A-vector digital reproduction fields disagree with acquisition"
+        )
     if row.get("normalized_sha256") != acquisition.get("normalized_sha256"):
         raise Pilot3PhaseAError("feature binds a stale normalized input")
     if row.get("raw_sha256") != acquisition.get("raw_sha256"):
@@ -5591,8 +6293,12 @@ def _verify_feature(
         "effective_acquisition_sha256",
         "original_acquisition_record_sha256",
         "normalization_revalidation_record_sha256",
+        *GENERIC_NORMALIZATION_LINEAGE_FIELDS,
+        *MET_R2_LINEAGE_FIELDS,
     ):
-        if row.get(key) != acquisition.get(key):
+        if key in acquisition or key in row:
+            if row.get(key) == acquisition.get(key):
+                continue
             raise Pilot3PhaseAError(
                 "feature binds stale effective normalization lineage: " + key
             )
@@ -5647,6 +6353,9 @@ def _verify_feature(
         "artifacts_verified": True,
         "source_checkout_verified": True,
     }
+    for key in (*GENERIC_NORMALIZATION_LINEAGE_FIELDS, *MET_R2_LINEAGE_FIELDS):
+        if key in acquisition:
+            expected_metadata[key] = acquisition[key]
     if any(metadata.get(key) != value for key, value in expected_metadata.items()):
         raise Pilot3PhaseAError("feature extraction provenance is stale")
     if expected_runtime is not None and any(
@@ -5794,18 +6503,35 @@ def extract_real_partition(
                 "effective_acquisition_sha256": acquired[
                     "effective_acquisition_sha256"
                 ],
+                **{
+                    key: acquired[key]
+                    for key in (
+                        *GENERIC_NORMALIZATION_LINEAGE_FIELDS,
+                        *MET_R2_LINEAGE_FIELDS,
+                    )
+                    if key in acquired
+                },
             }
         )
         row_payload: Dict[str, Any] = {
             "record_type": "pilot3_real_a_vector",
-            "schema_version": "2.0",
+            "schema_version": (
+                "3.0"
+                if _is_sha256(acquired.get("normalization_authorization_sha256"))
+                else "2.0"
+            ),
             "canonical_work_id": work_id,
             "artist_id": split["artist_id"],
-            "asset_provider": split["asset_provider"],
+            "asset_provider": acquired["asset_provider"],
+            **(
+                {"image_url": acquired["image_url"]}
+                if _is_sha256(acquired.get("normalization_authorization_sha256"))
+                else {}
+            ),
             "collection_block_id": split["collection_block_id"],
             "museum_accession": split["museum_accession"],
-            "delivery_width": split["delivery_width"],
-            "delivery_height": split["delivery_height"],
+            "delivery_width": acquired["delivery_width"],
+            "delivery_height": acquired["delivery_height"],
             "source_id": split["source_id"],
             "partition": split["partition"],
             "normalized_sha256": acquired["normalized_sha256"],
@@ -5834,6 +6560,14 @@ def extract_real_partition(
             "normalization_revalidation_record_sha256": acquired[
                 "normalization_revalidation_record_sha256"
             ],
+            **{
+                key: acquired[key]
+                for key in (
+                    *GENERIC_NORMALIZATION_LINEAGE_FIELDS,
+                    *MET_R2_LINEAGE_FIELDS,
+                )
+                if key in acquired
+            },
             "external_unseal_receipt_sha256": acquired.get(
                 "external_unseal_receipt_sha256"
             ),
@@ -5925,7 +6659,11 @@ def run_determinism_probes(
         first_hash = str(features[work_id]["vector_sha256"])
         common_payload = {
             "record_type": "pilot3_a_vector_determinism_probe",
-            "schema_version": "2.0",
+            "schema_version": (
+                "3.0"
+                if _is_sha256(acquired.get("normalization_authorization_sha256"))
+                else "2.0"
+            ),
             "canonical_work_id": work_id,
             "artist_id": split["artist_id"],
             "source_id": split["source_id"],
@@ -5951,6 +6689,14 @@ def run_determinism_probes(
             "normalization_revalidation_record_sha256": acquired[
                 "normalization_revalidation_record_sha256"
             ],
+            **{
+                field: acquired[field]
+                for field in (
+                    *GENERIC_NORMALIZATION_LINEAGE_FIELDS,
+                    *MET_R2_LINEAGE_FIELDS,
+                )
+                if field in acquired
+            },
             "first_vector_sha256": first_hash,
             "seed": metadata["seed"],
         }
@@ -6148,6 +6894,15 @@ def _closure_paths(config: Mapping[str, Any]) -> List[str]:
         str(PREPROCESSING_AMENDMENT_PATH),
         str(NORMALIZATION_REVALIDATION_LEDGER_PATH),
         str(PREPROCESSING_AMENDMENT_DOC_PATH),
+        str(pilot3_met_r2.DEFAULT_INCIDENT),
+        str(pilot3_met_r2.DEFAULT_AUTHORIZATION),
+        str(pilot3_met_r2.DEFAULT_METADATA_ATTEMPTS),
+        str(pilot3_met_r2.DEFAULT_TARGET_MANIFEST),
+        str(pilot3_met_r2.DEFAULT_METADATA_FREEZE),
+        str(pilot3_met_r2.DEFAULT_IMAGE_ATTEMPTS),
+        str(pilot3_met_r2.DEFAULT_IMAGE_ACQUISITIONS),
+        str(pilot3_normalization_scope.DEFAULT_AUTHORIZATION),
+        "docs/PILOT_3_R2_OFFICIAL_MET.md",
         "docs/PILOT_3_PROTOCOL.md",
         "src/latent_art_bench/io.py",
         "src/latent_art_bench/features/learned_formal.py",
@@ -6158,10 +6913,14 @@ def _closure_paths(config: Mapping[str, Any]) -> List[str]:
         "src/latent_art_bench/cli.py",
         "src/latent_art_bench/pilot3/cli.py",
         "src/latent_art_bench/pilot3/lee.py",
+        "src/latent_art_bench/pilot3/met_r2.py",
+        "src/latent_art_bench/pilot3/normalization_scope.py",
         "src/latent_art_bench/pilot3/phasea.py",
         "src/latent_art_bench/pilot3/preprocessing.py",
         "src/latent_art_bench/pilot3/execution.py",
         "tests/pilot3/test_lee.py",
+        "tests/pilot3/test_met_r2.py",
+        "tests/pilot3/test_normalization_scope.py",
         "tests/pilot3/test_phasea.py",
         "tests/pilot3/test_execution.py",
     ]
@@ -6308,7 +7067,11 @@ def _validated_determinism_probes(
             raise Pilot3PhaseAError(f"determinism probe seed is missing: {work_id}")
         payload = {
             "record_type": "pilot3_a_vector_determinism_probe",
-            "schema_version": "2.0",
+            "schema_version": (
+                "3.0"
+                if _is_sha256(acquisition.get("normalization_authorization_sha256"))
+                else "2.0"
+            ),
             "canonical_work_id": work_id,
             "artist_id": feature["artist_id"],
             "source_id": feature["source_id"],
@@ -6334,6 +7097,14 @@ def _validated_determinism_probes(
             "normalization_revalidation_record_sha256": acquisition[
                 "normalization_revalidation_record_sha256"
             ],
+            **{
+                field: acquisition[field]
+                for field in (
+                    *GENERIC_NORMALIZATION_LINEAGE_FIELDS,
+                    *MET_R2_LINEAGE_FIELDS,
+                )
+                if field in acquisition
+            },
             "first_vector_sha256": feature["vector_sha256"],
             "repeated_vector_sha256": feature["vector_sha256"],
             "seed": metadata["seed"],
@@ -6456,8 +7227,9 @@ def _a_vector_protocol_payload(
     amendment = resolution["amendment"]
     incident = verify_preprocessing_determinism_incident(root)
     revalidation_path = _resolve(root, NORMALIZATION_REVALIDATION_LEDGER_PATH)
-    revalidation_rows = _read_canonical_normalization_revalidations(
-        revalidation_path
+    revalidation_rows = _read_canonical_normalization_revalidations(revalidation_path)
+    r2_authorization, r2_targets, r2_freeze, r2_acquisitions, scope = (
+        _require_met_r2_normalization_inputs(root, config)
     )
     training = computed["training"]
     calibration = computed["calibration"]
@@ -6513,6 +7285,14 @@ def _a_vector_protocol_payload(
                 revalidation_rows
             ),
             "normalization_revalidation_count": len(revalidation_rows),
+            "normalization_scope_path": str(
+                pilot3_normalization_scope.DEFAULT_AUTHORIZATION
+            ),
+            "normalization_scope_file_sha256": hash_file(
+                _resolve(root, pilot3_normalization_scope.DEFAULT_AUTHORIZATION)
+            ),
+            "normalization_scope_schema": pilot3_normalization_scope.SCHEMA_VERSION,
+            "normalization_scope_authorization_sha256": scope["authorization_sha256"],
             "effective_acquisition_lineage_semantic_sha256": stable_hash(
                 [
                     {
@@ -6524,10 +7304,30 @@ def _a_vector_protocol_payload(
                         "normalization_revalidation_record_sha256": row[
                             "normalization_revalidation_record_sha256"
                         ],
+                        "normalization_authorization_schema": row[
+                            "normalization_authorization_schema"
+                        ],
+                        "normalization_authorization_sha256": row[
+                            "normalization_authorization_sha256"
+                        ],
+                        "r2_image_acquisition_record_sha256": row.get(
+                            "r2_image_acquisition_record_sha256"
+                        ),
                     }
                     for row in rows
                 ]
             ),
+        },
+        "official_met_r2": {
+            "namespace": pilot3_met_r2.NAMESPACE,
+            "asset_provider": MET_R2_ASSET_PROVIDER,
+            "authorization_sha256": r2_authorization["authorization_sha256"],
+            "metadata_freeze_sha256": r2_freeze["freeze_sha256"],
+            "target_manifest_semantic_sha256": stable_hash(r2_targets),
+            "image_acquisition_manifest_semantic_sha256": stable_hash(r2_acquisitions),
+            "target_count": len(r2_targets),
+            "image_acquisition_count": len(r2_acquisitions),
+            "legacy_commons_admitted": False,
         },
         "development_feature_manifest_semantic_sha256": stable_hash(rows),
         "training_work_ids": [str(row["canonical_work_id"]) for row in training],
@@ -6562,8 +7362,7 @@ def _a_vector_protocol_payload(
             "centroid_refit_allowed": False,
             "classifier": "nearest frozen training artist centroid by Euclidean distance",
             "target_neighbor_margin": (
-                "distance_to_frozen_neighbor_centroid_minus_"
-                "distance_to_frozen_target_centroid"
+                "distance_to_frozen_neighbor_centroid_minus_distance_to_frozen_target_centroid"
             ),
             "permutation": (
                 "external artist labels independently permuted within each complete "

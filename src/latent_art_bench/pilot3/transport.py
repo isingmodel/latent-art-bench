@@ -900,7 +900,11 @@ class Pilot3OAuthTransport:
                 completed_at=_utc_now(),
                 transport_error_kind=type(exc).__name__,
                 transport_error_reason=sanitize_external_text(exc),
-                transport_error_retryable=isinstance(exc, httpx.TransportError),
+                # Once ``send`` has begun, httpx cannot attest that zero request
+                # bytes reached the loopback proxy (nor that the proxy did not
+                # complete the upstream image request).  Blindly retrying such an
+                # ambiguous failure could duplicate an executed analytic request.
+                transport_error_retryable=False,
             )
         except Exception as exc:
             return TransportExchange(

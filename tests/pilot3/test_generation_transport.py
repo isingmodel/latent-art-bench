@@ -399,6 +399,25 @@ def test_transport_performs_exactly_one_post_and_preserves_safe_headers(tmp_path
     }
 
 
+def test_transport_loss_after_send_is_never_declared_retryable(tmp_path: Path) -> None:
+    config = _config(tmp_path)
+    seen: list[httpx.Request] = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        seen.append(request)
+        raise httpx.ReadError("connection lost after request began", request=request)
+
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    transport = Pilot3OAuthTransport(config, client=client)
+    request = canonical_image_request_bytes(
+        "harmless", "gpt-image-2", frozen_requested_labels=("gpt-image-2",)
+    )
+    exchange = transport.post_once(request)
+    assert len(seen) == 1
+    assert exchange.transport_error_kind == "ReadError"
+    assert exchange.transport_error_retryable is False
+
+
 def test_runtime_fingerprint_is_self_hashed_and_subset_bound(tmp_path: Path) -> None:
     config = _config(tmp_path)
     fingerprint = _fingerprint(config)
@@ -639,6 +658,43 @@ def test_transient_failures_use_exact_fixed_waits_then_succeed(tmp_path: Path) -
         == fingerprint.fingerprint_sha256
         for row in intents.rows()
     )
+
+
+def test_ambiguous_post_transport_loss_is_terminal_and_never_resent(
+    tmp_path: Path,
+) -> None:
+    config = _config(tmp_path)
+    fingerprint = _fingerprint(config)
+    cell = _cell()
+    ledger, intents, _ = _ledgers(tmp_path)
+    exchange = TransportExchange(
+        started_at=NOW,
+        completed_at=NOW,
+        transport_error_kind="ReadError",
+        transport_error_reason="connection lost after request began",
+        transport_error_retryable=False,
+    )
+    transport = FakeTransport(config, lambda _index, _request: exchange)
+    result = generate_cell(
+        cell,
+        transport=transport,
+        ledger=ledger,
+        post_intent_ledger=intents,
+        fingerprint=fingerprint,
+        output_dir=tmp_path / "outputs",
+        request_gate=lambda _context: True,
+        runtime_revalidator=_revalidation,
+        sleep=lambda _seconds: pytest.fail("ambiguous POSTs must not retry"),
+    )
+    assert result.outcome == "terminal_failure"
+    assert result.retry_classification == (
+        "not_retryable_indeterminate_after_interruption"
+    )
+    assert result.failure_kind == "indeterminate_after_interruption"
+    assert result.post_exchange_observed is False
+    assert len(transport.requests) == 1
+    assert len(intents.rows()) == 1
+    assert len(ledger.rows()) == 1
 
 
 def test_retry_cap_is_exactly_ten_and_completion_is_terminal(tmp_path: Path) -> None:
