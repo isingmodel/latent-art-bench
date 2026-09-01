@@ -1,6 +1,6 @@
 # Literature-search protocol and retrospective audit specification
 
-Protocol version: `painter-feature-review/1.1`
+Protocol version: `painter-feature-review/1.2`
 
 Review snapshot date: 2026-09-01
 
@@ -97,9 +97,17 @@ Language is not an exclusion criterion when an English abstract and interpretabl
 available. Publication venue is not an automatic quality score; evidence is graded from the
 actual design.
 
-## Extraction schema
+## Current matrix and uninstantiated detailed extraction schema
 
-Every source retained for structured evidence synthesis receives:
+The current 138-row matrix records only 11 fields: ID, year, short citation, stable identifier,
+cluster, review depth, main evidence, central limit, evidence grade, disposition, and protocol
+consequence. The thematic reviews provide richer method detail for selected decision-relevant
+sources, but the project did **not** create a 138-record evidence-card artifact containing every
+field below. It therefore cannot claim that every retained source received a complete detailed
+extraction. This is a current audit limitation, not a field silently stored elsewhere.
+
+For a future prospectively registered update, every newly retained source must receive a saved
+record-level evidence card containing:
 
 - stable identifier, citation, year, and version reviewed;
 - review depth: `full_text`, `methods_and_results`, `abstract_only`, or `metadata_only`;
@@ -115,7 +123,9 @@ Every source retained for structured evidence synthesis receives:
   `background_only`, or `reject`; and
 - rationale and concrete protocol consequence.
 
-Unreported details are recorded as unreported, not inferred.
+Unreported details in those future cards must be recorded as unreported, not inferred. Until such
+cards exist for the current 138 sources, the 11-column matrix and the cited thematic-review tables
+are the complete auditable extraction artifacts.
 
 ## Evidence grades
 

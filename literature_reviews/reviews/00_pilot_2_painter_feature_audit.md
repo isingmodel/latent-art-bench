@@ -54,19 +54,19 @@ The remaining 16 works supplied only four held works per painter. Generated outp
 to centroids of those four works. Such centroids cannot describe multimodality by subject, career
 phase, technique, or medium, and their sampling uncertainty is large.
 
-### 3.2 Weak painter prediction and strong source signal
+### 3.2 Pooled painter-label and source-prediction diagnostics
 
 The qualification gate technically passed its registered criteria, but the evidence is weak for
 the broader construct:
 
 | Diagnostic | Observed result | Painter-feature implication |
 |---|---:|---|
-| Four-painter pooled held balanced accuracy | 0.50 (chance 0.25; 16 works) | detectable pooled signal, but imprecise and uneven |
+| Four-painter pooled held balanced accuracy | 0.50 (chance 0.25; 16 works) | pooled artist-label predictability in the fixed atlas, but imprecise and uneven |
 | Monet held recall | 0.25 | target painter often not identified |
 | Pissarro held recall | 0.25 | target painter often not identified |
 | AIC held balanced accuracy with pooled fit | 0.625 (8 works) | coarse source-stratum result |
 | NGA held balanced accuracy with pooled fit | 0.375 (8 works) | coarse and close to chance |
-| Source balanced accuracy | 0.8125 (16 works) | representation strongly exposes acquisition source |
+| Source balanced accuracy | 0.8125 (16 works) | high acquisition-source predictability on a separate two-class task; raw BA is not ranked against the four-class painter task |
 | Train NGA, test AIC painter accuracy | 0.25 | chance cross-source transfer |
 | Train AIC, test NGA painter accuracy | 0.375 | weak cross-source transfer |
 

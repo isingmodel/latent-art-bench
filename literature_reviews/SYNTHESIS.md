@@ -17,9 +17,10 @@ an artist name into a prompt.
 
 This definition preserves Pilot 2's scientific aim while correcting its central weakness.
 Pilot 2 established only **pooled artist-label predictability within the fixed Pilot 2 atlas** in
-a deterministic adaptation of Kim's A-vector. The same space predicted source substantially
-better than artist label and failed true cross-source transfer. Pilot 2 therefore established
-neither a transferable painter feature nor any generated-output effect. The relaunch makes
+a deterministic adaptation of Kim's A-vector. A separate two-class task showed high source
+predictability, and the painter task failed true opposite-source transfer. These unlike tasks are
+not ranked by their raw balanced accuracies. Pilot 2 therefore established neither a transferable
+painter feature nor any generated-output effect. The relaunch makes
 reproduction reliability, source/content transfer, hard-neighbor specificity, and
 within-painter coverage mandatory before either claim can be made.
 
@@ -74,7 +75,7 @@ Its negative evidence is equally important:
 | Diagnostic | Pilot 2 result | Interpretation |
 |---|---:|---|
 | Held four-painter balanced accuracy | 0.50 | Pooled artist-label predictability within the fixed Pilot 2 atlas |
-| Source balanced accuracy | 0.8125 | Strong source information in the same space |
+| Source balanced accuracy | 0.8125 | High source predictability on a separate two-class task; do not rank raw BA against the four-class painter task |
 | Train NGA, test AIC painter accuracy | 0.25 | Chance-level cross-source transfer |
 | Train AIC, test NGA painter accuracy | 0.375 | Weak, inconclusive cross-source transfer |
 | PCA components / training works | 22 / 24 | Nearly saturated reference geometry |
@@ -220,8 +221,9 @@ within the tested corpus and split.
 It cannot show that a representation covers early and late practice, rare genres, multiple
 media, or atypical works. A generated set can be readily recognized because it repeats a narrow
 stereotype. A later canonical painter-fidelity claim therefore requires conjunctive absolute
-fit/equivalence, worst or lower-quantile hard-neighbor specificity, precision/density, and
-recall/coverage, while contraction and prompt movement remain separate secondary outcomes.
+fit/equivalence, panel-wide worst and lower-quantile hard-neighbor specificity, precision, density,
+recall, coverage, content coherence, and availability robustness. Contraction and prompt movement
+remain mandatory nongating outcomes.
 
 ## 5. Reproduction and source are part of the measurement
 
@@ -313,21 +315,24 @@ requires a **conjunction**, not success on a convenient single score:
 
 - absolute target fit demonstrated by a prespecified equivalence or noninferiority decision
   against an eligible real-to-real reference scale, rather than failure to reject a difference;
-- the full target-versus-hard-neighbor margin vector, with the binding specificity decision made
-  on the prespecified worst or lower-quantile eligible margin;
-- generated-to-real precision/density meeting its frozen support criterion; and
-- real-to-generated recall/coverage meeting its independently frozen support criterion.
+- the full target-versus-hard-neighbor margin vector evaluated on one panel-wide common support,
+  with the binding specificity decision made on the prespecified worst and lower-quantile eligible
+  margins;
+- generated-to-real precision **and** density each meeting its frozen support criterion;
+- real-to-generated recall **and** coverage each meeting its independently frozen support
+  criterion;
+- content coherence meeting its frozen cross-cell robustness rule; and
+- refusal, failure, and valid-output availability meeting the frozen availability rule.
 
-The study must also report:
+The study must additionally report, without assigning an automatically favorable direction:
 
 - phase/genre/medium-stratified coverage where estimable;
 - contraction relative to real within-painter dispersion;
-- named-versus-control prompt movement;
-- prompt/content coherence in a separate contextual coordinate; and
-- refusal, failure, and valid-output availability.
+- named-versus-control prompt movement; and
+- the separate contextual content coordinate.
 
 No weighted composite is planned. Failure of any conjunct in the canonical claim prevents the
-painter-fidelity conclusion even if prompt movement or another secondary outcome is positive.
+painter-fidelity conclusion even if prompt movement or another nongating outcome is positive.
 Each outcome also remains visible because the components have different failure modes and
 evidential meaning.
 
@@ -365,7 +370,7 @@ confirmatory pair grid is not repaired with an unregistered available-case subst
 | ALADIN/GOYA/DINO/diffusion features | Evaluator-family sensitivity | model-specific appearance relation |
 | FID | Historical sensitivity only | encoder-specific aggregate discrepancy |
 | MMD/energy distance | Candidate set discrepancy | distribution difference in qualified coordinates |
-| Precision/density and recall/coverage | Required plural outcomes | support relation in qualified coordinates |
+| Precision and density, recall and coverage | Four required support outcomes | support relation in qualified coordinates |
 | Human triplets/attributes | Criterion evidence | task- and population-specific perception |
 | Microscopy/spectroscopy/topography | Out of current RGB scope | none from ordinary catalog RGB |
 

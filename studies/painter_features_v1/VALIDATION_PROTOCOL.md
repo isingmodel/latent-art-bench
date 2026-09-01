@@ -1,6 +1,6 @@
 # Painter-feature validation protocol
 
-Protocol version: `painter_features_v1/validation/1.1`
+Protocol version: `painter_features_v1/validation/1.2`
 
 Status: prospective design framework; not executable until a separately reviewed freeze artifact
 fixes the corpus, estimators, simulations, SESOIs, thresholds, and terminal actions
@@ -201,6 +201,13 @@ aggregation weights must be frozen identically. Observed post-missingness freque
 substituted for the target weights. No confirmatory distance is extrapolated outside
 \(\Omega_A^*\).
 
+For a full hard-neighbor claim about target painter \(a\), the contrast set is fixed as
+\(A_a^{panel}=\{a\}\cup H_a\) before support or feature outcomes. Every target and neighbor uses
+one panel-wide support, workflow set, and set of weights. The hard-neighbor panel is not pruned to
+recover overlap. If only pairwise supports exist, the study may report explicitly domain-limited
+pairwise margins, but it may not calculate a panel minimum or lower quantile, make an omnibus
+specificity decision, or carry that target into a canonical generated-painter claim.
+
 A generated image has no museum source value. A future generated-output study therefore does not
 impute \(s\): it processes outputs through the frozen harmonized analysis branch and compares them
 only in coordinates whose real-image source/capture dependence passed Gates 2-4. The real reference
@@ -219,8 +226,8 @@ All tasks hold out physical works and report uncertainty:
 3. **Leave-content-family-out:** test a genre/subject family absent from fitting for each painter.
 4. **Joint leave-source-by-content-out:** hold out an eligible source workflow and content family
    together; a coordinate does not pass by succeeding on two easier marginal splits.
-5. **Matched hard-neighbor discrimination:** distinguish historically/visually close comparison
-   painters under overlapping content, medium, and date.
+5. **Matched hard-neighbor discrimination:** distinguish the complete frozen panel of
+   historically/visually close comparison painters on its single panel-wide support.
 6. **Broad-negative discrimination:** compare the target with a preregistered panel outside the
    hard-neighbor set to expose threshold calibration.
 7. **Career transfer:** where sample size and historical metadata permit, fit one career interval
@@ -257,7 +264,8 @@ execution-freeze artifact. At minimum, a core painter feature must:
 - satisfy the connected common-support, minimum-count, and fixed-weight invariants;
 - exceed chance/equivalence bounds with multiplicity-controlled uncertainty on work-held-out,
   leave-source-out, leave-content-family-out, and joint leave-source-by-content-out tasks;
-- retain the sign of target-versus-hard-neighbor effects across eligible sources;
+- retain the sign of target-versus-every-hard-neighbor effect across eligible sources on the one
+  frozen panel-wide support;
 - show calibrated uncertainty rather than only rank accuracy;
 - add out-of-sample information beyond source/content/medium/date baselines; and
 - avoid a source-prediction advantage that can account for painter performance; and
@@ -352,7 +360,8 @@ contain:
 - fixed common-support and content-aggregation weights;
 - absolute target discrepancy with a real-real-calibrated equivalence bound;
 - relative named-versus-control movement, worst-neighbor and lower-quantile specificity;
-- generated-to-real precision/density, recall/coverage, contraction, and coherence estimands;
+- generated-to-real precision and density, real-to-generated recall and coverage, contraction,
+  and content-coherence estimands;
 - availability/refusal/missingness estimands;
 - the whole shared-control resampling bundle, top-level sampling unit, and simulation-based sample
   size;
@@ -360,8 +369,9 @@ contain:
 - a prohibition on output selection or reference-set changes after inspection.
 
 A future success claim is conjunctive: favorable relative movement cannot compensate for failure
-of absolute target equivalence, closest-neighbor/lower-tail specificity, target-support
-precision/density, coverage, or the registered availability robustness rule. The exact estimators,
+of absolute target equivalence, panel-wide closest-neighbor/lower-tail specificity, precision,
+density, recall, coverage, content coherence, or the registered availability robustness rule.
+Contraction and relative movement remain mandatory nongating outcomes. The exact estimators,
 SESOIs, aggregation quantile, and terminal actions must be frozen before any generation request.
 
 The historical Pilot 2 and Pilot 3 generation/acquisition authorizations remain closed. This gate

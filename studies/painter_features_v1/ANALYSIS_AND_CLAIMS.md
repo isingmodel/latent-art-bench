@@ -1,6 +1,6 @@
 # Analysis, estimands, and claims policy
 
-Protocol version: `painter_features_v1/analysis/1.1`
+Protocol version: `painter_features_v1/analysis/1.2`
 
 Status: prospective design framework only; a separate execution-freeze artifact must fix all
 numeric choices and terminal rules before data access or execution
@@ -55,6 +55,24 @@ frequencies after exclusion or missingness never define the target distribution.
 \(\Omega_A^*\) are descriptive; neither regression nor representation similarity licenses
 confirmatory extrapolation into them.
 
+For every target painter \(a\), freeze the complete hard-neighbor panel \(H_a\) before support or
+feature outcomes and define one panel contrast set
+
+\[
+A_a^{panel}=\{a\}\cup H_a.
+\]
+
+Every margin, minimum, lower quantile, absolute target distance, support statistic, and generated
+success criterion for that target uses the single \(\Omega_{A_a^{panel}}^*\),
+\(\mathcal S_{A_a^{panel},q}^*\), \(\omega_{A_a^{panel},q}^*\), and
+\(\nu_{A_a^{panel},s\mid q}^*\). The panel is not reduced after overlap or outcomes are seen. If
+only pairwise supports \(\Omega_{\{a,h\}}^*\) exist, pairwise margins may be reported with their
+own explicit domains, but they cannot be combined into a panel minimum, lower-quantile result,
+omnibus specificity decision, or canonical painter-fidelity claim. A pooled claim across target
+painters likewise requires one frozen project-wide support; otherwise results remain target-panel
+specific. Broad negatives may use separate diagnostic support but never enter the binding panel
+decision.
+
 ### R1. Reproduction error
 
 For coordinate family \(f\), estimate the distribution of the within-work difference across
@@ -88,12 +106,13 @@ confirmation.
 
 ### R3. Held-out painter specificity
 
-For target painter \(a\), hard neighbor \(h\), broad-negative set \(B\), and held-out work \(x\)
-on registered common support, estimate calibrated conditional or standardized log-score/distance
-margins:
+For target painter \(a\), hard neighbor \(h\in H_a\), broad-negative set \(B\), and held-out work
+\(x\) on the single registered support for \(A_a^{panel}\), estimate calibrated conditional or
+standardized log-score/distance margins:
 
 \[
-M_{a,h}^*(x) = D^*(x, P_h^*) - D^*(x, P_a^*),
+M_{a,h}^{panel}(x) =
+D^*(x, P_h^*(\cdot;A_a^{panel})) - D^*(x, P_a^*(\cdot;A_a^{panel})),
 \]
 
 where \(D^*\) either compares within the held work's registered \(q\) cell or uses the frozen
@@ -118,9 +137,10 @@ separately and jointly only when pooling is supported.
 ## 4. Future generated-output estimands inherited from Pilot 2
 
 Let \(G^{named}_{a,q}\) and \(G^{control}_{q}\) be generated distributions for target painter
-\(a\) and a promptable common-support cell \(q\). A shared control is shown here; if controls are
-generated independently for each painter, they are instead indexed \(G^{control}_{a,q}\) and that
-design is frozen before requests. Define
+\(a\) and a promptable cell in the single common support for \(A_a^{panel}\). A shared control is
+shown here; if controls are generated independently for each painter, they are instead indexed
+\(G^{control}_{a,q}\) and that design is frozen before requests. In all equations in this section,
+\(A=A_a^{panel}\); define
 
 \[
 G_a^{named,*}=\sum_{q\in\Omega_A^*}\omega_{Aq}^*G^{named}_{a,q},\qquad
@@ -155,7 +175,8 @@ not sufficient evidence of painter fidelity.
 
 ### G3. Hard-neighbor specificity
 
-For every frozen hard neighbor \(h\in H_a\), estimate
+For every frozen hard neighbor \(h\in H_a\), estimate on that same panel-wide support and with the
+same weights
 
 \[
 S_{a,h}=D(G_a^{named,*},P_h^*)-D(G_a^{named,*},P_a^*),\qquad
@@ -171,10 +192,11 @@ paired prompt-effect supplement, not a substitute for absolute specificity.
 
 ### G4. Target-support precision, density, recall, and coverage
 
-Estimate generated-to-real **precision/density** and real-to-generated **recall/coverage** in each
+Estimate generated-to-real **precision and density** and real-to-generated **recall and coverage**
+in each
 qualified representation, calibrated against held-out real-real splits and reported across the
 registered neighborhood sizes or kernel scales. Precision asks whether generated samples occupy
-eligible target support; density asks how strongly they are supported. Recall/coverage asks which
+eligible target support; density asks how strongly they are supported. Recall and coverage ask which
 eligible regions of the real painter distribution are represented. The execution-freeze artifact
 sets simultaneous lower bounds and a robustness rule across scales. A generator can be close to a
 centroid and still fail all four support questions.
@@ -187,10 +209,11 @@ and magnitude; neither greater nor lower diversity is automatically better.
 
 ### G6. Content coherence and prompt interaction
 
-Estimate whether movement, absolute agreement, specificity, and support are consistent across
-content cells and whether the name effect interacts with particular subjects. The common-support
-cell, not the seed, is the unit of generalization. Aggregation always uses \(\omega^*\); favorable
-cells are not selected after inspection.
+Estimate whether absolute agreement, specificity, and all four support outcomes are consistent
+across content cells; describe movement-by-content interactions separately as a nongating prompt
+effect. The execution-freeze artifact fixes simultaneous worst-cell or lower-tail robustness rules
+for the binding outcomes. The common-support cell, not the seed, is the unit of generalization.
+Aggregation always uses \(\omega^*\); favorable cells are not selected after inspection.
 
 ### G7. Availability
 
@@ -201,10 +224,12 @@ when informative refusals remove cells.
 
 ### G8. Conjunctive success rule
 
-A future claim of target painter-feature reproduction requires all of G1, G3, G4, G6, and the
+A future claim of target painter-feature reproduction requires all of G1, G3, every registered
+precision, density, recall, and coverage criterion in G4, G6, and the
 registered G7 robustness rule to pass under the experiment-wide multiplicity policy. G2 describes
 relative prompt movement and must also be reported, but a favorable G2 cannot rescue failed
-absolute agreement, closest-neighbor/lower-tail specificity, target support, coverage, content
+absolute agreement, closest-neighbor/lower-tail specificity, any target-support or coverage
+criterion, content
 coherence, or availability robustness. G5 is a mandatory plural outcome and is not labeled good or
 bad by direction alone.
 
@@ -329,8 +354,9 @@ After the corresponding gates pass, acceptable statements include:
 - “The learned appearance distance predicted painterly-manner judgments for the tested raters and
   works beyond content and source baselines.”
 - “For the future authorized study, returned named-prompt outputs met the frozen absolute,
-  hard-neighbor, target-support, coverage, content-coherence, and availability criteria, while the
-  paired comparison quantified movement relative to a matched painter-free control.”
+  panel-wide hard-neighbor, precision, density, recall, coverage, content-coherence, and
+  availability criteria, while the paired comparison quantified movement relative to a matched
+  painter-free control.”
 
 Every statement names the corpus, reproduction domain, method version, and uncertainty.
 

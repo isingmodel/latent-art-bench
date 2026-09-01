@@ -1,6 +1,6 @@
 # Painter Features v1: relaunch process and research result
 
-Report version: 1.1
+Report version: 1.2
 
 Report date: 2026-09-01
 
@@ -38,8 +38,9 @@ The review and design produced:
 - an evidence synthesis and 39-decision method ledger;
 - a prospective measurement-design document;
 - an eight-gate validation protocol, numbered 0 through 7; and
-- a claims and analysis protocol separating real painter association, target fit, specificity,
-  coverage, contraction, prompt movement, and availability.
+- a claims and analysis protocol separating real painter association, target fit, panel-wide
+  specificity, precision, density, recall, coverage, content coherence, contraction, prompt
+  movement, and availability.
 
 Despite their filenames, the study documents are a **prospective design framework**, not yet an
 executable protocol or preregistration. They do not supply a separate execution-freeze artifact
@@ -159,7 +160,8 @@ The review package records:
 - primary-source preference;
 - eligibility and exclusion rules;
 - review-depth labels;
-- an extraction schema;
+- an intended detailed extraction schema that was not instantiated as 138 per-source evidence
+  cards;
 - evidence grades A, B, C, D, and X;
 - synthesis rules; and
 - a retrospectively assessed stopping heuristic.
@@ -318,10 +320,12 @@ The exact real-only results were:
 | PCA cumulative variance | 0.97074 |
 
 The defensible positive conclusion is limited to **pooled artist-label predictability within the
-fixed Pilot 2 atlas**. The stronger source signal and near-chance opposite-source transfer mean
-that Pilot 2 established no transferable painter feature. The label-prediction result must not be
-promoted to painter association under the relaunch definition, which requires source and content
-transfer across held physical works.
+fixed Pilot 2 atlas**. A separate two-class task showed high source predictability, while painter
+prediction failed to transfer convincingly across sources. Raw balanced accuracies from those
+unlike tasks are not ranked against each other. Together, these diagnostics mean that Pilot 2
+established no transferable painter feature. The label-prediction result must not be promoted to
+painter association under the relaunch definition, which requires source and content transfer
+across held physical works.
 
 ### 6.2 Why the original qualification gate was insufficient
 
@@ -558,14 +562,16 @@ The protocol distinguishes:
 
 Two URLs or sizes from one master do not constitute two independent reproductions.
 
-For work \(w\), reproduction \(r\), source \(s\), and processing branch \(p\):
+For work \(w\), provider/workflow \(s\), independent capture \(r\) nested in \((w,s)\), delivery
+derivative \(d\) nested in \(r\), and analysis branch \(p\):
 
 \[
-y_{wrsp} = \theta_w + b_s + b_r + b_p + \varepsilon_{wrsp}.
+y_{wsrdp}=\theta_w+b_s+b_{r(w,s)}+b_{d(r)}+b_p+\varepsilon_{wsrdp}.
 \]
 
-This is an organizing measurement model; interactions and heteroscedasticity are tested rather
-than assumed absent.
+This is an organizing hierarchical measurement model; interactions and heteroscedasticity are
+tested rather than assumed absent. Provider, capture, and delivery terms are collapsed when the
+prospective incidence/rank audit cannot identify them separately.
 
 ### 10.2 Required reproduction panel
 
@@ -705,21 +711,28 @@ trials do not inflate the work count.
 
 ### 12.2 Later generator estimands
 
-If separately authorized, the canonical painter-fidelity claim is conjunctive: items 1 through 4
+If separately authorized, the canonical painter-fidelity claim is conjunctive: items 1 through 6
 must each pass their frozen criterion. A favorable prompt contrast or average cannot compensate
 for failure of a conjunct.
 
 1. **Absolute target fit/equivalence:** discrepancy between the generated set and eligible
    target-painter reference, decided against a frozen real-to-real scale and an equivalence or
    noninferiority margin. Failure to reject a difference is not evidence of fit.
-2. **Hard-neighbor specificity:** full target-versus-each-eligible-competitor margin vector, with
-   the binding decision made on a frozen worst or lower-quantile hard-neighbor margin.
-3. **Precision or density:** generated-to-real target support meeting its frozen criterion.
-4. **Recall or coverage:** real-to-generated support meeting its independently frozen criterion.
-5. **Contraction:** generated dispersion relative to real within-painter dispersion.
-6. **Prompt movement:** named versus painter-free paired movement toward the target.
-7. **Content coherence:** separate semantic/prompt behavior.
-8. **Availability:** probability that a registered cell produces an eligible output.
+2. **Hard-neighbor specificity:** the full target-versus-each-eligible-competitor margin vector on
+   one panel-wide common support, with the binding decision made on both frozen worst and
+   lower-quantile hard-neighbor rules.
+3. **Precision and density:** both generated-to-real target-support criteria meeting their frozen
+   simultaneous lower bounds.
+4. **Recall and coverage:** both real-to-generated support criteria meeting their independently
+   frozen simultaneous lower bounds.
+5. **Content coherence:** absolute agreement, specificity, and support meeting the frozen
+   cross-content robustness rule.
+6. **Availability:** registered refusals/failures meeting the frozen availability and missingness
+   robustness rule.
+7. **Contraction:** mandatory generated dispersion relative to real within-painter dispersion,
+   without an automatically favorable direction.
+8. **Prompt movement:** mandatory named-versus-painter-free paired movement, which remains a
+   mechanistic prompt-effect outcome rather than a fidelity substitute.
 
 No universal weighted score is proposed.
 
@@ -793,8 +806,11 @@ Before acquisition, a new execution protocol must freeze:
 
 Every painter used for confirmatory specificity must lie in the connected common-support graph,
 span multiple eligible sources and content strata, and avoid perfect aliasing with their joint
-interaction. Estimands are restricted to that frozen support with frozen weights. A painter
-outside it may be described but cannot support broad painter-specificity inference.
+interaction. For each target, the target and its complete frozen hard-neighbor panel must share one
+support and one set of weights. Pairwise-only supports cannot be combined into a panel minimum,
+lower quantile, omnibus specificity decision, or canonical fidelity claim. Estimands are restricted
+to the valid frozen support. A painter outside it may be described but cannot support broad
+painter-specificity inference.
 
 ## 14. Claims allowed and prohibited
 
@@ -805,11 +821,11 @@ outside it may be described but cannot support broad painter-specificity inferen
 - painter-associated coordinate under declared source/content/phase/medium limits;
 - human-perceived painterly similarity under a declared task and rater population;
 - named-prompt movement under one frozen generator and prompt protocol;
-- absolute target-distribution equivalence, hard-neighbor specificity, precision/density, and
-  recall/coverage as separate reported results and, only if all pass, a conjunctive canonical
-  painter-fidelity claim;
-- contraction, prompt movement, content coherence, and availability as secondary results that
-  cannot rescue a failed fidelity conjunct.
+- absolute target-distribution equivalence, panel-wide hard-neighbor specificity, precision and
+  density, recall and coverage, content coherence, and availability as separate reported results
+  and, only if every one passes, a conjunctive canonical painter-fidelity claim;
+- contraction and prompt movement as mandatory nongating results that cannot rescue a failed
+  fidelity conjunct.
 
 ### 14.2 Prohibited
 
@@ -940,7 +956,7 @@ been granted.
 | P1 | Painter distributions were not restricted to identifiable joint common support, allowing painter to remain aliased with source, content, medium, and phase. | Freeze a connected painter-by-joint-nuisance support table, hard cell minima, at least two painters per confirmatory exchangeability cell, shared-support weights, and joint source-by-content transfer; narrow or fail claims outside support. | Pending protocol verification. |
 | P1 | Generator and real-reference estimands wrote unqualified \(P_a\), silently dropping the conditioning variables in the construct definition. | Define a standardized target distribution over frozen common nuisance support or use exact matched contrasts; declare weights, source handling, and behavior outside support. | Pending protocol verification. |
 | P1 | Multiplicity control was only within family even though the project selects among families, coordinates, scales, encoders, painters, and validation endpoints. | Freeze one primary omnibus claim or a hierarchical/closed-testing tree with strong error control, and reuse the same tree for external confirmation. | Pending protocol verification. |
-| P1 | Canonical generated-painter claims omitted binding absolute fit/equivalence, hard-neighbor tail specificity, and generated-to-real support. | Require conjunctive success on absolute equivalence/noninferiority, the worst or lower-quantile hard-neighbor margin, precision/density, and recall/coverage; no secondary outcome may rescue a failed conjunct. | Narrative corrected; protocol verification pending. |
+| P1 | Canonical generated-painter claims omitted binding absolute fit/equivalence, hard-neighbor tail specificity, and generated-to-real support. | Require conjunctive success on absolute equivalence/noninferiority, the worst and lower-quantile hard-neighbor rules, precision and density, recall and coverage, content coherence, and availability; no nongating outcome may rescue a failed conjunct. | Revised twice; final reviewer verification pending. |
 | P1 | The reproduction variance decomposition was not identifiable from the stated sampling prose. | Require a connected provider/capture incidence matrix, rank audit, repeated works bridging provider pairs, multiple works per pair, and repeated derivatives per capture; otherwise collapse inseparable effects and lower the claim ceiling. | Narrative corrected; protocol verification pending. |
 | P1 | Several evidence-matrix rows materially misdescribed the cited method or corpus, making the table inconsistent with the thematic reviews. | Rebuild disputed rows from primary methods and run a DOI-keyed identity audit across the matrix, bibliography, and review tables. | Citation audit implemented; reviewer verification pending. |
 | P2 | Same-work independent-capture retrieval can reward content or work-specific defects and was treated as a gate for painter structure. | Keep same-work retrieval diagnostic; gate on paired-capture stability of painter margins and painter-profile geometry. | Narrative corrected; protocol verification pending. |

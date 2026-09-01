@@ -1,6 +1,6 @@
 # Prospective measurement protocol
 
-Protocol version: `painter_features_v1/measurement/1.1`
+Protocol version: `painter_features_v1/measurement/1.2`
 
 Status: prospective design framework only; not a preregistration or execution authorization
 
@@ -11,18 +11,22 @@ digitized works**. The study abbreviates this as a *painter feature*. It is a po
 construct: no single work is the painter feature, and a feature that separates painter labels
 only because one museum, genre, medium, or time interval is unique to a painter has failed.
 
-The observed image is not the painting. For physical work \(w\), reproduction \(r\), source
-\(s\), and processing branch \(p\), a measured feature is treated as
+The observed image is not the painting. For physical work \(w\), provider/workflow \(s\),
+independent capture \(r\) nested within \((w,s)\), delivery derivative \(d\) nested within
+capture \(r\), and analysis-processing branch \(p\), a measured feature is treated as
 
 \[
-y_{wrsp}=\theta_w + b_s + b_r + b_p + \varepsilon_{wrsp},
+y_{wsrdp}=\theta_w+b_s+b_{r(w,s)}+b_{d(r)}+b_p+\varepsilon_{wsrdp},
 \]
 
 where \(\theta_w\) is the work-associated signal within the feature's stated construct,
-\(b_s\) is a provider or imaging-workflow effect, \(b_r\) is reproduction-specific variation,
-\(b_p\) is processing variation, and \(\varepsilon\) is residual error. The decomposition is a
-study model, not a claim that these components are always additive. Interactions and
-heteroscedasticity are estimated where the data support them.
+\(b_s\) is a provider/workflow effect, \(b_{r(w,s)}\) is capture-specific variation,
+\(b_{d(r)}\) is delivery-derivative variation, \(b_p\) is analysis-processing variation, and
+\(\varepsilon\) is residual error. The hierarchy is explicit even when the design cannot estimate
+every term. The decomposition is a study model, not a claim that these components are always
+additive; interactions and heteroscedasticity are estimated where the data support them. When the
+incidence/rank audit cannot separate provider, capture, and delivery, those terms are collapsed as
+specified in Section 3.2 rather than estimated by assumption.
 
 Candidate image coordinates first pass the reproduction model above. They then enter a
 cross-classified painter model containing painter, subject/content, genre, medium/support, date,

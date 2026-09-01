@@ -269,8 +269,8 @@ The project adopts a multi-output analysis rather than a universal painter-fidel
 | Real-only painter association | Held-work painter information | source/content/phase transfer and nuisance increment |
 | Absolute target fit | set discrepancy to eligible target reference | qualified coordinates, reference uncertainty, equal-size curves |
 | One-versus-many specificity | target margin against registered competitors | hard-neighbor panel, full margin vector, abstention |
-| Precision/density | generated outputs supported by target reference | neighborhood/sample sensitivity |
-| Recall/coverage | eligible target modes represented by outputs | phase/genre/medium stratification where support exists |
+| Precision and density (separate) | generated outputs supported by target reference | neighborhood/sample sensitivity |
+| Recall and coverage (separate) | eligible target modes represented by outputs | phase/genre/medium stratification where support exists |
 | Contraction | loss of real target dispersion | real-reference uncertainty and mode-aware analysis |
 | Prompt movement | causal effect of adding a name under one frozen system | paired assignment and intent-to-generate denominator |
 | Availability | probability that a registered cell yields an eligible output | all attempts retained |

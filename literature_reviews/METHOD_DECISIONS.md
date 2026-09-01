@@ -1,6 +1,6 @@
 # Method decision ledger
 
-Version: painter-feature-method-decisions/1.1
+Version: painter-feature-method-decisions/1.2
 
 Status: literature-based prospective decisions; no empirical execution authorization
 
@@ -30,11 +30,11 @@ declare valid.
 | MD-16 | Use other learned spaces only for evaluator-family sensitivity | Representation training objective determines meaning; no universal learned style ground truth exists | Independent construct validation of a specific encoder |
 | MD-17 | Fit transforms only inside real development folds | Prevent leakage and tuning toward generated outputs | None; this is a protocol invariant |
 | MD-18 | Make leave-source-out and leave-content-family-out performance gating | Pooled accuracy can exploit nuisance shortcuts | Predeclared narrower source-specific or content-specific claim |
-| MD-19 | Include matched hard neighbors and broad negatives | One favorable neighbor cannot establish specificity | None; panel composition may change only in a new protocol version |
+| MD-19 | Bind every matched hard neighbor to one panel-wide common support and keep broad negatives diagnostic | One favorable neighbor or a minimum over incompatible pairwise supports cannot establish specificity | None; panel composition or support may change only in a new protocol version |
 | MD-20 | Treat within-painter coverage separately from target likeness | Prototype collapse can improve centroid distance or recognition | A validated statistic proven to decompose both without masking either |
 | MD-21 | Use MMD or energy distance as candidate set discrepancies; keep raw FID nonprimary | Small-sample FID bias and encoder dependence are unsuitable for painter cells | Large-sample validation demonstrating calibrated painter-specific performance |
-| MD-22 | Report precision/density, recall/coverage, contraction, and full specificity margins | Generative distribution quality is multidimensional | Independently validated composite with prospectively justified weights |
-| MD-23 | Retain named-versus-control movement as a prompt effect, not painter fidelity | It is causal under a frozen system but can be positive while outputs remain off-target | Additional absolute fit, specificity, and coverage gates all pass |
+| MD-22 | Report precision and density, recall and coverage, contraction, and full panel-wide specificity margins | Generative distribution quality is multidimensional | Independently validated composite with prospectively justified weights |
+| MD-23 | Retain named-versus-control movement as a prompt effect, not painter fidelity | It is causal under a frozen system but can be positive while outputs remain off-target | Absolute fit, panel-wide specificity, all four support metrics, coherence, and availability gates all pass |
 | MD-24 | Use work- and rater-crossed human triplets plus separate attribute tasks | “Style” ratings conflate content and form; disagreement is informative | Pilot evidence supporting a more reliable task without changing construct |
 | MD-25 | Separate expert and nonexpert populations | Expertise can change categorization and cue use | Measurement-invariance evidence supporting pooling |
 | MD-26 | Preserve all refusals and failures as outcomes | Pilot 2's incomplete grid demonstrates nonrandom availability risk | None; analysis handling may vary only prospectively |
@@ -49,7 +49,7 @@ declare valid.
 | MD-35 | Gate human claims on blinded, unfamiliar works | Attribution cues, signatures, source interfaces, and recognition can validate familiarity or stereotype instead of painterly manner | A validated task showing those cues cannot affect the stated construct |
 | MD-36 | Require an unopened institution/capture workflow for a core external claim | Changing content or period alone preserves a source shortcut | A claim explicitly limited to the already-seen workflow domain |
 | MD-37 | Freeze denominators, cell minima, and MNAR sensitivity | Rights, metadata, and processing exclusions can create a selectively easy complete-case corpus | A design with complete observation of the registered frame |
-| MD-38 | Make any future painter-fidelity claim conjunctive | Relative prompt movement can be positive while absolute fit, closest-neighbor specificity, target support, coverage, or availability fails | A separately validated composite that cannot mask a failed component |
+| MD-38 | Make any future painter-fidelity claim conjunctive | Relative prompt movement can be positive while absolute fit, panel-wide specificity, precision, density, recall, coverage, content coherence, or availability fails | A separately validated composite that cannot mask a failed component |
 | MD-39 | Preserve shared controls and real references as joint resampling clusters | Reusing one control across painter contrasts creates dependence that painter-wise resampling would ignore | Independently generated and explicitly indexed controls for every target |
 
 ## Candidate disposition vocabulary

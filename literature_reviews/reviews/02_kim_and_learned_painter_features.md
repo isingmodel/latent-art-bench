@@ -169,7 +169,9 @@ the same broad web-trained model ecosystem.
 The [Pilot 2 audit](00_pilot_2_painter_feature_audit.md) supplies the decisive local evidence:
 the harmonized A-vector reached only 0.50 held painter balanced accuracy, classified acquisition
 source at 0.8125, and transferred across sources at only 0.25/0.375 balanced accuracy. Those
-results do not invalidate the representation for all purposes, but they reject it as the sole
+two balanced-accuracy values come from unlike four-class and two-class tasks and are not ranked
+directly. Together with failed opposite-source transfer, the results do not invalidate the
+representation for all purposes, but they reject it as the sole
 painter feature for this corpus design. The positive result is limited to pooled artist-label
 predictability within the fixed Pilot 2 atlas; it established no transferable painter feature.
 Because the registered generator grids were incomplete and the primary tests were not run, it
@@ -326,25 +328,31 @@ sets need distributional comparisons with sample-size and encoder sensitivity.
 | [Stein et al. 2023](https://papers.nips.cc/paper_files/paper/2023/hash/0bc795afae289ed465a65a3b4b1f4eb7-Abstract-Conference.html) | 17 metrics across nine encoders versus a large human realism study | no universal metric; report evaluator disagreement rather than select favorable rankings |
 | [CMMD, Jayasumana et al. 2024](https://openaccess.thecvf.com/content/CVPR2024/html/Jayasumana_Rethinking_FID_Towards_a_Better_Evaluation_Metric_for_Image_Generation_CVPR_2024_paper.html) | unbiased Gaussian-kernel MMD on CLIP features without Gaussian feature assumption | CLIP semantic/web bias remains; contextual distribution diagnostic only |
 
-For a target painter $a$, the reboot should keep four estimand families distinct. A canonical
-painter-fidelity claim nevertheless requires the first three to pass **conjunctively**:
+For a target painter $a$, the reboot keeps eight outcome families distinct. A canonical
+painter-fidelity claim requires the first six to pass **conjunctively**:
 
 1. **Absolute target fit/equivalence:** a prespecified two-sample discrepancy between generated
    $Q_a$ and held real $P_a$, judged against a frozen real-to-real reference scale and an
    equivalence or noninferiority margin. Failure to reject a difference is not evidence of fit.
 2. **Hard-neighbor specificity:** the full target-versus-competitor margin vector for a
-   prospectively selected set of same-movement, same-period, same-medium, content-matched
-   painters, with the binding decision based on the frozen worst or lower-quantile eligible
-   margin rather than the average or a favorable neighbor.
-3. **Support in both directions:** generated-to-real precision/density and real-to-generated
-   recall/coverage must each meet independently frozen criteria.
-4. **Prompt-induced movement:** named versus painter-free paired change under fixed content,
-   generator, prompt family, and seed policy; this is secondary and cannot rescue failure of a
-   fidelity conjunct.
+   prospectively selected set of same-movement, same-period, same-medium, content-matched painters,
+   all evaluated on one panel-wide common support; the frozen worst and lower-quantile rules are
+   binding rather than an average or favorable neighbor.
+3. **Generated-to-real support:** precision and density must each meet independently frozen
+   criteria.
+4. **Real-to-generated support:** recall and coverage must each meet independently frozen criteria.
+5. **Content coherence:** absolute fit, specificity, and support must meet a frozen cross-content
+   robustness rule.
+6. **Availability:** refusals and terminal failures must meet the frozen availability and
+   missingness-robustness rule.
+7. **Contraction:** generated versus real dispersion is mandatory but has no automatically
+   favorable direction.
+8. **Prompt-induced movement:** named versus painter-free paired change under fixed content,
+   generator, prompt family, and seed policy is mandatory but cannot rescue a failed conjunct.
 
 A positive prompt-induced centroid movement can coexist with poor absolute fit and severe mode
 contraction. A positive one-neighbor margin can coexist with greater similarity to untested
-painters. No single quantity may stand in for the other three.
+painters. No single quantity may stand in for the others.
 
 ## 9. Specific prospective consequences
 
@@ -397,10 +405,12 @@ protocol belongs in the new study protocol.
 
 1. Model painter profiles across works and, where support permits, phase/genre/medium strata. Do
    not reduce the real oeuvre to one centroid.
-2. Report target fit/equivalence, the full hard-neighbor specificity vector plus its binding
-   worst or lower-quantile margin, precision/density, recall/coverage, and contraction
-   separately. Require fit/equivalence, specificity, precision/density, and coverage
-   conjunctively for a canonical painter-fidelity claim.
+2. Report target fit/equivalence; the full panel-wide hard-neighbor specificity vector plus its
+   binding worst and lower-quantile rules; precision; density; recall; coverage; content coherence;
+   availability; contraction; and prompt movement separately. Require the binding criteria named
+   in Section 8—absolute fit, both specificity rules, all four support metrics,
+   coherence, and availability robustness—conjunctively for a canonical painter-fidelity claim;
+   contraction and prompt movement remain mandatory nongating outcomes.
 3. Use work-, painter-, prompt-, and seed-level clustered or hierarchical uncertainty. Pairwise
    distances are not independent observations.
 4. Report feature-family disagreement. A formal coordinate, CSD, and CLIP may disagree because

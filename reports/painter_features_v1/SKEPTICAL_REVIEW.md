@@ -4,7 +4,8 @@ Review target: [PR #1](https://github.com/isingmodel/latent-art-bench/pull/1)
 
 Reviewed range: `612d09e4..c70589fc`
 
-Review status: first-pass review complete; recommendation was **request changes**
+Review status: first and second passes complete; both recommended **request changes**; final
+closure review pending
 
 Reviewer role: independent skeptical researcher subagent; the reviewer made no project edits
 
@@ -23,8 +24,11 @@ not as a documentation or software-style exercise. The audit covered:
 
 The reviewer inspected the frozen Pilot 2 protocol, analysis, qualification, and report; all 18
 new files in the initial PR; Kim's released source at revision `7da12358`; and the primary sources
-needed to audit disputed method summaries. The exact first-pass review is preserved in the
-[GitHub review comment](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5488634370).
+needed to audit disputed method summaries. The consolidated public request-changes verdict is
+preserved in the
+[GitHub review comment](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5488634370);
+this document preserves the reviewer's fuller ranked memo, including issues that the public comment
+grouped together.
 
 ## 2. Severity convention
 
@@ -78,9 +82,9 @@ from the target, failed the closest hard neighbor, or occupied a narrow off-targ
 high-level report required stronger outcomes than the canonical estimand file did.
 
 Required correction: bind future success to absolute target discrepancy/equivalence,
-worst-neighbor and lower-tail specificity, precision/density, recall/coverage, content coherence,
-and availability robustness. Preserve relative movement as a prompt-effect estimand, not a
-substitute for fidelity.
+worst-neighbor and lower-tail specificity, precision and density, recall and coverage, content
+coherence, and availability robustness. Preserve relative movement as a prompt-effect estimand,
+not a substitute for fidelity.
 
 ### P1-5 — evidence-matrix method summaries were unreliable
 
@@ -124,7 +128,9 @@ framework itself required source transfer and Pilot 2's opposite-source accuraci
 
 Required correction: call the result only pooled artist-label predictability within the fixed
 Pilot 2 atlas. State that Pilot 2 established neither a transferable painter feature nor a
-generated-output effect.
+generated-output effect. Do not call two-class source balanced accuracy stronger or easier than
+four-class painter balanced accuracy; report high source predictability together with failed
+opposite-source painter transfer without ranking unlike tasks.
 
 ### P2-2 — same-work retrieval could select semantics
 
@@ -194,11 +200,14 @@ generation.
 
 The search protocol and log first appeared together, stable result totals were unavailable for
 some interfaces, and no saved result/screening manifests existed. The stopping rule therefore
-could not be demonstrated as prespecified.
+could not be demonstrated as prespecified. The protocol also promised a rich extraction record for
+every retained source, but the 11-column matrix and thematic tables did not instantiate 138 such
+evidence cards.
 
 Required correction: describe the work as a broad, retrospectively documented critical review and
 retrospective stopping decision. Do not claim preregistration, exhaustive systematic coverage, or
-a prospective saturation rule.
+a prospective saturation rule. Describe the detailed extraction schema as a future requirement and
+disclose the current per-source evidence-card omission.
 
 ### P2-10 — a null group result was paraphrased as invariance
 
@@ -230,3 +239,66 @@ The scientific direction was defensible, but the initial PR could still qualify 
 as a painter feature and could overstate reproducibility. The reviewer therefore requested changes
 and required a fresh review of the revised PR before approval. Closure is recorded in
 `RESPONSE_TO_REVIEW.md`; the first-pass criticism remains immutable here even when resolved.
+
+## 7. Second-pass re-review
+
+The same reviewer inspected revised head `e93a8ece83a14924cafcd6bfe5a1d92640c36c48` and posted a
+second [request-changes comment](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5488825142).
+The re-review closed the experiment-wide multiplicity, identified reproduction design, disputed
+citation summaries, Kim artifact language, retrieval, human controls, external workflow,
+missingness, shared-control, source-selection, readiness, and Redies/Groß findings. It found the
+following residual issues.
+
+### Remaining P1-R1 — hard-neighbor panel support was only pairwise-capable
+
+The general common-support notation allowed a different contrast set for every target-neighbor
+pair, while the specificity rule then took a minimum and lower quantile over the full neighbor
+panel. Those pairwise margins could represent different contents, sources, and even different
+target distributions.
+
+Required correction: define one frozen set containing the target and every hard neighbor; use its
+single support and weights for every panel margin and generated criterion. If only pairwise support
+exists, prohibit a panel minimum, lower quantile, omnibus specificity decision, or canonical
+fidelity claim.
+
+### Remaining P1-R2 — generator-success rules contradicted the canonical rule
+
+The analysis file made content coherence and availability binding and treated precision, density,
+recall, and coverage as plural requirements. The synthesis and report instead made coherence and
+availability secondary and used “or” between support metrics.
+
+Required correction: use one rule everywhere. Absolute agreement, panel-wide hard-neighbor
+specificity, precision **and** density, recall **and** coverage, content coherence, and availability
+robustness are all binding. Contraction and paired prompt movement are mandatory nongating outcomes.
+
+### Partial P2-R1 — cross-task balanced-accuracy ranking
+
+The revision still called source performance stronger or substantially better than painter
+performance. Because the tasks have different class counts and baselines, their raw balanced
+accuracies are not directly ranked.
+
+Required correction: state high source predictability together with failed opposite-source painter
+transfer, and explicitly decline the cross-task raw-accuracy ranking.
+
+### Partial P2-R2 — extraction-schema promise
+
+The retrospective search correction still said every source received a rich corpus, preprocessing,
+fitting, validation, uncertainty, and artifact record. No such 138-record evidence-card artifact
+existed.
+
+Required correction: identify the 11 fields actually present, label the rich schema a future
+requirement, and disclose the current omission.
+
+### Residual P2-R3 — observation-model hierarchy notation
+
+The prose required a provider-to-capture-to-delivery hierarchy, but the displayed observation
+model indexed only work, reproduction, source, and processing.
+
+Required correction: either display provider, capture, delivery derivative, and processing
+explicitly or label the equation as collapsed. Retain the rule that unidentified components must
+be combined and the claim ceiling lowered.
+
+The second-pass reviewer also required this review artifact and the response to record the
+cross-task and extraction-schema objections instead of overstating closure. No project file was
+edited by the reviewer. Ruff, all 490 offline tests, CSV identity joins, and changed local links
+passed during that review. A third pass is required after these corrections.

@@ -22,7 +22,9 @@ It also reviews digitization effects, corpus construction, human validation, sta
 inference, and generative-distribution evaluation. A method is not promoted merely because it
 classifies artists or appears in a highly cited paper. The evidence extraction records what
 was measured, on which digital surrogates, with which validation, and with which unresolved
-confounds. Individual-image properties are candidate coordinates; they are not called painter
+confounds at the matrix-summary or thematic-review level. It does not contain a complete detailed
+evidence card for every one of the 138 matrix rows; that omission is documented in the search
+protocol. Individual-image properties are candidate coordinates; they are not called painter
 features until held-out painter specificity transfers across sources and content strata.
 
 ## Contents
