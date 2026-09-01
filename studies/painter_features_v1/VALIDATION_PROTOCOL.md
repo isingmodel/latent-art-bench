@@ -1,6 +1,6 @@
 # Painter-feature validation protocol
 
-Protocol version: `painter_features_v1/validation/1.4`
+Protocol version: `painter_features_v1/validation/1.5`
 
 Status: prospective design framework; not executable until a separately reviewed freeze artifact
 fixes the corpus, estimators, simulations, SESOIs, thresholds, and terminal actions
@@ -264,11 +264,11 @@ execution-freeze artifact. At minimum, a core painter feature must:
 - satisfy the connected common-support, minimum-count, and fixed-weight invariants;
 - exceed chance/equivalence bounds with multiplicity-controlled uncertainty on work-held-out,
   leave-source-out, leave-content-family-out, and joint leave-source-by-content-out tasks;
-- at every required transfer endpoint (e), require the simultaneously calibrated lower
-  confidence bound for each target-versus-hard-neighbor margin (M_{a,h,e}) on the one frozen
+- at every required transfer endpoint \(e\), require the simultaneously calibrated lower
+  confidence bound for each target-versus-hard-neighbor margin \(M_{a,h,e}\) on the one frozen
   panel-wide support to exceed that margin's separately frozen positive SESOI
-  (delta_{a,h,e}). When expressed as one panel statistic, define
-  (T_{a,e}^{panel}=\min_{h\in H_a}\{M_{a,h,e}-\delta_{a,h,e}\}) and require its simultaneously
+  \(\delta_{a,h,e}\). When expressed as one panel statistic, define
+  \(T_{a,e}^{panel}=\min_{h\in H_a}\{M_{a,h,e}-\delta_{a,h,e}\}\) and require its simultaneously
   calibrated lower bound to exceed zero. The SESOI is subtracted before taking the minimum, so
   neighbor-specific margins are not treated as if they shared one threshold. Sign retention alone
   is diagnostic and cannot qualify a coordinate;
@@ -365,7 +365,11 @@ contain:
 - hard-neighbor and broad-negative panels;
 - fixed common-support and content-aggregation weights;
 - absolute target discrepancy with a real-real-calibrated equivalence bound;
-- relative named-versus-control movement, worst-neighbor and lower-quantile specificity;
+- relative named-versus-control movement; raw worst-neighbor and lower-quantile specificity for
+  description; and the binding adjusted statistics
+  \(T_a^{worst}=\min_h\{S_{a,h}-\delta_{a,h}\}\) and
+  \(T_a^{tail}=Q_{\tau}\{S_{a,h,q}-\delta_{a,h,q}\}\), each with a simultaneous lower bound
+  required above zero;
 - generated-to-real precision and density, real-to-generated recall and coverage, contraction,
   and content-coherence estimands;
 - availability/refusal/missingness estimands;

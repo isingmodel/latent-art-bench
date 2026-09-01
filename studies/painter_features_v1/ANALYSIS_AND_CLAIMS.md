@@ -1,6 +1,6 @@
 # Analysis, estimands, and claims policy
 
-Protocol version: `painter_features_v1/analysis/1.2`
+Protocol version: `painter_features_v1/analysis/1.3`
 
 Status: prospective design framework only; a separate execution-freeze artifact must fix all
 numeric choices and terminal rules before data access or execution
@@ -179,16 +179,24 @@ For every frozen hard neighbor \(h\in H_a\), estimate on that same panel-wide su
 same weights
 
 \[
-S_{a,h}=D(G_a^{named,*},P_h^*)-D(G_a^{named,*},P_a^*),\qquad
-S_a^{worst}=\min_{h\in H_a}S_{a,h}.
+S_{a,h}=D(G_a^{named,*},P_h^*)-D(G_a^{named,*},P_a^*).
 \]
 
-Also report the frozen lower quantile \(Q_{\tau}\{S_{a,h,q}\}\) across eligible
-content-by-neighbor cells, with \(\tau\) fixed by prospective simulation. Both the closest-neighbor
-aggregate and the lower-tail criterion must exceed their registered SESOIs with simultaneous
-uncertainty. Equal-painter averages and broad-negative calibration remain visible but cannot hide
-a failed hard neighbor. The corresponding named-versus-control difference-in-differences is a
-paired prompt-effect supplement, not a substitute for absolute specificity.
+Let \(\delta_{a,h}\) and \(\delta_{a,h,q}\) be the separately frozen neighbor- and
+content-by-neighbor SESOIs. Define the binding adjusted summaries
+
+\[
+T_a^{worst}=\min_{h\in H_a}\{S_{a,h}-\delta_{a,h}\},\qquad
+T_a^{tail}=Q_{\tau}\{S_{a,h,q}-\delta_{a,h,q}\},
+\]
+
+with \(\tau\) fixed by prospective simulation. Both statistics must have simultaneous lower
+confidence bounds above zero. The raw \(\min_h S_{a,h}\) and raw
+\(Q_{\tau}\{S_{a,h,q}\}\) remain descriptive only. Subtracting every frozen SESOI before the
+minimum or quantile prevents heterogeneous thresholds from being replaced by an easier aggregate
+threshold. Equal-painter averages and broad-negative calibration remain visible but cannot hide a
+failed hard neighbor. The corresponding named-versus-control difference-in-differences is a paired
+prompt-effect supplement, not a substitute for absolute specificity.
 
 ### G4. Target-support precision, density, recall, and coverage
 

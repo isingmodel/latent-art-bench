@@ -316,8 +316,10 @@ requires a **conjunction**, not success on a convenient single score:
 - absolute target fit demonstrated by a prespecified equivalence or noninferiority decision
   against an eligible real-to-real reference scale, rather than failure to reject a difference;
 - the full target-versus-hard-neighbor margin vector evaluated on one panel-wide common support,
-  with the binding specificity decision made on the prespecified worst and lower-quantile eligible
-  margins;
+  with each frozen neighbor/cell SESOI subtracted before aggregation and the binding specificity
+  decision requiring simultaneous lower bounds above zero for both the adjusted panel-worst
+  \(\min_h\{S_{a,h}-\delta_{a,h}\}\) and adjusted lower-tail
+  \(Q_{\tau}\{S_{a,h,q}-\delta_{a,h,q}\}\) statistics; raw minima and quantiles are descriptive;
 - generated-to-real precision **and** density each meeting its frozen support criterion;
 - real-to-generated recall **and** coverage each meeting its independently frozen support
   criterion;

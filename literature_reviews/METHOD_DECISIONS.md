@@ -1,6 +1,6 @@
 # Method decision ledger
 
-Version: painter-feature-method-decisions/1.2
+Version: painter-feature-method-decisions/1.3
 
 Status: literature-based prospective decisions; no empirical execution authorization
 
@@ -30,7 +30,7 @@ declare valid.
 | MD-16 | Use other learned spaces only for evaluator-family sensitivity | Representation training objective determines meaning; no universal learned style ground truth exists | Independent construct validation of a specific encoder |
 | MD-17 | Fit transforms only inside real development folds | Prevent leakage and tuning toward generated outputs | None; this is a protocol invariant |
 | MD-18 | Make leave-source-out and leave-content-family-out performance gating | Pooled accuracy can exploit nuisance shortcuts | Predeclared narrower source-specific or content-specific claim |
-| MD-19 | Bind every matched hard neighbor to one panel-wide common support and keep broad negatives diagnostic | One favorable neighbor or a minimum over incompatible pairwise supports cannot establish specificity | None; panel composition or support may change only in a new protocol version |
+| MD-19 | Bind every matched hard neighbor to one panel-wide common support, subtract each frozen neighbor/cell SESOI before worst/tail aggregation, require both adjusted rules, and keep broad negatives diagnostic | One favorable neighbor, incompatible pairwise supports, or aggregation before heterogeneous thresholds can falsely establish specificity | None; panel composition, support, or SESOI may change only in a new protocol version |
 | MD-20 | Treat within-painter coverage separately from target likeness | Prototype collapse can improve centroid distance or recognition | A validated statistic proven to decompose both without masking either |
 | MD-21 | Use MMD or energy distance as candidate set discrepancies; keep raw FID nonprimary | Small-sample FID bias and encoder dependence are unsuitable for painter cells | Large-sample validation demonstrating calibrated painter-specific performance |
 | MD-22 | Report precision and density, recall and coverage, contraction, and full panel-wide specificity margins | Generative distribution quality is multidimensional | Independently validated composite with prospectively justified weights |

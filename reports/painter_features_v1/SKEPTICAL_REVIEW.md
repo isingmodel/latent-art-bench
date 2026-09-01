@@ -10,11 +10,12 @@ Review passes:
 | 2 | `c70589fc..e93a8ece` | **request changes** | [comment](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5488825142) |
 | 3 | `e93a8ece..f3497b7d` | **request changes** | [comment](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5489036477) |
 | 4 | `f3497b7d..9561a99f` | **approve** | [comment](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5489144824) |
+| 5 | `9561a99f..17ed93db` | **request changes** | [comment](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5489200986) |
 
-Review status: four passes complete; the fourth **approved** the prospective design framework with
-no remaining P0-P2 finding. Its nonblocking P3 notation clarification is incorporated in the final
-closure-only revision, whose exact-head check is recorded externally on the PR to avoid a recursive
-metadata commit.
+Review status: five passes recorded. The fourth **approved** the prospective design framework at
+`9561a99f`; the fifth found one P2 inconsistency introduced by incomplete propagation of the P3
+clarification. That generated-output rule is aligned in the final revision, whose exact-head
+closure verdict is recorded externally on the PR to avoid a recursive metadata commit.
 
 Reviewer role: independent skeptical researcher subagent; the reviewer made no project edits
 
@@ -421,3 +422,25 @@ historical Lee PDF and were unrelated to the documentation-only revision. In the
 workspace, where that preserved historical byte exists, the full offline suite passed all 490
 tests. The final closure-only commit requires one narrow exact-head confirmation recorded on the
 PR; adding that later URL here would itself create a new unreviewed commit.
+
+## 10. Fifth-pass exact-head correction
+
+The reviewer inspected exact head `17ed93db2f5b5f3282a4cd2af9cc8756c9648690` and posted a
+[request-changes verdict](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5489200986).
+The real Gate 4 adjusted-SESOI rule, provenance, QA record, and every earlier P0-P2 closure remained
+sound. One P2 inconsistency remained in generated-output specificity:
+
+- review 05 correctly bound
+  \(T_a^{worst}=\min_h\{S_{a,h}-\delta_{a,h}\}\) and
+  \(T_a^{tail}=Q_\tau\{S_{a,h,q}-\delta_{a,h,q}\}\);
+- canonical Analysis G3 still bound raw minima and quantiles against aggregate SESOIs; and
+- heterogeneous thresholds make those operations non-equivalent.
+
+Required correction: Analysis G3 must define the adjusted worst and tail statistics, require both
+simultaneous lower bounds above zero, and leave raw minima/quantiles descriptive only. The
+validation freeze, synthesis, method ledger, and report must use that same rule.
+
+Analysis protocol 1.3 now supplies the authoritative adjusted formulas. Validation protocol 1.5,
+the synthesis, method-decision ledger 1.3, and report 1.5 reproduce the same decision. The final
+exact-head verdict is intentionally kept in the public PR record rather than added here after the
+fact.

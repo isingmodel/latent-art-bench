@@ -1,6 +1,6 @@
 # Painter Features v1: relaunch process and research result
 
-Report version: 1.4
+Report version: 1.5
 
 Report date: 2026-09-01
 
@@ -664,10 +664,10 @@ nested at the source level; selection that sees all sources limits the claim to 
 performance. Confirmatory distributions are standardized over a frozen shared-support nuisance
 distribution rather than silently changing composition by painter.
 
-At every required transfer endpoint (e), each target-versus-hard-neighbor margin (M_{a,h,e}) on
+At every required transfer endpoint \(e\), each target-versus-hard-neighbor margin \(M_{a,h,e}\) on
 the immutable panel-wide support must have a simultaneously calibrated lower confidence bound above
-its frozen positive SESOI (delta_{a,h,e}). A one-number representation is
-(T_{a,e}^{panel}=\min_{h\in H_a}\{M_{a,h,e}-\delta_{a,h,e}\}), whose simultaneously calibrated
+its frozen positive SESOI \(\delta_{a,h,e}\). A one-number representation is
+\(T_{a,e}^{panel}=\min_{h\in H_a}\{M_{a,h,e}-\delta_{a,h,e}\}\), whose simultaneously calibrated
 lower bound must exceed zero. The SESOI is subtracted before the minimum, so neighbor-specific
 thresholds are preserved. A merely positive point estimate is diagnostic and cannot qualify a
 painter-associated coordinate.
@@ -727,8 +727,10 @@ for failure of a conjunct.
    target-painter reference, decided against a frozen real-to-real scale and an equivalence or
    noninferiority margin. Failure to reject a difference is not evidence of fit.
 2. **Hard-neighbor specificity:** the full target-versus-each-eligible-competitor margin vector on
-   one panel-wide common support, with the binding decision made on both frozen worst and
-   lower-quantile hard-neighbor rules.
+   one panel-wide common support. Subtract each frozen neighbor/cell SESOI before aggregation; both
+   the adjusted panel-worst \(\min_h\{S_{a,h}-\delta_{a,h}\}\) and adjusted lower-tail
+   \(Q_{\tau}\{S_{a,h,q}-\delta_{a,h,q}\}\) statistics require simultaneous lower bounds above
+   zero. Raw minima and quantiles are descriptive only.
 3. **Precision and density:** both generated-to-real target-support criteria meeting their frozen
    simultaneous lower bounds.
 4. **Recall and coverage:** both real-to-generated support criteria meeting their independently
@@ -954,6 +956,7 @@ The process retained criticism rather than silently editing it away:
 | 2 | `c70589fc..e93a8ece` | request changes | [comment](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5488825142) |
 | 3 | `e93a8ece..f3497b7d` | request changes | [comment](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5489036477) |
 | 4 | `f3497b7d..9561a99f` | approve | [comment](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5489144824) |
+| 5 | `9561a99f..17ed93db` | request changes | [comment](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5489200986) |
 
 The first pass found no basis for treating the package as ready for empirical execution and
 identified the material defects below. By the third pass, the reviewer had verified closure of all
@@ -961,7 +964,9 @@ original and second-pass defects in the authoritative protocols, but found two s
 paths and three P2 integrity problems elsewhere in the package. Report version 1.3 corrected them;
 the fourth pass verified every P1 and P2 closed and approved exact head `9561a99f` at the
 prospective design-framework level. Report version 1.4 incorporates the reviewer's one nonblocking
-notation clarification without relaxing the approved per-neighbor rule.
+notation clarification without relaxing the approved per-neighbor rule. The fifth pass then found
+that canonical Analysis G3 had not received the corresponding generated-output formula. Report
+version 1.5 records and propagates that final P2 correction.
 
 | Priority | Skeptical finding | Required disposition | Recorded response before final closure |
 |---|---|---|---|
@@ -1020,6 +1025,26 @@ This makes the approved fail-closed rule explicit; it does not weaken it. The fi
 commit receives a narrow exact-head check recorded externally on PR #1 so that recording the check
 does not create an endless sequence of new metadata commits.
 
+### 18.3 Fifth-pass generated-rule alignment
+
+The reviewer inspected exact head `17ed93db2f5b5f3282a4cd2af9cc8756c9648690` and posted one
+[P2 request for changes](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5489200986).
+The real Gate 4 formula, review provenance, QA record, and all previous P0-P2 closures remained
+sound. The sole defect was that canonical Analysis G3 still bound raw generated minima and
+quantiles against aggregate SESOIs while review 05 correctly subtracted heterogeneous
+neighbor/cell SESOIs before aggregation.
+
+Analysis protocol 1.3 now defines
+
+\[
+T_a^{worst}=\min_{h\in H_a}\{S_{a,h}-\delta_{a,h}\},\qquad
+T_a^{tail}=Q_{\tau}\{S_{a,h,q}-\delta_{a,h,q}\}.
+\]
+
+Both require simultaneous lower bounds above zero; raw minima and quantiles are descriptive only.
+Validation protocol 1.5, the synthesis, method-decision ledger 1.3, review 05, and report 1.5 now
+state the same rule. The final exact-head decision is recorded externally on PR #1.
+
 ## 19. Quality assurance record
 
 At initial report creation:
@@ -1045,7 +1070,7 @@ After the fourth-pass approval and final P3 clarification, the evidence-bearing 
 - targeted assertions for immutable panel support, both hard-neighbor rules, six binding outcomes,
   exploratory-only FDR, G2-only H9, and subtract-before-aggregation SESOI statistics;
 - `uv run --locked ruff check .`; and
-- `uv run --locked pytest -q -m "not live"`: **490 passed in 53.52 seconds**.
+- `uv run --locked pytest -q -m "not live"`: **490 passed in 50.02 seconds**.
 
 The skeptical reviewer independently passed diff, matrix, identity, DOI, link, and Ruff checks at
 approved head `9561a99f`. Its isolated exact-commit checkout reported 487 passed and one skipped;
@@ -1054,6 +1079,7 @@ evidence-bearing workspace retains that byte and passed all 490 tests. The proje
 the clean-checkout limitation by altering frozen historical evidence or committing the ignored
 PDF.
 
-The final closure commit contains documentation and the nonblocking adjusted-SESOI clarification
-only. Its narrow exact-head reviewer confirmation is kept in the public PR record rather than
-added recursively to this file. No empirical operation occurred during QA or review.
+The final closure commit contains documentation, the adjusted-SESOI clarification, and the
+fifth-pass propagation fix only. Its narrow exact-head reviewer confirmation is kept in the public
+PR record rather than added recursively to this file. No empirical operation occurred during QA
+or review.

@@ -10,9 +10,11 @@ Third-pass review: [GitHub comment](https://github.com/isingmodel/latent-art-ben
 
 Fourth-pass review: [GitHub approval](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5489144824)
 
-Response status: fourth pass approved exact head `9561a99f`; all P1 and P2 findings are closed at
-the prospective design-framework level. The one nonblocking P3 notation clarification is
-incorporated in the final closure-only revision; its exact-head confirmation is recorded externally
+Fifth-pass review: [GitHub comment](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5489200986)
+
+Response status: fourth pass approved exact head `9561a99f`; fifth pass found one P2 caused by
+incomplete propagation of the heterogeneous-SESOI clarification at `17ed93db`. Canonical Analysis
+G3 and every dependent summary are now aligned; the final exact-head verdict is recorded externally
 on the PR rather than triggering another metadata-only commit.
 
 ## 1. Response policy
@@ -47,7 +49,7 @@ external data, or generation services.
 | P2-9 retrospective search | Relabeled the search and stopping process as retrospective, disclosed absent saved result/screening manifests and unstable result totals, and avoided invented denominators. After the second pass, identified the actual 11-column matrix, labeled the rich per-source schema a future requirement, and disclosed that 138 detailed evidence cards do not exist. | `SEARCH_PROTOCOL.md`; `SEARCH_LOG.md`; literature README; `SYNTHESIS.md`; `RESEARCH_REPORT.md` | Third pass verified closed |
 | P2-10 null is not invariance | Reworded Redies/Groß to absence of a statistically significant aggregate group difference and explicitly noted the lack of equivalence and work-level repeatability tests. | reviews 01 and 03; evidence matrix | Third pass verified closed |
 
-## 3. Third-pass residual response
+## 3. Residual response across later passes
 
 | Third-pass finding | Revision | Primary artifacts | Pre-fourth-pass status |
 |---|---|---|---|
@@ -58,6 +60,7 @@ external data, or generation services.
 | P2-T3 author labels | Corrected PF023 to Qi, Taeb, and Hughes; corrected PF029 to Redies and Brachmann; and reconciled the Qi/Taeb order in review 01. | `EVIDENCE_MATRIX.csv`; review 01 | Fourth pass verified closed |
 | P3 pass provenance | Replaced the single reviewed range with an exact pass table and clarified that exact objects and verdicts are preserved in Git history and linked GitHub comments. | `SKEPTICAL_REVIEW.md` | Fourth pass accepted |
 | P3 heterogeneous-neighbor SESOI notation | Replaced the ambiguous “equivalent panel-worst” phrase with an explicit subtract-before-minimum statistic and applied the same rule to the generated worst and lower-tail summaries. | validation protocol 1.4; review 05; research report 1.4 | Incorporated; narrow exact-head confirmation required |
+| P2-F1 canonical generated aggregation | Defined adjusted `T_worst` and `T_tail` in Analysis G3, required both simultaneous lower bounds above zero, made raw summaries descriptive, and propagated the same subtract-before-aggregation rule through validation, synthesis, method decisions, and report. | analysis protocol 1.3; validation protocol 1.5; synthesis; method ledger 1.3; report 1.5 | Implemented after fifth pass; final exact-head verification required |
 
 ## 4. Changed claim boundary
 
@@ -89,7 +92,8 @@ the intentionally uncommitted historical Lee PDF. That known historical-evidence
 unrelated to this documentation-only revision and is not “fixed” by committing or replacing the
 ignored evidence byte.
 
-The final closure-only commit adds this record and the reviewer's nonblocking heterogeneous-SESOI
-notation. A narrow exact-head confirmation is kept as a public PR comment rather than recursively
-amending this file after every confirmation. The final user report and PR body link that external
-confirmation.
+The fifth pass found that the first closure-only commit had not propagated the heterogeneous-SESOI
+rule into canonical Analysis G3. The final revision corrects that P2 and retains the otherwise
+approved framework unchanged. A narrow exact-head confirmation is kept as a public PR comment
+rather than recursively amending this file after every confirmation. The final user report and PR
+body link that external confirmation.

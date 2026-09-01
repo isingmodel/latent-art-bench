@@ -131,8 +131,8 @@ S_{a,h}=D\!\left(Q_a^*,P_h^*(\cdot;A_a^{panel})\right)
        -D\!\left(Q_a^*,P_a^*(\cdot;A_a^{panel})\right),\qquad h\in H_a,
 \]
 
-and retain the full vector. With neighbor-specific SESOIs (delta_{a,h}) and cell-specific SESOIs
-(delta_{a,h,q}), define the binding adjusted summaries
+and retain the full vector. With neighbor-specific SESOIs \(\delta_{a,h}\) and cell-specific SESOIs
+\(\delta_{a,h,q}\), define the binding adjusted summaries
 
 \[
 T_a^{worst}=\min_{h\in H_a}\{S_{a,h}-\delta_{a,h}\},\qquad
