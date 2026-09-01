@@ -1,6 +1,7 @@
 # Painter Features v1
 
-Status: prospective design; no artwork acquisition or feature extraction authorized
+Status: prospective design framework; not a preregistration or executable protocol; no artwork
+acquisition or feature extraction authorized
 
 Protocol family: `painter_features_v1`
 
@@ -43,8 +44,11 @@ representation while being dissimilar on the other dimensions. Calling all of th
 - **Painter feature**: a qualified distribution or model of feature coordinates for painter
   \(a\), conditional on the study's content, medium, period, and source design. It is not one
   painting, a centroid alone, or an artist-name classifier score.
-- **Source-faithful branch**: exact preprocessing needed to assess or replicate a published
-  method.
+- **Common support**: the connected, frozen set of joint content, medium, phase, and source cells
+  in which the registered painter contrast is identified without extrapolation.
+- **Source-faithful branch**: reported preprocessing reconstructed as closely as the available
+  artifact contract permits. It is not called an exact replication when code, weights, hashes,
+  environment, fixtures, or stochastic realization are missing.
 - **Harmonized branch**: a common, color-aware, aspect-preserving pipeline used to test
   comparability.
 - **Measurement qualification**: evidence that a coordinate is repeatable, robust enough for
@@ -65,6 +69,9 @@ representation while being dissimilar on the other dimensions. Calling all of th
 ## Present boundary
 
 This design package performs no corpus download, provider access, sealed-holdout access,
-feature extraction, model-weight download, or image generation. A later execution protocol
-must name the corpus, rights, providers, sample sizes, exact artifacts, and qualification
-thresholds; receive review; and be committed before any of those operations begin.
+feature extraction, model-weight download, or image generation. It specifies the scientific
+architecture and failure conditions but is not yet prospectively executable. A later, separately
+reviewed execution-freeze artifact must name the corpus, rights, providers, common-support table,
+reproduction incidence/rank audit, sample-size simulations, estimators, exact artifacts, SESOIs,
+experiment-wide decision tree, missingness scenarios, qualification thresholds, and terminal
+actions; it must be committed before any of those operations begin.

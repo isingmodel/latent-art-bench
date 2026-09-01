@@ -1,11 +1,11 @@
 # Painter Features v1: relaunch process and research result
 
-Report version: 1.0
+Report version: 1.1
 
 Report date: 2026-09-01
 
-Study status: literature synthesis and prospective method design complete; no empirical execution
-authorized
+Study status: literature synthesis and prospective design framework documented; not executable
+or preregistered; no empirical execution authorized
 
 ## 1. Executive summary
 
@@ -28,18 +28,25 @@ one encoder vector, one centroid, one classifier score, or one prompt effect.
 
 The review and design produced:
 
-- a prospective search and grading protocol;
-- a search log ending at a prespecified saturation criterion;
+- a retrospectively documented search and grading procedure;
+- a search log with a retrospectively assessed stopping heuristic;
 - an evidence matrix with 138 source-level records;
 - an audited bibliography with 201 primary, standards, artifact, and marked
   background sources;
 - a direct audit of Pilot 2's painter-feature evidence;
 - five thematic critical reviews;
-- an evidence synthesis and 30-decision method ledger;
-- a prospective measurement protocol;
+- an evidence synthesis and 39-decision method ledger;
+- a prospective measurement-design document;
 - an eight-gate validation protocol, numbered 0 through 7; and
 - a claims and analysis protocol separating real painter association, target fit, specificity,
   coverage, contraction, prompt movement, and availability.
+
+Despite their filenames, the study documents are a **prospective design framework**, not yet an
+executable protocol or preregistration. They do not supply a separate execution-freeze artifact
+fixing final corpus incidence and minima, exact estimators, simulations, smallest effects of
+scientific interest, thresholds, multiplicity, missingness actions, and terminal gate decisions.
+“Protocol” below refers to the intended design unless an execution-freeze artifact is explicitly
+named.
 
 The literature does not validate any existing learned representation as the painter feature.
 Kim's A-vector, Kim's C-vector, CSD, ALADIN, CLIP, DINO-like, Gram, and diffusion-feature spaces
@@ -48,9 +55,10 @@ preprocessing determine their meaning. Artist classification or retrieval establ
 label-associated signal, not source invariance, content independence, or coverage of a painter's
 oeuvre.
 
-The recommended next scientific step is a real-only qualification study under a new frozen
-execution protocol. The current work does not authorize image acquisition, external-holdout
-access, feature extraction, model downloads, generation transport, or image generation.
+The recommended next scientific step is to prepare, independently review, and freeze an
+execution artifact for a real-only qualification study. The current work does not authorize image
+acquisition, external-holdout access, feature extraction, model downloads, generation transport,
+or image generation.
 
 ## 2. Request interpretation
 
@@ -107,9 +115,10 @@ constraints.
 ### 3.2 Type of work
 
 This is a newly versioned scientific reboot study, not shared-library maintenance and not a
-repair of a historical pilot. Its output is a research evidence and protocol package. No
-production feature extractor was implemented because the reviewed candidates have not yet
-passed the prospective gates that would determine what should be implemented.
+repair of a historical pilot. Its output is a research-evidence package and prospective design
+framework. It is not an executable protocol or preregistration. No production feature extractor
+was implemented because the reviewed candidates have not yet passed the qualification gates that
+would determine what should be implemented.
 
 ## 4. Research process
 
@@ -141,9 +150,9 @@ report is under reports/painter_features_v1.
 No unrelated modified project files were intentionally overwritten. Historical report and
 evidence directories were not moved or regenerated.
 
-### 4.3 Prospective literature protocol
+### 4.3 Documented literature-review procedure
 
-Before synthesis, the search protocol fixed:
+The review package records:
 
 - six review questions;
 - five search clusters;
@@ -153,7 +162,13 @@ Before synthesis, the search protocol fixed:
 - an extraction schema;
 - evidence grades A, B, C, D, and X;
 - synthesis rules; and
-- a saturation stopping rule.
+- a retrospectively assessed stopping heuristic.
+
+The search protocol and search log were created in the same research worktree, and no timestamped
+registration or saved title/abstract screening manifests precede the review. The rules are
+therefore an auditable retrospective account of the procedure used, not evidence of a
+prospectively registered systematic review. This limits auditability of exclusions and any claim
+that the stopping decision was insulated from observed results.
 
 The clusters were:
 
@@ -184,13 +199,16 @@ Search hits were not treated as evidence until a primary or official source was 
 Preprints were marked. Paper and repository versions were reconciled. Unreported methods were
 recorded as unreported rather than inferred.
 
-The final four-cluster saturation search added four new decision-relevant records, 2.9% of the
-138-record evidence matrix, and no new method family. That met the prospective less-than-10%
-stopping rule. The result is broad but does not claim exhaustive coverage of an open literature.
+The final four-cluster stopping pass added four new decision-relevant records, 2.9% of the final
+138-record evidence matrix, and no new method family. That is a descriptive retrospective
+calculation, not proof that a less-than-10% rule was prespecified or that saturation was achieved:
+the rule lacks a prior registration, the pre-pass denominator was not independently frozen, and
+the project preserved no screening manifest. The review is broad but is neither exhaustive,
+saturated, nor a PRISMA-grade systematic review.
 
-Several web interfaces did not provide a stable export or total-result count. The contemporaneous
-log preserved their queries and handling but not a numeric screened-hit total. The project reports
-this as a protocol deviation and does not reconstruct a PRISMA-like denominator after the fact.
+Several web interfaces did not provide a stable export or total-result count. The log preserved
+their queries and handling but not a numeric screened-hit total. The project reports this as a
+review limitation and does not reconstruct a PRISMA-like denominator after the fact.
 The auditable counts are the structured matrix and bibliography, not every search-engine hit.
 
 ### 4.5 Parallel skeptical source audits
@@ -203,8 +221,7 @@ Three independent research streams were conducted:
   missingness.
 
 The primary agent integrated those streams and checked their decisions against the exact Pilot 2
-evidence. A fresh skeptical PR review is recorded later in this report after the pull request
-stage.
+evidence. A separate skeptical review of the opened pull request is recorded in Section 18.
 
 ## 5. Evidence corpus
 
@@ -247,9 +264,9 @@ of a paper.
 
 | Prospective disposition | Records |
 |---|---:|
-| Core candidate or required design evidence | 39 |
-| Secondary candidate | 40 |
-| Diagnostic only | 37 |
+| Core candidate or required design evidence | 37 |
+| Secondary candidate | 41 |
+| Diagnostic only | 38 |
 | Background only | 19 |
 | Reject for proposed use | 3 |
 
@@ -275,7 +292,7 @@ The evidence matrix remains the authoritative list for project dispositions.
 
 ## 6. Pilot 2 result audit
 
-### 6.1 What Pilot 2 established
+### 6.1 What Pilot 2 observed
 
 Pilot 2 used four painters, two museum sources, and five works per painter-source cell:
 40 physical works. Twenty-four works were used for training and 16 were held out. It created a
@@ -300,9 +317,11 @@ The exact real-only results were:
 | Real training works | 24 |
 | PCA cumulative variance | 0.97074 |
 
-The defensible conclusion is that the space carried some pooled painter-associated information in
-a tiny development atlas. The stronger source signal and near-chance opposite-source transfer
-show that it did not establish a source-invariant painter feature.
+The defensible positive conclusion is limited to **pooled artist-label predictability within the
+fixed Pilot 2 atlas**. The stronger source signal and near-chance opposite-source transfer mean
+that Pilot 2 established no transferable painter feature. The label-prediction result must not be
+promoted to painter association under the relaunch definition, which requires source and content
+transfer across held physical works.
 
 ### 6.2 Why the original qualification gate was insufficient
 
@@ -334,7 +353,7 @@ effects under a frozen generator and prompt protocol.
 
 Five moderation refusals made both requested-label grids incomplete. All four primary tests were
 correctly not run, and the study decision was REDESIGN. The relaunch does not impute, retry, or
-replace those cells.
+replace those cells. Pilot 2 therefore established no generated-output or named-prompt effect.
 
 ## 7. Kim et al. method audit
 
@@ -404,9 +423,14 @@ duplicate physical works, capture pipeline, content, phase, or pretraining overl
 same-painter distances also reuse each work many times, so the number of pairs is not the number
 of independent observations.
 
-The reboot retains exact A and C replications as diagnostics only. A prospective stochastic VAE
-coordinate should use a posterior mean or integrate repeated posterior draws and propagate
-encoder variance.
+The released artifacts do not support an exact A- or C-vector replication claim. The reboot can
+retain a source-faithful, versioned **compatibility reconstruction** as a diagnostic, recording
+every recoverable paper/code choice and every unresolved artifact. Repairing A's unreachable
+model initialization or supplying a checkpoint makes that extractor an adaptation. A
+posterior-mean or repeated-draw VAE coordinate is also a methodological adaptation, not a recovery
+of the authors' unpublished posterior realization. C remains provisional until its full artifact
+contract—including weights, dependency versions, preprocessing, a reference fixture, and
+tolerance—is recovered.
 
 ## 8. Interpretable feature findings
 
@@ -545,8 +569,13 @@ than assumed absent.
 
 ### 10.2 Required reproduction panel
 
-A prospective corpus must include independently produced captures of a preregistered subset of
-physical works across painters and providers. The goal is to distinguish:
+A future frozen corpus must include independently produced captures of a registered subset of
+physical works across painters and providers. Its provider-by-capture incidence matrix must be
+connected and pass a rank/identifiability audit. Repeated physical works must bridge provider
+pairs, multiple works must occur in each estimable pair, and repeated delivery derivatives must
+occur within captures. Otherwise inseparable provider, capture, derivative, and work terms are
+collapsed and the claim ceiling is narrowed rather than interpreted as distinct variance
+components. The goal is to distinguish:
 
 - capture variation;
 - delivery-derivative variation;
@@ -554,8 +583,8 @@ physical works across painters and providers. The goal is to distinguish:
 - within-painter between-work variation; and
 - between-painter variation.
 
-The reproduction-panel size is selected for variance-component precision, not as an arbitrary
-percentage.
+Hard eligibility minima and the reproduction-panel size must be selected through frozen
+variance-component precision simulations, not as an arbitrary percentage.
 
 ### 10.3 Processing branches
 
@@ -568,7 +597,7 @@ The protocol specifies:
 - aspect-preserving painted-field handling;
 - explicit masks for frame, mat, border, watermark, and padding;
 - a separately flagged assumed-sRGB stratum;
-- source-faithful replication branches; and
+- source-faithful, versioned compatibility-reconstruction branches; and
 - 2048, 1024, and 512 long-edge candidate scales without upsampling.
 
 Harmonization is a declared transformation, not proof that source effects have disappeared.
@@ -598,15 +627,17 @@ Estimate response to:
 - forced-square versus aspect-preserving processing; and
 - construct-changing controls such as hue rotation, phase scrambling, or pixel shuffling.
 
-A coordinate must be stable to nuisance perturbations relative to a preregistered smallest
+A coordinate must be stable to nuisance perturbations relative to an execution-frozen smallest
 effect of scientific interest while remaining sensitive to transformations that should change
 its construct.
 
 ### Gate 3 — independent-reproduction reliability
 
-Same physical works under independent captures must be more consistent than matched different
-works. A coordinate stable only across derivatives of one capture is labeled digital_derivative,
-not painter-associated.
+Same-work retrieval under independent captures is diagnostic because it can reward work identity,
+content, or defects without preserving painter relations. The gate instead requires paired-capture
+stability of painter margins and painter-profile geometry on a connected, identifiable
+provider/capture panel. A coordinate stable only across derivatives of one capture is labeled
+digital_derivative, not painter-associated.
 
 ### Gate 4 — real-only painter specificity and transfer
 
@@ -615,13 +646,17 @@ All tasks hold out physical works:
 1. balanced within-domain holdout;
 2. leave-source-out;
 3. leave-content-family-out;
-4. matched hard-neighbor discrimination;
-5. broad-negative calibration; and
-6. career-phase transfer where historically supported.
+4. joint leave-source-by-content-out transfer on connected common support;
+5. matched hard-neighbor discrimination;
+6. broad-negative calibration; and
+7. career-phase transfer where historically supported.
 
 Source, codec, content, genre, medium, date, visible signature/text, derivative family, and
 pretraining exposure proxies are nuisance probes. Painter performance must add information beyond
-nuisance-only baselines.
+nuisance-only baselines. Coordinate and hyperparameter selection for leave-source claims must be
+nested at the source level; selection that sees all sources limits the claim to seen-source
+performance. Confirmatory distributions are standardized over a frozen shared-support nuisance
+distribution rather than silently changing composition by painter.
 
 ### Gate 5 — human convergent and discriminant evidence
 
@@ -629,16 +664,20 @@ The primary triplet asks which candidate is closer to an anchor in visible paint
 attempting to ignore depicted subject. Separate tasks assess content, color organization,
 mark/texture, and overall appearance.
 
-Experts and nonexperts are separate preregistered strata. Whole works, details, content-matched
+Experts and nonexperts are separate execution-frozen strata. Whole works, details, content-matched
 cross-painter works, same-painter cross-content works, hard neighbors, independent captures, and
 controlled variants are crossed. A hierarchical Bradley–Terry, Thurstone, or ordinal model
-crosses raters and physical works.
+crosses raters and physical works. Interfaces blind painter and source labels, use a frozen policy
+for masking visible signatures/text, measure familiarity and recognition after the primary
+judgment, treat unfamiliar-work judgments as primary, and report recognized-work and unmasked
+sensitivities.
 
 ### Gate 6 — external confirmation
 
 After coordinates, transforms, distances, thresholds, nuisance rules, and missingness handling
-freeze, open a sealed source or domain that changes at least one meaningful axis. Do not retune on
-failure under the same protocol.
+freeze, open an institution/capture workflow with no derivative-family overlap for a core
+confirmation claim. A confirmation that changes another axis while retaining the same capture
+workflow supports only a domain-limited claim. Do not retune on failure under the same protocol.
 
 ### Gate 7 — freeze before any generation study
 
@@ -653,8 +692,9 @@ competitor panels, sample size, refusal rules, and every estimand.
 The protocol distinguishes:
 
 - painter-associated variance after nuisance adjustment;
+- standardized painter distributions over a frozen joint source/content/medium/phase support;
 - held-work painter discrimination;
-- leave-source and leave-content transfer;
+- leave-source, leave-content, and joint source-by-content transfer;
 - same-work independent-reproduction reliability;
 - hard-neighbor specificity;
 - incremental information beyond nuisance baselines; and
@@ -665,14 +705,17 @@ trials do not inflate the work count.
 
 ### 12.2 Later generator estimands
 
-If separately authorized:
+If separately authorized, the canonical painter-fidelity claim is conjunctive: items 1 through 4
+must each pass their frozen criterion. A favorable prompt contrast or average cannot compensate
+for failure of a conjunct.
 
-1. **Absolute target fit:** discrepancy between the generated set and eligible target-painter
-   reference.
-2. **One-versus-many specificity:** full target-versus-each-competitor margin vector, with a
-   lower-quantile or worst eligible margin.
-3. **Precision or density:** generated-to-real target support.
-4. **Recall or coverage:** real-to-generated support.
+1. **Absolute target fit/equivalence:** discrepancy between the generated set and eligible
+   target-painter reference, decided against a frozen real-to-real scale and an equivalence or
+   noninferiority margin. Failure to reject a difference is not evidence of fit.
+2. **Hard-neighbor specificity:** full target-versus-each-eligible-competitor margin vector, with
+   the binding decision made on a frozen worst or lower-quantile hard-neighbor margin.
+3. **Precision or density:** generated-to-real target support meeting its frozen criterion.
+4. **Recall or coverage:** real-to-generated support meeting its independently frozen criterion.
 5. **Contraction:** generated dispersion relative to real within-painter dispersion.
 6. **Prompt movement:** named versus painter-free paired movement toward the target.
 7. **Content coherence:** separate semantic/prompt behavior.
@@ -697,9 +740,16 @@ reference is too small for high-dimensional support estimation.
 ### 12.4 Dependence, multiplicity, and missingness
 
 Inference uses work-cluster resampling or crossed hierarchical methods, and permutation only
-within valid source/content/medium exchangeability blocks. Primary families and hypotheses are
-limited prospectively; family-level multiplicity control does not substitute for restrained
-claims.
+within valid joint source/content/medium exchangeability blocks on common support. A frozen
+omnibus or hierarchical closed-testing tree must control selection across primary feature
+families, coordinates, scales, encoders, painters, and validation endpoints; within-family
+adjustment alone cannot support a project-level painter-feature claim. The same tree is reused in
+external confirmation.
+
+For a later generated study, resampling preserves the entire shared-control bundle: content,
+model/version, request path, seed/repetition, the common control, and all named-painter outputs
+move together. Real reference works are also jointly resampled across contrasts. A design using
+independent controls instead must index and freeze a separate control for every target.
 
 Missingness is classified as:
 
@@ -712,7 +762,11 @@ Missingness is classified as:
 - missing human rating.
 
 Intent-to-generate denominators include every registered cell. An incomplete confirmatory paired
-grid is not replaced by an unregistered available-case test.
+grid is not replaced by an unregistered available-case test. The execution freeze must also set
+crossed-cell completeness minima and denominators, report differential selection by painter and
+nuisance strata, and define pattern-mixture, tipping-point, or worst-case missing-not-at-random
+sensitivities. Failure to retain the decision across registered sensitivity bounds narrows or
+fails the claim.
 
 ## 13. Corpus requirements for an execution study
 
@@ -723,7 +777,9 @@ Before acquisition, a new execution protocol must freeze:
 - eligible physical works;
 - source/provider sampling frames;
 - career phase, content/genre, medium, date, and motif strata;
-- crossed overlap requirements;
+- a connected painter-by-source-by-content-by-medium-by-phase common-support table;
+- hard cell minima, at least two painters per confirmatory exchangeability cell, and frozen
+  shared-support weights;
 - independent reproduction panel;
 - work and derivative-family identifiers;
 - rights and redistributability;
@@ -735,9 +791,10 @@ Before acquisition, a new execution protocol must freeze:
 - missingness and terminal transport rules; and
 - ignored runtime storage boundary.
 
-Every painter used for confirmatory specificity must span multiple eligible sources and content
-strata. A painter represented by only one provider or one content family may be described but
-cannot support broad painter-specificity inference.
+Every painter used for confirmatory specificity must lie in the connected common-support graph,
+span multiple eligible sources and content strata, and avoid perfect aliasing with their joint
+interaction. Estimands are restricted to that frozen support with frozen weights. A painter
+outside it may be described but cannot support broad painter-specificity inference.
 
 ## 14. Claims allowed and prohibited
 
@@ -748,8 +805,11 @@ cannot support broad painter-specificity inference.
 - painter-associated coordinate under declared source/content/phase/medium limits;
 - human-perceived painterly similarity under a declared task and rater population;
 - named-prompt movement under one frozen generator and prompt protocol;
-- absolute target-distribution fit, specificity, precision, coverage, and contraction as
-  separate results.
+- absolute target-distribution equivalence, hard-neighbor specificity, precision/density, and
+  recall/coverage as separate reported results and, only if all pass, a conjunctive canonical
+  painter-fidelity claim;
+- contraction, prompt movement, content coherence, and availability as secondary results that
+  cannot rescue a failed fidelity conjunct.
 
 ### 14.2 Prohibited
 
@@ -810,7 +870,7 @@ measure and report.
 - literature_reviews/reviews/04_human_construct_validation.md
 - literature_reviews/reviews/05_distribution_statistics_and_missingness.md
 
-### Prospective study package
+### Prospective design-framework package
 
 - studies/painter_features_v1/README.md
 - studies/painter_features_v1/MEASUREMENT_PROTOCOL.md
@@ -819,23 +879,31 @@ measure and report.
 
 ### Review and response
 
-The skeptical pull-request review and response artifacts are added after the independent PR
-review and summarized in Section 18.
+- reports/painter_features_v1/SKEPTICAL_REVIEW.md
+- reports/painter_features_v1/RESPONSE_TO_REVIEW.md
+
+The exact first-pass review is also preserved in its linked GitHub comment. Section 18 summarizes
+the consolidated findings and their required dispositions in this process report.
 
 ## 17. Result and present decision
 
 ### 17.1 Positive result
 
-The project now has an evidence-backed, prospectively testable definition of a painter feature,
-candidate measurements with explicit construct limits, a reproduction-aware observation model,
-and a gated path from digital files to painter-associated and human-perceived claims.
+The project now has an evidence-backed proposed definition of a painter feature, candidate
+measurements with explicit construct limits, a reproduction-aware observation model, and a gated
+design for moving from digital files to painter-associated and human-perceived claims. This is a
+substantive research-design result, but it is not executable without the separate execution
+freeze.
 
 ### 17.2 Negative result
 
 No existing candidate is presently qualified as the painter feature. In particular:
 
 - Pilot 2's adapted Kim A-vector remains source-confounded;
+- Pilot 2 established only pooled artist-label predictability within its fixed atlas, no
+  transferable painter feature and no generated-output effect;
 - Kim A and C do not provide a controlled formal/context decomposition;
+- the released Kim artifacts do not support an exact A- or C-vector replication claim;
 - CSD has unresolved artifact and construct-validity issues;
 - artist classification does not establish coverage;
 - raw cosine and raw FID are not calibrated painter-fidelity measures; and
@@ -843,15 +911,53 @@ No existing candidate is presently qualified as the painter feature. In particul
 
 ### 17.3 Operational decision
 
-Proceed only to planning a real-only painter-feature qualification execution. Do not begin data
-acquisition or extraction until painter/source/content/phase overlap, reproduction sampling,
-thresholds, simulations, rights, and external boundaries are frozen and reviewed.
+Proceed only to writing and independently reviewing a real-only painter-feature execution-freeze
+artifact. Do not begin data acquisition or extraction until the connected common-support and
+provider/capture incidence tables, minimum counts, exact estimators, simulations, smallest
+effects of scientific interest, thresholds, multiplicity tree, missingness actions, rights, and
+external boundaries are frozen. The present package must not be cited as a preregistration.
 
 ## 18. Independent skeptical review and response
 
-This section is completed after the pull request is opened and a fresh skeptical researcher has
-reviewed the exact PR diff. The final report records every material finding, response, revision,
-and any unresolved limitation rather than silently editing away criticism.
+A fresh skeptical researcher reviewed the exact
+[PR #1](https://github.com/isingmodel/latent-art-bench/pull/1) diff and preserved the first verdict
+in a [GitHub review comment](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5488634370).
+The review assessed the work from the standpoint of
+measurement theory, causal identification, statistical inference, and reproducibility. The
+review found no basis for treating the package as ready for empirical execution and identified
+the following material defects. The table records the required response rather than silently
+editing away criticism.
+
+At this report revision, the requested corrections are implemented locally, but **no item is
+marked resolved until the changed documents have been inspected in the updated PR diff and the
+reviewer has completed a fresh re-review**. “Pending verification” means that closure has not yet
+been granted.
+
+| Priority | Skeptical finding | Required disposition | Status at this report revision |
+|---|---|---|---|
+| P2 | Pilot 2's 0.50 balanced accuracy was promoted to painter-associated signal despite failed source transfer. | Name the result only as pooled artist-label predictability within the fixed Pilot 2 atlas; state that no transferable painter feature or generated-output effect was established. | Implemented; reviewer verification pending. |
+| P1 | Kim A/C were promised as exact replications although the released artifact contract lacks the checkpoint/RNG/fixtures and A is not executable unchanged. | Permit only a source-faithful, versioned compatibility reconstruction; call every repaired A extractor an adaptation and keep C provisional until its artifact contract is recovered. | Narrative corrected; artifact-card verification pending. |
+| P1 | Painter distributions were not restricted to identifiable joint common support, allowing painter to remain aliased with source, content, medium, and phase. | Freeze a connected painter-by-joint-nuisance support table, hard cell minima, at least two painters per confirmatory exchangeability cell, shared-support weights, and joint source-by-content transfer; narrow or fail claims outside support. | Pending protocol verification. |
+| P1 | Generator and real-reference estimands wrote unqualified \(P_a\), silently dropping the conditioning variables in the construct definition. | Define a standardized target distribution over frozen common nuisance support or use exact matched contrasts; declare weights, source handling, and behavior outside support. | Pending protocol verification. |
+| P1 | Multiplicity control was only within family even though the project selects among families, coordinates, scales, encoders, painters, and validation endpoints. | Freeze one primary omnibus claim or a hierarchical/closed-testing tree with strong error control, and reuse the same tree for external confirmation. | Pending protocol verification. |
+| P1 | Canonical generated-painter claims omitted binding absolute fit/equivalence, hard-neighbor tail specificity, and generated-to-real support. | Require conjunctive success on absolute equivalence/noninferiority, the worst or lower-quantile hard-neighbor margin, precision/density, and recall/coverage; no secondary outcome may rescue a failed conjunct. | Narrative corrected; protocol verification pending. |
+| P1 | The reproduction variance decomposition was not identifiable from the stated sampling prose. | Require a connected provider/capture incidence matrix, rank audit, repeated works bridging provider pairs, multiple works per pair, and repeated derivatives per capture; otherwise collapse inseparable effects and lower the claim ceiling. | Narrative corrected; protocol verification pending. |
+| P1 | Several evidence-matrix rows materially misdescribed the cited method or corpus, making the table inconsistent with the thematic reviews. | Rebuild disputed rows from primary methods and run a DOI-keyed identity audit across the matrix, bibliography, and review tables. | Citation audit implemented; reviewer verification pending. |
+| P2 | Same-work independent-capture retrieval can reward content or work-specific defects and was treated as a gate for painter structure. | Keep same-work retrieval diagnostic; gate on paired-capture stability of painter margins and painter-profile geometry. | Narrative corrected; protocol verification pending. |
+| P2 | Feature and hyperparameter selection could see held sources before a leave-source evaluation. | Nest method selection at the source level or explicitly limit the result to seen-source performance. | Narrative corrected; protocol verification pending. |
+| P2 | External confirmation could change any one axis while reusing the same capture workflow. | Require an unopened institution/capture workflow with no derivative overlap for a core claim; confirmation on another axis alone supports only a domain-limited claim. | Narrative corrected; protocol verification pending. |
+| P2 | Complete-case analysis lacked frozen crossed-cell completeness and selection-sensitivity rules. | Freeze denominators and minima, report differential selection, run registered missing-not-at-random bounds/tipping analyses, and narrow or fail claims that are not robust. | Narrative corrected; protocol verification pending. |
+| P2 | Future resampling ignored dependence induced by a shared painter-free control across named-painter contrasts. | Resample the whole content-by-model/version-by-seed bundle containing the shared control and all named targets, and jointly resample real references; otherwise freeze independent target-specific controls. | Narrative corrected; protocol verification pending. |
+| P2 | The human gate omitted binding label/source blinding, signature/text controls, and familiarity/recognition handling. | Blind labels and source, freeze masking, measure recognition after the main judgment, make unfamiliar works primary, and report recognized/unmasked sensitivities. | Narrative corrected; protocol verification pending. |
+| P2 | The package described itself as executable or preregistered without frozen corpus minima, estimators, simulations, SESOIs, thresholds, and terminal actions. | Call it a prospective design framework and require a separate, independently reviewed execution-freeze artifact before any operation. | Narrative corrected; final package verification pending. |
+| P2 | The literature search/stopping process was called prospective although protocol and log appeared together and no saved screening manifests exist. | Describe the review as a broad, retrospectively documented critical review; do not claim preregistration, exhaustive systematic coverage, or a prospective stopping decision. | Narrative corrected; search-artifact verification pending. |
+| P2 | A digitization-review statement paraphrased Redies/Groß as invariance when the reported result was absence of a significant aggregate difference. | Use the narrower statistical wording and avoid converting a null aggregate comparison into evidence of invariance. | Citation-review correction pending verification. |
+
+The response strategy is fail-closed. If common support, reproduction identifiability, source-level
+nested selection, or external independence cannot be achieved, the framework requires a narrower
+domain-limited or diagnostic claim; it does not substitute a more convenient estimand. Exact
+closure status belongs in the final review-response artifact after the reviewer inspects the
+revised diff.
 
 ## 19. Quality assurance record
 
@@ -864,5 +970,5 @@ At initial report creation:
 - no unresolved drafting marker appeared in the protocols or reviews; and
 - the project remained documentation-only, with no artwork, model, or generated-image operation.
 
-Final whitespace, link, repository, test, PR, and skeptical-review checks are appended after the
-review/revision cycle.
+Final whitespace, link, repository, test, PR, and skeptical re-review checks are appended only
+after the review/revision cycle; this report does not predeclare them successful.

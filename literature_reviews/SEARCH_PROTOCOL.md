@@ -1,8 +1,23 @@
-# Prospective literature-search protocol
+# Literature-search protocol and retrospective audit specification
 
 Protocol version: `painter-feature-review/1.1`
 
-Search freeze date: 2026-09-01
+Review snapshot date: 2026-09-01
+
+## Registration status and evidentiary boundary
+
+This document was assembled during the relaunch after legacy references and some anchor-source
+checking were already available. There is no timestamped immutable registration demonstrating
+that version 1.1 preceded every query, screening decision, eligibility decision, or stopping
+decision in the completed review. The clusters, eligibility rules, extraction fields, grades,
+and stopping heuristic below are therefore a **retrospective structured audit specification** for
+the 2026-09-01 review snapshot, not a preregistered systematic-review protocol.
+
+The specification is useful for making current judgments explicit and for auditing consistency.
+It cannot support claims that reviewer discretion was eliminated prospectively. A future update
+may use it prospectively only after committing a new version before searching and retaining the
+query exports, result manifests, deduplication decisions, screening decisions, and exclusion
+reasons needed to verify that use.
 
 ## Review questions
 
@@ -21,8 +36,8 @@ Search freeze date: 2026-09-01
 
 ## Source discovery
 
-The review searches OpenAlex/Crossref metadata, PubMed/PMC, arXiv, CVF Open Access, PMLR,
-publisher pages, and exact public source repositories. It combines keyword search with backward
+The completed review used OpenAlex/Crossref metadata, PubMed/PMC, arXiv, CVF Open Access, PMLR,
+publisher pages, and exact public source repositories. It combined keyword search with backward
 and forward citation chasing from the following anchors:
 
 - Kim, Son, and Jeong (2014), large-scale quantitative painting analysis;
@@ -34,7 +49,8 @@ and forward citation chasing from the following anchors:
 - Somepalli et al. (2024), contrastive style descriptors; and
 - Naeem et al. (2020), generative fidelity and diversity metrics.
 
-Search clusters are fixed before screening:
+The synthesis was organized into the following search clusters. These clusters were formalized
+during the review and must not be described as having been fixed before all completed screening:
 
 | Cluster | Representative terms |
 |---|---|
@@ -44,9 +60,11 @@ Search clusters are fixed before screening:
 | Measurement validity | digitization, reproduction, color management, ICC profile, resolution, resampling, JPEG, domain shift, museum source, robustness, repeatability |
 | Human and construct validity | art expertise, style perception, similarity judgment, aesthetic statistics, human alignment, psychometrics, construct validity |
 
-The exact executed queries, dates, engines, and result counts are recorded in `SEARCH_LOG.md`.
-Search results are not evidence by themselves; bibliographic and method claims must resolve to
-a primary paper, supplement, dataset paper, or exact source repository.
+`SEARCH_LOG.md` records the query strings or grouped traversals that could be reconstructed, their
+session date, and how results were handled. It is not an export-backed query-by-query ledger:
+several interfaces did not expose stable totals, and no complete result-page or screening manifest
+was saved. Search results are not evidence by themselves; bibliographic and method claims must
+resolve to a primary paper, supplement, dataset paper, or exact source repository.
 
 ## Eligibility
 
@@ -93,7 +111,7 @@ Every source retained for structured evidence synthesis receives:
 - digitization, content, source, training-data, and label confounds;
 - availability of code, data, checkpoints, and reference fixtures;
 - reproducibility and external-validity judgment;
-- prospective disposition: `core_candidate`, `secondary_candidate`, `diagnostic_only`,
+- protocol disposition: `core_candidate`, `secondary_candidate`, `diagnostic_only`,
   `background_only`, or `reject`; and
 - rationale and concrete protocol consequence.
 
@@ -127,9 +145,20 @@ a prospective local validation battery.
 - Report feature profiles and uncertainty; do not select a single scalar after viewing results.
 - Record negative and null findings, inaccessible details, and incompatible input domains.
 
-## Stopping rule
+## Retrospective stopping assessment and future rule
 
-Searching continues until each cluster has both anchor-paper backward chaining and at least two
-independent forward/keyword passes, and a final pass adds less than 10% new decision-relevant
-sources. The report will state the screened and included counts rather than claiming exhaustive
-coverage of an open literature.
+For the completed snapshot, the team stopped after a final cross-cluster pass yielded four records
+that were retained as decision-relevant and did not add a new method family. Four is 2.9% of the
+final 138-row evidence matrix. That calculation is a retrospective description, not proof that a
+less-than-10% stopping rule was prespecified or independently satisfied: the rule was not
+demonstrably registered before searching, the pre-pass eligible set was not frozen independently,
+and the returned-result and screening manifests were not retained. The review therefore claims
+broad structured coverage, not saturation or exhaustiveness.
+
+For a future update, a prospective stopping rule may be activated only by committing a new
+protocol version before the first new query. Each cluster must then have anchor-paper backward
+chaining and at least two separately logged forward/keyword passes; every pass must retain an
+export or result manifest and screening disposition. A final pass may stop the update if it adds
+less than 10% new decision-relevant sources relative to the evidence set frozen before that pass
+and adds no new method family. The report must state reconstructable screened and included counts
+and must not call an open literature exhaustive.

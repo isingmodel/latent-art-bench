@@ -16,8 +16,8 @@ P_a\{f(X)\mid\text{phase, genre/content, medium, date, source/digitization}\},
 \]
 
 with uncertainty across physical works and digital reproductions. The encoder $f$ earns a
-place in that profile only after painter signal survives source, content, phase, reproduction,
-and training-data shortcut tests.
+place in that profile only after artist-label predictability survives source, content, phase,
+reproduction, and training-data shortcut tests and supports the declared painter-level claim.
 
 The reviewed evidence does not justify calling any single pretrained latent *the* painter-style
 representation:
@@ -27,7 +27,7 @@ representation:
 - Kim's C-vector is a LAION-trained CLIP representation with strong semantic, iconographic,
   chronology, artist-association, and possible exact-work exposure signal.
 - CSD is directly optimized using caption-derived artist, medium, and movement tags. It is a
-  promising painter-associated descriptor, but not a content-free or training-independent style
+  promising painter-association candidate, but not a content-free or training-independent style
   instrument; its official repository also reports a current checkpoint/paper discrepancy.
 - Artist classification, retrieval, or prompted-name recovery establishes label-associated
   signal. It does not establish within-painter coverage, source invariance, or painterly-form
@@ -65,12 +65,19 @@ National Academy of Sciences* 123(30), e2517969123 (2026),
 [doi:10.1073/pnas.2517969123](https://doi.org/10.1073/pnas.2517969123), with the article and
 supplement accessible through [PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC13416963/).
 
-The exact released repository was audited at commit
+The released repository was audited at the exact commit
 [`7da12358cf34dad2184f357a048c2cf114b3c4e0`](https://github.com/aljinny/art-history/tree/7da12358cf34dad2184f357a048c2cf114b3c4e0).
 The checkout names package versions but does not contain a complete environment lock, an explicit
 license, the paper's extracted vector files, a checkpoint hash, or the posterior RNG realization.
 Its A-vector script is not directly executable: model initialization is indented after a return,
 module-level code refers to an undefined `model`, and author-local absolute paths remain.
+
+These omissions set a hard reproducibility boundary. The project can build a source-faithful,
+versioned **compatibility reconstruction**, but it cannot promise exact A- or C-vector
+replication. Repairing the A script or supplying a model/checkpoint is an adaptation. The C
+implementation remains provisional until the full artifact contract—resolved weights,
+dependency versions, preprocessing behavior, reference fixture, and numeric tolerance—is
+recovered. Compatibility outputs must never be described as the authors' unreleased vectors.
 
 ### 3.2 Corpus and eligibility domain
 
@@ -93,7 +100,7 @@ Important domain facts are:
 No independent physical-work identifier, alternate-reproduction grouping, source-disjoint split,
 crop/frame control, or training-overlap audit underlies the published representation analyses.
 
-### 3.3 Exact A- and C-vector contracts
+### 3.3 Published and released A- and C-vector contracts
 
 | Dimension | A-vector | C-vector |
 |---|---|---|
@@ -151,7 +158,7 @@ the same broad web-trained model ecosystem.
 
 | Criterion | A-vector | C-vector |
 |---|---|---|
-| Painter specificity | weak-to-moderate pooled signal; not content/source qualified | strong label signal; semantic and training association are plausible causes |
+| Painter specificity | pooled artist-label predictability; not content/source qualified | strong label predictability; semantic and training association are plausible causes |
 | Within-painter coverage | not evaluated | not evaluated |
 | Same-movement hard negatives | limited aggregate distance evidence | limited aggregate distance evidence |
 | Source/digitization transfer | not established | not established |
@@ -163,11 +170,16 @@ The [Pilot 2 audit](00_pilot_2_painter_feature_audit.md) supplies the decisive l
 the harmonized A-vector reached only 0.50 held painter balanced accuracy, classified acquisition
 source at 0.8125, and transferred across sources at only 0.25/0.375 balanced accuracy. Those
 results do not invalidate the representation for all purposes, but they reject it as the sole
-painter feature for this corpus design.
+painter feature for this corpus design. The positive result is limited to pooled artist-label
+predictability within the fixed Pilot 2 atlas; it established no transferable painter feature.
+Because the registered generator grids were incomplete and the primary tests were not run, it
+also established no generated-output effect.
 
 For any new A-vector study, use the posterior mean as the primary deterministic coordinate or
 integrate repeated posterior draws and propagate encoder variance. A content-derived seed makes
-one arbitrary draw reproducible; it does not make the draw uniquely meaningful.
+one arbitrary draw reproducible; it does not make the draw uniquely meaningful. This branch is a
+methodological adaptation. A separate compatibility branch should preserve every recoverable
+published choice, record each repair, and stop short of an exact-replication claim.
 
 ## 4. CSD and the raw-cosine problem
 
@@ -314,16 +326,21 @@ sets need distributional comparisons with sample-size and encoder sensitivity.
 | [Stein et al. 2023](https://papers.nips.cc/paper_files/paper/2023/hash/0bc795afae289ed465a65a3b4b1f4eb7-Abstract-Conference.html) | 17 metrics across nine encoders versus a large human realism study | no universal metric; report evaluator disagreement rather than select favorable rankings |
 | [CMMD, Jayasumana et al. 2024](https://openaccess.thecvf.com/content/CVPR2024/html/Jayasumana_Rethinking_FID_Towards_a_Better_Evaluation_Metric_for_Image_Generation_CVPR_2024_paper.html) | unbiased Gaussian-kernel MMD on CLIP features without Gaussian feature assumption | CLIP semantic/web bias remains; contextual distribution diagnostic only |
 
-For a target painter $a$, the reboot should keep four estimands distinct:
+For a target painter $a$, the reboot should keep four estimand families distinct. A canonical
+painter-fidelity claim nevertheless requires the first three to pass **conjunctively**:
 
-1. **Absolute target fit:** a prespecified two-sample discrepancy between generated $Q_a$ and
-   held real $P_a$.
-2. **Specificity:** the target discrepancy relative to a prospectively selected set of
-   same-movement, same-period, same-medium, content-matched competitor painters.
-3. **Coverage:** real-to-generated support recall, reported separately from generated-to-real
-   precision/density.
+1. **Absolute target fit/equivalence:** a prespecified two-sample discrepancy between generated
+   $Q_a$ and held real $P_a$, judged against a frozen real-to-real reference scale and an
+   equivalence or noninferiority margin. Failure to reject a difference is not evidence of fit.
+2. **Hard-neighbor specificity:** the full target-versus-competitor margin vector for a
+   prospectively selected set of same-movement, same-period, same-medium, content-matched
+   painters, with the binding decision based on the frozen worst or lower-quantile eligible
+   margin rather than the average or a favorable neighbor.
+3. **Support in both directions:** generated-to-real precision/density and real-to-generated
+   recall/coverage must each meet independently frozen criteria.
 4. **Prompt-induced movement:** named versus painter-free paired change under fixed content,
-   generator, prompt family, and seed policy.
+   generator, prompt family, and seed policy; this is secondary and cannot rescue failure of a
+   fidelity conjunct.
 
 A positive prompt-induced centroid movement can coexist with poor absolute fit and severe mode
 contraction. A positive one-neighbor margin can coexist with greater similarity to untested
@@ -339,7 +356,8 @@ protocol belongs in the new study protocol.
 1. No learned representation is automatically primary because its title or training labels say
    “style.”
 2. Kim A, Kim C, CSD, ALADIN, and one general perceptual/self-supervised comparator should be
-   evaluated as separately versioned candidate modules.
+   evaluated as separately versioned candidate modules. Kim A/C modules are compatibility
+   reconstructions unless and until complete artifact contracts are recovered.
 3. A candidate advances only if painter discrimination survives held physical works, held source,
    matched content/medium/date, and independent-reproduction tests.
 4. Checkpoint, code revision, preprocessing, dtype, device, feature layer, normalization, distance,
@@ -355,8 +373,9 @@ protocol belongs in the new study protocol.
    sensitivity branch whenever the original method forces a square.
 3. Do not let real/generated origin determine codec or preprocessing path.
 4. Use posterior mean for Kim A's primary deterministic candidate, or repeated posterior draws
-   with variance propagation. Preserve the historical seeded-sample implementation only as a
-   named compatibility branch.
+   with variance propagation. Label either choice an adaptation. Preserve the recoverable
+   historical seeded-sample path only as a named, versioned compatibility reconstruction; do not
+   call it an exact replication.
 5. Fit PCA, standardization, metric learning, CSLS reference pools, bandwidths, and thresholds on
    real development data only. UMAP/t-SNE never enters an estimand.
 
@@ -378,8 +397,10 @@ protocol belongs in the new study protocol.
 
 1. Model painter profiles across works and, where support permits, phase/genre/medium strata. Do
    not reduce the real oeuvre to one centroid.
-2. Report target fit, one-versus-many specificity, precision/density, recall/coverage, and
-   contraction separately.
+2. Report target fit/equivalence, the full hard-neighbor specificity vector plus its binding
+   worst or lower-quantile margin, precision/density, recall/coverage, and contraction
+   separately. Require fit/equivalence, specificity, precision/density, and coverage
+   conjunctively for a canonical painter-fidelity claim.
 3. Use work-, painter-, prompt-, and seed-level clustered or hierarchical uncertainty. Pairwise
    distances are not independent observations.
 4. Report feature-family disagreement. A formal coordinate, CSD, and CLIP may disagree because

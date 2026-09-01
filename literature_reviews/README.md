@@ -27,8 +27,10 @@ features until held-out painter specificity transfers across sources and content
 
 ## Contents
 
-- `SEARCH_PROTOCOL.md` fixes the search, screening, extraction, and evidence-grading rules.
-- `SEARCH_LOG.md` records executed searches and citation-chasing passes.
+- `SEARCH_PROTOCOL.md` retrospectively documents the search, screening, extraction, grading, and
+  stopping rules used and defines what a future prospectively registered update must preserve.
+- `SEARCH_LOG.md` records reconstructable searches and citation-chasing passes and discloses the
+  missing result and screening manifests.
 - EVIDENCE_MATRIX.csv contains 138 auditable primary-source or standard records, including
   review depth, evidence grade, disposition, and a concrete protocol consequence.
 - `BIBLIOGRAPHY.md` gives 201 unique checked citations and stable primary-source links.

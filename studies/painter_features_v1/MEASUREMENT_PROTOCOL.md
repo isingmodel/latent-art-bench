@@ -1,8 +1,8 @@
 # Prospective measurement protocol
 
-Protocol version: `painter_features_v1/measurement/1.0`
+Protocol version: `painter_features_v1/measurement/1.1`
 
-Status: design only; not execution authorization
+Status: prospective design framework only; not a preregistration or execution authorization
 
 ## 1. Target construct and measurement model
 
@@ -98,9 +98,47 @@ classes. Medium, genre, date, geography, and source must be sampled or modeled s
 perfectly aliased with a target label.
 
 Every painter must span more than one eligible source and more than one content or genre stratum.
-The design must include overlapping media and dates among comparison painters where historically
-defensible. A painter with only one source or one content stratum may be described but cannot enter
-confirmatory painter-specificity inference.
+That marginal requirement is necessary but not sufficient: the joint painter-by-nuisance design
+must also have common support.
+
+Before any feature outcome is inspected, the execution-freeze artifact must publish an incidence
+table over painter, content/genre family, medium/support, career phase/date band, physical work,
+and independent source/capture workflow. For each registered painter contrast set \(A\), it must
+define a claim-specific common-support set
+
+\[
+\Omega_A^* = \{q=(c,m,t): q\text{ is eligible for every painter used in the contrast}\},
+\]
+
+and, for each \(q\), a shared workflow set
+
+\[
+\mathcal S_{Aq}^*=\bigcap_{a\in A}
+\{s:\text{eligible independent works exist for painter }a\text{ in }(q,s)\}.
+\]
+
+The confirmatory joint-support cells are the pairs \((q,s)\) with
+\(q\in\Omega_A^*\) and \(s\in\mathcal S_{Aq}^*\).
+
+The following are hard eligibility conditions for confirmatory inference:
+
+- the painter-by-joint-nuisance incidence graph is connected for every contrast being claimed;
+- each exchangeability cell used for a painter comparison contains at least two eligible painters;
+- each painter-by-\((q,s)\) joint-support cell has at least two independent physical works, with a
+  larger minimum imposed whenever the prospective precision simulation requires it;
+- every contrast painter is observed under at least two independent source/capture workflows;
+- the execution-freeze artifact records the simulation-selected minimum work count, the intended
+  denominator, the admissible source workflows, and fixed target-population or equal-cell weights
+  for every \((q,s)\) cell in the registered joint support; and
+- no painter is perfectly aliased with a joint source-by-content-by-medium-by-phase combination.
+
+The floor of two works is an eligibility check, not a claim that two works provide adequate power.
+If the simulation-selected minimum is higher, the higher value governs. Cells outside
+\(\Omega_A^*\) are reported descriptively and cannot be recovered by regression extrapolation.
+If overlap is insufficient, the painter set or claim domain is narrowed before outcomes are
+examined; otherwise painter qualification is `failed` or `not_executed`. A permutation analysis is
+allowed only in blocks containing at least two painter labels and the frozen minimum number of
+independent works.
 
 ### 3.2 Reproduction panel
 
@@ -118,6 +156,26 @@ distinguish:
 Unknown-provenance files may support sensitivity analysis but cannot establish cross-capture
 repeatability. The reproduction-panel size is selected by confidence-interval precision for
 variance components rather than by an arbitrary percentage alone.
+
+The additive terms in Section 1 are separately estimable only under a connected reproduction
+design. Before acquisition, the execution-freeze artifact must include a physical-work × provider
+× capture × delivery-derivative × processing-branch incidence matrix and a design-matrix rank
+audit for every requested variance component. At minimum:
+
+- repeated physical works connect the provider/capture workflows in the claimed domain;
+- every provider-pair edge used to estimate a provider contrast contains at least two physical
+  works, with the precision simulation permitted to require more;
+- every independently captured work has repeated delivery derivatives per capture when a delivery
+  effect is to be separated from capture; and
+- deterministic processing branches are crossed over every eligible reproduction rather than
+  assigned to only one provider or capture.
+
+A connected path may identify a provider contrast, but its uncertainty and reliance on indirect
+links must be reported. If captures are nested uniquely within providers, derivative families are
+nested uniquely within captures, or the planned design matrix is rank deficient, provider,
+capture, and delivery terms are not reported as separate effects. They are collapsed into a
+combined `source/capture workflow` term, and the claim ceiling is restricted to that observed
+workflow domain. Post hoc model regularization does not repair a non-identifiable design.
 
 ### 3.3 Independence and duplication
 

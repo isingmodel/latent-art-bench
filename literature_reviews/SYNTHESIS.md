@@ -16,11 +16,18 @@ It is not one file, one centroid, one encoder, one classifier, or the visual eff
 an artist name into a prompt.
 
 This definition preserves Pilot 2's scientific aim while correcting its central weakness.
-Pilot 2 established some painter-associated signal in a deterministic adaptation of Kim's
-A-vector, but the same space predicted source substantially better than painter and failed true
-cross-source transfer. The relaunch therefore makes reproduction reliability, leave-source-out
-transfer, leave-content-family-out transfer, hard-neighbor specificity, and within-painter
-coverage mandatory.
+Pilot 2 established only **pooled artist-label predictability within the fixed Pilot 2 atlas** in
+a deterministic adaptation of Kim's A-vector. The same space predicted source substantially
+better than artist label and failed true cross-source transfer. Pilot 2 therefore established
+neither a transferable painter feature nor any generated-output effect. The relaunch makes
+reproduction reliability, source/content transfer, hard-neighbor specificity, and
+within-painter coverage mandatory before either claim can be made.
+
+The present artifact is a prospective **design framework**, not an executable or preregistered
+study protocol. It identifies constructs, candidate measurements, gates, and claim boundaries.
+A separate execution-freeze artifact must still set corpus incidence and minimum counts, exact
+estimators, simulations, smallest effects of scientific interest, thresholds, multiplicity,
+missingness actions, and terminal decisions before any data are acquired or analyzed.
 
 ## 1. Scope and evidential posture
 
@@ -66,7 +73,7 @@ Its negative evidence is equally important:
 
 | Diagnostic | Pilot 2 result | Interpretation |
 |---|---:|---|
-| Held four-painter balanced accuracy | 0.50 | Some pooled painter-associated information |
+| Held four-painter balanced accuracy | 0.50 | Pooled artist-label predictability within the fixed Pilot 2 atlas |
 | Source balanced accuracy | 0.8125 | Strong source information in the same space |
 | Train NGA, test AIC painter accuracy | 0.25 | Chance-level cross-source transfer |
 | Train AIC, test NGA painter accuracy | 0.375 | Weak, inconclusive cross-source transfer |
@@ -76,6 +83,10 @@ Its negative evidence is equally important:
 Five moderation refusals made the registered generated-output grids incomplete, so none of the
 four primary tests ran. That is a valid scientific result, not a software defect to erase.
 
+Accordingly, Pilot 2 did not establish a transferable painter feature and did not establish any
+named-prompt or generated-output effect. Its real-only result is confined to the fixed atlas and
+its incomplete generator phase is a non-result for the registered effect estimands.
+
 The reboot retains Pilot 2 as historical evidence and creates a new prospective namespace. It
 does not recompute Pilot 2, retry missing cells, refresh hashes, or acquire any closed holdout.
 
@@ -84,10 +95,14 @@ does not recompute Pilot 2, retry missing cells, refresh hashes, or acquire any 
 ### 3.1 Color and luminance
 
 Across studies of paintings and natural images, distributions of lightness, chroma, hue, and
-local color transitions are empirically informative. Kim (2014), Lee (2018), and Seo (2018)
-provide a reproducible lineage for adjacent color-distance and ordinal-pattern analyses.
-Nascimento et al. and Nakauchi and colleagues show that color distributions and constancy affect
-perception of paintings.
+local color transitions are empirically informative. Kim, Son, and Jeong (2014) provide RGB
+color-rank, gamut-box-count, brightness-roughness, and weighted-entropy baselines; Lee et al.
+(2018) provide adjacent CIELAB color-distance distributions; and Seo et al. (2018) provide a small
+multiscale spatial color-interaction analysis. The ordinal-pattern lineage instead comes from
+Sigaki, Perc, and Ribeiro (2018) and the tie-aware extension of Tarozo et al. (2025).
+Nascimento et al. and Nakauchi and Tamura show that gamut orientation, color moments, and hue
+rotation can affect preference judgments. Those are perceptual color-organization results, not
+evidence of painter identity, color constancy, or physical-color fidelity.
 
 The evidence supports fixed, interpretable coordinates such as CIELAB lightness/chroma
 quantiles, circular hue moments above a low-chroma threshold, fixed-bin occupancy, and adjacent
@@ -152,9 +167,12 @@ interpolation, codec, and SD2 training-distribution effects. It is properly name
 A-vector or SD2-VAE appearance coordinate. It is not, without qualification, a formal or painter
 feature.
 
-For any prospective replication, a posterior mean or repeated posterior draws with propagated
-variance is preferable to a single content-seeded posterior sample. A seed makes an arbitrary
-draw repeatable; it does not make the draw uniquely meaningful or recover the authors'
+The incomplete artifact contract does not permit a claim of exact replication. A future
+source-faithful, versioned **compatibility reconstruction** may preserve the published resize,
+codec, tensor, and posterior-sampling path as far as the released sources permit. Repairing the
+unreachable model initialization or supplying a checkpoint necessarily creates an adaptation,
+which must be named and reported as such. A posterior-mean or repeated-draw branch with
+propagated variance is a separate methodological adaptation, not a recovery of the authors'
 unreleased realization.
 
 ### 4.2 Kim C-vector
@@ -167,6 +185,11 @@ period, attribution-associated web signals, and possible training overlap.
 It is retained only as a contextual/semantic and leakage-sensitive diagnostic. A and C are not
 two clean halves of one “form/context” decomposition because their encoders, training corpora,
 and preprocessing differ.
+
+The C-vector is likewise provisional until its complete artifact contract—including resolved
+model weights, dependency versions, preprocessing behavior, and a reference fixture with
+tolerance—is recovered. Until then, a versioned implementation can only be called a
+compatibility reconstruction, not an exact Kim C replication.
 
 ### 4.3 CSD and other style-oriented embeddings
 
@@ -192,11 +215,13 @@ what they recover; none supplies an independent painter ground truth.
 
 ### 4.4 Recognition is not coverage
 
-Artist classification, retrieval, or prompted-name recovery can show painter-associated signal.
+Artist classification, retrieval, or prompted-name recovery can show artist-label predictability
+within the tested corpus and split.
 It cannot show that a representation covers early and late practice, rare genres, multiple
 media, or atypical works. A generated set can be readily recognized because it repeats a narrow
-stereotype. The reboot therefore reports absolute target fit, one-versus-many specificity,
-precision, coverage, and contraction separately.
+stereotype. A later canonical painter-fidelity claim therefore requires conjunctive absolute
+fit/equivalence, worst or lower-quantile hard-neighbor specificity, precision/density, and
+recall/coverage, while contraction and prompt movement remain separate secondary outcomes.
 
 ## 5. Reproduction and source are part of the measurement
 
@@ -222,7 +247,8 @@ The project keeps:
 - original bytes and metadata unchanged;
 - a deterministic color-managed harmonized branch when profiles permit;
 - separately flagged assumed-sRGB results;
-- source-faithful branches used only to replicate published methods; and
+- source-faithful compatibility branches used only to reconstruct published methods under an
+  explicit versioned artifact contract; and
 - multiscale aspect-preserving analysis without unsupported upsampling.
 
 Provider and source remain modeled variables. Harmonization is not proof that source effects
@@ -247,9 +273,14 @@ The stimulus design crosses:
 - same-work independent captures; and
 - controlled color, scale, crop, and phase perturbations.
 
-Experts and nonexperts are separate preregistered populations. A hierarchical Bradley–Terry,
+Experts and nonexperts are separate execution-frozen populations. A hierarchical Bradley–Terry,
 Thurstone, or ordinal model crosses raters and physical works. Agreement, heterogeneity, and
 expertise effects are results; majority vote is not treated as truth.
+
+Attribution and source interfaces are blinded, signature/text handling is frozen, and recognition
+is measured after the primary judgment. Unfamiliar-work judgments are primary; recognized-work
+and unmasked branches are reported as sensitivities. Final criterion works and raters remain
+independent of metric selection.
 
 No method may use the phrase human-perceived painterly similarity unless it predicts held-out
 judgments under the stated task, population, display, and domain beyond content and source
@@ -261,12 +292,14 @@ baselines.
 
 The empirical sequence is:
 
-1. specify the corpus and candidate coordinate cards;
+1. specify the corpus, connected joint common support, fixed target weights, reproduction
+   incidence/rank audit, and candidate coordinate cards;
 2. test computational identity;
 3. estimate controlled perturbation response;
 4. test independent-reproduction reliability;
 5. test held-work painter association and nuisance increment;
-6. test leave-source, leave-content, career, and external transfer;
+6. test leave-source, leave-content, joint source-by-content, career, and unopened-workflow
+   external transfer;
 7. obtain human convergent/discriminant evidence; and
 8. freeze the painter distribution before any generated image is viewed.
 
@@ -275,28 +308,46 @@ toward the desired conclusion.
 
 ### 7.2 Generated-image outcomes remain plural
 
-If a later protocol authorizes generation, it must report:
+If a later execution-freeze artifact authorizes generation, a canonical painter-fidelity claim
+requires a **conjunction**, not success on a convenient single score:
 
-- absolute discrepancy to the eligible real target distribution;
-- full target-versus-competitor margin vector;
-- generated-to-real precision/density;
-- real-to-generated recall/coverage;
+- absolute target fit demonstrated by a prespecified equivalence or noninferiority decision
+  against an eligible real-to-real reference scale, rather than failure to reject a difference;
+- the full target-versus-hard-neighbor margin vector, with the binding specificity decision made
+  on the prespecified worst or lower-quantile eligible margin;
+- generated-to-real precision/density meeting its frozen support criterion; and
+- real-to-generated recall/coverage meeting its independently frozen support criterion.
+
+The study must also report:
+
 - phase/genre/medium-stratified coverage where estimable;
 - contraction relative to real within-painter dispersion;
 - named-versus-control prompt movement;
 - prompt/content coherence in a separate contextual coordinate; and
 - refusal, failure, and valid-output availability.
 
-No weighted composite is planned. Each outcome has different failure modes and evidential meaning.
+No weighted composite is planned. Failure of any conjunct in the canonical claim prevents the
+painter-fidelity conclusion even if prompt movement or another secondary outcome is positive.
+Each outcome also remains visible because the components have different failure modes and
+evidential meaning.
 
 ### 7.3 Dependence and missingness
 
 Physical works, not patches, derivatives, raters, or all pairwise distances, are the primary real
 sampling units. Work-clustered or crossed hierarchical inference respects nested and crossed
-dependencies. Randomization tests preserve source/content exchangeability blocks.
+dependencies. Randomization tests preserve joint source/content/medium/phase exchangeability
+blocks that contain at least two painters. An experiment-wide omnibus or closed-testing hierarchy
+covers selection among primary families, coordinates, scales, encoders, painters, and validation
+endpoints; family-local adjustment cannot support the project-level claim.
+
+In a future generated study, the shared control and all painter targets in a content-by-model-by-
+seed bundle are resampled together, and shared real references are jointly resampled across
+contrasts.
 
 Missing works, failed measurements, generation refusals, invalid outputs, and rater exclusions
-are separately classified. Intent-to-generate denominators remain fixed. An incomplete
+are separately classified. Sampling-frame denominators, joint-cell minima, and completion rules
+remain fixed. Differential selection and registered missing-not-at-random bounds or tipping
+analyses are mandatory; a nonrobust decision is narrowed, failed, or left unexecuted. An incomplete
 confirmatory pair grid is not repaired with an unregistered available-case substitute.
 
 ## 8. Final disposition of method families
@@ -308,8 +359,8 @@ confirmatory pair grid is not repaired with an unregistered available-case subst
 | Wavelet energy/entropy | Core candidate | file/reproduction-associated texture energy |
 | Tie-aware ordinal patterns | Core candidate | file/reproduction-associated ordinal organization |
 | Coarse composition/saliency | Secondary candidate | file-level spatial organization |
-| Kim A | Named replication and learned-appearance diagnostic | SD2-VAE appearance coordinate |
-| Kim C / CLIP | Separate contextual diagnostic | semantic/contextual similarity |
+| Kim A | Versioned compatibility reconstruction; any repaired extractor is an adaptation | SD2-VAE appearance coordinate |
+| Kim C / CLIP | Provisional compatibility reconstruction until artifact contract recovery | semantic/contextual similarity |
 | CSD | Provisional learned painter-association diagnostic | CSD similarity under pinned artifact |
 | ALADIN/GOYA/DINO/diffusion features | Evaluator-family sensitivity | model-specific appearance relation |
 | FID | Historical sensitivity only | encoder-specific aggregate discrepancy |
@@ -337,13 +388,15 @@ The project will not claim:
 
 ## 10. Research recommendation
 
-Proceed only to a **real-only qualification study** under the versioned
-painter_features_v1 protocols. Before acquisition or feature extraction, add a frozen execution
-document that identifies painters, sources, physical-work eligibility, reproduction panel,
-content/phase overlap, power or precision simulations, thresholds, and sealed confirmation
-boundary.
+Proceed only to development of a **real-only qualification execution plan** from the versioned
+painter_features_v1 design framework. Before acquisition or feature extraction, add and
+independently review a frozen execution artifact that identifies painters, sources,
+physical-work eligibility, connected common support, reproduction-panel incidence and minima,
+exact estimators, power or precision simulations, smallest effects of scientific interest,
+thresholds, multiplicity, missingness actions, and the sealed confirmation boundary. Until that
+artifact exists, this package is neither executable nor preregistered.
 
 Do not yet authorize external-holdout access, generated-image transport, image generation, or
-analysis of the incomplete Pilot 3 cohort. The current work establishes a defensible method and
-claim architecture; it does not claim that any candidate has already qualified as the painter
-feature.
+analysis of the incomplete Pilot 3 cohort. The current work proposes a defensible method and
+claim architecture for later freezing and testing; it does not claim that any candidate has
+already qualified as the painter feature.
