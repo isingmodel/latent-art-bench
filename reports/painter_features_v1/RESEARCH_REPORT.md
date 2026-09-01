@@ -1,6 +1,6 @@
 # Painter Features v1: relaunch process and research result
 
-Report version: 1.5
+Report version: 1.6
 
 Report date: 2026-09-01
 
@@ -1083,3 +1083,297 @@ The final closure commit contains documentation, the adjusted-SESOI clarificatio
 fifth-pass propagation fix only. Its narrow exact-head reviewer confirmation is kept in the public
 PR record rather than added recursively to this file. No empirical operation occurred during QA
 or review.
+
+## 20. Concrete execution and change ledger
+
+This section is the audit-oriented account of what was actually done. It fixes the scope,
+inputs, transformations, outputs, review iterations, and non-actions at named repository states.
+It adds reporting detail only; it does not change the approved construct, measurement candidates,
+validation gates, estimands, thresholds policy, or authorization boundary described above.
+
+### 20.1 Exact repository scope
+
+| Item | Concrete state |
+|---|---|
+| Historical baseline used for the relaunch | main at 612d09e4c84e4b34eed769455c569b93864d2b53, the commit recording the terminal Pilot 3 Met R2 metadata denial |
+| Relaunch branch (merged) | codex/relaunch-literature-methods |
+| Reporting follow-up branch | codex/painter-feature-full-report |
+| Approved methodological head before this reporting expansion | 88e14efff48fe4350bf6891444bf01645040deec |
+| Merged methodological pull request | [PR #1, Relaunch painter-feature measurement research](https://github.com/isingmodel/latent-art-bench/pull/1), merged 2026-09-01 08:30:59 UTC into main as ad2417e11ae42ceec3b3c26f8388e8d4e767d07d |
+| Research classification | Newly versioned prospective design framework under painter_features_v1 |
+| Historical boundary | Pilots 0–3 read as evidence and left unchanged |
+| Change type through approved head | Documentation and structured research evidence only; no source-code, configuration, test, model, artwork, or generated-image change |
+| Scoped output at approved head | 20 new tracked research files, 5,929 lines, and 59,246 whitespace-delimited words relative to historical baseline 612d09e |
+
+The worktree also contained pre-existing documentation and configuration edits outside this
+research package; none was staged as relaunch work. Two untracked local governance files,
+docs/STATUS.md and docs/ARTIFACTS.md, were read for task-start operational safety. Neither exists
+at the historical baseline, approved methodological head, or merge commit, so neither is counted
+below as commit-reconstructable research evidence or support for a scientific claim. Ignored
+artwork, model, source-checkout, generated-output, and historical PDF bytes were preserved. No
+broad cleanup command was used.
+
+### 20.2 Repository evidence reconstructed before designing the method
+
+| Evidence input | Exact material inspected | Facts taken forward | Design consequence |
+|---|---|---|---|
+| Pilot 2 registered intent | docs/PILOT_2_PROTOCOL.md and configs/pilot_2/pilot.yaml | Painter was the target; the design crossed four painters, two sources, and registered named-versus-control generation cells | Kept painter, not era or movement, as the scientific target |
+| Pilot 2 real corpus and split | configs/pilot_2/manifests/atlas.jsonl, configs/pilot_2/manifests/real_images.jsonl, and reports/pilot_2/analysis.json | 40 works = 4 painters × 2 sources × 5 works; 24 training and 16 held works | Defined the new construct across held physical works and required crossed nuisance support |
+| Pilot 2 method and qualification | configs/pilot_2/qualification/learned_formal.json and reports/pilot_2/evidence/learned_formal_qualification.json | The project used an adapted Kim A-vector, fitted PCA only on real training works, and retained 22 components against a centered training-data rank cap of 23 | Treated the vector as a high-dimensional appearance diagnostic rather than an isolated painter feature |
+| Pilot 2 real-only outcomes | reports/pilot_2/evidence/learned_formal_qualification.json | Pooled painter balanced accuracy was 0.50; source balanced accuracy was 0.8125 on a different task; opposite-source painter accuracies were 0.25 and 0.375 | Restricted the positive statement to pooled artist-label predictability within the fixed atlas and made source/content transfer gating |
+| Pilot 2 generation closure | reports/pilot_2/evidence/generation_completion.json, generation_attempt_receipts.json, generation_gate.json, and successful_output_manifest.json | 320 cells were assigned, 315 succeeded, and five terminal refusals made both requested-label grids incomplete | Preserved the missing cells, did not rerun or impute them, and stated that no generated-output effect was established |
+| Pilot 3 boundary | docs/PILOT_3_R2_OFFICIAL_MET.md, reports/pilot_3/evidence/met_r2_authorization.json, and artifacts/pilot_3/met_r2_metadata_attempts.jsonl | The first official Met R2 metadata request returned terminal HTTP 403 and closed that cohort | Did not use Pilot 3 as a source of new images or features and did not invent a fallback |
+
+This reconstruction was interpretive research work, not a rerun of the historical studies. The
+historical numerical records were read and reconciled; their hash-bound protocols, ledgers,
+receipts, and outputs were not regenerated.
+
+### 20.3 Literature work performed
+
+The literature work proceeded in five concrete stages:
+
+1. Seeded the search from repository references and the methods cited by Pilots 2 and 3.
+2. Ran targeted searches across quantitative art history, interpretable image measurement,
+   learned art representations, digitization validity, human construct validity, generative-set
+   evaluation, memorization, missingness, and confirmatory inference.
+3. Resolved search leads to primary papers, publisher pages, official standards, repositories,
+   or model/data artifacts before using them as evidence.
+4. Extracted a compact source-level record into the 11-column evidence matrix and wrote deeper
+   method-family critiques for sources that changed the proposed protocol.
+5. Reconciled identities, DOI joins, method descriptions, dispositions, and downstream protocol
+   consequences, then ran a final four-cluster search pass.
+
+Discovery and verification used repository references, targeted web search, OpenAlex, DOI and
+publisher pages, PMC, CVF Open Access, PMLR, OpenReview, official ISO/FADGI/Metamorfoze pages,
+primary GitHub repositories, and backward/forward citation chaining. The exact reconstructable
+queries and the distinction between literal query strings and grouped traversals are retained in
+literature_reviews/SEARCH_LOG.md.
+
+The auditable endpoint was:
+
+| Audit quantity | Result | Interpretation |
+|---|---:|---|
+| Evidence-matrix rows | 138 | Unique included source/standard/artifact records with one protocol consequence each |
+| Matrix columns | 11 | id, year, citation, stable identifier, cluster, depth, evidence, limitation, grade, disposition, consequence |
+| Bibliography entries | 201 | Unique primary, official, artifact, statistical, foundational, or marked background entries |
+| DOI-keyed matrix rows joined to bibliography | 102/102 | Identity join after URL decoding |
+| Full-text reviews | 121 | Main review-depth category |
+| Methods-and-results reviews | 10 | Used when that was the verified accessible depth |
+| Full-text-plus-code audits | 3 | Includes exact released-code inspection |
+| Official standards/guidelines | 3 | One standard and two guidelines |
+| Abstract-only records | 1 | Kept explicitly labeled rather than upgraded by inference |
+| Evidence grades | A 31; B 74; C 32; D 1; X 0 | Grade is fitness for the proposed project use, not paper prestige |
+| Prospective dispositions | core 37; secondary 41; diagnostic 38; background 19; reject 3 | No disposition itself qualifies a coordinate |
+| Final search-pass additions | 4/138 = 2.9% | Descriptive only; no new method family, but not proof of saturation |
+
+The audit did more than collect citations. Examples of source-specific corrections that changed
+the research record include:
+
+| Matrix record | Concrete correction | Consequence |
+|---|---|---|
+| PF001 | Separated RGB color-use ranks, occupied-gamut box counts, grayscale roughness, and weighted entropy instead of calling them a generic color feature | Retained only source-faithful historical baselines and required new source/scale qualification |
+| PF003 | Recorded a three-painting, eight-template color-interaction study rather than evidence of painter specificity | Kept multiscale partition logic diagnostic only |
+| PF006 | Identified the corpus as contemporary DeviantArt/Behance user-generated visual art | Prevented transfer of its platform-level result to historical-painter qualification |
+| PF007 | Recorded the tie-aware 75-state two-by-two ordinal distribution and 11 smoothness groups | Retained full distributions and explicit tie/scale perturbations rather than only entropy scalars |
+| PF017 | Corrected the method to learned sparse coding with kurtosis, not a wavelet painter feature | Reclassified it as a learned diagnostic requiring independent work-level validation |
+| PF020 | Corrected the method to iterative grayscale region growing with shape constraints, not wavelet analysis or literal physical-stroke measurement | Required scale evidence and human annotation before any visible-mark claim |
+| PF023 | Corrected the short-citation identity to Qi, Taeb, and Hughes | Reconciled the matrix and thematic review |
+| PF026 | Recorded windowed two-dimensional Fourier power slope and anisotropy, including the authors' necessary/sufficient limitation | Prevented an aesthetic-quality or painter claim from category-level spectra |
+| PF027 | Recorded PHOG-derived complexity, self-similarity, and anisotropy | Required fixed pyramid settings and content/source/reproduction tests |
+| PF029 | Corrected the short-citation identity to Redies and Brachmann | Removed a cross-document author mismatch |
+| PF030 | Replaced “reproduction invariance” with the narrower absence of a significant aggregate group difference | Required paired same-work equivalence/repeatability tests |
+| PF041 | Marked hyperspectral color statistics as a modality boundary, not evidence recoverable from ordinary catalog RGB | Prohibited physical-surface inference from RGB |
+
+The literature result is deliberately not called exhaustive, saturated, systematic, or
+prospectively registered. No stable export, complete returned-hit manifest, deduplicated screening
+file, per-record exclusion ledger, or pre-search timestamped protocol exists. Returned, screened,
+and excluded denominators therefore were not reconstructed after the fact. The defensible
+quantity is the 138-record structured endpoint plus the 201-entry bibliography.
+
+### 20.4 Pilot 2 calculations and their use
+
+The Pilot 2 audit separated arithmetic facts from scientific interpretations:
+
+| Calculation or record | Exact result | What it supports | What it does not support |
+|---|---:|---|---|
+| Real-corpus cells | 4 painters × 2 sources × 5 works = 40 works | A small crossed historical atlas | Oeuvre-level coverage |
+| Real split | 24 train; 16 held | A held-work pooled diagnostic | External institution or phase/content transfer |
+| Held painter task | balanced accuracy 0.500 | Artist-label predictability inside the fixed atlas | A transferable painter feature |
+| Painter recalls | Monet 0.250; Pissarro 0.250; Sisley 0.750; Cézanne 0.750 | Descriptive recall spread with four held works per painter | Uniform painter performance |
+| Held-by-source painter results | AIC 0.625; NGA 0.375 | Source-stratified diagnostic variation | A source-invariant effect |
+| Separate source task | balanced accuracy 0.8125 | Descriptive provider/source-label predictability in the 16 held works | A directly rankable advantage over the four-class painter task |
+| Opposite-source painter transfer | NGA→AIC 0.250; AIC→NGA 0.375 | Failure to show convincing source transfer | Confound-resistant painter association |
+| Constrained permutation | p = 0.0216 | The observed pooled statistic's tail probability under the constrained permutation scheme | Independence from source/content or a large/stable effect |
+| PCA geometry | 22 components from 24 real training works against centered rank cap 23; cumulative variance 0.9707404656 | Nearly saturated training geometry | Meaningful low-dimensional regularization |
+| Generation completion | 320 assigned; 315 successful; 5 terminal refusals | Exact availability record and nongating complete-pair descriptive estimates | The four registered confirmatory primary tests, which were not run |
+
+Pilot 2 did compute four available-complete-pair descriptive estimates before withholding
+confirmation:
+
+| Requested model label | Descriptive estimand | Estimate | Confirmatory status |
+|---|---|---:|---|
+| gpt-image-1 | Target improvement | 8.6492391997 | Not tested: incomplete feature grid; no confidence interval or exact sign-flip p-value |
+| gpt-image-1 | Specificity difference-in-differences | 5.6107138440 | Not tested: incomplete feature grid; no confidence interval or exact sign-flip p-value |
+| gpt-image-2 | Target improvement | 9.9262685683 | Not tested: incomplete feature grid; no confidence interval or exact sign-flip p-value |
+| gpt-image-2 | Specificity difference-in-differences | 6.5012713053 | Not tested: incomplete feature grid; no confidence interval or exact sign-flip p-value |
+
+These positive descriptive values are not four tested effects. Their analysis population is
+explicitly available_complete_pairs_descriptive; the familywise lower bounds are absent and every
+test status is not_tested_incomplete_feature_grid. They therefore do not change the REDESIGN
+decision or establish a generated-output effect.
+
+The new method responds directly to those observations: it requires several hard-neighbor
+comparisons, common nuisance support, source-workflow-level method selection, leave-source and
+leave-content transfer, independent reproductions, and separate coverage/contraction assessment.
+It does not reinterpret the permutation p-value as proof that these requirements were met.
+
+### 20.5 Kim paper and artifact audit performed
+
+The Kim audit covered the 2026 PNAS paper, supplement, artifact references, and exact released
+repository revision 7da12358cf34dad2184f357a048c2cf114b3c4e0.
+
+| Audit question | Concrete finding | Research decision |
+|---|---|---|
+| Corpus | 72,447 Western paintings, 2,354 painters, 128 conventional styles, dates 1500–1990, derived from heterogeneous ART500K sources | Treat reported predictions as corpus/split-specific and require physical-work/source/capture controls locally |
+| A preprocessing | OpenCV load/channel path; forced 512 × 512 Lanczos square; write under original extension; Pillow RGB reload; map to −1…1 | Record interpolation, warp, codec, channel, and derivative effects in the artifact contract |
+| A representation | Sample SD2 first-stage VAE posterior, scale it, and flatten 4 × 64 × 64 to 16,384 values | Name it an SD2-VAE appearance coordinate, not a formal or painter feature |
+| A reproducibility | Released script has unreachable initialization, an undefined module-level model reference, and author-local paths; checkpoint hash, RNG state, extracted vectors, fixture, and full environment are absent | Exact reproduction is unsupported; any executable repair is an adaptation |
+| C representation | CLIP Interrogator ViT-H-14/laion2b_s32b_b79k, 1,024 dimensions, read from the original path rather than A's square derivative | Keep it separate as a contextual/semantic diagnostic with a provisional artifact contract |
+| Published prediction | A/C year \(R^2\) 0.2024/0.8687; year correlation 0.4505/0.9324; ten-painter balanced accuracy 0.3268/0.8226; ten-style balanced accuracy 0.2507/0.7495; artist-disjoint year \(R^2\) 0.189/0.850 | Accept predictive signal under the paper's splits, but not source invariance, painterly construct validity, or oeuvre coverage |
+
+No A or C vectors were extracted in this relaunch. The work product is an artifact and claim
+audit plus a protocol for a future compatibility reconstruction, should a separate execution
+freeze authorize it.
+
+### 20.6 How the proposed painter-feature method was built
+
+The method was assembled as a chain from observed failure mode to a binding prospective control:
+
+| Observed problem or evidence | Binding design response | Canonical location |
+|---|---|---|
+| A single image or centroid cannot represent a changing oeuvre | Define the target as a standardized conditional distribution across eligible physical works | Measurement protocol construct definition; MD-01 and MD-31 |
+| Painter can be aliased with source, content, medium, and phase | Freeze one connected joint common-support table, hard cell minima, at least two painters per exchangeability cell, and one target-plus-all-hard-neighbors weighting system | Measurement protocol corpus tables; Validation Gate 4; MD-06, MD-19, MD-31 |
+| Provider, capture, and delivery can be nested, while uncrossed processing choices can create a separate confound | Freeze the provider/capture/delivery incidence matrix, require bridges and a rank audit, and cross every deterministic processing branch over every eligible reproduction; collapse only unidentified provider/capture/delivery effects into a narrowed source/capture-workflow term | Measurement protocol observation model; MD-32 |
+| Interpretable coordinates can still be reproduction-sensitive | Qualify CIELAB/transition, Fourier/edge, wavelet, ordinal, and composition candidates through repeatability, perturbation, capture, source, and content gates | Measurement and validation protocols; MD-07 through MD-10 |
+| Learned coordinates inherit training objectives and exposure | Label Kim A, Kim C, CSD, ALADIN/CLIP/DINO/Gram/diffusion spaces separately and use unqualified spaces only diagnostically | Synthesis and method ledger; MD-12 through MD-16 |
+| Pooled artist classification can exploit shortcuts | Require outer source-workflow nested selection and simultaneous hard-neighbor margins above neighbor-specific SESOIs at every transfer endpoint | Validation Gate 4; MD-18 and MD-34 |
+| Same-work retrieval can reward content or unique defects | Make retrieval diagnostic; gate paired-capture stability of painter margins and painter-profile geometry | Validation Gate 3 |
+| Human judgments can use labels, signatures, source UI, familiarity, or content | Blind labels/source/condition, freeze signature/text masking, measure recognition after judgment, and make unfamiliar works primary | Validation Gate 5; MD-24, MD-25, and MD-35 |
+| One favorable family or endpoint can be selected after inspection | Freeze a primary omnibus/closed-testing hierarchy with strong experiment-wide FWER; use FDR only for labeled exploration | Analysis protocol multiplicity tree; MD-33 |
+| Missing complete cases can create an easier corpus | Freeze denominators and minima, report differential selection, and require registered MNAR bounds/tipping analyses | Analysis protocol missingness rules; MD-26 and MD-37 |
+| Relative prompt movement can improve while outputs remain wrong or collapsed | Make later success conjunctive on absolute fit; adjusted worst and tail panel specificity; precision and density; recall and coverage; content coherence; and availability | Analysis G1–G8, Validation Gate 7, and MD-19, MD-20, MD-22, MD-23, MD-38 |
+| Shared controls and real references induce dependence | Resample the whole content/model/version/path/seed bundle and joint real-reference structure | Analysis resampling unit; MD-39 |
+
+The validation sequence is explicitly fail-closed:
+
+1. Gate 0 fixes construct and artifact identity.
+2. Gate 1 tests computational repeatability.
+3. Gate 2 tests controlled perturbation response.
+4. Gate 3 tests independent-reproduction reliability.
+5. Gate 4 tests real-only painter specificity and source/content transfer.
+6. Gate 5 tests human convergent and discriminant evidence.
+7. Gate 6 uses an unopened institution/capture workflow for external confirmation.
+8. Gate 7 freezes every later generated-image estimand and stopping rule before generation.
+
+At real Gate 4, every required painter–neighbor–endpoint margin must exceed its own frozen
+positive SESOI using simultaneous lower confidence bounds. With heterogeneous thresholds, the
+panel statistic is formed after subtraction:
+
+\[
+T_{a,e}^{panel}=\min_{h\in H_a}\{M_{a,h,e}-\delta_{a,h,e}\}.
+\]
+
+For a later generated study, the adjusted worst and lower-tail specificity summaries are:
+
+\[
+T_a^{worst}=\min_{h\in H_a}\{S_{a,h}-\delta_{a,h}\},\qquad
+T_a^{tail}=Q_{\tau}\{S_{a,h,q}-\delta_{a,h,q}\}.
+\]
+
+Both require simultaneous lower bounds above zero. Raw minima and quantiles are descriptive.
+Prompt movement and contraction must be reported but cannot rescue failure of any of the six
+binding outcome families.
+
+### 20.7 Concrete deliverables produced
+
+At the approved methodological head 88e14ef, the branch contained the following scoped output:
+
+| Package | Files | Lines | Concrete function |
+|---|---:|---:|---|
+| Literature evidence backbone | 7 | 1,184 | Review boundary, retrospective search protocol/log, 138-row matrix, 201-entry bibliography, cross-family synthesis, and 39 method decisions |
+| Critical reviews | 6 | 1,798 | Pilot 2 audit plus interpretable, Kim/learned, digitization, human-validity, and distribution/missingness reviews |
+| Prospective design framework | 4 | 1,317 | Study boundary, measurement design, eight validation gates, and confirmatory analysis/claims architecture |
+| Process and skeptical-review record | 3 | 1,630 | Full research report, living skeptical review, and finding-by-finding response |
+| **Total** | **20** | **5,929** | **One linked, documentation-only research package** |
+
+Section 16 lists every file. The evidence matrix is the source-level disposition authority; the
+thematic reviews contain method detail; the synthesis compares families; the method ledger fixes
+prospective decisions; and the three study documents are the canonical design framework. This
+report summarizes those artifacts but does not supersede their binding details.
+
+### 20.8 Git and skeptical-review revision history
+
+| Commit | Concrete work recorded | Skeptical outcome |
+|---|---|---|
+| c70589fc7ff92e62e4d1fefd1df8e6f4ffa417c9 | Created the 18-file initial evidence and design package: 4,655 inserted lines | First pass requested changes: 7 P1 and 10 P2 findings |
+| e93a8ece83a14924cafcd6bfe5a1d92640c36c48 | Added common support, conditioned estimands, strong multiplicity control, generated conjunction, reproduction identification, citation repairs, Kim adaptation language, human/source/missingness controls, and retrospective-search limits | Second pass retained two P1, two partial P2, and one residual P2 |
+| f3497b7d0d376b1a581b2701dec74892fe6af6b7 | Bound one panel-wide support, reconciled the generated-success rule, removed cross-task accuracy ranking, corrected the evidence-schema promise, and expanded the observation hierarchy | Third pass verified canonical closures but found two stale P1 paths and three P2 consistency defects |
+| 9561a99f741e04216279d34183993f25985ac289 | Fixed review 05, made positive neighbor-specific SESOIs binding at Gate 4, restricted FDR to exploration, limited H9 to G2, and corrected PF023/PF029 identities | Fourth pass approved; no P0–P2 remained |
+| 17ed93db2f5b5f3282a4cd2af9cc8756c9648690 | Incorporated the nonblocking heterogeneous-SESOI notation clarification and improved exact-pass provenance | Fifth pass found one P2: Analysis G3 had not received the generated subtract-before-aggregation rule |
+| 88e14efff48fe4350bf6891444bf01645040deec | Propagated adjusted generated worst/tail statistics through Analysis, Validation, Synthesis, review 05, method decisions, response, skeptical record, and this report | [Exact-head approval](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5489256222): no P0, P1, or P2 remained at the design-framework level |
+
+The reviewer was instructed to act as a professional skeptical researcher, not as a friendly code
+reviewer. It checked construct validity, causal identification, sampling support, reproduction
+effects, statistical dependence, multiplicity, missingness, source identity, artifact
+reproducibility, and claim ceilings. Each request-changes verdict was followed by a new exact-head
+inspection; no failed review was silently replaced by a different goal.
+
+After that exact-head approval, PR #1 was merged as ad2417e11ae42ceec3b3c26f8388e8d4e767d07d.
+Report version 1.6 is a reporting-only follow-up to the merge; it does not reopen or alter any
+approved methodological rule.
+
+### 20.9 Verification performed
+
+QA occurred at different repository states and by different actors. The records are not
+interchangeable:
+
+| Actor and exact state | Concrete check | Result |
+|---|---|---|
+| Local evidence-bearing workspace recorded in report 1.5 | git diff check; matrix/count/DOI/link/identity/method-invariant audits; Ruff | Passed |
+| Same local method-closure workspace | uv run --locked pytest -q -m "not live" | 490 passed in 50.02 seconds |
+| Skeptical reviewer at exact head 9561a99f | Diff, 138×11 matrix, unique ids, 102 DOI joins, 36 non-DOI identities, local links, and Ruff | Passed |
+| Same reviewer in an isolated 9561a99f checkout | Offline suite without the ignored historical Lee PDF | 487 passed, 1 skipped, 2 historical-evidence-dependent failures |
+| Closing exact-head reviewer at 88e14eff | Incremental and cumulative diff checks, adjusted G3 assertions, 138×11 matrix identity checks, and scoped local links | Passed; the reviewer explicitly did not rerun Ruff or the suite for this documentation-only range |
+| Local pre-commit report-1.6 pass on codex/painter-feature-full-report | git diff check; matrix structure/counts; 201 unique bibliography links; 102/102 DOI joins; scoped paths and local links; hygiene markers; named report inputs; Ruff | Passed |
+| Same local report-1.6 pass | uv run --locked pytest -q -m "not live" | 490 passed in 52.98 seconds |
+
+The two isolated-checkout failures were reported rather than “fixed”: they require a unique
+ignored historical PDF still present in the evidence-bearing workspace. Committing that
+copyrighted/local evidence or refreshing frozen hashes would have crossed the artifact boundary.
+
+### 20.10 What was deliberately not done
+
+This relaunch did not:
+
+- implement a production feature extractor;
+- download or alter model weights;
+- acquire or normalize a new artwork;
+- open the sealed external holdout;
+- extract a Pilot 3 or painter_features_v1 feature;
+- repair and run Kim's released A-vector code;
+- rerun Pilot 2 refusals or run the withheld confirmatory primary tests;
+- retry the terminal Pilot 3 Met R2 request or substitute a provider;
+- contact a generation service or create an image;
+- fit a painter classifier or estimate a new painter distribution;
+- declare a coordinate qualified;
+- claim a systematic-review screening denominator that was not retained;
+- call the design framework executable or preregistered; or
+- modify frozen protocols, ledgers, hashes, receipts, or historical reports.
+
+The concrete result is therefore a reviewed research foundation and decision system, not an
+empirical painter-feature estimate. The next authorized work product is a separate real-only
+execution-freeze artifact fixing the painter set, eligible-work frame, common-support and
+provider/capture incidence tables, independent reproductions, exact feature cards and artifact
+versions, simulations, minima, SESOIs, multiplicity tree, missingness actions, rights, storage,
+and external-confirmation partition. Only after that artifact is independently reviewed and
+committed can acquisition or measurement be considered.
