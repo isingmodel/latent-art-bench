@@ -1,5 +1,11 @@
 # Development-pilot implementation status
 
+> **Historical snapshot:** the opening section below records the state at Freeze A1 and is no
+> longer current. Pilot 3 later acquired all 20 AIC development works, remediated a
+> preprocessing incident, and closed its official-Met R2 cohort after a terminal HTTP 403
+> metadata response. Use [STATUS.md](STATUS.md) for current operational state. This file is
+> retained in place because historical documents and evidence link to it.
+
 ## Current disposition
 
 `pilot_3` now has an assembled prospective Freeze-A1 package. The authoritative finalist

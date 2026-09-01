@@ -1,5 +1,9 @@
 # Development roadmap after the pilot_1 failure
 
+> **Historical roadmap:** this document predates Pilot 3 execution and does not describe the
+> current next action. Pilot 3's official-Met R2 cohort is closed after a terminal HTTP 403
+> metadata response. See [STATUS.md](STATUS.md) for the reboot boundary.
+
 ## Final pilot_1 disposition
 
 `pilot_1` is complete as an engineering exercise and failed as a scientific pilot. Both
