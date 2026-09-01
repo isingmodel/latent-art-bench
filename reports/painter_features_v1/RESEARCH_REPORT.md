@@ -1,6 +1,6 @@
 # Painter Features v1: relaunch process and research result
 
-Report version: 1.2
+Report version: 1.3
 
 Report date: 2026-09-01
 
@@ -664,6 +664,11 @@ nested at the source level; selection that sees all sources limits the claim to 
 performance. Confirmatory distributions are standardized over a frozen shared-support nuisance
 distribution rather than silently changing composition by painter.
 
+At every required transfer endpoint, each target-versus-hard-neighbor margin on the immutable
+panel-wide support must have a simultaneously calibrated lower confidence bound above its frozen
+positive SESOI; the equivalent jointly calibrated panel-worst rule is permitted. A merely positive
+point estimate is diagnostic and cannot qualify a painter-associated coordinate.
+
 ### Gate 5 — human convergent and discriminant evidence
 
 The primary triplet asks which candidate is closer to an anchor in visible painterly manner while
@@ -935,21 +940,25 @@ external boundaries are frozen. The present package must not be cited as a prere
 
 ## 18. Independent skeptical review and response
 
-A fresh skeptical researcher reviewed the exact
-[PR #1](https://github.com/isingmodel/latent-art-bench/pull/1) diff and preserved the first verdict
-in a [GitHub review comment](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5488634370).
-The review assessed the work from the standpoint of
-measurement theory, causal identification, statistical inference, and reproducibility. The
-review found no basis for treating the package as ready for empirical execution and identified
-the following material defects. The table records the required response rather than silently
-editing away criticism.
+A fresh skeptical researcher reviewed exact committed states of
+[PR #1](https://github.com/isingmodel/latent-art-bench/pull/1) from the standpoint of measurement
+theory, causal identification, statistical inference, citation identity, and reproducibility.
+The process retained criticism rather than silently editing it away:
 
-At this report revision, the requested corrections are implemented locally, but **no item is
-marked resolved until the changed documents have been inspected in the updated PR diff and the
-reviewer has completed a fresh re-review**. “Pending verification” means that closure has not yet
-been granted.
+| Pass | Exact committed range | Verdict | Public record |
+|---|---|---|---|
+| 1 | `612d09e4..c70589fc` | request changes | [comment](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5488634370) |
+| 2 | `c70589fc..e93a8ece` | request changes | [comment](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5488825142) |
+| 3 | `e93a8ece..f3497b7d` | request changes | [comment](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5489036477) |
 
-| Priority | Skeptical finding | Required disposition | Status at this report revision |
+The first pass found no basis for treating the package as ready for empirical execution and
+identified the material defects below. By the third pass, the reviewer had verified closure of all
+original and second-pass defects in the authoritative protocols, but found two stale false-positive
+paths and three P2 integrity problems elsewhere in the package. At report version 1.3 those new
+corrections are implemented locally, but **they are not marked closed until the reviewer inspects
+the next exact PR head**.
+
+| Priority | Skeptical finding | Required disposition | Recorded response before final closure |
 |---|---|---|---|
 | P2 | Pilot 2's 0.50 balanced accuracy was promoted to painter-associated signal despite failed source transfer. | Name the result only as pooled artist-label predictability within the fixed Pilot 2 atlas; state that no transferable painter feature or generated-output effect was established. | Implemented; reviewer verification pending. |
 | P1 | Kim A/C were promised as exact replications although the released artifact contract lacks the checkpoint/RNG/fixtures and A is not executable unchanged. | Permit only a source-faithful, versioned compatibility reconstruction; call every repaired A extractor an adaptation and keep C provisional until its artifact contract is recovered. | Narrative corrected; artifact-card verification pending. |
@@ -974,6 +983,17 @@ nested selection, or external independence cannot be achieved, the framework req
 domain-limited or diagnostic claim; it does not substitute a more convenient estimand. Exact
 closure status belongs in the final review-response artifact after the reviewer inspects the
 revised diff.
+
+### 18.1 Third-pass residuals and response
+
+| Priority | Third-pass finding | Revision in report version 1.3 | Status |
+|---|---|---|---|
+| P1 | Review 05 retained unstandardized references, worst **or** lower-tail specificity, and an incomplete generated-success rule. | Rewrote it around one immutable target-plus-all-hard-neighbors support/weight system, prohibited pairwise aggregation, required both specificity rules, and used the canonical six binding plus two mandatory nongating outcomes. | Fourth-pass verification pending. |
+| P1 | Validation Gate 4 allowed real painter qualification from sign-only hard-neighbor margins. | Required, at every transfer endpoint, simultaneous lower bounds above frozen positive SESOIs for every neighbor or the jointly calibrated panel-worst margin; sign alone is diagnostic. | Fourth-pass verification pending. |
+| P2 | Review 05 permitted confirmatory FDR. | Reserved FDR for exploratory coordinates that cannot qualify a method or support a project-level claim; retained strong experiment-wide FWER for all confirmatory decisions. | Fourth-pass verification pending. |
+| P2 | Human gate H9 could be read as standalone generative success. | Restricted H9 to human prompt-movement evidence for G2 and stated that it cannot establish canonical fidelity or rescue any failed conjunct. | Fourth-pass verification pending. |
+| P2 | PF023 and PF029 had wrong short-citation author labels. | Corrected them to Qi, Taeb, and Hughes and to Redies and Brachmann, including the corresponding thematic-review label. | Fourth-pass identity verification pending. |
+| P3 | The living skeptical-review file showed only one reviewed range and called its edited prose immutable. | Added an exact pass table and located immutability in Git history and the linked public comments. | Implemented. |
 
 ## 19. Quality assurance record
 

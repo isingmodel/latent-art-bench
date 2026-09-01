@@ -89,7 +89,7 @@ than a universal harmony score.
 | [Li et al. 2012](https://doi.org/10.1109/TPAMI.2011.203) | visible stroke extraction at 196.3 pixels per painted inch, 16-bit scans; 45 paintings | strongest RGB evidence for length/width/orientation when physical scale is shared | specialized, cropped corpus; does not generalize to web JPEGs |
 | [Lamberti et al. 2014](https://doi.org/10.1186/1687-5281-2014-53) | region-growing stroke extraction on five patches against three human annotators | small direct annotation check | insufficient for a primary endpoint |
 | [Abry, Wendt & Jaffard 2013](https://doi.org/10.1016/j.sigpro.2012.01.016) | wavelet-leader multifractals on controlled replicas and 200-dpi Van Gogh set | scale-indexed controlled evidence; supports retaining curves/ranges | tiny samples/manual regions; needs physical sampling |
-| [Taeb, Qi & Hughes 2013](https://doi.org/10.1016/j.sigpro.2012.09.025) | background selection plus wavelet-HMT Fisher distance for Impressionist attribution/dating | treats painter manner as a texture distribution and uses leave-one-out tests | small specialized sets and manual/background assumptions |
+| [Qi, Taeb & Hughes 2013](https://doi.org/10.1016/j.sigpro.2012.09.025) | background selection plus wavelet-HMT Fisher distance for Impressionist attribution/dating | treats painter manner as a texture distribution and uses leave-one-out tests | small specialized sets and manual/background assumptions |
 | [Wu et al. 2014](https://arxiv.org/abs/1401.6638) | dual-tree complex wavelet HMT plus probabilistic topics on five Giotto altarpiece panels | useful local stylistic-vocabulary hypothesis | one artwork complex; exploratory, not painter population validation |
 
 ### 4.3 Physical painter's-hand comparator

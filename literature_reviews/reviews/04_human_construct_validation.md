@@ -362,12 +362,17 @@ the held real-work labels or generated condition results.
 | H6 — convergence | qualified computational and human painter-manner relations agree on held work after nuisance control and replicate by reproduction | retain computation as image descriptor, not validated painter measure |
 | H7 — discriminant evidence | painter-manner measure is not reducible to content, quality, liking, or source | split/redefine the construct or reject it |
 | H8 — evaluator/presentation invariance | target conclusions are stable within prespecified margins across claimed groups/conditions | publish group-specific scope; do not pool |
-| H9 — generated application | frozen real-work instrument shows a named-versus-painter-free painter-resemblance effect while content/defects/missingness remain acceptable | no generative painter-feature success claim |
+| H9 — generated prompt-movement evidence | frozen real-work instrument shows a named-versus-painter-free painter-resemblance effect while content, defects, and missingness remain acceptable | no human prompt-movement claim |
 
-Passing H9 does not prove authorship, authenticity, cultural value, or that the generator recreated a
-physical painter's hand. It supports a narrower statement: under the declared prompts, models,
-reference domain, reproductions, evaluator populations, and decision margins, generated outputs
-shifted toward a human- and measurement-qualified painter-associated visual distribution.
+Passing H9 supports only the human component of the analysis policy's G2 prompt-movement
+estimand. It does not prove authorship, authenticity, cultural value, that the generator recreated
+a physical painter's hand, or canonical painter fidelity. Under the declared prompts, models,
+reference domain, reproductions, evaluator populations, and decision margins, it permits only the
+narrow statement that named prompting shifted outputs toward a human- and measurement-qualified
+painter-associated visual distribution. A canonical painter-fidelity claim remains prohibited
+unless absolute fit, both panel-wide hard-neighbor rules, precision and density, recall and
+coverage, content coherence, and availability all pass their binding criteria; H9 cannot rescue
+any failed conjunct.
 
 ## 11. Weak leads and rejected shortcuts
 

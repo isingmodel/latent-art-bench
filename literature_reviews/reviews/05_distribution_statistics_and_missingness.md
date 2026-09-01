@@ -8,17 +8,21 @@ authorized study, with a generated set?
 
 The statistical object is a distribution of measurements over physical works. It is not a cloud
 of independent pixels, crops, pairwise distances, prompts, or seeds. The design must separately
-estimate:
+estimate eight outcome families:
 
 1. absolute fit to the eligible target-painter reference;
-2. specificity relative to several prospectively selected comparison painters;
-3. precision or target-likeness of generated outputs;
-4. coverage of the target painter's observed modes;
-5. contraction toward an easy prototype;
-6. prompt-induced movement relative to a paired painter-free control; and
-7. availability, refusals, invalid outputs, and other missingness.
+2. panel-wide specificity relative to every prospectively selected hard neighbor;
+3. generated-to-real precision and density;
+4. real-to-generated recall and coverage;
+5. content coherence of the first four families;
+6. availability, refusals, invalid outputs, and other missingness;
+7. contraction or expansion relative to real within-painter dispersion; and
+8. prompt-induced movement relative to a paired painter-free control.
 
-No reviewed statistic simultaneously identifies all seven.
+For a future canonical painter-fidelity claim, the first six families are binding conjuncts.
+Contraction and prompt movement are mandatory nongating outcomes: they remain visible, but neither
+has an automatically favorable direction and neither can rescue a failed conjunct. No reviewed
+statistic simultaneously identifies all eight families.
 
 ## 1. Why one distance or one classifier is insufficient
 
@@ -76,7 +80,7 @@ weights, and any dimension reduction are fitted inside development folds and fro
 confirmation. Learned-space MMD/CMMD values remain named secondary outcomes. Sample-size curves
 and equal-size subsampling accompany every set comparison.
 
-## 3. Precision and coverage are different estimands
+## 3. Precision, density, recall, and coverage are different estimands
 
 [Sajjadi et al. (2018)](https://papers.nips.cc/paper_files/paper/2018/hash/f7696a9b362ac5a51c3dc8f098b73923-Abstract.html)
 formalized separate precision and recall aspects of generative distributions.
@@ -89,8 +93,12 @@ For this project:
 
 - **generated-to-real precision** asks whether generated outputs lie in supported regions of the
   eligible real target reference;
+- **generated-to-real density** asks how strongly the eligible real reference supports those
+  generated outputs;
+- **real-to-generated recall** asks what share of the eligible real distribution is represented
+  by the generated set;
 - **real-to-generated coverage** asks whether the generated set reaches the target reference's
-  supported regions;
+  supported regions under Naeem et al.'s complementary neighborhood construction;
 - **contraction** asks whether within-generated dispersion is materially smaller than eligible
   real dispersion after accounting for reference uncertainty; and
 - **stratified coverage** repeats coverage across career phase, genre/content, motif, and medium
@@ -111,27 +119,38 @@ favorable comparison cannot establish specificity. A reboot comparison panel mus
 - broader negatives for calibration; and
 - prospectively fixed exclusions and abstention rules.
 
-For target painter \(t\), the protocol reports margins
+For target painter \(a\), freeze the complete hard-neighbor set \(H_a\) before support or feature
+outcomes and define the panel contrast set \(A_a^{panel}=\{a\}\cup H_a\). Every target and
+neighbor reference, generated comparison, margin, minimum, and lower quantile uses one immutable
+joint common support, source/capture-workflow distribution, and set of target weights for
+\(A_a^{panel}\). With \(P_j^*(\cdot;A_a^{panel})\) denoting those standardized real references and
+\(Q_a^*\) the generated distribution standardized over the corresponding promptable cells, report
 
 \[
-m_{tj}=D(Q,P_j)-D(Q,P_t)
+S_{a,h}=D\!\left(Q_a^*,P_h^*(\cdot;A_a^{panel})\right)
+       -D\!\left(Q_a^*,P_a^*(\cdot;A_a^{panel})\right),\qquad h\in H_a,
 \]
 
-for every registered competitor \(j\), not only their average. A lower quantile or worst eligible
-margin is the confirmatory specificity summary. The full margin vector is retained. This prevents
-a large margin against easy negatives from hiding failure against the closest credible
-alternative.
+and retain the full vector. The binding decision requires **both** the panel-worst margin and the
+prespecified lower quantile across eligible content-by-neighbor cells to have simultaneous lower
+confidence bounds above their separately frozen SESOIs. A favorable average, minimum, or quantile
+cannot substitute for the other rule. If only pairwise supports exist, their margins may be
+reported with explicit domains, but they cannot be combined into a panel minimum, lower quantile,
+omnibus specificity decision, or canonical painter-fidelity claim. Broad negatives are diagnostic
+calibrators and never replace a failed hard neighbor.
 
 The named-versus-control prompt effect remains a separate causal estimand under a frozen
 generator, prompt, and seed policy:
 
 \[
-\Delta_t =
-D(Q_{\mathrm{control}},P_t)-D(Q_{\mathrm{named}},P_t).
+\Delta_a =
+D\!\left(Q_{\mathrm{control}}^*,P_a^*(\cdot;A_a^{panel})\right)
+-D\!\left(Q_{\mathrm{named}}^*,P_a^*(\cdot;A_a^{panel})\right).
 \]
 
-A positive \(\Delta_t\) says that adding the name moved outputs toward the declared real reference.
-It does not by itself show absolute fit, specificity, or coverage.
+A positive \(\Delta_a\) says that adding the name moved outputs toward the same standardized target
+reference on the frozen panel support. It does not by itself show absolute fit, specificity, any
+support metric, content coherence, or availability robustness.
 
 ## 5. Dependence and the unit of inference
 
@@ -179,16 +198,21 @@ Before confirmation the execution protocol must identify:
 - effect-size and equivalence regions; and
 - which analyses are descriptive or sensitivity-only.
 
-Family-wise randomization max statistics or a prospectively justified false-discovery procedure
-are possible tools; neither substitutes for limiting the number of claims. Results are reported
-with intervals and painter-level heterogeneity even when a multiplicity-adjusted decision is
-made.
+Every qualification, winner-selection, external-confirmation, and generated-success decision uses
+the frozen hierarchical/closed-testing or jointly calibrated max-statistic procedure that strongly
+controls experiment-wide family-wise error across feature families, coordinates, preprocessing
+branches, scales, encoders, painters, neighbors, transfer endpoints, and human endpoints.
+False-discovery-rate procedures are permitted only for clearly labeled exploratory coordinates
+that cannot qualify a method or support a project-level claim. Neither multiplicity procedure
+substitutes for limiting the number of claims. Results are reported with simultaneous intervals
+and painter-level heterogeneity even when a multiplicity-adjusted decision is made.
 
 ## 7. Small samples and reference uncertainty
 
-The real oeuvre is finite, incomplete, and selectively digitized. The reference \(P_t\) is
-therefore an estimate of an explicitly eligible population, not the painter's metaphysical total
-practice. Every target distance includes uncertainty from the real reference sample.
+The real oeuvre is finite, incomplete, and selectively digitized. A standardized reference such
+as \(P_a^*(\cdot;A_a^{panel})\) is therefore an estimate of an explicitly eligible population, not
+the painter's metaphysical total practice. Every target distance includes uncertainty from the
+real reference sample.
 
 Required reporting includes:
 
@@ -262,18 +286,26 @@ development data under the same protocol.
 
 ## 10. Decision for the reboot
 
-The project adopts a multi-output analysis rather than a universal painter-fidelity score:
+The project adopts a multi-output analysis rather than a universal painter-fidelity score. A
+real-only painter association is a prerequisite, not a generated-fidelity outcome; it requires
+held-work information, joint source/content/phase transfer, hard-neighbor separation, and nuisance
+increment before generated results may be interpreted in that coordinate.
 
-| Output | Primary meaning | Required qualification |
-|---|---|---|
-| Real-only painter association | Held-work painter information | source/content/phase transfer and nuisance increment |
-| Absolute target fit | set discrepancy to eligible target reference | qualified coordinates, reference uncertainty, equal-size curves |
-| One-versus-many specificity | target margin against registered competitors | hard-neighbor panel, full margin vector, abstention |
-| Precision and density (separate) | generated outputs supported by target reference | neighborhood/sample sensitivity |
-| Recall and coverage (separate) | eligible target modes represented by outputs | phase/genre/medium stratification where support exists |
-| Contraction | loss of real target dispersion | real-reference uncertainty and mode-aware analysis |
-| Prompt movement | causal effect of adding a name under one frozen system | paired assignment and intent-to-generate denominator |
-| Availability | probability that a registered cell yields an eligible output | all attempts retained |
+| Generated outcome | Primary meaning | Required qualification | Decision role |
+|---|---|---|---|
+| Absolute target fit | set discrepancy to eligible target reference | qualified coordinates, finite-reference uncertainty, equal-size curves, and frozen real-real equivalence/noninferiority scale | binding |
+| Panel-wide specificity | target margins against every hard neighbor | one immutable panel support/weight system; simultaneous worst and lower-tail rules; no pairwise aggregation | binding |
+| Precision and density (separate) | generated outputs supported by target reference | both frozen neighborhood/sample-sensitivity criteria pass | binding |
+| Recall and coverage (separate) | eligible target modes represented by outputs | both frozen criteria pass, with phase/genre/medium robustness where estimable | binding |
+| Content coherence | fit, specificity, and all four support outcomes across promptable content cells | frozen worst-cell or lower-tail robustness rule | binding |
+| Availability | probability that a registered cell yields an eligible output | all attempts retained; frozen refusal/failure and missingness robustness rule | binding |
+| Contraction or expansion | difference from real within-painter dispersion | real-reference uncertainty and mode-aware analysis | mandatory, nongating; no favored direction |
+| Prompt movement | causal effect of adding a name under one frozen system | paired assignment and intent-to-generate denominator | mandatory, nongating; cannot substitute for fidelity |
+
+A canonical painter-fidelity claim is allowed only when every one of the six binding rows passes
+under the strong experiment-wide FWER hierarchy. Contraction and prompt movement must still be
+reported, but neither can compensate for failure of absolute fit, either hard-neighbor rule, any
+of the four support metrics, content coherence, or availability.
 
 This decomposition is deliberately stricter than Pilot 2. It preserves Pilot 2's paired prompt
 logic while preventing centroid proximity, one favorable neighbor, or available-case filtering

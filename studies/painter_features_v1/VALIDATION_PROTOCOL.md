@@ -1,6 +1,6 @@
 # Painter-feature validation protocol
 
-Protocol version: `painter_features_v1/validation/1.2`
+Protocol version: `painter_features_v1/validation/1.3`
 
 Status: prospective design framework; not executable until a separately reviewed freeze artifact
 fixes the corpus, estimators, simulations, SESOIs, thresholds, and terminal actions
@@ -264,8 +264,11 @@ execution-freeze artifact. At minimum, a core painter feature must:
 - satisfy the connected common-support, minimum-count, and fixed-weight invariants;
 - exceed chance/equivalence bounds with multiplicity-controlled uncertainty on work-held-out,
   leave-source-out, leave-content-family-out, and joint leave-source-by-content-out tasks;
-- retain the sign of target-versus-every-hard-neighbor effect across eligible sources on the one
-  frozen panel-wide support;
+- at every required transfer endpoint, require the simultaneously calibrated lower confidence
+  bound for each target-versus-hard-neighbor margin on the one frozen panel-wide support to exceed
+  that margin's separately frozen positive SESOI (equivalently, require the jointly calibrated
+  panel-worst lower bound to exceed its frozen SESOI); sign retention alone is diagnostic and
+  cannot qualify a coordinate;
 - show calibrated uncertainty rather than only rank accuracy;
 - add out-of-sample information beyond source/content/medium/date baselines; and
 - avoid a source-prediction advantage that can account for painter performance; and

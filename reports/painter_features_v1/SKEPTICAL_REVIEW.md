@@ -2,10 +2,16 @@
 
 Review target: [PR #1](https://github.com/isingmodel/latent-art-bench/pull/1)
 
-Reviewed range: `612d09e4..c70589fc`
+Review passes:
 
-Review status: first and second passes complete; both recommended **request changes**; final
-closure review pending
+| Pass | Exact committed range | Verdict | Public record |
+|---|---|---|---|
+| 1 | `612d09e4..c70589fc` | **request changes** | [comment](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5488634370) |
+| 2 | `c70589fc..e93a8ece` | **request changes** | [comment](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5488825142) |
+| 3 | `e93a8ece..f3497b7d` | **request changes** | [comment](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5489036477) |
+
+Review status: three passes complete; all recommended **request changes**; fourth-pass closure
+review pending
 
 Reviewer role: independent skeptical researcher subagent; the reviewer made no project edits
 
@@ -238,7 +244,9 @@ The request-changes recommendation did not negate several strong aspects of the 
 The scientific direction was defensible, but the initial PR could still qualify a nuisance mixture
 as a painter feature and could overstate reproducibility. The reviewer therefore requested changes
 and required a fresh review of the revised PR before approval. Closure is recorded in
-`RESPONSE_TO_REVIEW.md`; the first-pass criticism remains immutable here even when resolved.
+`RESPONSE_TO_REVIEW.md`. The exact reviewed objects and public verdict remain preserved in Git
+history and the linked GitHub comment; this living consolidation is amended to retain findings
+that later passes showed had been incompletely transcribed.
 
 ## 7. Second-pass re-review
 
@@ -302,3 +310,66 @@ The second-pass reviewer also required this review artifact and the response to 
 cross-task and extraction-schema objections instead of overstating closure. No project file was
 edited by the reviewer. Ruff, all 490 offline tests, CSV identity joins, and changed local links
 passed during that review. A third pass is required after these corrections.
+
+## 8. Third-pass re-review
+
+The same reviewer inspected exact head `f3497b7d0d376b1a581b2701dec74892fe6af6b7` and posted a
+third [request-changes comment](https://github.com/isingmodel/latent-art-bench/pull/1#issuecomment-5489036477).
+The re-review verified closure at the design-framework level of the original and second-pass
+findings concerning standardized conditioned estimands, the four authoritative documents'
+panel-wide generator rule, cross-task balanced-accuracy language, extraction-schema disclosure,
+reproduction hierarchy and collapse rule, Kim artifact language, retrieval, human cue controls,
+external-workflow independence, missingness, shared controls, source-level selection, review
+status, retrospective search, and null-versus-invariance wording. It nevertheless found two
+remaining P1 false-positive paths and three P2 integrity defects elsewhere in the package.
+
+### Remaining P1-T1 — a thematic review retained an alternate success rule
+
+Review 05 still used unstandardized target/neighbor references, permitted a worst **or**
+lower-quantile hard-neighbor decision, omitted content coherence from its adopted outcomes, and did
+not distinguish the six binding outcome families from contraction and prompt movement. That stale
+summary contradicted the canonical analysis, validation, synthesis, and report.
+
+Required correction: use one immutable target-plus-all-hard-neighbors support and weight system;
+prohibit aggregating pairwise-only supports; require simultaneous passage of both the panel-worst
+and lower-tail rules; and state the same six binding plus two mandatory nongating outcome families.
+
+### Remaining P1-T2 — real painter qualification required hard-neighbor sign only
+
+Validation Gate 4 could qualify a coordinate when each hard-neighbor point estimate merely retained
+a positive sign, even if the closest margin was arbitrarily small or uncertain.
+
+Required correction: at every required transfer endpoint, require a simultaneous lower confidence
+bound above the frozen positive SESOI for every hard-neighbor margin, or equivalently for the
+jointly calibrated panel-worst margin. Treat sign retention as diagnostic only.
+
+### Remaining P2-T1 — confirmatory FDR ambiguity
+
+Review 05 listed a false-discovery procedure as a possible confirmatory tool, contradicting the
+analysis policy's strong experiment-wide FWER rule.
+
+Required correction: reserve FDR for labeled exploratory coordinates that cannot qualify a method
+or support any project-level, external-confirmation, or generated-success claim.
+
+### Remaining P2-T2 — H9 could be read as standalone generative success
+
+The human-validation H9 gate paired a prompt-movement effect with the failure disposition “no
+generative painter-feature success claim.” It could therefore be read as authorizing success
+without absolute agreement, both panel-wide specificity rules, four support metrics, content
+coherence, and availability.
+
+Required correction: label H9 as human prompt-movement evidence for G2 only and state explicitly
+that it cannot establish canonical painter fidelity or rescue any failed binding conjunct.
+
+### Remaining P2-T3 — two matrix author labels were wrong
+
+PF023 attributed DOI `10.1016/j.sigpro.2012.09.025` to “Taeb et al.” instead of Qi, Taeb, and
+Hughes. PF029 reversed the author order for DOI `10.3389/fnins.2017.00593`, whose authors are
+Redies and Brachmann. The identifiers, method summaries, and dispositions were otherwise correct.
+
+Required correction: reconcile both short citations with the audited bibliography and correct the
+same Qi/Taeb order in the thematic interpretable-feature review.
+
+The third-pass reviewer also requested this pass-by-pass range table because the previous single
+range did not describe the living review artifact. The reviewer audited committed objects only,
+made no project edits, and required another exact-head review after correction.
