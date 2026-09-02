@@ -1,0 +1,290 @@
+{
+  "schema_version": "painter-feature-generation-v1-official-source-extension-audit/1.1",
+  "audit_date": "2026-09-02",
+  "status": "exploratory_official_source_metadata_audit_not_r0a_freeze",
+  "scope": {
+    "purpose": "Traceable exploratory live-item list for 43 oil-on-canvas records found through four official institutional sources; not a reproducible as-of-date snapshot.",
+    "screening_scope": "all_content_metadata_only",
+    "images_downloaded": 0,
+    "physical_works_frozen": 0,
+    "outdoor_landscape_experimental_corpus_admissions": 0,
+    "warning": "These records passed an exploratory metadata, rights, and geometry screen only. Getty and MIA retrieval windows are approximate, and mutable accepted-record/page/rights responses were not preserved with snapshot hashes; this is therefore traceable, not reproducible as-of-date evidence. The records have not passed prospective R0a content double-coding, physical-work deduplication, source/capture ancestry review, connected-support review, or a frozen acquisition ledger. The count 43 is not an experimental sample size."
+  },
+  "counts": {
+    "accepted_total": 43,
+    "by_source": {
+      "yale_university_art_gallery": 16,
+      "paris_musees": 9,
+      "j_paul_getty_museum": 10,
+      "minneapolis_institute_of_art": 8
+    },
+    "by_painter": {
+      "camille_pissarro": 11,
+      "claude_monet": 13,
+      "paul_cezanne": 12,
+      "alfred_sisley": 7
+    }
+  },
+  "sources": {
+    "yale_university_art_gallery": {
+      "official_documentation": "https://project-lux.github.io/documentation/",
+      "retrieval_timestamps": {
+        "search_results_local_window": {
+          "start": "2026-09-02T10:37:33+09:00",
+          "end": "2026-09-02T10:38:43+09:00",
+          "precision": "local_capture_file_mtime_window"
+        },
+        "iiif_manifests_local_window": {
+          "start": "2026-09-02T10:41:01+09:00",
+          "end": "2026-09-02T10:41:15+09:00",
+          "precision": "local_capture_file_mtime_window"
+        }
+      },
+      "painter_authority_ids": {
+        "camille_pissarro": "https://lux.collections.yale.edu/data/person/c3a9704e-139c-4d82-bbf8-88fd46c6621c",
+        "claude_monet": "https://lux.collections.yale.edu/data/person/642a0152-1567-4fbe-93f3-66f11c5cab9a",
+        "paul_cezanne": "https://lux.collections.yale.edu/data/person/24ec776b-b4c1-479b-8d7d-80915c84f5d5",
+        "alfred_sisley": "https://lux.collections.yale.edu/data/person/2442e1fe-1ed0-4d76-9bb0-05ea7d06dd1b"
+      },
+      "query_method": {
+        "method": "POST",
+        "endpoint": "https://lux.collections.yale.edu/api/search/item",
+        "body_template": {
+          "AND": [
+            {"producedBy": {"id": "{exact_painter_authority_id}"}},
+            {"hasDigitalImage": 1}
+          ]
+        },
+        "postfilters": [
+          "classification includes Paintings",
+          "made_of includes canvas and oil paint",
+          "production part links the exact painter with role label Artist",
+          "current owner is Yale University Art Gallery",
+          "official IIIF manifest is available"
+        ]
+      },
+      "url_rules": {
+        "item_data": "https://lux.collections.yale.edu/data/object/{authority_object_id}",
+        "work_page": "https://artgallery.yale.edu/collections/objects/{record_id}",
+        "iiif_manifest": "https://manifests.collections.yale.edu/yuag/obj/{record_id}",
+        "asset_resolution": "Resolve the official image service from the accepted record's IIIF manifest; no image endpoint was invoked for this audit."
+      },
+      "rights_evidence": {
+        "work_or_asset_level": "Each accepted work's IIIF manifest exposed top-level rights https://creativecommons.org/publicdomain/zero/1.0/ and canvas metadata 'Image Use Rights: No Copyright - United States'. This per-manifest evidence, not a source-wide assumption, is the admission basis for the metadata audit.",
+        "provider_or_manifest_level": "The same manifests' requiredStatement says supplied data are public domain while warning that rights restrictions may apply to cultural works or images. Preserve each manifest snapshot and recheck the exact canvas before acquisition; general Yale/LUX documentation is not a substitute for work-level rights evidence."
+      }
+    },
+    "paris_musees": {
+      "official_terms": "https://www.parismuseescollections.paris.fr/fr/conditions-generales-d-utilisation",
+      "retrieval_timestamps": {
+        "iiif_manifests_local_window": {
+          "start": "2026-09-02T10:35:15+09:00",
+          "end": "2026-09-02T10:35:53+09:00",
+          "precision": "local_capture_file_mtime_window"
+        }
+      },
+      "exact_author_values": [
+        "Pissarro, Camille",
+        "Monet, Claude",
+        "Cézanne, Paul",
+        "Sisley, Alfred"
+      ],
+      "query_method": {
+        "method": "official_collection_search_page",
+        "url_template": "https://www.parismuseescollections.paris.fr/fr/recherche/type/oeuvre/ET/auteur/{URL-encoded exact author value}",
+        "postfilters": [
+          "Type d'objet is Peinture",
+          "Matériaux et techniques explicitly contains Peinture à l'huile",
+          "Matériaux et techniques explicitly contains Toile (matériau)",
+          "official IIIF manifest exists",
+          "manifest canvas short side is at least 1024 pixels",
+          "individual work page displays the CC0 marker"
+        ],
+        "reproducibility_caveat": "The official terms condition API access on account creation and acceptance of the terms. A future frozen API census must record the registered account/query context; this audit used official collection search and item/manifest pages."
+      },
+      "url_rules": {
+        "iiif_manifest": "https://apicollections.parismusees.paris.fr/iiif/{record_id}/manifest",
+        "asset_resolution": "Resolve the image service from the accepted record's IIIF manifest; no image endpoint was invoked for this audit.",
+        "work_page": "Use the exact Catalogue des œuvres de Paris Musées URL preserved per record."
+      },
+      "rights_evidence": {
+        "work_or_asset_level": "The IIIF manifests did not expose top-level rights or license fields. Admission relied on each individual official work page displaying a CC0 link to https://creativecommons.org/publicdomain/zero/1.0/ and a 'CC0 Paris Musées / ...' image credit. Each page must be snapshotted again before acquisition.",
+        "provider_level": "The official terms describe reuse of images whose credits are marked CC0 and distinguish them from protected images. This corroborates, but does not replace, the per-work CC0 marker; the terms also impose API account/acceptance requirements and moral-right/credit guidance."
+      }
+    },
+    "j_paul_getty_museum": {
+      "official_documentation": "https://data.getty.edu/museum/collection/docs/",
+      "retrieval_timestamps": {
+        "sparql_and_api_local_window": {
+          "start": "2026-09-02T10:43:00+09:00",
+          "end": "2026-09-02T10:47:59+09:00",
+          "precision": "approximate_live_audit_window_not_a_saved_response_timestamp"
+        }
+      },
+      "painter_authority_ids": {
+        "camille_pissarro": "https://data.getty.edu/museum/collection/person/ca31b2d7-8a6d-4d26-8a7a-4adda35706b2",
+        "claude_monet": "https://data.getty.edu/museum/collection/person/8c408d42-49f4-4be9-9e8a-83506d9c4334",
+        "paul_cezanne": "https://data.getty.edu/museum/collection/person/41be77e1-7457-47ca-ab6c-6e6217bb0134",
+        "alfred_sisley": "https://data.getty.edu/museum/collection/person/b3db5cae-fe7d-49d2-ae2b-92b28003d7fa"
+      },
+      "query_method": {
+        "method": "GET SPARQL query",
+        "endpoint": "https://data.getty.edu/museum/collection/sparql",
+        "query": "PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nSELECT DISTINCT ?obj ?objLabel ?page ?manifest WHERE {\n  ?prod crm:P14_carried_out_by <{exact_painter_authority_id}> .\n  ?obj crm:P108i_was_produced_by ?prod ;\n       rdfs:label ?objLabel ;\n       crm:P2_has_type <http://vocab.getty.edu/aat/300033618> ;\n       crm:P45_consists_of <http://vocab.getty.edu/aat/300015050> ;\n       crm:P45_consists_of <http://vocab.getty.edu/aat/300014078> .\n  OPTIONAL { ?obj crm:P129i_is_subject_of ?page . FILTER(CONTAINS(STR(?page), '/art/collection/object/')) }\n  OPTIONAL { ?obj crm:P129i_is_subject_of ?manifest . FILTER(CONTAINS(STR(?manifest), '/iiif/manifest/3/')) }\n}",
+        "postfilters": [
+          "inspect the official object record because SPARQL includes deaccessioned works",
+          "resolve the preferred media record from the object data",
+          "media subject_to classification is exactly https://creativecommons.org/publicdomain/zero/1.0/",
+          "media has download clearance",
+          "native media short side is at least 1024 pixels"
+        ]
+      },
+      "url_rules": {
+        "item_data": "https://data.getty.edu/museum/collection/object/{record_id}",
+        "media_record": "https://data.getty.edu/media/image/{primary_media_id}",
+        "work_page": "https://www.getty.edu/art/collection/object/{page_id}",
+        "iiif_manifest": "https://media.getty.edu/iiif/manifest/3/{manifest_id}"
+      },
+      "rights_evidence": {
+        "asset_level": "Each accepted preferred media JSON exposed subject_to.classified_as.id exactly https://creativecommons.org/publicdomain/zero/1.0/, plus download clearance and native dimensions. The exact primary media ID is preserved per record.",
+        "provider_level": "Getty's collection dataset is generally CC0, but its official API documentation explicitly says linked image rights can differ and instructs users to inspect each image reference. Dataset-level CC0 cannot admit an image. Third-party rights can still exist even for Open Content assets."
+      }
+    },
+    "minneapolis_institute_of_art": {
+      "official_rights_policy": "https://new.artsmia.org/copyright-and-image-access",
+      "retrieval_timestamps": {
+        "search_api_local_window": {
+          "start": "2026-09-02T10:48:00+09:00",
+          "end": "2026-09-02T10:50:59+09:00",
+          "precision": "approximate_live_audit_window_not_a_saved_response_timestamp"
+        },
+        "official_public_bundle_local_capture": {
+          "value": "2026-09-02T10:51:03+09:00",
+          "precision": "local_capture_file_mtime"
+        }
+      },
+      "query_method": {
+        "method": "GET official search API",
+        "url_template": "https://search.artsmia.org/{URL-encoded painter name}?size=100",
+        "postfilters": [
+          "artist equals the exact target painter because search is full text",
+          "medium equals Oil on canvas",
+          "object_name equals Painting",
+          "classification equals Paintings",
+          "image equals valid",
+          "rights_type equals Public Domain",
+          "public_access equals 1",
+          "Rights_Image_Display equals Full",
+          "native media short side is at least 1024 pixels"
+        ]
+      },
+      "url_rules": {
+        "item_data": "https://search.artsmia.org/id/{record_id}",
+        "work_page": "https://collections.artsmia.org/art/{record_id}",
+        "full_media": "https://img.artsmia.org/web_objects_cache/{Cache_Location with backslashes converted to slashes}/{Primary_RenditionNumber without .jpg}_full.jpg",
+        "construction_source": "The media rule was recovered from the official public web bundle and was applied only to records whose item JSON carried the accepted Public Domain and Full-display fields. URLs were recorded but not requested."
+      },
+      "rights_evidence": {
+        "work_level": "Each accepted item record exposed rights_type 'Public Domain', public_access 1, and Rights_Image_Display 'Full'. This is a public-domain status statement, not CC0, and must not be relabeled CC0.",
+        "provider_level": "The official policy says works identified as Public Domain are free of known copyright restrictions and may be copied, modified, distributed, and used commercially, but a later publication section uses narrower noncommercial/educational wording and asks users to observe item-specific restrictions. Internal research acquisition is supportable; redistribution or publication of a raw full-resolution corpus should remain closed pending written clarification."
+      }
+    }
+  },
+  "accepted_records": [
+    {"source":"yale_university_art_gallery","painter":"camille_pissarro","record_id":"25989","authority_object_id":"1c5e1492-969f-4f0d-97ab-8f2fd0068151","accession":"1983.7.13","title":"A Seated Peasant Woman","width":4732,"height":5795,"item_data_url":"https://lux.collections.yale.edu/data/object/1c5e1492-969f-4f0d-97ab-8f2fd0068151","page_url":"https://artgallery.yale.edu/collections/objects/25989","manifest_url":"https://manifests.collections.yale.edu/yuag/obj/25989","rights_basis":"per_manifest_cc0_and_no_copyright_united_states","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"yale_university_art_gallery","painter":"camille_pissarro","record_id":"23325","authority_object_id":"426484c5-077c-44ab-89b6-def391d54b3b","accession":"1978.15.2","title":"A Rose Garden","width":4564,"height":5837,"item_data_url":"https://lux.collections.yale.edu/data/object/426484c5-077c-44ab-89b6-def391d54b3b","page_url":"https://artgallery.yale.edu/collections/objects/23325","manifest_url":"https://manifests.collections.yale.edu/yuag/obj/23325","rights_basis":"per_manifest_cc0_and_no_copyright_united_states","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"yale_university_art_gallery","painter":"camille_pissarro","record_id":"26339","authority_object_id":"4c4c601c-ea0e-4403-932c-959baf2c7483","accession":"1982.111.4","title":"Portrait of Jeanne Pissarro","width":4723,"height":5782,"item_data_url":"https://lux.collections.yale.edu/data/object/4c4c601c-ea0e-4403-932c-959baf2c7483","page_url":"https://artgallery.yale.edu/collections/objects/26339","manifest_url":"https://manifests.collections.yale.edu/yuag/obj/26339","rights_basis":"per_manifest_cc0_and_no_copyright_united_states","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"yale_university_art_gallery","painter":"camille_pissarro","record_id":"25997","authority_object_id":"660889be-8775-4947-a59f-575a3323f27c","accession":"1983.7.14","title":"A Pond in Ennery","width":3952,"height":3308,"item_data_url":"https://lux.collections.yale.edu/data/object/660889be-8775-4947-a59f-575a3323f27c","page_url":"https://artgallery.yale.edu/collections/objects/25997","manifest_url":"https://manifests.collections.yale.edu/yuag/obj/25997","rights_basis":"per_manifest_cc0_and_no_copyright_united_states","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"yale_university_art_gallery","painter":"camille_pissarro","record_id":"26200","authority_object_id":"6de56261-d514-4870-af06-a8e3beee96bf","accession":"1983.53.1","title":"View of Saint-Ouen-l'Aumône","width":6564,"height":4734,"item_data_url":"https://lux.collections.yale.edu/data/object/6de56261-d514-4870-af06-a8e3beee96bf","page_url":"https://artgallery.yale.edu/collections/objects/26200","manifest_url":"https://manifests.collections.yale.edu/yuag/obj/26200","rights_basis":"per_manifest_cc0_and_no_copyright_united_states","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"yale_university_art_gallery","painter":"claude_monet","record_id":"25965","authority_object_id":"54b6c251-2bcf-446d-a75c-0056d6317c1f","accession":"1983.7.11","title":"Boulevard Héloise, Argenteuil","width":5632,"height":3328,"item_data_url":"https://lux.collections.yale.edu/data/object/54b6c251-2bcf-446d-a75c-0056d6317c1f","page_url":"https://artgallery.yale.edu/collections/objects/25965","manifest_url":"https://manifests.collections.yale.edu/yuag/obj/25965","rights_basis":"per_manifest_cc0_and_no_copyright_united_states","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"yale_university_art_gallery","painter":"claude_monet","record_id":"76857","authority_object_id":"dc53d21e-9272-446a-a561-2a467632ca6c","accession":"1998.46.1","title":"Camille on the Beach in Trouville","width":6012,"height":4920,"item_data_url":"https://lux.collections.yale.edu/data/object/dc53d21e-9272-446a-a561-2a467632ca6c","page_url":"https://artgallery.yale.edu/collections/objects/76857","manifest_url":"https://manifests.collections.yale.edu/yuag/obj/76857","rights_basis":"per_manifest_cc0_and_no_copyright_united_states","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"yale_university_art_gallery","painter":"claude_monet","record_id":"25955","authority_object_id":"e0739551-91d0-4c7a-9722-4ff5d3830702","accession":"1983.7.10","title":"Port-Domois, Belle-Isle","width":5689,"height":4650,"item_data_url":"https://lux.collections.yale.edu/data/object/e0739551-91d0-4c7a-9722-4ff5d3830702","page_url":"https://artgallery.yale.edu/collections/objects/25955","manifest_url":"https://manifests.collections.yale.edu/yuag/obj/25955","rights_basis":"per_manifest_cc0_and_no_copyright_united_states","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"yale_university_art_gallery","painter":"claude_monet","record_id":"25976","authority_object_id":"e6fa0e33-1575-42f5-b00f-d1494bc0e9d9","accession":"1983.7.12","title":"The Artist’s Garden in Giverny","width":7261,"height":7122,"item_data_url":"https://lux.collections.yale.edu/data/object/e6fa0e33-1575-42f5-b00f-d1494bc0e9d9","page_url":"https://artgallery.yale.edu/collections/objects/25976","manifest_url":"https://manifests.collections.yale.edu/yuag/obj/25976","rights_basis":"per_manifest_cc0_and_no_copyright_united_states","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"yale_university_art_gallery","painter":"paul_cezanne","record_id":"49741","authority_object_id":"251d97d0-b754-446c-8662-3b4d7245d041","accession":"1952.48.1","title":"Landscape with Water Mill","width":5467,"height":4089,"item_data_url":"https://lux.collections.yale.edu/data/object/251d97d0-b754-446c-8662-3b4d7245d041","page_url":"https://artgallery.yale.edu/collections/objects/49741","manifest_url":"https://manifests.collections.yale.edu/yuag/obj/49741","rights_basis":"per_manifest_cc0_and_no_copyright_united_states","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"yale_university_art_gallery","painter":"paul_cezanne","record_id":"112770","authority_object_id":"3b8cf800-530f-4ba7-a49e-fc609444847b","accession":"2006.140.2","title":"Still Life with Bottle, Glass, and Lemons","width":3700,"height":4736,"item_data_url":"https://lux.collections.yale.edu/data/object/3b8cf800-530f-4ba7-a49e-fc609444847b","page_url":"https://artgallery.yale.edu/collections/objects/112770","manifest_url":"https://manifests.collections.yale.edu/yuag/obj/112770","rights_basis":"per_manifest_cc0_and_no_copyright_united_states","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"yale_university_art_gallery","painter":"paul_cezanne","record_id":"25543","authority_object_id":"86edfd81-8755-4ab8-9982-87300a42b4c2","accession":"1983.7.6","title":"Picnic on a Riverbank","width":6864,"height":5423,"item_data_url":"https://lux.collections.yale.edu/data/object/86edfd81-8755-4ab8-9982-87300a42b4c2","page_url":"https://artgallery.yale.edu/collections/objects/25543","manifest_url":"https://manifests.collections.yale.edu/yuag/obj/25543","rights_basis":"per_manifest_cc0_and_no_copyright_united_states","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"yale_university_art_gallery","painter":"paul_cezanne","record_id":"24002","authority_object_id":"c5313348-14c0-4e26-ae94-170f39a1f5da","accession":"1979.14.8","title":"The House of Dr. Gachet in Auvers-sur-Oise","width":4740,"height":5659,"item_data_url":"https://lux.collections.yale.edu/data/object/c5313348-14c0-4e26-ae94-170f39a1f5da","page_url":"https://artgallery.yale.edu/collections/objects/24002","manifest_url":"https://manifests.collections.yale.edu/yuag/obj/24002","rights_basis":"per_manifest_cc0_and_no_copyright_united_states","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"yale_university_art_gallery","painter":"alfred_sisley","record_id":"14865","authority_object_id":"24a92add-5d09-49c5-9483-85a3ddb1a0e9","accession":"1962.54","title":"La Seine à Bougival","width":5352,"height":4124,"item_data_url":"https://lux.collections.yale.edu/data/object/24a92add-5d09-49c5-9483-85a3ddb1a0e9","page_url":"https://artgallery.yale.edu/collections/objects/14865","manifest_url":"https://manifests.collections.yale.edu/yuag/obj/14865","rights_basis":"per_manifest_cc0_and_no_copyright_united_states","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"yale_university_art_gallery","painter":"alfred_sisley","record_id":"88187","authority_object_id":"455e0e72-633c-4adc-97bc-bca7dbd453ac","accession":"2017.78.1","title":"Bords du Loing, Saint-Mammes","width":4002,"height":3317,"item_data_url":"https://lux.collections.yale.edu/data/object/455e0e72-633c-4adc-97bc-bca7dbd453ac","page_url":"https://artgallery.yale.edu/collections/objects/88187","manifest_url":"https://manifests.collections.yale.edu/yuag/obj/88187","rights_basis":"per_manifest_cc0_and_no_copyright_united_states","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"yale_university_art_gallery","painter":"alfred_sisley","record_id":"26800","authority_object_id":"cdb02396-9035-4e42-9e6a-0af2d5630383","accession":"1983.53.7","title":"The Matrat Boatyard, Moret-Sur-Loing, Rainy Weather","width":5753,"height":4698,"item_data_url":"https://lux.collections.yale.edu/data/object/cdb02396-9035-4e42-9e6a-0af2d5630383","page_url":"https://artgallery.yale.edu/collections/objects/26800","manifest_url":"https://manifests.collections.yale.edu/yuag/obj/26800","rights_basis":"per_manifest_cc0_and_no_copyright_united_states","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+
+    {"source":"paris_musees","painter":"camille_pissarro","record_id":"160007378","accession":"PPP134","title":"Le Pont Royal et le Pavillon de Flore","width":2598,"height":2160,"page_url":"https://www.parismuseescollections.paris.fr/fr/petit-palais/oeuvres/le-pont-royal-et-le-pavillon-de-flore","manifest_url":"https://apicollections.parismusees.paris.fr/iiif/160007378/manifest","rights_basis":"per_work_page_cc0_marker_and_credit_manifest_has_no_rights_field","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"paris_musees","painter":"camille_pissarro","record_id":"160008360","accession":"PPP630","title":"Le village de Knocke","width":2586,"height":2160,"page_url":"https://www.parismuseescollections.paris.fr/fr/petit-palais/oeuvres/le-village-de-knocke","manifest_url":"https://apicollections.parismusees.paris.fr/iiif/160008360/manifest","rights_basis":"per_work_page_cc0_marker_and_credit_manifest_has_no_rights_field","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"paris_musees","painter":"camille_pissarro","record_id":"160008435","accession":"PPP854","title":"Julie Pissarro au jardin","width":1649,"height":2160,"page_url":"https://www.parismuseescollections.paris.fr/fr/petit-palais/oeuvres/julie-pissarro-au-jardin","manifest_url":"https://apicollections.parismusees.paris.fr/iiif/160008435/manifest","rights_basis":"per_work_page_cc0_marker_and_credit_manifest_has_no_rights_field","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"paris_musees","painter":"claude_monet","record_id":"160008006","accession":"PPP439","title":"Soleil couchant sur la Seine à Lavacourt, effet d'hiver","width":3230,"height":2160,"page_url":"https://www.parismuseescollections.paris.fr/fr/petit-palais/oeuvres/soleil-couchant-sur-la-seine-a-lavacourt-effet-d-hiver","manifest_url":"https://apicollections.parismusees.paris.fr/iiif/160008006/manifest","rights_basis":"per_work_page_cc0_marker_and_credit_manifest_has_no_rights_field","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"paris_musees","painter":"paul_cezanne","record_id":"160007455","accession":"PPP2099","title":"Trois baigneuses","width":2277,"height":2160,"page_url":"https://www.parismuseescollections.paris.fr/fr/petit-palais/oeuvres/trois-baigneuses","manifest_url":"https://apicollections.parismusees.paris.fr/iiif/160007455/manifest","rights_basis":"per_work_page_cc0_marker_and_credit_manifest_has_no_rights_field","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"paris_musees","painter":"paul_cezanne","record_id":"160007457","accession":"PPP2100","title":"Portrait d'Ambroise Vollard","width":1753,"height":2160,"page_url":"https://www.parismuseescollections.paris.fr/fr/petit-palais/oeuvres/portrait-d-ambroise-vollard","manifest_url":"https://apicollections.parismusees.paris.fr/iiif/160007457/manifest","rights_basis":"per_work_page_cc0_marker_and_credit_manifest_has_no_rights_field","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"paris_musees","painter":"paul_cezanne","record_id":"160007458","accession":"PPP2101","title":"Rochers et branches à Bibémus","width":1769,"height":2160,"page_url":"https://www.parismuseescollections.paris.fr/fr/petit-palais/oeuvres/rochers-et-branches-a-bibemus","manifest_url":"https://apicollections.parismusees.paris.fr/iiif/160007458/manifest","rights_basis":"per_work_page_cc0_marker_and_credit_manifest_has_no_rights_field","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"paris_musees","painter":"alfred_sisley","record_id":"160008198","accession":"PPP484","title":"Les scieurs de long","width":2785,"height":2160,"page_url":"https://www.parismuseescollections.paris.fr/fr/petit-palais/oeuvres/les-scieurs-de-long","manifest_url":"https://apicollections.parismusees.paris.fr/iiif/160008198/manifest","rights_basis":"per_work_page_cc0_marker_and_credit_manifest_has_no_rights_field","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"paris_musees","painter":"alfred_sisley","record_id":"160008387","accession":"PPP693","title":"Lisière de la forêt de Fontainebleau","width":3407,"height":2160,"page_url":"https://www.parismuseescollections.paris.fr/fr/petit-palais/oeuvres/lisiere-de-la-foret-de-fontainebleau","manifest_url":"https://apicollections.parismusees.paris.fr/iiif/160008387/manifest","rights_basis":"per_work_page_cc0_marker_and_credit_manifest_has_no_rights_field","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+
+    {"source":"j_paul_getty_museum","painter":"alfred_sisley","record_id":"4848a07c-bd19-452a-a864-628774f1ba2e","accession":"99.PA.27","title":"The Road from Versailles to Saint-Germain","width":8259,"height":6336,"item_data_url":"https://data.getty.edu/museum/collection/object/4848a07c-bd19-452a-a864-628774f1ba2e","page_url":"https://www.getty.edu/art/collection/object/108F79","manifest_url":"https://media.getty.edu/iiif/manifest/3/9e3c3055-6ac0-4717-b0af-0edc6ca70767","primary_media_id":"382ee4e9-c684-5f6e-89b8-1d8ce0e89d85","media_record_url":"https://data.getty.edu/media/image/382ee4e9-c684-5f6e-89b8-1d8ce0e89d85","rights_basis":"per_media_json_subject_to_cc0_and_download_clearance","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"j_paul_getty_museum","painter":"camille_pissarro","record_id":"d3cf849f-486d-455e-bb55-3e38f3f47865","accession":"82.PA.73","title":"Landscape at Louveciennes (Autumn)","width":9103,"height":6968,"item_data_url":"https://data.getty.edu/museum/collection/object/d3cf849f-486d-455e-bb55-3e38f3f47865","page_url":"https://www.getty.edu/art/collection/object/103RF5","manifest_url":"https://media.getty.edu/iiif/manifest/3/c2357522-587d-47e9-8dfd-62913e2f679d","primary_media_id":"0b2f0888-1f24-5f83-8d8a-3aeb7c5ad922","media_record_url":"https://data.getty.edu/media/image/0b2f0888-1f24-5f83-8d8a-3aeb7c5ad922","rights_basis":"per_media_json_subject_to_cc0_and_download_clearance","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"j_paul_getty_museum","painter":"claude_monet","record_id":"41f860ac-2dcb-450d-84b5-bfb36eaf5d4b","accession":"83.PA.215","title":"Still Life with Flowers and Fruit","width":6809,"height":8421,"item_data_url":"https://data.getty.edu/museum/collection/object/41f860ac-2dcb-450d-84b5-bfb36eaf5d4b","page_url":"https://www.getty.edu/art/collection/object/103RF8","manifest_url":"https://media.getty.edu/iiif/manifest/3/db43df09-5cac-4630-9392-9acc39fd0807","primary_media_id":"32ee4cb0-c0f1-5ae8-bdfb-13c4ec73c3b4","media_record_url":"https://data.getty.edu/media/image/32ee4cb0-c0f1-5ae8-bdfb-13c4ec73c3b4","rights_basis":"per_media_json_subject_to_cc0_and_download_clearance","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"j_paul_getty_museum","painter":"claude_monet","record_id":"8ad59c87-0f5e-4542-a46f-1d38faac2a74","accession":"98.PA.164","title":"Sunrise (Marine)","width":7736,"height":6324,"item_data_url":"https://data.getty.edu/museum/collection/object/8ad59c87-0f5e-4542-a46f-1d38faac2a74","page_url":"https://www.getty.edu/art/collection/object/103QT7","manifest_url":"https://media.getty.edu/iiif/manifest/3/7c23f635-164f-4602-8292-a6da37655028","primary_media_id":"c585e318-927b-5ee5-a981-2ada1aaf9c82","media_record_url":"https://data.getty.edu/media/image/c585e318-927b-5ee5-a981-2ada1aaf9c82","rights_basis":"per_media_json_subject_to_cc0_and_download_clearance","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"j_paul_getty_museum","painter":"claude_monet","record_id":"182385f7-61c4-4e2b-a815-db26722409f9","accession":"2001.33","title":"The Portal of Rouen Cathedral in Morning Light","width":6159,"height":9521,"item_data_url":"https://data.getty.edu/museum/collection/object/182385f7-61c4-4e2b-a815-db26722409f9","page_url":"https://www.getty.edu/art/collection/object/108HGY","manifest_url":"https://media.getty.edu/iiif/manifest/3/9b0ac82e-63fd-4295-8bca-d651c7e565ab","primary_media_id":"d80f298b-0ef5-5072-be7c-f23973777641","media_record_url":"https://data.getty.edu/media/image/d80f298b-0ef5-5072-be7c-f23973777641","rights_basis":"per_media_json_subject_to_cc0_and_download_clearance","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"j_paul_getty_museum","painter":"claude_monet","record_id":"9a9cebf1-6d57-4153-aeac-3d5aa0ad9b2c","accession":"95.PA.63","title":"Wheatstacks, Snow Effect, Morning","width":10877,"height":6994,"item_data_url":"https://data.getty.edu/museum/collection/object/9a9cebf1-6d57-4153-aeac-3d5aa0ad9b2c","page_url":"https://www.getty.edu/art/collection/object/103RK8","manifest_url":"https://media.getty.edu/iiif/manifest/3/a38846cc-6fb1-4f70-a2a5-049b399f9531","primary_media_id":"2ab88c76-dfc8-5b4b-9cfc-52b5f0abc99b","media_record_url":"https://data.getty.edu/media/image/2ab88c76-dfc8-5b4b-9cfc-52b5f0abc99b","rights_basis":"per_media_json_subject_to_cc0_and_download_clearance","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"j_paul_getty_museum","painter":"paul_cezanne","record_id":"1e747e6c-74f8-4a40-86de-9a1c751db887","accession":"85.PA.45","title":"Portrait of Anthony Valabrègue","width":6059,"height":7056,"item_data_url":"https://data.getty.edu/museum/collection/object/1e747e6c-74f8-4a40-86de-9a1c751db887","page_url":"https://www.getty.edu/art/collection/object/103RGP","manifest_url":"https://media.getty.edu/iiif/manifest/3/cf1c0c0c-e104-4bc3-a338-8b1b35d09edc","primary_media_id":"3d47ea69-bd87-5b60-96df-2b6077d38f3d","media_record_url":"https://data.getty.edu/media/image/3d47ea69-bd87-5b60-96df-2b6077d38f3d","rights_basis":"per_media_json_subject_to_cc0_and_download_clearance","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"j_paul_getty_museum","painter":"paul_cezanne","record_id":"912e77d2-c887-4c1a-8817-7c2dde0fc12b","accession":"96.PA.8","title":"Still Life with Apples","width":8928,"height":7114,"item_data_url":"https://data.getty.edu/museum/collection/object/912e77d2-c887-4c1a-8817-7c2dde0fc12b","page_url":"https://www.getty.edu/art/collection/object/103QT5","manifest_url":"https://media.getty.edu/iiif/manifest/3/8fc6217b-499e-4b9c-ba95-edd2989a3aa2","primary_media_id":"ca2a763e-9e31-5e32-ad6f-c2e10df5f757","media_record_url":"https://data.getty.edu/media/image/ca2a763e-9e31-5e32-ad6f-c2e10df5f757","rights_basis":"per_media_json_subject_to_cc0_and_download_clearance","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"j_paul_getty_museum","painter":"paul_cezanne","record_id":"f37d3b17-1527-4605-93d7-df4379f3e8b2","accession":"87.PA.79","title":"The Eternal Feminine","width":7219,"height":5752,"item_data_url":"https://data.getty.edu/museum/collection/object/f37d3b17-1527-4605-93d7-df4379f3e8b2","page_url":"https://www.getty.edu/art/collection/object/103RJ9","manifest_url":"https://media.getty.edu/iiif/manifest/3/94d926e3-7aa6-4f68-bf08-1bdf29e3e93f","primary_media_id":"532e2ce1-d0cb-558e-9711-0c78b2c06550","media_record_url":"https://data.getty.edu/media/image/532e2ce1-d0cb-558e-9711-0c78b2c06550","rights_basis":"per_media_json_subject_to_cc0_and_download_clearance","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"j_paul_getty_museum","painter":"paul_cezanne","record_id":"195de465-e47e-4034-8ff9-bbb94790d8aa","accession":"99.PA.40","title":"Young Italian Woman at a Table","width":7123,"height":8972,"item_data_url":"https://data.getty.edu/museum/collection/object/195de465-e47e-4034-8ff9-bbb94790d8aa","page_url":"https://www.getty.edu/art/collection/object/108FPZ","manifest_url":"https://media.getty.edu/iiif/manifest/3/d097f88c-d35f-467e-9617-ef3bbda7143d","primary_media_id":"8640ff62-5962-536f-a356-563581eb8d40","media_record_url":"https://data.getty.edu/media/image/8640ff62-5962-536f-a356-563581eb8d40","rights_basis":"per_media_json_subject_to_cc0_and_download_clearance","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+
+    {"source":"minneapolis_institute_of_art","painter":"claude_monet","record_id":"10436","title":"Grainstack, Sun in the Mist","width":6614,"height":3990,"item_data_url":"https://search.artsmia.org/id/10436","page_url":"https://collections.artsmia.org/art/10436","cache_location":"010000/400/30/10436","primary_rendition_stem":"mia_4000303","media_url":"https://img.artsmia.org/web_objects_cache/010000/400/30/10436/mia_4000303_full.jpg","rights_basis":"per_item_public_domain_public_access_full_display_not_cc0","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"minneapolis_institute_of_art","painter":"claude_monet","record_id":"1413","title":"The Japanese Bridge","width":5956,"height":4606,"item_data_url":"https://search.artsmia.org/id/1413","page_url":"https://collections.artsmia.org/art/1413","cache_location":"001000/400/10/1413","primary_rendition_stem":"mia_5003951","media_url":"https://img.artsmia.org/web_objects_cache/001000/400/10/1413/mia_5003951_full.jpg","rights_basis":"per_item_public_domain_public_access_full_display_not_cc0","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"minneapolis_institute_of_art","painter":"claude_monet","record_id":"3267","title":"Still Life with Pheasants and Plovers","width":6503,"height":4917,"item_data_url":"https://search.artsmia.org/id/3267","page_url":"https://collections.artsmia.org/art/3267","cache_location":"003000/200/60/3267","primary_rendition_stem":"mia_5014768","media_url":"https://img.artsmia.org/web_objects_cache/003000/200/60/3267/mia_5014768_full.jpg","rights_basis":"per_item_public_domain_public_access_full_display_not_cc0","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"minneapolis_institute_of_art","painter":"claude_monet","record_id":"1234","title":"The Seashore at Sainte-Adresse","width":6793,"height":3794,"item_data_url":"https://search.artsmia.org/id/1234","page_url":"https://collections.artsmia.org/art/1234","cache_location":"001000/200/30/1234","primary_rendition_stem":"mia_5000431","media_url":"https://img.artsmia.org/web_objects_cache/001000/200/30/1234/mia_5000431_full.jpg","rights_basis":"per_item_public_domain_public_access_full_display_not_cc0","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"minneapolis_institute_of_art","painter":"alfred_sisley","record_id":"61319","title":"Le Pont de Moret","width":6487,"height":4666,"item_data_url":"https://search.artsmia.org/id/61319","page_url":"https://collections.artsmia.org/art/61319","cache_location":"061000/300/10/61319","primary_rendition_stem":"mia_5024019","media_url":"https://img.artsmia.org/web_objects_cache/061000/300/10/61319/mia_5024019_full.jpg","rights_basis":"per_item_public_domain_public_access_full_display_not_cc0","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"minneapolis_institute_of_art","painter":"camille_pissarro","record_id":"129","title":"Place du Théâtre Français, Paris: Rain","width":4744,"height":3962,"item_data_url":"https://search.artsmia.org/id/129","page_url":"https://collections.artsmia.org/art/129","cache_location":"000000/100/20/129","primary_rendition_stem":"mia_1006284","media_url":"https://img.artsmia.org/web_objects_cache/000000/100/20/129/mia_1006284_full.jpg","rights_basis":"per_item_public_domain_public_access_full_display_not_cc0","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"minneapolis_institute_of_art","painter":"camille_pissarro","record_id":"105380","title":"Orchards at Louveciennes","width":9037,"height":8075,"item_data_url":"https://search.artsmia.org/id/105380","page_url":"https://collections.artsmia.org/art/105380","cache_location":"105000/300/80/105380","primary_rendition_stem":"mia_8002436","media_url":"https://img.artsmia.org/web_objects_cache/105000/300/80/105380/mia_8002436_full.jpg","rights_basis":"per_item_public_domain_public_access_full_display_not_cc0","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false},
+    {"source":"minneapolis_institute_of_art","painter":"paul_cezanne","record_id":"802","title":"Chestnut Trees at Jas de Bouffan","width":6391,"height":5069,"item_data_url":"https://search.artsmia.org/id/802","page_url":"https://collections.artsmia.org/art/802","cache_location":"000000/800/00/802","primary_rendition_stem":"mia_4000194","media_url":"https://img.artsmia.org/web_objects_cache/000000/800/00/802/mia_4000194_full.jpg","rights_basis":"per_item_public_domain_public_access_full_display_not_cc0","all_content_metadata_only":true,"image_downloaded":false,"admitted_to_outdoor_landscape_experimental_corpus":false}
+  ],
+  "decisive_exclusions": [
+    {
+      "source": "yale_university_art_gallery",
+      "record_id": "49195",
+      "authority_object_id": "de3c9123-c166-48e1-9d4f-f6da72074976",
+      "accession": "1948.120",
+      "title": "A Village Road near Auvers",
+      "width": 4998,
+      "height": 4064,
+      "item_data_url": "https://lux.collections.yale.edu/data/object/de3c9123-c166-48e1-9d4f-f6da72074976",
+      "page_url": "https://artgallery.yale.edu/collections/objects/49195",
+      "manifest_url": "https://manifests.collections.yale.edu/yuag/obj/49195",
+      "reason": "The production relation labels Paul Cézanne as Fabricator, not literal Artist. Quarantine unless a prospective, frozen ontology explicitly maps this role."
+    },
+    {"source":"paris_musees","record_id":"160007657","title":"Autumn","width":745,"height":2160,"reason":"Explicit oil on canvas but short side is below 1024 pixels."},
+    {"source":"paris_musees","record_id":"160007656","title":"Winter","width":720,"height":2160,"reason":"Explicit oil on canvas but short side is below 1024 pixels."},
+    {"source":"paris_musees","record_id":"160007658","title":"Summer","width":756,"height":2160,"reason":"Explicit oil on canvas but short side is below 1024 pixels."},
+    {"source":"paris_musees","record_id":"160007659","title":"Spring","width":674,"height":2160,"reason":"Explicit oil on canvas but short side is below 1024 pixels."},
+    {"source":"paris_musees","record_id":"160007371","title":"L’Eglise de Moret (le soir)","reason":"Materials state oil paint but do not explicitly state canvas."},
+    {"source":"paris_musees","record_id":"160008406","title":"Le remorqueur, le Loing à Saint-Mammès","reason":"Materials state oil paint but do not explicitly state canvas."},
+    {
+      "source": "j_paul_getty_museum",
+      "record_id": "f59abcd4-a03a-4e28-b63e-d1b19bc0f0e9",
+      "accession": "56.PA.4",
+      "title": "The Cliffs at Pourville, Morning",
+      "page_url": "https://www.getty.edu/art/collection/object/1HVK7J",
+      "manifest_url": "https://media.getty.edu/iiif/manifest/3/d44ab326-6959-44eb-a997-a083d3ce8e57",
+      "primary_media_id": "a6014548-31a3-51af-9c4b-ed237dbc5d1f",
+      "media_record_url": "https://data.getty.edu/media/image/a6014548-31a3-51af-9c4b-ed237dbc5d1f",
+      "width": 600,
+      "height": 391,
+      "reason": "Object/media are labeled DEACCESSIONED, only thumbnail clearance is exposed, no per-media CC0 evidence is present, and geometry fails."
+    }
+  ],
+  "query_hazards": [
+    {
+      "source": "minneapolis_institute_of_art",
+      "record_id": "105380",
+      "observation": "This accepted Pissarro work also appeared in the Cézanne full-text search response. Exact equality on the artist field is mandatory before attribution and deduplication."
+    },
+    {
+      "source": "j_paul_getty_museum",
+      "observation": "The collection SPARQL endpoint includes past and deaccessioned objects. A type/material/person match is not sufficient without object and preferred-media inspection."
+    },
+    {
+      "source": "all",
+      "observation": "Unique record IDs and image dimensions do not establish unique physical works or independent captures. R0a must reconcile accession, title, dimensions, provenance, and perceptual/identity links across institutions."
+    }
+  ]
+}

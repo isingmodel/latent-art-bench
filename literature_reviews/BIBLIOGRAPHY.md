@@ -1,6 +1,6 @@
 # Audited bibliography
 
-**Scope.** This categorized bibliography records 201 unique sources relevant to the relaunch:
+**Scope.** This categorized bibliography records 205 unique sources relevant to the relaunch:
 peer-reviewed articles and proceedings, one dissertation, explicitly marked preprints, standards,
 technical guidelines, and primary software/data artifacts. It centers the Pilot 2 construct—a
 painter-associated distribution across works—while covering interpretable and learned features,
@@ -185,11 +185,11 @@ without a DOI link to an official proceedings, repository, standards, or institu
 
 ### Art/style-specific evaluation
 
-- Wright, M., & Ommer, B. (2022). “ArtFID: Quantitative Evaluation of Neural Style Transfer.” *Computer Vision—ECCV 2022*, 560–576. [DOI](https://doi.org/10.1007/978-3-031-16788-1_34)
+- Wright, M., & Ommer, B. (2022). “ArtFID: Quantitative Evaluation of Neural Style Transfer.” *Pattern Recognition (DAGM GCPR 2022), LNCS 13485*, 560–576. [DOI](https://doi.org/10.1007/978-3-031-16788-1_34)
 - Papia, E.-M., Kondi, A., & Constantoudis, V. (2023). “Entropy and Complexity Analysis of AI-Generated and Human-Made Paintings.” *Chaos, Solitons & Fractals, 170*, 113385. [DOI](https://doi.org/10.1016/j.chaos.2023.113385)
 - Somepalli, G., Gupta, A., Gupta, K., Palta, S., Goldblum, M., Geiping, J., Shrivastava, A., & Goldstein, T. (2024). “Investigating Style Similarity in Diffusion Models.” *Computer Vision—ECCV 2024*, 143–160. [DOI](https://doi.org/10.1007/978-3-031-72848-8_9)
-- Moayeri, M., Balasubramanian, S., Basu, S., Kattakinda, P., Chegini, A., Brauneis, R., & Feizi, S. (2025). “Rethinking Artistic Copyright Infringements in the Era of Text-to-Image Generative Models.” *The Thirteenth International Conference on Learning Representations*. [OpenReview](https://openreview.net/forum?id=OOTVNEm9N4)
-- Asperti, A., George, F., Marras, T., Stricescu, R. C., & Zanotti, F. (2025). “A Critical Assessment of Modern Generative Models’ Ability to Replicate Artistic Styles.” arXiv:2502.15856. [arXiv](https://arxiv.org/abs/2502.15856) **[Preprint]**
+- Moayeri, M., Balasubramanian, S., Basu, S., Kattakinda, P., Chegini, A., Brauneis, R., & Feizi, S. (2025). “Rethinking Artistic Copyright Infringements in the Era of Text-to-Image Generative Models.” *The Thirteenth International Conference on Learning Representations*. [ICLR proceedings](https://proceedings.iclr.cc/paper_files/paper/2025/file/63ef323523f3be8b58ed9277cc747485-Paper-Conference.pdf)
+- Asperti, A., George, F., Marras, T., Stricescu, R. C., & Zanotti, F. (2025). “A Critical Assessment of Modern Generative Models’ Ability to Replicate Artistic Styles.” *Big Data and Cognitive Computing, 9*(9), 231. [DOI](https://doi.org/10.3390/bdcc9090231)
 - Su, G., Wang, S.-Y., Hertzmann, A., Shechtman, E., Zhu, J.-Y., & Zhang, R. (2025). “Identifying Prompted Artist Names from Generated Images.” arXiv:2507.18633. [arXiv](https://arxiv.org/abs/2507.18633) **[Preprint]**
 - Deliège, A., Marlot, J., Van Droogenbroeck, M., & Dondero, M. G. (2025). “How Good Is the Machine at the Imitation Game? On Stylistic Characteristics of AI-Generated Images.” *Journal of Imaging, 11*(12), 429. [DOI](https://doi.org/10.3390/jimaging11120429)
 - Asperti, A., Dessi, L., Tonetti, M. C., & Wu, N. (2025). “Does CLIP Perceive Art the Same Way We Do?” *2025 International Conference on Content-Based Multimedia Indexing*, 1–8. [DOI](https://doi.org/10.1109/CBMI66578.2025.11339321)
@@ -232,7 +232,11 @@ without a DOI link to an official proceedings, repository, standards, or institu
 
 ## 7. Missingness, resampling, validation, and confirmatory inference
 
+- Horvitz, D. G., & Thompson, D. J. (1952). “A Generalization of Sampling Without Replacement from a Finite Universe.” *Journal of the American Statistical Association, 47*(260), 663–685. [DOI](https://doi.org/10.1080/01621459.1952.10483446)
+- Hoeffding, W. (1963). “Probability Inequalities for Sums of Bounded Random Variables.” *Journal of the American Statistical Association, 58*(301), 13–30. [DOI](https://doi.org/10.1080/01621459.1963.10500830)
+- Csiszár, I. (1975). “I-Divergence Geometry of Probability Distributions and Minimization Problems.” *The Annals of Probability, 3*(1), 146–158. [DOI](https://doi.org/10.1214/aop/1176996454)
 - Rubin, D. B. (1976). “Inference and Missing Data.” *Biometrika, 63*(3), 581–592. [DOI](https://doi.org/10.1093/biomet/63.3.581)
+- Rao, J. N. K., & Wu, C. F. J. (1988). “Resampling Inference with Complex Survey Data.” *Journal of the American Statistical Association, 83*(401), 231–241. [DOI](https://doi.org/10.1080/01621459.1988.10478591)
 - Little, R. J. A. (1988). “A Test of Missing Completely at Random for Multivariate Data with Missing Values.” *Journal of the American Statistical Association, 83*(404), 1198–1202. [DOI](https://doi.org/10.1080/01621459.1988.10478722)
 - Benjamini, Y., & Hochberg, Y. (1995). “Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing.” *Journal of the Royal Statistical Society: Series B, 57*(1), 289–300. [DOI](https://doi.org/10.1111/j.2517-6161.1995.tb02031.x)
 - Shrout, P. E., & Fleiss, J. L. (1979). “Intraclass Correlations: Uses in Assessing Rater Reliability.” *Psychological Bulletin, 86*(2), 420–428. [DOI](https://doi.org/10.1037/0033-2909.86.2.420)

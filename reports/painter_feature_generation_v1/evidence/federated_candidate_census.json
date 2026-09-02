@@ -1,0 +1,81 @@
+{
+  "schema_version": "painter-feature-generation-v1-federated-census/1.3",
+  "status": "exploratory_metadata_evidence_not_r0a_freeze",
+  "queried_at_utc": "2026-09-02T01:43:07Z",
+  "endpoint": "https://query.wikidata.org/sparql",
+  "entity_contract": {
+    "painting": "Q3305213",
+    "oil_paint": "Q296955",
+    "canvas": "Q12321255",
+    "creators": {
+      "Q134741": "Camille Pissarro",
+      "Q175130": "Alfred Sisley",
+      "Q296": "Claude Monet",
+      "Q35548": "Paul Cezanne"
+    }
+  },
+  "count_query": "SELECT ?creator (COUNT(DISTINCT ?item) AS ?n) WHERE { VALUES ?creator { wd:Q296 wd:Q175130 wd:Q134741 wd:Q35548 } ?item wdt:P170 ?creator; wdt:P31 wd:Q3305213; wdt:P18 ?image; wdt:P186 wd:Q296955, wd:Q12321255. } GROUP BY ?creator ORDER BY ?creator",
+  "item_query": "SELECT DISTINCT ?creator ?item ?image WHERE { VALUES ?creator { wd:Q296 wd:Q175130 wd:Q134741 wd:Q35548 } ?item wdt:P170 ?creator; wdt:P31 wd:Q3305213; wdt:P18 ?image; wdt:P186 wd:Q296955, wd:Q12321255. } ORDER BY ?creator ?item",
+  "http_status": 200,
+  "counts": {
+    "camille_pissarro": 685,
+    "alfred_sisley": 705,
+    "claude_monet": 1132,
+    "paul_cezanne": 668,
+    "distinct_creator_item_pairs": 3190,
+    "item_image_rows": 3367,
+    "distinct_commons_file_links": 3364
+  },
+  "filename_support_stress_test": {
+    "purpose": "Falsify the feasibility assumption behind equal quotas in six narrow scene cells; this is not content coding or a corpus count.",
+    "unit": "distinct Wikidata creator-item rows whose decoded Commons filename contains a case-insensitive whole token",
+    "token_set": ["lake", "pond", "lac", "étang", "etang", "bassin", "pool"],
+    "matching_item_rows": {
+      "camille_pissarro": 5,
+      "alfred_sisley": 1,
+      "claude_monet": 46,
+      "paul_cezanne": 6
+    },
+    "limitations": "Filenames are multilingual, incomplete, noisy, and may describe duplicate or misclassified items. Counts neither prove absence nor qualify any work; their only registered use is to reject the unsupported 60-per-painter-per-narrow-scene quota."
+  },
+  "minimum_raw_candidate_yield_implied_by_design": {
+    "internal_360_per_painter": {
+      "camille_pissarro": 0.5255,
+      "alfred_sisley": 0.5106,
+      "claude_monet": 0.3180,
+      "paul_cezanne": 0.5389
+    },
+    "internal_plus_optional_external_456_per_painter": {
+      "camille_pissarro": 0.6657,
+      "alfred_sisley": 0.6468,
+      "claude_monet": 0.4028,
+      "paul_cezanne": 0.6826
+    },
+    "warning": "These are arithmetic lower bounds against noisy pre-deduplication discovery items, not estimated pass rates. Authority, rights, geometry, outdoor content, source diversity, capture ancestry, and deduplication can only reduce usable yield, so feasibility is unknown until the R0a attrition funnel exists."
+  },
+  "ignored_raw_responses": [
+    {
+      "path": "research_workspace/painter_feature_generation_v1/metadata/exploratory_wikidata_oil_canvas_counts_2026-09-02.json",
+      "bytes": 1130,
+      "sha256": "b930718f0ce908d725dcbd927f4a6ac297831b1437f49efde3b3f54a39363eca"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v1/metadata/exploratory_wikidata_oil_canvas_items_2026-09-02.json",
+      "bytes": 1428733,
+      "sha256": "d10549b15b44b3c918d5499469b7cb61872f4527cd0f336957aaaed847c96216"
+    }
+  ],
+  "commons_file_audit": {
+    "status": "not_completed_rate_limited",
+    "attempt": "A deterministic ten-item-per-creator sample was attempted after an earlier exploratory batch inspection.",
+    "sample_requests": 40,
+    "resolved": 0,
+    "http_429": 40,
+    "retry_or_fallback": false,
+    "ignored_attempt_path": "research_workspace/painter_feature_generation_v1/metadata/exploratory_commons_quality_sample_2026-09-02.json",
+    "ignored_attempt_sha256": "7ce519fdf0865f26906746dcc040dcfc98163b0b18b78e977b533355856f4629",
+    "consequence": "No file-level license, geometry, or image-quality claim is authorized from this attempt. R0a must use a frozen, rate-limited ordered inspection ledger."
+  },
+  "admission_warning": "These are mutable third-party metadata candidates, not verified physical works or acquired study images. Every item still requires authoritative holding-record reconciliation, exact attribution and support verification, Commons media-rights and geometry checks, content coding, and physical-work/capture deduplication.",
+  "current_decision": "candidate_universe_warrants_r0a_census_but_pass_yield_is_unknown_and_active_four_painter_corpus_remains_no_go"
+}

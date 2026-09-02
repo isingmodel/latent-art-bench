@@ -32,14 +32,31 @@ evidence matrix, but the path from every viewed result to its final disposition 
 | 2026-09-01 | Statistics and research-design citation chaining | crossed random effects bootstrap exchangeability blocks missing outcomes preregistration registered reports | Verified work/rater dependence, blocked permutation, missingness, intent-to-generate, and prospective freeze sources |
 | 2026-09-01 | Final four-cluster stopping pass | 2025–2026 painter style similarity metric generated art; computational painting features; artwork digitization reproducibility; human perception of painter style | Reviewed the result pages visible in the session and retained four decision-relevant 2025 studies; no export or page snapshot was saved, so completeness of the returned set and dispositions of all other viewed hits cannot be reverified |
 | 2026-09-01 | Identifier reconciliation | DOI-keyed title, author, year, and method-summary cross-check between the evidence matrix, bibliography, review tables, publisher pages, and primary full text where needed | All 102 DOI-keyed matrix records join to a bibliography item after correction; the matrix remains 138 unique records, and inaccessible or abstract-only depth remains explicitly labeled rather than inferred |
+| 2026-09-02 | Focused generated-versus-real painter-fidelity audit | Re-read Kim et al. paper/code, CSD, ArtSavant, ArtFID, MMD, precision/recall, density/coverage, SSCD/memorization papers, and Asperti et al.; checked official proceedings or publisher versions | Added a focused critical review; added structured rows for energy statistics and the Asperti version of record; corrected two human-study titles, ArtFID venue, ArtSavant link, and the support-metric decision boundary |
+| 2026-09-02 | Design-consistency correction | Exact-title/DOI check for Rao and Wu (1988), *Resampling Inference with Complex Survey Data*, after hostile review identified an IID-bootstrap/design-weight mismatch | Added one structured inference record and bibliography entry for the then-current subsampling design; Protocol 1.7 later rejected active Rao–Wu use when it changed every real population to a census, retaining the paper only as a future-subsampling contingency |
+| 2026-09-02 | Pair-estimator correction | Exact-title/DOI and primary-text check for Horvitz and Thompson (1952), *A Generalization of Sampling Without Replacement from a Finite Universe*, after skeptical review found that a first-order-weighted energy V-statistic did not estimate the frozen real self term | Added one structured inference record and bibliography entry for the then-current subsampling design; Protocol 1.7 later replaced HT terms with exact real-census terms and retained the paper only as a future-subsampling contingency |
+| 2026-09-02 | Mathematical-method traceability correction | Exact-title/DOI and primary-text checks for Hoeffding (1963), *Probability Inequalities for Sums of Bounded Random Variables*, and Csiszár (1975), *I-Divergence Geometry of Probability Distributions and Minimization Problems*, after skeptical review found that the active rate bound and entropy projection lacked direct foundational citations | Added structured records 143–144 and bibliography entries; bounded-unit independence and I-projection existence/uniqueness are now cited, while the auditable independence-unit partition, endpoint inventory, alpha split, content target, caps, ESS floor, and fidelity thresholds remain project-specific and simulation-gated |
 
-The final pass added four records, which is 2.9% of the final 138-record matrix, and no new method
+The 2026-09-01 final pass added four records, which was 2.9% of that 138-record snapshot, and no new method
 family was recorded. This is a descriptive retrospective calculation. It does **not** demonstrate
 that a less-than-10% rule was prespecified or that literature saturation was reached because the
 protocol was not demonstrably frozen before searching, the denominator was not independently
 frozen before the pass, and the search and screening manifests are missing. The defensible claim
 is broad structured coverage of the reviewed sources, not exhaustive or saturated coverage of an
 open and rapidly changing literature.
+
+The 2026-09-02 focused audit was a correction pass driven by the revised research question, not a
+new saturation test. It raised the structured matrix to 140 records by adding two methods already
+represented in the bibliography and made the generated-versus-real interpretation explicit. The
+later design-consistency correction added Rao and Wu as record 141, and the pair-estimator
+correction added Horvitz and Thompson as record 142. The mathematical-method traceability correction
+added Hoeffding and Csiszár as records 143–144. None was a saturation pass.
+
+Those two entries record the design problem that motivated each search; they do not state the
+current estimator. Protocol 1.7 measures every declared real population as a census, so it rejects
+Horvitz–Thompson weighting and Rao–Wu real-work resampling as active methods. Both papers remain
+reviewed contingency references only if a future, newly versioned protocol introduces genuine
+probability subsampling of real works.
 
 Future passes must append dated records and retained manifests; previous searches must not be
 rewritten to imply prospective coverage that did not occur.
@@ -50,7 +67,7 @@ The search interfaces used for several web passes did not expose a stable export
 count. More importantly, no complete result manifests or record-level screening ledger was
 retained. A defensible total number of title/abstract hits returned, deduplicated, screened,
 excluded, or assessed in full text therefore cannot be reconstructed and is not invented
-retrospectively. The auditable endpoint counts are 138 unique structured evidence records and 201
+retrospectively. The auditable endpoint counts are 144 unique structured evidence records and 205
 unique bibliography entries; they are included-source counts, not a PRISMA flow.
 
 Because `SEARCH_PROTOCOL.md` was itself structured during the relaunch rather than demonstrably

@@ -1,0 +1,235 @@
+{
+  "schema_version": "painter-feature-generation-v1-data-readiness/1.8",
+  "as_of": "2026-09-02",
+  "status": "development_inventory_only_not_a_frozen_analysis_corpus",
+  "candidate_audit": {
+    "path": "configs/pilot_0/candidate_work_audit.jsonl",
+    "sha256": "0c258e7aacddcf4aa07d469d97244cc29d77854ac872d38b30c58faf04c79c5d",
+    "rows": 194,
+    "decisions": {
+      "include": 142,
+      "exclude": 50,
+      "review": 2
+    },
+    "strict_literal_oil_on_canvas_included_rows": 133,
+    "strict_canvas_by_artist": {
+      "alfred_sisley": 20,
+      "camille_pissarro": 36,
+      "claude_monet": 53,
+      "paul_cezanne": 24
+    },
+    "warning": "Rows are legacy candidate decisions, not deduplicated or newly adjudicated physical works."
+  },
+  "local_ignored_inventory": {
+    "root": "data/pilot_0/source",
+    "jpeg_files": 132,
+    "bytes": 69549332,
+    "primary_named_files": 113,
+    "alternate_named_files": 19,
+    "primary_unique_sha256": 113,
+    "primary_duplicate_byte_hashes": 0,
+    "by_artist": {
+      "alfred_sisley": {"primary": 21, "alternate": 0, "total": 21},
+      "camille_pissarro": {"primary": 32, "alternate": 7, "total": 39},
+      "claude_monet": {"primary": 33, "alternate": 9, "total": 42},
+      "paul_cezanne": {"primary": 27, "alternate": 3, "total": 30}
+    },
+    "sorted_filename_and_sha256_digest": "68173e1a117a9391adb1dc9b4f30b1338f09eb8838708495f48c5e92f7b42219",
+    "sorted_primary_filename_and_sha256_digest": "73c93b416100581ac5d3280762251930a9e48d34ed16a169fe8dc78609d741e3",
+    "warning": "Unique file hashes do not prove unique physical works; accession and perceptual deduplication remain required."
+  },
+  "historical_exposure": {
+    "path": "data/manifests/painter_features_v1/historical_pixel_exposure_denylist.jsonl",
+    "sha256": "e2e4ba8b2941292bf260cb6ff2f37475a054d801e38cf5e4b2e3e367b0e1db55",
+    "physical_work_id_rows": 118,
+    "strict_canvas_candidates_not_in_denylist_or_freeze3": {
+      "total": 25,
+      "by_artist": {
+        "alfred_sisley": 0,
+        "camille_pissarro": 6,
+        "claude_monet": 19,
+        "paul_cezanne": 0
+      }
+    },
+    "consequence": "Historically feature-exposed works are development-only; the retained frame cannot supply a fresh four-painter external panel, so a new source workflow is required for an external-transfer claim."
+  },
+  "federated_candidate_census": {
+    "path": "reports/painter_feature_generation_v1/evidence/federated_candidate_census.json",
+    "status": "exploratory_not_r0a_freeze",
+    "distinct_creator_item_pairs": 3190,
+    "item_image_rows": 3367,
+    "distinct_commons_file_links": 3364,
+    "filename_support_stress_test": {
+      "token_set": ["lake", "pond", "lac", "étang", "etang", "bassin", "pool"],
+      "matching_item_rows_by_painter": {
+        "camille_pissarro": 5,
+        "alfred_sisley": 1,
+        "claude_monet": 46,
+        "paul_cezanne": 6
+      },
+      "use": "Falsifies equal quotas in narrow scene categories only; filenames are not content codes, deduplicated physical works, or admissions."
+    },
+    "minimum_raw_candidate_yield_for_360_internal_per_painter": {
+      "camille_pissarro": 0.5255,
+      "alfred_sisley": 0.5106,
+      "claude_monet": 0.3180,
+      "paul_cezanne": 0.5389
+    },
+    "warning": "The 3,190 records are Wikidata painting-item candidates only, not admitted physical works. Item-level authority, rights, geometry, outdoor-place content, capture ancestry, and identity are not yet verified."
+  },
+  "official_source_extension_audit": {
+    "path": "reports/painter_feature_generation_v1/evidence/official_source_extension_audit.json",
+    "status": "exploratory_official_source_metadata_audit_not_r0a_freeze",
+    "evidence_class": "traceable_live_item_evidence_not_reproducible_as_of_date_snapshot",
+    "screening_scope": "all_content_metadata_only",
+    "accepted_metadata_candidates": 43,
+    "by_source": {
+      "yale_university_art_gallery": 16,
+      "paris_musees": 9,
+      "j_paul_getty_museum": 10,
+      "minneapolis_institute_of_art": 8
+    },
+    "by_painter": {
+      "camille_pissarro": 11,
+      "claude_monet": 13,
+      "paul_cezanne": 12,
+      "alfred_sisley": 7
+    },
+    "images_downloaded": 0,
+    "outdoor_landscape_experimental_corpus_admissions": 0,
+    "warning": "These are item-resolved, traceable live metadata candidates across all content, not a reproducible as-of-date snapshot, admitted outdoor-place works, or an active-study corpus."
+  },
+  "design_target": {
+    "minimum_development_population_physical_works": 288,
+    "minimum_method_qualification_population_physical_works": 432,
+    "minimum_sealed_confirmation_population_physical_works": 720,
+    "minimum_analyzed_internal_total": 1440,
+    "minimum_optional_external_population_physical_works": 384,
+    "minimum_analyzed_total_with_optional_external": 1824,
+    "minimum_acquired_adjudicated_internal_frame": 1440,
+    "minimum_acquired_adjudicated_optional_external_frame": 384,
+    "minimum_acquired_adjudicated_total_with_optional_external": 1824,
+    "minimum_auxiliary_same_work_reproduction_census_physical_works": 32,
+    "minimum_auxiliary_same_work_reproduction_census_per_painter": 8,
+    "auxiliary_census_counting_rule": "The auxiliary census contains every eligible independent-capture work in the frozen source snapshot, sits outside every randomized study population, and is excluded from internal and external totals; every work needs at least two demonstrably independent capture workflows.",
+    "painters": 4,
+    "content_domains": 1,
+    "content_domain": "outdoor_place_landscape",
+    "broad_scene_groups": 4,
+    "broad_scene_group_labels": [
+      "water_organized",
+      "built_place_organized",
+      "route_organized",
+      "open_or_wooded_land"
+    ],
+    "diagnostic_narrow_scene_categories": [
+      "coast_sea_or_harbor",
+      "river_or_canal",
+      "lake_or_pond",
+      "street_village_or_built_settlement",
+      "road_or_path",
+      "field_hillside_forest_or_orchard"
+    ],
+    "candidate_complete_prompt_frames": 12,
+    "generation_prompt_templates": 24,
+    "minimum_prompt_templates_per_broad_scene_group": 2,
+    "visible_property_contrasts": [
+      "leafless_or_winter",
+      "diffuse_adverse_or_low_light",
+      "dominant_built_elements",
+      "any_visible_actor_animal_boat_or_vehicle",
+      "deep_view"
+    ],
+    "content_standardization_target_dimensions": 8,
+    "content_standardization_rule": "Before active labels, hash every byte-exact UTF-8 artist-free and named-placeholder string, punctuation, language, negative prompt, insertion point, scene label, and five content values in 12 complete 24-template frames. Before feature access, select one frame using only three nonredundant broad-scene proportions plus five visible-property means. For every painter's complete development, qualification, confirmation, and registered-external population, freeze an entropy-projection q-star to that common target. The target must lie in every joint convex hull, maximum unit mass is four times uniform, and Kish ESS is at least 60 percent. q-star is primary and is never refit; uniform-real is mandatory sensitivity. Blind realized-output labels feed a separately frozen binding entropy-projection sensitivity with the same support gates and cannot rescue the primary result.",
+    "eligible_internal_candidate_gate_per_painter": 360,
+    "minimum_development_population_per_painter": 72,
+    "minimum_method_qualification_population_per_painter": 108,
+    "minimum_sealed_confirmation_population_per_painter": 180,
+    "minimum_internal_support_alarm_per_painter_broad_scene_group": 24,
+    "eligible_internal_candidate_gate_total": 1440,
+    "additional_unopened_external_candidate_gate_per_painter": 96,
+    "minimum_external_support_alarm_per_painter_broad_scene_group": 8,
+    "additional_unopened_external_candidate_gate_total": 384,
+    "eligible_combined_candidate_gate_per_painter_with_optional_external": 456,
+    "eligible_combined_candidate_gate_total_with_optional_external": 1824,
+    "minimum_source_groups_per_painter_internal_frame_and_each_internal_population": 4,
+    "minimum_source_groups_per_painter_external_population": 2,
+    "minimum_source_groups_per_broad_scene_where_finite_frame_permits": 2,
+    "maximum_single_source_unweighted_fraction_internal_frame": 0.30,
+    "maximum_single_source_unweighted_and_qstar_fraction_each_assigned_internal_population": 0.30,
+    "maximum_single_source_unweighted_and_qstar_fraction_external": 0.70,
+    "maximum_single_source_unweighted_fraction_within_multisource_frame_scene": 0.70,
+    "maximum_single_source_unweighted_and_qstar_fraction_within_multisource_assigned_population_scene": 0.70,
+    "full_internal_frame_qstar_defined": false,
+    "source_shift_functional": "Within painter and broad scene, compute the RMS across pooled-development-scaled coordinates of the exact q-star-weighted median difference between one source group and its complement; compare every supported qualification value with the auxiliary-census eta-F bound and repeat under uniform weights.",
+    "primary_population_scope": "The content-standardized q-star distribution over every work in each painter's complete R0a-frozen sealed-confirmation digital-surrogate population; the uniform complete population is mandatory sensitivity and the observed holding/capture-source mixture remains part of both estimands.",
+    "pairwise_specificity_rule": "Primary all-neighbor specificity compares the same common-content-standardized complete painter populations after a binding real-only source-robustness gate. Common source-by-broad-scene comparisons are mandatory diagnostics wherever frozen support permits; missing diagnostic cells are reported and never imputed.",
+    "prompt_templates": 24,
+    "primary_repetition_constraint": "Every named condition and shared artist-free control has the same R in every template; unpaired primary blocks are forbidden.",
+    "generation_request_formula_for_four_painters": "120 * R",
+    "retired_v1_5_generation_requests_per_model": 1920,
+    "absolute_best_case_v1_7_floor_requests_per_model": 3000,
+    "absolute_best_case_floor_warning": "The 3,000 floor assumes the impossible best-case allocation alpha-e=0.05, six templates in every scene group, and every repetition as its own auditable independent unit. The actual Bonferroni endpoint allocation, adherence/copy bounds, missingness, common-shock clustering, and whole-decision simulation require a larger R and may make the rate bound uninformative; no final request count is registered.",
+    "final_generator_repetition_rule": "After the byte-exact frame and rate-endpoint inventory are frozen, R1a applies the analytic perfect-return boundary floor and whole-decision simulation before R0b and G0. Every real population remains a complete census. For a fixed deterministic local execution map, deterministic seeds are independent template-specific IID uniform draws with replacement, with chance duplicates recorded rather than rejected. For an opaque or remote endpoint, G0 schedules C equal-size prospective common-shock units with L complete balanced waves each; every wave contains one request for every template by named/control condition and R=C*L. A crossed common shock or broken balanced unit makes inference ineligible or inconclusive.",
+    "confirmation_sequence": "G1a seals every request, attempt, failure, output, and hash while the final reference remains unopened; G1b then opens the final reference once and runs the frozen confirmation."
+  },
+  "eligibility_coding_and_firewall": {
+    "independent_coders": 2,
+    "visual_eligibility_categories": ["eligible_outdoor_place_landscape", "ineligible", "ambiguous_multiple"],
+    "visual_eligibility_denominator": "Every metadata-, rights-, geometry-, and decode-qualified derivative; blank or missing coder labels are explicit disagreements and no coder exclusion removes a row.",
+    "preadjudication_exact_agreement_floor_visual_eligibility_per_painter": 0.90,
+    "maximum_ambiguous_multiple_fraction_each_preadjudication_coder_per_painter": 0.10,
+    "content_reliability_denominator": "The union-eligible set: every derivative called eligible by at least one coder; ineligible, ambiguous, and missing responses remain explicit confusion-table values.",
+    "preadjudication_raw_agreement_floor_broad_scene_and_each_three_state_contrast": 0.85,
+    "agreement_gate_scopes": "Every painter union-eligible screening frame and every painter's assigned development, qualification, confirmation, and registered external population, using unchanged raw coder labels.",
+    "maximum_indeterminate_fraction_for_season_illumination_and_depth_each_preadjudication_coder_per_scope": 0.20,
+    "g1b_double_coding_rule": "Two independent blinded coders label every sealed-confirmation image and technically analyzable generated image. Seal raw labels first; apply the 0.85 broad-scene/five-contrast and each-coder 0.20 indeterminate gates separately by real painter and by generated named/control condition for each model. If gates pass, a third blinded adjudicator creates the deterministic consensus used for J-r, z-tj, and r-star.",
+    "r0a_failure_rule": "Any eligibility, union-eligible content, assigned internal, or registered external agreement/indeterminate failure makes the current R0a NO-GO; adjudication cannot erase the reliability receipt or revise the codebook in the same version.",
+    "g1b_failure_rule": "A failed G1b reliability gate makes the affected adherence, realized-content, and feature-reproduction endpoint inconclusive; later consensus cannot repair the receipt.",
+    "eligibility_derivative_max_long_side_pixels": 512,
+    "masked_fields": [
+      "painter",
+      "title",
+      "institution",
+      "accession",
+      "source"
+    ],
+    "pixel_exposure_status": "Viewing an eligibility derivative is real pixel exposure and must be logged; the derivative is not described as sealed or metadata-only.",
+    "role_firewall": "Eligibility derivatives, coder notes, and adjudication imagery are inaccessible to feature, method, and generation analysts before G1b; analysts receive only frozen eligibility, broad-scene, narrow diagnostic, and five-variable labels, counts, agreement statistics, and R0a population-standardization receipts needed for the registered design.",
+    "analysis_resolution_rule": "Analysis-resolution qualification and final files remain inaccessible to analysts, and final-reference files stay sealed through G1a before one-time opening in G1b.",
+    "current_eligibility_derivatives": 0
+  },
+  "finite_population_census_requirement": {
+    "population_frame": "One R0a-frozen painter-level eligible frame with disjoint development, qualification, sealed-confirmation, and optional-external complete populations fixed before feature measurement",
+    "real_work_subsampling": false,
+    "r0a_r0b_must_freeze": [
+      "one complete eligible finite frame before feature measurement",
+      "one recorded domain-separated CSPRNG permutation and exposure-role assignment within every painter",
+      "disjoint complete development, qualification, sealed-confirmation, and optional-external populations",
+      "selected eight-dimensional common content target and full-population entropy-projection q-star weights before feature access",
+      "complete R0b release of every qualification work and one-time G1b opening of every confirmation work",
+      "R0b prohibition on candidate additions, source additions, reranking, and population redefinition"
+    ],
+    "common_scaling": "Fit one coordinate transform to the equal-painter mixture of the four q-star-weighted complete development populations; use its weighted median and IQR unchanged for every real, control, and generated vector. Painter-specific scaling is forbidden.",
+    "point_estimator": "Finite-population energy uses an exact q-star-weighted summation over every confirmation work in the generated-real term, an exact real-real finite-population term, and an equal-template generated-generated U-statistic; generator expectations remain estimated from registered draws. Weighted real quantiles use the exact left-continuous finite CDF; generated quantiles give each output weight 1/(24 m-t).",
+    "uncertainty_method": "The complete real population and frozen q-star remain fixed. Continuous endpoints use 9,999 generator-only replicates under the same auditable independence partition as the rate endpoints. A fixed deterministic local map resamples whole seed condition vectors within template. An opaque or remote endpoint resamples only complete balanced common-shock units carrying all L waves and every template-condition outcome together. Templates are never sampled as a prompt superpopulation. Availability, adherence, and copy rates use a separately alpha-allocated Bonferroni weighted-Hoeffding construction over the same independent bounded units with conservative ratio bounds, so all-success or zero-copy observations never create zero-width certainty.",
+    "rate_directional_event_rule": "M-rate counts each unique one-sided tail event, not each mean: a full availability/adherence/copy endpoint needs A-lower, A-upper, J-lower, and K-upper. Opposite A tails are separate; alpha-e equals alpha-rate divided by M-rate.",
+    "rate_independence_unit_rule": "For request weights w-i, G0 freezes auditable independence units c, W-c=sum of w-i in c, and A/J/K cluster means in [0,1]; Hoeffding uses sum of W-c squared. A fixed deterministic local seed map may support one unit per IID seed draw. Opaque or remote inference uses equal-size balanced units, and requests sharing a provider episode, batch, backend revision, moderation state, outage, retry cascade, or other plausible common shock stay together. Request IDs, timestamps, random order, or null autocorrelation alone do not establish independence. Without a defensible partition aligned with the fixed-template continuous resampler, both rate and continuous endpoints are ineligible or inconclusive.",
+    "r1a_requirement": "Freeze numeric fixtures and demonstrate point bias, simultaneous interval coverage, equivalence power, missing-output behavior, boundary-rate and continuous-endpoint coverage under registered cluster sizes and batch/outage/moderation pixel-feature common shocks, nondegenerate variance handling, and whole-decision error control under the actual generator design. Failure requires more prospectively registered generator repetitions or a stop/new protocol version.",
+    "disallowed_substitute": "IID image bootstrap, real-work bootstrap, or post-feature real-population expansion"
+  },
+  "active_study_counts": {
+    "admitted_physical_works": 0,
+    "eligibility_derivatives_created": 0,
+    "downloaded_real_images": 0,
+    "new_images_acquired": 0,
+    "r0a_frozen_physical_works": 0,
+    "auxiliary_reproduction_census_physical_works": 0,
+    "verified_independent_capture_pairs": 0,
+    "registered_generation_requests": 0,
+    "generated_outputs": 0
+  },
+  "readiness_decision": "metadata_candidate_routes_found_but_no_go_with_zero_admitted_outdoor_works",
+  "next_gate": "R0a frozen metadata census with an exact painter-by-gate attrition funnel and acquisition of at least 1,440 eligible internal works: at least 360 per painter and 24 per painter in every broad scene group; item-level authority, rights, geometry, capture-ancestry, and physical-work checks; byte-exact prelabel hash of all 12 complete prompt frames; firewalled at-most-512-pixel double-coding into four broad groups, six narrow diagnostics, and five visible-property variables; selection of one jointly feasible eight-constraint prompt target; source-diversity and q-star-weighted source-share audit in every internal population; complete painter-level population assignment; a separate at-least-32-work independent-capture reproduction census; and release of only the complete 288-work development population plus that auxiliary census"
+}

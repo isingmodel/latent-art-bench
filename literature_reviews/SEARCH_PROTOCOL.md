@@ -1,8 +1,8 @@
 # Literature-search protocol and retrospective audit specification
 
-Protocol version: `painter-feature-review/1.2`
+Protocol version: `painter-feature-review/1.3`
 
-Review snapshot date: 2026-09-01
+Review snapshot date: 2026-09-02
 
 ## Registration status and evidentiary boundary
 
@@ -99,10 +99,10 @@ actual design.
 
 ## Current matrix and uninstantiated detailed extraction schema
 
-The current 138-row matrix records only 11 fields: ID, year, short citation, stable identifier,
+The current 144-row matrix records only 11 fields: ID, year, short citation, stable identifier,
 cluster, review depth, main evidence, central limit, evidence grade, disposition, and protocol
 consequence. The thematic reviews provide richer method detail for selected decision-relevant
-sources, but the project did **not** create a 138-record evidence-card artifact containing every
+sources, but the project did **not** create a 144-record evidence-card artifact containing every
 field below. It therefore cannot claim that every retained source received a complete detailed
 extraction. This is a current audit limitation, not a field silently stored elsewhere.
 
@@ -124,7 +124,7 @@ record-level evidence card containing:
 - rationale and concrete protocol consequence.
 
 Unreported details in those future cards must be recorded as unreported, not inferred. Until such
-cards exist for the current 138 sources, the 11-column matrix and the cited thematic-review tables
+cards exist for the current 144 sources, the 11-column matrix and the cited thematic-review tables
 are the complete auditable extraction artifacts.
 
 ## Evidence grades
@@ -150,8 +150,9 @@ a prospective local validation battery.
 - Treat artist and movement labels as attributed, historically contingent grouping variables.
 - Treat classification as a sensitivity test for group signal, not construct validity.
 - Fit transforms and tune thresholds on real development data only.
-- Require work-level, source-level, prompt-level, and generator-level independence where each is
-  the relevant sampling unit.
+- Respect work-, source-, prompt-, and generator-level dependence; where a bound needs independent
+  units, require an auditable pre-outcome argument and group plausible common shocks rather than
+  treating request IDs or timestamps as independence evidence.
 - Report feature profiles and uncertainty; do not select a single scalar after viewing results.
 - Record negative and null findings, inaccessible details, and incompatible input domains.
 
@@ -159,7 +160,15 @@ a prospective local validation battery.
 
 For the completed snapshot, the team stopped after a final cross-cluster pass yielded four records
 that were retained as decision-relevant and did not add a new method family. Four is 2.9% of the
-final 138-row evidence matrix. That calculation is a retrospective description, not proof that a
+original 138-row evidence-matrix snapshot. The 2026-09-02 correction pass raised the current matrix
+to 140 rows, and the subsequent design-consistency correction added one survey-resampling source,
+bringing the matrix to 141 rows; the later pair-estimator correction added Horvitz and Thompson and
+brought it to 142. A final method-traceability correction added Hoeffding's bounded-variable
+inequality and Csiszár's I-projection geometry, bringing the matrix to 144. None of these corrections
+makes a saturation claim. Their inclusion records the methods reviewed,
+not active adoption: the census design in study protocol 1.7 rejects real-work
+Horvitz–Thompson/Rao–Wu machinery unless a future protocol introduces probability subsampling.
+That calculation is a retrospective description, not proof that a
 less-than-10% stopping rule was prespecified or independently satisfied: the rule was not
 demonstrably registered before searching, the pre-pass eligible set was not frozen independently,
 and the returned-result and screening manifests were not retained. The review therefore claims

@@ -1,9 +1,11 @@
 # Architecture map
 
 LatentArtBench is a Python package with shared measurement primitives and three accumulated
-pilot-specific workflow layers. The scientific workflows are deliberately fail-closed, but
-their historical growth has concentrated too many responsibilities in a few modules. This
-page describes the code as it exists; it is not authorization to resume a closed pilot.
+pilot-specific workflow layers. The active `painter_feature_generation_v1` reboot currently has a
+research protocol and compact metadata evidence, not an executable workflow layer. The historical
+scientific workflows are deliberately fail-closed, but their growth concentrated too many
+responsibilities in a few modules. This page describes the code as it exists; it is not
+authorization to resume a closed pilot or to run the active study before its freezes.
 
 ## Entry points
 
@@ -32,6 +34,60 @@ modules retain Pilot 0/1 assumptions, and Pilot 3 imports Pilot 2 preprocessing,
 schema, and transport helpers.
 
 ## Versioned workflow layers
+
+### Painter Feature Generation v1
+
+The sole active research plan is
+`studies/painter_feature_generation_v1/PROTOCOL.md`. No active CLI, feature implementation,
+admitted/downloaded corpus, registered generation request, generated output, or result exists;
+R0a is NO-GO. Protocol 1.7 stages its future
+workflow as R0a census, complete 1,440-work internal-frame acquisition, painter-level exposure-role
+assignment, 12-candidate-frame/selected-24-template freeze, complete-population `q*` freeze, and
+auxiliary independent-capture census; R1a measurement of the complete development population and
+whole-decision simulation; R0b release of the complete qualification census without population
+expansion; R1b untouched real-only qualification; G0 exact generator freeze; G1a
+generation/output seal; and G1b one-time complete sealed-confirmation-census analysis. Every real
+population is measured as a census; only generator-side units under a G0-frozen independence
+partition are resampled for continuous-endpoint uncertainty. All 12 prompt candidates are byte-exact and hash-complete before
+active content labels, and G0 can verify but not rewrite the selected frame. Deterministic seed lists
+are independent template-specific IID uniform draws with replacement only for a fixed deterministic
+local execution map; local inference resamples whole seed-condition vectors within template. An
+opaque/remote endpoint instead uses `C` equal-size common-shock units, each with `L` complete
+template×condition waves and `R=C*L`, and resamples whole units only. Rates use separately
+alpha-allocated weighted-Hoeffding/ratio bounds rather than empirical-bootstrap quantiles; a full
+endpoint contributes four directional events (`A` lower, `A` upper, `J` lower, `K` upper) to
+`M_rate`. The same G0 partition governs both endpoint families: the rate bound uses `sum_c W_c^2`, and
+plausible remote provider/batch/backend/moderation/outage/retry common shocks must share a unit.
+Request IDs or timestamps alone are not independence evidence; a crossed shock, unusable balanced
+unit, or partition not aligned with fixed-template resampling makes both affected rate and continuous
+endpoints ineligible or inconclusive. R1a stress-tests clustered pixel/feature failures. New
+implementation should live in this new
+namespace and reuse a shared primitive only after its contract is characterized; it must not mutate
+Pilot 0–3 behavior to make the reboot convenient.
+
+The real frame uses four broad scene groups and five visible-property contrasts. Its complete
+internal populations contain 360 works per painter (1,440 total); optional external replication
+adds 96 per painter (384 total), raising the acquired and analyzed total to at least 1,824. The
+separate at-least-32-work independent-capture census is outside both totals.
+
+R0a also preserves the pre-adjudication coding receipt: three-way visual-eligibility agreement must
+reach 0.90 per painter and each coder's ambiguous share must not exceed 0.10; on union-eligible and
+assigned-population denominators, broad-scene and all five three-state contrasts must reach 0.85 and
+each coder's season/illumination/depth indeterminate share must not exceed 0.20. Adjudication cannot
+erase a failure. G1b independently double-codes every sealed-confirmation and technically analyzable
+generated image, seals condition-scoped 0.85/0.20 receipts, and only then creates third-coder
+consensus; a failed receipt makes the affected endpoint inconclusive. R1a uses one equal-painter
+`q*`-weighted pooled-development median/IQR transform, validates full-frame unweighted-only and
+assigned-population unweighted/`q*` source-share caps, the exact source-versus-complement median-
+shift RMS gate, and `1/(24 m_t)` generated-quantile weights, and treats any nonstructural zero
+replicate variance as inconclusive.
+
+The active four-painter request formula is `120R`, with equal named/control `R` in every template.
+The former `R=16`/1,920-request capacity is retired because it cannot clear the boundary-safe
+availability gate. Even the impossible best case requires `R>=25` and at least 3,000 requests; R1a
+must treat that floor as assuming one auditable independent unit per repetition and freeze the actual
+larger `R` from the endpoint inventory, independence-unit audit, and whole-decision simulation before
+G0. No request count is currently registered or authorized.
 
 ### Pilot 2
 
@@ -62,7 +118,7 @@ implementation at its current commit or tag.
 
 ## Data flow and gates
 
-The intended scientific flow is:
+The historical Pilot 3 scientific flow was:
 
 1. versioned config and compact manifests;
 2. append-only request/acquisition evidence and content-addressed local bytes;

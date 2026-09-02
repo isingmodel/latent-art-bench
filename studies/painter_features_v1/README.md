@@ -1,23 +1,27 @@
-# Painter Features v1
+# Painter Features v1 — historical real-measurement precursor
 
-Status: standalone prospective measurement method; preservation-only Collection Freeze 3 complete
-with 4/4 files admitted; no feature extraction, normalization, model access, external-set access,
-human task, image generation, or painter claim authorized
+Status: preserved historical precursor; preservation-only Collection Freeze 3 complete with 4/4
+files admitted. The active generated-versus-real study is
+[`painter_feature_generation_v1`](../painter_feature_generation_v1/).
 
-## Canonical research plan
+## Canonical record for this historical study
 
-There is one canonical plan for this study:
+The hash-bound canonical record for this historical real-only study is:
 
 **[`MEASUREMENT_PROTOCOL.md`](MEASUREMENT_PROTOCOL.md), version 2.0**
 
-It defines the research question, painter-feature construct, sampling units, observation model,
+It defines the real-image measurement question, painter-feature construct, sampling units, observation model,
 common-support design, reproduction and preprocessing requirements, candidate feature algorithms,
 qualification gates, statistical rules, required outputs, execution-freeze checklist, claim
 ceilings, and change control. A researcher should begin there and should not need another plan
 document to interpret the real-image method.
 
-The target is a reproducible painter-associated distribution across eligible held physical works,
+Its target is a reproducible painter-associated distribution across eligible held physical works,
 not a description of one painting, a centroid, a classifier score, or a universal style score.
+
+It explicitly does not evaluate generated images. Do not use it as the current project plan or edit
+it into one: Collection Freeze 3 binds its path and hash. The active study directly testing whether
+generated distributions reproduce real painter distributions has its own namespace and protocol.
 
 ## Supporting evidence
 
@@ -42,11 +46,9 @@ Superseded validation and analysis documents and rejected execution freezes are 
 [`old/`](old/). They remain available for review provenance only and are explicitly noncanonical.
 Do not combine their clauses with version 2.0 or use them to fill a perceived gap.
 
-## Next required research decision
+## Historical handoff
 
-The four collected files are below the measurement protocol's support floor and have one provider
-workflow, unknown capture ancestry, and no independent reproduction pairs. The next defensible
-step is a metadata/rights/capture-ancestry census capable of supporting a full common-support
-design. Any normalization, visual inspection for scientific outcomes, feature extraction, or
-partition assignment requires a new independently reviewed execution freeze satisfying the
-applicable Section 12 items. Collection completion alone does not authorize measurement.
+The four collected files remain below the measurement protocol's support floor and have one provider
+workflow, unknown capture ancestry, and no independent reproduction pairs. Their next role, if any,
+is development evidence under the active study's R0a/R1a/R0b/R1b freezes. Collection completion alone does not
+authorize measurement or a generated-versus-real conclusion.

@@ -269,7 +269,7 @@ replacement:
 | [Dumoulin, Shlens & Kudlur 2017](https://arxiv.org/abs/1610.07629) | conditional instance-normalization parameters encode styles in a multi-style generator | generation-control parameters lack independent similarity validation | exclude as painter metric |
 | [Kotovenko et al. 2019](https://openaccess.thecvf.com/content_ICCV_2019/html/Kotovenko_Content_and_Style_Disentanglement_for_Artistic_Style_Transfer_ICCV_2019_paper.html) | triplet/fixpoint disentanglement over ten painters plus patch-level human/classifier tests | small style set; deception/preference is not oeuvre validity | adopt content-matched human-control ideas |
 | [GOYA 2024](https://doi.org/10.3390/jimaging10070156) | CLIP transforms learned from Stable-Diffusion synthetic content-by-style pairs; evaluated on 81,445 WikiArt works | generator and CLIP priors define the separation; labels imperfect | `secondary_candidate` sensitivity only |
-| [CSD 2024](https://doi.org/10.1007/978-3-031-72848-8_9) | CLIP fine-tuned on 511,921 caption-tagged images; WikiArt/prompt evaluation | direct artist-tag supervision, source/pretraining overlap, artifact discrepancy | provisional `secondary_candidate` |
+| [CSD 2024](https://doi.org/10.1007/978-3-031-72848-8_9) | CLIP fine-tuned on 511,921 images using caption-derived multi-label artist, medium, movement, and other style tags; WikiArt/prompt evaluation | noisy caption-derived tags rather than curated painter ground truth, source/pretraining overlap, artifact discrepancy | provisional `secondary_candidate` |
 | [ArtSavant 2025](https://proceedings.iclr.cc/paper_files/paper/2025/hash/63ef323523f3be8b58ed9277cc747485-Abstract-Conference.html) | CLIP-based DeepMatch and 260-tag TagMatch over 90,960 WikiArt works/372 painters; set-level generated tests | recognizability can rely on subject/source/era/CLIP exposure; random work split | adopt set voting, competitors, abstention; reject “recognizable = unique style” |
 | [Su et al. 2025](https://arxiv.org/abs/2507.18633) | 1.95M generated images, 110 painters, complex/multiple-painter prompts and multiple generators | measures prompted-name recovery; strong generator-domain dependence | prompt-audit benchmark, not real-oeuvre metric |
 | [DiffSim 2025](https://openaccess.thecvf.com/content/ICCV2025/html/Song_DiffSim_Taming_Diffusion_Models_for_Evaluating_Visual_Similarity_ICCV_2025_paper.html) | aligned diffusion attention features; seven similarity benchmarks including synthetic Sref styles | diffusion-model-coupled and mixes subject/background/appearance | evaluator-family sensitivity only |
@@ -405,12 +405,12 @@ protocol belongs in the new study protocol.
 
 1. Model painter profiles across works and, where support permits, phase/genre/medium strata. Do
    not reduce the real oeuvre to one centroid.
-2. Report target fit/equivalence; the full panel-wide hard-neighbor specificity vector plus its
-   binding worst and lower-quantile rules; precision; density; recall; coverage; content coherence;
-   availability; contraction; and prompt movement separately. Require the binding criteria named
-   in Section 8—absolute fit, both specificity rules, all four support metrics,
-   coherence, and availability robustness—conjunctively for a canonical painter-fidelity claim;
-   contraction and prompt movement remain mandatory nongating outcomes.
+2. Report target fit/equivalence; the full panel-wide hard-neighbor specificity vector; one
+   simulation-selected primary support pair; the alternative neighborhood estimators as
+   sensitivity; content coherence; availability; copying; contraction; and prompt movement
+   separately. Any conjunctive decision is a prospectively simulated project rule, not a
+   literature-validated universal metric. Contraction and prompt movement remain mandatory
+   nongating outcomes.
 3. Use work-, painter-, prompt-, and seed-level clustered or hierarchical uncertainty. Pairwise
    distances are not independent observations.
 4. Report feature-family disagreement. A formal coordinate, CSD, and CLIP may disagree because
