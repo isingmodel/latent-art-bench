@@ -1,7 +1,8 @@
 # Documentation index
 
-Use this index to distinguish current guidance from immutable study history. Files are kept in
-their original locations because many paths and hashes are evidence-bound.
+Use this index to distinguish current guidance from immutable study history. Unbound legacy
+planning documents are under `docs/old/`; frozen and hash-bound pilot records retain their original
+paths because those paths are evidence identities.
 
 ## Current mutable guidance
 
@@ -17,24 +18,31 @@ their original locations because many paths and hashes are evidence-bound.
 
 - [Painter-feature relaunch overview](../studies/painter_features_v1/README.md)
 - [**Canonical painter-feature measurement protocol**](../studies/painter_features_v1/MEASUREMENT_PROTOCOL.md)
+- [Collection execution records](../studies/painter_features_v1/execution/README.md) — subordinate,
+  hash-bound instantiations of the canonical method, not another plan.
+- [Collection plan and result report](../reports/painter_features_v1/COLLECTION_REPORT.md)
+- [Collection result evidence](../reports/painter_features_v1/evidence/collection_result.json)
+- [Independent collection-result audit](../reports/painter_features_v1/evidence/collection_result_audit.json)
 - [Painter-feature literature review](../literature_reviews/README.md)
 - [Literature evidence synthesis](../literature_reviews/SYNTHESIS.md)
 - [Painter-feature method decisions](../literature_reviews/METHOD_DECISIONS.md)
 - [Relaunch process and result report](../reports/painter_features_v1/RESEARCH_REPORT.md)
 
-Only the measurement protocol is the active plan. The overview is navigation, and the
-literature and report files are supporting evidence rather than alternate protocols.
+Only the measurement protocol is the active method plan. Execution freezes instantiate a narrow
+operation, while the overview, literature, and report files are navigation or supporting evidence
+rather than alternate protocols.
 
 ## Legacy research references (noncanonical)
 
-- [Research proposal](RESEARCH_PROPOSAL.md)
-- [Benchmark specification](BENCHMARK_SPECIFICATION.md)
-- [Corpus design](CORPUS_DESIGN.md)
-- [Legacy validation protocol](VALIDATION_PROTOCOL.md)
-- [Chromatic method](CHROMATIC_METHOD.md)
+- [Legacy archive index](old/README.md)
+- [Research proposal](old/RESEARCH_PROPOSAL.md)
+- [Benchmark specification](old/BENCHMARK_SPECIFICATION.md)
+- [Corpus design](old/CORPUS_DESIGN.md)
+- [Legacy validation protocol](old/VALIDATION_PROTOCOL.md)
+- [Chromatic method](old/CHROMATIC_METHOD.md)
 - [Learned-formal feasibility](LEARNED_FORMAL_FEASIBILITY.md)
-- [Source-method matrix](SOURCE_METHOD_MATRIX.md)
-- [References](REFERENCES.md)
+- [Source-method matrix](old/SOURCE_METHOD_MATRIX.md)
+- [References](old/REFERENCES.md)
 
 These documents describe earlier versions of the broader research program. They may supply
 background or provenance, but they are not part of the Painter Features v1 plan and must not
@@ -44,6 +52,7 @@ pilots; consult [STATUS.md](STATUS.md) before treating a command as current.
 ## Archived painter-feature predecessor plans
 
 - [Archive index](../studies/painter_features_v1/old/README.md)
+- [Rejected-execution index](../studies/painter_features_v1/old/rejected/README.md)
 - [Superseded validation protocol](../studies/painter_features_v1/old/VALIDATION_PROTOCOL.md)
 - [Superseded analysis and claims policy](../studies/painter_features_v1/old/ANALYSIS_AND_CLAIMS.md)
 
@@ -66,7 +75,7 @@ artwork bytes had been opened was true at Freeze A1, not at current `main`.
 ## Historical pilot results
 
 - [Pilot 2 protocol](PILOT_2_PROTOCOL.md)
-- [Pilot 2 failure investigation](PILOT_2_FAILURE_INVESTIGATION.md)
+- [Pilot 2 failure investigation](old/PILOT_2_FAILURE_INVESTIGATION.md)
 - [Pilot 2 result](../reports/pilot_2/REPORT.md)
 - [Pilot 2 artifact index](../reports/pilot_2/artifact_index.json)
 - [Pilot 1 result](../reports/pilot_1/REPORT.md)
@@ -75,12 +84,13 @@ artwork bytes had been opened was true at Freeze A1, not at current `main`.
 
 ## Historical planning commentary
 
-- [Implementation-status snapshot](IMPLEMENTATION_STATUS.md)
-- [Post-Pilot-1 roadmap](ROADMAP.md)
-- [Project decisions](DECISIONS.md)
-- [Artist selection](ARTIST_SELECTION.md)
-- [Failure investigation](FAILURE_INVESTIGATION.md)
-- [Image API testing](IMAGE_API_TESTING.md)
+- [Implementation-status snapshot](old/IMPLEMENTATION_STATUS.md)
+- [Post-Pilot-1 roadmap](old/ROADMAP.md)
+- [Project decisions](old/DECISIONS.md)
+- [Artist selection](old/ARTIST_SELECTION.md)
+- [Failure investigation](old/FAILURE_INVESTIGATION.md)
+- [Image API testing](old/IMAGE_API_TESTING.md)
 
-These files retain useful rationale but are not current operational status. They are indexed
-rather than moved so historical links and content identities remain intact.
+These files retain useful rationale but are not current operational status. They were moved as
+content-preserving Git renames because no committed evidence bound their literal paths. Frozen
+Pilot 2/3 protocols, learned-formal feasibility, and historical pilot namespaces were not moved.

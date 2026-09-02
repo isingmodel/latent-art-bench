@@ -2,7 +2,7 @@
 
 > **Historical roadmap:** this document predates Pilot 3 execution and does not describe the
 > current next action. Pilot 3's official-Met R2 cohort is closed after a terminal HTTP 403
-> metadata response. See [STATUS.md](STATUS.md) for the reboot boundary.
+> metadata response. See [STATUS.md](../STATUS.md) for the reboot boundary.
 
 ## Final pilot_1 disposition
 
@@ -27,8 +27,8 @@ exists only because generated-feature preparation and analysis used explicit tes
 bypasses. All 16 specificity reference-resampling ranges include zero. The ranges omit
 generator and prompt-cluster uncertainty and are not inferential confidence intervals.
 
-Authoritative results: [final report](../reports/pilot_1/REPORT.md),
-[evidence anchor](../reports/pilot_1/EVIDENCE.md), and
+Authoritative results: [final report](../../reports/pilot_1/REPORT.md),
+[evidence anchor](../../reports/pilot_1/EVIDENCE.md), and
 [failure investigation](FAILURE_INVESTIGATION.md).
 
 The clean-checkout record is intentionally compact. Raw real and generated media,
@@ -76,7 +76,7 @@ identity, or a systematic requested-size mismatch.
 ## Locked final-artifact sequence
 
 The exact finalization sequence for the existing generation ledger is in the
-[README](../README.md#development-pilot-commands). Its order is part of the contract:
+[README](../../README.md#development-pilot-commands). Its order is part of the contract:
 
 1. verify every pinned VAE tensor against the recovered full checkpoint;
 2. rerun the final chromatic and learned-formal evaluations;
@@ -253,8 +253,8 @@ final `pilot_2` outcomes rather than replacing them. It should decide prospectiv
 the confirmatory estimand handles moderation missingness, obtain authoritative
 executed-model evidence before making model claims, and address the still-unmet Lee and
 independent-digitization work before broadening scope. The final
-[requested-label report](../reports/pilot_2/REPORT.md),
-[frozen protocol](PILOT_2_PROTOCOL.md), and
+[requested-label report](../../reports/pilot_2/REPORT.md),
+[frozen protocol](../PILOT_2_PROTOCOL.md), and
 [failure investigation](PILOT_2_FAILURE_INVESTIGATION.md) are the authoritative
 `pilot_2` records.
 
@@ -289,7 +289,7 @@ The execution order is binding:
 5. execute all 320 scheduled requests without replacement or visual selection, extract the
    frozen features, run the registered two-part analysis, and publish the full ledger/report.
 
-The canonical design and hard stops are in the [Pilot 3 protocol](PILOT_3_PROTOCOL.md).
+The canonical design and hard stops are in the [Pilot 3 protocol](../PILOT_3_PROTOCOL.md).
 
 ## Explicitly outside pilot_2's core
 

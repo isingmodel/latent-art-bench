@@ -1,0 +1,59 @@
+{
+  "artifacts_checked": [
+    {
+      "path": "studies/painter_features_v1/execution/COLLECTION_FREEZE_3.json",
+      "sha256": "ff8ddbc4bd0aced57292543955b901f39c6b5224dfd8b72874c14872c27ea59e"
+    },
+    {
+      "path": "reports/painter_features_v1/evidence/collection_freeze_3_review.json",
+      "sha256": "839134d19c8a96de94923b8a604051e77fd1adbee85188b15a1dae0057d637ec"
+    },
+    {
+      "path": "studies/painter_features_v1/execution/COLLECTION_FREEZE_3_SEAL.json",
+      "sha256": "808eeca223040a386a4e5adfb4ddb1cfa44a7e147969ccc2440e1981a627a444"
+    },
+    {
+      "path": "data/manifests/painter_features_v1/acquisition_intents.jsonl",
+      "sha256": "615e64eb3c27cdcbfe3df0f885048a795e4041e9485d3b5f6290b263d5d0e53a"
+    },
+    {
+      "path": "data/manifests/painter_features_v1/acquisition_attempts.jsonl",
+      "sha256": "50aa289a68dafb8cd3cb631c9e42823cf1dad3c8bc7a5f106cc580624eeda1ab"
+    },
+    {
+      "path": "data/manifests/painter_features_v1/acquired_files.jsonl",
+      "sha256": "0470c4b7c7c4908e01589229c13d3f1c5079318b16fc3c241c81016b0bd9f199"
+    },
+    {
+      "path": "reports/painter_features_v1/evidence/collection_result.json",
+      "sha256": "00e9ccd676e64d544cae9dc83013926a91802245b43955182c108c00dd9ddc51"
+    },
+    {
+      "path": "reports/painter_features_v1/COLLECTION_REPORT.md",
+      "sha256": "42905d1615cb7a05422960c34757158eac9966812a4cb56226e247dd3a8b0522"
+    }
+  ],
+  "audit_completed_at": "2026-09-01T22:52:07Z",
+  "decision": "APPROVE",
+  "findings": [],
+  "independence": "Read-only skeptical subagent; no edits and no network access.",
+  "raw_verification": {
+    "decoded_file_count": 4,
+    "event_chain_count": 3,
+    "event_count": 12,
+    "files_outside_raw_scope": 0,
+    "historical_pixel_denylist_overlap": 0,
+    "total_bytes": 1367595
+  },
+  "schema_version": "painter-features-v1-collection-result-audit/1.0",
+  "verified_claims": [
+    "all freeze, review, seal, frame, and runtime bindings match",
+    "all intent-terminal-acquired chains and one-to-one links are valid",
+    "all four raw files match their content-addressed paths, byte counts, SHA-256, JPEG/RGB decode metadata, geometry, ICC, EXIF, and XMP records",
+    "the collection contains no normalized, feature, model, generated, mask, or analysis artifact",
+    "four requests yielded four admissions with no failure, retry, redirect, or replacement",
+    "all 14 unbound legacy documents and two superseded reviews are preserved in old archives",
+    "all frozen and path-bound Pilot artifacts remain at their historical paths",
+    "152 local Markdown links resolve"
+  ]
+}

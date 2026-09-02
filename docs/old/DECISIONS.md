@@ -1,7 +1,7 @@
 # Project Decisions
 
 > **Historical decision log:** later Pilot 2 and Pilot 3 records supersede this file's
-> “Current evidence” section. See [STATUS.md](STATUS.md) for current operational state. The
+> “Current evidence” section. See [STATUS.md](../STATUS.md) for current operational state. The
 > numbered decisions remain in place as research history rather than being renumbered or
 > rewritten after results.
 
@@ -49,8 +49,8 @@ They remain historical unless a later pilot record or the current status page su
 
 ## Current evidence
 
-The final disposition is recorded in the [pilot_1 report](../reports/pilot_1/REPORT.md),
-the [content-addressed evidence anchor](../reports/pilot_1/EVIDENCE.md), and the
+The final disposition is recorded in the [pilot_1 report](../../reports/pilot_1/REPORT.md),
+the [content-addressed evidence anchor](../../reports/pilot_1/EVIDENCE.md), and the
 [failure investigation and way forward](FAILURE_INVESTIGATION.md). Where an earlier
 design intention conflicts with those final artifacts, the failed cards and closed gate
 govern.

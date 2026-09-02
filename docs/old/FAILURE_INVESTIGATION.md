@@ -15,13 +15,13 @@ better. The completed generation path is an engineering traversal only:
   the upstream service actually executed.
 
 The durable failure evidence is the
-[chromatic qualification result](../reports/pilot_1/evidence/chromatic_qualification.json),
+[chromatic qualification result](../../reports/pilot_1/evidence/chromatic_qualification.json),
 the
-[learned-formal qualification result](../reports/pilot_1/evidence/learned_formal_qualification.json),
+[learned-formal qualification result](../../reports/pilot_1/evidence/learned_formal_qualification.json),
 the
-[model-tensor verification](../reports/pilot_1/evidence/learned_formal_model_verification.json),
+[model-tensor verification](../../reports/pilot_1/evidence/learned_formal_model_verification.json),
 and the
-[generation-manifest attestation](../reports/pilot_1/evidence/generation_manifest_attestation.json).
+[generation-manifest attestation](../../reports/pilot_1/evidence/generation_manifest_attestation.json).
 `pilot_0` remains a separate, earlier failed pilot. Nothing learned from either pilot may
 be used to relabel its frozen outcome.
 

@@ -1,0 +1,80 @@
+{
+  "audit_date": "2026-09-02",
+  "candidate_results": [
+    {
+      "asset_uuid": "973f15d7-f2ab-4002-af7a-19fdd269453c",
+      "physical_work_id": "work-nga-155712",
+      "prior_metadata_exposure": true,
+      "prior_pixel_exposure_located": false,
+      "scientific_eligibility": "conditional_figure_in_outdoor_place"
+    },
+    {
+      "asset_uuid": "7dbe4a11-dbd7-404a-a199-dfb5c5ddc802",
+      "physical_work_id": "work-nga-46653",
+      "prior_metadata_exposure": true,
+      "prior_pixel_exposure_located": false,
+      "scientific_eligibility": "conditional_figure_in_outdoor_place"
+    },
+    {
+      "asset_uuid": "3f119583-f306-4b54-a3c4-e2a1978a3cf7",
+      "physical_work_id": "work-nga-52197",
+      "prior_metadata_exposure": true,
+      "prior_pixel_exposure_located": false,
+      "scientific_eligibility": "eligible_populated_outdoor_place"
+    },
+    {
+      "asset_uuid": "9fc88734-2f9a-4da8-8d46-2b570b201223",
+      "physical_work_id": "work-nga-52189",
+      "prior_metadata_exposure": true,
+      "prior_pixel_exposure_located": false,
+      "scientific_eligibility": "eligible_populated_outdoor_place"
+    }
+  ],
+  "caveat": "The audit establishes repository non-exposure by normalized identifier, asset UUID, URL, local filename, and historical records. Before acquisition there is no byte or perceptual hash, so an unrecorded cross-provider visual duplicate cannot be excluded.",
+  "denylist": {
+    "physical_work_count": 118,
+    "path": "data/manifests/painter_features_v1/historical_pixel_exposure_denylist.jsonl",
+    "sha256": "e2e4ba8b2941292bf260cb6ff2f37475a054d801e38cf5e4b2e3e367b0e1db55",
+    "sorted_work_id_lines_sha256": "7d5da01e8314c15a07af531db98b34342565361b53c89250c306d98a06304ab6"
+  },
+  "identity_normalization": "provider/object identifiers were compared as work-{provider}-{object_id}; exact asset UUIDs, asset URLs, titles, ignored source filenames, and recorded hashes were also searched",
+  "inputs": [
+    {
+      "path": "configs/pilot_0/candidate_work_audit.jsonl",
+      "role": "metadata exposure and candidate source",
+      "sha256": "0c258e7aacddcf4aa07d469d97244cc29d77854ac872d38b30c58faf04c79c5d"
+    },
+    {
+      "path": "configs/pilot_0/manifests/canonical_works.jsonl",
+      "role": "historical selected-work identities",
+      "sha256": "0e3b15cbf0de28cf15e3d2e5430c88aea9ee68283b392aacbc66e7dec9a52f3a"
+    },
+    {
+      "path": "configs/pilot_0/manifests/reproductions.jsonl",
+      "role": "historical asset URLs and hashes",
+      "sha256": "3908a3eab4db54c8954ad4a82a50d12699517cfca800c983b79069d0afbd1f62"
+    },
+    {
+      "path": "configs/pilot_2/manifests/real_images.jsonl",
+      "role": "Pilot 2 pixel and feature exposure",
+      "sha256": "0c8fc83546c02521bf90e71b88efb5cd202609d0f912dbbd3a868018f6160e4f"
+    },
+    {
+      "path": "data/manifests/pilot_3/corpus_selection.jsonl",
+      "role": "Pilot 3 selected-work identities",
+      "sha256": "269369976d04431fccd1bc8b60ec7e49733d8a8537a3e38f3a974d61dca3e80a"
+    },
+    {
+      "path": "artifacts/pilot_3/development_acquisitions.jsonl",
+      "role": "Pilot 3 acquired-work identities and hashes",
+      "sha256": "5fa3f18b8a373fd112f7f2f3a5e7b2b5b40895d943f2e0c3f64a3f0547b54816"
+    },
+    {
+      "path": "data/pilot_0/source",
+      "role": "ignored local source-file identity inventory",
+      "tracked": false
+    }
+  ],
+  "result": "four_candidates_metadata_exposed_but_no_historical_pixels_located",
+  "schema_version": "painter-features-v1-historical-exposure-audit/1.0"
+}

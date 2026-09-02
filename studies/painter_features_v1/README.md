@@ -1,7 +1,8 @@
 # Painter Features v1
 
-Status: standalone prospective measurement method; not execution-frozen; no artwork acquisition,
-feature extraction, model download, external-set access, or image generation authorized
+Status: standalone prospective measurement method; preservation-only Collection Freeze 3 complete
+with 4/4 files admitted; no feature extraction, normalization, model access, external-set access,
+human task, image generation, or painter claim authorized
 
 ## Canonical research plan
 
@@ -24,18 +25,28 @@ The [`literature review package`](../../literature_reviews/) is the non-normativ
 The [`research report`](../../reports/painter_features_v1/RESEARCH_REPORT.md) records how the
 earlier design and review process developed. Neither document overrides the canonical protocol.
 
+## Completed subordinate collection
+
+[`execution/COLLECTION_FREEZE_3.json`](execution/COLLECTION_FREEZE_3.json) is an independently
+reviewed, hash-bound instantiation for acquisition and preservation only. It collected four exact
+NGA deliveries into the ignored `research_workspace/painter_features_v1/` boundary and wrote
+compact chained manifests under `data/manifests/painter_features_v1/`.
+
+The [`collection report`](../../reports/painter_features_v1/COLLECTION_REPORT.md) gives the full
+plan, two rejected preflight designs, exact results, integrity checks, and claim ceiling. This
+execution object and report are subordinate evidence; neither is a second canonical method plan.
+
 ## Archived predecessor documents
 
-Superseded validation and analysis documents are under [`old/`](old/). They remain available for
-review provenance only and are explicitly noncanonical. Do not combine their clauses with version
-2.0 or use them to fill a perceived gap.
+Superseded validation and analysis documents and rejected execution freezes are under
+[`old/`](old/). They remain available for review provenance only and are explicitly noncanonical.
+Do not combine their clauses with version 2.0 or use them to fill a perceived gap.
 
-## Next required artifact
+## Next required research decision
 
-The next research artifact is one independently reviewed execution freeze satisfying all 19
-items in Section 12 of the canonical protocol. It must name the painters, works, rights, workflows,
-common-support tables and weights, reproduction incidence and rank, partitions, software
-artifacts, feature parameters, simulations, SESOIs, multiplicity tree, missingness actions, human
-task, external-opening rule, output schemas, and terminal failure actions.
-
-Until that exact object is frozen and approved, the project remains design-only.
+The four collected files are below the measurement protocol's support floor and have one provider
+workflow, unknown capture ancestry, and no independent reproduction pairs. The next defensible
+step is a metadata/rights/capture-ancestry census capable of supporting a full common-support
+design. Any normalization, visual inspection for scientific outcomes, feature extraction, or
+partition assignment requires a new independently reviewed execution freeze satisfying the
+applicable Section 12 items. Collection completion alone does not authorize measurement.

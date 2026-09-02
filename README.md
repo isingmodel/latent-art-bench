@@ -5,11 +5,10 @@ measurable distributions associated with artists, rather than only recognizable 
 prototypes. It combines deterministic preprocessing, hand-designed and learned image
 features, real-only qualification gates, provenance checks, and frozen study workflows.
 
-> **Reboot status (2026-09-01):** the Pilot 3 official-Met R2 cohort closed at its first
-> metadata request. That request returned HTTP 403 and the prospective R2 protocol forbids
-> retry or fallback after a terminal protocol failure. As a reboot governance decision, this
-> baseline freezes Pilots 0–3 as history and requires further work to use a new versioned
-> namespace. See [current status](docs/STATUS.md) before changing code or running a workflow.
+> **Reboot status (2026-09-02):** Pilots 0–3 remain frozen history. Painter Features v1 has one
+> canonical measurement protocol and has completed a reviewed preservation-only collection of
+> four NGA files. No painter feature has been extracted or established. See
+> [current status](docs/STATUS.md) before changing code or running a workflow.
 
 ## Current disposition
 
@@ -19,7 +18,7 @@ features, real-only qualification gates, provenance checks, and frozen study wor
 | Pilot 1 | Engineering traversal complete; scientific gate closed | [Pilot 1 report](reports/pilot_1/REPORT.md) |
 | Pilot 2 | Execution complete; primary tests not run because both requested-label feature-pair grids were incomplete; decision `REDESIGN` | [Pilot 2 report](reports/pilot_2/REPORT.md) |
 | Pilot 3 | Freeze A1 complete; 20 AIC development works acquired; Met R2 cohort closed on HTTP 403 before Met image acquisition | [Reboot status](docs/STATUS.md) |
-| Painter Features v1 | Standalone method protocol complete; execution freeze not created; no empirical operation authorized | [Canonical measurement protocol](studies/painter_features_v1/MEASUREMENT_PROTOCOL.md) |
+| Painter Features v1 | Canonical method complete; Collection Freeze 3 acquired and verified 4/4 NGA files; feature measurement remains unauthorized | [Collection report](reports/painter_features_v1/COLLECTION_REPORT.md) |
 
 No Pilot 3 development A-vectors, repeat probes, external-holdout access, image-generation
 transport qualification, or analytic generation exist.
@@ -30,13 +29,14 @@ Read these in order:
 
 1. [Current status and reboot boundary](docs/STATUS.md)
 2. [Canonical Painter Features v1 measurement protocol](studies/painter_features_v1/MEASUREMENT_PROTOCOL.md)
-3. [Architecture map](docs/ARCHITECTURE.md)
-4. [Documentation index](docs/INDEX.md)
-5. [Artifact retention policy](docs/ARTIFACTS.md)
-6. [Agent guidance](AGENTS.md)
+3. [Painter Features v1 collection report](reports/painter_features_v1/COLLECTION_REPORT.md)
+4. [Architecture map](docs/ARCHITECTURE.md)
+5. [Documentation index](docs/INDEX.md)
+6. [Artifact retention policy](docs/ARTIFACTS.md)
+7. [Agent guidance](AGENTS.md)
 
 The canonical Painter Features v1 protocol is the active research plan. The older
-[research proposal](docs/RESEARCH_PROPOSAL.md), frozen protocols, and historical result files are
+[research proposal](docs/old/RESEARCH_PROPOSAL.md), frozen protocols, and historical result files are
 background or evidence snapshots, not alternative current plans.
 
 ## Development setup
@@ -68,12 +68,12 @@ one of those commands green.
 | `tests/` | Unit, integration, and pilot-specific offline tests |
 | `configs/` | Versioned study inputs; see [config index](configs/README.md) |
 | `studies/` | Versioned reboot studies; each active study names one canonical plan |
-| `docs/` | Mutable indexes/status plus frozen protocols and method references |
+| `docs/` | Mutable indexes/status plus fixed-path frozen protocols; unbound legacy plans are in `docs/old/` |
 | `reports/` | Compact study results and committed evidence |
 | `data/manifests/` | Compact tracked manifests; each record retains its own rights boundary |
 | `artifacts/` | Mixed historical receipts and ignored local research bytes |
 | `outputs/` | Ignored generated media and run outputs |
-| `scripts/` | Narrow legacy import/render/metadata utilities |
+| `scripts/` | Narrow acquisition, legacy import, render, and metadata utilities |
 
 The command-line entry points are:
 
@@ -82,6 +82,10 @@ uv run --locked latent-art-bench --help
 uv run --locked latent-art-bench pilot2 --help
 uv run --locked latent-art-bench pilot3 --help
 ```
+
+Review provenance superseded by the canonical Painter Features v1 method is archived under
+`reports/painter_features_v1/old/`. Pilot 0–3 namespaces remain at their historical paths because
+many are hash- and path-bound evidence; the `old/` cleanup rule does not move them.
 
 The root command group still exposes historical Pilot 0/1 commands. Their presence does not
 make them the active workflow.

@@ -1,8 +1,9 @@
 # Current status and reboot boundary
 
-This is the mutable operational status page for LatentArtBench. It summarizes committed state
-through `612d09e` (`Record terminal Met R2 metadata denial`, 2026-09-01). Frozen protocols,
-reports, indexes, and append-only ledgers remain the authority for their own historical facts.
+This is the mutable operational status page for LatentArtBench. It records the current workspace
+state after the Painter Features v1 collection on 2026-09-02; the base revision at execution was
+`82f6aac`. Frozen protocols, reports, indexes, and append-only ledgers remain the authority for
+their own historical facts.
 
 ## Outcome
 
@@ -37,18 +38,44 @@ The design package contains:
 - separately named learned-appearance and contextual diagnostics;
 - independent-reproduction, perturbation, leave-source-out, leave-content-out, human, and
   external-confirmation gates; and
-- a 19-item checklist for the next execution-freeze artifact.
+- a 19-item checklist for each scope-specific execution-freeze artifact.
 
-The former standalone validation and analysis documents are archived under
-`studies/painter_features_v1/old/` as noncanonical review provenance. They must not be combined
-with or used to relax protocol 2.0.
+The former standalone validation and analysis documents, rejected collection freezes, and earlier
+review provenance are archived under Painter Features v1 `old/` directories. They must not be
+combined with or used to relax protocol 2.0.
 
-This is a prospective design result, not execution authorization. No new artwork was acquired,
-no historical or external holdout was opened, no feature was extracted, no model weight was
-downloaded, and no image was generated. A new frozen execution protocol must specify painters,
-crossed sources/content/phases/media, independent reproductions, rights, precision simulations,
-thresholds, artifacts, partitions, decision rules, and terminal actions before any of those
-operations.
+### Collection Freeze 3
+
+One narrow empirical operation is complete. Independently reviewed Collection Freeze 3 authorized
+preservation-only acquisition of four exact NGA files: two Pissarro and two Monet works crossed
+over `figure_in_outdoor_place` and `populated_garden_or_park` metadata strata.
+
+- A normalized denylist records 118 historically pixel-exposed physical works.
+- Two earlier designs were rejected before network access: Freeze 1 mislabeled eight old works as
+  fresh; Freeze 2 lacked complete raw-file, intent, and delivery-geometry validation.
+- Freeze 3 was approved at SHA-256
+  `ff8ddbc4bd0aced57292543955b901f39c6b5224dfd8b72874c14872c27ea59e`.
+- Four durable intents produced four first-attempt HTTP 200 JPEG admissions.
+- There were no failures, retries, redirects, replacements, or fallback requests.
+- The four ignored raw files total 1,367,595 bytes. All re-hash correctly, decode as RGB JPEG,
+  carry embedded sRGB ICC profiles, and match the frozen geometry tolerance.
+- A second invocation verified the chains and raw bytes and sent no request.
+
+The result is a corpus-preservation fact, not a painter-feature result. There is one work per
+painter-content cell, one provider workflow, no independent capture pair, unknown capture
+ancestry, and no assigned analysis partition. No normalization, feature extraction, visual
+outcome inspection, model access, human task, external access, or generation occurred.
+
+Current records:
+
+- `studies/painter_features_v1/execution/COLLECTION_FREEZE_3.json`
+- `studies/painter_features_v1/execution/COLLECTION_FREEZE_3_SEAL.json`
+- `data/manifests/painter_features_v1/collection_frame.jsonl`
+- `data/manifests/painter_features_v1/acquisition_intents.jsonl`
+- `data/manifests/painter_features_v1/acquisition_attempts.jsonl`
+- `data/manifests/painter_features_v1/acquired_files.jsonl`
+- `reports/painter_features_v1/evidence/collection_result.json`
+- `reports/painter_features_v1/COLLECTION_REPORT.md`
 
 ## What exists
 
@@ -122,11 +149,11 @@ painter-feature measurement study. Good future work may reuse shared determinist
 preprocessing, provenance, and test utilities, but it must not inherit a closed acquisition or
 generation authorization.
 
-The next authorized research artifact is one real-only execution freeze satisfying all 19 items
-in Section 12 of the canonical Painter Features v1 measurement protocol. Do not combine that
-qualification execution with a generated-image study. Any approved execution should use
-repository-relative paths, keep mutable status separate from immutable evidence, and put all
-large runtime bytes under one clearly ignored workspace boundary.
+The next defensible research step is a metadata/rights/capture-ancestry census large enough to
+support a full common-support design. A future real-only measurement freeze must satisfy all
+applicable items in Section 12, including adequate cells, independent reproductions, partitions,
+feature identities, simulations, SESOIs, multiplicity, and missingness actions. Do not treat
+Collection Freeze 3 as that measurement authorization or combine it with a generated-image study.
 
 ## Explicitly closed actions
 
@@ -136,5 +163,7 @@ Until a new protocol is reviewed and committed, do not:
 - switch to a Met search endpoint, alternate image field, Commons, browser, or other fallback;
 - acquire the sealed external holdout;
 - extract Pilot 3 features or fit a Phase-A model from an incomplete development cohort;
+- normalize, visually outcome-screen, partition for analysis, or extract features from the four
+  Painter Features v1 collection files without a new reviewed measurement freeze;
 - qualify generation transport or send image-generation requests; or
 - regenerate, rewrite, or move frozen/hash-bound evidence for cosmetic organization.

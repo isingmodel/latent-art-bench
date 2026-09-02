@@ -99,7 +99,7 @@ The v2 card is `fail`. The exact lossless-processing and direct-resolution resul
 
 No claim extends to arbitrary JPEG recompression, unrepresented digitization pipelines, upsampling, physical artworks, broad source invariance, or Lee et al.'s reported resolution collapse. Per-source artist performance varied materially and not every held-source fold cleared the frozen minimum, so the pooled score is a limited construct diagnostic rather than artist recognition.
 
-The complete current result is [the `pilot_1` chromatic qualification evidence](../reports/pilot_1/evidence/chromatic_qualification.json). Its protocol is `lee2018-chromatic-qualification-v3`; the evidence carries the protocol, feature-config, result, probe, and distribution hashes needed to audit the decision.
+The complete current result is [the `pilot_1` chromatic qualification evidence](../../reports/pilot_1/evidence/chromatic_qualification.json). Its protocol is `lee2018-chromatic-qualification-v3`; the evidence carries the protocol, feature-config, result, probe, and distribution hashes needed to audit the decision.
 
 ## Proper next test
 

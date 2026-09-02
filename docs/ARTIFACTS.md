@@ -9,6 +9,8 @@ file is disposable.
 Preserve and review normally:
 
 - source, tests, configs, documentation, and compact reports;
+- Painter Features v1 frames, denylist, chained collection ledgers, freeze/review/seal records,
+  and compact result evidence;
 - `data/manifests/pilot_3/`;
 - committed JSON/JSONL ledgers directly under `artifacts/pilot_3/`;
 - the 320 Pilot 2 per-attempt receipt sidecars under
@@ -28,11 +30,13 @@ Archive before removing:
 - `data/pilot_0/source/` museum images;
 - `artifacts/pilot_3/real_raw/`, `real_normalized/`, and `met_r2/`;
 - `artifacts/models/sd2-base-vae/` pinned model weights;
-- `artifacts/sources/kim-art-history/` pinned source checkout; and
-- `tmp/pdfs/`, which legacy Pilot 3 Lee-replication code still addresses directly.
+- `artifacts/sources/kim-art-history/` pinned source checkout;
+- `tmp/pdfs/`, which legacy Pilot 3 Lee-replication code still addresses directly; and
+- `research_workspace/painter_features_v1/raw/`, containing four content-addressed NGA JPEG
+  deliveries (1,367,595 bytes) from Collection Freeze 3.
 
-Some of these bytes are copyrighted or expensive to reproduce. Their hashes are committed,
-but the repository does not distribute them.
+Some of these bytes are copyrighted or expensive to reproduce. Their hashes are retained in
+compact evidence, but the repository does not distribute them.
 
 A Git commit or tag preserves only tracked history, not this full evidence graph. Before a
 machine migration or broad local cleanup, create a separate checksum inventory and archive of
@@ -56,8 +60,17 @@ research bytes.
 
 ## Reboot target
 
-New work should stop mixing evidence and runtime data. Prefer one wholly ignored workspace
-root with explicit subdirectories for raw inputs, normalized inputs, models, vectors, outputs,
-caches, and locks. Promote only compact, redistributable manifests and reports into a tracked
-study directory. All recorded paths should be repository-relative or workspace-root-relative,
-not tied to `/Users/fred`.
+Painter Features v1 implements this boundary: all nonredistributed runtime bytes live under the
+ignored `research_workspace/painter_features_v1/` root, while compact manifests, execution
+records, reviews, and reports are tracked. Future operations should add explicit subdirectories for
+normalized inputs, models, vectors, outputs, caches, and locks only when a reviewed freeze
+authorizes them. All recorded paths remain repository-relative or workspace-root-relative.
+
+## Archive layout and fixed-path exceptions
+
+Unbound legacy planning documents are archived under `docs/old/`, and superseded Painter Features
+v1 material is under study/report `old/` directories. These are Git moves, not deletions.
+
+Do not apply that cleanup mechanically to frozen Pilot 2/3 protocols, learned-formal feasibility,
+pilot configs, reports, ledgers, scripts, tests, or ignored evidence. Their literal paths or hashes
+are part of the historical evidence graph and must remain fixed.

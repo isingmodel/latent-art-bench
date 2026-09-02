@@ -3,7 +3,7 @@
 > **Historical snapshot:** the opening section below records the state at Freeze A1 and is no
 > longer current. Pilot 3 later acquired all 20 AIC development works, remediated a
 > preprocessing incident, and closed its official-Met R2 cohort after a terminal HTTP 403
-> metadata response. Use [STATUS.md](STATUS.md) for current operational state. This file is
+> metadata response. Use [STATUS.md](../STATUS.md) for current operational state. This file is
 > retained in place because historical documents and evidence link to it.
 
 ## Current disposition
@@ -27,9 +27,9 @@ remain closed until explicit freeze commits.
 | Generation gate | closed |
 | Next authorized action | commit Freeze A1, then acquire/extract the 40 development works only |
 
-The [Pilot 3 protocol](PILOT_3_PROTOCOL.md),
-[planning report](../reports/pilot_3/PLANNING_REPORT.md), and
-[planning index](../reports/pilot_3/planning_index.json) give the exact claim and I/O
+The [Pilot 3 protocol](../PILOT_3_PROTOCOL.md),
+[planning report](../../reports/pilot_3/PLANNING_REPORT.md), and
+[planning index](../../reports/pilot_3/planning_index.json) give the exact claim and I/O
 boundaries. The assembled package does not authorize pixels until committed, and Freeze A1
 does not authorize the external holdout or generation.
 
@@ -78,10 +78,10 @@ provide authoritative upstream executed-model identity, and no cross-label super
 estimand was registered. The learned-formal qualification pass is a measurement
 precondition; it is not evidence that either generated-output hypothesis passed.
 
-Authoritative `pilot_2` records are the [final report](../reports/pilot_2/REPORT.md),
-[frozen protocol](PILOT_2_PROTOCOL.md),
+Authoritative `pilot_2` records are the [final report](../../reports/pilot_2/REPORT.md),
+[frozen protocol](../PILOT_2_PROTOCOL.md),
 [pilot_2 failure investigation](PILOT_2_FAILURE_INVESTIGATION.md), and
-[artifact index](../reports/pilot_2/artifact_index.json). Principal content identities
+[artifact index](../../reports/pilot_2/artifact_index.json). Principal content identities
 are:
 
 - protocol document: `9237aad13aaa18a6b6c661d5d3d4e97457cbd7950eccf5ff3733c8ecd1af46cf`;
@@ -91,7 +91,7 @@ are:
 - chromatic secondary: `e459dcec8e92ba566df6b4d4e19ccc761b3deb7e8fabf3c62d12f98d89f97977`;
 - artifact-index payload: `846b14b1c7cda5428a9010d7efe682f26c8db0587dba7d2b812403fb5173e026`.
 
-A separate [post-result visual-QC manifest](../reports/pilot_2/visual_qc/manifest.json)
+A separate [post-result visual-QC manifest](../../reports/pilot_2/visual_qc/manifest.json)
 covers all 320 cells in 16 deterministic sheets (315 thumbnails and five refusal
 placeholders). Its semantic SHA-256 is
 `6f883b3942af51afae2def871692014b295c9a39357f7b5a449d1c4e7a7f8457`.
@@ -241,7 +241,7 @@ confidence intervals.
 | Learned formal | `gpt-image-2` | 16 | `96.8956` |
 
 The exact per-cell target-gap and specificity values are reproduced, without promotion
-to scientific results, in the [final report](../reports/pilot_1/REPORT.md#test-only-distribution-diagnostics).
+to scientific results, in the [final report](../../reports/pilot_1/REPORT.md#test-only-distribution-diagnostics).
 
 ### Work-package disposition
 
@@ -264,8 +264,8 @@ decision, not mutation of either completed ledger.
 - Analysis-results SHA-256: `eb9cda2a8fcc4226b1798426635699a8bfbb6b70bd8c1f85823ff7e782129576`
 
 The complete content-addressed ledger is in
-[`reports/pilot_1/EVIDENCE.md`](../reports/pilot_1/EVIDENCE.md). The locked finalization
-command sequence is documented in the [README](../README.md#development-pilot-commands).
+[`reports/pilot_1/EVIDENCE.md`](../../reports/pilot_1/EVIDENCE.md). The locked finalization
+command sequence is documented in the [README](../../README.md#development-pilot-commands).
 
 ### Pilot_1 clean-checkout verification boundary
 

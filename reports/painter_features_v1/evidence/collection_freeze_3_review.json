@@ -1,0 +1,22 @@
+{
+  "approved_scope": "preservation-only acquisition of the four exact Freeze 3 NGA assets; no normalization, feature extraction, visual outcome inspection, model access, human data, external access, generation, or painter claim",
+  "claim_ceiling": "Four exact NGA delivery files may be preserved with provenance and integrity records. No painter feature, digital-derivative reliability, reproduction reliability, workflow transfer, human validity, or external confirmation is established.",
+  "decision": "APPROVE",
+  "findings": [],
+  "review_completed_at": "2026-09-01T22:42:49Z",
+  "review_scope": "All bound hashes and runtime versions; four-candidate historical exposure; paired content labels; sample deficiency; checklist items 01-19; raw preservation; durable intents; request identity; admission geometry; failure and no-resume behavior; review/seal enforcement; manifest fields; and claim ceiling.",
+  "reviewed_design_path": "studies/painter_features_v1/execution/COLLECTION_FREEZE_3.json",
+  "reviewed_design_sha256": "ff8ddbc4bd0aced57292543955b901f39c6b5224dfd8b72874c14872c27ea59e",
+  "reviewer_independence": "The reviewer did not edit artifacts and performed no network access.",
+  "reviewer_role": "independent_professionally_skeptical_methods_reviewer_subagent",
+  "schema_version": "painter-features-v1-collection-review/2.0",
+  "verified_corrections": [
+    "all four works are outside the bound 118-work historical pixel-exposure denylist",
+    "raw paths are revalidated for containment, existence, content-addressed identity, byte count, and SHA-256",
+    "complete status requires one durable intent, one admitted terminal, and one linked acquired record per frozen row",
+    "intents match the frozen GET URL, attempt zero, and no-retry contract",
+    "admission enforces a 1024-pixel long edge and at most 0.002 source-aspect relative error",
+    "capture ancestry is explicitly unknown",
+    "the one-work-per-painter-content-cell deficiency and noninferential ceiling are explicit"
+  ]
+}

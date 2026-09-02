@@ -1,0 +1,38 @@
+{
+  "assumptions": {
+    "attempts": 4,
+    "independent_and_identically_available_for_arithmetic_only": true,
+    "replacement_allowed": false,
+    "required_successes": 4
+  },
+  "availability_scenarios": [
+    {
+      "per_asset_admission_probability": 0.98,
+      "probability_all_four_admitted": 0.92236816
+    },
+    {
+      "per_asset_admission_probability": 0.95,
+      "probability_all_four_admitted": 0.81450625
+    },
+    {
+      "per_asset_admission_probability": 0.9,
+      "probability_all_four_admitted": 0.6561
+    },
+    {
+      "per_asset_admission_probability": 0.8,
+      "probability_all_four_admitted": 0.4096
+    }
+  ],
+  "design": {
+    "artists": 2,
+    "content_cells": 2,
+    "independent_capture_pairs": 0,
+    "physical_works": 4,
+    "provider_workflows": 1,
+    "works_per_artist_content_cell": 1
+  },
+  "interpretation": "The arithmetic quantifies batch-completion fragility only. It is not a power or precision analysis. Even 4/4 admission remains below the canonical protocol's two-work floor per painter-content-workflow-partition cell, has no workflow transfer, and has no independent-capture edge.",
+  "missingness_action": "Any failure closes this four-row batch without retry, fallback, or replacement. The result becomes a partial collection and supports no measurement execution.",
+  "result": "collection_feasibility_only_no_inferential_adequacy",
+  "schema_version": "painter-features-v1-collection-design-simulation/2.0"
+}

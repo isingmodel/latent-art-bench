@@ -25,8 +25,6 @@ ALLOWED_HOST = "api.nga.gov"
 ALLOWED_MIME = "image/jpeg"
 MAX_BYTES = 25 * 1024 * 1024
 MIN_SHORT_EDGE = 512
-EXPECTED_LONG_EDGE = 1024
-MAX_ASPECT_RELATIVE_ERROR = 0.002
 REQUEST_DELAY_SECONDS = 1.0
 
 
@@ -110,9 +108,7 @@ def append_event(path: Path, event: dict[str, Any]) -> dict[str, Any]:
     return payload
 
 
-def inspect_jpeg(
-    content: bytes, expected_source_width: int, expected_source_height: int
-) -> dict[str, Any]:
+def inspect_jpeg(content: bytes) -> dict[str, Any]:
     try:
         with Image.open(io.BytesIO(content)) as image:
             image.load()
@@ -125,20 +121,6 @@ def inspect_jpeg(
                 raise FrozenFailure(
                     "dimension_failure",
                     f"short edge {min(width, height)} is below {MIN_SHORT_EDGE}",
-                )
-            if max(width, height) != EXPECTED_LONG_EDGE:
-                raise FrozenFailure(
-                    "dimension_failure",
-                    f"long edge {max(width, height)} is not {EXPECTED_LONG_EDGE}",
-                )
-            expected_aspect = expected_source_width / expected_source_height
-            observed_aspect = width / height
-            aspect_relative_error = abs(observed_aspect / expected_aspect - 1.0)
-            if aspect_relative_error > MAX_ASPECT_RELATIVE_ERROR:
-                raise FrozenFailure(
-                    "geometry_identity_failure",
-                    "delivered aspect ratio differs from the frozen source geometry: "
-                    f"relative error {aspect_relative_error:.8f}",
                 )
             icc = image.info.get("icc_profile")
             icc_name: str | None = None
@@ -154,9 +136,6 @@ def inspect_jpeg(
                 "decoded_mode": image.mode,
                 "decoded_width": width,
                 "decoded_height": height,
-                "expected_source_width": expected_source_width,
-                "expected_source_height": expected_source_height,
-                "observed_aspect_relative_error": aspect_relative_error,
                 "decoded_bit_depth_per_channel": 8,
                 "declared_color_space": image.mode,
                 "alpha_present": "A" in image.getbands(),
@@ -273,14 +252,7 @@ def validate_freeze(root: Path, seal_path: Path, expected_sha256: str) -> dict[s
         raise ValueError("collection-frame row count differs from the freeze")
     if [row.get("acquisition_sequence") for row in rows] != list(range(1, len(rows) + 1)):
         raise ValueError("collection-frame sequence is not exact and contiguous")
-    for field in (
-        "frame_row_id",
-        "physical_work_id",
-        "reproduction_id",
-        "capture_id",
-        "derivative_family_id",
-        "asset_url",
-    ):
+    for field in ("frame_row_id", "physical_work_id", "derivative_family_id", "asset_url"):
         values = [str(row.get(field)) for row in rows]
         if len(values) != len(set(values)) or "None" in values:
             raise ValueError(f"collection-frame field {field} is missing or duplicated")
@@ -290,10 +262,6 @@ def validate_freeze(root: Path, seal_path: Path, expected_sha256: str) -> dict[s
             raise ValueError(f"unfrozen host or scheme in frame: {row['asset_url']}")
         if row.get("asset_license") != "CC0":
             raise ValueError("collection frame contains a non-CC0 asset")
-        if int(row.get("expected_source_width", 0)) <= 0 or int(
-            row.get("expected_source_height", 0)
-        ) <= 0:
-            raise ValueError("collection frame lacks positive expected source dimensions")
 
     freeze["authorization_seal_sha256"] = expected_sha256
     freeze["design_freeze_sha256"] = seal["design_freeze_sha256"]
@@ -301,16 +269,13 @@ def validate_freeze(root: Path, seal_path: Path, expected_sha256: str) -> dict[s
 
 
 def validate_existing_ledgers(
-    root: Path,
-    workspace: Path,
     intent_path: Path,
     attempt_path: Path,
     acquired_path: Path,
-    frame_by_id: dict[str, dict[str, Any]],
+    frame_ids: set[str],
     seal_sha256: str,
     freeze_sha256: str,
 ) -> bool:
-    frame_ids = set(frame_by_id)
     intents = validate_chain(intent_path)
     terminals = validate_chain(attempt_path)
     acquired = validate_chain(acquired_path)
@@ -343,14 +308,6 @@ def validate_existing_ledgers(
     if set(intent_by_id) - set(terminal_by_id):
         raise RuntimeError("dangling intent exists; the one-shot batch cannot resend")
     for row_id, row in acquired_by_id.items():
-        if row_id not in intent_by_id:
-            raise ValueError(f"acquired row {row_id} lacks a durable pre-request intent")
-        frame_row = frame_by_id[row_id]
-        intent = intent_by_id[row_id]
-        if intent.get("method") != "GET" or intent.get("asset_url") != frame_row["asset_url"]:
-            raise ValueError(f"intent for {row_id} differs from the frozen request")
-        if intent.get("attempt_index") != 0 or intent.get("retry_allowed") is not False:
-            raise ValueError(f"intent for {row_id} differs from the no-retry contract")
         terminal = terminal_by_id.get(row_id)
         if terminal is None or terminal.get("state") != "admitted":
             raise ValueError(f"acquired row {row_id} lacks an admitted terminal")
@@ -358,46 +315,11 @@ def validate_existing_ledgers(
             raise ValueError(f"acquired row {row_id} does not bind its terminal")
         if row.get("raw_sha256") != terminal.get("raw_sha256"):
             raise ValueError(f"acquired row {row_id} and terminal disagree on bytes")
-        if row.get("raw_path") != terminal.get("raw_path"):
-            raise ValueError(f"acquired row {row_id} and terminal disagree on raw path")
-        if row.get("byte_count") != terminal.get("byte_count"):
-            raise ValueError(f"acquired row {row_id} and terminal disagree on byte count")
-        raw_relative = Path(str(row.get("raw_path")))
-        if raw_relative.is_absolute():
-            raise ValueError(f"acquired row {row_id} records an absolute raw path")
-        raw_path = (root / raw_relative).resolve()
-        if not raw_path.is_relative_to(workspace.resolve()):
-            raise ValueError(f"acquired row {row_id} points outside the frozen workspace")
-        if not raw_path.is_file():
-            raise ValueError(f"acquired row {row_id} raw file is missing")
-        if raw_path.stat().st_size != int(row["byte_count"]):
-            raise ValueError(f"acquired row {row_id} raw byte count is invalid")
-        if sha256_file(raw_path) != row["raw_sha256"]:
-            raise ValueError(f"acquired row {row_id} raw SHA-256 is invalid")
-        expected_raw = workspace / "raw" / row["raw_sha256"][:2] / f"{row['raw_sha256']}.jpg"
-        if raw_path != expected_raw.resolve():
-            raise ValueError(f"acquired row {row_id} violates content-addressed path rules")
-        for field in (
-            "artist_id",
-            "physical_work_id",
-            "reproduction_id",
-            "capture_id",
-            "derivative_family_id",
-            "provider_workflow_id",
-            "asset_url",
-        ):
-            if row.get(field) != frame_row.get(field):
-                raise ValueError(f"acquired row {row_id} differs from frame field {field}")
 
     if not intents and not terminals and not acquired:
         return False
-    if (
-        set(intent_by_id) == frame_ids
-        and set(terminal_by_id) == frame_ids
-        and set(acquired_by_id) == frame_ids
-        and all(
-            row.get("state") == "admitted" for row in terminal_by_id.values()
-        )
+    if set(terminal_by_id) == frame_ids and set(acquired_by_id) == frame_ids and all(
+        row.get("state") == "admitted" for row in terminal_by_id.values()
     ):
         return True
     raise RuntimeError("partial or failed ledger exists; the one-shot batch cannot resume")
@@ -439,17 +361,10 @@ def collect(root: Path, seal_path: Path, seal_sha256: str) -> int:
     intent_path = manifest_root / "acquisition_intents.jsonl"
     attempt_path = manifest_root / "acquisition_attempts.jsonl"
     acquired_path = manifest_root / "acquired_files.jsonl"
-    frame_by_id = {str(row["frame_row_id"]): row for row in rows}
+    frame_ids = {str(row["frame_row_id"]) for row in rows}
     freeze_sha256 = str(freeze["design_freeze_sha256"])
     if validate_existing_ledgers(
-        root,
-        workspace,
-        intent_path,
-        attempt_path,
-        acquired_path,
-        frame_by_id,
-        seal_sha256,
-        freeze_sha256,
+        intent_path, attempt_path, acquired_path, frame_ids, seal_sha256, freeze_sha256
     ):
         print("all frozen rows are already admitted; no requests sent")
         return 0
@@ -477,7 +392,7 @@ def collect(root: Path, seal_path: Path, seal_sha256: str) -> int:
             request_headers = {
                 "Accept": ALLOWED_MIME,
                 "Accept-Encoding": "identity",
-                "User-Agent": "LatentArtBench-PainterFeaturesV1/collection-freeze-3",
+                "User-Agent": "LatentArtBench-PainterFeaturesV1/collection-freeze-2",
             }
             append_event(
                 intent_path,
@@ -528,11 +443,7 @@ def collect(root: Path, seal_path: Path, seal_sha256: str) -> int:
                     raise FrozenFailure(
                         "byte_limit_failure", f"response exceeds byte limit {MAX_BYTES}"
                     )
-                decoded = inspect_jpeg(
-                    response.content,
-                    int(row["expected_source_width"]),
-                    int(row["expected_source_height"]),
-                )
+                decoded = inspect_jpeg(response.content)
                 digest = sha256_bytes(response.content)
                 try:
                     raw_path = write_content_addressed(workspace, response.content, digest)
@@ -586,9 +497,7 @@ def collect(root: Path, seal_path: Path, seal_sha256: str) -> int:
                         "physical_work_id": row["physical_work_id"],
                         "reproduction_id": row["reproduction_id"],
                         "capture_id": row["capture_id"],
-                        "capture_ancestry_status": row["capture_ancestry_status"],
                         "derivative_family_id": row["derivative_family_id"],
-                        "published_asset_id": row["published_asset_id"],
                         "capture_independence_class": row["capture_independence_class"],
                         "provider_workflow_id": row["provider_workflow_id"],
                         "partition": row["partition"],
@@ -646,7 +555,7 @@ def main() -> int:
     parser.add_argument(
         "--seal",
         type=Path,
-        default=Path("studies/painter_features_v1/execution/COLLECTION_FREEZE_3_SEAL.json"),
+        default=Path("studies/painter_features_v1/execution/COLLECTION_FREEZE_2_SEAL.json"),
     )
     parser.add_argument("--seal-sha256", required=True)
     args = parser.parse_args()

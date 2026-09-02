@@ -12,7 +12,7 @@ evidence matrix, but the path from every viewed result to its final disposition 
 
 | Date | Source | Recorded query or reconstructed traversal | Result handling |
 |---|---|---|---|
-| 2026-09-01 | Existing repository bibliography and frozen source evidence | Reviewed `docs/REFERENCES.md`, `docs/SOURCE_METHOD_MATRIX.md`, `docs/FAILURE_INVESTIGATION.md`, the Kim et al. paper/supplement, and exact source revision `7da12358cf34dad2184f357a048c2cf114b3c4e0` | Seeded anchor set; historical project interpretations are treated as leads and rechecked against primary sources |
+| 2026-09-01 | Existing repository bibliography and frozen source evidence | Reviewed `docs/old/REFERENCES.md`, `docs/old/SOURCE_METHOD_MATRIX.md`, `docs/old/FAILURE_INVESTIGATION.md`, the Kim et al. paper/supplement, and exact source revision `7da12358cf34dad2184f357a048c2cf114b3c4e0` | Seeded anchor set; historical project interpretations are treated as leads and rechecked against primary sources |
 | 2026-09-01 | Web search | `computational analysis paintings visual features color texture composition entropy artist attribution primary research papers` | Screened for primary quantitative-art and measurement papers |
 | 2026-09-01 | Web search | `digitized paintings feature robustness resolution compression color management museum image computational art history paper` | Screened for reproduction, source-domain, and robustness evidence |
 | 2026-09-01 | Web search | `artistic style similarity evaluation diffusion models artist style metric paper CLIP DINO CSD ArtFID` | Screened for generative-style and learned-metric evidence |

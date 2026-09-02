@@ -1,0 +1,15 @@
+{
+  "authorization_scope": "preservation-only acquisition of the four exact Freeze 3 NGA assets; no normalization, feature extraction, visual outcome inspection, model access, human data, external access, generation, or painter claim",
+  "collection_frame_path": "data/manifests/painter_features_v1/collection_frame.jsonl",
+  "collection_frame_sha256": "155f117020befbd965fe74f2fd17ce6dbcfeb0012220faf5056fbd128646ef35",
+  "collector_path": "scripts/collect_painter_features_v1.py",
+  "collector_sha256": "99f918bcfb153c4ea273908211ecea81595a22d39ab789b74eb6bb1186449893",
+  "created_at": "2026-09-01T22:43:08Z",
+  "design_freeze_path": "studies/painter_features_v1/execution/COLLECTION_FREEZE_3.json",
+  "design_freeze_sha256": "ff8ddbc4bd0aced57292543955b901f39c6b5224dfd8b72874c14872c27ea59e",
+  "freeze_id": "painter_features_v1/collection/3.0",
+  "review_record_path": "reports/painter_features_v1/evidence/collection_freeze_3_review.json",
+  "review_record_sha256": "839134d19c8a96de94923b8a604051e77fd1adbee85188b15a1dae0057d637ec",
+  "schema_version": "painter-features-v1-collection-authorization-seal/1.0",
+  "status": "reviewed_and_sealed_for_collection"
+}

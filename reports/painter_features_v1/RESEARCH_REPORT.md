@@ -1,16 +1,22 @@
 # Painter Features v1: relaunch process and research result
 
-Report version: 1.7
+Report version: 1.8
 
-Report date: 2026-09-01
+Report date: 2026-09-02
 
-Study status: literature synthesis and prospective design framework documented; not executable
-or preregistered; no empirical execution authorized
+Study status: literature synthesis and canonical prospective method documented; reviewed
+preservation-only Collection Freeze 3 complete; scientific feature measurement not authorized
 
 Canonical-plan notice: this report is a historical account of the relaunch process and its
 intermediate design decisions. It is supporting evidence, not an active protocol. The sole
 current plan is
 [`studies/painter_features_v1/MEASUREMENT_PROTOCOL.md`](../../studies/painter_features_v1/MEASUREMENT_PROTOCOL.md).
+
+Current-state notice: Sections 1–20 preserve the design-relaunch record and therefore describe
+the design-only state that existed when they were written. On 2026-09-02, a narrow acquisition
+freeze collected four files without opening a feature workflow. Section 21 and the standalone
+[`COLLECTION_REPORT.md`](COLLECTION_REPORT.md) record that later operation and supersede earlier
+statements about current acquisition status; they do not change the canonical method.
 
 ## 1. Executive summary
 
@@ -910,8 +916,8 @@ measure and report.
 
 ### Review and response
 
-- reports/painter_features_v1/SKEPTICAL_REVIEW.md
-- reports/painter_features_v1/RESPONSE_TO_REVIEW.md
+- reports/painter_features_v1/old/SKEPTICAL_REVIEW.md
+- reports/painter_features_v1/old/RESPONSE_TO_REVIEW.md
 
 The exact first-pass review is also preserved in its linked GitHub comment. Section 18 summarizes
 the consolidated findings and their required dispositions in this process report.
@@ -1384,3 +1390,23 @@ provider/capture incidence tables, independent reproductions, exact feature card
 versions, simulations, minima, SESOIs, multiplicity tree, missingness actions, rights, storage,
 and external-confirmation partition. Only after that artifact is independently reviewed and
 committed can acquisition or measurement be considered.
+
+## 21. Collection addendum: 2026-09-02
+
+The next task separated acquisition from measurement and executed only the former. A normalized
+historical audit identified 118 pixel-exposed physical works. Two proposed freezes were rejected
+before network access: the first mistakenly reused eight old Pilot 0/1 works, and the second did
+not completely validate durable intents, stored raw bytes, or returned-image geometry.
+
+An independent skeptical reviewer approved Collection Freeze 3 at exact SHA-256
+`ff8ddbc4bd0aced57292543955b901f39c6b5224dfd8b72874c14872c27ea59e`.
+The approved operation made four exact NGA requests for two Pissarro–Monet content pairs. All four
+were admitted on attempt zero; no retry, redirect, replacement, or fallback occurred. The ignored
+raw corpus contains 1,367,595 bytes, while chained intents, terminals, acquisition rows, hashes,
+rights, decode metadata, and a compact result remain tracked.
+
+This addendum does not convert the design report into an execution plan and does not establish a
+painter feature. The cohort has one work per painter-content cell, one workflow, unknown capture
+ancestry, no independent reproduction pairs, and no analysis partition. Full planning, exact file
+results, review history, artifact rearrangement, and the next research threshold are documented in
+[`COLLECTION_REPORT.md`](COLLECTION_REPORT.md).

@@ -26,7 +26,7 @@ The local proxy validates and forwards the requested `model`, `size`, `quality`,
 
 Normal generation remains blocked while either required measurement card fails. A dry run may write plans without contacting the endpoint. A future unqualified generation run requires `--allow-unqualified-test-generation`, accepts only prompts marked `test_only: true`, and stamps the resulting calls as qualification bypasses.
 
-The 41 retained attempts are older records created before the current failed cards. None has `qualification_bypass: true`, but that historical field does not make them scientifically eligible. The current [generation attestation](../reports/pilot_1/evidence/generation_manifest_attestation.json) establishes the following narrower facts:
+The 41 retained attempts are older records created before the current failed cards. None has `qualification_bypass: true`, but that historical field does not make them scientifically eligible. The current [generation attestation](../../reports/pilot_1/evidence/generation_manifest_attestation.json) establishes the following narrower facts:
 
 - all 41 legacy request identities can be reconstructed from the originating run record, exact prompt-manifest hash, resolved generation configuration, and call fields;
 - all 40 successful output files still match their recorded hashes, formats, and dimensions;
@@ -56,7 +56,7 @@ Every success requested `1024x1024`. Actual outputs used nine non-square sizes, 
 
 This is systematic upstream behavior in the retained grid, not an unresolved-cell failure. More paid retries would neither change the preserved 0/40 result nor prove the executed model identity, so this investigation makes no further image calls. Generation should resume only after a new transport can return auditable executed-model provenance and satisfy a prospectively smoke-tested size contract.
 
-All generated-feature and distribution outputs remain engineering diagnostics. The [complete `pilot_1` report](../reports/pilot_1/REPORT.md) contains the exact 16 named-artist cells and the paired artist-free controls; it forbids scientific style claims and requested-label model rankings.
+All generated-feature and distribution outputs remain engineering diagnostics. The [complete `pilot_1` report](../../reports/pilot_1/REPORT.md) contains the exact 16 named-artist cells and the paired artist-free controls; it forbids scientific style claims and requested-label model rankings.
 
 ## Proxy source provenance
 

@@ -1,0 +1,136 @@
+{
+  "artifact_bindings": {
+    "acquired_files": {
+      "path": "data/manifests/painter_features_v1/acquired_files.jsonl",
+      "sha256": "0470c4b7c7c4908e01589229c13d3f1c5079318b16fc3c241c81016b0bd9f199"
+    },
+    "acquisition_attempts": {
+      "path": "data/manifests/painter_features_v1/acquisition_attempts.jsonl",
+      "sha256": "50aa289a68dafb8cd3cb631c9e42823cf1dad3c8bc7a5f106cc580624eeda1ab"
+    },
+    "acquisition_intents": {
+      "path": "data/manifests/painter_features_v1/acquisition_intents.jsonl",
+      "sha256": "615e64eb3c27cdcbfe3df0f885048a795e4041e9485d3b5f6290b263d5d0e53a"
+    },
+    "authorization_seal": {
+      "path": "studies/painter_features_v1/execution/COLLECTION_FREEZE_3_SEAL.json",
+      "sha256": "808eeca223040a386a4e5adfb4ddb1cfa44a7e147969ccc2440e1981a627a444"
+    },
+    "collection_frame": {
+      "path": "data/manifests/painter_features_v1/collection_frame.jsonl",
+      "sha256": "155f117020befbd965fe74f2fd17ce6dbcfeb0012220faf5056fbd128646ef35"
+    },
+    "design_freeze": {
+      "path": "studies/painter_features_v1/execution/COLLECTION_FREEZE_3.json",
+      "sha256": "ff8ddbc4bd0aced57292543955b901f39c6b5224dfd8b72874c14872c27ea59e"
+    },
+    "independent_review": {
+      "path": "reports/painter_features_v1/evidence/collection_freeze_3_review.json",
+      "sha256": "839134d19c8a96de94923b8a604051e77fd1adbee85188b15a1dae0057d637ec"
+    }
+  },
+  "claim_ceiling": "Complete preservation-only collection of four exact NGA delivery files. No painter feature, reproduction, derivative, transfer, human, or external-confirmation conclusion is authorized.",
+  "collection_finished_at": "2026-09-01T22:43:51.963831Z",
+  "collection_started_at": "2026-09-01T22:43:41.652447Z",
+  "counts": {
+    "acquired_and_admitted": 4,
+    "durable_intents": 4,
+    "failures": 0,
+    "frozen_works": 4,
+    "redirects": 0,
+    "replacements": 0,
+    "requests": 4,
+    "retries": 0,
+    "terminal_records": 4
+  },
+  "files": [
+    {
+      "artist_id": "camille_pissarro",
+      "byte_count": 399996,
+      "content_family": "figure_in_outdoor_place",
+      "decoded_dimensions": [
+        836,
+        1024
+      ],
+      "frame_row_id": "pf1-c3-nga-155712",
+      "icc_profile_present": true,
+      "observed_aspect_relative_error": 0.0002294446361474911,
+      "physical_work_id": "work-nga-155712",
+      "raw_sha256": "8b77a4644b22e76b8107fa73c212bdf770b3fa6f37063fdd9caae301f592096e",
+      "title": "Peasant Girl with a Straw Hat"
+    },
+    {
+      "artist_id": "claude_monet",
+      "byte_count": 306319,
+      "content_family": "figure_in_outdoor_place",
+      "decoded_dimensions": [
+        758,
+        1024
+      ],
+      "frame_row_id": "pf1-c3-nga-46653",
+      "icc_profile_present": true,
+      "observed_aspect_relative_error": 0.0005755036541197356,
+      "physical_work_id": "work-nga-46653",
+      "raw_sha256": "85681ef01c95a55b28f405b2f68014053c318cbb1a47732edf2e8b899be19bf6",
+      "title": "Woman Seated under the Willows"
+    },
+    {
+      "artist_id": "camille_pissarro",
+      "byte_count": 299372,
+      "content_family": "populated_garden_or_park",
+      "decoded_dimensions": [
+        1024,
+        754
+      ],
+      "frame_row_id": "pf1-c3-nga-52197",
+      "icc_profile_present": true,
+      "observed_aspect_relative_error": 0.0006622285734203537,
+      "physical_work_id": "work-nga-52197",
+      "raw_sha256": "acae05ce2197e9ef0e6176753fabcb93b2697d69ad870948f1cd76a1daa16024",
+      "title": "Hampton Court Green"
+    },
+    {
+      "artist_id": "claude_monet",
+      "byte_count": 361908,
+      "content_family": "populated_garden_or_park",
+      "decoded_dimensions": [
+        818,
+        1024
+      ],
+      "frame_row_id": "pf1-c3-nga-52189",
+      "icc_profile_present": true,
+      "observed_aspect_relative_error": 0.0003905911092313419,
+      "physical_work_id": "work-nga-52189",
+      "raw_sha256": "f1ecf527790ba54fdb529c29a2bf52ac817b9def2523363c6b2ff6b1d135d927",
+      "title": "The Artist's Garden at Vétheuil"
+    }
+  ],
+  "integrity_result": {
+    "all_content_addressed_paths_valid": true,
+    "all_event_chains_valid": true,
+    "all_files_decode_as_rgb_jpeg": true,
+    "all_files_have_embedded_srgb_icc": true,
+    "all_files_match_frozen_geometry_tolerance": true,
+    "all_intent_terminal_acquired_links_valid": true,
+    "all_raw_byte_counts_and_sha256_valid": true,
+    "historical_pixel_denylist_overlap": 0,
+    "second_invocation": "verified_no_op_no_requests_sent"
+  },
+  "known_design_deficiencies": [
+    "one work per painter-content cell is below the protocol floor of two per painter-content-workflow-partition cell",
+    "only one provider workflow is present",
+    "there are no independently documented capture pairs",
+    "capture ancestry is unknown",
+    "the four works have prior metadata exposure and no analysis partition has been assigned",
+    "no inferential precision or power criterion is met"
+  ],
+  "raw_workspace": {
+    "committed": false,
+    "ignored": true,
+    "path": "research_workspace/painter_features_v1/raw",
+    "total_bytes": 1367595
+  },
+  "result": "complete_collection_only",
+  "schema_version": "painter-features-v1-collection-result/1.0",
+  "verified_at": "2026-09-01T22:44:30Z"
+}
