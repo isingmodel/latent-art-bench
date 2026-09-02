@@ -75,10 +75,24 @@ The complete, newly authorized R2 retry then:
   hash-chained events and 165 content-addressed raw responses (about 51 MiB locally); and
 - emitted a 3,367-row non-admission candidate manifest and execution receipt.
 
+The first prospective broad no-`P186` census (`pfg-v1-broad-wikidata-no-p186-20260902`) was
+independently approved and executed on 2026-09-02. Monet completed with 1,317 discovery-only rows.
+The next, Sisley, request returned provider HTTP 502 with `text/html`; the census therefore ended
+terminally after five hash-chained events. Its one-shot lock and both raw responses are preserved,
+and it emitted neither a candidate manifest nor an execution receipt. No R1 row is reusable.
+
+The independently reviewed R2 census then repeated the same four exact queries and parser, scope,
+cutoff, and all-or-none terminal rule under a new census ID and disjoint paths. Its only operational
+change was a five-second rather than two-second minimum request interval. The retry gate binds the
+exact R1 config, freeze, review, authorization, terminal ledger/event, one-shot lock, both raw
+responses, absent candidate/receipt, and exact allowed config delta. Neutral quality review found
+and closed two execution-boundary file-binding defects before approval. R2 then completed all four
+requests on first attempt and emitted 3,722 discovery-only item-image rows: 3,543 distinct Wikidata
+item IDs and 3,718 distinct Commons filenames. No image was downloaded and no work was admitted.
+
 Still not completed:
 
-- the broader prospective Wikidata/Commons census without `P186` and the other terminal source
-  routes;
+- the other terminal source routes named in Protocol 2.0;
 - authority, rights, physical-work, capture-family, and image-quality reconciliation;
 - active image acquisition;
 - masked double coding, reliability/adjudication, source crossing, corpus closure, or scene support;
@@ -100,6 +114,13 @@ Still not completed:
 | R2 metadata-qualified rows | 2,029 / 3,367 | fixed-seed discovery gate; not physical works |
 | R2 distinct qualified item IDs | 1,967 | not identity-reconciled physical works |
 | R2 distinct qualified filenames | 2,028 | files, not independent works or captures |
+| broad no-P186 R1 successful requests | 1 / 4 | Monet response only; not reusable outside terminal R1 evidence |
+| broad no-P186 R1 terminal requests | 1 | Sisley HTTP 502; whole R1 census incomplete |
+| broad no-P186 R1 observed rows | 1,317 | discovery-only Monet rows inside an incomplete census; no manifest issued |
+| broad no-P186 R2 requests | 4 / 4 | all first-attempt successes; R1 success was not reused |
+| broad no-P186 R2 discovery rows | 3,722 | exact-creator painting+image rows; not physical works |
+| broad no-P186 R2 distinct item IDs | 3,543 | current Wikidata identifiers before authority/identity reconciliation |
+| broad no-P186 R2 distinct filenames | 3,718 | Commons filenames; not independent works or captures |
 | separately observed official-source all-content candidates | 43 | traceable live records, not a terminal source census |
 | admitted active physical works | 0 | none has passed every gate |
 | downloaded active-study image files | 0 | metadata collection cannot download images |
@@ -139,8 +160,8 @@ painter-reproduction label is allowed.
 ## Required next sequence
 
 1. Preserve and report the completed fixed-seed result without calling it a complete source frame.
-2. Freeze and execute the broader no-`P186` and other named source routes to terminal conditions;
-   reconcile their union to physical works.
+2. Preserve the completed broad no-`P186` census, then freeze and execute the other named source
+   routes to terminal conditions; reconcile their union to physical works.
 3. Under a separate R1 authorization, verify authority/rights/capture identity and acquire lawful
    technically adequate image bytes.
 4. Run role-separated R2 coding and close the unequal finite frame; generation remains NO-GO until

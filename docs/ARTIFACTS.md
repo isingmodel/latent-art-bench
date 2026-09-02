@@ -65,9 +65,10 @@ research bytes.
 
 Historical Painter Features v1 uses the ignored `research_workspace/painter_features_v1/` root.
 The active Painter Feature Generation v1 Protocol 2.0 uses the separate ignored
-`research_workspace/painter_feature_generation_v1/` root. It contains exploratory metadata plus
-the completed fixed-seed audit's 165 content-addressed raw responses (about 51 MiB); compact hashes,
-events, candidate manifest, and limitations are tracked. No active-study image,
+`research_workspace/painter_feature_generation_v1/` root. It contains exploratory metadata, the
+completed fixed-seed audit's 165 content-addressed raw responses (about 51 MiB), the terminal broad
+R1 responses, and the completed broad R2 census's four raw responses (1,163,447 bytes); compact
+hashes, events, candidate manifests, and limitations are tracked. No active-study image,
 eligibility derivative, normalized array, feature vector, registered generation request, generated
 output, or result exists yet.
 

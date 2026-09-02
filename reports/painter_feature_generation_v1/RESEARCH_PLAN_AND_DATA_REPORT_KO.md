@@ -5,7 +5,7 @@ Painter Feature Generation v1 연구계획·자료수집·현재결과 통합보
 - 정본 protocol ID: `painter-feature-generation-v1/2.0`
 - 관찰 기준일: 2026-09-02
 - 대상 화가: Claude Monet, Alfred Sisley, Camille Pissarro, Paul Cézanne
-- 현재 단계: 고정 seed 메타데이터 전수 추적 완료, 전체 R0 및 이미지 취득은 `NO-GO`
+- 현재 단계: 고정 seed 후속감사와 broad no-`P186` 발견 census 완료, 전체 R0 및 이미지 취득은 `NO-GO`
 - 생성–실제 비교결과: 없음
 
 ## 1. 핵심 결론
@@ -29,9 +29,12 @@ Painter Feature Generation v1 연구계획·자료수집·현재결과 통합보
 7. 데이터가 부족하면 표본 기준을 낮추지 않고 연구를 중단하거나 새 protocol을 만든다.
 
 이번 작업에서 실제로 완료한 것은 고정된 Wikidata/Commons seed의 현재 메타데이터
-전수추적이다. 165개 요청이 모두 성공했고 3,367개 item–file 행을 현재 상태로 확인했다.
+전수추적과, material 필드 누락을 허용하는 별도의 broad no-`P186` 발견 census다. 고정 seed의
+165개 요청이 모두 성공했고 3,367개 item–file 행을 현재 상태로 확인했다.
 그중 2,029행, 1,967개 distinct Wikidata item ID, 2,028개 distinct Commons filename이
-메타데이터 후보 관문을 통과했다. 그러나 이 수치는 아직 물리 작품 수가 아니다. 권위기관
+메타데이터 후보 관문을 통과했다. broad census는 4개 화가별 질의를 모두 완결하여 3,722행,
+3,543개 distinct item ID, 3,718개 distinct filename을 발견했다. 그러나 어느 수치도 아직
+물리 작품 수가 아니다. 권위기관
 작품기록 대조, 작품 동일성 통합, 실제 이미지 바이트 취득, 완전한 화면 확인, 맹검 장면
 코딩이 남아 있으므로 active-study 입장 작품은 0점이다.
 
@@ -124,6 +127,10 @@ surrogate pipeline에서의 영상 특징**이다. 화가마다 한 기관만 �
 | distinct item ID | Wikidata 식별자 | 3,190 |
 | admitted physical work | 모든 권위·권리·기술·내용 관문을 통과한 한 회화 | 0 |
 
+위 표의 첫 두 수량은 material-constrained 고정 seed다. 새 broad no-`P186` census의 대응
+수량은 각각 3,722행과 3,543 item ID이며, distinct filename은 3,718개다. 두 frame은 서로
+더하지 않고 물리 작품 수준에서 대조·통합한다.
+
 `metadata row`나 `filename`을 “수집한 그림”이라고 부르지 않는다. 서로 다른 item ID가 같은
 물리 작품을 가리킬 수 있고, 같은 작품에 여러 파일이 있을 수 있다.
 
@@ -137,7 +144,8 @@ surrogate pipeline에서의 영상 특징**이다. 화가마다 한 기관만 �
 4. POP/Joconde
 5. 이번 material-constrained fixed seed
 
-이번 수집은 5번의 현재 상태만 완결했다. 따라서 전체 R0은 아직 닫히지 않았다.
+이번 수집은 1번 발견 census와 5번의 현재 상태를 완결했다. 1번의 authority/rights 후속
+검증 및 2–4번 source route가 남았으므로 전체 R0은 아직 닫히지 않았다.
 
 ## 5. 자료수집 protocol과 실제 실행
 
@@ -269,6 +277,59 @@ complete-view, capture ancestry가 확정되지 않는다.
 
 따라서 “2,029점의 좋은 그림을 수집했다”는 서술은 틀리다. 정확한 문장은 “고정 seed의
 2,029 item–file metadata rows가 다음 authority/identity/acquisition 검토 대상으로 남았다”다.
+
+### 6.5 Broad no-`P186` 발견 census 실행과 결과
+
+고정 seed의 `P186` 조건은 material statement가 없는 작품을 구조적으로 누락한다. 이를
+해결하기 위해 다음 네 질의를 화가별로 한 번씩 고정했다.
+
+```sparql
+SELECT DISTINCT ?item ?image WHERE {
+  ?item wdt:P170 wd:{creator_qid};
+        wdt:P31 wd:Q3305213;
+        wdt:P18 ?image.
+}
+ORDER BY STR(?item) STR(?image)
+```
+
+이 단계는 정확한 creator, painting instance, 현재 P18만 요구하며 oil/canvas, 권리,
+권위기관 귀속, 작품 동일성은 추론하지 않는다. 첫 census R1은 Monet 1,317행을 받은 뒤
+Sisley 요청이 HTTP 502 `text/html`로 끝나 전체 census를 terminal incomplete로 닫았다.
+Monet 행을 재사용하지 않았고 candidate manifest와 receipt도 만들지 않았다.
+
+R2는 새 census ID와 완전히 분리된 경로를 사용하고 요청 간격만 2초에서 5초로 늘렸다.
+R1 config·freeze·review·authorization·5-event ledger·one-shot lock·두 raw response·부재해야
+하는 candidate/receipt를 새 retry freeze에 해시로 연결했다. 독립 품질검토 중 두 종류의
+검증–실행 경계 결함이 발견돼 승인 전에 수정됐다.
+
+1. 검토된 설정 경로가 실행 직전에 다른 파일을 가리키는 경우를 차단했다.
+2. 같은 경로의 파일 바이트가 검토 뒤 바뀌는 경우를 차단했다.
+3. 설정, request intents, 결합 승인서, 재시도 승인서는 각각 한 번 읽은 동일 바이트에서
+   해시 확인과 파싱을 함께 수행하고, 실행기는 그 메모리 snapshot만 사용한다.
+4. 두 회귀검사 모두 network call 0, workspace/event 생성 0을 요구한다.
+
+최종 retry freeze는 21개 입력을 정확히 닫았고, 집중검사 41개와 전체 offline 검사 586개가
+통과했다. 독립 검토가 차단사항 없음으로 승인한 뒤 R2를 실행했다.
+
+| 화가 | item–image 행 | distinct item | distinct filename |
+|---|---:|---:|---:|
+| Monet | 1,317 | 1,257 | 1,314 |
+| Sisley | 879 | 812 | 879 |
+| Pissarro | 791 | 766 | 790 |
+| Cézanne | 735 | 708 | 735 |
+| 합계 | 3,722 | 3,543 | 3,718 |
+
+- 네 요청 모두 첫 시도 HTTP 200 및 parser-complete였다.
+- hash-chain event는 genesis 1개와 요청별 시작/종료 8개, 총 9개다.
+- raw response 4개, 합계 1,163,447 bytes를 content-addressed storage에 보존했다.
+- candidate manifest SHA-256은
+  `23092232815dd96ab75ad0c8025469ea74f250c5b847b91f080996f11ba83e4e`다.
+- image download와 active-study admission은 모두 0이다.
+
+따라서 현재 “발견 후보 규모”는 충분히 커졌지만 “사용 가능한 실작품 코퍼스”는 아직 0이다.
+다음 수량은 authority record의 exact attribution·oil-on-canvas·accession, Commons/official
+asset의 item-level reuse, native geometry, 완전화면 여부, physical-work/capture 중복을 모두
+적용한 뒤에만 산출한다.
 
 ## 7. 실제 이미지 취득 및 corpus closure 계획
 
@@ -438,17 +499,31 @@ wrong-painter separation보다 작아야 family가 qualify한다.
 | hash-chained events | `data/manifests/painter_feature_generation_v1/federated_seed_metadata_request_events_r2.jsonl` |
 | candidate manifest | `data/manifests/painter_feature_generation_v1/federated_seed_metadata_candidates_r2.jsonl` |
 | execution receipt | `data/manifests/painter_feature_generation_v1/federated_seed_metadata_execution_receipt_r2.json` |
+| broad R2 설정 | `configs/painter_feature_generation_v1/broad_wikidata_discovery_r2.json` |
+| broad retry freeze/review/authorization | `data/manifests/painter_feature_generation_v1/broad_wikidata_retry_{freeze,review,authorization}_r2.json` |
+| broad hash-chained events | `data/manifests/painter_feature_generation_v1/broad_wikidata_request_events_r2.jsonl` |
+| broad candidate manifest | `data/manifests/painter_feature_generation_v1/broad_wikidata_candidates_r2.jsonl` |
+| broad execution receipt | `data/manifests/painter_feature_generation_v1/broad_wikidata_execution_receipt_r2.json` |
 | compact readiness summary | `reports/painter_feature_generation_v1/evidence/data_readiness_audit.json` |
 | literature synthesis | `literature_reviews/SYNTHESIS.md` |
 | literature evidence matrix | `literature_reviews/EVIDENCE_MATRIX.csv` |
 
-중요 hash는 다음과 같다.
+고정 seed R2의 중요 hash는 다음과 같다.
 
 - R2 freeze: `6d52424091d6cfdfd0050b3ad60848cb030356c11b44694a99d3b0dd1aa33768`
 - R2 authorization: `b30f9e4ce7e3821f2944abe5cb1061240dd161698d7ae08b1bf82a4260f16139`
 - event ledger: `23905d37b2be4bcec9c8f9be0ec373fe4e2a07a96563ebc644ff183a38943640`
 - candidate manifest: `bde48246d121d175be2e8e9b2023be32347cd8f2e33d5df16780d0b20c7e2e33`
 - execution receipt: `59c90e698a6609bcce7e4d2a010510db5439f9bf740f279bd7e9ac47fcd7de2a`
+
+Broad no-`P186` R2의 중요 hash는 다음과 같다.
+
+- retry freeze: `d004b89b087e9fd63089cbcacb40722e7b844f2337f32e7a5a9b2548442c2a10`
+- retry authorization: `756122c4068b15164dcfc8db81b4e62cb5a7069a2d08cc5299e68e14ceabb5a6`
+- combined authorization: `e1b4e11a992ac22efaa448290e74845d1524f22201be79615d493cd3032e8314`
+- event ledger: `9bd925534c7b77deb578ef8ce26d9b9f263f6c33f7b3afc3daaa8458a6e6fd66`
+- candidate manifest: `23092232815dd96ab75ad0c8025469ea74f250c5b847b91f080996f11ba83e4e`
+- execution receipt: `91fe3db46b3316f6cc53d31e49070ab62984a3b6ec0e387ad6880e3ccc4c6b6b`
 
 ## 12. 최종 판정과 다음 작업
 
@@ -461,10 +536,13 @@ wrong-painter separation보다 작아야 family가 qualify한다.
 - fixed-seed 3,190 item / 3,364 filename의 현재 메타데이터 follow-up 완결
 - 실패 census를 보존하고 원인을 수정한 새 census의 165/165 성공
 - 2,029 metadata-qualified row의 추적 가능한 candidate manifest 작성
+- broad no-`P186` R1의 terminal HTTP 502를 all-or-none 규칙대로 보존
+- 독립 품질검토에서 검증–실행 경계 결함 두 건을 수정하고 재검토 승인
+- broad no-`P186` R2 4/4 성공 및 3,722행·3,543 item·3,718 filename 발견
 
 ### 완료되지 않은 것
 
-- 전체 no-`P186`+named-source R0 terminal union
+- 나머지 named-source R0 terminal union과 broad 후보의 authority/rights 후속검증
 - authority record verification와 physical-work/capture reconciliation
 - active image byte 취득과 complete-view/decode/ICC 검사
 - blind eligibility/scene coding과 role assignment
@@ -473,9 +551,9 @@ wrong-painter separation보다 작아야 family가 qualify한다.
 
 따라서 현재 연구결론은 다음 한 문장이다.
 
-> 고정 seed의 현재 메타데이터 follow-up은 재현 가능하게 완료됐고 2,029행의 후속 후보를
-> 확인했지만, 실제 작품 corpus와 생성–실제 비교를 위한 충분한 고품질 회화 자료가
-> 확보됐다고 판단할 단계는 아니다.
+> 고정 seed follow-up과 broad no-`P186` 발견 census는 재현 가능하게 완료됐고 broad
+> 후보 3,722행을 확인했지만, 실제 작품 corpus와 생성–실제 비교를 위한 충분한 고품질
+> 회화 자료가 확보됐다고 판단할 단계는 아니다.
 
 다음 작업은 수치가 좋은 후보만 골라 즉시 다운로드하는 것이 아니다. 먼저 전체 R0을
 terminal union으로 닫고 물리 작품과 capture를 통합한 뒤, 별도 R1 freeze에서 권위·권리·

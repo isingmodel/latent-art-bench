@@ -1,0 +1,83 @@
+{
+  "schema_version": "painter-feature-generation-v1-broad-wikidata-config/1.0",
+  "census_id": "pfg-v1-broad-wikidata-no-p186-r2-20260902",
+  "protocol_id": "painter-feature-generation-v1/2.0",
+  "protocol_path": "studies/painter_feature_generation_v1/PROTOCOL.md",
+  "scope": {
+    "metadata_requests": true,
+    "image_downloads": false,
+    "active_study_admission": false,
+    "visual_coding": false,
+    "feature_extraction": false,
+    "generation": false
+  },
+  "source_contract": {
+    "source_id": "wikidata_query_service",
+    "layer": "discovery_only",
+    "endpoint": "https://query.wikidata.org/sparql",
+    "official_documentation": "https://www.mediawiki.org/wiki/Wikidata_Query_Service/User_Manual",
+    "api_version": "Wikidata Query Service public SPARQL 1.1 endpoint as observed at execution; no provider snapshot or revision ID is exposed",
+    "data_version": "mutable live WDQS RDF dataset; exact response Date headers, retrieval timestamps, bytes, and SHA-256 receipts define the observed version",
+    "request_not_after_utc": "2026-09-05T00:00:00Z",
+    "method": "GET",
+    "accept": "application/sparql-results+json",
+    "timeout_seconds": 60.0,
+    "minimum_interval_seconds": 5.0,
+    "redirects": "forbidden",
+    "retry_rule": "No retry inside this census. Any transport, HTTP, content-type, JSON, schema, ordering, or completeness failure is terminal and requires a new reviewed census ID.",
+    "pagination_rule": "One exact unpaginated query per painter. Success requires one HTTP 200 SPARQL JSON result with no duplicate binding and strict ascending item-QID/filename order. This route is incomplete if the public service cannot return any complete painter query within its documented 60-second runtime limit.",
+    "candidate_rule": "Exact creator P170, exact painting P31=Q3305213, and P18 image. P186 is intentionally absent and oil-on-canvas is deferred to an authority record.",
+    "canonicalization_rule": "Preserve provider item and image URIs; validate strict URI syntax; decode the Special:FilePath suffix once with UTF-8 percent-decoding; replace underscores with spaces; preserve case; and sort candidates by painter ID, item QID string, then filename string. No title, creator, material, or work identity normalization occurs.",
+    "duplicate_rule": "Reject duplicate item-image bindings within a painter response and reject duplicate creator-item-filename rows across responses. Do not deduplicate physical works at this discovery stage.",
+    "raw_response_rule": "Store every exact response body once in SHA-256 content-addressed storage and bind status, final URL, selected headers, byte count, retrieval timestamp, body path, and digest in the append-only event ledger.",
+    "rights_and_media_rule": "Not requested and not inferred in this discovery route. Rights, geometry, decode, authority, capture ancestry, and image delivery are separate later gates.",
+    "terminal_condition": "All four frozen painter queries return parser-complete HTTP 200 results; otherwise the whole route is terminally incomplete without fallback or top-up."
+  },
+  "painters": [
+    {"painter_id": "claude_monet", "creator_qid": "Q296"},
+    {"painter_id": "alfred_sisley", "creator_qid": "Q175130"},
+    {"painter_id": "camille_pissarro", "creator_qid": "Q134741"},
+    {"painter_id": "paul_cezanne", "creator_qid": "Q35548"}
+  ],
+  "predecessor_terminal_census": {
+    "census_id": "pfg-v1-broad-wikidata-no-p186-20260902",
+    "config_path": "configs/painter_feature_generation_v1/broad_wikidata_discovery.json",
+    "config_sha256": "53e9208e9f21df75e2e451f5ef014637869f437c48e63d9002c3a921e74bdfeb",
+    "freeze_path": "data/manifests/painter_feature_generation_v1/broad_wikidata_freeze.json",
+    "freeze_sha256": "52fb9d6c59bff701fc9a9f2b085bb5b5aa9f83b3097887eb474717e5ae039f54",
+    "review_path": "data/manifests/painter_feature_generation_v1/broad_wikidata_review.json",
+    "review_sha256": "81e2f89cd90590c8fe6f3b715083e7862e6b1de80452d5709d4f30f4a42529b2",
+    "authorization_path": "data/manifests/painter_feature_generation_v1/broad_wikidata_authorization.json",
+    "authorization_sha256": "3dc4eff5a652ecb2ae7d8c4519f2d352c386225551e5c70324709ecd136f2d08",
+    "event_ledger_path": "data/manifests/painter_feature_generation_v1/broad_wikidata_request_events.jsonl",
+    "event_ledger_sha256": "862f99a8701fc2ba72ee7944bc5c0b164d145fdedb2384d2140b8ca50398ce57",
+    "terminal_event_sha256": "19129145c112fd7bc10f2bfebf49af1dd29094e623770869dd1e34bd85496ff8",
+    "terminal_status_code": 502,
+    "terminal_content_type": "text/html",
+    "terminal_outcome": "terminal_http_or_delivery_failure",
+    "execution_lock_path": "research_workspace/painter_feature_generation_v1/metadata/broad_wikidata_no_p186_20260902/execution.lock",
+    "execution_lock_sha256": "cd7497655aa142ce0cbdf3e4ac4df43d0c96fd16691dbb3fc7321649a7a193c2",
+    "response_bodies": [
+      {"path": "research_workspace/painter_feature_generation_v1/metadata/broad_wikidata_no_p186_20260902/response_bodies/bc/bc93ca6aeaeec864305f05caa1651950b7c82fd84e2bef0f0523cec296485537.response", "sha256": "bc93ca6aeaeec864305f05caa1651950b7c82fd84e2bef0f0523cec296485537", "bytes": 404361},
+      {"path": "research_workspace/painter_feature_generation_v1/metadata/broad_wikidata_no_p186_20260902/response_bodies/06/06eb358ae605e4a5ab7a141a591b6991b89dc6109db492dd9fea9cf5891be95d.response", "sha256": "06eb358ae605e4a5ab7a141a591b6991b89dc6109db492dd9fea9cf5891be95d", "bytes": 157}
+    ],
+    "required_absent_outputs": [
+      "data/manifests/painter_feature_generation_v1/broad_wikidata_candidates.jsonl",
+      "data/manifests/painter_feature_generation_v1/broad_wikidata_execution_receipt.json"
+    ],
+    "allowed_config_delta": [
+      "census_id",
+      "paths",
+      "predecessor_terminal_census",
+      "source_contract.minimum_interval_seconds"
+    ]
+  },
+  "query_template": "SELECT DISTINCT ?item ?image WHERE { ?item wdt:P170 wd:{creator_qid}; wdt:P31 wd:Q3305213; wdt:P18 ?image. } ORDER BY STR(?item) STR(?image)",
+  "paths": {
+    "request_intents": "data/manifests/painter_feature_generation_v1/broad_wikidata_request_intents_r2.jsonl",
+    "request_events": "data/manifests/painter_feature_generation_v1/broad_wikidata_request_events_r2.jsonl",
+    "candidate_manifest": "data/manifests/painter_feature_generation_v1/broad_wikidata_candidates_r2.jsonl",
+    "execution_receipt": "data/manifests/painter_feature_generation_v1/broad_wikidata_execution_receipt_r2.json",
+    "workspace": "research_workspace/painter_feature_generation_v1/metadata/broad_wikidata_no_p186_r2_20260902"
+  }
+}

@@ -57,12 +57,14 @@ rule.
   candidates, not authority-verified physical works or downloaded paintings.
 - A separate official-source audit contains 43 all-content candidates. It is not a complete source
   census and none is admitted.
+- The independently reviewed no-`P186` discovery census completed four of four painter queries and
+  produced 3,722 item–image rows, 3,543 distinct Wikidata item IDs, and 3,718 distinct Commons
+  filenames. These remain discovery candidates rather than verified or downloaded works.
 - Active-study admitted works, downloaded image files, confirmation features, generation attempts,
   and results are all zero.
 
-The next action is a broader prospective discovery census that does not require incomplete Wikidata
-`P186` material statements.
-Authority/rights/identity checks and image acquisition are separate later gates.
+The next actions are the remaining named source censuses and authority/rights/identity
+reconciliation. Image acquisition is a separate later gate.
 
 ## Supporting material
 

@@ -1,0 +1,39 @@
+{
+  "schema_version": "painter-feature-generation-v1-broad-wikidata-freeze/1.0",
+  "status": "sealed_for_neutral_quality_review",
+  "census_id": "pfg-v1-broad-wikidata-no-p186-20260902",
+  "protocol_id": "painter-feature-generation-v1/2.0",
+  "scope": {
+    "metadata_requests": true,
+    "image_downloads": false,
+    "active_study_admission": false,
+    "visual_coding": false,
+    "feature_extraction": false,
+    "generation": false
+  },
+  "frozen_input_set_sha256": "973249460d0d3ede8aaf552e2ef5470b976b85065d9b883ee2c12b6e56a91374",
+  "frozen_inputs": [
+    {"path": ".gitignore", "sha256": "0d6569a63b7448075dbd73e5221d38d69143c50ae28939e83b0a63dbbc5c1be9"},
+    {"path": "configs/painter_feature_generation_v1/broad_wikidata_discovery.json", "sha256": "53e9208e9f21df75e2e451f5ef014637869f437c48e63d9002c3a921e74bdfeb"},
+    {"path": "data/manifests/painter_feature_generation_v1/broad_wikidata_request_intents.jsonl", "sha256": "785edaf95b5c0bb5b366ecb73c5e211f92497f3527abc2a0bf7e1949928e9d3e"},
+    {"path": "pyproject.toml", "sha256": "9da42015a9f57afd574191b26c1d710aab3b7359d44661dab700a03854f151b7"},
+    {"path": "scripts/collect_pfg_v1_broad_wikidata.py", "sha256": "bbcd3fec9bcceb490c0051058c3a856ee6559a621871a0f6c0298a4b8d197dc2"},
+    {"path": "src/latent_art_bench/__init__.py", "sha256": "3a5d2006e1557187a3585cbe17af183fd7d2f170a32eb96b00c43b00d137c660"},
+    {"path": "src/latent_art_bench/config.py", "sha256": "13939c9175af4d85c13687e8818023ba2f5d7920881c3fad9a97f2ebe42e933b"},
+    {"path": "src/latent_art_bench/io.py", "sha256": "13e6372aa9814495a45700eb9e65d099c56bb1bb3032d72f7f9e00e6ba91a9b8"},
+    {"path": "src/latent_art_bench/painter_feature_generation_v1/__init__.py", "sha256": "7bc8796c4b0dc4bf095669e6911cba541e30e9778437e0df0cc5b3e71918fed1"},
+    {"path": "src/latent_art_bench/painter_feature_generation_v1/broad_wikidata.py", "sha256": "110840b7daab595c571b850326301c74178ac1610003ef7f5db49a98d2f531d5"},
+    {"path": "src/latent_art_bench/schemas.py", "sha256": "904498cb1b7ede2ca4e532f59fe80b8033a9701bc39941d1a75a5af5ff3cdcb7"},
+    {"path": "studies/painter_feature_generation_v1/PROTOCOL.md", "sha256": "ffce565d8346b62915916b00c5ab894348acc5762d9e503ddd282eaab59aefcb"},
+    {"path": "tests/conftest.py", "sha256": "220e0b6f27073020d4b16a5905e2f5bc9d4dd0232e83821b80c0aba7725698ff"},
+    {"path": "tests/painter_feature_generation_v1/test_broad_wikidata.py", "sha256": "d838b5a6db429d732fd22b0a972ec2105981882354db72d70598deee15543af8"},
+    {"path": "uv.lock", "sha256": "99285c8ccc298b80bd711b296d90945aea07209cb4623deae5a599bc0d4c80bf"}
+  ],
+  "preexecution_outputs": [
+    {"path": "data/manifests/painter_feature_generation_v1/broad_wikidata_request_events.jsonl", "state": "absent"},
+    {"path": "data/manifests/painter_feature_generation_v1/broad_wikidata_candidates.jsonl", "state": "absent"},
+    {"path": "data/manifests/painter_feature_generation_v1/broad_wikidata_execution_receipt.json", "state": "absent"},
+    {"path": "research_workspace/painter_feature_generation_v1/metadata/broad_wikidata_no_p186_20260902/execution.lock", "state": "absent"},
+    {"path": "research_workspace/painter_feature_generation_v1/metadata/broad_wikidata_no_p186_20260902/response_bodies", "state": "absent"}
+  ]
+}

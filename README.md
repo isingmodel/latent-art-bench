@@ -43,13 +43,13 @@ whole-decision simulation—not a target-count stopping rule.
 |---|---:|---|
 | material-constrained Wikidata seed | 3,190 item candidates / 3,364 Commons filenames | not authority-verified works |
 | fixed-seed Commons audit | 3,367 rows; 2,029 metadata-qualified rows / 1,967 distinct item IDs | complete fixed-seed follow-up, not authority-verified works or full R0 |
+| broad no-`P186` Wikidata census | 3,722 rows / 3,543 distinct item IDs / 3,718 filenames | complete discovery route, not authority or rights verification |
 | separate direct official-source audit | 43 all-content candidates | not a reproducible complete source frame |
-| active admitted/downloaded/confirmation/generated/result counts | all 0 | 165 metadata requests succeeded; acquisition and analysis remain gated |
+| active admitted/downloaded/confirmation/generated/result counts | all 0 | metadata discovery succeeded; acquisition and analysis remain gated |
 
-The fixed-seed metadata audit is complete. The next step is a broader prospective discovery census
-without the incomplete Wikidata material-field requirement. Authority,
-rights, work identity, image acquisition, blind content coding, and confirmation sealing are later
-explicit gates.
+The fixed-seed audit and broader discovery census are complete. The next steps are the remaining
+named source routes and authority/rights/work-identity reconciliation. Image acquisition, blind
+content coding, and confirmation sealing remain later explicit gates.
 
 ## Study disposition
 
