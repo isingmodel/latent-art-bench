@@ -5,7 +5,8 @@ Painter Feature Generation v1 연구계획·자료수집·현재결과 통합보
 - 정본 protocol ID: `painter-feature-generation-v1/2.0`
 - 관찰 기준일: 2026-09-02
 - 대상 화가: Claude Monet, Alfred Sisley, Camille Pissarro, Paul Cézanne
-- 현재 단계: 고정 seed 후속감사와 broad no-`P186` 발견 census 완료, 전체 R0 및 이미지 취득은 `NO-GO`
+- 현재 단계: 고정 seed와 broad 발견 census 완료, broad media 후속 R1 terminal 종료,
+  전체 R0 및 이미지 취득은 `NO-GO`
 - 생성–실제 비교결과: 없음
 
 ## 1. 핵심 결론
@@ -331,6 +332,46 @@ R1 config·freeze·review·authorization·5-event ledger·one-shot lock·두 raw
 asset의 item-level reuse, native geometry, 완전화면 여부, physical-work/capture 중복을 모두
 적용한 뒤에만 산출한다.
 
+### 6.6 Broad media 후속검증 R1: 승인, 실행, terminal 결과
+
+3,722개 broad 행의 현재 Wikidata entity와 Commons media metadata를 전수 후속조회하기 위해
+3,543 item을 89개 batch, 3,718 filename을 93개 batch로 나눠 총 182개 GET 의도를
+동결했다. 이 단계는 metadata-only이며 image download, visual coding, corpus admission,
+feature extraction, generation을 모두 금지했다.
+
+초기 중립 검토는 실제 표본의 대소문자 동률 정렬, CAS 재읽기, 미확정 transport 재시도,
+두 결과 파일의 순차 공개, 실행 import 동결 누락, 외부 seal 경로, lock/genesis 순서,
+cutoff와 resume, retry class·상한·간격, malformed response 종결성 문제를 발견했다. 각 문제는
+네트워크 실행 전에 수정하고 adversarial 회귀검사를 추가했다. 최종 동결본은 18개 입력과
+6개 사전 부재 조건을 묶었고, 중립 독립 검토가 `APPROVE`했다.
+
+- 최종 freeze SHA-256: `8291af6d285b45248c79269dbe33e0f72523966f9a4ff8f694696a0141d4cbe0`
+- request-intent SHA-256: `12a70934f2d359bf2fefa65df4d284e426e809ef6b06f37fecfc9b88d8120ae8`
+- authorization gate에서 재구성한 요청 수: 182 = Wikidata 89 + Commons 93
+
+승인 후 첫 Wikidata batch를 실행했으나 provider가 parser-complete HTTP 200 성공 본문과
+`Retry-After: 5`를 동시에 반환했다. 동결 규칙은 비재시도 응답의 예상 밖 Retry-After를
+임의로 성공 또는 재시도로 해석하지 않고 `terminal_retry_after_new_census_required`로
+종결한다. 따라서 정확히 한 번의 network call 뒤 census가 닫혔다.
+
+| 실행 항목 | 결과 |
+|---|---:|
+| 계획 요청 | 182 |
+| 실제 시작 요청 | 1 |
+| terminal 요청 | 1 |
+| hash-chain events | 3 |
+| 보존 raw responses | 1 |
+| candidate manifest | 없음 |
+| execution receipt | 없음 |
+| image download / admission | 0 / 0 |
+
+event ledger SHA-256은 `95ed1e87f520b4b8f79882485f8146269ccb416c8d5bbddf31f34c51387d6d3c`이고
+terminal event SHA-256은 `2fd4d12b89ddd221b71a81f2a0aafaac493ca0c7c42fce5d198570a03406b062`다.
+이 결과는 데이터 부족의 증거가 아니라 “R1의 응답 의미 규칙으로는 provider의 실제 200
+표현을 수용할 수 없다”는 실행 증거다. 같은 census를 재시도하거나 첫 성공 본문을 새
+census에 이어붙이지 않는다. 후속 R2가 필요하면 200 성공의 advisory Retry-After를
+명시적으로 기록하고 다음 접근 지연에 반영하는 새 규칙을 사전 동결해야 한다.
+
 ## 7. 실제 이미지 취득 및 corpus closure 계획
 
 ### 7.1 전체 R0 완결
@@ -504,6 +545,9 @@ wrong-painter separation보다 작아야 family가 qualify한다.
 | broad hash-chained events | `data/manifests/painter_feature_generation_v1/broad_wikidata_request_events_r2.jsonl` |
 | broad candidate manifest | `data/manifests/painter_feature_generation_v1/broad_wikidata_candidates_r2.jsonl` |
 | broad execution receipt | `data/manifests/painter_feature_generation_v1/broad_wikidata_execution_receipt_r2.json` |
+| broad media R1 freeze/review/authorization | `data/manifests/painter_feature_generation_v1/broad_media_followup_{freeze,review,authorization}.json` |
+| broad media R1 exact intents | `data/manifests/painter_feature_generation_v1/broad_media_followup_request_intents.jsonl` |
+| broad media R1 terminal events | `data/manifests/painter_feature_generation_v1/broad_media_followup_request_events.jsonl` |
 | compact readiness summary | `reports/painter_feature_generation_v1/evidence/data_readiness_audit.json` |
 | literature synthesis | `literature_reviews/SYNTHESIS.md` |
 | literature evidence matrix | `literature_reviews/EVIDENCE_MATRIX.csv` |
@@ -539,6 +583,8 @@ Broad no-`P186` R2의 중요 hash는 다음과 같다.
 - broad no-`P186` R1의 terminal HTTP 502를 all-or-none 규칙대로 보존
 - 독립 품질검토에서 검증–실행 경계 결함 두 건을 수정하고 재검토 승인
 - broad no-`P186` R2 4/4 성공 및 3,722행·3,543 item·3,718 filename 발견
+- broad media 후속 182-request frame을 중립 검토 후 승인하고, 첫 200+Retry-After 표현에서
+  동결 규칙대로 terminal 종료하여 부분 manifest 없이 증거 보존
 
 ### 완료되지 않은 것
 

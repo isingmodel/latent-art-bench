@@ -1,0 +1,75 @@
+{
+  "schema_version": "painter-feature-generation-v1-broad-media-followup-config/1.0",
+  "census_id": "pfg-v1-broad-media-followup-20260902",
+  "protocol_id": "painter-feature-generation-v1/2.0",
+  "protocol_path": "studies/painter_feature_generation_v1/PROTOCOL.md",
+  "source_frame_contract": {
+    "frame_class": "complete_followup_of_broad_no_p186_wikidata_discovery_not_authority_census",
+    "upstream_candidate_path": "data/manifests/painter_feature_generation_v1/broad_wikidata_candidates_r2.jsonl",
+    "upstream_candidate_sha256": "23092232815dd96ab75ad0c8025469ea74f250c5b847b91f080996f11ba83e4e",
+    "upstream_receipt_path": "data/manifests/painter_feature_generation_v1/broad_wikidata_execution_receipt_r2.json",
+    "upstream_receipt_sha256": "91fe3db46b3316f6cc53d31e49070ab62984a3b6ec0e387ad6880e3ccc4c6b6b",
+    "expected_rows": 3722,
+    "expected_distinct_items": 3543,
+    "expected_distinct_files": 3718,
+    "canonicalization_rule": "Consume the exact ordered broad candidate JSONL without title rewriting; retain every unique creator-item-filename row; build numeric-QID-sorted Wikidata batches and case-folded-filename-sorted Commons batches.",
+    "deduplication_rule": "No physical-work or capture deduplication occurs. Duplicate item-file rows are forbidden; multiple files for one item remain separate rows.",
+    "consequence": "This route measures current material-statement, current-P18, rights-marker, MIME, and reported-geometry attrition for the complete broad discovery output. It cannot establish museum authority, physical-work identity, content eligibility, image decode, or active-study admission."
+  },
+  "painters": {
+    "Q134741": "camille_pissarro",
+    "Q175130": "alfred_sisley",
+    "Q296": "claude_monet",
+    "Q35548": "paul_cezanne"
+  },
+  "request_contract": {
+    "user_agent": "latent-art-bench/0.1 painter-feature-generation-v1 broad media followup (+https://github.com/isingmodel/latent-art-bench)",
+    "execution_start_not_after_utc": "2026-09-05T00:00:00Z",
+    "timeout_seconds": 60.0,
+    "minimum_interval_seconds": 0.75,
+    "retry_backoff_base_seconds": 1.0,
+    "maximum_retry_wait_seconds": 30.0,
+    "maximum_attempts": 5,
+    "batch_size": 40,
+    "wikidata_endpoint": "https://www.wikidata.org/w/api.php",
+    "commons_endpoint": "https://commons.wikimedia.org/w/api.php",
+    "wikidata_properties": "info|claims|labels|descriptions",
+    "commons_imageinfo_properties": "url|size|mime|sha1|timestamp|canonicaltitle|extmetadata",
+    "commons_extmetadata_fields": "LicenseShortName|LicenseUrl|UsageTerms|Copyrighted|Restrictions|Permission|Artist|Institution|Credit|Source|ObjectName|ImageDescription",
+    "retryable_http_status_codes": [429, 500, 502, 503, 504],
+    "retryable_api_error_codes": ["internal_api_error", "maxlag", "ratelimited", "readonly"],
+    "terminal_rule": "All 182 exact batches must reach one parser-complete success inside this census. Listed transient failures may retry only within the frozen attempt and wait ceilings. Redirects, title normalization, missing members, continuation, schema drift, unknown network outcome, or an interrupted attempt are terminal and require a new reviewed census ID. No partial manifest is emitted."
+  },
+  "screening_contract": {
+    "minimum_short_side_pixels": 1024,
+    "allowed_commons_license_url_prefixes": [
+      "https://creativecommons.org/licenses/by/",
+      "https://creativecommons.org/licenses/by-sa/",
+      "https://creativecommons.org/publicdomain/mark/",
+      "https://creativecommons.org/publicdomain/zero/"
+    ],
+    "allowed_unlinked_license_short_names": ["cc0", "public domain"],
+    "nonfree_markers": [
+      "all rights reserved",
+      "permission required",
+      "permission is required",
+      "utilisation soumise à autorisation",
+      "cc by-nc",
+      "cc by-nd",
+      "fair use",
+      "non-free",
+      "copyrighted free use",
+      "no derivatives",
+      "noncommercial"
+    ],
+    "supported_image_mime_types": ["image/jpeg", "image/png", "image/tiff", "image/webp"],
+    "authority_rule": "Wikidata and Commons remain discovery/delivery evidence. No row is admitted until an authoritative holding or catalogue record independently confirms exact attribution, oil on canvas, work identity, and the media reuse basis."
+  },
+  "paths": {
+    "planned_requests": "data/manifests/painter_feature_generation_v1/broad_media_followup_request_intents.jsonl",
+    "request_events": "data/manifests/painter_feature_generation_v1/broad_media_followup_request_events.jsonl",
+    "candidate_manifest": "data/manifests/painter_feature_generation_v1/broad_media_followup_publication/candidates.jsonl",
+    "execution_receipt": "data/manifests/painter_feature_generation_v1/broad_media_followup_publication/execution_receipt.json",
+    "workspace": "research_workspace/painter_feature_generation_v1/metadata/broad_media_followup_20260902"
+  }
+}

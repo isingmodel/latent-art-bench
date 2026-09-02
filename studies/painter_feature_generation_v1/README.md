@@ -60,6 +60,9 @@ rule.
 - The independently reviewed no-`P186` discovery census completed four of four painter queries and
   produced 3,722 item–image rows, 3,543 distinct Wikidata item IDs, and 3,718 distinct Commons
   filenames. These remain discovery candidates rather than verified or downloaded works.
+- The reviewed 182-request broad-media follow-up R1 reached a terminal first response when Wikidata
+  returned a parser-complete HTTP 200 body with `Retry-After: 5`. It published no partial manifest
+  or receipt and cannot be retried under the same census ID.
 - Active-study admitted works, downloaded image files, confirmation features, generation attempts,
   and results are all zero.
 

@@ -90,6 +90,15 @@ and closed two execution-boundary file-binding defects before approval. R2 then 
 requests on first attempt and emitted 3,722 discovery-only item-image rows: 3,543 distinct Wikidata
 item IDs and 3,718 distinct Commons filenames. No image was downloaded and no work was admitted.
 
+The separately reviewed broad-media follow-up then froze 182 exact metadata-only requests covering
+all 3,543 item IDs and 3,718 filenames. Neutral review identified and closed deterministic ordering,
+single-read CAS, terminalization, retry-ledger, cutoff/resume, path-confinement, and atomic-publication
+defects before approval. Execution reached the first Wikidata batch once. The provider returned a
+parser-complete HTTP 200 response together with `Retry-After: 5`; the frozen rule classified that
+unexpected combination as `terminal_retry_after_new_census_required`. The three-event ledger and
+one raw response are preserved. No candidate manifest, execution receipt, image, or admission was
+issued, and this census must not be retried or spliced.
+
 Still not completed:
 
 - the other terminal source routes named in Protocol 2.0;
@@ -121,6 +130,9 @@ Still not completed:
 | broad no-P186 R2 discovery rows | 3,722 | exact-creator painting+image rows; not physical works |
 | broad no-P186 R2 distinct item IDs | 3,543 | current Wikidata identifiers before authority/identity reconciliation |
 | broad no-P186 R2 distinct filenames | 3,718 | Commons filenames; not independent works or captures |
+| broad-media follow-up planned requests | 182 | 89 entity + 93 media batches, metadata only |
+| broad-media follow-up attempted requests | 1 | terminal HTTP 200 + advisory Retry-After representation |
+| broad-media follow-up manifests/receipts | 0 / 0 | all-or-none publication correctly withheld |
 | separately observed official-source all-content candidates | 43 | traceable live records, not a terminal source census |
 | admitted active physical works | 0 | none has passed every gate |
 | downloaded active-study image files | 0 | metadata collection cannot download images |

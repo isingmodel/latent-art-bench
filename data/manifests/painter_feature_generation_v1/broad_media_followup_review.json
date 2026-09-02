@@ -1,0 +1,19 @@
+{
+  "schema_version": "painter-feature-generation-v1-broad-media-followup-review/1.0",
+  "decision": "APPROVE_BROAD_MEDIA_FOLLOWUP_ONLY",
+  "blocking_findings": [],
+  "independent_reviewer": "Mencius (independent neutral quality review subagent)",
+  "census_id": "pfg-v1-broad-media-followup-20260902",
+  "protocol_id": "painter-feature-generation-v1/2.0",
+  "approved_scope": {
+    "metadata_requests": true,
+    "image_downloads": false,
+    "visual_coding": false,
+    "active_study_admission": false,
+    "feature_extraction": false,
+    "generation": false
+  },
+  "reviewed_freeze_path": "data/manifests/painter_feature_generation_v1/broad_media_followup_freeze.json",
+  "reviewed_freeze_sha256": "8291af6d285b45248c79269dbe33e0f72523966f9a4ff8f694696a0141d4cbe0",
+  "review_summary": "Neutral independent review verified the revised request ordering, single-read response binding, transport and retry terminalization, cutoff and resume semantics, atomic publication, frozen runtime/test closure, and adversarial regression coverage."
+}

@@ -72,6 +72,11 @@ hashes, events, candidate manifests, and limitations are tracked. No active-stud
 eligibility derivative, normalized array, feature vector, registered generation request, generated
 output, or result exists yet.
 
+The broad-media follow-up R1 additionally retains one ignored content-addressed HTTP 200 response
+and one lock file. Its tracked three-event ledger is terminal because the successful provider body
+also carried an unexpected `Retry-After` header. It has no candidate manifest or execution receipt;
+do not delete, retry, or splice its partial response into another census.
+
 The metadata-audit layer may retain exact request intents, raw provider responses, hashes, terminal
 receipts, and a compact non-admission candidate manifest. Raw responses remain ignored where their
 size or terms make redistribution inappropriate. A metadata row never increments the admitted-work
