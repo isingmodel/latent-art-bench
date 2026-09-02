@@ -1,0 +1,103 @@
+{
+  "census_id": "pfg-v1-fixed-seed-media-audit-20260902",
+  "frozen_input_set_sha256": "c36dc3b0bcd3eb7857164b90b8491e006a62dae522e46f40d6959595a0febf7e",
+  "frozen_inputs": [
+    {
+      "path": ".gitignore",
+      "sha256": "0d6569a63b7448075dbd73e5221d38d69143c50ae28939e83b0a63dbbc5c1be9"
+    },
+    {
+      "path": "configs/painter_feature_generation_v1/federated_metadata_census.json",
+      "sha256": "b804de6ee2170e43eae6bbad84417e42eb4fab56b3898e934e8184679453be60"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v1/federated_seed_metadata_request_intents.jsonl",
+      "sha256": "975a63a3cc9bd0e309e5f45708f2f0bb6a1f444703fde4e02ef4fbcb06d2b0b9"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "9da42015a9f57afd574191b26c1d710aab3b7359d44661dab700a03854f151b7"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v1/metadata/exploratory_wikidata_oil_canvas_items_2026-09-02.json",
+      "sha256": "d10549b15b44b3c918d5499469b7cb61872f4527cd0f336957aaaed847c96216"
+    },
+    {
+      "path": "reports/painter_feature_generation_v1/evidence/federated_candidate_census.json",
+      "sha256": "71af18fed6125ffe9ad0071899b94bd1ab5c254fb233fa16c23b9894df1fee6a"
+    },
+    {
+      "path": "scripts/collect_pfg_v1_federated_metadata.py",
+      "sha256": "2a81c5e59703155187fb78d31f95ca806d2c90b80312fa553f2c0322c41342eb"
+    },
+    {
+      "path": "src/latent_art_bench/__init__.py",
+      "sha256": "3a5d2006e1557187a3585cbe17af183fd7d2f170a32eb96b00c43b00d137c660"
+    },
+    {
+      "path": "src/latent_art_bench/config.py",
+      "sha256": "13939c9175af4d85c13687e8818023ba2f5d7920881c3fad9a97f2ebe42e933b"
+    },
+    {
+      "path": "src/latent_art_bench/io.py",
+      "sha256": "13e6372aa9814495a45700eb9e65d099c56bb1bb3032d72f7f9e00e6ba91a9b8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v1/__init__.py",
+      "sha256": "7bc8796c4b0dc4bf095669e6911cba541e30e9778437e0df0cc5b3e71918fed1"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v1/federated_census.py",
+      "sha256": "0d74e199e9cd6c9a7bb473f3d46fbb59177915e2d8d2b6de0523863755fe2647"
+    },
+    {
+      "path": "src/latent_art_bench/schemas.py",
+      "sha256": "904498cb1b7ede2ca4e532f59fe80b8033a9701bc39941d1a75a5af5ff3cdcb7"
+    },
+    {
+      "path": "studies/painter_feature_generation_v1/PROTOCOL.md",
+      "sha256": "ffce565d8346b62915916b00c5ab894348acc5762d9e503ddd282eaab59aefcb"
+    },
+    {
+      "path": "tests/conftest.py",
+      "sha256": "220e0b6f27073020d4b16a5905e2f5bc9d4dd0232e83821b80c0aba7725698ff"
+    },
+    {
+      "path": "tests/painter_feature_generation_v1/test_federated_census.py",
+      "sha256": "aba3512e8a1739eb5e8661064abdfb5ecba141d36276d81a4b189e36014866f6"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "99285c8ccc298b80bd711b296d90945aea07209cb4623deae5a599bc0d4c80bf"
+    }
+  ],
+  "preexecution_outputs": [
+    {
+      "path": "data/manifests/painter_feature_generation_v1/federated_seed_metadata_request_events.jsonl",
+      "state": "absent"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v1/federated_seed_metadata_candidates.jsonl",
+      "state": "absent"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v1/federated_seed_metadata_execution_receipt.json",
+      "state": "absent"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v1/metadata/federated_seed_media_audit_20260902/response_bodies",
+      "state": "absent"
+    }
+  ],
+  "protocol_id": "painter-feature-generation-v1/2.0",
+  "schema_version": "painter-feature-generation-v1-metadata-census-freeze/1.0",
+  "scope": {
+    "active_study_admission": false,
+    "feature_extraction": false,
+    "generation": false,
+    "image_downloads": false,
+    "metadata_requests": true,
+    "visual_coding": false
+  },
+  "status": "sealed_for_independent_metadata_census_review"
+}

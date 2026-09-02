@@ -1,0 +1,18 @@
+{
+  "approved_scope": {
+    "active_study_admission": false,
+    "feature_extraction": false,
+    "generation": false,
+    "image_downloads": false,
+    "metadata_requests": true,
+    "visual_coding": false
+  },
+  "blocking_findings": [],
+  "census_id": "pfg-v1-fixed-seed-media-audit-r2-20260902",
+  "decision": "APPROVE_METADATA_CENSUS_ONLY",
+  "independent_reviewer": "PFG v1 metadata quality reviewer",
+  "protocol_id": "painter-feature-generation-v1/2.0",
+  "reviewed_freeze_path": "data/manifests/painter_feature_generation_v1/federated_seed_metadata_freeze_r2.json",
+  "reviewed_freeze_sha256": "6d52424091d6cfdfd0050b3ad60848cb030356c11b44694a99d3b0dd1aa33768",
+  "schema_version": "painter-feature-generation-v1-metadata-census-review/1.0"
+}

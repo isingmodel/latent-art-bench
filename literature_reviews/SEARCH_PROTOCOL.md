@@ -166,7 +166,7 @@ bringing the matrix to 141 rows; the later pair-estimator correction added Horvi
 brought it to 142. A final method-traceability correction added Hoeffding's bounded-variable
 inequality and Csiszár's I-projection geometry, bringing the matrix to 144. None of these corrections
 makes a saturation claim. Their inclusion records the methods reviewed,
-not active adoption: the census design in study protocol 1.7 rejects real-work
+not active adoption: the finite-population census design in study protocol 2.0 rejects real-work
 Horvitz–Thompson/Rao–Wu machinery unless a future protocol introduces probability subsampling.
 That calculation is a retrospective description, not proof that a
 less-than-10% stopping rule was prespecified or independently satisfied: the rule was not

@@ -1,0 +1,39 @@
+{
+  "census_id": "pfg-v1-fixed-seed-media-audit-r2-20260902",
+  "frozen_input_set_sha256": "13191306b42392e905f224b2869cd02b23da3d1b12713c854ab7aadc77646a26",
+  "frozen_inputs": [
+    {"path": ".gitignore", "sha256": "0d6569a63b7448075dbd73e5221d38d69143c50ae28939e83b0a63dbbc5c1be9"},
+    {"path": "configs/painter_feature_generation_v1/federated_metadata_census.json", "sha256": "b804de6ee2170e43eae6bbad84417e42eb4fab56b3898e934e8184679453be60"},
+    {"path": "configs/painter_feature_generation_v1/federated_metadata_census_r2.json", "sha256": "9917cbedb1206900260212ac1f2eeeba8e06d391c775cccef4f0c8347d69442a"},
+    {"path": "data/manifests/painter_feature_generation_v1/federated_seed_metadata_authorization.json", "sha256": "2f8d4264e8d5730a0d0813568f3dd8e37617df3d1a52f5240c50ae3fc6d9f2c3"},
+    {"path": "data/manifests/painter_feature_generation_v1/federated_seed_metadata_freeze.json", "sha256": "ee6005498954f27c683f68c927267a7d1fdf15b46a4e21195cd43dde0b8ac986"},
+    {"path": "data/manifests/painter_feature_generation_v1/federated_seed_metadata_request_events.jsonl", "sha256": "dcc28cf36f9de1e23c6d67c3e19b842da3e8eae85e56266a6bb3c46fe2828edb"},
+    {"path": "data/manifests/painter_feature_generation_v1/federated_seed_metadata_request_intents_r2.jsonl", "sha256": "5dc90b329d4bd3744ad32b1e448aec5c6a4da57325ebfd39383a30f1bb591679"},
+    {"path": "data/manifests/painter_feature_generation_v1/federated_seed_metadata_review.json", "sha256": "5357cf30a7852623c892d37f0a2608b6a8fd49f90d1377cf03e0e75f5c68d16e"},
+    {"path": "pyproject.toml", "sha256": "9da42015a9f57afd574191b26c1d710aab3b7359d44661dab700a03854f151b7"},
+    {"path": "research_workspace/painter_feature_generation_v1/metadata/exploratory_wikidata_oil_canvas_items_2026-09-02.json", "sha256": "d10549b15b44b3c918d5499469b7cb61872f4527cd0f336957aaaed847c96216"},
+    {"path": "research_workspace/painter_feature_generation_v1/metadata/federated_seed_media_audit_20260902/response_bodies/61/61f8366eb408db36e55ac94e7472815cab6d61649b2659a8ae6222173212368b.response", "sha256": "61f8366eb408db36e55ac94e7472815cab6d61649b2659a8ae6222173212368b"},
+    {"path": "reports/painter_feature_generation_v1/evidence/federated_candidate_census.json", "sha256": "71af18fed6125ffe9ad0071899b94bd1ab5c254fb233fa16c23b9894df1fee6a"},
+    {"path": "scripts/collect_pfg_v1_federated_metadata.py", "sha256": "2a81c5e59703155187fb78d31f95ca806d2c90b80312fa553f2c0322c41342eb"},
+    {"path": "src/latent_art_bench/__init__.py", "sha256": "3a5d2006e1557187a3585cbe17af183fd7d2f170a32eb96b00c43b00d137c660"},
+    {"path": "src/latent_art_bench/config.py", "sha256": "13939c9175af4d85c13687e8818023ba2f5d7920881c3fad9a97f2ebe42e933b"},
+    {"path": "src/latent_art_bench/io.py", "sha256": "13e6372aa9814495a45700eb9e65d099c56bb1bb3032d72f7f9e00e6ba91a9b8"},
+    {"path": "src/latent_art_bench/painter_feature_generation_v1/__init__.py", "sha256": "7bc8796c4b0dc4bf095669e6911cba541e30e9778437e0df0cc5b3e71918fed1"},
+    {"path": "src/latent_art_bench/painter_feature_generation_v1/federated_census.py", "sha256": "850625276c8e516664d67d52402e1f684d15ca7f6b7974339e86bad0a47d0432"},
+    {"path": "src/latent_art_bench/schemas.py", "sha256": "904498cb1b7ede2ca4e532f59fe80b8033a9701bc39941d1a75a5af5ff3cdcb7"},
+    {"path": "studies/painter_feature_generation_v1/PROTOCOL.md", "sha256": "ffce565d8346b62915916b00c5ab894348acc5762d9e503ddd282eaab59aefcb"},
+    {"path": "tests/conftest.py", "sha256": "220e0b6f27073020d4b16a5905e2f5bc9d4dd0232e83821b80c0aba7725698ff"},
+    {"path": "tests/painter_feature_generation_v1/test_federated_census.py", "sha256": "04b297b623b0b1a97f634fee5f6ef62db0c7e7388cdb3a782de78654aa19de57"},
+    {"path": "uv.lock", "sha256": "99285c8ccc298b80bd711b296d90945aea07209cb4623deae5a599bc0d4c80bf"}
+  ],
+  "preexecution_outputs": [
+    {"path": "data/manifests/painter_feature_generation_v1/federated_seed_metadata_request_events_r2.jsonl", "state": "absent"},
+    {"path": "data/manifests/painter_feature_generation_v1/federated_seed_metadata_candidates_r2.jsonl", "state": "absent"},
+    {"path": "data/manifests/painter_feature_generation_v1/federated_seed_metadata_execution_receipt_r2.json", "state": "absent"},
+    {"path": "research_workspace/painter_feature_generation_v1/metadata/federated_seed_media_audit_r2_20260902/response_bodies", "state": "absent"}
+  ],
+  "protocol_id": "painter-feature-generation-v1/2.0",
+  "schema_version": "painter-feature-generation-v1-metadata-census-freeze/1.0",
+  "scope": {"active_study_admission": false, "feature_extraction": false, "generation": false, "image_downloads": false, "metadata_requests": true, "visual_coding": false},
+  "status": "sealed_for_independent_metadata_census_review"
+}

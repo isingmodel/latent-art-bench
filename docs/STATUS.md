@@ -2,356 +2,188 @@
 
 Operational date: 2026-09-02
 
-Redesign base revision: `0073bd9e9fd6`
-
-This is the mutable operational status page. Frozen protocols, ledgers, receipts, and reports remain
-authoritative for their own historical facts.
+This page is mutable operational state. Frozen historical protocols, ledgers, and receipts remain
+authoritative for their own completed actions.
 
 ## Active research question
 
 The active study is **Painter Feature Generation v1**:
 
-> For one exact generative model and one R0a-frozen 24-template common-content prompt frame, (a) do
-> registered painter-name requests meet availability and content-adherence requirements and (b),
-> among technically analyzable near-copy-excluded returns, does the generated distribution reproduce
-> the content-standardized feature distribution in that painter's R0a-randomized sealed-confirmation
-> population of eligible digital painting surrogates?
+> For one exact model and one pre-label common outdoor-place prompt census, do painter-name outputs
+> reproduce the broad-scene-weighted distribution of color, spatial/orientation, and digital-texture
+> features in authority-record-exactly-attributed paintings by Monet, Sisley, Pissarro, and Cézanne?
 
-The only current canonical plan is:
+The only canonical plan is
+[`studies/painter_feature_generation_v1/PROTOCOL.md`](../studies/painter_feature_generation_v1/PROTOCOL.md),
+protocol ID `painter-feature-generation-v1/2.0`.
 
-`studies/painter_feature_generation_v1/PROTOCOL.md`
-
-Current protocol ID: `painter-feature-generation-v1/1.7`.
-
-The plan separates absolute target fit, all-neighbor specificity, median/spread coverage,
-prompt-conditioning effects, copying, content adherence, and request availability. A conditioning
-effect, classifier accuracy, raw cosine similarity, or a close centroid alone cannot establish
-painter-distribution reproduction.
+The claim is deliberately finite and technical: broad-scene-weighted digital-surrogate feature
+reproduction in the closed accessible frame. It is not painter classification, authorship,
+content-free style, physical brushwork, artistic intention, or a probability-sampled oeuvre claim.
 
 ## Current stage
 
-The prospective protocol redesign is complete. The project is at the **R0a metadata-census gate**.
-Federated discovery has produced candidate item identifiers but no evidence that the required frame
-is feasible. The four-painter corpus remains **NO-GO** until
-item-level authority, media rights, geometry, content, identity, source-diversity, and joint
-calibration-feasibility checks pass.
+The study completed the **R0 fixed-seed metadata follow-up** and remains **NO-GO for full R0 closure
+and R1 image acquisition**.
 
-Completed in the redesign:
+Completed in the Protocol 2.0 redesign:
 
-- corrected the study endpoint from real-only feature qualification to generated-versus-real
-  conditional distribution comparison;
-- re-audited the closest primary papers, including Kim et al., CSD, ArtSavant, ArtFID,
-  distribution-support metrics, and copy detection;
-- created a focused literature audit and corrected bibliography/traceability errors;
-- inventoried the retained candidate metadata and ignored local image bytes;
-- fixed one `outdoor_place_landscape` content domain with four broad scene groups; the former six
-  narrow submotifs remain nonbinding diagnostics, while five microcontent variables define exactly
-  five binary visible-property contrasts;
-- required pre-adjudication three-way visual-eligibility agreement of at least 0.90 per painter and
-  each coder's `ambiguous_multiple` share no higher than 0.10; on the union-eligible denominator,
-  required at least 0.85 agreement for the broad scene and each five-property three-state contrast,
-  repeated in every assigned internal and registered-external population, with each coder's season,
-  illumination, and depth indeterminate fraction no higher than 0.20; failure is R0a NO-GO and
-  adjudication cannot erase the receipt;
-- required G1b independent double-coding of every sealed-confirmation and technically analyzable
-  generated image; raw labels and condition-specific 0.85/0.20 receipts are sealed before third-
-  coder consensus, and a failed receipt makes the affected adherence, realized-content, and feature-
-  reproduction endpoint inconclusive;
-- required all 12 candidate complete prompt frames to be byte-exact and hash-complete before any
-  active content label: artist-free and named-placeholder strings, punctuation, language, negative
-  prompt, insertion point, painter-name substitution table, scene label, five content values, and
-  render behavior are immutable; G0
-  may verify but never rewrite them;
-- retired both the four-work-per-cell and later real-work-subsampling designs: R0a acquires,
-  adjudicates, and analyzes at least 360 internal works per painter, split by one random exposure-role
-  permutation into 72 development, 108 qualification, and at least 180 confirmation works; this is
-  at least 1,440 internal, plus a complete optional 384-work external census for at least 1,824;
-- specified a separate auxiliary same-work independent-capture census containing every eligible
-  work in its frozen auxiliary frame and at least 32 physical works, at least eight per painter and
-  at least two independent captures per work, outside every internal/external total;
-- fixed a full-population entropy projection `q*` in R0a for each complete development,
-  qualification, sealed-confirmation, and registered-external population, with joint convex-hull,
-  weight-cap, and effective-sample-size gates and no refitting; `q*` is primary and the uniform
-  complete population is a mandatory sensitivity;
-- fixed one common coordinate transform from the weighted median/IQR of the equal-painter mixture
-  of all four `q*`-weighted complete development populations; painter-specific scaling is forbidden;
-- bound the complete internal frame by unweighted source shares only, each assigned internal
-  population by both unweighted and `q*` shares, and registered external populations by their own
-  unweighted/`q*` ceilings; defined the exact source-shift RMS functional against the auxiliary-
-  census disturbance bound, with a uniform-weight repetition;
-- made the blind realized-content entropy projection a binding sensitivity with the same joint
-  support gates; it is recomputed inside generator replicates and cannot rescue the primary result;
-- replaced the empirical energy V-statistic shortcut with an exact `q*`-weighted real-census
-  summation inside the generated–real term, an exact real–real finite component, and an equal-template
-  generated U-statistic; generator expectations remain estimated from registered draws, with no
-  real-work bootstrap or inverse-probability estimator;
-- separated rate bounds from the continuous max statistic while binding both to one G0 independence
-  partition: local deterministic inference resamples whole seed-condition vectors within template;
-  opaque/remote inference resamples equal-size balanced common-shock units carrying complete waves;
-  the Hoeffding radius uses squared aggregate unit weights, and crossed or unusable units make both
-  affected endpoint families ineligible or inconclusive;
-- queried 3,190 Wikidata painting-item candidates and preserved the exact query, response hashes,
-  and limitations; these are discovery candidates, not admitted physical works;
-- completed a separate item-resolved, traceable live official-source audit with 43 all-content
-  candidates, none yet content-coded or admitted to the outdoor-place frame; this preserves the
-  observed live item records but is not a reproducible as-of-date source snapshot;
-- required equal `R` for every named condition and shared artist-free control in all 24 templates,
-  so the four-painter request count is `120R`; retired the former `R=16`/1,920-request scenario
-  because it cannot clear the boundary-safe availability gate; established only an impossible-best-
-  case floor of `R>=25` and 3,000 requests assuming every repetition is its own auditable independent
-  unit, with the actual larger `R` still to be fixed from the Bonferroni endpoint inventory,
-  independence-unit audit, and whole-decision simulation; unequal/unpaired primary blocks are
-  forbidden; fixed deterministic local maps use independent template-specific IID uniform seed
-  lists with replacement and retained chance duplicates, while opaque/remote endpoints require `C`
-  equal-size common-shock units with `L` complete template×condition waves and `R=C*L`; and
-- created a self-contained Korean research and data-readiness report.
+- corrected the estimand to generated-versus-real painter feature distributions;
+- retired the unsupported equal 360-work quota, three-way active-real split, 24-template selection,
+  and high-dimensional entropy weighting;
+- fixed an exhaustive named source union and physical-work/capture identity graph;
+- defined actual unequal painter populations with equal mass across every commonly supported broad
+  scene group and all eligible works retained within group;
+- defined screening floors of at least three common groups, at least 20 physical works per retained
+  group, equal-scene ESS at least 100, crossed source workflows, and a 60-work independent-capture
+  auxiliary panel, with whole-decision simulation still binding;
+- restricted historically exposed works to development and fixed a prospective 20%/20%/60%
+  development/qualification/confirmation assignment for every new eligible work;
+- fixed all 16 candidate prompt strings and the render-independent contract before active visual
+  labels; unsupported groups can only be removed by the deterministic count rule;
+- specified three required feature families—color, spatial/orientation, and digital texture—with
+  common normalization and no learned feature as primary;
+- required all three families to qualify; no favourable family subset can produce the painter label;
+- specified energy-distance estimation, margins, specificity, artist-free control improvement,
+  coordinate coverage, per-scene coverage, source/work influence, simulation, and simultaneous
+  inference;
+- kept every off-topic generated output in its assigned primary cell; adherent-only analysis is a
+  sensitivity, not a selection rule;
+- required a complete technically analyzable generated grid and zero confirmed searched-corpus
+  real-work copies for a positive claim; generated duplicates remain with full multiplicity; and
+- defined role-separated acquisition, blind coding, method, generation, and confirmation access.
 
-Not completed:
+The first authorized fixed-seed audit was executed on 2026-09-02 and terminated exactly as
+specified. Four Wikidata batches succeeded. The fifth returned HTTP 200 but exposed a valid
+MediaWiki `languagefallback` term representation that the frozen parser did not support, producing
+`terminal_stage_schema_failure`. Its 11-event hash-chained ledger and five response bodies are
+preserved; no result manifest or execution receipt was issued, and none of its successes will be
+spliced into the retry.
 
-- R0a reproducible source census, complete frame acquisition, firewalled low-resolution content
-  double-coding, physical-work deduplication, one eligible finite-population freeze per painter,
-  painter-level exposure-role permutation, selection of one of the 12 candidate complete prompt
-  frames, full-population `q*` freezes, acquisition of the separate at-least-32-work reproduction
-  census, and release of the complete 288-work development population plus that census;
-- item-level verification and acquisition of the observed finite-federation development frame;
-- R1a feature fixtures, common-scaling and source-shift fixtures, nuisance tests,
-  exact-census/generated-U and generated-quantile fixtures, generator-only continuous-endpoint
-  resampling, boundary-safe rate-bound validation, realized-content validation, margins, and
-  whole-decision generator-repetition simulation;
-- R0b release of the complete qualification populations while the complete confirmation and any
-  optional external populations remain sealed, plus R1b untouched method qualification;
-- G0 exact model, 24-template prompt census, seed/request population, request order, and analysis freeze;
-- G1a sealed generation execution followed by one-time G1b final-reference opening; and
-- any new generation or generated-versus-real result.
+The complete, newly authorized R2 retry then:
 
-No empirical statement that a model does or does not reproduce a painter is currently authorized.
-Active-study counts are zero admitted physical works, zero downloaded images, zero R0a-frozen
-physical works, zero auxiliary-census works, zero registered generation requests, zero generated
-outputs, and zero generated-versus-real results.
+- a fixed-seed metadata-only follow-up of 3,190 Wikidata items and 3,364 Commons filenames;
+- 165 exact GET intents (80 Wikidata entity batches and 85 Commons file batches);
+- a fail-closed collector that validates current P18 linkage, rights markers, reported geometry,
+  exact member coverage, origin/redirect behaviour, retries, atomic receipts, and non-admission
+  manifests; and
+- a corrected fallback-term parser and focused regression tests;
+- a new census ID, complete 165-request intent set, separate output paths, and explicit hash-bound
+  linkage to the terminal first census; and
+- passed neutral independent review with no blocking finding;
+- completed all 165 requests on first attempt (80 Wikidata and 85 Commons), producing 331
+  hash-chained events and 165 content-addressed raw responses (about 51 MiB locally); and
+- emitted a 3,367-row non-admission candidate manifest and execution receipt.
 
-## Data readiness
+Still not completed:
 
-The four files from historical Painter Features v1 Collection Freeze 3 are not the whole project
-corpus. They are a narrow acquisition-validation batch.
+- the broader prospective Wikidata/Commons census without `P186` and the other terminal source
+  routes;
+- authority, rights, physical-work, capture-family, and image-quality reconciliation;
+- active image acquisition;
+- masked double coding, reliability/adjudication, source crossing, corpus closure, or scene support;
+- the frozen new-work role manifest and the 60-work capture panel;
+- feature implementation/fixtures/qualification, margins, or simulation results;
+- model/prompt/seed G0 freeze;
+- generation; or
+- confirmation and generated-versus-real results.
 
-The current deterministic inventory is:
+## Active counts
 
-| Inventory | Count |
-|---|---:|
-| Legacy metadata audit rows | 194 |
-| Legacy `include` decisions | 142 |
-| Included rows with medium literally `oil on canvas` | 133 |
-| Ignored historical JPEG deliveries | 132 |
-| Primary-named delivery files | 113 |
-| Alternate-named delivery files | 19 |
-| Total ignored JPEG bytes | 69,549,332 |
-| Distinct SHA-256 values among the 113 primary files | 113 |
-| Historical pixel-exposure denylist work IDs | 118 |
+| Quantity | Count | Meaning |
+|---|---:|---|
+| exploratory Wikidata item candidates | 3,190 | material-constrained discovery identifiers, not verified works |
+| distinct Commons filenames in that seed | 3,364 | file identifiers, not physical works |
+| completed R2 metadata requests | 165 / 165 | all first-attempt successes; no R1 success reused |
+| completed R1 metadata requests | 4 | verified success before the fifth request terminated R1 |
+| terminal R1 requests | 1 | valid provider representation unsupported by the frozen parser |
+| R2 metadata-qualified rows | 2,029 / 3,367 | fixed-seed discovery gate; not physical works |
+| R2 distinct qualified item IDs | 1,967 | not identity-reconciled physical works |
+| R2 distinct qualified filenames | 2,028 | files, not independent works or captures |
+| separately observed official-source all-content candidates | 43 | traceable live records, not a terminal source census |
+| admitted active physical works | 0 | none has passed every gate |
+| downloaded active-study image files | 0 | metadata collection cannot download images |
+| sealed confirmation works | 0 | frame not closed |
+| registered generation attempts | 0 | G0 closed |
+| generated outputs | 0 | G1 closed |
+| generated-versus-real results | 0 | no empirical painter claim authorized |
 
-Legacy rows whose medium string is literally `oil on canvas` number Sisley 20, Pissarro 36, Monet 53,
-and Cézanne 24. These are candidate rows, not a final deduplicated analysis corpus. Unique byte hashes
-do not prove unique physical works, and historical exposure limits their role. Pilot 2
-feature-exposed works are development-only; an unopened provider/capture workflow and unopened works
-are required for an external-transfer claim.
+The earlier 40-file Commons follow-up ended with HTTP 429 and remains superseded evidence. The R2
+fixed-seed result establishes current metadata attrition only. It does not establish a reusable-file
+corpus, authority-verified work count, complete source frame, or outdoor-place content yield.
 
-Provider-specific counts from earlier exploratory direct-institution work were not preserved as a
-reproducible snapshot and are not an active-corpus claim. A new traceable live-item audit did record
-identifiers for **43 all-content official-source metadata candidates** after strict attribution,
-oil-on-canvas, item-level rights, image, and 1,024-pixel checks:
+## Data and source policy
 
-| Official source | Candidates |
-|---|---:|
-| Yale University Art Gallery | 16 |
-| Paris Musées | 9 |
-| Getty Museum | 10 |
-| Minneapolis Institute of Art | 8 |
+Protocol 2.0 closes the candidate union to:
 
-The same 43 candidates comprise Pissarro 11, Monet 13, Cézanne 12, and Sisley 7. This is traceable
-evidence of live item pages, not a reproducible as-of-date census. The records span all content and
-have not yet passed the four-broad-scene-group outdoor-place codebook, narrow diagnostic coding,
-five-variable coding and five-contrast calibration construction,
-physical-work deduplication, capture-ancestry review, or active-study admission. They are not
-downloaded active-study images.
+1. the broader exact-creator Wikidata/Commons painting+image census without material filtering;
+2. Europeana exact creator;
+3. AIC, NGA, Cleveland, Yale, Getty, Minneapolis, and Paris Musées APIs/exports;
+4. POP/Joconde; and
+5. the material-constrained fixed seed for current attrition/reconciliation only.
 
-An exploratory federated query found 3,190 distinct **Wikidata painting-item candidates** with a
-panel creator, Commons image, and both oil-paint and canvas material statements: Pissarro 685,
-Sisley 705, Monet 1,132, and Cézanne 668. It returned 3,367 item-image rows and 3,364 distinct file
-links. This is a candidate discovery frame, not an admitted corpus. A subsequent file-level sample
-was rate-limited with HTTP 429, so no Commons license, resolution, or image-quality count is claimed.
-The active plan requires at least 360 verified internal candidates per painter and at least 24 in
-each of the four broad scene groups, plus the source-diversity and joint five-contrast calibration-
-feasibility gates. Each painter's internal frame and every internal development, qualification, and
-confirmation population require at least four holding/capture groups. The frame caps each group's
-unweighted share at 30%; each assigned population caps both unweighted and final `q*` shares at 30%.
-Where a frame scene has multiple groups its cap is unweighted 70%; an assigned population's multi-
-source scene caps both unweighted and scene-conditional `q*` shares at 70%. Optional external
-populations require at least two unopened groups and the same 70% overall unweighted/`q*` ceilings.
-No full-frame `q*` exists. The primary result is
-specific to the observed source mixture. Exact common
-source×scene-group comparisons are mandatory diagnostics where both painters have support, not
-primary sampling cells; empty cells are not imputed. Registering the optional external plan requires
-96 additional eligible candidates per painter from unopened external sources, including at least
-eight per broad scene group, or 456 combined per painter.
+Discovery records locate candidates. Authority records establish work identity, exact attribution,
+object type, medium/support, and accession. Media/capture records establish lawful reuse, geometry,
+and delivery. These layers can describe the same work and are never added as independent counts.
 
-The minimum acquired, adjudicated, and analyzed internal frame is 1,440 works: 72 development, 108
-qualification, and at least 180 confirmation works per painter. Optional external replication adds
-a complete 96-work census per painter, or 384 works, for at least 1,824 acquired and analyzed real
-works. A separate auxiliary independent-capture census of at least 32 works is outside both totals.
-These are capacity requirements, not power guarantees. R1a must determine the still-unfrozen
-generator repetition count but cannot select real-work prefixes or reduce a complete population.
+Every source must reach its frozen terminal condition. Reaching a capacity number is not a stop
+rule. A source is not replaced or topped up after results. One physical work contributes once;
+mirrors, crops, filenames, encodings, or hashes do not increase the work count. Only provenance-
+demonstrated distinct capture events enter the auxiliary capture panel.
 
-R0a eligibility is not metadata-only: two independent coders must view frozen derivatives whose
-long side is at most 512 pixels, with painter, title, institution, accession, and source masked.
-That viewing is honest real-pixel exposure and is logged. Derivatives, coder notes, and adjudication
-imagery stay in a role-separated store inaccessible to feature, method, and generation analysts;
-the complete visual-screening denominator retains the three-way eligibility labels, union-eligible
-content denominator, missing labels, and coder-specific indeterminate fractions. The 0.90/0.10 and
-0.85/0.20 gates above apply before adjudication, including assigned internal and any registered-
-external population scopes, and failed reliability cannot be repaired in this version. In G1b, two
-independent blinded coders label every sealed-confirmation and technically analyzable generated
-image. Their raw labels and condition-specific 0.85/0.20 receipts are sealed before third-coder
-consensus; a failed receipt makes the affected endpoint inconclusive. Analysis-resolution
-qualification/final files remain inaccessible, and final-reference files stay
-sealed through G1a. Active-study derivative and source-image counts are currently zero.
-
-For each painter, one R0a-frozen CSPRNG permutation assigns ranks 1–72 to development, 73–180 to the
-complete 108-work qualification population, and 181 onward to the complete sealed-confirmation
-population of at least 180 works. This assignment separates exposure roles; it is not a later
-probability sample. Every work in each released population is measured. Before feature access, R0a
-selects one of 12 prehashed complete 24-template frames using content labels only and freezes each
-complete population's entropy weights `q*` to the same eight-dimensional target: three
-nonredundant broad-scene proportions and five visible-property means. `q*` is primary and never
-refit; the uniform complete population is a mandatory sensitivity. R0b releases the complete
-qualification census and cannot add or redefine eligible works. One common transform is fit to the
-equal-painter mixture of the four `q*`-weighted complete development populations and uses its weighted
-median/IQR unchanged everywhere. Primary energy uses an exact real-census summation inside the
-generated–real term, an exact real–real finite component, and an equal-template generated U-statistic;
-generator expectations remain estimated. Generated quantiles give each analyzable output weight
-`1/(24 m_t)`. The
-9,999 prospective continuous-endpoint replicates use the same G0 independence partition as rates
-while holding real populations and weights fixed. A fixed deterministic local map resamples whole
-seed-condition vectors within template from independent template-specific IID uniform seed lists;
-an opaque/remote endpoint resamples only equal-size balanced common-shock units, each carrying all
-`L` complete waves and every template×condition outcome, with `R=C*L`.
-Availability, adherence, and copy rates instead use the separately alpha-allocated Bonferroni
-weighted-Hoeffding bounds and conservative ratio bounds. `M_rate` counts unique directional events;
-a complete endpoint needs `A` lower, `A` upper, `J` lower, and `K` upper. G0 groups request weights
-into the same auditable independence units `c`; the radius uses `sum_c W_c^2`. Remote IDs/timestamps
-are insufficient: provider
-episodes, batches, backend/moderation states, outages, retry cascades, and other plausible common
-shocks stay together. A crossed shock, unusable balanced unit, or partition that cannot align with
-fixed-template resampling makes both affected rate and continuous endpoints ineligible or
-inconclusive; R1a stress-tests clustered pixel/feature failures. A nonstructural zero replicate variance is
-inconclusive. Source is not a sampling stratum: within painter and broad scene, the binding source
-functional is the RMS across commonly scaled coordinates of the exact `q*`-weighted median shift
-between one source group and its complement, compared with the auxiliary-census disturbance bound
-and repeated under uniform weights. Leave-one-source and source-specific robustness remain binding,
-and any exact common source×scene-group comparison is a supported-cell diagnostic rather than a
-different primary estimand. Blind realized-output labels also enter a separately frozen binding
-entropy projection with the same support gates; it cannot rescue the primary intention-to-prompt result.
-
-Detailed audit (current data-readiness schema: `painter-feature-generation-v1-data-readiness/1.8`):
-
-- `reports/painter_feature_generation_v1/evidence/data_readiness_audit.json`
-- `reports/painter_feature_generation_v1/evidence/official_source_extension_audit.json`
-- `reports/painter_feature_generation_v1/evidence/federated_candidate_census.json`
-- `reports/painter_feature_generation_v1/RESEARCH_PLAN_AND_DATA_REPORT_KO.md`
-
-## Current source policy
-
-Primary real-reference candidates require authoritative museum identity, declared open/public-domain
-image status, traceable delivery, normalized `oil_on_canvas` support under a frozen ontology, and
-frozen content eligibility.
-
-Current priority channels include AIC, NGA, CMA, Smithsonian, Yale University Art Gallery, Paris
-Musées, Getty Museum, and Minneapolis Institute of Art, subject to each source's frozen item-level
-record, media-rights, and delivery rules. Wikidata/Commons is a federated discovery/delivery layer:
-an asset enters the primary frame only after reconciliation to an authoritative holding or catalogue
-record and item-level rights, geometry, and capture checks. WikiArt and ART500K remain
-development/benchmark resources, not primary confirmation sources.
-
-The Pilot 3 Met R2 path remains terminally closed after its first metadata request returned HTTP
-403. Do not retry it, use another Met endpoint, or introduce a fallback. Existing historical Met
-files may remain development evidence under their recorded provenance; this does not authorize new
-Met access.
-
-## Historical Painter Features v1 precursor
-
-`studies/painter_features_v1/MEASUREMENT_PROTOCOL.md` version 2.0 is preserved at its literal path
-because Collection Freeze 3 binds its hash and path. It is a standalone real-image measurement
-protocol and explicitly does not evaluate generated images. It is now a historical methodological
-precursor, not the active research plan.
-
-Collection Freeze 3 remains valid for what it did:
-
-- four exact NGA files, two Pissarro and two Monet;
-- four first-attempt HTTP 200 admissions;
-- no retry, redirect, replacement, or fallback;
-- 1,367,595 ignored raw bytes with valid recorded hashes and geometry; and
-- preservation only—no normalization, feature extraction, generation, or painter result.
-
-Do not rewrite, move, rehash, or regenerate its protocol, seal, ledgers, or report.
-
-## Historical pilots
-
-- Pilot 0 is a failed historical qualification path.
-- Pilot 1 completed an engineering traversal, but both scientific measurement gates failed.
-- Pilot 2 executed 320 assigned requests; five refusals left both requested-label feature grids
-  incomplete, so all four primary tests were not run and the decision was `REDESIGN`.
-- Pilot 3 acquired its AIC development half; Met R2 closed on the first terminal HTTP 403 metadata
-  response before any Met image request.
-
-These negative and incomplete outcomes are evidence. Do not remove terminal attempts, repair them
-with new data, or overwrite their frozen protocols.
+The active source mixture must be crossed with painter: every painter requires at least two
+authority/capture workflows, the incidence graph must be connected, and no workflow may carry more
+than 0.80 of a painter's equal-scene weight. Otherwise painter and source are inseparable and no
+painter-reproduction label is allowed.
 
 ## Required next sequence
 
-1. R0a: freeze reproducible source snapshots and ordered acquisition intents; acquire, verify, and
-   seal the complete candidate frame; before any active content label is read, hash every byte of
-   all 12 complete 24-template candidate frames and their render contracts; complete the ≤512-pixel
-   firewalled four-broad-scene-group, narrow-diagnostic, and five-variable coding; seal the visual-
-   screening and union-eligible denominators and enforce pre-adjudication 0.90 eligibility, 0.10
-   ambiguous, 0.85 content, and coder-specific 0.20 indeterminate gates in every required R0a scope;
-   make one painter-level exposure-role permutation; select the shared
-   prompt frame; freeze every complete population's jointly feasible primary `q*` and the separate
-   at-least-32-work reproduction census; then release only the complete 288-work development
-   population and auxiliary census to feature analysts.
-2. R1a: qualify the fixed three interpretable families on development data and freeze energy,
-   the common pooled-development transform, exact source-shift functional, twelve-coordinate
-   median/spread coverage panel, margins, generated-quantile weights, continuous-endpoint max-
-   statistic, directional boundary-safe rate inventory, candidate shared independence-unit maps and
-   pixel/feature common-shock stress tests, realized-content projection, and final equal named/control generator repetition
-   count through whole-decision simulation; do not change any real population size.
-3. R0b: release the complete 432-work method-qualification population while preserving the complete
-   sealed-confirmation and any optional external populations under seal; do not collect, add, or
-   redefine eligible works.
-4. R1b: run the frozen method once on untouched qualification data while the final reference stays
-   sealed; continue only for prespecified families that pass, and stop if none pass.
-5. G0: choose and bind one exact model; verify but do not edit the already frozen 24-template hashes;
-   freeze equal named/control `R`; for a fixed deterministic local map, freeze independent template-
-   specific IID-uniform-with-replacement seed lists; for an opaque/remote endpoint, freeze `C` equal-
-   size common-shock units with `L` complete balanced waves and `R=C*L`; freeze request order and the
-   same auditable partition for rate and continuous inference, plus failure policy, copy audit, and
-   analysis hash.
-6. G1a: execute the simulation-selected ledger while final-reference pixels remain unopened, then
-   seal every request, attempt, failure, output, and hash.
-7. G1b: open the final reference once; double-code every sealed-confirmation and technically
-   analyzable generated image, seal the raw labels and 0.85/0.20 receipts, and only after passing use
-   third-coder consensus in the frozen copy, feature, availability, adherence, and claim-audit
-   pipelines without an intervening analytic choice.
+1. Preserve and report the completed fixed-seed result without calling it a complete source frame.
+2. Freeze and execute the broader no-`P186` and other named source routes to terminal conditions;
+   reconcile their union to physical works.
+3. Under a separate R1 authorization, verify authority/rights/capture identity and acquire lawful
+   technically adequate image bytes.
+4. Run role-separated R2 coding and close the unequal finite frame; generation remains NO-GO until
+   every corpus adequacy gate passes.
+5. Run M0a/M0b, auxiliary capture qualification, margins, copy calibration, and whole-decision
+   simulation. All three families must pass.
+6. Freeze one exact model, prompts, render settings, seeds, `R`, request order, and analysis at G0;
+   then generate and seal G1 while confirmation features remain inaccessible.
+7. Open the confirmation reference once at C0 and execute the frozen decision.
+
+## Historical evidence boundary
+
+### Painter Features v1
+
+`studies/painter_features_v1/MEASUREMENT_PROTOCOL.md` is a frozen real-image measurement precursor,
+not the active plan. Collection Freeze 3 acquired four exact NGA files (two Pissarro and two Monet),
+all on first-attempt HTTP 200. Its protocol, seal, ledgers, report, paths, and hashes must not be
+rewritten or moved.
+
+### Pilots 0–3
+
+- Pilot 0 is a failed historical qualification path.
+- Pilot 1 completed engineering traversal but failed both scientific measurement gates.
+- Pilot 2 executed 320 assigned requests; refusals left both requested-label feature grids
+  incomplete, so the four primary tests were not run and the decision was `REDESIGN`.
+- Pilot 3 acquired its AIC development half. Its Met R2 path closed on the first terminal HTTP 403
+  metadata response before any Met image request.
+
+These outcomes are evidence. Do not repair them with new data or refresh historical hashes.
 
 ## Explicitly closed actions
 
-Until the corresponding prospective freeze is reviewed and committed, do not:
+Until the corresponding Protocol 2.0 freeze is independently reviewed, do not:
 
-- retry or replace the Pilot 3 Met R2 path;
+- retry or replace Pilot 3 Met R2;
 - access the sealed Pilot 3 external holdout;
-- extract Pilot 3 features from its incomplete cohort;
-- treat the four Freeze 3 files or 133 candidate rows as a completed painter distribution;
-- tune features, thresholds, broad-scene rules, narrow diagnostic rules, or content targets on
-  generated outcomes;
+- extract features from the incomplete Pilot 3 cohort;
+- treat metadata rows, files, or the four historical NGA files as an active painter distribution;
+- download active-study images under the metadata-only census;
+- view confirmation-resolution pixels/features as a method or generation analyst;
+- tune prompts, features, thresholds, margins, or source rules on generated/confirmation outcomes;
 - send generation requests; or
-- regenerate, rewrite, or move frozen/hash-bound historical evidence.
+- rewrite/move frozen historical evidence.
 
 ## Repository health boundary
 
@@ -362,5 +194,6 @@ uv run --locked ruff check .
 uv run --locked pytest -q -m "not live"
 ```
 
-Historical `pilot2 verify` and planning-era `pilot3 verify` intentionally expose source-hash drift
-and unavailable ignored evidence. Do not regenerate frozen bundles to make those checks green.
+Historical `pilot2 verify` and planning-era `pilot3 verify` intentionally expose old source-hash
+drift or unavailable ignored evidence. Do not regenerate frozen bundles merely to make those
+historical checks green.

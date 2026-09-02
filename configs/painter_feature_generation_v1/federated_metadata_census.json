@@ -1,0 +1,86 @@
+{
+  "schema_version": "painter-feature-generation-v1-federated-metadata-census-config/1.2",
+  "census_id": "pfg-v1-fixed-seed-media-audit-20260902",
+  "protocol_id": "painter-feature-generation-v1/2.0",
+  "protocol_path": "studies/painter_feature_generation_v1/PROTOCOL.md",
+  "source_frame_contract": {
+    "frame_class": "fixed_preexisting_exploratory_seed_followup_not_complete_r0_census",
+    "upstream_evidence_path": "reports/painter_feature_generation_v1/evidence/federated_candidate_census.json",
+    "upstream_evidence_sha256": "71af18fed6125ffe9ad0071899b94bd1ab5c254fb233fa16c23b9894df1fee6a",
+    "upstream_endpoint": "https://query.wikidata.org/sparql",
+    "upstream_queried_at_utc": "2026-09-02T01:43:07Z",
+    "upstream_http_status": 200,
+    "upstream_item_query": "SELECT DISTINCT ?creator ?item ?image WHERE { VALUES ?creator { wd:Q296 wd:Q175130 wd:Q134741 wd:Q35548 } ?item wdt:P170 ?creator; wdt:P31 wd:Q3305213; wdt:P18 ?image; wdt:P186 wd:Q296955, wd:Q12321255. } ORDER BY ?creator ?item",
+    "upstream_terminal_rule": "One unpaginated SPARQL JSON response was preserved. No prospective request-intent, redirect, header, retry, provider-version, or complete-federation terminal receipt exists for that earlier request.",
+    "canonicalization_rule": "Decode each Special:FilePath suffix with UTF-8 percent-decoding, replace underscores by spaces, sort by normalized painter ID then numeric item QID then case-folded filename, reject duplicate item-file pairs, and preserve every image row for later physical-work reconciliation.",
+    "deduplication_rule": "No physical-work or capture deduplication occurs in this audit. Distinct Wikidata item IDs and Commons filenames are retained separately; repeated images for one item remain rows.",
+    "consequence": "This run may establish current entity/file rights-marker and reported-geometry attrition for the fixed seed only. It cannot prove an exhaustive current source census, download an image, admit a work, or satisfy the terminal R0 source-frame gate."
+  },
+  "discovery_input": {
+    "path": "research_workspace/painter_feature_generation_v1/metadata/exploratory_wikidata_oil_canvas_items_2026-09-02.json",
+    "sha256": "d10549b15b44b3c918d5499469b7cb61872f4527cd0f336957aaaed847c96216",
+    "expected_rows": 3367,
+    "expected_distinct_items": 3190,
+    "expected_distinct_files": 3364
+  },
+  "painters": {
+    "Q134741": "camille_pissarro",
+    "Q175130": "alfred_sisley",
+    "Q296": "claude_monet",
+    "Q35548": "paul_cezanne"
+  },
+  "request_contract": {
+    "user_agent": "latent-art-bench/0.1 painter-feature-generation-v1 fixed-seed metadata audit; not complete R0 census (+https://github.com/isingmodel/latent-art-bench)",
+    "timeout_seconds": 60.0,
+    "minimum_interval_seconds": 0.75,
+    "retry_backoff_base_seconds": 1.0,
+    "maximum_retry_wait_seconds": 30.0,
+    "maximum_attempts": 5,
+    "batch_size": 40,
+    "wikidata_endpoint": "https://www.wikidata.org/w/api.php",
+    "commons_endpoint": "https://commons.wikimedia.org/w/api.php",
+    "wikidata_properties": "info|claims|labels|descriptions",
+    "commons_imageinfo_properties": "url|size|mime|sha1|timestamp|canonicaltitle|extmetadata",
+    "commons_extmetadata_fields": "LicenseShortName|LicenseUrl|UsageTerms|Copyrighted|Restrictions|Permission|Artist|Institution|Credit|Source|ObjectName|ImageDescription",
+    "retryable_http_status_codes": [429, 500, 502, 503, 504],
+    "retryable_api_error_codes": ["internal_api_error", "maxlag", "ratelimited", "readonly"],
+    "terminal_rule": "HTTP 200 plus exact parser-complete stage schema, explicit provider timestamp/host, exact requested-member coverage, no redirect or title normalization, no continuation, and an exact P18 item-file link is success. Listed transport/HTTP/API failures consume a persisted attempt and may retry only inside the frozen lifetime cap. A valid integer or timezone-aware HTTP-date Retry-After is honored through the frozen 30-second ceiling; a malformed or longer value, or a crash after an attempt start, terminates this census and requires a newly authorized census ID. Every other HTTP/API/schema failure is terminal without fallback."
+  },
+  "screening_contract": {
+    "minimum_short_side_pixels": 1024,
+    "allowed_commons_license_url_prefixes": [
+      "https://creativecommons.org/licenses/by/",
+      "https://creativecommons.org/licenses/by-sa/",
+      "https://creativecommons.org/publicdomain/mark/",
+      "https://creativecommons.org/publicdomain/zero/"
+    ],
+    "allowed_unlinked_license_short_names": ["cc0", "public domain"],
+    "nonfree_markers": [
+      "all rights reserved",
+      "permission required",
+      "permission is required",
+      "utilisation soumise à autorisation",
+      "cc by-nc",
+      "cc by-nd",
+      "fair use",
+      "non-free",
+      "copyrighted free use",
+      "no derivatives",
+      "noncommercial"
+    ],
+    "supported_image_mime_types": [
+      "image/jpeg",
+      "image/png",
+      "image/tiff",
+      "image/webp"
+    ],
+    "authority_rule": "Wikidata and Commons remain discovery/delivery evidence. No row is admitted until an authoritative holding or catalogue record independently confirms exact attribution, oil on canvas, work identity, and the media reuse basis."
+  },
+  "paths": {
+    "planned_requests": "data/manifests/painter_feature_generation_v1/federated_seed_metadata_request_intents.jsonl",
+    "request_events": "data/manifests/painter_feature_generation_v1/federated_seed_metadata_request_events.jsonl",
+    "candidate_manifest": "data/manifests/painter_feature_generation_v1/federated_seed_metadata_candidates.jsonl",
+    "execution_receipt": "data/manifests/painter_feature_generation_v1/federated_seed_metadata_execution_receipt.json",
+    "workspace": "research_workspace/painter_feature_generation_v1/metadata/federated_seed_media_audit_20260902"
+  }
+}

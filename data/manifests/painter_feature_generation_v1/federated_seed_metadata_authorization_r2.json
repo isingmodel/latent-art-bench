@@ -1,0 +1,18 @@
+{
+  "authorization_scope": {
+    "active_study_admission": false,
+    "feature_extraction": false,
+    "generation": false,
+    "image_downloads": false,
+    "metadata_requests": true,
+    "visual_coding": false
+  },
+  "census_id": "pfg-v1-fixed-seed-media-audit-r2-20260902",
+  "freeze_path": "data/manifests/painter_feature_generation_v1/federated_seed_metadata_freeze_r2.json",
+  "freeze_sha256": "6d52424091d6cfdfd0050b3ad60848cb030356c11b44694a99d3b0dd1aa33768",
+  "protocol_id": "painter-feature-generation-v1/2.0",
+  "review_path": "data/manifests/painter_feature_generation_v1/federated_seed_metadata_review_r2.json",
+  "review_sha256": "1ce9b8276b64415f7fa816b19bdf74f0a092d44f72d858f6eaad4eb45cdcc5cc",
+  "schema_version": "painter-feature-generation-v1-metadata-census-authorization/1.0",
+  "status": "authorized_for_metadata_census_execution"
+}

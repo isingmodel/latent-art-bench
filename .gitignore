@@ -26,6 +26,9 @@ data/manifests/*
 !data/manifests/painter_features_v1/
 !data/manifests/painter_features_v1/*.json
 !data/manifests/painter_features_v1/*.jsonl
+!data/manifests/painter_feature_generation_v1/
+!data/manifests/painter_feature_generation_v1/*.json
+!data/manifests/painter_feature_generation_v1/*.jsonl
 
 !artifacts/
 artifacts/*
