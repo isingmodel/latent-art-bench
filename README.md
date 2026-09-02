@@ -44,14 +44,16 @@ whole-decision simulation—not a target-count stopping rule.
 | material-constrained Wikidata seed | 3,190 item candidates / 3,364 Commons filenames | not authority-verified works |
 | fixed-seed Commons audit | 3,367 rows; 2,029 metadata-qualified rows / 1,967 distinct item IDs | complete fixed-seed follow-up, not authority-verified works or full R0 |
 | broad no-`P186` Wikidata census | 3,722 rows / 3,543 distinct item IDs / 3,718 filenames | complete discovery route, not authority or rights verification |
-| broad-media follow-up R1 | 1 / 182 requests, terminal on HTTP 200 + `Retry-After: 5`; no manifest | terminal protocol evidence, not a completed media screen |
+| broad-media follow-up R1 | 1 / 182 requests, terminal on a plural `errors:[maxlag]` HTTP 200 envelope; no manifest | terminal protocol evidence, not a completed media screen |
+| broad-media follow-up R2 | 182 / 182 requests; 3,722 rows / 2,029 metadata-qualified rows | complete metadata screen, not authority verification or image acquisition |
 | separate direct official-source audit | 43 all-content candidates | not a reproducible complete source frame |
 | active admitted/downloaded/confirmation/generated/result counts | all 0 | metadata discovery succeeded; acquisition and analysis remain gated |
 
-The fixed-seed audit and broader discovery census are complete. The first broad-media follow-up
-closed terminally without a partial result; it may not be retried or spliced. The next steps are a
-separately reviewed retry design plus the remaining named source routes and authority/rights/work-
-identity reconciliation. Image acquisition, blind coding, and confirmation remain later gates.
+The fixed-seed audit, broader discovery census, and separately reviewed broad-media R2 follow-up
+are complete. R1 remains frozen terminal evidence and was neither retried nor spliced: R2 used a
+new census ID, disjoint paths, and the full 182-request frame. The next steps are the remaining
+named source routes and authority/rights/work-identity reconciliation. Image acquisition, blind
+coding, and confirmation remain later gates.
 
 ## Study disposition
 

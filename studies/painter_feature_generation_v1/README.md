@@ -61,8 +61,13 @@ rule.
   produced 3,722 item–image rows, 3,543 distinct Wikidata item IDs, and 3,718 distinct Commons
   filenames. These remain discovery candidates rather than verified or downloaded works.
 - The reviewed 182-request broad-media follow-up R1 reached a terminal first response when Wikidata
-  returned a parser-complete HTTP 200 body with `Retry-After: 5`. It published no partial manifest
-  or receipt and cannot be retried under the same census ID.
+  returned an HTTP 200 plural `errors` envelope containing `maxlag` plus `Retry-After: 5`; the R1
+  parser did not recognize that representation. It published no partial manifest or receipt and
+  cannot be retried under the same census ID.
+- A separately frozen and neutrally reviewed R2 added only strict support for that observed plural
+  MediaWiki error envelope. Under a new census ID and disjoint paths it completed all 182 requests
+  on their first R2 attempt, preserving 365 hash-chained events and 182 raw responses. The resulting
+  3,722-row manifest contains 2,029 metadata-qualified candidates, but zero images or admissions.
 - Active-study admitted works, downloaded image files, confirmation features, generation attempts,
   and results are all zero.
 

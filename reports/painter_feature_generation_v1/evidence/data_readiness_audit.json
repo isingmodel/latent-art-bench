@@ -1,8 +1,8 @@
 {
-  "schema_version": "painter-feature-generation-v1-data-readiness/2.0",
+  "schema_version": "painter-feature-generation-v1-data-readiness/2.1",
   "as_of": "2026-09-02",
   "protocol_id": "painter-feature-generation-v1/2.0",
-  "status": "fixed_seed_metadata_audit_complete_full_r0_and_r1_not_complete",
+  "status": "fixed_seed_and_broad_wikidata_commons_metadata_complete_full_r0_and_r1_not_complete",
   "research_question": "Do outputs from one exact generative model conditioned on a painter name reproduce the broad-scene-weighted distributions of prespecified digital-surrogate painting features in authority-record-exactly-attributed real paintings by that painter?",
   "fixed_seed_r1_terminal_run": {
     "census_id": "pfg-v1-fixed-seed-media-audit-20260902",
@@ -64,6 +64,53 @@
       "paul_cezanne": {"rows": 543, "distinct_item_ids": 530}
     }
   },
+  "broad_no_p186_r2_complete_run": {
+    "census_id": "pfg-v1-broad-wikidata-no-p186-r2-20260902",
+    "execution_receipt_path": "data/manifests/painter_feature_generation_v1/broad_wikidata_execution_receipt_r2.json",
+    "execution_receipt_sha256": "91fe3db46b3316f6cc53d31e49070ab62984a3b6ec0e387ad6880e3ccc4c6b6b",
+    "candidate_manifest_path": "data/manifests/painter_feature_generation_v1/broad_wikidata_candidates_r2.jsonl",
+    "candidate_manifest_sha256": "23092232815dd96ab75ad0c8025469ea74f250c5b847b91f080996f11ba83e4e",
+    "successful_requests": 4,
+    "item_image_rows": 3722,
+    "distinct_wikidata_items": 3543,
+    "distinct_commons_filenames": 3718,
+    "image_downloads": 0,
+    "active_study_admissions": 0
+  },
+  "broad_media_r1_terminal_run": {
+    "census_id": "pfg-v1-broad-media-followup-20260902",
+    "event_ledger_path": "data/manifests/painter_feature_generation_v1/broad_media_followup_request_events.jsonl",
+    "event_ledger_sha256": "95ed1e87f520b4b8f79882485f8146269ccb416c8d5bbddf31f34c51387d6d3c",
+    "planned_requests": 182,
+    "attempted_requests": 1,
+    "terminal_outcome": "terminal_retry_after_new_census_required",
+    "cause": "The HTTP 200 body was a top-level plural MediaWiki errors envelope containing maxlag, accompanied by Retry-After: 5. The R1 parser did not recognize that representation. No partial candidate manifest or receipt was emitted or reused."
+  },
+  "broad_media_r2_complete_run": {
+    "census_id": "pfg-v1-broad-media-followup-r2-20260902",
+    "freeze_sha256": "0a3d6f2a4bf40858018bb0f1ce902a0c830dd1f415f3b0f223e77940ccdf24cb",
+    "neutral_review_decision": "APPROVE_BROAD_MEDIA_FOLLOWUP_ONLY",
+    "authorization_sha256": "e7a451ffbd3a63dcfe8c34d5242a1bb34f44be6991a0a962b1176e78c6b9e4c4",
+    "execution_receipt_path": "data/manifests/painter_feature_generation_v1/broad_media_followup_publication_r2/execution_receipt.json",
+    "execution_receipt_sha256": "c2a08cc8199d3f50bdd04da0cc50efb466fa453afde041d3635eb7f261252445",
+    "candidate_manifest_path": "data/manifests/painter_feature_generation_v1/broad_media_followup_publication_r2/candidates.jsonl",
+    "candidate_manifest_sha256": "3e14bf91eb0836ec09ae3d25fe9ffba7f618939208c4b944b0b0a5c228bc9ff7",
+    "event_ledger_path": "data/manifests/painter_feature_generation_v1/broad_media_followup_request_events_r2.jsonl",
+    "event_ledger_sha256": "7aabae62e6f01e8b295be1a60d0e65efcb348e456c93e977c9609ff6898d1700",
+    "planned_requests": 182,
+    "successful_requests": 182,
+    "first_r2_attempt_successes": 182,
+    "wikidata_requests": 89,
+    "commons_requests": 93,
+    "hash_chained_events": 365,
+    "content_addressed_raw_responses": 182,
+    "raw_response_workspace_bytes": 55899277,
+    "candidate_rows": 3722,
+    "metadata_gate_rows": 2029,
+    "metadata_gate_distinct_item_ids": 1967,
+    "image_downloads": 0,
+    "active_study_admissions": 0
+  },
   "interpretation_boundary": {
     "metadata_candidates_are_physical_works": false,
     "authority_records_verified": 0,
@@ -74,7 +121,7 @@
     "sealed_confirmation_works": 0,
     "generated_outputs": 0,
     "generated_vs_real_results": 0,
-    "reason": "The completed run is a current metadata follow-up of one material-constrained preexisting seed. It is not the exhaustive no-P186 plus named-source R0 union and was not authorized to download images or admit works."
+    "reason": "The fixed-seed and broad Wikidata/Commons metadata routes are complete, but the other named R0 sources, authority and physical-work reconciliation, item-level image rights, technical delivery, and blind scene coding are not. Metadata-only runs were not authorized to download images or admit works."
   },
   "protocol_2_corpus_gates": {
     "minimum_common_scene_groups": 3,
@@ -89,7 +136,7 @@
     "all_gates_currently_satisfied": false
   },
   "next_authorized_sequence": [
-    "Freeze and execute the broader exact-creator Wikidata/Commons census without P186 and every other named R0 route to its terminal condition.",
+    "Preserve the completed broad Wikidata/Commons evidence and freeze every remaining named R0 route to its terminal condition.",
     "Reconcile the terminal union into physical works and capture families.",
     "Under a separate reviewed R1 authorization, verify exact authority attribution, oil-on-canvas, item-level reuse, and technical delivery before acquiring image bytes.",
     "Run masked double coding, role assignment, method qualification, simulation, generation freeze, generation, and one-time confirmation in that order."

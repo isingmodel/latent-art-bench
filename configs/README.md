@@ -9,6 +9,7 @@ observed.
 | `pilot_1/` | Post-failure engineering redesign | Historical |
 | `pilot_2/` | Frozen requested-label execution study | Immutable study record |
 | `pilot_3/` | Freeze-A1, Phase-A, and later prospective contracts | Reboot-frozen; R2 cohort closed |
+| `painter_feature_generation_v1/` | Active Protocol 2.0 metadata and future staged study contracts | Versioned; each execution requires its own reviewed freeze |
 
 Under this reboot's governance boundary, Pilot 3 is not an active resumable workflow. Its
 official-Met R2 cohort closed after the first metadata request returned HTTP 403. See

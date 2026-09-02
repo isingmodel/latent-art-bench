@@ -67,15 +67,19 @@ Historical Painter Features v1 uses the ignored `research_workspace/painter_feat
 The active Painter Feature Generation v1 Protocol 2.0 uses the separate ignored
 `research_workspace/painter_feature_generation_v1/` root. It contains exploratory metadata, the
 completed fixed-seed audit's 165 content-addressed raw responses (about 51 MiB), the terminal broad
-R1 responses, and the completed broad R2 census's four raw responses (1,163,447 bytes); compact
-hashes, events, candidate manifests, and limitations are tracked. No active-study image,
+R1 responses, the completed broad R2 census's four raw responses (1,163,447 bytes), and the
+completed broad-media R2 follow-up's 182 raw responses (55,899,277 bytes); compact hashes, events,
+candidate manifests, and limitations are tracked. No active-study image,
 eligibility derivative, normalized array, feature vector, registered generation request, generated
 output, or result exists yet.
 
 The broad-media follow-up R1 additionally retains one ignored content-addressed HTTP 200 response
-and one lock file. Its tracked three-event ledger is terminal because the successful provider body
-also carried an unexpected `Retry-After` header. It has no candidate manifest or execution receipt;
-do not delete, retry, or splice its partial response into another census.
+and one lock file. Its tracked three-event ledger is terminal because the body was a plural
+MediaWiki `errors:[maxlag]` envelope that R1 did not recognize, accompanied by `Retry-After: 5`.
+It has no candidate manifest or execution receipt; do not delete, retry, or splice its response.
+R2 is a distinct completed census with its own lock, CAS, 365-event ledger, candidate manifest, and
+execution receipt. The R2 candidate rows remain non-admissions and its CAS must be archived before
+any workspace cleanup.
 
 The metadata-audit layer may retain exact request intents, raw provider responses, hashes, terminal
 receipts, and a compact non-admission candidate manifest. Raw responses remain ignored where their

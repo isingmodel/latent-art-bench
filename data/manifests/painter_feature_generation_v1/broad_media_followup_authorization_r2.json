@@ -1,0 +1,18 @@
+{
+  "schema_version": "painter-feature-generation-v1-broad-media-followup-r2-authorization/1.0",
+  "status": "authorized_for_broad_media_followup_execution",
+  "census_id": "pfg-v1-broad-media-followup-r2-20260902",
+  "protocol_id": "painter-feature-generation-v1/2.0",
+  "authorization_scope": {
+    "metadata_requests": true,
+    "image_downloads": false,
+    "visual_coding": false,
+    "active_study_admission": false,
+    "feature_extraction": false,
+    "generation": false
+  },
+  "freeze_path": "data/manifests/painter_feature_generation_v1/broad_media_followup_freeze_r2.json",
+  "freeze_sha256": "0a3d6f2a4bf40858018bb0f1ce902a0c830dd1f415f3b0f223e77940ccdf24cb",
+  "review_path": "data/manifests/painter_feature_generation_v1/broad_media_followup_review_r2.json",
+  "review_sha256": "ae708bfc68b1c4347d74fe084f052ad7de4703bf75af6f6c1886ef5167c61851"
+}

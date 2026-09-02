@@ -96,7 +96,9 @@ statement는 reuse screening에 필요하지만 provider museum의 attribution·
 
 ## 4. 실행 순서
 
-1. broad Wikidata 3,722행의 현재 entity/Commons metadata follow-up을 별도 freeze로 수행한다.
+1. **완료:** broad Wikidata 3,722행의 현재 entity/Commons metadata follow-up을 별도 freeze로
+   수행했다. R2는 182/182 요청, 3,722행, 2,029 metadata-gate 행을 게시했으며 이미지와
+   작품 입장은 0이다.
 2. 인증 없는 공식 source(AIC, CMA, NGA snapshot, Yale, Getty, Mia, POP)를 각각 terminal
    condition까지 실행한다.
 3. API key가 필요한 Europeana와 Paris Musées는 credential 존재 여부를 freeze 전에 확인하고,
@@ -108,6 +110,7 @@ statement는 reuse screening에 필요하지만 provider museum의 attribution·
 ## 5. 현재 결론
 
 공개·고해상도 경로가 여러 기관에 존재하므로 “자료가 전혀 없다”는 결론은 근거가 없다.
-그러나 현재 3,722 discovery rows를 작품 수로 간주하거나 Commons 권리표지를 museum authority로
-간주하는 것도 근거가 없다. 충분성은 전수 source closure, 물리 작품 통합, 장면 이중코딩 후의
-실제 painter×scene×workflow count로만 판단한다.
+그러나 broad-media R2가 3,722행의 current entity/media metadata를 완결했어도 이를 작품 수로
+간주하거나 Commons 권리표지를 museum authority로 간주하는 것은 근거가 없다. 충분성은 전수
+source closure, 물리 작품 통합, 장면 이중코딩 후의 실제 painter×scene×workflow count로만
+판단한다.

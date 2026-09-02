@@ -23,8 +23,8 @@ content-free style, physical brushwork, artistic intention, or a probability-sam
 
 ## Current stage
 
-The study completed the **R0 fixed-seed metadata follow-up** and remains **NO-GO for full R0 closure
-and R1 image acquisition**.
+The study completed the **R0 fixed-seed and broad Wikidata/Commons metadata follow-ups** and remains
+**NO-GO for full R0 closure and R1 image acquisition**.
 
 Completed in the Protocol 2.0 redesign:
 
@@ -90,14 +90,25 @@ and closed two execution-boundary file-binding defects before approval. R2 then 
 requests on first attempt and emitted 3,722 discovery-only item-image rows: 3,543 distinct Wikidata
 item IDs and 3,718 distinct Commons filenames. No image was downloaded and no work was admitted.
 
-The separately reviewed broad-media follow-up then froze 182 exact metadata-only requests covering
-all 3,543 item IDs and 3,718 filenames. Neutral review identified and closed deterministic ordering,
-single-read CAS, terminalization, retry-ledger, cutoff/resume, path-confinement, and atomic-publication
-defects before approval. Execution reached the first Wikidata batch once. The provider returned a
-parser-complete HTTP 200 response together with `Retry-After: 5`; the frozen rule classified that
-unexpected combination as `terminal_retry_after_new_census_required`. The three-event ledger and
-one raw response are preserved. No candidate manifest, execution receipt, image, or admission was
-issued, and this census must not be retried or spliced.
+The separately reviewed broad-media follow-up R1 then froze 182 exact metadata-only requests
+covering all 3,543 item IDs and 3,718 filenames. Neutral review identified and closed deterministic
+ordering, single-read CAS, terminalization, retry-ledger, cutoff/resume, path-confinement, and
+atomic-publication defects before approval. Its first Wikidata response was HTTP 200 with
+`Retry-After: 5`, but the body was a plural MediaWiki `errors` envelope containing `maxlag`, not a
+parser-complete success. Because R1 did not recognize that error representation, it terminated
+fail-closed after one request. Its three-event ledger and raw response remain frozen; no partial
+manifest or receipt was issued or reused.
+
+Broad-media R2 was then prospectively frozen under a new census ID and disjoint workspace. Its
+only semantic change was strict recognition of a nonempty top-level plural `errors` array whose
+entries carry one unambiguous nonblank error code; existing retry classifications and ceilings were
+unchanged. The freeze bound 28 inputs, the complete R1 CAS/lock/event lineage, 182 deterministic
+intents, and six absent pre-execution outputs. Neutral independent quality review approved the exact
+freeze with no blocker. R2 completed all 182 requests on their first R2 attempt: 89 Wikidata entity
+batches and 93 Commons media batches, 365 hash-chained events, 182 content-addressed raw responses
+(55,899,277 bytes locally), and a 3,722-row non-admission manifest. Of those rows, 2,029 pass the
+federated metadata discovery gate, representing 1,967 distinct item IDs; none is yet an
+authority-verified physical work, downloaded image, or active-study admission.
 
 Still not completed:
 
@@ -130,9 +141,11 @@ Still not completed:
 | broad no-P186 R2 discovery rows | 3,722 | exact-creator painting+image rows; not physical works |
 | broad no-P186 R2 distinct item IDs | 3,543 | current Wikidata identifiers before authority/identity reconciliation |
 | broad no-P186 R2 distinct filenames | 3,718 | Commons filenames; not independent works or captures |
-| broad-media follow-up planned requests | 182 | 89 entity + 93 media batches, metadata only |
-| broad-media follow-up attempted requests | 1 | terminal HTTP 200 + advisory Retry-After representation |
-| broad-media follow-up manifests/receipts | 0 / 0 | all-or-none publication correctly withheld |
+| broad-media R1 attempted requests | 1 / 182 | terminal plural `errors:[maxlag]` representation; no result publication |
+| broad-media R2 completed requests | 182 / 182 | 89 entity + 93 media batches; all first-R2-attempt successes |
+| broad-media R2 candidate rows | 3,722 | current entity/media metadata rows; not physical works |
+| broad-media R2 metadata-qualified rows | 2,029 | discovery gate only; 1,967 distinct item IDs |
+| broad-media R2 raw responses/events | 182 / 365 | content-addressed responses / hash-chained events |
 | separately observed official-source all-content candidates | 43 | traceable live records, not a terminal source census |
 | admitted active physical works | 0 | none has passed every gate |
 | downloaded active-study image files | 0 | metadata collection cannot download images |
@@ -171,7 +184,8 @@ painter-reproduction label is allowed.
 
 ## Required next sequence
 
-1. Preserve and report the completed fixed-seed result without calling it a complete source frame.
+1. Preserve and report the completed fixed-seed and broad-media results without calling them a
+   complete source frame or acquired image corpus.
 2. Preserve the completed broad no-`P186` census, then freeze and execute the other named source
    routes to terminal conditions; reconcile their union to physical works.
 3. Under a separate R1 authorization, verify authority/rights/capture identity and acquire lawful

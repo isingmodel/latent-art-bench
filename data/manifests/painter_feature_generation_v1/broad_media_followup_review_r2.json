@@ -1,0 +1,19 @@
+{
+  "schema_version": "painter-feature-generation-v1-broad-media-followup-r2-review/1.0",
+  "decision": "APPROVE_BROAD_MEDIA_FOLLOWUP_ONLY",
+  "blocking_findings": [],
+  "independent_reviewer": "PFG v1 metadata quality reviewer (neutral independent review)",
+  "census_id": "pfg-v1-broad-media-followup-r2-20260902",
+  "protocol_id": "painter-feature-generation-v1/2.0",
+  "approved_scope": {
+    "metadata_requests": true,
+    "image_downloads": false,
+    "visual_coding": false,
+    "active_study_admission": false,
+    "feature_extraction": false,
+    "generation": false
+  },
+  "reviewed_freeze_path": "data/manifests/painter_feature_generation_v1/broad_media_followup_freeze_r2.json",
+  "reviewed_freeze_sha256": "0a3d6f2a4bf40858018bb0f1ce902a0c830dd1f415f3b0f223e77940ccdf24cb",
+  "review_summary": "Neutral review verified 28 frozen inputs, six absences, complete R1 CAS-lock-event lineage, disjoint deterministic 182-request reconstruction, strict plural MediaWiki error handling, retry and resume ceilings, atomic publication, and metadata-only scope. Exact R1 replay classified maxlag as retryable, waited five seconds, and then succeeded."
+}

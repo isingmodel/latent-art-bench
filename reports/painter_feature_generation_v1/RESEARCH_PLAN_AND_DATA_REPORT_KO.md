@@ -5,8 +5,8 @@ Painter Feature Generation v1 연구계획·자료수집·현재결과 통합보
 - 정본 protocol ID: `painter-feature-generation-v1/2.0`
 - 관찰 기준일: 2026-09-02
 - 대상 화가: Claude Monet, Alfred Sisley, Camille Pissarro, Paul Cézanne
-- 현재 단계: 고정 seed와 broad 발견 census 완료, broad media 후속 R1 terminal 종료,
-  전체 R0 및 이미지 취득은 `NO-GO`
+- 현재 단계: 고정 seed, broad 발견 census, broad media R2 후속검증 완료;
+  나머지 R0 및 이미지 취득은 `NO-GO`
 - 생성–실제 비교결과: 없음
 
 ## 1. 핵심 결론
@@ -34,8 +34,10 @@ Painter Feature Generation v1 연구계획·자료수집·현재결과 통합보
 165개 요청이 모두 성공했고 3,367개 item–file 행을 현재 상태로 확인했다.
 그중 2,029행, 1,967개 distinct Wikidata item ID, 2,028개 distinct Commons filename이
 메타데이터 후보 관문을 통과했다. broad census는 4개 화가별 질의를 모두 완결하여 3,722행,
-3,543개 distinct item ID, 3,718개 distinct filename을 발견했다. 그러나 어느 수치도 아직
-물리 작품 수가 아니다. 권위기관
+3,543개 distinct item ID, 3,718개 distinct filename을 발견했다. 이어진 broad-media R2는
+이 전체 frame의 182개 entity/media batch를 모두 완결했고, 3,722행 중 2,029행(1,967 distinct
+item ID)을 현재 메타데이터 관문 후보로 판정했다. 그러나 어느 수치도 아직 물리 작품 수가
+아니다. 권위기관
 작품기록 대조, 작품 동일성 통합, 실제 이미지 바이트 취득, 완전한 화면 확인, 맹검 장면
 코딩이 남아 있으므로 active-study 입장 작품은 0점이다.
 
@@ -349,10 +351,12 @@ cutoff와 resume, retry class·상한·간격, malformed response 종결성 문�
 - request-intent SHA-256: `12a70934f2d359bf2fefa65df4d284e426e809ef6b06f37fecfc9b88d8120ae8`
 - authorization gate에서 재구성한 요청 수: 182 = Wikidata 89 + Commons 93
 
-승인 후 첫 Wikidata batch를 실행했으나 provider가 parser-complete HTTP 200 성공 본문과
-`Retry-After: 5`를 동시에 반환했다. 동결 규칙은 비재시도 응답의 예상 밖 Retry-After를
-임의로 성공 또는 재시도로 해석하지 않고 `terminal_retry_after_new_census_required`로
-종결한다. 따라서 정확히 한 번의 network call 뒤 census가 닫혔다.
+승인 후 첫 Wikidata batch를 실행했으나 provider가 HTTP 200과 `Retry-After: 5`를 반환했다.
+원응답 본문을 다시 검사한 결과 이는 성공 본문이 아니라 top-level plural `errors` 배열에
+`code: "maxlag"`를 담은 MediaWiki 오류 envelope였다. R1 parser는 singular `error`만
+인식했으므로 이 실제 표현을 parser-complete success나 retryable maxlag로 분류하지 못했고,
+동결 규칙대로 `terminal_retry_after_new_census_required`로 종결했다. 따라서 정확히 한 번의
+network call 뒤 census가 닫혔다.
 
 | 실행 항목 | 결과 |
 |---|---:|
@@ -367,10 +371,74 @@ cutoff와 resume, retry class·상한·간격, malformed response 종결성 문�
 
 event ledger SHA-256은 `95ed1e87f520b4b8f79882485f8146269ccb416c8d5bbddf31f34c51387d6d3c`이고
 terminal event SHA-256은 `2fd4d12b89ddd221b71a81f2a0aafaac493ca0c7c42fce5d198570a03406b062`다.
-이 결과는 데이터 부족의 증거가 아니라 “R1의 응답 의미 규칙으로는 provider의 실제 200
-표현을 수용할 수 없다”는 실행 증거다. 같은 census를 재시도하거나 첫 성공 본문을 새
-census에 이어붙이지 않는다. 후속 R2가 필요하면 200 성공의 advisory Retry-After를
-명시적으로 기록하고 다음 접근 지연에 반영하는 새 규칙을 사전 동결해야 한다.
+이 결과는 데이터 부족의 증거가 아니라 “R1이 provider의 plural MediaWiki error 표현을
+수용하지 못했다”는 실행 증거다. 같은 census를 재시도하거나 그 응답을 새 census의 성공으로
+이어붙이지 않는다.
+
+### 6.7 Broad media 후속검증 R2: 새 동결, 중립 검토, 완결 결과
+
+R2는 R1의 결과를 고쳐 쓰지 않고 새 census ID
+`pfg-v1-broad-media-followup-r2-20260902`와 분리된 경로를 사용했다. 변경한 의미 규칙은
+관찰된 실패 원인에만 한정했다. top-level `errors`가 비어 있지 않은 mapping 배열이고 모든
+entry의 `code`가 비어 있지 않은 문자열이며 unique code가 정확히 하나일 때만 그 코드를
+정규화한다. 그 코드가 기존 동결 retryable 목록에 있을 때만 재시도한다. singular와 plural이
+동시에 있거나, blank/non-string code, malformed entry, 서로 다른 code가 섞인 경우에는 모두
+terminal이다. 기존 HTTP/API/transport retry class, 횟수, 시간 상한, 성공 조건은 바꾸지 않았다.
+
+R2 동결은 다음을 결속했다.
+
+- 28개 입력과 6개 사전 부재 출력;
+- R1 config, freeze, review, authorization, 182개 intent, 3-event terminal ledger;
+- R1의 content-addressed 원응답, one-shot lock, candidate/receipt 부재;
+- R2의 독립적으로 재구성 가능한 182개 intent(89 Wikidata + 93 Commons);
+- R1과 겹치지 않는 event, publication, lock, response CAS 경로;
+- metadata-only 범위와 2026-09-06 execution-start cutoff.
+
+중립 독립 품질검토는 28/28 입력 hash, aggregate hash, 여섯 부재조건, R1 계보, deterministic
+intent 재구성, plural-error strictness, retry/resume ceiling, atomic publication을 확인하고 차단
+사항 없이 승인했다. 승인 직전 검증에서 exact R1 응답을 재생하면 `maxlag` retryable로
+분류하고 5초 대기 뒤 성공하는 것도 확인했다. 검토는 연구결론의 호의성이나 비관성을
+판단하지 않고 실행계약의 내부 타당성만 확인했다.
+
+실제 R2 실행 결과는 다음과 같다.
+
+| 실행 항목 | 결과 |
+|---|---:|
+| 계획/성공 요청 | 182 / 182 |
+| Wikidata / Commons batch | 89 / 93 |
+| first-R2-attempt success | 182 |
+| retryable/terminal 응답 | 0 / 0 |
+| hash-chain events | 365 = genesis 1 + started 182 + finished 182 |
+| content-addressed raw responses | 182 |
+| raw response bytes | 55,899,277 |
+| candidate rows | 3,722 |
+| distinct item / filename | 3,543 / 3,718 |
+| metadata-gate rows | 2,029 |
+| metadata-gate distinct item | 1,967 |
+| image download / active admission | 0 / 0 |
+
+화가별 현재 메타데이터 가용성은 다음과 같다. `metadata-gate`는 exact creator/painting/current
+P18에 더해 open media marker, supported MIME, reported geometry 등 발견 단계 조건을 묶은
+것이며 authority verification은 아니다.
+
+| 화가 | 전체 행 | metadata-gate 행 | gate distinct item | open-media 후보 | short-side 후보 | authority URL 후보 | collection QID 행 | inventory 행 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Monet | 1,317 | 725 | 699 | 1,281 | 790 | 1,162 | 1,111 | 960 |
+| Sisley | 879 | 303 | 287 | 864 | 354 | 852 | 440 | 378 |
+| Pissarro | 791 | 458 | 451 | 775 | 513 | 695 | 593 | 521 |
+| Cézanne | 735 | 543 | 530 | 727 | 575 | 733 | 640 | 577 |
+
+manifest의 모든 3,722행은 `authoritative_holding_record_not_yet_verified`, `not_reconciled`,
+`not_downloaded`, `not_coded`, `active_study_admission=false`다. 즉 R2는 후보 풀의 current
+entity/media 상태를 완결했지만, 권위기관 귀속·oil-on-canvas·물리작품 동일성·법적 재사용·
+완전화면·실제 decode를 확정하지 않았다. 특히 2,029라는 수치는 “사용 가능한 회화 2,029점”이
+아니라 다음 단계에서 실패 가능성이 남은 metadata screen 수치다.
+
+중요 SHA-256은 freeze `0a3d6f2a4bf40858018bb0f1ce902a0c830dd1f415f3b0f223e77940ccdf24cb`,
+authorization `e7a451ffbd3a63dcfe8c34d5242a1bb34f44be6991a0a962b1176e78c6b9e4c4`,
+event ledger `7aabae62e6f01e8b295be1a60d0e65efcb348e456c93e977c9609ff6898d1700`,
+candidate manifest `3e14bf91eb0836ec09ae3d25fe9ffba7f618939208c4b944b0b0a5c228bc9ff7`,
+execution receipt `c2a08cc8199d3f50bdd04da0cc50efb466fa453afde041d3635eb7f261252445`다.
 
 ## 7. 실제 이미지 취득 및 corpus closure 계획
 
@@ -548,6 +616,11 @@ wrong-painter separation보다 작아야 family가 qualify한다.
 | broad media R1 freeze/review/authorization | `data/manifests/painter_feature_generation_v1/broad_media_followup_{freeze,review,authorization}.json` |
 | broad media R1 exact intents | `data/manifests/painter_feature_generation_v1/broad_media_followup_request_intents.jsonl` |
 | broad media R1 terminal events | `data/manifests/painter_feature_generation_v1/broad_media_followup_request_events.jsonl` |
+| broad media R2 설정 | `configs/painter_feature_generation_v1/broad_media_followup_r2.json` |
+| broad media R2 freeze/review/authorization | `data/manifests/painter_feature_generation_v1/broad_media_followup_{freeze,review,authorization}_r2.json` |
+| broad media R2 exact intents/events | `data/manifests/painter_feature_generation_v1/broad_media_followup_request_{intents,events}_r2.jsonl` |
+| broad media R2 candidate manifest | `data/manifests/painter_feature_generation_v1/broad_media_followup_publication_r2/candidates.jsonl` |
+| broad media R2 execution receipt | `data/manifests/painter_feature_generation_v1/broad_media_followup_publication_r2/execution_receipt.json` |
 | compact readiness summary | `reports/painter_feature_generation_v1/evidence/data_readiness_audit.json` |
 | literature synthesis | `literature_reviews/SYNTHESIS.md` |
 | literature evidence matrix | `literature_reviews/EVIDENCE_MATRIX.csv` |
@@ -569,6 +642,16 @@ Broad no-`P186` R2의 중요 hash는 다음과 같다.
 - candidate manifest: `23092232815dd96ab75ad0c8025469ea74f250c5b847b91f080996f11ba83e4e`
 - execution receipt: `91fe3db46b3316f6cc53d31e49070ab62984a3b6ec0e387ad6880e3ccc4c6b6b`
 
+Broad media R2의 중요 hash는 다음과 같다.
+
+- freeze: `0a3d6f2a4bf40858018bb0f1ce902a0c830dd1f415f3b0f223e77940ccdf24cb`
+- neutral review: `ae708bfc68b1c4347d74fe084f052ad7de4703bf75af6f6c1886ef5167c61851`
+- authorization: `e7a451ffbd3a63dcfe8c34d5242a1bb34f44be6991a0a962b1176e78c6b9e4c4`
+- exact intents: `2e0efd4518ac39025a0327571693d4c66d6b9b54080a8304e4230481ce35bdf0`
+- event ledger: `7aabae62e6f01e8b295be1a60d0e65efcb348e456c93e977c9609ff6898d1700`
+- candidate manifest: `3e14bf91eb0836ec09ae3d25fe9ffba7f618939208c4b944b0b0a5c228bc9ff7`
+- execution receipt: `c2a08cc8199d3f50bdd04da0cc50efb466fa453afde041d3635eb7f261252445`
+
 ## 12. 최종 판정과 다음 작업
 
 ### 완료된 것
@@ -583,12 +666,15 @@ Broad no-`P186` R2의 중요 hash는 다음과 같다.
 - broad no-`P186` R1의 terminal HTTP 502를 all-or-none 규칙대로 보존
 - 독립 품질검토에서 검증–실행 경계 결함 두 건을 수정하고 재검토 승인
 - broad no-`P186` R2 4/4 성공 및 3,722행·3,543 item·3,718 filename 발견
-- broad media 후속 182-request frame을 중립 검토 후 승인하고, 첫 200+Retry-After 표현에서
-  동결 규칙대로 terminal 종료하여 부분 manifest 없이 증거 보존
+- broad media R1의 plural `errors:[maxlag]` HTTP 200 표현을 terminal 증거로 보존하고,
+  성공 응답이었다는 기존 해석을 원응답에 맞게 정정
+- broad media R2를 새 census/경로로 동결하고 중립 검토 승인 후 182/182 요청 완결
+- 182개 CAS 응답, 365-event ledger, 3,722-row non-admission manifest를 원자적으로 게시하고
+  2,029 metadata-gate 행을 확인
 
 ### 완료되지 않은 것
 
-- 나머지 named-source R0 terminal union과 broad 후보의 authority/rights 후속검증
+- 나머지 named-source R0 terminal union과 broad 후보의 authority/rights 검증
 - authority record verification와 physical-work/capture reconciliation
 - active image byte 취득과 complete-view/decode/ICC 검사
 - blind eligibility/scene coding과 role assignment
@@ -597,9 +683,9 @@ Broad no-`P186` R2의 중요 hash는 다음과 같다.
 
 따라서 현재 연구결론은 다음 한 문장이다.
 
-> 고정 seed follow-up과 broad no-`P186` 발견 census는 재현 가능하게 완료됐고 broad
-> 후보 3,722행을 확인했지만, 실제 작품 corpus와 생성–실제 비교를 위한 충분한 고품질
-> 회화 자료가 확보됐다고 판단할 단계는 아니다.
+> 고정 seed, broad no-`P186`, broad media 후속검증은 재현 가능하게 완료됐고 3,722행 중
+> 2,029행이 메타데이터 관문을 통과했지만, 권위검증·물리작품 통합·이미지 취득이 0이므로
+> 생성–실제 비교를 위한 충분한 고품질 회화 자료가 확보됐다고 판단할 단계는 아니다.
 
 다음 작업은 수치가 좋은 후보만 골라 즉시 다운로드하는 것이 아니다. 먼저 전체 R0을
 terminal union으로 닫고 물리 작품과 capture를 통합한 뒤, 별도 R1 freeze에서 권위·권리·
