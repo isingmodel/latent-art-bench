@@ -1,0 +1,11 @@
+{
+  "schema_version": "painter-feature-generation-v1-aic-metadata-authorization/1.0",
+  "status": "authorized_for_aic_metadata_execution",
+  "census_id": "pfg-v1-aic-metadata-20260902",
+  "protocol_id": "painter-feature-generation-v1/2.0",
+  "authorization_scope": {"metadata_requests": true, "image_downloads": false, "visual_coding": false, "active_study_admission": false, "feature_extraction": false, "generation": false},
+  "freeze_path": "data/manifests/painter_feature_generation_v1/aic_metadata_freeze.json",
+  "freeze_sha256": "1193662293361dbf8b4f20ea21c1accee86b935b58a00bfb66f685e7b1fd7876",
+  "review_path": "data/manifests/painter_feature_generation_v1/aic_metadata_review.json",
+  "review_sha256": "411bdd4cf78e4bbc8434287f897d63d2edc5b7887e1ef640c07e8e7ce72bcd7a"
+}

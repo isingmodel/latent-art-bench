@@ -1,0 +1,43 @@
+{
+  "schema_version": "painter-feature-generation-v1-aic-metadata-freeze/1.0",
+  "status": "sealed_for_neutral_quality_review",
+  "census_id": "pfg-v1-aic-metadata-r2-20260902",
+  "protocol_id": "painter-feature-generation-v1/2.0",
+  "scope": {"metadata_requests": true, "image_downloads": false, "visual_coding": false, "active_study_admission": false, "feature_extraction": false, "generation": false},
+  "frozen_input_set_sha256": "dee7b9ab575abbdfd30d8d2392c56f0e47e2afa58c68420865b02bf4c31d5e13",
+  "frozen_inputs": [
+    {"path": ".gitignore", "sha256": "0d6569a63b7448075dbd73e5221d38d69143c50ae28939e83b0a63dbbc5c1be9"},
+    {"path": "configs/painter_feature_generation_v1/aic_metadata_census.json", "sha256": "7d4b8af706e051eb6d434803a3e933487e5becafbb7eabf2e6ff705000c3f2a8"},
+    {"path": "configs/painter_feature_generation_v1/aic_metadata_census_r2.json", "sha256": "1e23dbce7f8a24a8b8e6ebd6e5347a8d0b37b25d7d034bbc40a02cd192f6311f"},
+    {"path": "data/manifests/painter_feature_generation_v1/aic_metadata_authorization.json", "sha256": "6d578e77e8c906f131129207acc1939d167c813956eac4ae463232e69a010f3b"},
+    {"path": "data/manifests/painter_feature_generation_v1/aic_metadata_freeze.json", "sha256": "1193662293361dbf8b4f20ea21c1accee86b935b58a00bfb66f685e7b1fd7876"},
+    {"path": "data/manifests/painter_feature_generation_v1/aic_metadata_request_events.jsonl", "sha256": "acadecfcc06d0f391b1e59b7ef991e843233665c873d40fd5eea36b86927414f"},
+    {"path": "data/manifests/painter_feature_generation_v1/aic_metadata_request_intents.jsonl", "sha256": "ae75987ffb10dbb99d7d2ad58099df5a368b010f8fd9f475745d5cf86cf4a7fa"},
+    {"path": "data/manifests/painter_feature_generation_v1/aic_metadata_request_intents_r2.jsonl", "sha256": "a494623bdc793e839711d229863a7654ee062d30fff8a77aa203385aff095c39"},
+    {"path": "data/manifests/painter_feature_generation_v1/aic_metadata_review.json", "sha256": "411bdd4cf78e4bbc8434287f897d63d2edc5b7887e1ef640c07e8e7ce72bcd7a"},
+    {"path": "pyproject.toml", "sha256": "9da42015a9f57afd574191b26c1d710aab3b7359d44661dab700a03854f151b7"},
+    {"path": "research_workspace/painter_feature_generation_v1/metadata/aic_metadata_20260902/.execution.lock", "sha256": "c29abd5f6dad9453f139d990d0ef9ce2408c538b4661982b28e45161044c6e00"},
+    {"path": "research_workspace/painter_feature_generation_v1/metadata/aic_metadata_20260902/response_bodies/55/558c27ed91965891626339a1320619580c014595099a45bdcb2989c452c6ec9f.response", "sha256": "558c27ed91965891626339a1320619580c014595099a45bdcb2989c452c6ec9f"},
+    {"path": "scripts/collect_pfg_v1_aic_metadata.py", "sha256": "9ab18d563d019d4fb2350d0d0d29cc4a4a4170d2a16830b96f23d6b7909f21fe"},
+    {"path": "scripts/collect_pfg_v1_aic_metadata_r2.py", "sha256": "2922c5df0566496aff8b78bceb265b9c768f2a19f6de6c72ec0591b39c2688b8"},
+    {"path": "src/latent_art_bench/__init__.py", "sha256": "3a5d2006e1557187a3585cbe17af183fd7d2f170a32eb96b00c43b00d137c660"},
+    {"path": "src/latent_art_bench/io.py", "sha256": "13e6372aa9814495a45700eb9e65d099c56bb1bb3032d72f7f9e00e6ba91a9b8"},
+    {"path": "src/latent_art_bench/painter_feature_generation_v1/__init__.py", "sha256": "7bc8796c4b0dc4bf095669e6911cba541e30e9778437e0df0cc5b3e71918fed1"},
+    {"path": "src/latent_art_bench/painter_feature_generation_v1/aic_metadata.py", "sha256": "4a18cdbf3e9346226a0181f06d001a9972413c68c3df2e468036c1fd392bb90f"},
+    {"path": "src/latent_art_bench/painter_feature_generation_v1/aic_metadata_r2.py", "sha256": "cd8cd6622dad71d5c96ab22b9679247cc40f032f66b8d50eea2804bff6956e09"},
+    {"path": "src/latent_art_bench/painter_feature_generation_v1/federated_census.py", "sha256": "850625276c8e516664d67d52402e1f684d15ca7f6b7974339e86bad0a47d0432"},
+    {"path": "studies/painter_feature_generation_v1/PROTOCOL.md", "sha256": "ffce565d8346b62915916b00c5ab894348acc5762d9e503ddd282eaab59aefcb"},
+    {"path": "tests/conftest.py", "sha256": "220e0b6f27073020d4b16a5905e2f5bc9d4dd0232e83821b80c0aba7725698ff"},
+    {"path": "tests/painter_feature_generation_v1/test_aic_metadata.py", "sha256": "56037c1e749e98eeb0eecbb39a00a0afd88c7d072495d07c0a27f8fccfa805a9"},
+    {"path": "tests/painter_feature_generation_v1/test_aic_metadata_r2.py", "sha256": "a7dee72942d692e1e1acb098b213c58750d8af369f68b433ea46c1e55b922643"},
+    {"path": "uv.lock", "sha256": "99285c8ccc298b80bd711b296d90945aea07209cb4623deae5a599bc0d4c80bf"}
+  ],
+  "preexecution_outputs": [
+    {"path": "data/manifests/painter_feature_generation_v1/aic_metadata_request_events_r2.jsonl", "state": "absent"},
+    {"path": "data/manifests/painter_feature_generation_v1/aic_metadata_publication_r2/candidates.jsonl", "state": "absent"},
+    {"path": "data/manifests/painter_feature_generation_v1/aic_metadata_publication_r2/execution_receipt.json", "state": "absent"},
+    {"path": "data/manifests/painter_feature_generation_v1/aic_metadata_publication_r2", "state": "absent"},
+    {"path": "research_workspace/painter_feature_generation_v1/metadata/aic_metadata_r2_20260902/.execution.lock", "state": "absent"},
+    {"path": "research_workspace/painter_feature_generation_v1/metadata/aic_metadata_r2_20260902/response_bodies", "state": "absent"}
+  ]
+}

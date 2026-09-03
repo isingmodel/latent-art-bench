@@ -1,0 +1,18 @@
+{
+  "schema_version": "painter-feature-generation-v1-aic-metadata-review/1.0",
+  "decision": "APPROVE_AIC_METADATA_ONLY",
+  "blocking_findings": [],
+  "independent_reviewer": "Mencius, neutral research quality reviewer",
+  "census_id": "pfg-v1-aic-metadata-20260902",
+  "protocol_id": "painter-feature-generation-v1/2.0",
+  "approved_scope": {"metadata_requests": true, "image_downloads": false, "visual_coding": false, "active_study_admission": false, "feature_extraction": false, "generation": false},
+  "reviewed_freeze_path": "data/manifests/painter_feature_generation_v1/aic_metadata_freeze.json",
+  "reviewed_freeze_sha256": "1193662293361dbf8b4f20ea21c1accee86b935b58a00bfb66f685e7b1fd7876",
+  "verification_summary": [
+    "all 14 frozen input hashes and aggregate df0076fbfe87a2b1ece546b5f687815bb0916803d3209fd4779b05ba253c9eaf verified",
+    "all six declared pre-execution outputs verified absent",
+    "four request intents reconstructed identically under five PYTHONHASHSEED values",
+    "production-gate mock completed all four requests with atomic publication, CAS/event/seal binding, LQIP removal, and zero image downloads or admissions",
+    "Ruff, 71 focused checks, and 636 full offline tests passed in the independent review environment"
+  ]
+}
