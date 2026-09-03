@@ -66,27 +66,26 @@ The relevant population is also explicit. With a small, purposively selected pai
 study can make painter-specific claims about those painters and the sampled work domain. It cannot
 estimate a universal variance component for “all painters.”
 
-## 3. Pilot 2 as a falsification case
+## 3. Why work-level separation alone is not enough
 
-Pilot 2 usefully demonstrated why work-level separation alone is not enough. Its atlas contained
-40 physical works: four painters, two sources, and five works in each painter-source cell. The PCA
-fit used 24 works and the held set contained 16, only four held works per painter. The generated
-primary comparisons were never run because refusal-created cells were incomplete, so the valid
-historical conclusion was `REDESIGN`.
+Holding out whole physical works removes the most obvious leak, but a small purposive corpus with
+few works per painter-source cell can still produce a pooled score that no per-painter or
+per-source claim survives. Each failure mode below carries a prospective requirement; none is
+satisfied by a single pooled accuracy figure.
 
-| Frozen Pilot 2 result | What it rules out | Prospective correction |
+| Failure mode | What it rules out | Prospective requirement |
 |---|---|---|
-| Painter held balanced accuracy 0.50 versus chance 0.25; Monet and Pissarro recall 0.25 | a pooled score does not imply reliable identification of each painter | report each target's sensitivity, false-positive pattern, hard neighbors, and uncertainty across works |
-| AIC held balanced accuracy 0.625; NGA 0.375 | source-stratum performance was heterogeneous and based on eight held works per source | balance sources within painter and report source-specific intervals, not only a pooled estimate |
-| Train NGA/test AIC painter accuracy 0.25; train AIC/test NGA 0.375 | the apparent painter signal did not transfer convincingly across source | make leave-source-out transfer and same-work independent-reproduction reliability mandatory gates |
-| Source balanced accuracy 0.8125 | high acquisition-source predictability occurred on a separate two-class task; its raw balanced accuracy is not directly comparable to the four-class painter task | freeze a source probe; quarantine source-predictive coordinates unless painter evidence survives without them |
-| Source-stratified permutation (p=0.0216) | stratifying one nuisance cannot establish reproduction, content, medium, or construct validity | constrain inference at physical-work level and test each prespecified nuisance and interaction |
-| Forced square resize and one seeded VAE posterior draw | the vector included choices with unknown stability and a stochastic measurement step | preserve aspect ratio; prefer deterministic measures; if stochastic extraction remains, estimate repeatability over repeated draws |
-| No independent files of the same work | within-work reproduction variance was unidentifiable | prospectively acquire or locate independent reproductions before claiming physical-work generalization |
+| Pooled accuracy above chance while individual targets sit at chance | a pooled score does not imply reliable identification of each painter | report each target's sensitivity, false-positive pattern, hard neighbors, and uncertainty across works |
+| Heterogeneous performance across acquisition sources | a pooled estimate can average away a stratum that carries no signal | balance sources within painter and report source-specific intervals, not only a pooled estimate |
+| Leave-source-out transfer collapsing to chance | apparent painter signal that does not survive a source change | make leave-source-out transfer and same-work independent-reproduction reliability mandatory gates |
+| Acquisition source decodable more easily than painter | a coordinate can carry catalog signature rather than painter structure | freeze a source probe; quarantine source-predictive coordinates unless painter evidence survives without them |
+| Permutation testing that stratifies one nuisance only | stratifying one nuisance cannot establish reproduction, content, medium, or construct validity | constrain inference at physical-work level and test each prespecified nuisance and interaction |
+| Forced square resize and a single stochastic extraction draw | choices with unknown stability plus a stochastic measurement step | preserve aspect ratio; prefer deterministic measures; if stochastic extraction remains, estimate repeatability over repeated draws |
+| No independent files of the same work | within-work reproduction variance is unidentifiable | prospectively acquire or locate independent reproductions before claiming physical-work generalization |
 
-The failure is informative: if a target painter is only recognizable when painter and source travel
-together, the measurement has learned a catalog signature. That is not a near miss. It is a
-different construct.
+The distinction is not a matter of degree: if a target painter is only recognizable when painter and
+source travel together, the measurement has learned a catalog signature. That is not a near miss.
+It is a different construct.
 
 ## 4. Source-verified evidence
 
@@ -266,7 +265,7 @@ genre, medium/support, and date bin. Then perform:
 Chance-level nuisance decoding is strong evidence only when the probe has adequate power. Above-
 chance source decoding is a warning, not an automatic proof that every coordinate is invalid; the
 decisive question is whether painter conclusions transfer across and remain stable after source
-control. Pilot 2 failed that stronger test.
+control. That stronger test is the one a candidate coordinate must pass.
 
 ## 9. Prospective decision gates
 
@@ -295,12 +294,12 @@ The gates are conjunctive: later success cannot compensate for an earlier measur
 | One file per work from one source | `insufficient_for_physical_work_claim` | reproduction variance and painter-by-source interaction are unidentified |
 | Multiple crops/tiles as more samples | `prohibited_as_independent_n` | they share work, capture, and most visual structure |
 | Random image-level train/test split | `prohibited` | permits same-work derivatives and source shortcuts to cross the split |
-| Forced square resize | `rejected_for_primary` | changes geometry and local statistics; Pilot 2 did not establish robustness |
+| Forced square resize | `rejected_for_primary` | changes geometry and local statistics, with no established robustness |
 | Source-stratified permutation alone | `insufficient` | it controls one label structure but not content, medium, date, work identity, or reproduction transfer |
 | High painter classification accuracy | `necessary_in_some_uses_not_sufficient` | classifiers can exploit source, borders, content, duplicates, or imbalance |
 | RGB “brushstroke,” pigment, impasto, or surface claims | `rejected_without_physical_modality` | Ji et al. show that physical topography contains information ordinary photographs do not |
 | Cleaning legacy files into a common RGB space | `sensitivity_branch_not_retroactive_calibration` | missing capture/profile facts cannot be reconstructed by conversion |
 
-The measurement review therefore authorizes no extraction from an incomplete historical cohort and
-no reinterpretation of Pilot 2. It specifies the evidence a new, versioned study must collect before
-an image coordinate can support the phrase **painter-associated feature across works**.
+The measurement review therefore authorizes no extraction from any incomplete cohort. It specifies
+the evidence a versioned study must collect before an image coordinate can support the phrase
+**painter-associated feature across works**.

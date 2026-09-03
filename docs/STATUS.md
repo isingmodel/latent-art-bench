@@ -231,39 +231,28 @@ painter-reproduction label is allowed.
    then generate and seal G1 while confirmation features remain inaccessible.
 7. Open the confirmation reference once at C0 and execute the frozen decision.
 
-## Historical evidence boundary
+## Terminal evidence boundary
 
-### Painter Features v1
+Three R1 censuses reached a terminal condition and stay terminal: the broad no-`P186` discovery
+census on a provider HTTP 502, the broad-media follow-up on an unrecognized plural
+`errors:[maxlag]` envelope, and the Art Institute route on a string `classification_id`. Each
+retains its config, module, tests, ledger, and raw response, and each is bound both by the freeze
+that authorized it and by the successor freeze that records its terminal evidence.
 
-`studies/painter_features_v1/MEASUREMENT_PROTOCOL.md` is a frozen real-image measurement precursor,
-not the active plan. Collection Freeze 3 acquired four exact NGA files (two Pissarro and two Monet),
-all on first-attempt HTTP 200. Its protocol, seal, ledgers, report, paths, and hashes must not be
-rewritten or moved.
-
-### Pilots 0–3
-
-- Pilot 0 is a failed historical qualification path.
-- Pilot 1 completed engineering traversal but failed both scientific measurement gates.
-- Pilot 2 executed 320 assigned requests; refusals left both requested-label feature grids
-  incomplete, so the four primary tests were not run and the decision was `REDESIGN`.
-- Pilot 3 acquired its AIC development half. Its Met R2 path closed on the first terminal HTTP 403
-  metadata response before any Met image request.
-
-These outcomes are evidence. Do not repair them with new data or refresh historical hashes.
+These outcomes are evidence. Do not repair them with new data, retry them in place, splice their
+responses into a successor, or refresh their hashes.
 
 ## Explicitly closed actions
 
 Until the corresponding Protocol 2.0 freeze is independently reviewed, do not:
 
-- retry or replace Pilot 3 Met R2;
-- access the sealed Pilot 3 external holdout;
-- extract features from the incomplete Pilot 3 cohort;
-- treat metadata rows, files, or the four historical NGA files as an active painter distribution;
+- retry, replace, or splice any terminal R1 census;
+- treat metadata rows or files as an active painter distribution;
 - download active-study images under the metadata-only census;
 - view confirmation-resolution pixels/features as a method or generation analyst;
 - tune prompts, features, thresholds, margins, or source rules on generated/confirmation outcomes;
 - send generation requests; or
-- rewrite/move frozen historical evidence.
+- rewrite or move frozen evidence.
 
 ## Repository health boundary
 
@@ -273,10 +262,6 @@ The standard offline checks are:
 uv run --locked ruff check .
 uv run --locked pytest -q -m "not live"
 ```
-
-Historical `pilot2 verify` and planning-era `pilot3 verify` intentionally expose old source-hash
-drift or unavailable ignored evidence. Do not regenerate frozen bundles merely to make those
-historical checks green.
 
 One active-study freeze is expected never to reverify. The fixed-seed R1 freeze
 (`federated_seed_metadata_freeze.json`) binds the pre-repair hashes of

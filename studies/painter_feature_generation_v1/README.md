@@ -92,5 +92,6 @@ their union. Image acquisition is a separate later gate.
 - [Focused generated-versus-real review](../../literature_reviews/reviews/06_generated_vs_real_painter_fidelity.md)
 - [Current project status](../../docs/STATUS.md)
 
-Historical pilots and the real-only `painter_features_v1` study remain frozen evidence. They are not
-alternative active plans and must not be rewritten to match Protocol 2.0.
+This study's own sealed evidence — freezes, neutral reviews, authorization seals, append-only
+request ledgers, and published manifests — must not be rewritten to match a later reading of
+Protocol 2.0. A terminal census stays terminal.

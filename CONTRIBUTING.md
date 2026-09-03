@@ -1,9 +1,8 @@
 # Contributing
 
-LatentArtBench's active study is Painter Feature Generation v1 under Protocol 2.0; Pilots 0–3
-are closed historical records. Contributions are welcome when they simplify the reusable
-implementation, improve methodological clarity, reproducibility, corpus governance, or
-implementation fidelity. Read the [current status](docs/STATUS.md) before proposing work.
+LatentArtBench's only study is Painter Feature Generation v1 under Protocol 2.0. Contributions
+are welcome when they simplify the reusable implementation, improve methodological clarity,
+reproducibility, corpus governance, or implementation fidelity. Read the [current status](docs/STATUS.md) before proposing work.
 
 ## Before contributing
 
@@ -24,7 +23,7 @@ Please open an issue describing:
 - Report failed replications and negative results.
 - Keep source-faithful and harmonized methods distinct.
 - Avoid benchmark changes made after observing final model rankings unless they are released as a new benchmark version.
-- Keep the initial study within the scope frozen in the roadmap. Optional feature or extension work must not become an undeclared prerequisite for the MVP.
+- Keep work within the scope frozen in Protocol 2.0. Optional feature or extension work must not become an undeclared prerequisite for a stage gate.
 
 ## Research-method changes
 
@@ -47,15 +46,14 @@ uv run --locked ruff check .
 uv run --locked pytest -q -m "not live"
 ```
 
-Do not use `pilot2 verify` or `pilot3 verify` as general current-branch health checks; their
-known hash-bound failures are recorded in [the status page](docs/STATUS.md). The standard test
-suite must not make live museum, browser, proxy, or image-generation requests. Any intentionally
-maintained legacy live transport test must use the `live` marker and run only with explicit
-user authorization.
+The standard test suite must not make live museum, browser, proxy, or image-generation
+requests. Any intentionally maintained live transport test must use the `live` marker and run
+only with explicit user authorization. The one expected freeze-verification failure is recorded
+in [the status page](docs/STATUS.md); do not silence it by refreshing evidence hashes.
 
-Historical protocols, reports, and append-only ledgers should stay at their existing paths.
-New scientific work must use a new versioned study namespace rather than altering a closed
-pilot.
+Frozen protocols, sealed reviews, and append-only ledgers should stay at their existing paths.
+New scientific work must use a new versioned study namespace rather than altering sealed
+evidence.
 
 ## Conduct
 

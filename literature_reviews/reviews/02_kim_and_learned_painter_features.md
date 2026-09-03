@@ -164,18 +164,13 @@ the same broad web-trained model ecosystem.
 | Source/digitization transfer | not established | not established |
 | Content independence | not established; spatial reconstruction objective retains content | contradicted by semantic directions and CLIP objective |
 | Pretraining leakage | possible through SD2 training and exact works | high concern through LAION/CLIP web training |
-| Reboot role | `diagnostic_only` historical appearance coordinate | `diagnostic_only` semantic/contextual coordinate |
+| Protocol role | `diagnostic_only` appearance coordinate | `diagnostic_only` semantic/contextual coordinate |
 
-The [Pilot 2 audit](00_pilot_2_painter_feature_audit.md) supplies the decisive local evidence:
-the harmonized A-vector reached only 0.50 held painter balanced accuracy, classified acquisition
-source at 0.8125, and transferred across sources at only 0.25/0.375 balanced accuracy. Those
-two balanced-accuracy values come from unlike four-class and two-class tasks and are not ranked
-directly. Together with failed opposite-source transfer, the results do not invalidate the
-representation for all purposes, but they reject it as the sole
-painter feature for this corpus design. The positive result is limited to pooled artist-label
-predictability within the fixed Pilot 2 atlas; it established no transferable painter feature.
-Because the registered generator grids were incomplete and the primary tests were not run, it
-also established no generated-output effect.
+The table above is the basis for the diagnostic-only disposition. Neither representation has
+established source/digitization transfer or content independence, and both carry a live pretraining
+leakage concern. That is sufficient to reject either as the sole painter feature for this corpus
+design, without asserting that either is invalid for other purposes. No internal study in this
+repository has established a transferable painter feature or a generated-output effect.
 
 For any new A-vector study, use the posterior mean as the primary deterministic coordinate or
 integrate repeated posterior draws and propagate encoder variance. A content-derived seed makes

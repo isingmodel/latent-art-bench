@@ -5,16 +5,12 @@ observed.
 
 | Path | Role | Mutability |
 |---|---|---|
-| `pilot_0/` | Original development-pilot configuration | Historical |
-| `pilot_1/` | Post-failure engineering redesign | Historical |
-| `pilot_2/` | Frozen requested-label execution study | Immutable study record |
-| `pilot_3/` | Freeze-A1, Phase-A, and later prospective contracts | Reboot-frozen; R2 cohort closed |
 | `painter_feature_generation_v1/` | Active Protocol 2.0 metadata and future staged study contracts | Versioned; each execution requires its own reviewed freeze |
 
-Under this reboot's governance boundary, Pilot 3 is not an active resumable workflow. Its
-official-Met R2 cohort closed after the first metadata request returned HTTP 403. See
-[current status](../docs/STATUS.md).
+Every config in the active namespace is a hash-bound frozen input of at least one census freeze.
+Editing one in place invalidates the freeze that binds it and therefore the evidence chain of the
+census it authorized. A corrected contract is a new file under a new census ID, not an edit.
 
-For reboot work, add a new clearly versioned study namespace. Do not repurpose a historical
-pilot directory, edit a frozen prompt or schedule, or interpret config changes as authorization
-for network, external-holdout, or generation activity.
+Adding a config is not authorization for network, external-holdout, or generation activity. See
+[current status](../docs/STATUS.md) and
+[Protocol 2.0](../studies/painter_feature_generation_v1/PROTOCOL.md).

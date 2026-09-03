@@ -2,13 +2,13 @@
 
 **Scope.** This categorized bibliography records 205 unique sources relevant to the relaunch:
 peer-reviewed articles and proceedings, one dissertation, explicitly marked preprints, standards,
-technical guidelines, and primary software/data artifacts. It centers the Pilot 2 construct—a
+technical guidelines, and primary software/data artifacts. It centers the study construct—a
 painter-associated distribution across works—while covering interpretable and learned features,
 art datasets, digitization uncertainty, human construct validation, generative-distribution
 metrics, and missing-data/inference design. DOI links resolve to the version of record; items
 without a DOI link to an official proceedings, repository, standards, or institutional page.
 
-## 1. Pilot 2 and core quantitative-art lineage
+## 1. Core quantitative-art lineage
 
 - Kim, D., Son, S.-W., & Jeong, H. (2014). “Large-Scale Quantitative Analysis of Painting Arts.” *Scientific Reports, 4*, 7370. [DOI](https://doi.org/10.1038/srep07370)
 - Lee, B., Kim, D., Sun, S., Jeong, H., & Park, J. (2018). “Heterogeneity in Chromatic Distance in Images and Characterization of Massive Painting Data Set.” *PLOS ONE, 13*(9), e0204430. [DOI](https://doi.org/10.1371/journal.pone.0204430)

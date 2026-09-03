@@ -1,8 +1,7 @@
 # Painter-feature literature review
 
-This directory is the evidence base for the active `painter_feature_generation_v1` study and its
-historical real-measurement precursor. Following Pilot 2, the target is the painter rather than the
-era or movement. The active study asks:
+This directory is the evidence base for the active `painter_feature_generation_v1` study. The
+target is the painter rather than the era or movement. The active study asks:
 
 > For one fixed model and a pre-label common outdoor-place prompt census, do painter-name outputs
 > reproduce the broad-scene-weighted distribution of color, spatial/orientation, and digital-texture
@@ -42,17 +41,17 @@ neighbourhood metrics remain diagnostics.
 - EVIDENCE_MATRIX.csv contains 144 auditable primary-source or standard records, including
   review depth, evidence grade, disposition, and a concrete protocol consequence.
 - `BIBLIOGRAPHY.md` gives 205 unique checked citations and stable primary-source links.
-- reviews/ contains the Pilot 2 audit and six thematic critical reviews: interpretable features;
-  Kim and learned representations; digitization; human construct validation; distribution
-  statistics and missingness; and a focused generated-versus-real painter-fidelity audit.
+- reviews/ contains six thematic critical reviews: interpretable features; Kim and learned
+  representations; digitization; human construct validation; distribution statistics and
+  missingness; and a focused generated-versus-real painter-fidelity audit.
 - `SYNTHESIS.md` compares results across feature families.
 - `METHOD_DECISIONS.md` records which methods are retained, diagnostic-only, or rejected.
 
 ## Boundary
 
 This review by itself authorizes no acquisition, feature extraction, model download, or generation.
-Pilots 0–3 remain historical. The active study now has its own committed-plan namespace, but its R0,
-R1, and G0 execution freezes must still pass before the corresponding empirical stages begin.
+The active study has its own committed-plan namespace, but its R0, R1, and G0 execution freezes must
+still pass before the corresponding empirical stages begin.
 R0 is currently NO-GO: active admissions, downloads, registered generation requests, generated
 outputs, and results are all zero. `T=4G`, where `G` is the deterministically retained common scene
 set, and equal named/control repetitions use the smallest simulation-passing

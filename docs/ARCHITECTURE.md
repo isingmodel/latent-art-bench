@@ -1,21 +1,22 @@
 # Architecture map
 
-LatentArtBench is a Python package with shared measurement primitives, two historical
-pilot-specific workflow layers, and the active `painter_feature_generation_v1` namespace. The active
-namespace implements the R0 metadata-census stage only: it can freeze, validate, execute, and
-publish source censuses, and it cannot download images, extract features, or generate. The
-historical scientific workflows are deliberately fail-closed, but their growth concentrated too many
-responsibilities in a few modules. This page describes the code as it exists; it is not
-authorization to resume a closed pilot or to run the active study before its freezes.
+LatentArtBench is a small Python package built around one active study,
+`painter_feature_generation_v1`. The package implements the R0 metadata-census stage only: it can
+freeze, validate, execute, and publish source censuses, and it cannot download images, extract
+features, or generate. This page describes the code as it exists; it is not authorization to run
+the active study before its freezes.
+
+Earlier exploratory namespaces were removed rather than kept as inactive code. What remains is
+either hash-bound by a census freeze or directly supports one.
 
 ## Entry points
 
 - The installed command is `latent-art-bench = latent_art_bench.cli:app`.
-- `python -m latent_art_bench` invokes the same Typer application.
-- The root CLI contains historical Pilot 0/1 commands and mounts the `pilot2` and `pilot3`
-  subcommand groups.
-- Root-command defaults still point at `configs/pilot_0/pilot.yaml`; this is legacy behavior,
-  not the current project stage.
+- `cli.py` is a thin Typer application that registers each census collector as a pass-through
+  subcommand. It adds no behaviour of its own; every argument is parsed by the collector module.
+- `scripts/collect_pfg_v1_*.py` are the equivalent standalone adapters. These scripts are
+  hash-bound frozen inputs of the freezes that authorized their censuses, so they are evidence
+  and must not be edited.
 
 ## Shared package layers
 
@@ -23,26 +24,23 @@ Module paths in this table are relative to `src/latent_art_bench/`.
 
 | Area | Main modules | Responsibility |
 |---|---|---|
-| Deterministic I/O | `io.py`, `provenance.py`, `manifests.py` | Canonical JSON/JSONL, hashing, atomic writes, and provenance |
-| Contracts | `config.py`, `schemas.py`, `evaluation/contracts.py` | Shared configuration and validated record shapes |
-| Corpus | `data/corpus.py`, `data/museums.py` | Museum metadata, selection, acquisition, and leakage checks |
-| Preprocessing | `preprocessing/` | Deterministic common image views and synthetic fixtures |
-| Features | `features/` | Chromatic and learned-formal extraction pipelines |
-| Evaluation | `evaluation/` | Distances, real-only qualification, frozen transforms, and analysis cells |
-| Generation | `generation/` | Image-request records, output validation, and attestation |
-| Reporting | `reporting/` | Compact pilot reports |
+| Deterministic I/O | `io.py` | Canonical JSON/JSONL, hashing, and atomic writes |
+| Contracts | `config.py`, `schemas.py` | Shared configuration and validated record shapes |
+| Census collectors | `painter_feature_generation_v1/` | Fail-closed source-route censuses |
 
-The reusable core is real, but it is not yet a clean independent library. Several shared
-modules retain Pilot 0/1 assumptions, and Pilot 3 imports Pilot 2 preprocessing, learned-formal,
-schema, and transport helpers.
+`io.py`, `config.py`, and `schemas.py` are hash-bound frozen inputs of every census freeze. They
+must stay byte-identical; a change to any of them invalidates the evidence chain of every census
+already executed. The same applies to `pyproject.toml`, `uv.lock`, `.gitignore`,
+`src/latent_art_bench/__init__.py`, and `tests/conftest.py`.
 
-## Versioned workflow layers
+`canonical_json` from `io.py` is the only shared dependency the collectors import. Everything else
+a collector needs — transport, screening, retention, publication — lives inside its own module, so
+one route can never silently change another's behaviour.
 
-### Painter Feature Generation v1
+## The active study
 
-The sole active research plan is
-`studies/painter_feature_generation_v1/PROTOCOL.md`, protocol 2.0. The active workflow is deliberately
-small and sequential:
+The sole active research plan is `studies/painter_feature_generation_v1/PROTOCOL.md`, protocol 2.0.
+The workflow is deliberately small and sequential:
 
 1. `R0` exhausts the frozen metadata source registry and records candidates without image download
    or admission.
@@ -59,13 +57,15 @@ small and sequential:
 7. `C0` opens the confirmation reference once and runs the frozen analysis.
 
 The earlier equal 360-work quota, three-way real split, 24-template frame, and entropy-projection
-machinery are retired. R0 now forms an exhaustive authority/discovery/media union, reconciles it to
+machinery are retired. R0 forms an exhaustive authority/discovery/media union, reconciles it to
 physical works, and keeps actual unequal painter counts. At least three broad scene groups must be
 supported by all painters. Each retained confirmation group receives equal target mass and each work
 within group is uniform. Generation remains NO-GO unless each painter clears the role-specific
 screening floors (10 development, 10 qualification, and 20 confirmation works per retained group;
-confirmation ESS 100) and the actual design passes registered
-whole-decision simulation; these are not target-count stopping rules.
+confirmation ESS 100) and the actual design passes registered whole-decision simulation; these are
+not target-count stopping rules.
+
+## Census collectors
 
 `src/latent_art_bench/painter_feature_generation_v1/` implements the R0 census stage. Each route
 is a separate fail-closed collector with its own config, freeze, neutral review, authorization,
@@ -88,92 +88,53 @@ subcommands and a matching test module under `tests/painter_feature_generation_v
 writes exact request intents, raw response hashes, terminal receipts, and a non-admission candidate
 manifest. None can download images, decide authority/content, create a physical-work population,
 extract features, or run generation. The remaining named routes — Europeana, NGA, Cleveland, Yale,
-Getty, Minneapolis, Paris Musées, and POP/Joconde — have no collector yet. New implementation stays
-in the reboot namespace and must not alter Pilot 0–3 behaviour for convenience.
+Getty, Minneapolis, Paris Musées, and POP/Joconde — have no collector yet.
 
-Large raw responses and future image bytes live under one ignored
-`research_workspace/painter_feature_generation_v1/` boundary. Compact configs, manifests, hashes,
-reviews, and reports are tracked. Historical pixel/feature-exposed works remain development-only;
-new eligible works receive a deterministic 20%/20%/60% role assignment. Multiple files or encodings
-from one work do not increase its count, and only provenance-demonstrated independent captures enter
-the reproduction-disturbance auxiliary set.
-
-For generation, `G` is the number of common supported scene groups, `T=4G` is the fixed prompt census,
-and every painter-name condition plus the artist-free control receives the same repetition count
-`R`. `R` is the smallest passing value in `{25, 50, 75, 100}` under the frozen simulation. A local
-deterministic model pairs seeds across all conditions; remote common shocks require larger sealed
-blocks. Only generator-side blocks are resampled for the accessible-finite-frame claim.
-
-### Pilot 2
-
-`src/latent_art_bench/pilot2/` is a mostly self-contained historical requested-label study.
-It owns its config, schemas, corpus projection, qualification, transport, generation,
-analysis, and reporting. Its durable 320-attempt recovery receipts and compact result evidence
-are intentionally committed.
-
-### Pilot 3
-
-`src/latent_art_bench/pilot3/` is the largest historical workflow:
-
-| Module | Role |
-|---|---|
-| `planning.py`, `corpus.py`, `design.py` | Offline planning and Freeze-A1 corpus/design evidence |
-| `phasea.py` | Development acquisition, normalization, A-vectors, repeat probes, fitting, and external validation |
-| `preprocessing.py` | Pilot 3 metadata-free PNG normalization contract |
-| `met_r2.py` | Isolated official-Met successor protocol; now closed on its first metadata failure |
-| `design_freeze.py`, `normalization_scope.py` | Later-phase memberships and gates |
-| `transport.py` | OAuth runtime and requested-label qualification |
-| `generation.py` | Frozen schedule, durable request/attempt ledgers, output validation, recovery, and generation completion |
-| `analysis.py`, `execution.py` | Analysis, generated-output measurement, cross-phase orchestration, and verification |
-| `cli.py` | Pilot 3 command adapters |
-
-The largest maintenance hotspots are `phasea.py`, `generation.py`, and `execution.py`. A
-software reboot should split these by responsibility only after preserving the historical
-implementation at its current commit or tag.
+The terminal collectors are kept, not deleted. Each is a frozen input of the freeze that authorized
+its run and of the successor freeze that binds its terminal evidence; removing one would make its
+census unverifiable.
 
 ## Data flow and gates
 
-The historical Pilot 3 scientific flow was:
+Within R0 a single route runs:
 
-1. versioned config and compact manifests;
-2. append-only request/acquisition evidence and content-addressed local bytes;
-3. deterministic normalization;
-4. feature extraction;
-5. real-only qualification and frozen transforms;
-6. sealed external validation;
-7. generation-transport qualification;
-8. frozen generation, measurement, analysis, and reporting.
+1. `prepare` reads the versioned config, emits exact request intents, and writes a freeze binding
+   every frozen input by path and sha256;
+2. an independent reviewer inspects the sealed freeze and records a decision with empty blocking
+   findings;
+3. an authorization seal binds the freeze and the review by path and sha256;
+4. `execute --seal <path> --seal-sha256 <hash>` takes the one-shot lock, issues the frozen requests,
+   stores every raw response in the content-addressed store, and appends a hash-chained event per
+   step;
+5. publication is atomic — the candidate manifest and execution receipt appear together or not at
+   all.
 
-Every later step depends on an explicit earlier closure. A transport success is not the same
-as protocol eligibility, and an executed study is not the same as a supported hypothesis.
-Pilot 3 stopped while completing the development-acquisition cohort: all AIC acquisition and
-normalization finished, but the Met R2 path closed before the Met half could be acquired. No
-full-cohort feature extraction or later gate is open.
+Any transport failure, non-200, redirect, URL drift, `Retry-After`, schema/pagination/identity
+violation, oversize response, or content-address drift terminates the census. There is no
+within-census retry. Every later stage depends on an explicit earlier closure: a transport success
+is not protocol eligibility, and a completed census is not an admitted corpus.
 
 ## Storage boundaries
 
-Historical storage spans five roots:
-
-- `configs/` — tracked study inputs;
-- `data/` — ignored media plus selectively tracked manifests;
-- `artifacts/` — ignored local CAS/vector/model state plus selectively tracked receipts;
-- `outputs/` — ignored generated images and run outputs; and
+- `configs/` — tracked study inputs; every file is a frozen input of some freeze.
+- `data/manifests/` — tracked compact request intents, event ledgers, freezes, reviews,
+  authorizations, candidate manifests, and execution receipts.
+- `research_workspace/` — ignored raw responses, one-shot locks, and future image bytes, all under
+  one boundary.
 - `reports/` — tracked compact findings and evidence.
+- `artifacts/` — ignored local research bytes retained outside git.
 
-This overlap is a compatibility constraint, not a recommended design. New work should put all
-large runtime state beneath one ignored workspace root and keep tracked study definitions and
-compact evidence together in one versioned namespace.
+Large runtime state lives beneath one ignored workspace root; tracked study definitions and compact
+evidence stay together in one versioned namespace.
 
-## Safe reboot seams
+## Extension seams
 
-A software-first reboot can initially preserve behavior while extracting:
+New work belongs in a new versioned namespace, not in an edit to a sealed one. When adding a source
+route:
 
-- deterministic JSON/JSONL and hashing utilities;
-- content-addressed storage and portable path handling;
-- normalization as a standalone contract;
-- learned-formal extraction behind a pilot-neutral interface; and
-- append-only request journals independent of a particular transport.
-
-Do not start by moving historical files or deleting pilot code. Paths and implementation
-hashes are part of the evidence. Create a new namespace, add characterization tests around the
-shared seam, and retire old entry points only after the historical commit remains accessible.
+- copy the collector shape rather than generalizing across routes prematurely — the isolation is
+  what keeps one route's failure from contaminating another's evidence;
+- keep the config, freeze, review, authorization, ledger, and publication paths disjoint from every
+  existing census;
+- add the matching test module and adapter script in the same change; and
+- never reuse a census ID, and never repair a terminal census in place.

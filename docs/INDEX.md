@@ -1,7 +1,7 @@
 # Documentation index
 
-Use this index to distinguish the one active research plan from historical protocols and supporting
-evidence. Frozen and hash-bound records retain their original paths because those paths are evidence
+Use this index to distinguish the one active research plan from the evidence that supports it.
+Frozen and hash-bound records retain their original paths because those paths are evidence
 identities.
 
 ## Current guidance
@@ -72,47 +72,3 @@ and `R` selected from `{25,50,75,100}`. G1 records every attempt while confirmat
 C0 opens the reference once. A reproduction statement requires absolute target fit, specificity
 against every other painter, improvement over the artist-free control, coverage, availability/
 adherence, and copy exclusion. Learned evaluators remain diagnostics.
-
-## Historical real-measurement precursor
-
-- [Painter Features v1 historical overview](../studies/painter_features_v1/README.md)
-- [Hash-bound real-only measurement protocol](../studies/painter_features_v1/MEASUREMENT_PROTOCOL.md)
-- [Collection execution records](../studies/painter_features_v1/execution/README.md)
-- [Collection report](../reports/painter_features_v1/COLLECTION_REPORT.md)
-- [Collection result evidence](../reports/painter_features_v1/evidence/collection_result.json)
-- [Independent collection audit](../reports/painter_features_v1/evidence/collection_result_audit.json)
-- [Historical relaunch process report](../reports/painter_features_v1/RESEARCH_REPORT.md)
-- [Archived predecessor index](../studies/painter_features_v1/old/README.md)
-
-The real-only protocol and Collection Freeze 3 remain at their literal paths because the freeze
-binds them. They are evidence and method-development history, not alternate active plans.
-
-## Pilot 3 frozen records
-
-- [Frozen Pilot 3 protocol](PILOT_3_PROTOCOL.md)
-- [Freeze-A1 planning report](../reports/pilot_3/PLANNING_REPORT.md)
-- [AIC browser recovery](PILOT_3_AIC_BROWSER_RECOVERY.md)
-- [Preprocessing incident amendment](PILOT_3_PREPROCESSING_DETERMINISM_AMENDMENT.md)
-- [Official-Met R2 terminal protocol](PILOT_3_R2_OFFICIAL_MET.md)
-- [Committed Pilot 3 evidence](../reports/pilot_3/evidence/)
-
-## Historical pilot results
-
-- [Pilot 2 protocol](PILOT_2_PROTOCOL.md)
-- [Pilot 2 failure investigation](old/PILOT_2_FAILURE_INVESTIGATION.md)
-- [Pilot 2 result](../reports/pilot_2/REPORT.md)
-- [Pilot 1 result](../reports/pilot_1/REPORT.md)
-- [Pilot 0 result](../reports/pilot_0/REPORT.md)
-
-## Other legacy planning references
-
-- [Legacy documentation archive](old/README.md)
-- [Research proposal](old/RESEARCH_PROPOSAL.md)
-- [Benchmark specification](old/BENCHMARK_SPECIFICATION.md)
-- [Corpus design](old/CORPUS_DESIGN.md)
-- [Legacy validation protocol](old/VALIDATION_PROTOCOL.md)
-- [Learned-formal feasibility](LEARNED_FORMAL_FEASIBILITY.md)
-- [Historical project decisions](old/DECISIONS.md)
-
-These documents retain rationale and provenance. They do not override the active protocol or reopen
-closed pilot actions.

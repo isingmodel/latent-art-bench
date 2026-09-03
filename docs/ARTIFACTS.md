@@ -1,42 +1,36 @@
 # Artifact retention policy
 
-The repository contains both compact committed evidence and large ignored local bytes. Their
-directory names overlap for historical reasons, so Git ignore status alone does not mean a
-file is disposable.
+The repository contains both compact committed evidence and large ignored local bytes. Git ignore
+status alone does not mean a file is disposable: several ignored roots hold bytes whose hashes are
+tracked as evidence and which exist nowhere else.
 
 ## Canonical tracked material
 
 Preserve and review normally:
 
-- source, tests, configs, documentation, and compact reports;
-- Painter Features v1 historical frames, denylist, chained collection ledgers,
-  freeze/review/seal records, and compact result evidence;
-- Painter Feature Generation v1 protocols, future R0/R1/R2/M0/G0/G1/C0 freezes and seals,
-  compact manifests, complete-population assignments, population-calibration vectors, auxiliary-
-  reproduction-census manifests, hashes, reviews, and reports;
-- `data/manifests/pilot_3/`;
-- committed JSON/JSONL ledgers directly under `artifacts/pilot_3/`;
-- the 320 Pilot 2 per-attempt receipt sidecars under
-  `artifacts/pilot_2/.generation_attempts.jsonl.attempt_rows/`; and
-- Pilot 2 downsampled visual-QC sheets under `reports/pilot_2/visual_qc/`.
+- source, tests, configs, documentation, and compact reports; and
+- Painter Feature Generation v1 protocols, R0 freezes, reviews, authorization seals, hash-chained
+  request ledgers, candidate manifests, execution receipts, and the future R1/R2/M0/G0/G1/C0
+  freezes and seals, complete-population assignments, population-calibration vectors, and
+  auxiliary-reproduction-census manifests.
 
-The Pilot 2 receipts and QC sheets look generated but are intentional recovery and audit
-evidence. Do not collapse or regenerate them during general cleanup.
+Much of this material is hash-bound. Files under `configs/`, `scripts/`, `src/`, `tests/`, plus
+`pyproject.toml`, `uv.lock`, `.gitignore`, and `studies/painter_feature_generation_v1/PROTOCOL.md`,
+are frozen inputs of at least one census freeze and must stay byte-identical.
 
 ## Ignored but valuable local evidence
 
 Archive before removing:
 
-- `outputs/pilot_1/` and `outputs/pilot_2/` generated PNGs;
-- manifest-backed real/generated derived files under `artifacts/pilot_0/` through
-  `artifacts/pilot_2/`;
-- `data/pilot_0/source/` museum images;
-- `artifacts/pilot_3/real_raw/`, `real_normalized/`, and `met_r2/`;
+- `research_workspace/painter_feature_generation_v1/`, the active study's content-addressed raw
+  provider responses and one-shot locks — these are the bytes the tracked hashes attest to;
 - `artifacts/models/sd2-base-vae/` pinned model weights;
-- `artifacts/sources/kim-art-history/` pinned source checkout;
-- `tmp/pdfs/`, which legacy Pilot 3 Lee-replication code still addresses directly; and
-- `research_workspace/painter_features_v1/raw/`, containing four content-addressed NGA JPEG
-  deliveries (1,367,595 bytes) from Collection Freeze 3.
+- `artifacts/sources/kim-art-history/` pinned source checkout; and
+- `tmp/pdfs/` retained literature PDFs.
+
+The model weights, source checkout, and PDFs have no consumer in the current codebase; they are
+retained research inputs for later stages, not live dependencies. Removing them costs re-download
+time, not evidence.
 
 Some of these bytes are copyrighted or expensive to reproduce. Their hashes are retained in
 compact evidence, but the repository does not distribute them.
@@ -51,20 +45,19 @@ remain byte-verifiable.
 The following may be removed whenever no process is using them:
 
 - `.pytest_cache/`, `.ruff_cache/`, and `__pycache__/`;
-- `.venv/`, after validation, because `uv.lock` can rebuild it;
-- inactive zero-byte `*.lock` files;
-- `artifacts/synthetic-dry-run/`;
-- smoke/template outputs that are not referenced by a manifest; and
+- `.venv/`, after validation, because `uv.lock` can rebuild it; and
 - unreferenced one-off diagnostics in `tmp/`.
 
-Delete exact targets only. Do not use `git clean -xfd` and do not recursively delete
-`artifacts/`, `data/`, or `outputs/`: each contains a mixture of tracked records and ignored
-research bytes.
+A census's `.execution.lock` is never disposable even when zero-byte: it is the one-shot marker
+proving that census ran exactly once.
 
-## Active reboot boundary
+Delete exact targets only. Do not use `git clean -xfd` and do not recursively delete `artifacts/`,
+`data/`, or `research_workspace/`: each contains a mixture of tracked records and ignored research
+bytes.
 
-Historical Painter Features v1 uses the ignored `research_workspace/painter_features_v1/` root.
-The active Painter Feature Generation v1 Protocol 2.0 uses the separate ignored
+## Active study boundary
+
+The active Painter Feature Generation v1 Protocol 2.0 uses the ignored
 `research_workspace/painter_feature_generation_v1/` root. It contains exploratory metadata, the
 completed fixed-seed audit's 165 content-addressed raw responses (about 51 MiB), the terminal broad
 R1 responses, the completed broad R2 census's four raw responses (1,163,447 bytes), and the
@@ -120,11 +113,13 @@ one-time reference opening and complete frozen analysis.
 All committed paths are repository-relative. Add an ignored runtime subdirectory only when the
 corresponding reviewed freeze authorizes that stage; directory existence alone is never permission.
 
-## Archive layout and fixed-path exceptions
+## Fixed-path exceptions
 
-Unbound legacy planning documents are archived under `docs/old/`, and superseded Painter Features
-v1 material is under study/report `old/` directories. These are Git moves, not deletions.
+Every path bound by a census freeze is fixed. A freeze records its inputs by path and sha256, so
+moving, renaming, reformatting, or regenerating one of those files breaks verification exactly as a
+content change would — including the terminal collectors, their configs, and their tests, which are
+bound both by the freeze that authorized them and by the successor freeze that binds their terminal
+evidence.
 
-Do not apply that cleanup mechanically to frozen Pilot 2/3 protocols, learned-formal feasibility,
-pilot configs, reports, ledgers, scripts, tests, or ignored evidence. Their literal paths or hashes
-are part of the historical evidence graph and must remain fixed.
+The single expected verification failure is recorded in [the status page](STATUS.md). Do not
+resolve it by refreshing hashes.

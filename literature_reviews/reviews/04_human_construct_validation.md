@@ -66,13 +66,12 @@ Within-painter variability is part of the construct. The target is not “all ta
 same.” It is that the distribution has reproducible structure and useful separation from declared
 hard neighbors over a stated domain.
 
-## 3. What Pilot 2 did not validate
+## 3. What a computational result does not validate
 
-Pilot 2 supplied no human construct evidence because its generated primary cells were incomplete
-and its planned primary comparisons were not run. The real-work atlas showed source balanced
-accuracy 0.8125, while painter cross-source transfer was chance or weak (NGA-to-AIC 0.25;
-AIC-to-NGA 0.375). A source-stratified permutation result did not establish that people perceive
-the A-vector as painter manner.
+No computational separation result, however strong, is human construct evidence. A learned or
+interpretable coordinate can separate painters in a fixed corpus while being driven by acquisition
+source, content, or catalog structure, and a permutation test that stratifies one nuisance does not
+establish that people perceive the coordinate as painter manner.
 
 The prospective human study must therefore not start by asking whether generated images “look like
 Monet” in an unconstrained survey. Such a task can reward water lilies, pastel colors, a familiar
@@ -341,7 +340,7 @@ Report estimates and intervals for:
   defects, and liking.
 
 Five votes on one image do not equal five images. Power and precision must be simulated from the
-planned crossed model using pilot-independent variance ranges. Increase the number and coverage of
+planned crossed model using externally sourced variance ranges. Increase the number and coverage of
 physical works before purchasing many redundant ratings of the same few exemplars.
 
 ## 10. Preregistration and decision gates
@@ -393,6 +392,6 @@ any failed conjunct.
 | More ratings on the same few works | `precision_only_within_stimuli` | cannot repair limited across-work support |
 
 The result should be reported as a validity argument, including failures and scope restrictions, not
-as a single human score. That standard directly addresses Pilot 2's central lesson: detectable
-structure is easy to find; demonstrating that it is specifically, reproducibly, and perceptibly
-associated with a painter across works is the scientific task.
+as a single human score. That standard addresses the central risk: detectable structure is easy to
+find; demonstrating that it is specifically, reproducibly, and perceptibly associated with a painter
+across works is the scientific task.

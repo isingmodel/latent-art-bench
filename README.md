@@ -61,16 +61,13 @@ gates.
 
 ## Study disposition
 
-| Study | Disposition | Canonical record |
-|---|---|---|
-| Painter Feature Generation v1 | active generated-versus-real study; Protocol 2.0; corpus NO-GO | [protocol](studies/painter_feature_generation_v1/PROTOCOL.md) |
-| Painter Features v1 | historical real-only measurement precursor; frozen evidence | [overview](studies/painter_features_v1/README.md) |
-| Pilot 3 | historical; Met R2 closed on terminal HTTP 403 | [status](docs/STATUS.md) |
-| Pilot 2 | historical; requested grids incomplete, primary tests not run | [report](reports/pilot_2/REPORT.md) |
-| Pilots 0–1 | historical qualification/engineering attempts | [documentation index](docs/INDEX.md) |
+Painter Feature Generation v1 is the only study in this repository. Its canonical record is
+[Protocol 2.0](studies/painter_feature_generation_v1/PROTOCOL.md); its corpus disposition is NO-GO
+past R0. Earlier exploratory attempts were removed rather than carried as inactive namespaces.
 
-Historical protocols, ledgers, and hash-bound evidence retain their literal paths. They are not
-alternative current plans and must not be rewritten merely to agree with the reboot.
+The active study's own hash-bound evidence — freezes, reviews, authorizations, append-only request
+ledgers, and published manifests — retains its literal paths and must not be rewritten, reordered,
+truncated, moved, or regenerated for cosmetic cleanup.
 
 ## Start here
 
@@ -95,8 +92,8 @@ uv run --locked pytest -q -m "not live"
 The standard test command is offline. A registered `live` test or data request is not research
 authorization; each active collection stage additionally requires its reviewed protocol freeze.
 
-The historical `pilot2 verify` and `pilot3 verify` commands deliberately check older hash-bound
-closures and are not general repository health checks.
+The `latent-art-bench` console script exposes the seven census collectors as pass-through
+subcommands. Preparing a census is not authorization to execute one.
 
 ## Repository map
 
@@ -108,13 +105,13 @@ closures and are not general repository health checks.
 | `configs/painter_feature_generation_v1/` | prospective collection contracts |
 | `data/manifests/painter_feature_generation_v1/` | compact tracked request/candidate manifests |
 | `research_workspace/painter_feature_generation_v1/` | ignored active raw responses and future image bytes |
-| `src/latent_art_bench/` and `tests/` | shared measurement/collection tools and offline verification |
-| `docs/` | mutable status/index plus fixed-path historical records |
-| `artifacts/`, `outputs/` | mixed historical receipts and ignored research bytes |
+| `src/latent_art_bench/` and `tests/` | the census collectors, their shared primitives, and offline verification |
+| `docs/` | mutable status, index, architecture, and retention policy |
+| `artifacts/` | ignored local research bytes retained outside git |
 
 Git intentionally excludes artwork, generated full-resolution images, model weights, feature arrays,
 and some raw responses. Ignored research bytes may be unique evidence. Never use `git clean -xfd` or
-broad recursive deletion under `artifacts/`, `data/`, or `outputs/`; follow the
+broad recursive deletion under `artifacts/`, `data/`, or `research_workspace/`; follow the
 [retention policy](docs/ARTIFACTS.md).
 
 ## Research boundary
