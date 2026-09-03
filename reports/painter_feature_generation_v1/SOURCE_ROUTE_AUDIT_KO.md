@@ -1,6 +1,6 @@
 # Painter Feature Generation v1 공식 자료원 경로 감사
 
-- 기준일: 2026-09-02
+- 기준일: 2026-09-03
 - protocol: `painter-feature-generation-v1/2.0`
 - 목적: Protocol 2.0의 고정 source registry를 실제 수집 가능한 권위·매체 경로로 구체화
 - 상태: 공식 문서 기반 사전 경로 감사; source census나 작품 입장을 뜻하지 않음
@@ -23,7 +23,7 @@ attribution, oil-on-canvas, accession, 물리 작품 동일성이 확인되지 �
 
 | 자료원 | 권위 경로 | image/rights 경로 | 현재 판정 |
 |---|---|---|---|
-| AIC | 공개 artworks/search 및 item API; `artist_id`, `medium_display`, `main_reference_number` | `is_public_domain`, `image_id`, IIIF config를 item별 확인 | 인증 불필요, 전수 pagination 가능 |
+| AIC | 공개 artworks/search 및 item API; `artist_id`, `medium_display`, `main_reference_number` | `is_public_domain`, `image_id`, IIIF config를 item별 확인 | **실행 완료**: R2 4/4 요청, 153행, 57 screened 후보 |
 | Cleveland | 공개 Open Access API 또는 versioned JSON/CSV export; accession, creator, type, support/material | `share_license_status`, `images`의 web/print/original별 URL·크기 | 인증 불필요, item-level CC0만 허용 |
 | NGA | 공식 GitHub Open Data의 commit-pinned CSV; objects/constituents/relationships | `published_images.openaccess=1`, primary view, width/height, IIIF URL | live search보다 commit-pinned export 우선 |
 | Yale YUAG | LUX exact person authority ID와 item search; YUAG owner, Painting, oil+canvas, Artist role | 공식 YUAG IIIF manifest의 work/image rights와 canvas service | 공개 API 가능; manifest별 rights 필요 |
@@ -99,18 +99,23 @@ statement는 reuse screening에 필요하지만 provider museum의 attribution·
 1. **완료:** broad Wikidata 3,722행의 현재 entity/Commons metadata follow-up을 별도 freeze로
    수행했다. R2는 182/182 요청, 3,722행, 2,029 metadata-gate 행을 게시했으며 이미지와
    작품 입장은 0이다.
-2. 인증 없는 공식 source(AIC, CMA, NGA snapshot, Yale, Getty, Mia, POP)를 각각 terminal
+2. **완료:** AIC route를 terminal condition까지 실행했다. R1은 string `classification_id`에서
+   fail-closed로 종료했고, 새 census ID의 R2가 화가별 exact `artist_ids` 질의 4건을 모두
+   성공시켜 153행과 57 screened 후보를 게시했다. 이미지와 작품 입장은 0이다.
+3. 남은 인증 없는 공식 source(CMA, NGA snapshot, Yale, Getty, Mia, POP)를 각각 terminal
    condition까지 실행한다.
-3. API key가 필요한 Europeana와 Paris Musées는 credential 존재 여부를 freeze 전에 확인하고,
+4. API key가 필요한 Europeana와 Paris Musées는 credential 존재 여부를 freeze 전에 확인하고,
    없으면 그 route 자체를 미실행 상태로 보고한다. 다른 source로 top-up하지 않는다.
-4. 모든 source row를 accession 및 authority cross-reference로 physical-work graph에 합친다.
-5. item-level reuse와 native short side ≥1,024를 통과한 asset만 R1 image-acquisition freeze의
+5. 모든 source row를 accession 및 authority cross-reference로 physical-work graph에 합친다.
+6. item-level reuse와 native short side ≥1,024를 통과한 asset만 R1 image-acquisition freeze의
    후보가 된다. 이 문서 자체는 image request를 승인하지 않는다.
 
 ## 5. 현재 결론
 
 공개·고해상도 경로가 여러 기관에 존재하므로 “자료가 전혀 없다”는 결론은 근거가 없다.
-그러나 broad-media R2가 3,722행의 current entity/media metadata를 완결했어도 이를 작품 수로
-간주하거나 Commons 권리표지를 museum authority로 간주하는 것은 근거가 없다. 충분성은 전수
+그러나 broad-media R2가 3,722행의 current entity/media metadata를 완결하고 AIC route가 57
+screened 후보를 게시했어도 이를 작품 수로 간주하거나 Commons 권리표지 또는 AIC holding
+record를 완결된 museum authority로 간주하는 것은 근거가 없다. 두 route의 수치는 서로 다른
+denominator이며 같은 물리 작품을 서술할 수 있으므로 합산하지 않는다. 충분성은 전수
 source closure, 물리 작품 통합, 장면 이중코딩 후의 실제 painter×scene×workflow count로만
 판단한다.

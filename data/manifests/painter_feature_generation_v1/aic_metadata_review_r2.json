@@ -1,0 +1,27 @@
+{
+  "schema_version": "painter-feature-generation-v1-aic-metadata-review/1.0",
+  "decision": "APPROVE_AIC_METADATA_ONLY",
+  "blocking_findings": [],
+  "independent_reviewer": "PFG v1 metadata quality reviewer (neutral independent review)",
+  "census_id": "pfg-v1-aic-metadata-r2-20260902",
+  "protocol_id": "painter-feature-generation-v1/2.0",
+  "approved_scope": {
+    "metadata_requests": true,
+    "image_downloads": false,
+    "visual_coding": false,
+    "active_study_admission": false,
+    "feature_extraction": false,
+    "generation": false
+  },
+  "reviewed_freeze_path": "data/manifests/painter_feature_generation_v1/aic_metadata_freeze_r2.json",
+  "reviewed_freeze_sha256": "3d5d7d228905f4028b73dfeb6090509d90af56a85e3b852d3d06125c8e36c7c8",
+  "verification_summary": [
+    "all 25 frozen input hashes and aggregate dee7b9ab575abbdfd30d8d2392c56f0e47e2afa58c68420865b02bf4c31d5e13 verified, and the frozen path set equals the reconstructed required set",
+    "all six declared pre-execution outputs verified absent, and every R2 manifest, publication, and workspace path is disjoint from the terminal R1 census",
+    "four request intents reconstructed identically under five PYTHONHASHSEED values to canonical digest bfb268c70949b135cceb40e6a9ff0235f3a8eb54707498234476f394267bfc53",
+    "R1 lineage verified: a valid three-event hash chain ending at 1e41d54b1ceaf9959e0669956ba7ab48db7c565ffdb68ba8677e00e910c6b188 with the recorded terminal error, the exact two-file R1 workspace inventory, an absent R1 candidate manifest and receipt, and exactly the one declared semantic delta",
+    "exact R1 terminal body replay: the R1 parser still fails with 'AIC row has a malformed optional integer', while the R2 parser accepts the identical body and returns 46 rows, 33 of which pass both screens, retaining classification_id 'TM-66' as a string and leaving all 46 provider LQIP values in the raw response CAS only",
+    "production-gate mock over the exact committed authorization seal completed all four requests in frozen order under the 2.0-second minimum interval, with atomic publication, receipt-bound candidate manifest and terminal event, nine-event hash-chained ledger, content-address-verified bodies, zero image downloads, zero admissions, and a fail-closed second run",
+    "Ruff, 36 focused AIC checks, and 656 full offline tests passed in the review environment"
+  ]
+}

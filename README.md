@@ -5,7 +5,7 @@ reproduce the measurable visual-feature distribution of that painter's authentic
 active study compares distributions under a common outdoor-place content frame; it does not treat
 painter classification, centroid similarity, or one learned embedding as the answer.
 
-> **Status — 2026-09-02:** [Painter Feature Generation v1 Protocol 2.0](studies/painter_feature_generation_v1/PROTOCOL.md)
+> **Status — 2026-09-03:** [Painter Feature Generation v1 Protocol 2.0](studies/painter_feature_generation_v1/PROTOCOL.md)
 > is the only active plan. The source frame is being rebuilt and no real work is admitted, no active
 > image is downloaded, no generation is registered, and no generated-versus-real result exists.
 > See [current status](docs/STATUS.md).
@@ -46,14 +46,18 @@ whole-decision simulation—not a target-count stopping rule.
 | broad no-`P186` Wikidata census | 3,722 rows / 3,543 distinct item IDs / 3,718 filenames | complete discovery route, not authority or rights verification |
 | broad-media follow-up R1 | 1 / 182 requests, terminal on a plural `errors:[maxlag]` HTTP 200 envelope; no manifest | terminal protocol evidence, not a completed media screen |
 | broad-media follow-up R2 | 182 / 182 requests; 3,722 rows / 2,029 metadata-qualified rows | complete metadata screen, not authority verification or image acquisition |
+| AIC route R1 | 1 / 4 requests, terminal on a string `classification_id`; no manifest | terminal protocol evidence, not a completed source route |
+| AIC route R2 | 4 / 4 requests; 153 rows / 57 screened candidates | complete AIC route census, not authority verification or image acquisition |
 | separate direct official-source audit | 43 all-content candidates | not a reproducible complete source frame |
 | active admitted/downloaded/confirmation/generated/result counts | all 0 | metadata discovery succeeded; acquisition and analysis remain gated |
 
-The fixed-seed audit, broader discovery census, and separately reviewed broad-media R2 follow-up
-are complete. R1 remains frozen terminal evidence and was neither retried nor spliced: R2 used a
-new census ID, disjoint paths, and the full 182-request frame. The next steps are the remaining
-named source routes and authority/rights/work-identity reconciliation. Image acquisition, blind
-coding, and confirmation remain later gates.
+The fixed-seed audit, broader discovery census, separately reviewed broad-media R2 follow-up, and
+the Art Institute of Chicago route are complete. Each R1 remains frozen terminal evidence and was
+neither retried nor spliced: every R2 used a new census ID, disjoint paths, and its own complete
+request frame. The next steps are the remaining named source routes — Europeana, NGA, Cleveland,
+Yale, Getty, Minneapolis, Paris Musées, and POP/Joconde — and authority/rights/work-identity
+reconciliation across their union. Image acquisition, blind coding, and confirmation remain later
+gates.
 
 ## Study disposition
 

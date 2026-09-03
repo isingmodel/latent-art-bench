@@ -68,7 +68,8 @@ The active Painter Feature Generation v1 Protocol 2.0 uses the separate ignored
 `research_workspace/painter_feature_generation_v1/` root. It contains exploratory metadata, the
 completed fixed-seed audit's 165 content-addressed raw responses (about 51 MiB), the terminal broad
 R1 responses, the completed broad R2 census's four raw responses (1,163,447 bytes), and the
-completed broad-media R2 follow-up's 182 raw responses (55,899,277 bytes); compact hashes, events,
+completed broad-media R2 follow-up's 182 raw responses (55,899,277 bytes), and the completed AIC
+R2 route census's four raw responses (308,569 bytes); compact hashes, events,
 candidate manifests, and limitations are tracked. No active-study image,
 eligibility derivative, normalized array, feature vector, registered generation request, generated
 output, or result exists yet.
@@ -80,6 +81,14 @@ It has no candidate manifest or execution receipt; do not delete, retry, or spli
 R2 is a distinct completed census with its own lock, CAS, 365-event ledger, candidate manifest, and
 execution receipt. The R2 candidate rows remain non-admissions and its CAS must be archived before
 any workspace cleanup.
+
+The AIC route repeats that pattern. R1 retains one ignored content-addressed HTTP 200 response and
+one lock file; its tracked three-event ledger is terminal because AIC returns `classification_id`
+as a nonblank string identifier that the R1 parser rejected. It has no candidate manifest or
+execution receipt; do not delete, retry, or splice its response. AIC R2 is a distinct completed
+census under `metadata/aic_metadata_r2_20260902/` with its own lock, CAS, nine-event ledger,
+153-row candidate manifest, and execution receipt, and its CAS must likewise be archived before any
+workspace cleanup.
 
 The metadata-audit layer may retain exact request intents, raw provider responses, hashes, terminal
 receipts, and a compact non-admission candidate manifest. Raw responses remain ignored where their

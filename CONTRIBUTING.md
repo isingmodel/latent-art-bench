@@ -1,9 +1,9 @@
 # Contributing
 
-LatentArtBench is preparing for a project reboot after the Pilot 3 Met R2 cohort closed.
-Contributions are welcome when they simplify the reusable implementation, improve
-methodological clarity, reproducibility, corpus governance, or implementation fidelity. Read
-the [current status](docs/STATUS.md) before proposing work.
+LatentArtBench's active study is Painter Feature Generation v1 under Protocol 2.0; Pilots 0–3
+are closed historical records. Contributions are welcome when they simplify the reusable
+implementation, improve methodological clarity, reproducibility, corpus governance, or
+implementation fidelity. Read the [current status](docs/STATUS.md) before proposing work.
 
 ## Before contributing
 

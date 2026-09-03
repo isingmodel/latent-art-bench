@@ -1,9 +1,10 @@
 # Architecture map
 
-LatentArtBench is a Python package with shared measurement primitives and three accumulated
-pilot-specific workflow layers. The active `painter_feature_generation_v1` reboot currently has a
-research protocol and compact metadata evidence, not an executable workflow layer. The historical
-scientific workflows are deliberately fail-closed, but their growth concentrated too many
+LatentArtBench is a Python package with shared measurement primitives, two historical
+pilot-specific workflow layers, and the active `painter_feature_generation_v1` namespace. The active
+namespace implements the R0 metadata-census stage only: it can freeze, validate, execute, and
+publish source censuses, and it cannot download images, extract features, or generate. The
+historical scientific workflows are deliberately fail-closed, but their growth concentrated too many
 responsibilities in a few modules. This page describes the code as it exists; it is not
 authorization to resume a closed pilot or to run the active study before its freezes.
 
@@ -17,6 +18,8 @@ authorization to resume a closed pilot or to run the active study before its fre
   not the current project stage.
 
 ## Shared package layers
+
+Module paths in this table are relative to `src/latent_art_bench/`.
 
 | Area | Main modules | Responsibility |
 |---|---|---|
@@ -64,12 +67,29 @@ screening floors (10 development, 10 qualification, and 20 confirmation works pe
 confirmation ESS 100) and the actual design passes registered
 whole-decision simulation; these are not target-count stopping rules.
 
-The active code namespace currently contains a completed fixed-seed Wikidata/Commons metadata-audit
-tool and hash-bound evidence for its terminal first run and successful complete retry. It writes
-exact request intents, raw response hashes, terminal receipts, and a non-admission candidate
-manifest. It cannot download images, decide authority/content, create a physical-work
-population, extract features, or run generation. New implementation stays in the reboot namespace
-and must not alter Pilot 0–3 behaviour for convenience.
+`src/latent_art_bench/painter_feature_generation_v1/` implements the R0 census stage. Each route
+is a separate fail-closed collector with its own config, freeze, neutral review, authorization,
+one-shot lock, hash-chained event ledger, content-addressed raw-response store, and atomic
+publication. A route that fails terminates the census; the retry is always a new module and census
+ID bound to the predecessor's terminal evidence, never an in-place repair.
+
+| Module | Route | State |
+|---|---|---|
+| `federated_census.py` | fixed-seed Wikidata/Commons attrition audit, plus the shared census primitives the other collectors reuse | complete (165/165 requests) |
+| `broad_wikidata.py` | broad exact-creator no-`P186` discovery census | terminal on provider HTTP 502 |
+| `broad_wikidata_retry.py` | same census under a new ID after that terminal run | complete (4/4 requests) |
+| `broad_media_followup.py` | entity/media metadata follow-up over the broad frame | terminal on an unrecognized plural `errors:[maxlag]` envelope |
+| `broad_media_followup_r2.py` | same follow-up under a new ID | complete (182/182 requests) |
+| `aic_metadata.py` | Art Institute of Chicago route census | terminal on a string `classification_id` |
+| `aic_metadata_r2.py` | same route under a new ID | complete (4/4 requests) |
+
+Each module has a thin `scripts/collect_pfg_v1_*.py` CLI adapter with `prepare` and `execute`
+subcommands and a matching test module under `tests/painter_feature_generation_v1/`. Every collector
+writes exact request intents, raw response hashes, terminal receipts, and a non-admission candidate
+manifest. None can download images, decide authority/content, create a physical-work population,
+extract features, or run generation. The remaining named routes — Europeana, NGA, Cleveland, Yale,
+Getty, Minneapolis, Paris Musées, and POP/Joconde — have no collector yet. New implementation stays
+in the reboot namespace and must not alter Pilot 0–3 behaviour for convenience.
 
 Large raw responses and future image bytes live under one ignored
 `research_workspace/painter_feature_generation_v1/` boundary. Compact configs, manifests, hashes,
@@ -93,7 +113,7 @@ are intentionally committed.
 
 ### Pilot 3
 
-`src/latent_art_bench/pilot3/` is the latest and largest workflow:
+`src/latent_art_bench/pilot3/` is the largest historical workflow:
 
 | Module | Role |
 |---|---|

@@ -1,8 +1,8 @@
 {
   "schema_version": "painter-feature-generation-v1-data-readiness/2.1",
-  "as_of": "2026-09-02",
+  "as_of": "2026-09-03",
   "protocol_id": "painter-feature-generation-v1/2.0",
-  "status": "fixed_seed_and_broad_wikidata_commons_metadata_complete_full_r0_and_r1_not_complete",
+  "status": "fixed_seed_broad_wikidata_commons_and_aic_metadata_complete_full_r0_and_r1_not_complete",
   "research_question": "Do outputs from one exact generative model conditioned on a painter name reproduce the broad-scene-weighted distributions of prespecified digital-surrogate painting features in authority-record-exactly-attributed real paintings by that painter?",
   "fixed_seed_r1_terminal_run": {
     "census_id": "pfg-v1-fixed-seed-media-audit-20260902",
@@ -111,6 +111,46 @@
     "image_downloads": 0,
     "active_study_admissions": 0
   },
+  "aic_r1_terminal_run": {
+    "census_id": "pfg-v1-aic-metadata-20260902",
+    "event_ledger_path": "data/manifests/painter_feature_generation_v1/aic_metadata_request_events.jsonl",
+    "event_ledger_sha256": "acadecfcc06d0f391b1e59b7ef991e843233665c873d40fd5eea36b86927414f",
+    "planned_requests": 4,
+    "attempted_requests": 1,
+    "terminal_outcome": "terminal_delivery_or_schema_failure",
+    "cause": "The HTTP 200 body was schema-valid AIC search output, but AIC returns classification_id as a nonblank string identifier such as TM-66 while the R1 parser required an optional integer. No partial candidate manifest or receipt was emitted or reused."
+  },
+  "aic_r2_complete_run": {
+    "census_id": "pfg-v1-aic-metadata-r2-20260902",
+    "freeze_sha256": "3d5d7d228905f4028b73dfeb6090509d90af56a85e3b852d3d06125c8e36c7c8",
+    "neutral_review_decision": "APPROVE_AIC_METADATA_ONLY",
+    "authorization_sha256": "0857fc19442272f7f5aaf9a8852544d8b31b0dee0f06e056279e5d4dbb436bbc",
+    "execution_receipt_path": "data/manifests/painter_feature_generation_v1/aic_metadata_publication_r2/execution_receipt.json",
+    "execution_receipt_sha256": "723d52f2366dd89fc5cf2aaaf22de0d347409f24f009b5d57c5e24e8879d78d5",
+    "candidate_manifest_path": "data/manifests/painter_feature_generation_v1/aic_metadata_publication_r2/candidates.jsonl",
+    "candidate_manifest_sha256": "a31b57239b75e8730f9c173594b7fe6b3a0052f6da84ff9439b394f78271b410",
+    "event_ledger_path": "data/manifests/painter_feature_generation_v1/aic_metadata_request_events_r2.jsonl",
+    "event_ledger_sha256": "3040d2d2f4e9e4fb43538350e2d2619d8e967f0b4ea76fa8bdb1e1cc699a89b7",
+    "planned_requests": 4,
+    "successful_requests": 4,
+    "first_r2_attempt_successes": 4,
+    "hash_chained_events": 9,
+    "content_addressed_raw_responses": 4,
+    "raw_response_workspace_bytes": 308569,
+    "candidate_rows": 153,
+    "authority_record_candidates": 57,
+    "screened_candidates": 57,
+    "screened_distinct_accessions": 57,
+    "by_painter": {
+      "claude_monet": {"returned_rows": 46, "screened_candidates": 33},
+      "alfred_sisley": {"returned_rows": 8, "screened_candidates": 6},
+      "camille_pissarro": {"returned_rows": 65, "screened_candidates": 9},
+      "paul_cezanne": {"returned_rows": 34, "screened_candidates": 9}
+    },
+    "image_downloads": 0,
+    "active_study_admissions": 0,
+    "reconciled_against_wikidata_commons_census": false
+  },
   "interpretation_boundary": {
     "metadata_candidates_are_physical_works": false,
     "authority_records_verified": 0,
@@ -121,7 +161,7 @@
     "sealed_confirmation_works": 0,
     "generated_outputs": 0,
     "generated_vs_real_results": 0,
-    "reason": "The fixed-seed and broad Wikidata/Commons metadata routes are complete, but the other named R0 sources, authority and physical-work reconciliation, item-level image rights, technical delivery, and blind scene coding are not. Metadata-only runs were not authorized to download images or admit works."
+    "reason": "The fixed-seed, broad Wikidata/Commons, and Art Institute of Chicago metadata routes are complete, but the other named R0 sources, authority and physical-work reconciliation, item-level image rights, technical delivery, and blind scene coding are not. AIC and Wikidata/Commons rows can describe the same physical work and are never added as independent counts. Metadata-only runs were not authorized to download images or admit works."
   },
   "protocol_2_corpus_gates": {
     "minimum_common_scene_groups": 3,
@@ -136,7 +176,7 @@
     "all_gates_currently_satisfied": false
   },
   "next_authorized_sequence": [
-    "Preserve the completed broad Wikidata/Commons evidence and freeze every remaining named R0 route to its terminal condition.",
+    "Preserve the completed broad Wikidata/Commons and AIC evidence and freeze every remaining named R0 route (Europeana, NGA, Cleveland, Yale, Getty, Minneapolis, Paris Musees, POP/Joconde) to its terminal condition.",
     "Reconcile the terminal union into physical works and capture families.",
     "Under a separate reviewed R1 authorization, verify exact authority attribution, oil-on-canvas, item-level reuse, and technical delivery before acquiring image bytes.",
     "Run masked double coding, role assignment, method qualification, simulation, generation freeze, generation, and one-time confirmation in that order."

@@ -50,5 +50,5 @@ Do not combine their clauses with version 2.0 or use them to fill a perceived ga
 
 The four collected files remain below the measurement protocol's support floor and have one provider
 workflow, unknown capture ancestry, and no independent reproduction pairs. Their next role, if any,
-is development evidence under the active study's R0a/R1a/R0b/R1b freezes. Collection completion alone does not
+is development evidence under the active study's R0/R1/R2 freezes. Collection completion alone does not
 authorize measurement or a generated-versus-real conclusion.

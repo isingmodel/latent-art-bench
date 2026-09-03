@@ -36,8 +36,10 @@ Painter Feature Generation v1 연구계획·자료수집·현재결과 통합보
 메타데이터 후보 관문을 통과했다. broad census는 4개 화가별 질의를 모두 완결하여 3,722행,
 3,543개 distinct item ID, 3,718개 distinct filename을 발견했다. 이어진 broad-media R2는
 이 전체 frame의 182개 entity/media batch를 모두 완결했고, 3,722행 중 2,029행(1,967 distinct
-item ID)을 현재 메타데이터 관문 후보로 판정했다. 그러나 어느 수치도 아직 물리 작품 수가
-아니다. 권위기관
+item ID)을 현재 메타데이터 관문 후보로 판정했다. named source route 중 첫 기관 경로인 AIC도
+완결했다. R1은 string `classification_id`에서 fail-closed로 종료했고, 새 census ID의 R2가 4개
+요청을 모두 성공해 153행을 게시했으며 그중 57행이 authority와 media screen을 함께 통과했다.
+그러나 어느 수치도 아직 물리 작품 수가 아니다. 권위기관
 작품기록 대조, 작품 동일성 통합, 실제 이미지 바이트 취득, 완전한 화면 확인, 맹검 장면
 코딩이 남아 있으므로 active-study 입장 작품은 0점이다.
 
@@ -280,6 +282,8 @@ complete-view, capture ancestry가 확정되지 않는다.
 
 따라서 “2,029점의 좋은 그림을 수집했다”는 서술은 틀리다. 정확한 문장은 “고정 seed의
 2,029 item–file metadata rows가 다음 authority/identity/acquisition 검토 대상으로 남았다”다.
+AIC route의 57 후보(6.8)도 같은 의미의 별도 denominator이며, 두 수치는 같은 물리 작품을
+서술할 수 있으므로 합산하지 않는다.
 
 ### 6.5 Broad no-`P186` 발견 census 실행과 결과
 
@@ -439,6 +443,90 @@ authorization `e7a451ffbd3a63dcfe8c34d5242a1bb34f44be6991a0a962b1176e78c6b9e4c4`
 event ledger `7aabae62e6f01e8b295be1a60d0e65efcb348e456c93e977c9609ff6898d1700`,
 candidate manifest `3e14bf91eb0836ec09ae3d25fe9ffba7f618939208c4b944b0b0a5c228bc9ff7`,
 execution receipt `c2a08cc8199d3f50bdd04da0cc50efb466fa453afde041d3635eb7f261252445`다.
+
+### 6.8 AIC source route: R1 terminal 실패와 R2 완결
+
+AIC(Art Institute of Chicago)는 Protocol 2.0 source registry의 named route다. 첫 census
+`pfg-v1-aic-metadata-20260902`는 중립 검토와 승인을 거쳐 2026-09-02에 실행했다. 계약은 화가별
+exact `artist_ids` term query 4건, `page=1&limit=100`, 인증 없음, redirect 금지, 응답
+`info.version=1.15` 고정, within-census retry 없음이다.
+
+첫 요청은 HTTP 200과 정상 pagination을 반환했지만 terminal로 끝났다. AIC는
+`classification_id`를 `TM-66` 같은 nonblank string 식별자로 반환하는데, 동결된 parser는 이를
+optional integer로 요구했기 때문이다. 결과는 `terminal_delivery_or_schema_failure`이고 error는
+`AIC row has a malformed optional integer`다. R1은 3-event hash chain, one-shot lock,
+129,424바이트 원응답 1건만 남겼고 candidate manifest와 execution receipt는 발행하지 않았다.
+이는 provider 장애가 아니라 우리 parser의 자료형 가정 오류이며, 관찰된 실패 원인에만 한정한
+수정으로 재실행할 수 있는 순수 기술적 실패다.
+
+R2 `pfg-v1-aic-metadata-r2-20260902`는 R1을 고쳐 쓰지 않고 새 census ID와 분리된 manifest,
+publication, workspace, CAS 경로를 사용했다. 유일한 의미 변경은
+`classification_id`가 optional nonblank string 식별자라는 것이다. endpoint, query, requested
+fields, pagination, 정렬, 중복 규칙, screening, rights 기록, rate limit, retry, 실패 규칙,
+publication 규칙은 모두 동일하다. 동결은 25개 입력, 6개 사전 부재 출력, 그리고 R1의 config,
+freeze, review, authorization, intent, terminal ledger, lock, 원응답 CAS, manifest/receipt 부재를
+허용된 config delta와 함께 결속했다.
+
+중립 독립 품질검토는 다음을 확인하고 차단 사항 없이 승인했다.
+
+- 25/25 입력 hash와 aggregate `dee7b9ab…`, 재구성한 required path set 일치;
+- 6개 사전 부재 조건과 R1과의 경로 분리;
+- 5개 PYTHONHASHSEED에서 동일하게 재구성되는 4개 intent(digest `bfb268c7…`);
+- R1 계보: 3-event chain, terminal event `1e41d54b…`, 정확한 terminal error, 두 파일뿐인
+  workspace inventory, 부재한 R1 manifest/receipt;
+- exact R1 응답 재생: R1 parser는 여전히 기록된 error로 실패하고, R2 parser는 동일 body를
+  46행으로 파싱하며 그중 33행이 두 screen을 통과하고, `classification_id` `TM-66`은 문자열로
+  보존되며 46개 provider LQIP는 raw CAS에만 남는다;
+- 실제 커밋된 seal로 수행한 production-gate mock: 4/4 요청, 2.0초 최소 간격, atomic
+  publication, receipt-bound manifest/terminal event, 9-event chain, content-address 검증,
+  image download 0, admission 0, 두 번째 실행은 fail-closed.
+
+실제 R2 실행 결과는 다음과 같다.
+
+| 실행 항목 | 결과 |
+|---|---:|
+| 계획/성공 요청 | 4 / 4 |
+| first-R2-attempt success | 4 |
+| retryable/terminal 응답 | 0 / 0 |
+| hash-chain events | 9 = genesis 1 + started 4 + finished 4 |
+| content-addressed raw responses | 4 |
+| raw response bytes | 308,569 |
+| candidate rows | 153 |
+| distinct AIC artwork ID | 153 |
+| authority-record 후보 | 57 |
+| authority + media screen 후보 | 57 |
+| distinct accession(통과분) | 57 |
+| image download / active admission | 0 / 0 |
+
+화가별 screening 결과는 다음과 같다. `paired ID/title`은 target agent ID와 정규화된 이름이
+`artist_ids`/`artist_titles`의 짝으로 나타나는지, 나머지는 각 단일 관문이다.
+
+| 화가 | 전체 행 | paired ID/title | painting 분류 | oil+canvas | accession | public-domain | image_id | short side ≥1,024 | 최종 후보 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| Monet | 46 | 46 | 33 | 33 | 46 | 46 | 46 | 46 | 33 |
+| Sisley | 8 | 8 | 6 | 6 | 8 | 8 | 8 | 8 | 6 |
+| Pissarro | 65 | 65 | 10 | 9 | 65 | 65 | 65 | 65 | 9 |
+| Cézanne | 34 | 34 | 9 | 9 | 34 | 33 | 34 | 34 | 9 |
+| 합계 | 153 | 153 | 58 | 57 | 153 | 152 | 153 | 153 | 57 |
+
+Pissarro와 Cézanne의 전체 행 수가 큰 것은 AIC 소장의 판화·소묘 비중이 크기 때문이며,
+painting 분류와 oil-on-canvas 관문에서 대부분 탈락한다. 즉 행 수는 회화 수가 아니다.
+통과분 57행의 reported short side는 최소 1,817, 중앙값 5,021, 최대 14,221이다. 이는 provider가
+보고한 thumbnail geometry일 뿐 실제 asset delivery나 decode를 확인한 값이 아니다.
+
+manifest의 153행은 모두 `aic_holding_record_candidate_not_role_or_identity_reconciled`,
+`not_reconciled`, `not_requested`, `not_blind_coded`, `active_study_admission=false`다. 57이라는
+수치는 “AIC에서 사용 가능한 회화 57점”이 아니라 AIC holding record 기준 metadata screen 수치이며,
+role/attribution qualifier, 물리작품 동일성, 실제 image 권리와 전달, Wikidata/Commons census와의
+중복 제거가 모두 남아 있다. AIC row와 broad census row는 같은 물리 작품을 서술할 수 있으므로
+독립적인 수로 더하지 않는다.
+
+중요 SHA-256은 freeze `3d5d7d228905f4028b73dfeb6090509d90af56a85e3b852d3d06125c8e36c7c8`,
+review `278688fdbf8066398a2109b5f4c577d3d5816be03794682d80e66bea9260b905`,
+authorization `0857fc19442272f7f5aaf9a8852544d8b31b0dee0f06e056279e5d4dbb436bbc`,
+event ledger `3040d2d2f4e9e4fb43538350e2d2619d8e967f0b4ea76fa8bdb1e1cc699a89b7`,
+candidate manifest `a31b57239b75e8730f9c173594b7fe6b3a0052f6da84ff9439b394f78271b410`,
+execution receipt `723d52f2366dd89fc5cf2aaaf22de0d347409f24f009b5d57c5e24e8879d78d5`다.
 
 ## 7. 실제 이미지 취득 및 corpus closure 계획
 

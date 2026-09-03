@@ -74,7 +74,7 @@ Implementation details should not be fixed before the evidence they depend on ex
 
 ## Disposition of external critiques
 
-The reviews in `critics/01.md` and `critics/02.md` are treated as adversarial evidence, not as a specification.
+Two external critiques were treated as adversarial evidence, not as a specification. They were never committed to this repository, so the `critics/01.md` and `critics/02.md` paths this section originally cited do not resolve; only the dispositions below are retained.
 
 ### Adopted
 

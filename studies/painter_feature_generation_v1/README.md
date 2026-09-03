@@ -68,11 +68,22 @@ rule.
   MediaWiki error envelope. Under a new census ID and disjoint paths it completed all 182 requests
   on their first R2 attempt, preserving 365 hash-chained events and 182 raw responses. The resulting
   3,722-row manifest contains 2,029 metadata-qualified candidates, but zero images or admissions.
+- The reviewed Art Institute of Chicago route census terminated fail-closed on its first request
+  because AIC returns `classification_id` as a nonblank string identifier while the R1 parser
+  required an integer. It published no manifest or receipt.
+- A separately frozen and neutrally reviewed AIC R2 changed only that field's type rule. Under a new
+  census ID and disjoint paths it completed all four exact artist-ID requests on their first attempt,
+  preserving nine hash-chained events and four raw responses. Of its 153 holding-record rows, 57
+  across 57 distinct accession numbers pass both the AIC authority-record screen and the
+  metadata/media screen — Monet 33, Sisley 6, Pissarro 9, and Cézanne 9. The Pissarro and Cézanne row
+  totals are dominated by prints and works on paper. These rows are not reconciled against the
+  Wikidata/Commons census and are not added to it as independent works.
 - Active-study admitted works, downloaded image files, confirmation features, generation attempts,
   and results are all zero.
 
-The next actions are the remaining named source censuses and authority/rights/identity
-reconciliation. Image acquisition is a separate later gate.
+The next actions are the remaining named source censuses — Europeana, NGA, Cleveland, Yale, Getty,
+Minneapolis, Paris Musées, and POP/Joconde — and authority/rights/identity reconciliation across
+their union. Image acquisition is a separate later gate.
 
 ## Supporting material
 

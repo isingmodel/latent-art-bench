@@ -42,10 +42,9 @@ neighbourhood metrics remain diagnostics.
 - EVIDENCE_MATRIX.csv contains 144 auditable primary-source or standard records, including
   review depth, evidence grade, disposition, and a concrete protocol consequence.
 - `BIBLIOGRAPHY.md` gives 205 unique checked citations and stable primary-source links.
-- reviews/ contains the Pilot 2 audit and six thematic critical reviews: interpretable
-  features; Kim and learned representations; digitization; human construct validation; and
-  distribution statistics and missingness; plus a focused generated-versus-real painter-fidelity
-  audit.
+- reviews/ contains the Pilot 2 audit and six thematic critical reviews: interpretable features;
+  Kim and learned representations; digitization; human construct validation; distribution
+  statistics and missingness; and a focused generated-versus-real painter-fidelity audit.
 - `SYNTHESIS.md` compares results across feature families.
 - `METHOD_DECISIONS.md` records which methods are retained, diagnostic-only, or rejected.
 

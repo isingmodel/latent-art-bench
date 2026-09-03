@@ -1,6 +1,6 @@
 # Current status and research boundary
 
-Operational date: 2026-09-02
+Operational date: 2026-09-03
 
 This page is mutable operational state. Frozen historical protocols, ledgers, and receipts remain
 authoritative for their own completed actions.
@@ -23,8 +23,9 @@ content-free style, physical brushwork, artistic intention, or a probability-sam
 
 ## Current stage
 
-The study completed the **R0 fixed-seed and broad Wikidata/Commons metadata follow-ups** and remains
-**NO-GO for full R0 closure and R1 image acquisition**.
+The study completed the **R0 fixed-seed and broad Wikidata/Commons metadata follow-ups and the Art
+Institute of Chicago source route** and remains **NO-GO for full R0 closure and R1 image
+acquisition**.
 
 Completed in the Protocol 2.0 redesign:
 
@@ -60,20 +61,18 @@ MediaWiki `languagefallback` term representation that the frozen parser did not 
 preserved; no result manifest or execution receipt was issued, and none of its successes will be
 spliced into the retry.
 
-The complete, newly authorized R2 retry then:
+The complete, newly authorized R2 retry then repeated that follow-up under a new census ID:
 
-- a fixed-seed metadata-only follow-up of 3,190 Wikidata items and 3,364 Commons filenames;
-- 165 exact GET intents (80 Wikidata entity batches and 85 Commons file batches);
-- a fail-closed collector that validates current P18 linkage, rights markers, reported geometry,
-  exact member coverage, origin/redirect behaviour, retries, atomic receipts, and non-admission
-  manifests; and
-- a corrected fallback-term parser and focused regression tests;
-- a new census ID, complete 165-request intent set, separate output paths, and explicit hash-bound
-  linkage to the terminal first census; and
-- passed neutral independent review with no blocking finding;
-- completed all 165 requests on first attempt (80 Wikidata and 85 Commons), producing 331
-  hash-chained events and 165 content-addressed raw responses (about 51 MiB locally); and
-- emitted a 3,367-row non-admission candidate manifest and execution receipt.
+- a metadata-only follow-up of 3,190 Wikidata items and 3,364 Commons filenames across 165 exact
+  GET intents (80 Wikidata entity batches and 85 Commons file batches);
+- a fail-closed collector with a corrected fallback-term parser and focused regression tests, which
+  validates current P18 linkage, rights markers, reported geometry, exact member coverage,
+  origin/redirect behaviour, retries, atomic receipts, and non-admission manifests;
+- separate output paths and explicit hash-bound linkage to the terminal first census;
+- neutral independent review with no blocking finding; and
+- all 165 requests completed on first attempt, producing 331 hash-chained events, 165
+  content-addressed raw responses (about 51 MiB locally), and a 3,367-row non-admission candidate
+  manifest with its execution receipt.
 
 The first prospective broad no-`P186` census (`pfg-v1-broad-wikidata-no-p186-20260902`) was
 independently approved and executed on 2026-09-02. Monet completed with 1,317 discovery-only rows.
@@ -110,9 +109,38 @@ batches and 93 Commons media batches, 365 hash-chained events, 182 content-addre
 federated metadata discovery gate, representing 1,967 distinct item IDs; none is yet an
 authority-verified physical work, downloaded image, or active-study admission.
 
+The first Art Institute of Chicago route census (`pfg-v1-aic-metadata-20260902`) was independently
+reviewed, authorized, and executed on 2026-09-02. Its first request returned HTTP 200 with a
+schema-valid body, but AIC returns `classification_id` as a nonblank string identifier such as
+`TM-66` while the frozen parser required an integer. The census therefore terminated fail-closed
+after one request with `terminal_delivery_or_schema_failure`. Its three-event hash-chained ledger,
+one-shot lock, and single 129,424-byte raw response are preserved; it issued neither a candidate
+manifest nor an execution receipt, and none of its rows was reused.
+
+AIC R2 (`pfg-v1-aic-metadata-r2-20260902`) was then frozen under a new census ID with disjoint
+manifest, publication, workspace, and CAS paths. Its only semantic change is that `classification_id`
+is an optional nonblank string identifier; every source, query, transport, screening, retention, and
+publication rule is unchanged. The freeze binds 25 inputs, six absent pre-execution outputs, and the
+complete R1 config/freeze/review/authorization/intent/ledger/lock/CAS lineage together with the
+exact allowed config delta. Neutral independent quality review verified every frozen hash and
+absence, reconstructed the four intents identically under five hash seeds, replayed the exact R1
+terminal body — the R1 parser still fails with the recorded error while the R2 parser returns 46
+rows — and passed a production-gate mock over the exact committed seal. It approved with no blocking
+finding.
+
+R2 then completed all four exact artist-ID requests on their first attempt on 2026-09-03: 9
+hash-chained events, four content-addressed raw responses (308,569 bytes locally), and a 153-row
+non-admission candidate manifest. No R1 response body was reused. Of those rows, 57 pass both the
+AIC authority-record screen and the metadata/media screen, across 57 distinct accession numbers:
+Monet 33 of 46 rows, Sisley 6 of 8, Pissarro 9 of 65, and Cézanne 9 of 34. The Pissarro and Cézanne
+row counts are dominated by prints and works on paper, which the painting and oil-on-canvas screens
+reject. No image endpoint was requested, no work was admitted, and the AIC rows are not yet
+reconciled against the Wikidata/Commons census.
+
 Still not completed:
 
-- the other terminal source routes named in Protocol 2.0;
+- the remaining terminal source routes named in Protocol 2.0 — Europeana, NGA, Cleveland, Yale,
+  Getty, Minneapolis, Paris Musées, and POP/Joconde;
 - authority, rights, physical-work, capture-family, and image-quality reconciliation;
 - active image acquisition;
 - masked double coding, reliability/adjudication, source crossing, corpus closure, or scene support;
@@ -128,12 +156,12 @@ Still not completed:
 |---|---:|---|
 | exploratory Wikidata item candidates | 3,190 | material-constrained discovery identifiers, not verified works |
 | distinct Commons filenames in that seed | 3,364 | file identifiers, not physical works |
-| completed R2 metadata requests | 165 / 165 | all first-attempt successes; no R1 success reused |
-| completed R1 metadata requests | 4 | verified success before the fifth request terminated R1 |
-| terminal R1 requests | 1 | valid provider representation unsupported by the frozen parser |
-| R2 metadata-qualified rows | 2,029 / 3,367 | fixed-seed discovery gate; not physical works |
-| R2 distinct qualified item IDs | 1,967 | not identity-reconciled physical works |
-| R2 distinct qualified filenames | 2,028 | files, not independent works or captures |
+| fixed-seed R1 completed requests | 4 / 165 | verified successes before the fifth request terminated R1 |
+| fixed-seed R1 terminal requests | 1 | valid provider representation unsupported by the frozen parser |
+| fixed-seed R2 completed requests | 165 / 165 | all first-attempt successes; no R1 success reused |
+| fixed-seed R2 metadata-qualified rows | 2,029 / 3,367 | discovery gate only; not physical works |
+| fixed-seed R2 distinct qualified item IDs | 1,967 | not identity-reconciled physical works |
+| fixed-seed R2 distinct qualified filenames | 2,028 | files, not independent works or captures |
 | broad no-P186 R1 successful requests | 1 / 4 | Monet response only; not reusable outside terminal R1 evidence |
 | broad no-P186 R1 terminal requests | 1 | Sisley HTTP 502; whole R1 census incomplete |
 | broad no-P186 R1 observed rows | 1,317 | discovery-only Monet rows inside an incomplete census; no manifest issued |
@@ -146,6 +174,11 @@ Still not completed:
 | broad-media R2 candidate rows | 3,722 | current entity/media metadata rows; not physical works |
 | broad-media R2 metadata-qualified rows | 2,029 | discovery gate only; 1,967 distinct item IDs |
 | broad-media R2 raw responses/events | 182 / 365 | content-addressed responses / hash-chained events |
+| AIC R1 attempted requests | 1 / 4 | terminal string `classification_id`; no result publication |
+| AIC R2 completed requests | 4 / 4 | one exact request per frozen AIC agent ID; all first-R2-attempt successes |
+| AIC R2 candidate rows | 153 | returned holding records; not physical works |
+| AIC R2 screened candidates | 57 | painting + oil/canvas + accession + public-domain flag + image ID + short side ≥ 1,024 |
+| AIC R2 raw responses/events | 4 / 9 | content-addressed responses / hash-chained events |
 | separately observed official-source all-content candidates | 43 | traceable live records, not a terminal source census |
 | admitted active physical works | 0 | none has passed every gate |
 | downloaded active-study image files | 0 | metadata collection cannot download images |
@@ -184,10 +217,10 @@ painter-reproduction label is allowed.
 
 ## Required next sequence
 
-1. Preserve and report the completed fixed-seed and broad-media results without calling them a
-   complete source frame or acquired image corpus.
-2. Preserve the completed broad no-`P186` census, then freeze and execute the other named source
-   routes to terminal conditions; reconcile their union to physical works.
+1. Preserve and report the completed fixed-seed, broad no-`P186`, broad-media, and AIC censuses
+   without calling any of them a complete source frame or an acquired image corpus.
+2. Freeze and execute the remaining named source routes to their terminal conditions, then
+   reconcile the whole union to physical works.
 3. Under a separate R1 authorization, verify authority/rights/capture identity and acquire lawful
    technically adequate image bytes.
 4. Run role-separated R2 coding and close the unequal finite frame; generation remains NO-GO until
@@ -244,3 +277,11 @@ uv run --locked pytest -q -m "not live"
 Historical `pilot2 verify` and planning-era `pilot3 verify` intentionally expose old source-hash
 drift or unavailable ignored evidence. Do not regenerate frozen bundles merely to make those
 historical checks green.
+
+One active-study freeze is expected never to reverify. The fixed-seed R1 freeze
+(`federated_seed_metadata_freeze.json`) binds the pre-repair hashes of
+`src/latent_art_bench/painter_feature_generation_v1/federated_census.py` and its test module, and
+the R2 retry corrected the fallback-term parser in those same files rather than in a new module.
+Both files now match the R2 freeze exactly. Every later route avoided this by putting its retry in a
+separate `*_r2`/`*_retry` module, so both its freezes stay verifiable. Do not refresh the R1 freeze's
+hashes to hide the drift; it is the record of what the terminal run actually executed.
