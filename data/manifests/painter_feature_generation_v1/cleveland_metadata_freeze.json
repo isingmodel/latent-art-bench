@@ -1,0 +1,100 @@
+{
+  "census_id": "pfg-v1-cleveland-metadata-20260904",
+  "frozen_input_set_sha256": "678b9764e82a324943f21c2e9b2017503ac7f9c59bf9a91bedba13cd22067c04",
+  "frozen_inputs": [
+    {
+      "path": ".gitignore",
+      "sha256": "0d6569a63b7448075dbd73e5221d38d69143c50ae28939e83b0a63dbbc5c1be9"
+    },
+    {
+      "path": "configs/painter_feature_generation_v1/cleveland_metadata_census.json",
+      "sha256": "57cd4c09f18ad4ca9bc90a46af8496c1c820b648d43791d8dbee9b07ca90cd18"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v1/cleveland_metadata_request_intents.jsonl",
+      "sha256": "c7ce89af9db0c099105839f01d948f7a13b9fa64f1ddfd16bbd0d0389675ed05"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "9da42015a9f57afd574191b26c1d710aab3b7359d44661dab700a03854f151b7"
+    },
+    {
+      "path": "scripts/collect_pfg_v1_cleveland_metadata.py",
+      "sha256": "8cc42ac1a182b051c9291e50c1fa123375bd06f438365aa749852e4a63f8fc12"
+    },
+    {
+      "path": "src/latent_art_bench/__init__.py",
+      "sha256": "3a5d2006e1557187a3585cbe17af183fd7d2f170a32eb96b00c43b00d137c660"
+    },
+    {
+      "path": "src/latent_art_bench/io.py",
+      "sha256": "13e6372aa9814495a45700eb9e65d099c56bb1bb3032d72f7f9e00e6ba91a9b8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v1/__init__.py",
+      "sha256": "7bc8796c4b0dc4bf095669e6911cba541e30e9778437e0df0cc5b3e71918fed1"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v1/census_engine.py",
+      "sha256": "efd7a164610456d84cb328f548bbdaea9796705100e3f6b5b792d40e2b84f580"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v1/cleveland_metadata.py",
+      "sha256": "c9f2f210b77ba0cbcab2f4951514c39a97a9735ee10592060a3ea3e98b597957"
+    },
+    {
+      "path": "studies/painter_feature_generation_v1/PROTOCOL_2.1.md",
+      "sha256": "95794800777993d00c4dcf1048ec026ebf6473da522fabd88120a5bcedb2217d"
+    },
+    {
+      "path": "tests/painter_feature_generation_v1/test_census_engine.py",
+      "sha256": "d82d0e1ecc1ae07f8bb5ba616563601eafbfc94ca52429a6e72990fc3ae61385"
+    },
+    {
+      "path": "tests/painter_feature_generation_v1/test_cleveland_metadata.py",
+      "sha256": "4855a72493b25f3765ca85b768525b67d86824a6caae7f7f2b1d77ce76fce471"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "99285c8ccc298b80bd711b296d90945aea07209cb4623deae5a599bc0d4c80bf"
+    }
+  ],
+  "preexecution_outputs": [
+    {
+      "path": "data/manifests/painter_feature_generation_v1/cleveland_metadata_request_events.jsonl",
+      "state": "absent"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v1/cleveland_metadata_publication/candidates.jsonl",
+      "state": "absent"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v1/cleveland_metadata_publication/execution_receipt.json",
+      "state": "absent"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v1/cleveland_metadata_publication",
+      "state": "absent"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v1/metadata/cleveland_metadata_20260904/.execution.lock",
+      "state": "absent"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v1/metadata/cleveland_metadata_20260904/response_bodies",
+      "state": "absent"
+    }
+  ],
+  "protocol_id": "painter-feature-generation-v1/2.1",
+  "recorded_git_commit": "6c497bf690d2c80fb825ed146638eb7bf04aad7f",
+  "schema_version": "painter-feature-generation-v1-cleveland-metadata-freeze/1.0",
+  "scope": {
+    "active_study_admission": false,
+    "feature_extraction": false,
+    "generation": false,
+    "image_downloads": false,
+    "metadata_requests": true,
+    "visual_coding": false
+  },
+  "status": "sealed_for_neutral_quality_review"
+}
