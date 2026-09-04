@@ -435,9 +435,7 @@ def _find_response_body(
     if index is None:
         index = workspace_index(root)
     tail = Path(relative_body_path)
-    candidates = sorted(
-        path for path in index.get(tail.name, []) if str(path).endswith(str(tail))
-    )
+    candidates = sorted(path for path in index.get(tail.name, []) if str(path).endswith(str(tail)))
     return candidates[0] if candidates else None
 
 
@@ -546,6 +544,90 @@ def verify_receipt(
     return report
 
 
+# --------------------------------------------------------------------------- determinations
+
+
+BOUND_DETERMINATION_INPUTS = (
+    "census",
+    "protocol",
+    "content_lexicon",
+    "determiner",
+    "determination",
+)
+
+
+def verify_determination(root: Path, receipt_path: Path) -> Report:
+    """Verify an R1 determination receipt.
+
+    A determination fetches nothing, so there is no ledger and no content-addressed body to
+    check. What must hold instead is that every input which could change the answer is bound by
+    SHA-256, and that the funnel the receipt reports is arithmetically possible: monotone across
+    the gates in the declared order, ending exactly at the admitted counts, and summing to the
+    number of items determined.
+    """
+    relative = str(receipt_path.resolve().relative_to(root.resolve()))
+    report = Report(kind="determination", path=relative)
+    try:
+        receipt = read_json(receipt_path)
+    except (OSError, ValueError) as exc:
+        report.add("receipt_readable", False, str(exc))
+        return report
+    if not isinstance(receipt, dict):
+        report.add("receipt_is_object", False)
+        return report
+
+    for name in BOUND_DETERMINATION_INPUTS:
+        path = receipt.get(f"{name}_path")
+        expected = receipt.get(f"{name}_sha256")
+        if not isinstance(path, str):
+            report.add(f"{name}_path", False, "missing or malformed path")
+            continue
+        _tracked_hash_check(root, report, f"{name}:{path}", path, expected)
+
+    gates = receipt.get("gate_order")
+    funnel = receipt.get("funnel")
+    admitted = receipt.get("admitted")
+    if not isinstance(gates, list) or not isinstance(funnel, Mapping):
+        report.add("funnel_present", False, "no gate order or funnel")
+        return report
+    stages = ["discovered"] + [f"passed_{gate}" for gate in gates]
+    for painter, total in (receipt.get("funnel", {}).get("discovered") or {}).items():
+        counts = []
+        for stage in stages:
+            row = funnel.get(stage)
+            if not isinstance(row, Mapping) or not isinstance(row.get(painter), int):
+                report.add(f"funnel:{painter}:{stage}", False, "missing count")
+                counts = []
+                break
+            counts.append(row[painter])
+        if not counts:
+            continue
+        report.add(
+            f"funnel_monotone:{painter}",
+            counts == sorted(counts, reverse=True),
+            " >= ".join(str(count) for count in counts),
+        )
+        if isinstance(admitted, Mapping):
+            report.add(
+                f"funnel_ends_at_admitted:{painter}",
+                counts[-1] == admitted.get(painter),
+                f"{counts[-1]} vs {admitted.get(painter)}",
+            )
+        report.add(f"discovered_is_total:{painter}", counts[0] == total)
+
+    failures = receipt.get("failed_gate_counts")
+    determined = receipt.get("items_determined")
+    if isinstance(failures, Mapping) and isinstance(admitted, Mapping):
+        accounted = sum(failures.values()) + sum(admitted.values())
+        report.add("every_item_is_accounted_for", accounted == determined, f"{accounted}")
+        report.add(
+            "failed_gates_are_declared_gates",
+            set(failures).issubset(set(gates)),
+            ", ".join(sorted(set(failures) - set(gates))),
+        )
+    return report
+
+
 # --------------------------------------------------------------------------- audit
 
 
@@ -556,7 +638,13 @@ def discover(root: Path) -> dict:
     receipts = sorted(manifests.glob("*execution_receipt*.json")) + sorted(
         manifests.glob("*/execution_receipt.json")
     )
-    return {"freezes": freezes, "ledgers": ledgers, "receipts": sorted(set(receipts))}
+    determinations = sorted(manifests.glob("*determination_receipt*.json"))
+    return {
+        "freezes": freezes,
+        "ledgers": ledgers,
+        "receipts": sorted(set(receipts) - set(determinations)),
+        "determinations": determinations,
+    }
 
 
 def load_acknowledgements(root: Path, acknowledge: bool) -> Optional[dict]:
@@ -580,6 +668,7 @@ def audit(root: Path, acknowledge: bool = True) -> dict:
         [verify_freeze(root, path, acknowledgements) for path in found["freezes"]]
         + [verify_event_ledger(root, path) for path in found["ledgers"]]
         + [verify_receipt(root, path, index) for path in found["receipts"]]
+        + [verify_determination(root, path) for path in found["determinations"]]
     )
     return {
         "schema_version": "painter-feature-generation-v1-evidence-audit/1.1",
@@ -596,6 +685,7 @@ def audit(root: Path, acknowledge: bool = True) -> dict:
             "freezes": len(found["freezes"]),
             "event_ledgers": len(found["ledgers"]),
             "execution_receipts": len(found["receipts"]),
+            "determinations": len(found["determinations"]),
             "checks": sum(len(report.checks) for report in reports),
             "failed_checks": sum(1 for report in reports for c in report.checks if not c.ok),
             "acknowledged_unrecoverable_inputs": sum(

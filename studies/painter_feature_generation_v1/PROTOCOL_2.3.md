@@ -128,7 +128,21 @@ content lexicon:
 | lexicon outdoor-place eligible | **521** | **187** | **252** | **197** |
 | margin against the 179 floor | +342 | **+8** | +73 | +18 |
 
-All four painters clear the floor. **Sisley clears it by eight works and Cézanne by eighteen.**
+All four painters clear the floor.
+
+> **Erratum, recorded 2026-09-04 with the R1 determination.** The table above was produced by an
+> exploratory script written while drafting this version, not by the determination code. The
+> recorded determination
+> (`data/manifests/painter_feature_generation_v1/pfg_v1_r1_20260904_determination_receipt.json`)
+> supersedes it: **Monet 538, Sisley 196, Pissarro 259, Cézanne 200.** The three differences are
+> that the determination judges geometry on the largest qualifying Commons file rather than the
+> first row for an item, decides content from the Wikidata label alone, and gates rights on the
+> file licence alone rather than also on the Commons `Copyrighted` flag, which marks 297 openly
+> CC-licensed photographs in this census. The original table is left unedited above because it is
+> what this version was issued on. **The determination receipt is the authority for these counts.**
+
+The conclusion is unchanged under either measurement. **Sisley clears the floor by the smallest
+margin of the four** — eight works as first measured, seventeen as determined.
 
 Two consequences follow and are binding:
 
@@ -156,3 +170,10 @@ At Protocol 2.3 issuance: six censuses complete, zero admitted physical works, z
 images, zero confirmation works, zero generation attempts, and zero results. The next authorized
 action is to apply Sections 2 and 3 to the recorded census as an R1 determination, producing the
 first per-painter physical-work counts this study has ever had.
+
+**That determination was carried out on 2026-09-04** and is recorded at
+`data/manifests/painter_feature_generation_v1/pfg_v1_r1_20260904_determination_receipt.json`, with
+a Korean summary at `reports/painter_feature_generation_v1/R1_DETERMINATION_KO.md`. It admitted
+1,193 physical works and downloaded nothing. The next authorized action is role assignment under
+2.1 Section 8.1, which also needs no image. Protocol 2.2 Section 4's R1 freeze and authorization
+seal fall due before the first image byte is fetched.

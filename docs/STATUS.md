@@ -26,10 +26,23 @@ largest 56.1%. Reaching institutional catalogue records at that spread would tak
 museum routes. The construct is therefore now **Wikidata-declared outdoor-place digital-surrogate
 feature reproduction**, and no report may describe the corpus as authority-verified.
 
-Applying 2.3's inclusion and rights rules to the recorded census gives the first per-painter
-eligible counts the study has had: Monet 521, Sisley 187, Pissarro 252, Cézanne 197, against a
-floor of 179. All four clear it. **Sisley clears by eight works**, which makes him the binding
-constraint on every subsequent decision. Protocol 2.0 (`PROTOCOL.md`) and 2.1 (`PROTOCOL_2.1.md`) stay at their paths as the
+**The R1 determination was carried out on 2026-09-04** and is the study's first recorded corpus.
+Applying 2.3 Sections 2 and 3 with 2.1 Sections 7.3 and 7.4 to the recorded census admitted
+**1,193 physical works**: Monet 538, Sisley 196, Pissarro 259, Cézanne 200, against a floor of 179.
+All four clear it. **Sisley clears by seventeen works**, which makes him the binding constraint on
+every subsequent decision; no later rule may be adopted without checking his count first. The
+determination downloaded nothing and assigned no role.
+
+- receipt: `data/manifests/painter_feature_generation_v1/pfg_v1_r1_20260904_determination_receipt.json`
+- determination: `data/manifests/painter_feature_generation_v1/pfg_v1_r1_20260904_determination.jsonl` (3,543 rows)
+- Korean summary: [R1 판정](../reports/painter_feature_generation_v1/R1_DETERMINATION_KO.md)
+- judge: `src/latent_art_bench/painter_feature_generation_v1/determine.py`
+
+The counts in Protocol 2.3 Section 6 (Monet 521, Sisley 187, Pissarro 252, Cézanne 197) came from
+an exploratory script written while drafting that version; an erratum in Section 6 records the
+supersession. The determination receipt is the authority.
+
+Protocol 2.0 (`PROTOCOL.md`) and 2.1 (`PROTOCOL_2.1.md`) stay at their paths as the
 frozen authority for the censuses executed under them; neither is edited.
 
 Protocol 2.2 was issued on 2026-09-04 after the Cleveland census showed the cost of judging at
@@ -46,9 +59,25 @@ content-free style, physical brushwork, artistic intention, or a probability-sam
 
 ## Current stage
 
-The study completed the **R0 fixed-seed and broad Wikidata/Commons metadata follow-ups and the Art
-Institute of Chicago source route** and remains **NO-GO for full R0 closure and R1 image
-acquisition**.
+The study completed R0 metadata collection and the **R1 metadata determination**, and remains
+**NO-GO for image acquisition** until the Protocol 2.2 Section 4 freeze and authorization seal are
+issued. Zero images have been downloaded, zero roles assigned, zero generation attempts made, and
+zero results produced.
+
+The next authorized action is **role assignment under 2.1 Section 8.1**: apply
+`SHA256("pfg-v1/2.1-role" ‖ physical_work_id)` to the 1,193 admitted works to split development,
+qualification, and sealed confirmation, and pin the 122-work exposure denylist to development only.
+That step needs no image either. Image acquisition follows, and the freeze and seal fall due before
+its first byte.
+
+Two facts from the determination bind later work:
+
+- **geometry is the largest single loss (784 works).** Commons scan resolution, not authority or
+  content, sets the corpus size. The 1,024 px floor is 2.1 Section 7.3 and is not to be lowered to
+  buy works.
+- **the admitted content mix differs sharply by painter.** 64% of Monet's admitted works are
+  water-organized against 22% of Pissarro's. Section 13.4's specificity contrast must report this,
+  because part of any cross-painter feature difference is subject matter rather than style.
 
 **Protocol 2.1 was issued on 2026-09-04.** The decision it records: the study runs without
 coders or an adjudicator. Every human coding step is removed and content eligibility is declared
@@ -70,6 +99,12 @@ upper bound of eligible items that carry a collection QID is Monet 529, Sisley 1
 and Cézanne 200, so all four clear the floor at the upper bound and Sisley is the binding risk:
 authority verification, deduplication, complete-view checks, and private-collection exclusion can
 only lower these counts, and NO-GO after R2 remains possible.
+
+That pre-screen has since been superseded by the R1 determination above, and one of its claims did
+not hold: it called its counts an upper bound, but the determination admitted 538 Monets against
+the pre-screen's 529. The pre-screen read one row per item, so it missed works whose only
+sufficiently large Commons file sat on a second row. A figure is an upper bound only for the exact
+rule that produced it.
 
 Completed in the Protocol 2.0 redesign:
 

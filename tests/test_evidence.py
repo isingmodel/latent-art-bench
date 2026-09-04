@@ -176,3 +176,107 @@ def test_repository_evidence_chain_verifies_with_documented_acknowledgements() -
         "input:src/latent_art_bench/painter_feature_generation_v1/federated_census.py",
         "input:tests/painter_feature_generation_v1/test_federated_census.py",
     }
+
+
+# --------------------------------------------------------------------------- determinations
+
+
+def _determination_receipt(root: Path, bound: Path) -> dict:
+    return {
+        "gate_order": ["creator", "content"],
+        "items_determined": 5,
+        "funnel": {
+            "discovered": {"claude_monet": 5},
+            "passed_creator": {"claude_monet": 4},
+            "passed_content": {"claude_monet": 3},
+        },
+        "admitted": {"claude_monet": 3},
+        "failed_gate_counts": {"creator": 1, "content": 1},
+        "census_path": str(bound.relative_to(root)),
+        "census_sha256": _sha256(bound),
+        "protocol_path": str(bound.relative_to(root)),
+        "protocol_sha256": _sha256(bound),
+        "content_lexicon_path": str(bound.relative_to(root)),
+        "content_lexicon_sha256": _sha256(bound),
+        "determiner_path": str(bound.relative_to(root)),
+        "determiner_sha256": _sha256(bound),
+        "determination_path": str(bound.relative_to(root)),
+        "determination_sha256": _sha256(bound),
+    }
+
+
+def _write_determination(root: Path, receipt: dict) -> Path:
+    path = root / "data/manifests/painter_feature_generation_v1/x_determination_receipt.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(canonical_json(receipt), encoding="utf-8")
+    return path
+
+
+def test_a_consistent_determination_verifies(tmp_path: Path) -> None:
+    root, bound = _repo_with_bound_file(tmp_path)
+    path = _write_determination(root, _determination_receipt(root, bound))
+    report = evidence.verify_determination(root, path)
+    assert report.ok, [c for c in report.checks if not c.ok]
+    assert report.kind == "determination"
+
+
+def test_a_determination_with_an_unbound_input_fails(tmp_path: Path) -> None:
+    root, bound = _repo_with_bound_file(tmp_path)
+    receipt = _determination_receipt(root, bound)
+    receipt.pop("determiner_sha256")
+    report = evidence.verify_determination(root, _write_determination(root, receipt))
+    assert not report.ok
+    assert any("determiner" in c.subject and not c.ok for c in report.checks)
+
+
+def test_a_determination_whose_source_drifted_without_a_commit_fails(tmp_path: Path) -> None:
+    root, bound = _repo_with_bound_file(tmp_path)
+    receipt = _determination_receipt(root, bound)
+    receipt["census_sha256"] = "0" * 64
+    report = evidence.verify_determination(root, _write_determination(root, receipt))
+    assert not report.ok
+
+
+def test_a_funnel_that_grows_at_a_gate_fails(tmp_path: Path) -> None:
+    root, bound = _repo_with_bound_file(tmp_path)
+    receipt = _determination_receipt(root, bound)
+    receipt["funnel"]["passed_content"] = {"claude_monet": 9}
+    receipt["admitted"] = {"claude_monet": 9}
+    report = evidence.verify_determination(root, _write_determination(root, receipt))
+    assert not report.ok
+    assert any(c.subject.startswith("funnel_monotone") and not c.ok for c in report.checks)
+
+
+def test_a_funnel_that_disagrees_with_the_admitted_counts_fails(tmp_path: Path) -> None:
+    root, bound = _repo_with_bound_file(tmp_path)
+    receipt = _determination_receipt(root, bound)
+    receipt["admitted"] = {"claude_monet": 2}
+    report = evidence.verify_determination(root, _write_determination(root, receipt))
+    assert not report.ok
+    assert any(c.subject.startswith("funnel_ends_at_admitted") for c in report.checks if not c.ok)
+
+
+def test_items_that_are_neither_admitted_nor_failed_are_caught(tmp_path: Path) -> None:
+    root, bound = _repo_with_bound_file(tmp_path)
+    receipt = _determination_receipt(root, bound)
+    receipt["items_determined"] = 9
+    report = evidence.verify_determination(root, _write_determination(root, receipt))
+    assert not report.ok
+    assert any(c.subject == "every_item_is_accounted_for" for c in report.checks if not c.ok)
+
+
+def test_a_failure_attributed_to_an_undeclared_gate_is_caught(tmp_path: Path) -> None:
+    root, bound = _repo_with_bound_file(tmp_path)
+    receipt = _determination_receipt(root, bound)
+    receipt["failed_gate_counts"] = {"creator": 1, "vibes": 1}
+    report = evidence.verify_determination(root, _write_determination(root, receipt))
+    assert not report.ok
+    assert any(c.subject == "failed_gates_are_declared_gates" for c in report.checks if not c.ok)
+
+
+def test_determination_receipts_are_discovered_and_not_double_counted(tmp_path: Path) -> None:
+    root, bound = _repo_with_bound_file(tmp_path)
+    _write_determination(root, _determination_receipt(root, bound))
+    found = evidence.discover(root)
+    assert len(found["determinations"]) == 1
+    assert found["receipts"] == []

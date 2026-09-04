@@ -1,0 +1,118 @@
+{
+  "admitted": {
+    "alfred_sisley": 196,
+    "camille_pissarro": 259,
+    "claude_monet": 538,
+    "paul_cezanne": 200
+  },
+  "census_path": "data/manifests/painter_feature_generation_v1/broad_media_followup_publication_r2/candidates.jsonl",
+  "census_sha256": "3e14bf91eb0836ec09ae3d25fe9ffba7f618939208c4b944b0b0a5c228bc9ff7",
+  "clears_floor": {
+    "alfred_sisley": true,
+    "camille_pissarro": true,
+    "claude_monet": true,
+    "paul_cezanne": true
+  },
+  "closed_licence_terms": [
+    "nc",
+    "nd",
+    "noderivatives",
+    "noderivs",
+    "noncommercial"
+  ],
+  "content_lexicon_path": "data/manifests/painter_feature_generation_v1/content_lexicon.json",
+  "content_lexicon_sha256": "a5f9fcd59eadfd91f018b1dc0a849eb8ffdebada92754510cffc738faa60be2d",
+  "determination_id": "pfg_v1_r1_20260904",
+  "determination_path": "data/manifests/painter_feature_generation_v1/pfg_v1_r1_20260904_determination.jsonl",
+  "determination_sha256": "b6beffe47ffa16d77c1fc424d2deeabb8518d30a77d441396ba6065daaf4700a",
+  "determined_at_utc": "2026-09-04T11:23:35.453905Z",
+  "determiner_path": "src/latent_art_bench/painter_feature_generation_v1/determine.py",
+  "determiner_sha256": "fba5ea7fcbb1dc2d0ab9626b404f0495acc58d46dfc180452a321e4a02c02a9a",
+  "eligibility_floor": 179,
+  "failed_gate_counts": {
+    "collection": 685,
+    "content": 526,
+    "creator": 1,
+    "geometry": 784,
+    "medium": 353,
+    "rights": 1
+  },
+  "funnel": {
+    "discovered": {
+      "alfred_sisley": 812,
+      "camille_pissarro": 766,
+      "claude_monet": 1257,
+      "paul_cezanne": 708
+    },
+    "passed_collection": {
+      "alfred_sisley": 378,
+      "camille_pissarro": 533,
+      "claude_monet": 1012,
+      "paul_cezanne": 581
+    },
+    "passed_content": {
+      "alfred_sisley": 196,
+      "camille_pissarro": 259,
+      "claude_monet": 538,
+      "paul_cezanne": 200
+    },
+    "passed_creator": {
+      "alfred_sisley": 812,
+      "camille_pissarro": 766,
+      "claude_monet": 1257,
+      "paul_cezanne": 707
+    },
+    "passed_geometry": {
+      "alfred_sisley": 228,
+      "camille_pissarro": 348,
+      "claude_monet": 662,
+      "paul_cezanne": 481
+    },
+    "passed_medium": {
+      "alfred_sisley": 705,
+      "camille_pissarro": 685,
+      "claude_monet": 1132,
+      "paul_cezanne": 667
+    },
+    "passed_painting": {
+      "alfred_sisley": 812,
+      "camille_pissarro": 766,
+      "claude_monet": 1257,
+      "paul_cezanne": 707
+    },
+    "passed_rights": {
+      "alfred_sisley": 377,
+      "camille_pissarro": 533,
+      "claude_monet": 1012,
+      "paul_cezanne": 581
+    }
+  },
+  "gate_order": [
+    "creator",
+    "painting",
+    "medium",
+    "collection",
+    "rights",
+    "geometry",
+    "content"
+  ],
+  "items_determined": 3543,
+  "margin_against_floor": {
+    "alfred_sisley": 17,
+    "camille_pissarro": 80,
+    "claude_monet": 359,
+    "paul_cezanne": 21
+  },
+  "minimum_short_side": 1024,
+  "note": "Admission is metadata-declared eligibility under Protocol 2.3 Sections 2 and 3 with 2.1 Sections 7.3 and 7.4. No image was requested, no pixel was read, and no role was assigned, so Protocol 2.2 Section 4's R1 freeze and authorization seal are not yet due; they remain required before the first image byte is fetched. Attribution, medium, support, and collection are Wikidata statements observed in the named census, not institutional catalogue records.",
+  "open_licence_prefixes": [
+    "public domain",
+    "cc0",
+    "cc by",
+    "no restrictions"
+  ],
+  "protocol_id": "painter-feature-generation-v1/2.3",
+  "protocol_path": "studies/painter_feature_generation_v1/PROTOCOL_2.3.md",
+  "protocol_sha256": "f8f1fb111f96ea7e0a0e016365bf0eca4b0215c81b42407c93b0a9e51b3ca753",
+  "schema_version": "painter-feature-generation-v1-determination-receipt/2.3"
+}
