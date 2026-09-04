@@ -14,10 +14,22 @@ The active study is **Painter Feature Generation v1**:
 > authority-record-exactly-attributed, metadata-declared outdoor-place paintings by Monet, Sisley,
 > Pissarro, and Cézanne?
 
-The canonical plan is
-[`studies/painter_feature_generation_v1/PROTOCOL_2.2.md`](../studies/painter_feature_generation_v1/PROTOCOL_2.2.md)
-read together with 2.1: **2.2 replaces only the R0 collection rules, and every other section of
-2.1 stands.** Protocol 2.0 (`PROTOCOL.md`) and 2.1 (`PROTOCOL_2.1.md`) stay at their paths as the
+The canonical plan is 2.1 as amended by 2.2 and
+[2.3](../studies/painter_feature_generation_v1/PROTOCOL_2.3.md). **2.2 replaces the R0 collection
+rules; 2.3 makes Wikidata the authority layer and renames the construct. Every other section of 2.1
+stands.**
+
+Protocol 2.3 records the maintainer's decision of 2026-09-04 to accept Wikidata's own statements as
+authority. The collection-identity census that day found the 3,543 discovered items spread across
+**449 institutions**, with the ten largest covering 28.7% of item-collection links and the fifty
+largest 56.1%. Reaching institutional catalogue records at that spread would take roughly fifty
+museum routes. The construct is therefore now **Wikidata-declared outdoor-place digital-surrogate
+feature reproduction**, and no report may describe the corpus as authority-verified.
+
+Applying 2.3's inclusion and rights rules to the recorded census gives the first per-painter
+eligible counts the study has had: Monet 521, Sisley 187, Pissarro 252, Cézanne 197, against a
+floor of 179. All four clear it. **Sisley clears by eight works**, which makes him the binding
+constraint on every subsequent decision. Protocol 2.0 (`PROTOCOL.md`) and 2.1 (`PROTOCOL_2.1.md`) stay at their paths as the
 frozen authority for the censuses executed under them; neither is edited.
 
 Protocol 2.2 was issued on 2026-09-04 after the Cleveland census showed the cost of judging at
