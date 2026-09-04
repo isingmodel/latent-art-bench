@@ -1,0 +1,163 @@
+{
+  "protocol_id": "painter-feature-generation-v1/2.2",
+  "census_id": "pfg-v1-wd-collections-20260904",
+  "source_id": "wikidata_collections",
+  "layer": "discovery",
+  "note": "Resolve every collection QID that appears on the broad no-P186 census rows to an institution identity. This completes the interpretation of an already-collected corpus; it introduces no new candidate work. Records are returned verbatim and no eligibility, candidate flag, or score is assigned.",
+  "records_at": null,
+  "minimum_interval_seconds": 2.0,
+  "timeout_seconds": 60.0,
+  "execution_start_not_after_utc": "2026-10-04T00:00:00Z",
+  "user_agent": "latent-art-bench/0.1 painter-feature-generation-v1 collection-identity resolution (+https://github.com/isingmodel/latent-art-bench)",
+  "requests": [
+    {
+      "request_id": "wd-collections-0001",
+      "painter_id": null,
+      "method": "GET",
+      "url": "https://www.wikidata.org/w/api.php",
+      "params": {
+        "action": "wbgetentities",
+        "ids": "Q511|Q807|Q4872|Q23402|Q35525|Q46815|Q49133|Q63828|Q71074|Q80784|Q82941|Q125634|Q128316|Q132783|Q153306|Q160112|Q160236|Q162111|Q163804|Q169542|Q170152|Q176251|Q180788|Q188740|Q190804|Q194533|Q194622|Q194626|Q195436|Q201469|Q210081|Q211262|Q212281|Q212594|Q214867|Q224124|Q239303|Q252071|Q279049|Q286389|Q295144|Q303139|Q314082|Q318289|Q325712|Q333515|Q371908|Q377500|Q377579|Q403080",
+        "props": "labels|descriptions|claims",
+        "languages": "en|fr|ko",
+        "format": "json",
+        "formatversion": "2",
+        "errorformat": "plaintext",
+        "curtimestamp": "1"
+      }
+    },
+    {
+      "request_id": "wd-collections-0002",
+      "painter_id": null,
+      "method": "GET",
+      "url": "https://www.wikidata.org/w/api.php",
+      "params": {
+        "action": "wbgetentities",
+        "ids": "Q428559|Q428765|Q430682|Q459041|Q468458|Q475667|Q484054|Q496040|Q503176|Q510324|Q566661|Q569079|Q578485|Q592116|Q597355|Q632682|Q636400|Q639791|Q641630|Q650299|Q650519|Q653002|Q654762|Q657415|Q658725|Q666331|Q670250|Q671384|Q672759|Q673833|Q677561|Q679075|Q679527|Q682406|Q682827|Q683163|Q684556|Q685038|Q686329|Q693591|Q698582|Q700959|Q705551|Q705557|Q726781|Q731126|Q734266|Q743206|Q745866|Q768446",
+        "props": "labels|descriptions|claims",
+        "languages": "en|fr|ko",
+        "format": "json",
+        "formatversion": "2",
+        "errorformat": "plaintext",
+        "curtimestamp": "1"
+      }
+    },
+    {
+      "request_id": "wd-collections-0003",
+      "painter_id": null,
+      "method": "GET",
+      "url": "https://www.wikidata.org/w/api.php",
+      "params": {
+        "action": "wbgetentities",
+        "ids": "Q769765|Q770918|Q772297|Q775376|Q795228|Q806176|Q808462|Q809600|Q812285|Q819504|Q829296|Q840886|Q842858|Q843638|Q845468|Q847508|Q860812|Q861252|Q861588|Q865736|Q878253|Q913672|Q913808|Q924335|Q953345|Q965780|Q977015|Q1011471|Q1016909|Q1043967|Q1051928|Q1053735|Q1055037|Q1061094|Q1067909|Q1068063|Q1117704|Q1128657|Q1132918|Q1140507|Q1142988|Q1189960|Q1201549|Q1233913|Q1259209|Q1267958|Q1277393|Q1319192|Q1327886|Q1341595",
+        "props": "labels|descriptions|claims",
+        "languages": "en|fr|ko",
+        "format": "json",
+        "formatversion": "2",
+        "errorformat": "plaintext",
+        "curtimestamp": "1"
+      }
+    },
+    {
+      "request_id": "wd-collections-0004",
+      "painter_id": null,
+      "method": "GET",
+      "url": "https://www.wikidata.org/w/api.php",
+      "params": {
+        "action": "wbgetentities",
+        "ids": "Q1359908|Q1362629|Q1368166|Q1372546|Q1416890|Q1419555|Q1421440|Q1459037|Q1459878|Q1464509|Q1465387|Q1465805|Q1492387|Q1499958|Q1505892|Q1519002|Q1519050|Q1528356|Q1536471|Q1565911|Q1568434|Q1574475|Q1614504|Q1618645|Q1641836|Q1672292|Q1700481|Q1721563|Q1741629|Q1743116|Q1752085|Q1756399|Q1760539|Q1778179|Q1783956|Q1787100|Q1792552|Q1816301|Q1825229|Q1848918|Q1851283|Q1920251|Q1952944|Q1954370|Q1954623|Q1954748|Q1955692|Q1955739|Q1956195|Q1970945",
+        "props": "labels|descriptions|claims",
+        "languages": "en|fr|ko",
+        "format": "json",
+        "formatversion": "2",
+        "errorformat": "plaintext",
+        "curtimestamp": "1"
+      }
+    },
+    {
+      "request_id": "wd-collections-0005",
+      "painter_id": null,
+      "method": "GET",
+      "url": "https://www.wikidata.org/w/api.php",
+      "params": {
+        "action": "wbgetentities",
+        "ids": "Q1976985|Q1984633|Q1992004|Q2018379|Q2046319|Q2051997|Q2063082|Q2066737|Q2097646|Q2105170|Q2148186|Q2184071|Q2217420|Q2263119|Q2277827|Q2340634|Q2383136|Q2404549|Q2452513|Q2468251|Q2495870|Q2526644|Q2570775|Q2580202|Q2603905|Q2628596|Q2638817|Q2647884|Q2655386|Q2655425|Q2912600|Q2945648|Q2967822|Q2970522|Q2977589|Q2983474|Q3001838|Q3007727|Q3044753|Q3044768|Q3075622|Q3086934|Q3094628|Q3094641|Q3098373|Q3176133|Q3248015|Q3268627|Q3277885|Q3297769",
+        "props": "labels|descriptions|claims",
+        "languages": "en|fr|ko",
+        "format": "json",
+        "formatversion": "2",
+        "errorformat": "plaintext",
+        "curtimestamp": "1"
+      }
+    },
+    {
+      "request_id": "wd-collections-0006",
+      "painter_id": null,
+      "method": "GET",
+      "url": "https://www.wikidata.org/w/api.php",
+      "params": {
+        "action": "wbgetentities",
+        "ids": "Q3329033|Q3329050|Q3329052|Q3329100|Q3329155|Q3329161|Q3329511|Q3329523|Q3329541|Q3329546|Q3329618|Q3329620|Q3329646|Q3330185|Q3330204|Q3330222|Q3330225|Q3330248|Q3330521|Q3330707|Q3330717|Q3345073|Q3383883|Q3458883|Q3478488|Q3486321|Q3492931|Q3567825|Q3747192|Q3753155|Q3757721|Q3783572|Q3816734|Q3837886|Q3878590|Q4013975|Q4115728|Q4140840|Q4328346|Q4556499|Q4674272|Q4674763|Q4799164|Q4819492|Q4859590|Q4916759|Q4968867|Q5114675|Q5263501|Q5284947",
+        "props": "labels|descriptions|claims",
+        "languages": "en|fr|ko",
+        "format": "json",
+        "formatversion": "2",
+        "errorformat": "plaintext",
+        "curtimestamp": "1"
+      }
+    },
+    {
+      "request_id": "wd-collections-0007",
+      "painter_id": null,
+      "method": "GET",
+      "url": "https://www.wikidata.org/w/api.php",
+      "params": {
+        "action": "wbgetentities",
+        "ids": "Q5314986|Q5359197|Q5415088|Q5459526|Q5478803|Q5495608|Q5506587|Q5507735|Q5572991|Q5637846|Q5935366|Q6023573|Q6217142|Q6298930|Q6379617|Q6436109|Q6515835|Q6803132|Q6815343|Q6815803|Q6868358|Q7012302|Q7300422|Q7367636|Q7412332|Q7419233|Q7492669|Q7569107|Q7739582|Q7753511|Q7885811|Q10333663|Q10357174|Q10854956|Q11274070|Q11283175|Q11286643|Q11301924|Q11340324|Q11345132|Q11357837|Q11414496|Q11417787|Q11426772|Q11447532|Q11467765|Q11468661|Q11493678|Q11503129|Q11530056",
+        "props": "labels|descriptions|claims",
+        "languages": "en|fr|ko",
+        "format": "json",
+        "formatversion": "2",
+        "errorformat": "plaintext",
+        "curtimestamp": "1"
+      }
+    },
+    {
+      "request_id": "wd-collections-0008",
+      "painter_id": null,
+      "method": "GET",
+      "url": "https://www.wikidata.org/w/api.php",
+      "params": {
+        "action": "wbgetentities",
+        "ids": "Q11530732|Q11599987|Q11609688|Q11617518|Q11663204|Q11860868|Q12072937|Q12110695|Q14715853|Q14917275|Q15128575|Q15305978|Q15694044|Q15697027|Q15818188|Q16303321|Q16303680|Q16639039|Q18342548|Q18600731|Q18621174|Q19013512|Q19283604|Q19917343|Q20862230|Q20876003|Q22032181|Q23498495|Q23785329|Q25045355|Q26161257|Q26295754|Q27430435|Q27663014|Q27898150|Q28045660|Q28045665|Q28045674|Q28843765|Q29842752|Q41512158|Q41661713|Q42370205|Q50413488|Q55361621|Q56229813|Q56670130|Q56875825|Q57980808|Q59546080",
+        "props": "labels|descriptions|claims",
+        "languages": "en|fr|ko",
+        "format": "json",
+        "formatversion": "2",
+        "errorformat": "plaintext",
+        "curtimestamp": "1"
+      }
+    },
+    {
+      "request_id": "wd-collections-0009",
+      "painter_id": null,
+      "method": "GET",
+      "url": "https://www.wikidata.org/w/api.php",
+      "params": {
+        "action": "wbgetentities",
+        "ids": "Q60363894|Q60499706|Q61439050|Q61521218|Q62400958|Q63284794|Q64140672|Q64337658|Q66481459|Q67540395|Q68110244|Q73572768|Q77718000|Q78161758|Q84263944|Q86925581|Q90420044|Q94591163|Q94631769|Q96337378|Q96959908|Q97365797|Q98908473|Q99533760|Q105298810|Q106857407|Q109180218|Q109535454|Q109559220|Q109893034|Q110279441|Q111449521|Q111796449|Q113632284|Q114704176|Q114873993|Q115647494|Q116215271|Q117802356|Q124257858|Q126392389|Q126815975|Q130748726|Q132150975|Q132176507|Q134930670|Q135087947|Q135937566|Q138001780",
+        "props": "labels|descriptions|claims",
+        "languages": "en|fr|ko",
+        "format": "json",
+        "formatversion": "2",
+        "errorformat": "plaintext",
+        "curtimestamp": "1"
+      }
+    }
+  ],
+  "paths": {
+    "manifest": "data/manifests/painter_feature_generation_v1/wd_collections_20260904_records.jsonl",
+    "receipt": "data/manifests/painter_feature_generation_v1/wd_collections_20260904_receipt.json",
+    "workspace": "research_workspace/painter_feature_generation_v1/metadata/wd_collections_20260904"
+  }
+}
