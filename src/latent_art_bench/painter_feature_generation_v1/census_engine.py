@@ -25,11 +25,11 @@ from __future__ import annotations
 
 import argparse
 import email.utils
-import hashlib
 import json
 import os
 import re
 import shutil
+import sys
 import tempfile
 import time
 from dataclasses import dataclass
@@ -40,7 +40,7 @@ from typing import Any, Callable, Dict, List, Mapping, Optional, Sequence
 import httpx
 
 from latent_art_bench import evidence
-from latent_art_bench.io import canonical_json, hash_file
+from latent_art_bench.io import canonical_json, hash_bytes, hash_file, stable_hash
 
 METADATA_ONLY_SCOPE = {
     "metadata_requests": True,
@@ -131,8 +131,7 @@ class RouteContract:
 # --------------------------------------------------------------------------- primitives
 
 
-def _sha256(value: bytes) -> str:
-    return hashlib.sha256(value).hexdigest()
+_sha256 = hash_bytes
 
 
 def _utc_now() -> str:
@@ -181,10 +180,17 @@ def json_object(body: bytes, label: str) -> Dict[str, Any]:
 
 
 def jsonl_objects(body: bytes, label: str) -> List[Dict[str, Any]]:
+    """Parse JSONL split on LF only.
+
+    ``str.splitlines`` also breaks on U+2028, U+2029, U+0085, and the ASCII separators, all of
+    which ``canonical_json`` writes raw inside strings, so a valid row could split in two.
+    """
     try:
-        lines = body.decode("utf-8").splitlines()
+        lines = body.decode("utf-8").split("\n")
     except UnicodeDecodeError as exc:
         raise CensusError(f"{label} is not UTF-8") from exc
+    if lines and lines[-1] == "":
+        lines.pop()
     rows: List[Dict[str, Any]] = []
     for number, line in enumerate(lines, start=1):
         if not line:
@@ -402,9 +408,10 @@ def load_config(route: RouteContract, root: Path, config_path: Path) -> Dict[str
 # --------------------------------------------------------------------------- freeze
 
 
-def required_frozen_paths(
+def declared_frozen_paths(
     route: RouteContract, root: Path, config_path: Path, config: Mapping[str, Any]
 ) -> List[str]:
+    """Every path a freeze for this route binds, before any existence check."""
     paths = set(SHARED_FROZEN_INPUTS)
     paths.update(
         {
@@ -420,10 +427,17 @@ def required_frozen_paths(
     if isinstance(retry, Mapping):
         for row in retry.get("predecessor_evidence", []):
             paths.add(str(row["path"]))
+    return sorted(paths)
+
+
+def required_frozen_paths(
+    route: RouteContract, root: Path, config_path: Path, config: Mapping[str, Any]
+) -> List[str]:
+    paths = declared_frozen_paths(route, root, config_path, config)
     for path in paths:
         if not repo_path(root, path, "frozen input").is_file():
             raise CensusError(f"required frozen input is missing: {path}")
-    return sorted(paths)
+    return paths
 
 
 def expected_outputs(config: Mapping[str, Any]) -> List[Dict[str, str]]:
@@ -457,14 +471,24 @@ def prepare(route: RouteContract, root: Path, config_path: Path) -> Dict[str, An
     intents = route.build_intents(config)
     if not intents:
         raise CensusError("route produced no request intents")
-    intent_path = repo_path(root, config["paths"]["request_intents"], "paths.request_intents")
-    write_jsonl_atomic(intent_path, intents)
-    required = required_frozen_paths(route, root, config_path, config)
-    dirty = evidence.tracked_paths_dirty(root, _tracked(root, required))
+    intent_relative = str(config["paths"]["request_intents"])
+    intent_path = repo_path(root, intent_relative, "paths.request_intents")
+    # Check the tree before writing anything: the intents path must be new to git, and every
+    # other tracked frozen input must be clean, or the freeze would bind bytes HEAD lacks.
+    declared = declared_frozen_paths(route, root, config_path, config)
+    if _tracked(root, [intent_relative]):
+        raise CensusError(
+            "request intents path is already tracked; a new census needs its own intents path: "
+            + intent_relative
+        )
+    other = [path for path in declared if path != intent_relative]
+    dirty = evidence.tracked_paths_dirty(root, _tracked(root, other))
     if dirty:
         raise CensusError(
             "tracked frozen inputs are dirty against HEAD; commit them first: " + ", ".join(dirty)
         )
+    write_jsonl_atomic(intent_path, intents)
+    required = required_frozen_paths(route, root, config_path, config)
     entries = [{"path": path, "sha256": hash_file(root / path)} for path in required]
     freeze = {
         "schema_version": route.schema("freeze"),
@@ -473,7 +497,7 @@ def prepare(route: RouteContract, root: Path, config_path: Path) -> Dict[str, An
         "protocol_id": config["protocol_id"],
         "scope": METADATA_ONLY_SCOPE,
         evidence.RECORDED_COMMIT_FIELD: evidence.head_commit(root),
-        "frozen_input_set_sha256": _sha256(canonical_json(entries).encode("utf-8")),
+        "frozen_input_set_sha256": stable_hash(entries),
         "frozen_inputs": entries,
         "preexecution_outputs": expected_outputs(config),
     }
@@ -507,20 +531,16 @@ def _freeze_sha(freeze: Mapping[str, Any], path: str) -> str:
 
 
 def validate_events(events: Sequence[Mapping[str, Any]], census_id: str, schema: str) -> None:
-    previous = "0" * 64
     for sequence, event in enumerate(events, start=1):
         if (
             event.get("schema_version") != schema
             or event.get("census_id") != census_id
             or event.get("sequence") != sequence
-            or event.get("previous_event_sha256") != previous
         ):
             raise CensusError("event chain metadata is invalid")
-        body = dict(event)
-        observed = body.pop("event_sha256", None)
-        if observed != _sha256(canonical_json(body).encode("utf-8")):
-            raise CensusError("event chain hash is invalid")
-        previous = str(observed)
+    error = evidence.chain_error(events, allow_null_genesis=False)
+    if error is not None:
+        raise CensusError(f"event chain hash is invalid: {error}")
 
 
 def _validate_predecessor(
@@ -533,16 +553,8 @@ def _validate_predecessor(
             raise CensusError("freeze does not bind predecessor evidence")
         by_role[str(row["role"])] = bodies[path]
     events = jsonl_objects(by_role["terminal_events"], "predecessor terminal ledger")
-    previous = "0" * 64
-    for event in events:
-        body = dict(event)
-        observed = body.pop("event_sha256", None)
-        link = event.get("previous_event_sha256")
-        if observed != _sha256(canonical_json(body).encode("utf-8")) or (
-            link != previous and not (event is events[0] and link is None)
-        ):
-            raise CensusError("predecessor terminal ledger chain is invalid")
-        previous = str(observed)
+    if not events or evidence.chain_error(events, allow_null_genesis=True) is not None:
+        raise CensusError("predecessor terminal ledger chain is invalid")
     terminal = events[-1]
     if (
         terminal.get("census_id") != retry["predecessor_census_id"]
@@ -616,7 +628,7 @@ def validate_authorization(
         or freeze.get("preexecution_outputs") != expected_outputs(config)
     ):
         raise CensusError("authorization or freeze semantics are invalid")
-    if _sha256(canonical_json(entries).encode("utf-8")) != freeze.get("frozen_input_set_sha256"):
+    if stable_hash(entries) != freeze.get("frozen_input_set_sha256"):
         raise CensusError("freeze aggregate mismatch")
     retry = config.get("retry_contract")
     if isinstance(retry, Mapping):
@@ -720,10 +732,88 @@ def _append_event(
         "previous_event_sha256": events[-1]["event_sha256"] if events else "0" * 64,
         **fields,
     }
-    row["event_sha256"] = _sha256(canonical_json(row).encode("utf-8"))
+    row["event_sha256"] = stable_hash(row)
     _append_jsonl(path, row)
     events.append(row)
     return row
+
+
+def _validate_success_events(
+    events: Sequence[Mapping[str, Any]],
+    intents: Sequence[Mapping[str, Any]],
+    inventory: Sequence[Mapping[str, Any]],
+    expected_content_type: str,
+) -> None:
+    """Re-audit the on-disk ledger of a fully successful census before publication.
+
+    Mirrors the terminal collectors: one genesis plus a started/finished pair per intent in
+    frozen order, monotonic timestamps, status 200 on the exact frozen URL, a complete body,
+    the expected content type, no Retry-After, and an inventory that restates the ledger.
+    """
+    if (
+        len(events) != 1 + 2 * len(intents)
+        or len(inventory) != len(intents)
+        or events[0].get("event_type") != "execution_started"
+    ):
+        raise CensusError("successful event ledger has the wrong shape")
+    previous_time = parse_utc(events[0].get("started_at_utc"), "genesis timestamp")
+    for index, intent in enumerate(intents):
+        started = events[1 + 2 * index]
+        finished = events[2 + 2 * index]
+        started_time = parse_utc(started.get("started_at_utc"), "request-start timestamp")
+        finished_time = parse_utc(finished.get("finished_at_utc"), "request-finish timestamp")
+        digest = finished.get("response_sha256")
+        expected_path = (
+            f"response_bodies/{digest[:2]}/{digest}.response"
+            if isinstance(digest, str) and _SHA256_RE.fullmatch(digest)
+            else None
+        )
+        byte_count = finished.get("response_bytes")
+        candidate_rows = finished.get("candidate_rows")
+        expected_inventory = {
+            "request_id": intent["request_id"],
+            "response_sha256": digest,
+            "response_bytes": byte_count,
+            "response_body_path": expected_path,
+            "candidate_rows": candidate_rows,
+        }
+        if (
+            started.get("event_type") != "request_started"
+            or started.get("request_id") != intent["request_id"]
+            or started.get("encoded_url") != intent["encoded_url"]
+            or finished.get("event_type") != "request_finished"
+            or finished.get("request_id") != intent["request_id"]
+            or finished.get("outcome") != "success"
+            or started_time < previous_time
+            or finished_time < started_time
+            or finished.get("status_code") != 200
+            or finished.get("final_url") != intent["encoded_url"]
+            or finished.get("response_body_complete") is not True
+            or finished.get("error") is not None
+            or expected_path is None
+            or finished.get("response_body_path") != expected_path
+            or isinstance(byte_count, bool)
+            or not isinstance(byte_count, int)
+            or byte_count <= 0
+            or isinstance(candidate_rows, bool)
+            or not isinstance(candidate_rows, int)
+            or candidate_rows < 0
+            or dict(inventory[index]) != expected_inventory
+        ):
+            raise CensusError("successful event ledger differs from frozen request order")
+        headers = finished.get("response_headers")
+        if not isinstance(headers, Mapping):
+            raise CensusError("successful event lacks response headers")
+        _validate_date(headers.get("date"))
+        content_types = headers.get("content-type")
+        if (
+            not isinstance(content_types, list)
+            or len(content_types) != 1
+            or content_types[0].split(";", 1)[0].strip() != expected_content_type
+            or headers.get("retry-after") is not None
+        ):
+            raise CensusError("successful event has invalid response headers")
+        previous_time = finished_time
 
 
 def _publish(
@@ -949,8 +1039,9 @@ def execute(
         raise CensusError("event ledger cannot be reread") from exc
     disk_events = jsonl_objects(event_body, "event ledger")
     validate_events(disk_events, census_id, event_schema)
-    if disk_events != events or len(events) != 1 + 2 * len(intents):
+    if disk_events != events:
         raise CensusError("event ledger differs from the in-memory chain")
+    _validate_success_events(disk_events, intents, inventory, expected_content_type)
     receipt = {
         "schema_version": route.schema("execution"),
         "status": route.receipt_status,
@@ -1000,14 +1091,25 @@ def build_parser(route: RouteContract, default_config: str) -> argparse.Argument
     return parser
 
 
+def argument_path(root: Path, value: Path, label: str) -> Path:
+    """Accept a repository-relative or an absolute path, as long as it lies inside root."""
+    if value.is_absolute():
+        return repo_path(root, relative(root, value), label)
+    return repo_path(root, str(value), label)
+
+
 def main(route: RouteContract, default_config: str, argv: Optional[Sequence[str]] = None) -> int:
     args = build_parser(route, default_config).parse_args(argv)
     root = args.root.resolve()
-    config_path = repo_path(root, str(args.config), "config")
-    if args.command == "prepare":
-        result = prepare(route, root, config_path)
-    else:
-        seal_path = repo_path(root, str(args.seal), "seal")
-        result = execute(route, root, config_path, seal_path, args.seal_sha256)
+    try:
+        config_path = argument_path(root, args.config, "config")
+        if args.command == "prepare":
+            result = prepare(route, root, config_path)
+        else:
+            seal_path = argument_path(root, args.seal, "seal")
+            result = execute(route, root, config_path, seal_path, args.seal_sha256)
+    except CensusError as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 1
     print(json.dumps(result, indent=2, sort_keys=True))
     return 0

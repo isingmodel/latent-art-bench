@@ -131,21 +131,21 @@
       "claude_monet": {
         "denylisted_items": 0,
         "disposition": {
-          "eligible_outdoor_place": 590,
+          "eligible_outdoor_place": 591,
           "ineligible_by_exclusion": 56,
-          "unresolved_by_metadata": 53
+          "unresolved_by_metadata": 52
         },
         "eligible_any_class_match": {
           "built_place_organized": 198,
           "open_or_wooded_land": 200,
           "route_organized": 31,
-          "water_organized": 330
+          "water_organized": 331
         },
         "eligible_primary_class": {
           "built_place_organized": 116,
           "open_or_wooded_land": 71,
           "route_organized": 17,
-          "water_organized": 386
+          "water_organized": 387
         },
         "eligible_registry_by_class": {
           "built_place_organized": 30,
@@ -248,11 +248,11 @@
       },
       {
         "gate_pass_items": 16,
-        "qid": "Q3783572"
+        "qid": "Q809600"
       },
       {
         "gate_pass_items": 16,
-        "qid": "Q809600"
+        "qid": "Q3783572"
       },
       {
         "gate_pass_items": 14,
@@ -389,7 +389,7 @@
     "content_lexicon": {
       "lists_sha256": "72851924cd154d8dc745a1f477b7a2d2ce29e77321c021885433fe75e2b33434",
       "path": "data/manifests/painter_feature_generation_v1/content_lexicon.json",
-      "sha256": "fec64afee601dfc67ac03fcd017e70b42dc310030f14b54d7cdb433063281e90"
+      "sha256": "a5f9fcd59eadfd91f018b1dc0a849eb8ffdebada92754510cffc738faa60be2d"
     },
     "exposure_denylist": {
       "denylisted_works": 122,

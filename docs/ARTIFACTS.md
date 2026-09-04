@@ -129,5 +129,7 @@ successor freeze that binds its terminal evidence. Ignored research bytes under
 `research_workspace/` are verified in the working tree and must stay byte-identical in place.
 
 The two bound inputs that can never re-verify are recorded in
-`data/manifests/painter_feature_generation_v1/evidence_acknowledgements.json`. Do not resolve a new
-mismatch by refreshing hashes or by extending that file.
+`data/manifests/painter_feature_generation_v1/evidence_acknowledgements.json`, each with the exact
+`bound_sha256` it excuses; the audit honours an entry only for that hash, and only after the git
+history fallback finds nothing. Do not resolve a new mismatch by refreshing hashes or by extending
+that file.

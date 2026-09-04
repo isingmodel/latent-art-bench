@@ -8,27 +8,22 @@ before the R2 eligibility rule is applied; rendering it is not that review.
 
 from __future__ import annotations
 
-import argparse
 import hashlib
 import json
 import re
 import unicodedata
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Sequence
+from typing import Any, Dict, List, Mapping, Optional, Sequence
 
-from latent_art_bench.io import canonical_json, hash_file
+from latent_art_bench.io import hash_file, stable_hash, write_json
+from latent_art_bench.painter_feature_generation_v1 import artifact_cli, panel
 
 PROTOCOL_PATH = Path("studies/painter_feature_generation_v1/PROTOCOL_2.1.md")
 OUTPUT_PATH = Path("data/manifests/painter_feature_generation_v1/prompt_library.json")
 SCHEMA_VERSION = "painter-feature-generation-v1-prompt-library/1.0"
 INSERTION_ANCHOR = "An oil painting on canvas"
 INSERTION_TEMPLATE = " by {PAINTER}"
-PAINTERS = (
-    ("claude_monet", "Claude Monet"),
-    ("alfred_sisley", "Alfred Sisley"),
-    ("camille_pissarro", "Camille Pissarro"),
-    ("paul_cezanne", "Paul Cézanne"),
-)
+PAINTERS = panel.ID_NAME_PAIRS
 SCENE_GROUPS = (
     "water_organized",
     "built_place_organized",
@@ -162,7 +157,7 @@ def render(root: Path, protocol_path: Path = PROTOCOL_PATH) -> Dict[str, Any]:
             "named_strings": len(templates) * len(PAINTERS),
             "total_strings": len(all_strings),
         },
-        "strings_sha256": hashlib.sha256(canonical_json(all_strings).encode("utf-8")).hexdigest(),
+        "strings_sha256": stable_hash(all_strings),
     }
 
 
@@ -170,11 +165,14 @@ def serialize(library: Dict[str, Any]) -> str:
     return json.dumps(library, indent=2, sort_keys=True, ensure_ascii=False) + "\n"
 
 
+def expected(root: Path) -> Mapping[Path, str]:
+    return {OUTPUT_PATH: serialize(render(root))}
+
+
 def write(root: Path, output_path: Path = OUTPUT_PATH) -> Dict[str, Any]:
     library = render(root)
     target = root / output_path
-    target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(serialize(library), encoding="utf-8")
+    write_json(target, library)
     return {
         "output_path": str(output_path),
         "output_sha256": hash_file(target),
@@ -184,25 +182,5 @@ def write(root: Path, output_path: Path = OUTPUT_PATH) -> Dict[str, Any]:
     }
 
 
-def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--root", type=Path, default=Path.cwd())
-    parser.add_argument(
-        "--check",
-        action="store_true",
-        help="exit 1 if the tracked artifact differs from a fresh render of the protocol",
-    )
-    return parser
-
-
 def main(argv: Optional[Sequence[str]] = None) -> int:
-    args = build_parser().parse_args(argv)
-    root = args.root.resolve()
-    if args.check:
-        expected = serialize(render(root))
-        target = root / OUTPUT_PATH
-        observed = target.read_text(encoding="utf-8") if target.is_file() else None
-        print(json.dumps({"in_sync": observed == expected, "path": str(OUTPUT_PATH)}))
-        return 0 if observed == expected else 1
-    print(json.dumps(write(root), indent=2, sort_keys=True))
-    return 0
+    return artifact_cli.run(__doc__.splitlines()[0], expected, write, argv)

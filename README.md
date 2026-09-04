@@ -103,9 +103,10 @@ The standard test command is offline. The evidence audit verifies every freeze a
 that recorded it, plus every hash-chained ledger and execution receipt; it never refreshes a hash. A registered `live` test or data request is not research
 authorization; each active collection stage additionally requires its reviewed protocol freeze.
 
-The `latent-art-bench` console script exposes the seven census collectors, the evidence audit,
-and the R0 artifact tools (`prompt-library`, `exposure-denylist`, `scene-prescreen`) as
-pass-through subcommands. Preparing a census is not authorization to execute one.
+The `latent-art-bench` console script exposes the seven terminal collectors, the Cleveland route
+on the shared engine, the evidence audit (`verify-evidence`), and the R0 artifact tools
+(`prompt-library`, `content-lexicon`, `exposure-denylist`, `scene-prescreen`) as pass-through
+subcommands. Preparing a census is not authorization to execute one.
 
 ## Repository map
 

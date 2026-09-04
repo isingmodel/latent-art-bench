@@ -13,23 +13,19 @@ from __future__ import annotations
 
 import json
 import re
-import unicodedata
 from typing import Any, Dict, List, Mapping, Optional, Sequence
 
 import httpx
 
 from latent_art_bench.painter_feature_generation_v1 import census_engine as engine
+from latent_art_bench.painter_feature_generation_v1 import panel
+from latent_art_bench.painter_feature_generation_v1.content_lexicon import fold as _fold
 
 ROUTE_ID = "cleveland_metadata"
 SCHEMA_PREFIX = "painter-feature-generation-v1-cleveland-metadata"
 ENDPOINT = "https://openaccess-api.clevelandart.org/api/artworks/"
 DEFAULT_CONFIG = "configs/painter_feature_generation_v1/cleveland_metadata_census.json"
-PAINTERS = (
-    ("claude_monet", "Claude Monet"),
-    ("alfred_sisley", "Alfred Sisley"),
-    ("camille_pissarro", "Camille Pissarro"),
-    ("paul_cezanne", "Paul Cézanne"),
-)
+PAINTERS = panel.ID_NAME_PAIRS
 RETAINED_FIELDS = (
     "id",
     "accession_number",
@@ -56,11 +52,6 @@ RENDITIONS = ("full", "print", "web")
 
 class ClevelandError(engine.CensusError):
     """Raised when the Cleveland contract fails closed."""
-
-
-def _fold(value: str) -> str:
-    decomposed = unicodedata.normalize("NFKD", value)
-    return "".join(ch for ch in decomposed if not unicodedata.combining(ch)).casefold()
 
 
 def _tokens(value: str) -> set:
@@ -275,19 +266,7 @@ def parse_response(
     return records
 
 
-def summarize(rows: Sequence[Mapping[str, Any]], config: Mapping[str, Any]) -> Dict[str, Any]:
-    by_painter: Dict[str, Dict[str, int]] = {}
-    for painter in config["painters"]:
-        group = [row for row in rows if row["painter_id"] == painter["painter_id"]]
-        by_painter[painter["painter_id"]] = {
-            "returned_rows": len(group),
-            "authority_record_candidates": sum(
-                row["screening"]["authority_record_candidate"] for row in group
-            ),
-            "metadata_and_media_candidates": sum(
-                row["screening"]["metadata_and_media_candidate"] for row in group
-            ),
-        }
+def _counts(rows: Sequence[Mapping[str, Any]]) -> Dict[str, int]:
     return {
         "returned_rows": len(rows),
         "authority_record_candidates": sum(
@@ -296,8 +275,17 @@ def summarize(rows: Sequence[Mapping[str, Any]], config: Mapping[str, Any]) -> D
         "metadata_and_media_candidates": sum(
             row["screening"]["metadata_and_media_candidate"] for row in rows
         ),
-        "by_painter": by_painter,
     }
+
+
+def summarize(rows: Sequence[Mapping[str, Any]], config: Mapping[str, Any]) -> Dict[str, Any]:
+    by_painter = {
+        painter["painter_id"]: _counts(
+            [row for row in rows if row["painter_id"] == painter["painter_id"]]
+        )
+        for painter in config["painters"]
+    }
+    return {**_counts(rows), "by_painter": by_painter}
 
 
 CONTRACT = engine.RouteContract(

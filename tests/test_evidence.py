@@ -108,13 +108,14 @@ def test_bytes_never_committed_fail_unless_acknowledged(tmp_path: Path) -> None:
     report = evidence.verify_freeze(root, freeze_path)
     assert not report.ok
     failed = [check.subject for check in report.checks if not check.ok]
-    assert failed == ["input@commit:src/bound.py"]
+    assert failed == ["input:src/bound.py"]
 
     acknowledgements = {
         "unrecoverable_frozen_inputs": [
             {
                 "freeze_path": str(evidence.MANIFEST_DIR / "z_freeze.json"),
                 "frozen_input_path": "src/bound.py",
+                "bound_sha256": entries[0]["sha256"],
             }
         ]
     }
@@ -172,6 +173,6 @@ def test_repository_evidence_chain_verifies_with_documented_acknowledgements() -
     strict = evidence.audit(REPOSITORY_ROOT, acknowledge=False)
     failed = {check["subject"] for report in strict["reports"] for check in report["failed_checks"]}
     assert failed == {
-        "input@commit:src/latent_art_bench/painter_feature_generation_v1/federated_census.py",
-        "input@commit:tests/painter_feature_generation_v1/test_federated_census.py",
+        "input:src/latent_art_bench/painter_feature_generation_v1/federated_census.py",
+        "input:tests/painter_feature_generation_v1/test_federated_census.py",
     }

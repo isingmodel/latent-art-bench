@@ -13,22 +13,21 @@ The rebuild is deterministic and offline. It never touches image bytes.
 
 from __future__ import annotations
 
-import argparse
-import hashlib
 import json
 import re
-import subprocess
-from collections import OrderedDict
+from collections import Counter
 from pathlib import Path
-from typing import Any, Dict, List, Mapping, Optional, Sequence
+from typing import Any, Dict, List, Mapping, Optional, Sequence, Tuple
 
-from latent_art_bench.io import canonical_json, hash_file
+from latent_art_bench import evidence
+from latent_art_bench.io import canonical_json, hash_bytes, hash_file, write_json, write_jsonl
+from latent_art_bench.painter_feature_generation_v1 import artifact_cli, panel
 
 OUTPUT_PATH = Path("data/manifests/painter_feature_generation_v1/exposure_denylist.jsonl")
 RECEIPT_PATH = Path("data/manifests/painter_feature_generation_v1/exposure_denylist_receipt.json")
 SCHEMA_VERSION = "painter-feature-generation-v1-exposure-denylist/1.0"
 RECEIPT_SCHEMA = "painter-feature-generation-v1-exposure-denylist-receipt/1.0"
-PANEL = ("claude_monet", "alfred_sisley", "camille_pissarro", "paul_cezanne")
+PANEL = panel.PAINTER_IDS
 
 # Exact commits and paths. Each row is (source key, commit, path, exposure class, pixel?).
 SOURCES: List[tuple] = [
@@ -107,18 +106,23 @@ class DenylistError(RuntimeError):
     """Raised when a pinned source cannot be read exactly as recorded."""
 
 
-def _git_show(root: Path, commit: str, path: str) -> bytes:
-    result = subprocess.run(
-        ["git", "-C", str(root), "show", f"{commit}:{path}"], capture_output=True
-    )
-    if result.returncode != 0:
-        detail = result.stderr.decode().strip()
-        raise DenylistError(f"cannot read {path} at {commit[:12]}: {detail}")
-    return result.stdout
+def _source_bodies(root: Path) -> Dict[str, bytes]:
+    """Read every pinned source blob in one git batch call, keyed by source name."""
+    specs = {key: f"{commit}:{path}" for key, commit, path, _, _ in SOURCES}
+    found = evidence.bytes_at_commits(root, list(specs.values()))
+    bodies: Dict[str, bytes] = {}
+    for key, spec in specs.items():
+        body = found.get(spec)
+        if body is None:
+            raise DenylistError(f"cannot read pinned source {key} ({spec})")
+        bodies[key] = body
+    return bodies
 
 
 def _rows(body: bytes) -> List[dict]:
-    return [json.loads(line) for line in body.decode("utf-8").splitlines() if line.strip()]
+    # Split on LF only: canonical JSON keeps U+2028/U+2029 raw, and str.splitlines would cut
+    # a valid row at those characters.
+    return [json.loads(line) for line in body.decode("utf-8").split("\n") if line.strip()]
 
 
 def _work_id_from_row(row: Mapping[str, Any]) -> Optional[str]:
@@ -152,7 +156,7 @@ def _merge(target: Dict[str, Any], key: str, value: Any) -> None:
 
 def _new_entry(work_id: str) -> Dict[str, Any]:
     match = _WORK_ID.match(work_id)
-    return OrderedDict(
+    return dict(
         schema_version=SCHEMA_VERSION,
         physical_work_id=work_id,
         provider=match.group("provider") if match else None,
@@ -176,15 +180,16 @@ def build(root: Path) -> Dict[str, Any]:
     entries: Dict[str, Dict[str, Any]] = {}
     receipts: List[Dict[str, Any]] = []
     excluded_non_panel = 0
+    bodies = _source_bodies(root)
     for key, commit, path, exposure_class, pixel in SOURCES:
-        body = _git_show(root, commit, path)
+        body = bodies[key]
         rows = _rows(body)
         receipts.append(
             {
                 "source": key,
                 "commit": commit,
                 "path": path,
-                "blob_sha256": hashlib.sha256(body).hexdigest(),
+                "blob_sha256": hash_bytes(body),
                 "rows": len(rows),
                 "pixel_exposure_evidence": pixel,
             }
@@ -228,33 +233,28 @@ def build(root: Path) -> Dict[str, Any]:
 
 
 def summarize(rows: Sequence[Mapping[str, Any]]) -> Dict[str, Any]:
-    by_painter: Dict[str, Dict[str, int]] = {}
-    for row in rows:
-        painter = str(row.get("artist_id") or "unknown")
-        bucket = by_painter.setdefault(painter, {"works": 0, "denylisted": 0})
-        bucket["works"] += 1
-        bucket["denylisted"] += int(bool(row["denylisted"]))
-    providers: Dict[str, int] = {}
-    for row in rows:
-        if row["denylisted"]:
-            providers[row["provider"]] = providers.get(row["provider"], 0) + 1
+    denylisted = [row for row in rows if row["denylisted"]]
+    works = Counter(str(row.get("artist_id") or "unknown") for row in rows)
+    flagged = Counter(str(row.get("artist_id") or "unknown") for row in denylisted)
     return {
         "works": len(rows),
-        "denylisted": sum(1 for row in rows if row["denylisted"]),
-        "metadata_only": sum(1 for row in rows if not row["denylisted"]),
-        "denylisted_by_provider": dict(sorted(providers.items())),
-        "by_painter": dict(sorted(by_painter.items())),
+        "denylisted": len(denylisted),
+        "metadata_only": len(rows) - len(denylisted),
+        "denylisted_by_provider": dict(
+            sorted(Counter(row["provider"] for row in denylisted).items())
+        ),
+        "by_painter": {
+            painter: {"works": works[painter], "denylisted": flagged[painter]}
+            for painter in sorted(works)
+        },
         "with_wikidata_qid": sum(1 for row in rows if row["wikidata_qid"]),
     }
 
 
-def write(root: Path) -> Dict[str, Any]:
+def render(root: Path) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
+    """Rows and receipt exactly as ``write`` would record them, without touching the tree."""
     built = build(root)
-    output = root / OUTPUT_PATH
-    output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(
-        "".join(canonical_json(row) + "\n" for row in built["rows"]), encoding="utf-8"
-    )
+    jsonl_text = "".join(canonical_json(row) + "\n" for row in built["rows"])
     receipt = {
         "schema_version": RECEIPT_SCHEMA,
         "status": "rebuilt_from_pinned_git_history_not_yet_frozen_for_m0",
@@ -264,16 +264,33 @@ def write(root: Path) -> Dict[str, Any]:
             "role restriction"
         ),
         "output_path": str(OUTPUT_PATH),
-        "output_sha256": hash_file(output),
+        "output_sha256": hash_bytes(jsonl_text.encode("utf-8")),
         "sources": built["sources"],
         "excluded_non_panel_rows": built["excluded_non_panel_rows"],
         "counts": summarize(built["rows"]),
     }
-    receipt_path = root / RECEIPT_PATH
-    receipt_path.write_text(
-        json.dumps(receipt, indent=2, sort_keys=True, ensure_ascii=False) + "\n", encoding="utf-8"
-    )
-    return receipt
+    return built["rows"], receipt
+
+
+def serialize_receipt(receipt: Mapping[str, Any]) -> str:
+    return json.dumps(receipt, indent=2, sort_keys=True, ensure_ascii=False) + "\n"
+
+
+def expected(root: Path) -> Mapping[Path, str]:
+    rows, receipt = render(root)
+    return {
+        OUTPUT_PATH: "".join(canonical_json(row) + "\n" for row in rows),
+        RECEIPT_PATH: serialize_receipt(receipt),
+    }
+
+
+def write(root: Path) -> Dict[str, Any]:
+    rows, receipt = render(root)
+    write_jsonl(root / OUTPUT_PATH, rows)
+    if hash_file(root / OUTPUT_PATH) != receipt["output_sha256"]:
+        raise DenylistError("written denylist does not match its receipt")
+    write_json(root / RECEIPT_PATH, receipt)
+    return {"output_sha256": receipt["output_sha256"], **receipt["counts"]}
 
 
 def load(root: Path) -> List[Dict[str, Any]]:
@@ -283,26 +300,5 @@ def load(root: Path) -> List[Dict[str, Any]]:
     return _rows(path.read_bytes())
 
 
-def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--root", type=Path, default=Path.cwd())
-    parser.add_argument(
-        "--check",
-        action="store_true",
-        help="exit 1 if the tracked denylist differs from a fresh rebuild",
-    )
-    return parser
-
-
 def main(argv: Optional[Sequence[str]] = None) -> int:
-    args = build_parser().parse_args(argv)
-    root = args.root.resolve()
-    if args.check:
-        expected = "".join(canonical_json(row) + "\n" for row in build(root)["rows"])
-        target = root / OUTPUT_PATH
-        observed = target.read_text(encoding="utf-8") if target.is_file() else None
-        print(json.dumps({"in_sync": observed == expected, "path": str(OUTPUT_PATH)}))
-        return 0 if observed == expected else 1
-    receipt = write(root)
-    print(json.dumps({"output_sha256": receipt["output_sha256"], **receipt["counts"]}, indent=2))
-    return 0
+    return artifact_cli.run(__doc__.splitlines()[0], expected, write, argv)

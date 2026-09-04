@@ -425,7 +425,7 @@
     }
   },
   "lists_sha256": "72851924cd154d8dc745a1f477b7a2d2ce29e77321c021885433fe75e2b33434",
-  "matching": "whole-word match after Unicode NFKD accent stripping and case folding, over the concatenation of authority title, object-type/classification, genre/subject/keyword fields, description, discovery label and description, and provider caption",
+  "matching": "whole-word match after mapping typographic apostrophes and dashes to ASCII, Unicode NFKD accent stripping, and case folding, over the concatenation of authority title, object-type/classification, genre/subject/keyword fields, description, discovery label and description, and provider caption",
   "protocol_id": "painter-feature-generation-v1/2.1",
   "schema_version": "painter-feature-generation-v1-content-lexicon/1.0",
   "status": "rendered_not_yet_reviewed_or_frozen_for_r2"

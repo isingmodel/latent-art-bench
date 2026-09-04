@@ -18,8 +18,10 @@ either hash-bound by a census freeze or directly supports one.
 - `scripts/collect_pfg_v1_*.py` are the equivalent standalone adapters. These scripts are
   hash-bound frozen inputs of the freezes that authorized their censuses, so they are evidence
   and must not be edited. `scripts/verify_pfg_v1_evidence.py`,
-  `scripts/render_pfg_v1_prompt_library.py`, `scripts/build_pfg_v1_exposure_denylist.py`, and
-  `scripts/prescreen_pfg_v1_scene_support.py` are the adapters for the tools below.
+  `scripts/render_pfg_v1_prompt_library.py`, `scripts/render_pfg_v1_content_lexicon.py`,
+  `scripts/build_pfg_v1_exposure_denylist.py`, and `scripts/prescreen_pfg_v1_scene_support.py`
+  are the adapters for the tools below; `scripts/collect_pfg_v1_cleveland_metadata.py` is the
+  adapter for the Cleveland route.
 
 ## Shared package layers
 
@@ -28,10 +30,13 @@ Module paths in this table are relative to `src/latent_art_bench/`.
 | Area | Main modules | Responsibility |
 |---|---|---|
 | Deterministic I/O | `io.py` | Canonical JSON/JSONL, hashing, and atomic writes |
-| Evidence audit | `evidence.py` | Commit-bound verification of freezes, ledgers, and receipts |
+| Evidence audit | `evidence.py` | Commit-bound verification of freezes, ledgers, and receipts; all git reads go through one `git cat-file --batch` per step |
 | Retired contracts | `config.py`, `schemas.py` | Pilot-era pydantic contracts with no runtime consumer; retained only because the R0 freezes bind them |
 | Census collectors | `painter_feature_generation_v1/` | Fail-closed source-route censuses |
 | R0 artifact tools | `painter_feature_generation_v1/prompt_library.py`, `content_lexicon.py`, `exposure_denylist.py`, `scene_prescreen.py` | Deterministic, offline renderers of the §11.1 prompt library, the §7.4 content lexicon, the §8 exposure denylist, and the non-binding corpus pre-screen |
+
+`panel.py` is the single source of the four-painter roster; `artifact_cli.py` is the shared
+`--root/--check` command line of the R0 artifact renderers.
 
 `io.py`, `config.py`, `schemas.py`, `pyproject.toml`, `uv.lock`, `.gitignore`,
 `src/latent_art_bench/__init__.py`, and `tests/conftest.py` are bound by every census freeze.

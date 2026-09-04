@@ -18,11 +18,11 @@ import json
 import math
 from collections import Counter, defaultdict
 from pathlib import Path
-from typing import Any, Dict, List, Mapping, Optional, Sequence
+from typing import Any, Dict, List, Mapping, Optional, Sequence, Tuple
 
-from latent_art_bench.io import hash_file
+from latent_art_bench.io import hash_bytes, hash_file, write_json
 from latent_art_bench.painter_feature_generation_v1 import content_lexicon as lex
-from latent_art_bench.painter_feature_generation_v1 import exposure_denylist
+from latent_art_bench.painter_feature_generation_v1 import exposure_denylist, panel
 
 BROAD_MEDIA_CANDIDATES = Path(
     "data/manifests/painter_feature_generation_v1/broad_media_followup_publication_r2/"
@@ -34,13 +34,8 @@ AIC_CANDIDATES = Path(
 OUTPUT_JSON = Path("reports/painter_feature_generation_v1/evidence/scene_support_prescreen.json")
 OUTPUT_MD = Path("reports/painter_feature_generation_v1/SCENE_SUPPORT_PRESCREEN_KO.md")
 SCHEMA_VERSION = "painter-feature-generation-v1-scene-support-prescreen/2.0"
-PAINTERS = ("claude_monet", "alfred_sisley", "camille_pissarro", "paul_cezanne")
-PAINTER_LABELS = {
-    "claude_monet": "Monet",
-    "alfred_sisley": "Sisley",
-    "camille_pissarro": "Pissarro",
-    "paul_cezanne": "Cézanne",
-}
+PAINTERS = panel.PAINTER_IDS
+PAINTER_LABELS = panel.SHORT_LABELS
 SCENES = tuple(lex.CLASS_PRIORITY)
 
 # Shared constants (§8.1 role rule, §9 floors).
@@ -158,8 +153,11 @@ def floors() -> Dict[str, Any]:
 # --------------------------------------------------------------------------- inputs
 
 
-def _read_jsonl(path: Path) -> List[dict]:
-    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line]
+def _read_jsonl(path: Path) -> Tuple[List[dict], str]:
+    """Read a JSONL file once, returning its rows and the SHA-256 of the exact bytes."""
+    data = path.read_bytes()
+    rows = [json.loads(line) for line in data.split(b"\n") if line.strip()]
+    return rows, hash_bytes(data)
 
 
 def _denylist_index(rows: Sequence[Mapping[str, Any]]) -> Dict[str, set]:
@@ -372,9 +370,19 @@ def _retention_under_2_0(broad: Mapping[str, Any]) -> Dict[str, Any]:
 
 
 def run(root: Path) -> Dict[str, Any]:
-    broad_rows = _read_jsonl(root / BROAD_MEDIA_CANDIDATES)
-    aic_rows = _read_jsonl(root / AIC_CANDIDATES)
-    deny_rows = exposure_denylist.load(root)
+    for required in (
+        BROAD_MEDIA_CANDIDATES,
+        AIC_CANDIDATES,
+        exposure_denylist.OUTPUT_PATH,
+        lex.OUTPUT_PATH,
+    ):
+        if not (root / required).is_file():
+            raise FileNotFoundError(f"pre-screen input is missing: {required}")
+    broad_rows, broad_sha = _read_jsonl(root / BROAD_MEDIA_CANDIDATES)
+    aic_rows, aic_sha = _read_jsonl(root / AIC_CANDIDATES)
+    deny_rows, deny_sha = _read_jsonl(root / exposure_denylist.OUTPUT_PATH)
+    if not any(row.get("denylisted") for row in deny_rows):
+        raise ValueError("exposure denylist has no denylisted work; refusing to pre-screen")
     denylist = _denylist_index(deny_rows)
     broad = _broad_media(broad_rows, denylist)
     aic = _aic(aic_rows, denylist)
@@ -386,26 +394,22 @@ def run(root: Path) -> Dict[str, Any]:
         "inputs": {
             "broad_media_candidates": {
                 "path": str(BROAD_MEDIA_CANDIDATES),
-                "sha256": hash_file(root / BROAD_MEDIA_CANDIDATES),
+                "sha256": broad_sha,
                 "rows": len(broad_rows),
             },
             "aic_candidates": {
                 "path": str(AIC_CANDIDATES),
-                "sha256": hash_file(root / AIC_CANDIDATES),
+                "sha256": aic_sha,
                 "rows": len(aic_rows),
             },
             "exposure_denylist": {
                 "path": str(exposure_denylist.OUTPUT_PATH),
-                "sha256": (
-                    hash_file(root / exposure_denylist.OUTPUT_PATH)
-                    if (root / exposure_denylist.OUTPUT_PATH).is_file()
-                    else None
-                ),
+                "sha256": deny_sha,
                 "denylisted_works": sum(1 for row in deny_rows if row.get("denylisted")),
             },
             "content_lexicon": {
                 "path": str(lex.OUTPUT_PATH),
-                "sha256": hash_file(lexicon_path) if lexicon_path.is_file() else None,
+                "sha256": hash_file(lexicon_path),
                 "lists_sha256": lex.render()["lists_sha256"],
             },
         },
@@ -608,10 +612,7 @@ def render_markdown(result: Mapping[str, Any]) -> str:
 def write(root: Path) -> Dict[str, Any]:
     result = run(root)
     json_path = root / OUTPUT_JSON
-    json_path.parent.mkdir(parents=True, exist_ok=True)
-    json_path.write_text(
-        json.dumps(result, indent=2, sort_keys=True, ensure_ascii=False) + "\n", encoding="utf-8"
-    )
+    write_json(json_path, result)
     md_path = root / OUTPUT_MD
     md_path.write_text(render_markdown(result), encoding="utf-8")
     return {

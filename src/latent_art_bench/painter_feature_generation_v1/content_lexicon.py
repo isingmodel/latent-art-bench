@@ -17,15 +17,14 @@ pre-screen can report which class of token matched; they play no role in eligibi
 
 from __future__ import annotations
 
-import argparse
-import hashlib
 import json
 import re
 import unicodedata
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Optional, Sequence
+from typing import Any, Dict, Iterable, List, Mapping, Optional, Sequence
 
-from latent_art_bench.io import canonical_json, hash_file
+from latent_art_bench.io import hash_file, stable_hash, write_json
+from latent_art_bench.painter_feature_generation_v1 import artifact_cli
 
 OUTPUT_PATH = Path("data/manifests/painter_feature_generation_v1/content_lexicon.json")
 SCHEMA_VERSION = "painter-feature-generation-v1-content-lexicon/1.0"
@@ -447,8 +446,28 @@ INELIGIBLE = "ineligible_by_exclusion"
 UNRESOLVED = "unresolved_by_metadata"
 
 
+_PUNCTUATION_MAP = str.maketrans(
+    {
+        "\u2018": "'",  # left single quotation mark
+        "\u2019": "'",  # right single quotation mark (typographic apostrophe)
+        "\u02bc": "'",  # modifier letter apostrophe
+        "\u2010": "-",  # hyphen
+        "\u2011": "-",  # non-breaking hyphen
+        "\u2012": "-",  # figure dash
+        "\u2013": "-",  # en dash
+        "\u2014": "-",  # em dash
+    }
+)
+
+
 def fold(value: str) -> str:
-    decomposed = unicodedata.normalize("NFKD", value)
+    """Normalize metadata text for matching.
+
+    Typographic apostrophes and dashes are mapped to their ASCII forms first, because NFKD does
+    not decompose them and the lexicon phrases are written with ASCII punctuation; then
+    combining marks are stripped and the result is case-folded.
+    """
+    decomposed = unicodedata.normalize("NFKD", value.translate(_PUNCTUATION_MAP))
     return "".join(ch for ch in decomposed if not unicodedata.combining(ch)).casefold()
 
 
@@ -504,9 +523,10 @@ def render() -> Dict[str, Any]:
         "protocol_id": PROTOCOL_ID,
         "status": "rendered_not_yet_reviewed_or_frozen_for_r2",
         "matching": (
-            "whole-word match after Unicode NFKD accent stripping and case folding, over the "
-            "concatenation of authority title, object-type/classification, genre/subject/keyword "
-            "fields, description, discovery label and description, and provider caption"
+            "whole-word match after mapping typographic apostrophes and dashes to ASCII, "
+            "Unicode NFKD accent stripping, and case folding, over the concatenation of "
+            "authority title, object-type/classification, genre/subject/keyword fields, "
+            "description, discovery label and description, and provider caption"
         ),
         "disposition_order": [
             f"override phrase -> {ELIGIBLE}",
@@ -521,7 +541,7 @@ def render() -> Dict[str, Any]:
             "positive_tokens": sum(len(t) for t in POSITIVE_CLASSES.values()),
         },
         "lists": lists,
-        "lists_sha256": hashlib.sha256(canonical_json(lists).encode("utf-8")).hexdigest(),
+        "lists_sha256": stable_hash(lists),
     }
 
 
@@ -529,11 +549,14 @@ def serialize(lexicon: Dict[str, Any]) -> str:
     return json.dumps(lexicon, indent=2, sort_keys=True, ensure_ascii=False) + "\n"
 
 
+def expected(root: Path) -> Mapping[Path, str]:
+    return {OUTPUT_PATH: serialize(render())}
+
+
 def write(root: Path) -> Dict[str, Any]:
     lexicon = render()
     target = root / OUTPUT_PATH
-    target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(serialize(lexicon), encoding="utf-8")
+    write_json(target, lexicon)
     return {
         "output_path": str(OUTPUT_PATH),
         "output_sha256": hash_file(target),
@@ -542,26 +565,8 @@ def write(root: Path) -> Dict[str, Any]:
     }
 
 
-def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--root", type=Path, default=Path.cwd())
-    parser.add_argument(
-        "--check", action="store_true", help="exit 1 if the tracked artifact drifted"
-    )
-    return parser
-
-
 def main(argv: Optional[Sequence[str]] = None) -> int:
-    args = build_parser().parse_args(argv)
-    root = args.root.resolve()
-    if args.check:
-        target = root / OUTPUT_PATH
-        observed = target.read_text(encoding="utf-8") if target.is_file() else None
-        in_sync = observed == serialize(render())
-        print(json.dumps({"in_sync": in_sync, "path": str(OUTPUT_PATH)}))
-        return 0 if in_sync else 1
-    print(json.dumps(write(root), indent=2, sort_keys=True))
-    return 0
+    return artifact_cli.run(__doc__.splitlines()[0], expected, write, argv)
 
 
 __all__: List[str] = [

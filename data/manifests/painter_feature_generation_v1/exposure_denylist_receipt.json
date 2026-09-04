@@ -36,7 +36,7 @@
   "excluded_non_panel_rows": 69,
   "output_path": "data/manifests/painter_feature_generation_v1/exposure_denylist.jsonl",
   "output_sha256": "4f64fe345f934b88f564938db2a46226118067eb75a9a6993622cb2926be3858",
-  "rule": "every pixel- or feature-exposed physical work is development-only under Protocol 2.0 §8; rows marked metadata-only record pilot-3 selection exposure and carry no role restriction",
+  "rule": "every pixel- or feature-exposed physical work is development-only under Protocol 2.1 §8; rows marked metadata-only record pilot-3 selection exposure and carry no role restriction",
   "schema_version": "painter-feature-generation-v1-exposure-denylist-receipt/1.0",
   "sources": [
     {
