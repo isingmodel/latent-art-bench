@@ -1,0 +1,88 @@
+{
+  "authorization_seal_path": "data/manifests/painter_feature_generation_v1/cleveland_metadata_authorization.json",
+  "authorization_seal_sha256": "5f8ec815808ecc85d4387c307c6354dd79b022e773e794dcf2b968b73bbeb52a",
+  "candidate_manifest_path": "data/manifests/painter_feature_generation_v1/cleveland_metadata_publication/candidates.jsonl",
+  "candidate_manifest_sha256": "402a6e01036496044729ee9f19238a1eede730b4267fb30fec49b8340ced507c",
+  "census_id": "pfg-v1-cleveland-metadata-20260904",
+  "completed_at_utc": "2026-09-04T04:25:37.012864Z",
+  "config_path": "configs/painter_feature_generation_v1/cleveland_metadata_census.json",
+  "config_sha256": "57cd4c09f18ad4ca9bc90a46af8496c1c820b648d43791d8dbee9b07ca90cd18",
+  "counts": {
+    "active_study_admissions": 0,
+    "authority_record_candidates": 4,
+    "by_painter": {
+      "alfred_sisley": {
+        "authority_record_candidates": 0,
+        "metadata_and_media_candidates": 0,
+        "returned_rows": 4
+      },
+      "camille_pissarro": {
+        "authority_record_candidates": 1,
+        "metadata_and_media_candidates": 1,
+        "returned_rows": 35
+      },
+      "claude_monet": {
+        "authority_record_candidates": 3,
+        "metadata_and_media_candidates": 3,
+        "returned_rows": 5
+      },
+      "paul_cezanne": {
+        "authority_record_candidates": 0,
+        "metadata_and_media_candidates": 0,
+        "returned_rows": 10
+      }
+    },
+    "image_downloads": 0,
+    "metadata_and_media_candidates": 4,
+    "returned_rows": 54
+  },
+  "execution_genesis_event_sha256": "e8b6d185e1945a041d826cc125b7d0b1943c67fa221da9c2ea91b434a64f5204",
+  "freeze_recorded_git_commit": "6c497bf690d2c80fb825ed146638eb7bf04aad7f",
+  "limitations": [
+    "Cleveland query rows are holding-record candidates, not reconciled physical works.",
+    "share_license_status and rendition geometry are metadata, not delivery or rights receipts.",
+    "No image endpoint or file was requested, no content label was assigned, and no work was admitted.",
+    "Every other named Protocol 2.1 source route remains separately required."
+  ],
+  "protocol_id": "painter-feature-generation-v1/2.1",
+  "request_event_count": 9,
+  "request_event_ledger_path": "data/manifests/painter_feature_generation_v1/cleveland_metadata_request_events.jsonl",
+  "request_event_ledger_sha256": "9f3a9de90dc588528c3e2dc898c86a200f1494bb5f42c86e2bd03203b41b2bc6",
+  "request_intents_path": "data/manifests/painter_feature_generation_v1/cleveland_metadata_request_intents.jsonl",
+  "request_intents_sha256": "c7ce89af9db0c099105839f01d948f7a13b9fa64f1ddfd16bbd0d0389675ed05",
+  "response_inventory": [
+    {
+      "candidate_rows": 5,
+      "request_id": "cma-artist-0001",
+      "response_body_path": "response_bodies/dd/dd722051c334e47b48428a31d1cbbbc1d10f15f462ae95a1c86d5ea92556ba8d.response",
+      "response_bytes": 132937,
+      "response_sha256": "dd722051c334e47b48428a31d1cbbbc1d10f15f462ae95a1c86d5ea92556ba8d"
+    },
+    {
+      "candidate_rows": 4,
+      "request_id": "cma-artist-0002",
+      "response_body_path": "response_bodies/26/2689ba80922d8a7883ede58843566c1cdc86ccdf31e1da14ed13ecd6854f7f50.response",
+      "response_bytes": 25521,
+      "response_sha256": "2689ba80922d8a7883ede58843566c1cdc86ccdf31e1da14ed13ecd6854f7f50"
+    },
+    {
+      "candidate_rows": 35,
+      "request_id": "cma-artist-0003",
+      "response_body_path": "response_bodies/c5/c5be67696a7fd07e014012756fc067f73c2c792d090b1d77f7404ed7ab50a6ec.response",
+      "response_bytes": 264149,
+      "response_sha256": "c5be67696a7fd07e014012756fc067f73c2c792d090b1d77f7404ed7ab50a6ec"
+    },
+    {
+      "candidate_rows": 10,
+      "request_id": "cma-artist-0004",
+      "response_body_path": "response_bodies/a8/a898b0ae485b8fa4eb502c0687ba9caed0f63eb7e630de3b2c4d389018107411.response",
+      "response_bytes": 157695,
+      "response_sha256": "a898b0ae485b8fa4eb502c0687ba9caed0f63eb7e630de3b2c4d389018107411"
+    }
+  ],
+  "reviewer_kind": "llm_subagent",
+  "schema_version": "painter-feature-generation-v1-cleveland-metadata-execution/1.0",
+  "status": "cleveland_metadata_census_complete_not_image_acquisition",
+  "successful_requests": 4,
+  "terminal_event_sha256": "d06d4a37401829c0903b029fb11d84f3f67ce63c09486d54d8434cf9ae17357e"
+}
