@@ -48,6 +48,10 @@ RETAINED_FIELDS = (
     "updated_at",
 )
 RENDITIONS = ("full", "print", "web")
+# One unpaginated page per painter. The limit must exceed any single painter's total holding at
+# Cleveland, prints and drawings included, or the response is not a complete one-page census and
+# the run terminates. 100 was too close to AIC's observed 65-row Pissarro holding.
+PAGE_LIMIT = 1000
 
 
 class ClevelandError(engine.CensusError):
@@ -80,7 +84,7 @@ def validate_config(config: Mapping[str, Any]) -> None:
         or screening.get("required_medium_tokens") != ["oil", "canvas"]
         or screening.get("minimum_reported_short_side") != 1024
         or screening.get("required_share_license_status") != "CC0"
-        or screening.get("page_limit") != 100
+        or screening.get("page_limit") != PAGE_LIMIT
         or not isinstance(screening.get("candidate_gate"), str)
         or not isinstance(screening.get("authority_ceiling"), str)
         or not isinstance(screening.get("malformed_field_rule"), str)
