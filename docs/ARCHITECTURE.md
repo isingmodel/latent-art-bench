@@ -33,6 +33,7 @@ Module paths in this table are relative to `src/latent_art_bench/`.
 | Evidence audit | `evidence.py` | Commit-bound verification of freezes, ledgers, and receipts; all git reads go through one `git cat-file --batch` per step |
 | Retired contracts | `config.py`, `schemas.py` | Pilot-era pydantic contracts with no runtime consumer; retained only because the R0 freezes bind them |
 | Census collectors | `painter_feature_generation_v1/` | Fail-closed source-route censuses |
+| R0 collection (2.2) | `painter_feature_generation_v1/collect.py` | One module for every JSON route: replay the committed request list, store each raw body, keep every returned record whole, judge nothing |
 | R0 artifact tools | `painter_feature_generation_v1/prompt_library.py`, `content_lexicon.py`, `exposure_denylist.py`, `scene_prescreen.py` | Deterministic, offline renderers of the §11.1 prompt library, the §7.4 content lexicon, the §8 exposure denylist, and the non-binding corpus pre-screen |
 
 `panel.py` is the single source of the four-painter roster; `artifact_cli.py` is the shared
@@ -53,9 +54,10 @@ paths, not of zero shared code.
 
 ## The active study
 
-The sole active research plan is `studies/painter_feature_generation_v1/PROTOCOL_2.1.md`,
-protocol 2.1; `PROTOCOL.md` is the frozen 2.0 text that authorized the completed censuses. The
-workflow is deliberately small and sequential:
+The canonical plan is `PROTOCOL_2.2.md` read with `PROTOCOL_2.1.md`: 2.2 replaces the R0
+collection rules and 2.1 supplies everything else. `PROTOCOL.md` (2.0) and `PROTOCOL_2.1.md` are
+the frozen texts that authorized the completed censuses. The workflow is deliberately small and
+sequential:
 
 1. `R0` exhausts the frozen metadata source registry and records candidates without image download
    or admission.
@@ -178,17 +180,26 @@ else raw, so an unfamiliar provider representation is recorded rather than fatal
 
 The seven existing collectors are not migrated. They are hash-bound evidence of what ran.
 
-## Extension seams
+## Adding a source route under Protocol 2.2
 
-New work belongs in a new versioned namespace, not in an edit to a sealed one. When adding a source
-route:
+Write one config. There is no route module, no parser, no freeze, no review, and no seal.
 
-- build it on `census_engine.RouteContract` rather than copying a collector; the isolation that
-  matters is separate configs, census IDs, freezes, and paths, not duplicated transport code;
-- keep the config, freeze, review, authorization, ledger, and publication paths disjoint from every
-  existing census;
-- add the matching test module and adapter script in the same change, because the freeze binds
-  both;
-- commit the config and code before `prepare`, and commit the intents and freeze immediately
-  after, so `recorded_git_commit` verifies; and
-- never reuse a census ID, and never repair a terminal census in place.
+1. Name the route's `census_id` and `source_id`, and set `protocol_id` to
+   `painter-feature-generation-v1/2.2`.
+2. List every request literally: `request_id`, `painter_id`, `method`, `url`, and either the query
+   `params` spelled out or nothing.
+3. Set `records_at` to the dotted path where the provider's record list sits (`data`,
+   `results.bindings`), or omit it to keep the whole payload as one record.
+4. Give the manifest, receipt, and workspace disjoint paths under a census-specific name.
+5. Commit the config, then run
+   `latent-art-bench collect --config <path> --authorized-by "<who>"`.
+6. Commit the manifest and receipt.
+
+Do not filter in the query. The recorded Getty exploratory query filtered on the AAT codes for
+painting, oil paint, and canvas; that is the same mistake as the Cleveland `canvas` token screen,
+moved server-side where it is invisible. Ask for everything the painter made and decide at R1.
+
+Never reuse a census ID. A re-run is a new ID whose receipt names its predecessor.
+
+The seven Protocol 2.0 collectors and the 2.1 engine are kept, not migrated: each is hash-bound
+evidence of what actually ran.

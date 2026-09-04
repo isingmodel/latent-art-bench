@@ -1,0 +1,55 @@
+{
+  "protocol_id": "painter-feature-generation-v1/2.2",
+  "census_id": "pfg-v1-getty-20260904",
+  "source_id": "j_paul_getty_museum",
+  "layer": "authority",
+  "note": "Every object produced by the exact Getty person ID, with no object-type and no material filter. The recorded 2026-09-02 exploratory query filtered on the AAT codes for painting, oil paint, and canvas; that filter is deliberately removed here for the same reason Protocol 2.1 section 5.4 removed the Wikidata P186 requirement, and for the reason the Cleveland census demonstrated on 2026-09-04: a provider whose vocabulary differs from the filter silently disappears from the frame. Object type, medium, and support are determined at R1 from the returned record.",
+  "accept": "application/sparql-results+json",
+  "records_at": "results.bindings",
+  "minimum_interval_seconds": 3.0,
+  "timeout_seconds": 60.0,
+  "execution_start_not_after_utc": "2026-10-04T00:00:00Z",
+  "requests": [
+    {
+      "request_id": "getty-0001",
+      "painter_id": "claude_monet",
+      "method": "GET",
+      "url": "https://data.getty.edu/museum/collection/sparql",
+      "params": {
+        "query": "PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nSELECT DISTINCT ?obj ?objLabel ?type ?material ?page ?manifest WHERE {\n  ?prod crm:P14_carried_out_by <https://data.getty.edu/museum/collection/person/8c408d42-49f4-4be9-9e8a-83506d9c4334> .\n  ?obj crm:P108i_was_produced_by ?prod ;\n       rdfs:label ?objLabel .\n  OPTIONAL { ?obj crm:P2_has_type ?type }\n  OPTIONAL { ?obj crm:P45_consists_of ?material }\n  OPTIONAL { ?obj crm:P129i_is_subject_of ?page . FILTER(CONTAINS(STR(?page), '/art/collection/object/')) }\n  OPTIONAL { ?obj crm:P129i_is_subject_of ?manifest . FILTER(CONTAINS(STR(?manifest), '/iiif/manifest/3/')) }\n}\nORDER BY STR(?obj)"
+      }
+    },
+    {
+      "request_id": "getty-0002",
+      "painter_id": "alfred_sisley",
+      "method": "GET",
+      "url": "https://data.getty.edu/museum/collection/sparql",
+      "params": {
+        "query": "PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nSELECT DISTINCT ?obj ?objLabel ?type ?material ?page ?manifest WHERE {\n  ?prod crm:P14_carried_out_by <https://data.getty.edu/museum/collection/person/b3db5cae-fe7d-49d2-ae2b-92b28003d7fa> .\n  ?obj crm:P108i_was_produced_by ?prod ;\n       rdfs:label ?objLabel .\n  OPTIONAL { ?obj crm:P2_has_type ?type }\n  OPTIONAL { ?obj crm:P45_consists_of ?material }\n  OPTIONAL { ?obj crm:P129i_is_subject_of ?page . FILTER(CONTAINS(STR(?page), '/art/collection/object/')) }\n  OPTIONAL { ?obj crm:P129i_is_subject_of ?manifest . FILTER(CONTAINS(STR(?manifest), '/iiif/manifest/3/')) }\n}\nORDER BY STR(?obj)"
+      }
+    },
+    {
+      "request_id": "getty-0003",
+      "painter_id": "camille_pissarro",
+      "method": "GET",
+      "url": "https://data.getty.edu/museum/collection/sparql",
+      "params": {
+        "query": "PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nSELECT DISTINCT ?obj ?objLabel ?type ?material ?page ?manifest WHERE {\n  ?prod crm:P14_carried_out_by <https://data.getty.edu/museum/collection/person/ca31b2d7-8a6d-4d26-8a7a-4adda35706b2> .\n  ?obj crm:P108i_was_produced_by ?prod ;\n       rdfs:label ?objLabel .\n  OPTIONAL { ?obj crm:P2_has_type ?type }\n  OPTIONAL { ?obj crm:P45_consists_of ?material }\n  OPTIONAL { ?obj crm:P129i_is_subject_of ?page . FILTER(CONTAINS(STR(?page), '/art/collection/object/')) }\n  OPTIONAL { ?obj crm:P129i_is_subject_of ?manifest . FILTER(CONTAINS(STR(?manifest), '/iiif/manifest/3/')) }\n}\nORDER BY STR(?obj)"
+      }
+    },
+    {
+      "request_id": "getty-0004",
+      "painter_id": "paul_cezanne",
+      "method": "GET",
+      "url": "https://data.getty.edu/museum/collection/sparql",
+      "params": {
+        "query": "PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nSELECT DISTINCT ?obj ?objLabel ?type ?material ?page ?manifest WHERE {\n  ?prod crm:P14_carried_out_by <https://data.getty.edu/museum/collection/person/41be77e1-7457-47ca-ab6c-6e6217bb0134> .\n  ?obj crm:P108i_was_produced_by ?prod ;\n       rdfs:label ?objLabel .\n  OPTIONAL { ?obj crm:P2_has_type ?type }\n  OPTIONAL { ?obj crm:P45_consists_of ?material }\n  OPTIONAL { ?obj crm:P129i_is_subject_of ?page . FILTER(CONTAINS(STR(?page), '/art/collection/object/')) }\n  OPTIONAL { ?obj crm:P129i_is_subject_of ?manifest . FILTER(CONTAINS(STR(?manifest), '/iiif/manifest/3/')) }\n}\nORDER BY STR(?obj)"
+      }
+    }
+  ],
+  "paths": {
+    "manifest": "data/manifests/painter_feature_generation_v1/getty_20260904_records.jsonl",
+    "receipt": "data/manifests/painter_feature_generation_v1/getty_20260904_receipt.json",
+    "workspace": "research_workspace/painter_feature_generation_v1/metadata/getty_20260904"
+  }
+}

@@ -14,11 +14,19 @@ The active study is **Painter Feature Generation v1**:
 > authority-record-exactly-attributed, metadata-declared outdoor-place paintings by Monet, Sisley,
 > Pissarro, and Cézanne?
 
-The only canonical plan is
-[`studies/painter_feature_generation_v1/PROTOCOL_2.1.md`](../studies/painter_feature_generation_v1/PROTOCOL_2.1.md),
-protocol ID `painter-feature-generation-v1/2.1`, issued 2026-09-04. Protocol 2.0
-(`PROTOCOL.md`) stays at its path as the frozen authority for the R0 censuses executed under it;
-it is not edited.
+The canonical plan is
+[`studies/painter_feature_generation_v1/PROTOCOL_2.2.md`](../studies/painter_feature_generation_v1/PROTOCOL_2.2.md)
+read together with 2.1: **2.2 replaces only the R0 collection rules, and every other section of
+2.1 stands.** Protocol 2.0 (`PROTOCOL.md`) and 2.1 (`PROTOCOL_2.1.md`) stay at their paths as the
+frozen authority for the censuses executed under them; neither is edited.
+
+Protocol 2.2 was issued on 2026-09-04 after the Cleveland census showed the cost of judging at
+collection time. It reduces R0 to four principles: write the request down first, keep everything,
+do not judge at collection, and keep the source list closed. The freeze of every input file, the
+neutral review, the authorization seal, the one-shot lock, the hash-chained ledger, and
+termination of the whole census on any anomaly are no longer required at R0. They remain required
+from R1 onward, and the hash-chained ledger is retained at G1 where dropping an unfavourable
+attempt is a real temptation.
 
 The claim is deliberately finite and technical: metadata-declared outdoor-place digital-surrogate
 feature reproduction in the closed accessible frame. It is not painter classification, authorship,
@@ -188,7 +196,9 @@ Still not completed:
 | corpus-adequacy pre-screen | `reports/painter_feature_generation_v1/evidence/scene_support_prescreen.json` + `SCENE_SUPPORT_PRESCREEN_KO.md` | non-binding lexicon proxy against the 2.1 floors, with the retired 2.0 scene-cell arithmetic kept for the record; regenerate with `latent-art-bench scene-prescreen` |
 | commit-bound evidence audit | `latent-art-bench verify-evidence` | 9 freezes, 8 ledgers, 4 receipts verify; 2 acknowledged unrecoverable inputs |
 | review fixes (PR #3) | `panel.py`, `artifact_cli.py`, and fixes across the new modules | the acknowledgement file now excuses only the exact bound hash it names; receipts cross-check their ledger and fall back to git history; the content lexicon folds typographic apostrophes; `--check` covers the denylist receipt; the pre-screen refuses to run without its inputs |
-| shared census engine + Cleveland route | `census_engine.py`, `cleveland_metadata.py`, `configs/painter_feature_generation_v1/cleveland_metadata_census.json` | offline-tested against Protocol 2.1; the Cleveland config is written but not prepared, reviewed, frozen, or executed |
+| shared census engine + Cleveland route | `census_engine.py`, `cleveland_metadata.py` | executed 2026-09-04 under Protocol 2.1; retained as evidence, superseded for new routes |
+| Protocol 2.2 collector | `collect.py`, `latent-art-bench collect` | one module for every JSON route, 304 lines, no per-route parser, no collection-time verdict |
+| Getty route contract | `configs/painter_feature_generation_v1/getty_collection.json` | written and offline-validated; not executed. The recorded exploratory query's object-type and material filters are deliberately removed |
 
 The denylist already intersects the AIC R2 screened candidates: 17 of Monet's 33, all 6 of
 Sisley's, 6 of Pissarro's 9, and 5 of Cézanne's 9 were pixel-exposed in the pilots and can only be
