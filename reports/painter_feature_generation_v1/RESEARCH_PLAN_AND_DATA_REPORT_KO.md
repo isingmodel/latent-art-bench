@@ -2,12 +2,15 @@
 
 Painter Feature Generation v1 연구계획·자료수집·현재결과 통합보고서
 
-- 정본 protocol ID: `painter-feature-generation-v1/2.0`
-- 관찰 기준일: 2026-09-02
+- 정본 protocol ID: `painter-feature-generation-v1/2.1` (2026-09-04 발행, 14절).
+  본문 1~12절은 2.0 기준으로 작성된 기록이며, 2.0 텍스트는 `PROTOCOL.md`에 동결 보존된다.
+- 관찰 기준일: 2026-09-02 (13·14절은 2026-09-04 보완)
 - 대상 화가: Claude Monet, Alfred Sisley, Camille Pissarro, Paul Cézanne
-- 현재 단계: 고정 seed, broad 발견 census, broad media R2 후속검증 완료;
-  나머지 R0 및 이미지 취득은 `NO-GO`
+- 현재 단계: 고정 seed, broad 발견 census, broad media R2 후속검증, AIC route 완료;
+  나머지 R0 및 이미지 취득은 `NO-GO`. Protocol 2.1 발행으로 결정 완료(14절)
 - 생성–실제 비교결과: 없음
+- 검토 주체: 본문에서 "중립 독립 검토"로 부르는 모든 검토는 유지관리자 1인이 실행한 LLM
+  검토 서브에이전트의 산출물이다(13.1절)
 
 ## 1. 핵심 결론
 
@@ -779,3 +782,97 @@ Broad media R2의 중요 hash는 다음과 같다.
 terminal union으로 닫고 물리 작품과 capture를 통합한 뒤, 별도 R1 freeze에서 권위·권리·
 identity·기술 gate를 묶어 lawful image acquisition을 실행해야 한다. 그 결과가 위
 표본관문을 충족하지 못하면 연구질문을 몰래 바꾸지 않고 `NO-GO`로 보고한다.
+
+## 13. 2026-09-04 보완: 검토 주체, 증거 검증, R0 산출물, 사전 스크리닝
+
+### 13.1 검토 주체 공개
+
+이 보고서와 `data/manifests/painter_feature_generation_v1/*review*.json`이 "중립 독립
+품질검토"라고 부르는 모든 검토는 유지관리자 1인이 실행한 LLM 검토 서브에이전트의
+산출물이다. review 파일의 `independent_reviewer` 값은 예를 들어
+`Mencius (independent neutral quality review subagent)`다. 이 검토는 freeze 작성자와
+절차적으로 분리되어 있고 실제 결함을 발견·수정하게 했지만, 기관적으로 독립적인
+검토는 아니다. 이후 모든 보고서는 이 사실을 명시한다.
+
+Protocol 2.0 §8.2가 요구하는 역할(취득 관리자, 맹검 코더 2명, 조정자, M0 분석자, 생성
+운영자)은 겸임이 금지된다. 현재 저장소의 인력은 유지관리자 1인이다. R1 취득과 R2
+코딩은 코딩·조정에 필요한 최소 3인이 추가로 지정되기 전에는 시작할 수 없다.
+
+### 13.2 증거 검증 방식 변경
+
+기존에는 freeze가 묶은 파일을 작업 트리 기준으로 대조했고, 고정 seed R1 freeze의
+두 파일(`federated_census.py`와 그 test)은 R2 수리 때문에 영구 불일치로 남아 있었다.
+2026-09-04부터 검증은 commit 기준이다. `latent-art-bench verify-evidence`는 각 freeze를
+그것을 기록한 git commit으로 해석하고, 묶인 입력을 그 commit의 바이트로 대조하며,
+추적되지 않는 research workspace 바이트는 작업 트리에서 대조하고, 모든 event ledger의
+hash chain과 모든 execution receipt의 ledger·manifest·CAS 응답을 확인한다. hash는 갱신하지
+않는다. 위 두 파일의 수리 전 바이트는 어떤 commit에도 없으므로 재검증이 불가능하며,
+`evidence_acknowledgements.json`에 원인과 잔존 증거를 기록했다. 검증 결과는 freeze 9건,
+ledger 8건(이벤트 736개), receipt 4건(CAS 응답 355개)이 모두 통과하고 acknowledged 입력
+2건만 남는다.
+
+### 13.3 추가된 R0 산출물
+
+| 산출물 | 경로 | 상태 |
+|---|---|---|
+| §11.1 prompt library | `data/manifests/painter_feature_generation_v1/prompt_library.json` | PROTOCOL.md 표에서 렌더링한 exact UTF-8 JSON; artist-free 16 + named 64 문자열; 검토·seal 전 |
+| §8 노출 denylist | `data/manifests/painter_feature_generation_v1/exposure_denylist.jsonl` + receipt | pinned git blob 8개에서 재구성; pixel 노출 물리작품 122점(AIC 40, NGA 45, Met 27, CMA 10)은 development 전용; pilot 3 metadata-only 선택 39점은 제한 없음; 화가 미해결 5점; M0 freeze 전 |
+
+denylist는 AIC R2 screened 후보와 이미 겹친다. Monet 33점 중 17점, Sisley 6점 전부,
+Pissarro 9점 중 6점, Cézanne 9점 중 5점이 pilot에서 pixel 노출된 작품이므로 development
+역할만 가능하다.
+
+### 13.4 장면 지지도 사전 스크리닝과 결정 요청
+
+`reports/painter_feature_generation_v1/SCENE_SUPPORT_PRESCREEN_KO.md`는 §8.1의 20/20/60 배정과
+§9의 하한을 그대로 계산한 뒤 완료된 R0 manifest의 제목-토큰 상한과 비교한다. 결과는 다음과
+같다.
+
+- 유지 장면이 3개면 화가×장면 셀당 신규 적격작 57점(화가당 183점), 4개면 50점(화가당
+  212점)이 필요하다. 역사적 노출작은 이 하한에 기여하지 않는다.
+- 야외 추정이면서 소장 QID가 있는 item의 상한에서, 네 화가 모두 셀당 57점을 넘는 장면은
+  없다. 최약 셀은 Monet `route_organized` 12점, Sisley `open_or_wooded_land` 28점이다.
+- §9의 결정론적 유지 규칙을 이 상한에 적용하면 세 장면이 남지 않으므로 연구는 R2 후
+  중단된다. 실제 수치는 권위검증·중복제거·완전화면·맹검 코딩 후 더 낮아질 뿐이다.
+
+이 스크리닝은 어떤 작품도 입장·배제하지 않는다. 결정은 14절에 기록했다.
+
+## 14. Protocol 2.1 발행 (2026-09-04)
+
+### 14.1 결정
+
+유지관리자는 코더와 조정자 없이 연구를 진행하기로 결정했고, 그 결정을 픽셀·활성 label·
+feature·생성물이 하나도 없는 시점에 Protocol 2.1로 발행했다. 정본은
+`studies/painter_feature_generation_v1/PROTOCOL_2.1.md`이며, 2.0 텍스트는 완료된 census
+freeze 9건이 묶은 증거이므로 `PROTOCOL.md`에 그대로 남긴다. 2.1의 0절이 모든 변경을 열거한다.
+
+### 14.2 변경 요약
+
+| 항목 | 2.0 | 2.1 |
+|---|---|---|
+| 내용 적격성 | 512px 마스킹 파생본을 코더 2명이 맹검 코딩, 제3 코더 조정 | 동결 lexicon(`content_lexicon.json`)을 권위·발견 메타데이터에 적용; 사람 코딩 없음 |
+| 장면 층화 | 4개 장면군, 화가 전원 ≥20 confirmation인 군만 유지, 3개 미만이면 중단 | 없음. 야외 장소 단일 도메인, 작품 균등 가중 |
+| 프롬프트 census | 유지 장면군만 사용, `T = 4G` | 16개 전부 항상 사용, `T = 16`; 장면 유형은 생성 측 진단 label |
+| 역할 배정 | painter × scene × workflow 내 hash 순위 | painter × workflow 내 hash 순위, 도메인 문자열 `pfg-v1/2.1-role` |
+| 화가당 하한 | 셀당 dev 10 / qual 10 / conf 20, equal-scene ESS ≥100 | dev 10 / qual 10 / conf 100 (균등 가중이므로 ESS = N), 보조 패널 12 |
+| 생성물 판정 | 코더의 장면 adherence ≥0.90 구속 게이트 | 동결 자동 분류기의 adherence는 진단만; 완결성 100%와 confirmed copy 0은 유지 |
+| 복제 판정 | 마스킹 검토자 2명 + 제3자 | 두 임계값 결정론 규칙, 사람 검토 없음 |
+| 역할 분리 | 취득 관리자·코더·조정자·분석자·운영자 겸임 금지 | 1인 운영자가 순차 수행 가능하되 기술적 봉인과 접근 ledger 필수; 은밀 접근 배제 불가를 한계로 공개 |
+| 완전화면 | 사람 확인 | 제공자 asset 지정 + 자동 테두리/워터마크 규칙 |
+
+### 14.3 2.1 하한 대비 현재 상한
+
+`SCENE_SUPPORT_PRESCREEN_KO.md`를 2.1 기준으로 다시 계산했다. 화가당 신규 적격작 하한은 179점
+(confirmation 100 ÷ 0.6 = 167, 보조 12)이다. lexicon 판정 eligible이면서 소장 QID가 있는 item의
+상한은 Monet 529, Sisley 193, Pissarro 256, Cézanne 200이다. 네 화가 모두 상한에서는 하한을
+넘지만 Sisley의 여유는 14점뿐이다. 권위검증·중복제거·완전화면·사적 소장 제외 후 실제 수치는
+더 낮아지므로 R2 종료 시 `NO-GO` 가능성은 남아 있다.
+
+### 14.4 다음 작업
+
+1. prompt library, content lexicon, exposure denylist의 중립 검토(LLM 서브에이전트임을
+   `reviewer_kind`로 명시)와 freeze.
+2. 남은 named route(Cleveland부터)를 공유 census engine으로 freeze·실행. Europeana와
+   Paris Musées는 credential이 없으면 `not_executed_missing_authorized_credential`로 기록.
+3. union의 physical-work reconciliation 후 R1 취득 freeze.
+4. R2 lexicon 판정과 역할 배정, 봉인 store manifest 커밋, 이후 M0.

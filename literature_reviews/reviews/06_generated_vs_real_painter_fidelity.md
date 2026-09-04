@@ -1,7 +1,10 @@
 # Generated-versus-real painter fidelity: focused evidence audit
 
 Review status: full-text or official-method audit of the closest available studies
-Protocol alignment: `painter-feature-generation-v1/2.0`
+Protocol alignment: `painter-feature-generation-v1/2.0`; Protocol 2.1 (2026-09-04) replaced the
+human coding and scene stratification described in Sections 6.2, 7, and 10 with a frozen metadata
+lexicon, uniform work weights, and an automated adherence diagnostic (see `METHOD_DECISIONS.md`
+MD-37 to MD-48). The remaining sections apply unchanged.
 
 ## Review question
 

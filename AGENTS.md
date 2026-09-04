@@ -14,11 +14,13 @@
 3. Identify whether the requested work is shared-primitive work, active-census work, or a
    newly versioned study.
 4. Run the smallest relevant offline tests. Before handoff, run Ruff and the full suite when
-   the change can affect Python behavior.
+   the change can affect Python behavior, and the evidence audit when the change touches
+   `data/manifests/`, `research_workspace/`, or any freeze-bound file.
 
 ```bash
 uv run --locked ruff check .
 uv run --locked pytest -q -m "not live"
+uv run --locked latent-art-bench verify-evidence
 ```
 
 ## Evidence and protocol boundaries
@@ -29,9 +31,15 @@ uv run --locked pytest -q -m "not live"
   a retry is always a new census ID with disjoint paths, bound to the predecessor's terminal
   evidence.
 - External-holdout access, image acquisition, feature extraction, generation transport, and
-  image generation are closed unless Protocol 2.0's stage gates explicitly authorize them.
-- The one expected freeze-verification failure is documented in `docs/STATUS.md`. Do not make
-  it pass by refreshing old evidence hashes.
+  image generation are closed unless Protocol 2.1's stage gates explicitly authorize them.
+- `studies/painter_feature_generation_v1/PROTOCOL_2.1.md` is canonical. `PROTOCOL.md` is the
+  frozen Protocol 2.0 text bound by every completed census freeze; never edit it.
+- Evidence verification is commit-bound. The two bound inputs that can never re-verify are
+  recorded in `data/manifests/painter_feature_generation_v1/evidence_acknowledgements.json`; do
+  not extend that file to hide a new mismatch, and never refresh an evidence hash. New freezes
+  record `recorded_git_commit` and are prepared from a tree whose bound inputs are clean.
+- Every "neutral independent review" so far was an LLM review subagent run by the maintainer.
+  Say so wherever a report describes a review; do not describe it as institutionally independent.
 - Raw artwork, full-resolution generated images, model weights, and source checkouts are
   ignored but may be unique local evidence. Never use `git clean -xfd` or broad recursive
   deletion under `artifacts/`, `data/`, or `research_workspace/`.

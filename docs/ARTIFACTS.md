@@ -9,14 +9,18 @@ tracked as evidence and which exist nowhere else.
 Preserve and review normally:
 
 - source, tests, configs, documentation, and compact reports; and
-- Painter Feature Generation v1 protocols, R0 freezes, reviews, authorization seals, hash-chained
+- Painter Feature Generation v1 protocols (2.1 canonical; 2.0 frozen at its path), R0 freezes,
+  reviews, authorization seals, hash-chained
   request ledgers, candidate manifests, execution receipts, and the future R1/R2/M0/G0/G1/C0
   freezes and seals, complete-population assignments, population-calibration vectors, and
-  auxiliary-reproduction-census manifests.
+  auxiliary-reproduction-census manifests;
+- the rendered §11.1 prompt library, the §7.4 content lexicon, the rebuilt §8 exposure denylist and
+  its receipt, the evidence acknowledgement file, and the non-binding corpus pre-screen evidence.
 
-Much of this material is hash-bound. Files under `configs/`, `scripts/`, `src/`, `tests/`, plus
-`pyproject.toml`, `uv.lock`, `.gitignore`, and `studies/painter_feature_generation_v1/PROTOCOL.md`,
-are frozen inputs of at least one census freeze and must stay byte-identical.
+Much of this material is hash-bound by path and SHA-256 at the commit that recorded each freeze.
+Verification is commit-bound (see [the status page](STATUS.md)), so a later edit to a shared file
+does not invalidate earlier evidence. Terminal collectors, their configs, tests, and adapter scripts
+are nevertheless kept unmodified as policy: they are the record of what actually ran.
 
 ## Ignored but valuable local evidence
 
@@ -57,7 +61,7 @@ bytes.
 
 ## Active study boundary
 
-The active Painter Feature Generation v1 Protocol 2.0 uses the ignored
+The active Painter Feature Generation v1 Protocol 2.1 uses the ignored
 `research_workspace/painter_feature_generation_v1/` root. It contains exploratory metadata, the
 completed fixed-seed audit's 165 content-addressed raw responses (about 51 MiB), the terminal broad
 R1 responses, the completed broad R2 census's four raw responses (1,163,447 bytes), and the
@@ -96,30 +100,34 @@ candidate. Multiple files, crops, mirrors, hosts, encodings, or hashes from one 
 create additional works. Only provenance-demonstrated independent captures enter the auxiliary
 reproduction-disturbance set, and those works remain outside confirmation.
 
-Masked 512-pixel eligibility derivatives, the two raw code streams, and adjudication imagery are
-also ignored role-separated bytes. Their hashes, access events, calibration results, raw-agreement/
-Krippendorff-alpha receipts, and terminal consensus are compact tracked evidence. Previously viewed
-or feature-exposed works remain on a tracked denylist and are development-only. Every new eligible
-work receives the fixed painter × scene × workflow 20%/20%/60% development/qualification/
-confirmation assignment; no fixed 360-work quota exists in Protocol 2.0.
+Protocol 2.1 has no coding derivatives. R2 produces per-candidate eligibility receipts from the
+frozen content lexicon, all compact and tracked. Confirmation-resolution bytes and arrays live in
+an ignored sealed store whose manifest of paths and hashes is committed before M0; every read of a
+sealed path is recorded in a tracked append-only access ledger, which must be empty before the C0
+opening receipt. Previously viewed or feature-exposed works remain on the tracked denylist and are
+development-only. Every new eligible work receives the fixed painter × workflow 20%/20%/60%
+development/qualification/confirmation assignment; no fixed 360-work quota exists.
 
 M0 artifacts must bind the exact normalization and three feature families, fixtures, common pooled
-median/IQR transform, same-work capture results, source/crop sensitivity, margins, and whole-decision
-simulations. G0 artifacts bind the supported scene groups, `T=4G` prompt census, model identity,
-paired seeds, `R` selected from `{25,50,75,100}`, request order, failure policy, and analysis. G1
-retains every attempt/output/hash while confirmation features remain unopened. C0 records the
-one-time reference opening and complete frozen analysis.
+median/IQR transform, same-work capture results, source/crop sensitivity, margins, copy-detector
+thresholds, and whole-decision simulations. G0 artifacts bind the 16-template prompt census, model
+identity, paired seeds, `R` selected from `{25,50,75,100}`, request order, failure policy, the
+adherence classifier, and analysis. G1 retains every attempt/output/hash while confirmation
+features remain unopened. C0 records the one-time reference opening and complete frozen analysis.
 
 All committed paths are repository-relative. Add an ignored runtime subdirectory only when the
 corresponding reviewed freeze authorizes that stage; directory existence alone is never permission.
 
 ## Fixed-path exceptions
 
-Every path bound by a census freeze is fixed. A freeze records its inputs by path and sha256, so
-moving, renaming, reformatting, or regenerating one of those files breaks verification exactly as a
-content change would — including the terminal collectors, their configs, and their tests, which are
-bound both by the freeze that authorized them and by the successor freeze that binds their terminal
-evidence.
+A freeze records its inputs by path and sha256 and is verified at its recording commit, so git
+history is what keeps the bound bytes. Freeze files, reviews, authorization seals, ledgers,
+candidate manifests, and execution receipts must never be rewritten, reordered, truncated, moved,
+or regenerated. Terminal collectors, their configs, and their tests stay at their paths and
+unmodified as policy, because each is bound both by the freeze that authorized it and by the
+successor freeze that binds its terminal evidence. Ignored research bytes under
+`research_workspace/` are verified in the working tree and must stay byte-identical in place.
 
-The single expected verification failure is recorded in [the status page](STATUS.md). Do not
-resolve it by refreshing hashes.
+The two bound inputs that can never re-verify are recorded in
+`data/manifests/painter_feature_generation_v1/evidence_acknowledgements.json`. Do not resolve a new
+mismatch by refreshing hashes or by extending that file.

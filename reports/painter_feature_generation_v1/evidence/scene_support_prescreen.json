@@ -1,0 +1,470 @@
+{
+  "aic_r2": {
+    "per_painter": {
+      "alfred_sisley": {
+        "rows": 8,
+        "screened_candidates": 6,
+        "screened_denylisted": 6,
+        "screened_disposition": {
+          "eligible_outdoor_place": 2,
+          "ineligible_by_exclusion": 4
+        },
+        "screened_eligible_not_denylisted": 0
+      },
+      "camille_pissarro": {
+        "rows": 65,
+        "screened_candidates": 9,
+        "screened_denylisted": 6,
+        "screened_disposition": {
+          "ineligible_by_exclusion": 9
+        },
+        "screened_eligible_not_denylisted": 0
+      },
+      "claude_monet": {
+        "rows": 46,
+        "screened_candidates": 33,
+        "screened_denylisted": 17,
+        "screened_disposition": {
+          "eligible_outdoor_place": 24,
+          "ineligible_by_exclusion": 9
+        },
+        "screened_eligible_not_denylisted": 10
+      },
+      "paul_cezanne": {
+        "rows": 34,
+        "screened_candidates": 9,
+        "screened_denylisted": 5,
+        "screened_disposition": {
+          "eligible_outdoor_place": 2,
+          "ineligible_by_exclusion": 7
+        },
+        "screened_eligible_not_denylisted": 0
+      }
+    }
+  },
+  "broad_media_r2": {
+    "per_painter": {
+      "alfred_sisley": {
+        "denylisted_items": 2,
+        "disposition": {
+          "eligible_outdoor_place": 256,
+          "ineligible_by_exclusion": 5,
+          "unresolved_by_metadata": 26
+        },
+        "eligible_any_class_match": {
+          "built_place_organized": 135,
+          "open_or_wooded_land": 102,
+          "route_organized": 34,
+          "water_organized": 128
+        },
+        "eligible_primary_class": {
+          "built_place_organized": 63,
+          "open_or_wooded_land": 38,
+          "route_organized": 27,
+          "water_organized": 128
+        },
+        "eligible_registry_by_class": {
+          "built_place_organized": 13,
+          "open_or_wooded_land": 5,
+          "route_organized": 4,
+          "water_organized": 21
+        },
+        "eligible_with_collection_qid": 193,
+        "eligible_with_collection_qid_by_class": {
+          "built_place_organized": 53,
+          "open_or_wooded_land": 27,
+          "route_organized": 20,
+          "water_organized": 93
+        },
+        "gate_pass_distinct_items": 287,
+        "gate_pass_rows": 303,
+        "known_non_registry_museum": 24,
+        "no_collection_qid": 69,
+        "registry_institution": 48,
+        "rows": 879,
+        "short_side_at_least_2048": 160,
+        "unresolved_collection_qid": 146,
+        "with_collection_qid": 218
+      },
+      "camille_pissarro": {
+        "denylisted_items": 9,
+        "disposition": {
+          "eligible_outdoor_place": 349,
+          "ineligible_by_exclusion": 79,
+          "unresolved_by_metadata": 23
+        },
+        "eligible_any_class_match": {
+          "built_place_organized": 259,
+          "open_or_wooded_land": 192,
+          "route_organized": 48,
+          "water_organized": 88
+        },
+        "eligible_primary_class": {
+          "built_place_organized": 174,
+          "open_or_wooded_land": 46,
+          "route_organized": 41,
+          "water_organized": 88
+        },
+        "eligible_registry_by_class": {
+          "built_place_organized": 22,
+          "open_or_wooded_land": 4,
+          "route_organized": 4,
+          "water_organized": 10
+        },
+        "eligible_with_collection_qid": 256,
+        "eligible_with_collection_qid_by_class": {
+          "built_place_organized": 129,
+          "open_or_wooded_land": 34,
+          "route_organized": 30,
+          "water_organized": 63
+        },
+        "gate_pass_distinct_items": 451,
+        "gate_pass_rows": 458,
+        "known_non_registry_museum": 60,
+        "no_collection_qid": 118,
+        "registry_institution": 59,
+        "rows": 791,
+        "short_side_at_least_2048": 305,
+        "unresolved_collection_qid": 214,
+        "with_collection_qid": 333
+      },
+      "claude_monet": {
+        "denylisted_items": 0,
+        "disposition": {
+          "eligible_outdoor_place": 590,
+          "ineligible_by_exclusion": 56,
+          "unresolved_by_metadata": 53
+        },
+        "eligible_any_class_match": {
+          "built_place_organized": 198,
+          "open_or_wooded_land": 200,
+          "route_organized": 31,
+          "water_organized": 330
+        },
+        "eligible_primary_class": {
+          "built_place_organized": 116,
+          "open_or_wooded_land": 71,
+          "route_organized": 17,
+          "water_organized": 386
+        },
+        "eligible_registry_by_class": {
+          "built_place_organized": 30,
+          "open_or_wooded_land": 15,
+          "route_organized": 5,
+          "water_organized": 80
+        },
+        "eligible_with_collection_qid": 529,
+        "eligible_with_collection_qid_by_class": {
+          "built_place_organized": 107,
+          "open_or_wooded_land": 64,
+          "route_organized": 15,
+          "water_organized": 343
+        },
+        "gate_pass_distinct_items": 699,
+        "gate_pass_rows": 725,
+        "known_non_registry_museum": 106,
+        "no_collection_qid": 68,
+        "registry_institution": 171,
+        "rows": 1317,
+        "short_side_at_least_2048": 421,
+        "unresolved_collection_qid": 354,
+        "with_collection_qid": 631
+      },
+      "paul_cezanne": {
+        "denylisted_items": 8,
+        "disposition": {
+          "eligible_outdoor_place": 226,
+          "ineligible_by_exclusion": 237,
+          "unresolved_by_metadata": 67
+        },
+        "eligible_any_class_match": {
+          "built_place_organized": 98,
+          "open_or_wooded_land": 138,
+          "route_organized": 27,
+          "water_organized": 76
+        },
+        "eligible_primary_class": {
+          "built_place_organized": 62,
+          "open_or_wooded_land": 65,
+          "route_organized": 23,
+          "water_organized": 76
+        },
+        "eligible_registry_by_class": {
+          "built_place_organized": 8,
+          "open_or_wooded_land": 4,
+          "route_organized": 2,
+          "water_organized": 12
+        },
+        "eligible_with_collection_qid": 200,
+        "eligible_with_collection_qid_by_class": {
+          "built_place_organized": 52,
+          "open_or_wooded_land": 60,
+          "route_organized": 22,
+          "water_organized": 66
+        },
+        "gate_pass_distinct_items": 530,
+        "gate_pass_rows": 543,
+        "known_non_registry_museum": 132,
+        "no_collection_qid": 55,
+        "registry_institution": 90,
+        "rows": 735,
+        "short_side_at_least_2048": 327,
+        "unresolved_collection_qid": 253,
+        "with_collection_qid": 475
+      }
+    },
+    "top_unresolved_collection_qids": [
+      {
+        "gate_pass_items": 45,
+        "qid": "Q106857407"
+      },
+      {
+        "gate_pass_items": 36,
+        "qid": "Q23785329"
+      },
+      {
+        "gate_pass_items": 28,
+        "qid": "Q685038"
+      },
+      {
+        "gate_pass_items": 20,
+        "qid": "Q666331"
+      },
+      {
+        "gate_pass_items": 19,
+        "qid": "Q1465805"
+      },
+      {
+        "gate_pass_items": 18,
+        "qid": "Q1362629"
+      },
+      {
+        "gate_pass_items": 16,
+        "qid": "Q745866"
+      },
+      {
+        "gate_pass_items": 16,
+        "qid": "Q1574475"
+      },
+      {
+        "gate_pass_items": 16,
+        "qid": "Q3783572"
+      },
+      {
+        "gate_pass_items": 16,
+        "qid": "Q809600"
+      },
+      {
+        "gate_pass_items": 14,
+        "qid": "Q1267958"
+      },
+      {
+        "gate_pass_items": 14,
+        "qid": "Q176251"
+      },
+      {
+        "gate_pass_items": 14,
+        "qid": "Q1341595"
+      },
+      {
+        "gate_pass_items": 14,
+        "qid": "Q188740"
+      },
+      {
+        "gate_pass_items": 13,
+        "qid": "Q2603905"
+      },
+      {
+        "gate_pass_items": 13,
+        "qid": "Q46815"
+      },
+      {
+        "gate_pass_items": 13,
+        "qid": "Q1976985"
+      },
+      {
+        "gate_pass_items": 12,
+        "qid": "Q770918"
+      },
+      {
+        "gate_pass_items": 12,
+        "qid": "Q1752085"
+      },
+      {
+        "gate_pass_items": 12,
+        "qid": "Q1641836"
+      }
+    ]
+  },
+  "evaluation_2_1": {
+    "all_painters_clear_at_upper_bound": true,
+    "per_painter": {
+      "alfred_sisley": {
+        "clears_floor_at_upper_bound": true,
+        "floor_including_auxiliary": 179,
+        "margin_at_upper_bound": 14,
+        "upper_bound_eligible_with_collection_qid": 193
+      },
+      "camille_pissarro": {
+        "clears_floor_at_upper_bound": true,
+        "floor_including_auxiliary": 179,
+        "margin_at_upper_bound": 77,
+        "upper_bound_eligible_with_collection_qid": 256
+      },
+      "claude_monet": {
+        "clears_floor_at_upper_bound": true,
+        "floor_including_auxiliary": 179,
+        "margin_at_upper_bound": 350,
+        "upper_bound_eligible_with_collection_qid": 529
+      },
+      "paul_cezanne": {
+        "clears_floor_at_upper_bound": true,
+        "floor_including_auxiliary": 179,
+        "margin_at_upper_bound": 21,
+        "upper_bound_eligible_with_collection_qid": 200
+      }
+    },
+    "rule": "Protocol 2.1 §9: at least 100 confirmation works per painter (uniform weights), 10 development, 10 qualification, and 12 auxiliary works; applied here to the lexicon-eligible items that carry a collection QID, before authority verification, deduplication, complete-view checks, and private-collection exclusion, so real counts can only be lower",
+    "weakest_painter": "alfred_sisley"
+  },
+  "floors": {
+    "constants": {
+      "auxiliary_min_per_painter": 12,
+      "confirmation_min_per_cell_2_0": 20,
+      "confirmation_min_per_painter_2_1": 100,
+      "development_min": 10,
+      "equal_scene_ess_min_2_0": 100,
+      "minimum_retained_groups_2_0": 3,
+      "qualification_min": 10
+    },
+    "derivation": "role counts follow the modulo-5 hash rank, so a population needs about 5× its development floor and 5/3× its confirmation floor; under Protocol 2.0 ESS = G²/Σ(1/n_as) reaches 100 only when the average scene cell holds 100/G confirmation works; under Protocol 2.1 weights are uniform so ESS equals the confirmation count; historically exposed works never count toward these floors",
+    "protocol_2_0_by_retained_groups": {
+      "G=3": {
+        "auxiliary_independent_capture_works_per_painter": 12,
+        "confirmation_works_needed_per_cell": 34,
+        "eligible_for_confirmation_and_ess_floor": 57,
+        "eligible_for_development_floor": 50,
+        "eligible_for_qualification_floor": 50,
+        "eligible_per_cell": 57,
+        "eligible_per_painter_primary": 171,
+        "eligible_per_painter_total": 183
+      },
+      "G=4": {
+        "auxiliary_independent_capture_works_per_painter": 12,
+        "confirmation_works_needed_per_cell": 25,
+        "eligible_for_confirmation_and_ess_floor": 42,
+        "eligible_for_development_floor": 50,
+        "eligible_for_qualification_floor": 50,
+        "eligible_per_cell": 50,
+        "eligible_per_painter_primary": 200,
+        "eligible_per_painter_total": 212
+      }
+    },
+    "protocol_2_1": {
+      "auxiliary_independent_capture_works_per_painter": 12,
+      "confirmation_works_needed_per_painter": 100,
+      "eligible_for_confirmation_and_ess_floor": 167,
+      "eligible_for_development_floor": 50,
+      "eligible_for_qualification_floor": 50,
+      "eligible_per_painter_primary": 167,
+      "eligible_per_painter_total": 179
+    },
+    "role_share": {
+      "new_development": 0.2,
+      "new_qualification": 0.2,
+      "sealed_confirmation": 0.6
+    }
+  },
+  "inputs": {
+    "aic_candidates": {
+      "path": "data/manifests/painter_feature_generation_v1/aic_metadata_publication_r2/candidates.jsonl",
+      "rows": 153,
+      "sha256": "a31b57239b75e8730f9c173594b7fe6b3a0052f6da84ff9439b394f78271b410"
+    },
+    "broad_media_candidates": {
+      "path": "data/manifests/painter_feature_generation_v1/broad_media_followup_publication_r2/candidates.jsonl",
+      "rows": 3722,
+      "sha256": "3e14bf91eb0836ec09ae3d25fe9ffba7f618939208c4b944b0b0a5c228bc9ff7"
+    },
+    "content_lexicon": {
+      "lists_sha256": "72851924cd154d8dc745a1f477b7a2d2ce29e77321c021885433fe75e2b33434",
+      "path": "data/manifests/painter_feature_generation_v1/content_lexicon.json",
+      "sha256": "fec64afee601dfc67ac03fcd017e70b42dc310030f14b54d7cdb433063281e90"
+    },
+    "exposure_denylist": {
+      "denylisted_works": 122,
+      "path": "data/manifests/painter_feature_generation_v1/exposure_denylist.jsonl",
+      "sha256": "4f64fe345f934b88f564938db2a46226118067eb75a9a6993622cb2926be3858"
+    }
+  },
+  "method": {
+    "authority_proxy": "presence of a Wikidata P195 collection QID; registry membership uses a hand-curated QID map and unresolved QIDs are listed for later resolution",
+    "content_rule": "Protocol 2.1 §7.4 lexicon applied to the Wikidata label and description, the Commons image description and object name, or the AIC title and subject titles; the R2 run will use authority fields after reconciliation instead",
+    "limitations": [
+      "discovery labels are shorter and noisier than the authority fields R2 will use",
+      "rows precede exact-attribution, oil-on-canvas, rights, complete-view, and physical-work deduplication gates, so every figure is an upper bound",
+      "works held privately or without a collection QID cannot reach an authority record under the closed registry"
+    ],
+    "unit": "distinct Wikidata item among discovery-gate rows; AIC screened candidate"
+  },
+  "protocol_id": "painter-feature-generation-v1/2.1",
+  "retention_under_2_0": {
+    "groups_clearing_three_group_floor": [
+      "water_organized"
+    ],
+    "per_scene": {
+      "built_place_organized": {
+        "clears_floor_if_all_four_groups_retained": true,
+        "clears_floor_if_three_groups_retained": false,
+        "upper_bound_by_painter": {
+          "alfred_sisley": 53,
+          "camille_pissarro": 129,
+          "claude_monet": 107,
+          "paul_cezanne": 52
+        },
+        "weakest_painter": "paul_cezanne",
+        "weakest_upper_bound": 52
+      },
+      "open_or_wooded_land": {
+        "clears_floor_if_all_four_groups_retained": false,
+        "clears_floor_if_three_groups_retained": false,
+        "upper_bound_by_painter": {
+          "alfred_sisley": 27,
+          "camille_pissarro": 34,
+          "claude_monet": 64,
+          "paul_cezanne": 60
+        },
+        "weakest_painter": "alfred_sisley",
+        "weakest_upper_bound": 27
+      },
+      "route_organized": {
+        "clears_floor_if_all_four_groups_retained": false,
+        "clears_floor_if_three_groups_retained": false,
+        "upper_bound_by_painter": {
+          "alfred_sisley": 20,
+          "camille_pissarro": 30,
+          "claude_monet": 15,
+          "paul_cezanne": 22
+        },
+        "weakest_painter": "claude_monet",
+        "weakest_upper_bound": 15
+      },
+      "water_organized": {
+        "clears_floor_if_all_four_groups_retained": true,
+        "clears_floor_if_three_groups_retained": true,
+        "upper_bound_by_painter": {
+          "alfred_sisley": 93,
+          "camille_pissarro": 63,
+          "claude_monet": 343,
+          "paul_cezanne": 66
+        },
+        "weakest_painter": "camille_pissarro",
+        "weakest_upper_bound": 63
+      }
+    },
+    "rule": "Protocol 2.0 §9 retained every scene group in which each painter cleared the per-cell floor and stopped with fewer than three; kept here for the record of why Protocol 2.1 removed scene stratification",
+    "study_would_stop_even_at_upper_bound": true
+  },
+  "schema_version": "painter-feature-generation-v1-scene-support-prescreen/2.0",
+  "status": "non_binding_metadata_proxy_prescreen_not_a_protocol_count"
+}

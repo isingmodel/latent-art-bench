@@ -1,0 +1,20 @@
+{
+  "schema_version": "painter-feature-generation-v1-evidence-acknowledgements/1.0",
+  "purpose": "Frozen inputs whose bound bytes are attested only by the freeze record because they were never committed to git. Listing an input here does not refresh or alter its hash; it records why commit-bound verification cannot reproduce it and what evidence remains.",
+  "unrecoverable_frozen_inputs": [
+    {
+      "freeze_path": "data/manifests/painter_feature_generation_v1/federated_seed_metadata_freeze.json",
+      "frozen_input_path": "src/latent_art_bench/painter_feature_generation_v1/federated_census.py",
+      "bound_sha256": "0d74e199e9cd6c9a7bb473f3d46fbb59177915e2d8d2b6de0523863755fe2647",
+      "reason": "The fixed-seed R1 freeze bound the pre-repair parser. The R2 retry corrected the languagefallback parser in this same module before the first commit that contains either freeze (11364b2), so the pre-repair bytes exist in no commit.",
+      "remaining_evidence": "The R1 terminal 11-event ledger, its five content-addressed responses, and the R2 freeze that binds the R1 freeze by hash remain verifiable."
+    },
+    {
+      "freeze_path": "data/manifests/painter_feature_generation_v1/federated_seed_metadata_freeze.json",
+      "frozen_input_path": "tests/painter_feature_generation_v1/test_federated_census.py",
+      "bound_sha256": "aba3512e8a1739eb5e8661064abdfb5ecba141d36276d81a4b189e36014866f6",
+      "reason": "Same cause as the collector module: the pre-repair test module was replaced before the first commit that contains the R1 freeze.",
+      "remaining_evidence": "Same as above."
+    }
+  ]
+}

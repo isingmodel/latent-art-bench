@@ -25,7 +25,7 @@ confounds at the matrix-summary or thematic-review level. It does not contain a 
 evidence card for every one of the 144 matrix rows; that omission is documented in the search
 protocol. Individual-image properties are candidate coordinates; they are not called painter
 features until measurement stability, painter specificity, and source/capture robustness pass on
-development and untouched qualification data. Protocol 2.0 freezes 16 prompt strings before active
+development and untouched qualification data. Protocol 2.1 (which superseded 2.0 on 2026-09-04 by removing human coding and scene stratification) freezes 16 prompt strings before active
 labels, retains every scene group with at least 20 confirmation works for every painter, gives the
 retained groups equal mass, and keeps all eligible works within each group. Previously exposed works
 are development/qualification only; every new unexposed eligible work remains sealed confirmation.

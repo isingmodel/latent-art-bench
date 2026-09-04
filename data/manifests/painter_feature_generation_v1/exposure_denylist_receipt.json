@@ -1,0 +1,108 @@
+{
+  "counts": {
+    "by_painter": {
+      "alfred_sisley": {
+        "denylisted": 21,
+        "works": 24
+      },
+      "camille_pissarro": {
+        "denylisted": 34,
+        "works": 49
+      },
+      "claude_monet": {
+        "denylisted": 35,
+        "works": 35
+      },
+      "paul_cezanne": {
+        "denylisted": 27,
+        "works": 48
+      },
+      "unknown": {
+        "denylisted": 5,
+        "works": 5
+      }
+    },
+    "denylisted": 122,
+    "denylisted_by_provider": {
+      "aic": 40,
+      "cma": 10,
+      "met": 27,
+      "nga": 45
+    },
+    "metadata_only": 39,
+    "with_wikidata_qid": 59,
+    "works": 161
+  },
+  "excluded_non_panel_rows": 69,
+  "output_path": "data/manifests/painter_feature_generation_v1/exposure_denylist.jsonl",
+  "output_sha256": "4f64fe345f934b88f564938db2a46226118067eb75a9a6993622cb2926be3858",
+  "rule": "every pixel- or feature-exposed physical work is development-only under Protocol 2.0 §8; rows marked metadata-only record pilot-3 selection exposure and carry no role restriction",
+  "schema_version": "painter-feature-generation-v1-exposure-denylist-receipt/1.0",
+  "sources": [
+    {
+      "blob_sha256": "e2e4ba8b2941292bf260cb6ff2f37475a054d801e38cf5e4b2e3e367b0e1db55",
+      "commit": "0e85050ebf625d610c10b3c5b1443eb817eb2336",
+      "path": "data/manifests/painter_features_v1/historical_pixel_exposure_denylist.jsonl",
+      "pixel_exposure_evidence": true,
+      "rows": 118,
+      "source": "painter_features_v1_denylist"
+    },
+    {
+      "blob_sha256": "0e3b15cbf0de28cf15e3d2e5430c88aea9ee68283b392aacbc66e7dec9a52f3a",
+      "commit": "7f84765338eb55333fbfbbd911937c7a7f36b019",
+      "path": "configs/pilot_0/manifests/canonical_works.jsonl",
+      "pixel_exposure_evidence": false,
+      "rows": 108,
+      "source": "pilot_0_canonical_works"
+    },
+    {
+      "blob_sha256": "0c8fc83546c02521bf90e71b88efb5cd202609d0f912dbbd3a868018f6160e4f",
+      "commit": "6a08483ce0049e307247c1897083cfdc2f0022ba",
+      "path": "configs/pilot_2/manifests/real_images.jsonl",
+      "pixel_exposure_evidence": true,
+      "rows": 40,
+      "source": "pilot_2_real_images"
+    },
+    {
+      "blob_sha256": "269369976d04431fccd1bc8b60ec7e49733d8a8537a3e38f3a974d61dca3e80a",
+      "commit": "0e85050ebf625d610c10b3c5b1443eb817eb2336",
+      "path": "data/manifests/pilot_3/corpus_selection.jsonl",
+      "pixel_exposure_evidence": false,
+      "rows": 77,
+      "source": "pilot_3_corpus_selection"
+    },
+    {
+      "blob_sha256": "d421b1df04adac1277f93e12a54d03f59e5f8df74a97ebe96b549ab074041b1d",
+      "commit": "dbabde357520226fa7e6c0153af59ed3003e703a",
+      "path": "configs/pilot_3/metadata/authoritative_candidates.jsonl",
+      "pixel_exposure_evidence": false,
+      "rows": 130,
+      "source": "pilot_3_authoritative_candidates"
+    },
+    {
+      "blob_sha256": "5fa3f18b8a373fd112f7f2f3a5e7b2b5b40895d943f2e0c3f64a3f0547b54816",
+      "commit": "0e85050ebf625d610c10b3c5b1443eb817eb2336",
+      "path": "artifacts/pilot_3/development_acquisitions.jsonl",
+      "pixel_exposure_evidence": true,
+      "rows": 20,
+      "source": "pilot_3_development_acquisitions"
+    },
+    {
+      "blob_sha256": "0470c4b7c7c4908e01589229c13d3f1c5079318b16fc3c241c81016b0bd9f199",
+      "commit": "0e85050ebf625d610c10b3c5b1443eb817eb2336",
+      "path": "data/manifests/painter_features_v1/acquired_files.jsonl",
+      "pixel_exposure_evidence": true,
+      "rows": 4,
+      "source": "painter_features_v1_acquired_files"
+    },
+    {
+      "blob_sha256": "e87f1408f8e23ab835a6d8e257b8c022d0e30bacf64584577f0b6c5a1b1eb894",
+      "commit": "0e85050ebf625d610c10b3c5b1443eb817eb2336",
+      "path": "data/manifests/painter_features_v1/development_references.jsonl",
+      "pixel_exposure_evidence": true,
+      "rows": 9,
+      "source": "painter_features_v1_development_references"
+    }
+  ],
+  "status": "rebuilt_from_pinned_git_history_not_yet_frozen_for_m0"
+}

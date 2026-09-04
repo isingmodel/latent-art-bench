@@ -1,8 +1,8 @@
 # Painter Feature Generation v1 공식 자료원 경로 감사
 
 - 기준일: 2026-09-03
-- protocol: `painter-feature-generation-v1/2.0`
-- 목적: Protocol 2.0의 고정 source registry를 실제 수집 가능한 권위·매체 경로로 구체화
+- protocol: `painter-feature-generation-v1/2.1` (source registry는 2.0과 동일)
+- 목적: Protocol 2.1의 고정 source registry를 실제 수집 가능한 권위·매체 경로로 구체화
 - 상태: 공식 문서 기반 사전 경로 감사; source census나 작품 입장을 뜻하지 않음
 
 ## 1. 판정 원칙
@@ -106,9 +106,19 @@ statement는 reuse screening에 필요하지만 provider museum의 attribution·
    condition까지 실행한다.
 4. API key가 필요한 Europeana와 Paris Musées는 credential 존재 여부를 freeze 전에 확인하고,
    없으면 그 route 자체를 미실행 상태로 보고한다. 다른 source로 top-up하지 않는다.
+   2026-09-04 기준 두 credential 모두 저장소와 환경에 없다(`.env.example`의
+   `EUROPEANA_API_KEY`, `PARIS_MUSEES_API_TOKEN` 자리만 있다). 확보되지 않으면 두 route는
+   `not_executed_missing_authorized_credential`로 기록된다.
 5. 모든 source row를 accession 및 authority cross-reference로 physical-work graph에 합친다.
 6. item-level reuse와 native short side ≥1,024를 통과한 asset만 R1 image-acquisition freeze의
    후보가 된다. 이 문서 자체는 image request를 승인하지 않는다.
+
+### 4.1 route 추가 전 선결 조건
+
+2026-09-04 사전 스크리닝(`SCENE_SUPPORT_PRESCREEN_KO.md`)은 완료된 census의 상한이
+Protocol 2.0 §9 장면 셀 하한에 어느 장면에서도 미치지 못함을 보였고, 같은 날 Protocol 2.1이
+발행되어 장면 층화와 사람 코딩을 제거했다. 3단계 이후의 route는 2.1 아래에서 공유 census
+engine으로 freeze한다.
 
 ## 5. 현재 결론
 

@@ -1,9 +1,11 @@
 # Method decision ledger
 
-Version: `painter-feature-method-decisions/2.0`
+Version: `painter-feature-method-decisions/2.1`
 
 Status: literature-grounded prospective decisions aligned with Painter Feature Generation v1
-Protocol 2.0. This ledger explains the plan; it does not independently authorize execution.
+Protocol 2.1. The MD-01 to MD-36 table is the Protocol 2.0 record and is kept verbatim; the
+Protocol 2.1 amendments section below states which entries it supersedes and why. This ledger
+explains the plan; it does not independently authorize execution.
 
 ## Decision rule
 
@@ -48,6 +50,31 @@ requires a new protocol before protected pixels, features, or generated outcomes
 | MD-34 | Double-code every real candidate and generated output with scoped raw reliability receipts before third-coder consensus | Consensus cannot retroactively establish reliability; missing/ambiguous rows are part of difficulty | A validated automated or alternative blinded instrument |
 | MD-35 | Report uniform-work, per-scene, nuisance, source, ICC, resolution, crop, capture, copy, and learned-evaluator sensitivities without rescue | Large convenience samples and one evaluator cannot remove source/content/digitization bias | A new primary estimand with matching assumptions |
 | MD-36 | Limit a positive result to one exact model/checkpoint/render/prompt/seed/request frame | Model services, prompts, and accessible art corpora are selective and mutable | A prospectively expanded model/prompt population |
+
+## Protocol 2.1 amendments (2026-09-04)
+
+Issued before any active pixel, label, feature, or generated output existed, after the maintainer
+decided to run the study without coders or an adjudicator and after the non-binding pre-screen
+showed the 2.0 scene cells were unsupportable at their metadata upper bound.
+
+| ID | Decision | Supersedes | Evidence/rationale | Revision trigger |
+|---|---|---|---|---|
+| MD-37 | Declare outdoor-place eligibility from authority and discovery metadata with a frozen lexicon (override → exclusion → positive → unresolved); no human coding | MD-14, MD-34 | Human coding was the only stage that needed additional people; a metadata rule is deterministic, auditable, and applied before any pixel; residual content mediation is disclosed rather than estimated | A validated blinded instrument or a metadata-only rule with demonstrated agreement against it |
+| MD-38 | Name the construct `metadata-declared outdoor-place digital-surrogate feature reproduction` | MD-02 | The frame is declared by metadata, not standardized by visible dominance | A design that isolates or probability-samples content |
+| MD-39 | Use one outdoor-place domain with uniform work weights; no scene stratification | MD-09, MD-10 | The pre-screen showed no scene group cleared the per-cell floor for all four painters even at the upper bound; metadata cannot establish visible scene dominance | A validated content target that the accessible frame can support |
+| MD-40 | Require ≥100 confirmation works per painter (ESS = N), 10 development, 10 qualification, the 60/12 auxiliary panel, workflow crossing, and whole-decision simulation | MD-10 | The 2.0 ESS floor is retained; only its scene decomposition is removed | Simulation or precision evidence for revised floors in a new version |
+| MD-41 | Assign roles by the hash rule within painter × workflow under the domain string `pfg-v1/2.1-role` | MD-13 | Scene is no longer a stratum; the split stays 20/20/60 | A new prospective role design before any feature calculation |
+| MD-42 | Always render all 16 templates (`T = 16`); prompt scene type is a generated-side diagnostic | MD-15 | Without a real-side scene label no retention rule can be sealed; the fixed census avoids prompt selection | A new pre-label prompt library |
+| MD-43 | Use the single-domain energy distance; drop the per-scene binding contrast; keep coordinate median/IQR coverage | MD-21, MD-25 | Per-scene equivalence has no real-side label; coverage still guards against contraction | A validated support/coverage estimator |
+| MD-44 | Keep exact completeness and zero confirmed copies binding; score prompt adherence with one frozen automated classifier as a diagnostic only | MD-26, MD-33 | Adherence coding needed people; an automated score is reported, cannot select outputs, and keeps `adherent_only` as a sensitivity | A validated adherence instrument frozen before G0 |
+| MD-45 | Decide copies with two frozen thresholds (candidate and confirmed) and no human review; treat candidates as copies in a sensitivity | MD-29 | Deterministic and reproducible; the confirmed threshold is the smallest score above every unrelated development/qualification pair | A calibrated detector with validated human-equivalent adjudication |
+| MD-46 | Permit one operator to hold custodian, method-analyst, and generation-operator roles sequentially only under technical sealing with an append-only access ledger; disclose that covert access cannot be excluded | MD-14 | The study has one maintainer; sealing constrains tooling and makes any breach detectable in the ledger, but is honestly a limitation | Institutional role separation |
+| MD-47 | Take complete-view status from the provider asset designation and the automated border/watermark rule; no human inspection | — | The 2.0 technical gate implicitly needed a viewer | A validated automated complete-view detector or human inspection stage |
+| MD-48 | Keep Protocol 2.0 at its path unedited as the frozen authority for the censuses executed under it; carry those censuses over unchanged | MD-04 | The source registry is identical and the freezes bind the 2.0 text by hash | Never within this study |
+
+Retained without change: MD-01, MD-03 to MD-08, MD-11, MD-12, MD-16 to MD-20, MD-22 to MD-24,
+MD-27, MD-28, MD-30 to MD-32, MD-35 (with "per-scene" read as "per-prompt-scene-type and
+lexicon-subgroup"), and MD-36.
 
 ## Candidate disposition vocabulary
 

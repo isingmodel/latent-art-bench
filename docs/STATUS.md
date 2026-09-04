@@ -1,6 +1,6 @@
 # Current status and research boundary
 
-Operational date: 2026-09-03
+Operational date: 2026-09-04
 
 This page is mutable operational state. Frozen historical protocols, ledgers, and receipts remain
 authoritative for their own completed actions.
@@ -9,16 +9,19 @@ authoritative for their own completed actions.
 
 The active study is **Painter Feature Generation v1**:
 
-> For one exact model and one pre-label common outdoor-place prompt census, do painter-name outputs
-> reproduce the broad-scene-weighted distribution of color, spatial/orientation, and digital-texture
-> features in authority-record-exactly-attributed paintings by Monet, Sisley, Pissarro, and Cézanne?
+> For one exact model and one pre-label outdoor-place prompt census, do painter-name outputs
+> reproduce the distribution of color, spatial/orientation, and digital-texture features in
+> authority-record-exactly-attributed, metadata-declared outdoor-place paintings by Monet, Sisley,
+> Pissarro, and Cézanne?
 
 The only canonical plan is
-[`studies/painter_feature_generation_v1/PROTOCOL.md`](../studies/painter_feature_generation_v1/PROTOCOL.md),
-protocol ID `painter-feature-generation-v1/2.0`.
+[`studies/painter_feature_generation_v1/PROTOCOL_2.1.md`](../studies/painter_feature_generation_v1/PROTOCOL_2.1.md),
+protocol ID `painter-feature-generation-v1/2.1`, issued 2026-09-04. Protocol 2.0
+(`PROTOCOL.md`) stays at its path as the frozen authority for the R0 censuses executed under it;
+it is not edited.
 
-The claim is deliberately finite and technical: broad-scene-weighted digital-surrogate feature
-reproduction in the closed accessible frame. It is not painter classification, authorship,
+The claim is deliberately finite and technical: metadata-declared outdoor-place digital-surrogate
+feature reproduction in the closed accessible frame. It is not painter classification, authorship,
 content-free style, physical brushwork, artistic intention, or a probability-sampled oeuvre claim.
 
 ## Current stage
@@ -26,6 +29,27 @@ content-free style, physical brushwork, artistic intention, or a probability-sam
 The study completed the **R0 fixed-seed and broad Wikidata/Commons metadata follow-ups and the Art
 Institute of Chicago source route** and remains **NO-GO for full R0 closure and R1 image
 acquisition**.
+
+**Protocol 2.1 was issued on 2026-09-04.** The decision it records: the study runs without
+coders or an adjudicator. Every human coding step is removed and content eligibility is declared
+by a frozen metadata lexicon (§7.4); scene-group stratification is gone and the real target is
+uniform over works; all 16 prompt templates are always rendered; adherence is an automated
+diagnostic; copy adjudication is a deterministic two-threshold rule; and one operator may hold the
+custodian, method-analyst, and generation-operator roles sequentially under technical sealing with
+an access ledger, a limitation every report must disclose. Section 0 of the protocol lists every
+change.
+
+The decision followed a non-binding pre-screen
+([Korean summary](../reports/painter_feature_generation_v1/SCENE_SUPPORT_PRESCREEN_KO.md),
+[evidence](../reports/painter_feature_generation_v1/evidence/scene_support_prescreen.json)) that
+applied the corpus arithmetic to the completed R0 manifests. Under Protocol 2.0 the four-way scene
+cells needed 57 newly eligible works each and no scene cleared that floor for all four painters at
+the metadata upper bound. Under Protocol 2.1 each painter needs 179 newly eligible works (100
+confirmation at uniform weights, 10 development, 10 qualification, 12 auxiliary). The lexicon
+upper bound of eligible items that carry a collection QID is Monet 529, Sisley 193, Pissarro 256,
+and Cézanne 200, so all four clear the floor at the upper bound and Sisley is the binding risk:
+authority verification, deduplication, complete-view checks, and private-collection exclusion can
+only lower these counts, and NO-GO after R2 remains possible.
 
 Completed in the Protocol 2.0 redesign:
 
@@ -139,16 +163,51 @@ reconciled against the Wikidata/Commons census.
 
 Still not completed:
 
-- the remaining terminal source routes named in Protocol 2.0 — Europeana, NGA, Cleveland, Yale,
+- neutral review and freeze of the prompt library, content lexicon, and exposure denylist;
+- an Europeana API key and a Paris Musées API token — both are absent from the repository and the
+  environment, so those two routes will be recorded `not_executed_missing_authorized_credential`
+  unless credentials are obtained before their freezes;
+- the remaining terminal source routes named in Protocol 2.1 — Europeana, NGA, Cleveland, Yale,
   Getty, Minneapolis, Paris Musées, and POP/Joconde;
 - authority, rights, physical-work, capture-family, and image-quality reconciliation;
 - active image acquisition;
-- masked double coding, reliability/adjudication, source crossing, corpus closure, or scene support;
+- the R2 metadata eligibility run, source crossing, and corpus closure;
 - the frozen new-work role manifest and the 60-work capture panel;
 - feature implementation/fixtures/qualification, margins, or simulation results;
 - model/prompt/seed G0 freeze;
 - generation; or
 - confirmation and generated-versus-real results.
+
+## R0 artifacts added 2026-09-04
+
+| Artifact | Path | State |
+|---|---|---|
+| §11.1 prompt library | `data/manifests/painter_feature_generation_v1/prompt_library.json` | rendered from `PROTOCOL_2.1.md` by `latent-art-bench prompt-library`; 16 artist-free + 64 named strings; `strings_sha256` `c0d305dd…`; not yet neutrally reviewed or sealed |
+| §7.4 content lexicon | `data/manifests/painter_feature_generation_v1/content_lexicon.json` | rendered by `latent-art-bench content-lexicon`; 5 override phrases, 106 exclusion tokens, 281 positive tokens; must be reviewed and frozen before R2 |
+| §8 exposure denylist | `data/manifests/painter_feature_generation_v1/exposure_denylist.jsonl` + `exposure_denylist_receipt.json` | rebuilt by `latent-art-bench exposure-denylist` from eight pinned git blobs; 122 pixel-exposed physical works are development-only (AIC 40, NGA 45, Met 27, CMA 10); 39 pilot-3 metadata-only selections carry no restriction; 5 works lack a resolved painter; not yet frozen for M0 |
+| corpus-adequacy pre-screen | `reports/painter_feature_generation_v1/evidence/scene_support_prescreen.json` + `SCENE_SUPPORT_PRESCREEN_KO.md` | non-binding lexicon proxy against the 2.1 floors, with the retired 2.0 scene-cell arithmetic kept for the record; regenerate with `latent-art-bench scene-prescreen` |
+| commit-bound evidence audit | `latent-art-bench verify-evidence` | 9 freezes, 8 ledgers, 4 receipts verify; 2 acknowledged unrecoverable inputs |
+| shared census engine + Cleveland route | `census_engine.py`, `cleveland_metadata.py`, `configs/painter_feature_generation_v1/cleveland_metadata_census.json` | offline-tested against Protocol 2.1; the Cleveland config is written but not prepared, reviewed, frozen, or executed |
+
+The denylist already intersects the AIC R2 screened candidates: 17 of Monet's 33, all 6 of
+Sisley's, 6 of Pissarro's 9, and 5 of Cézanne's 9 were pixel-exposed in the pilots and can only be
+development works.
+
+## Review provenance and staffing
+
+Every neutral independent review under `data/manifests/painter_feature_generation_v1/*review*.json`
+was produced by a large-language-model review subagent (recorded, for example, as
+`Mencius (independent neutral quality review subagent)`) run by the single maintainer of this
+repository. The reviews are procedurally separate from the freeze author and did find and close
+real defects, but they are not institutionally independent, and every report must say so. Reviews
+produced on the shared census engine must state `reviewer_kind` (`human` or `llm_subagent`).
+
+Protocol 2.1 §8.2 has no coder or adjudicator role. The repository has one maintainer, who may
+hold the acquisition-custodian, method-analyst, and generation-operator roles sequentially only
+under technical sealing: confirmation-resolution bytes go into a sealed store whose manifest is
+committed before M0, every read of a sealed path is ledgered, and any ledgered read before the C0
+opening voids the affected confirmation claim. This cannot exclude covert access and is a stated
+limitation of the study.
 
 ## Active counts
 
@@ -193,7 +252,7 @@ corpus, authority-verified work count, complete source frame, or outdoor-place c
 
 ## Data and source policy
 
-Protocol 2.0 closes the candidate union to:
+Protocol 2.1 keeps the Protocol 2.0 candidate union unchanged:
 
 1. the broader exact-creator Wikidata/Commons painting+image census without material filtering;
 2. Europeana exact creator;
@@ -217,18 +276,22 @@ painter-reproduction label is allowed.
 
 ## Required next sequence
 
+0. Done 2026-09-04: Protocol 2.1 issued; the prompt library, content lexicon, and exposure
+   denylist rendered. Their neutral review and freeze remain.
 1. Preserve and report the completed fixed-seed, broad no-`P186`, broad-media, and AIC censuses
    without calling any of them a complete source frame or an acquired image corpus.
 2. Freeze and execute the remaining named source routes to their terminal conditions, then
    reconcile the whole union to physical works.
 3. Under a separate R1 authorization, verify authority/rights/capture identity and acquire lawful
    technically adequate image bytes.
-4. Run role-separated R2 coding and close the unequal finite frame; generation remains NO-GO until
-   every corpus adequacy gate passes.
+4. Run the R2 metadata eligibility rule with the frozen lexicon, reserve the auxiliary panel, apply
+   the denylist, assign roles by the hash rule, and close the unequal finite frame; generation
+   remains NO-GO until every corpus adequacy gate passes.
 5. Run M0a/M0b, auxiliary capture qualification, margins, copy calibration, and whole-decision
    simulation. All three families must pass.
-6. Freeze one exact model, prompts, render settings, seeds, `R`, request order, and analysis at G0;
-   then generate and seal G1 while confirmation features remain inaccessible.
+6. Freeze one exact model, the 16 prompts, render settings, seeds, `R`, request order, the
+   adherence classifier, and analysis at G0; then generate and seal G1 while confirmation features
+   remain inaccessible.
 7. Open the confirmation reference once at C0 and execute the frozen decision.
 
 ## Terminal evidence boundary
@@ -244,12 +307,12 @@ responses into a successor, or refresh their hashes.
 
 ## Explicitly closed actions
 
-Until the corresponding Protocol 2.0 freeze is independently reviewed, do not:
+Until the corresponding Protocol 2.1 freeze is independently reviewed, do not:
 
 - retry, replace, or splice any terminal R1 census;
 - treat metadata rows or files as an active painter distribution;
 - download active-study images under the metadata-only census;
-- view confirmation-resolution pixels/features as a method or generation analyst;
+- read any sealed confirmation path before the C0 opening receipt;
 - tune prompts, features, thresholds, margins, or source rules on generated/confirmation outcomes;
 - send generation requests; or
 - rewrite or move frozen evidence.
@@ -263,10 +326,24 @@ uv run --locked ruff check .
 uv run --locked pytest -q -m "not live"
 ```
 
-One active-study freeze is expected never to reverify. The fixed-seed R1 freeze
-(`federated_seed_metadata_freeze.json`) binds the pre-repair hashes of
-`src/latent_art_bench/painter_feature_generation_v1/federated_census.py` and its test module, and
-the R2 retry corrected the fallback-term parser in those same files rather than in a new module.
-Both files now match the R2 freeze exactly. Every later route avoided this by putting its retry in a
-separate `*_r2`/`*_retry` module, so both its freezes stay verifiable. Do not refresh the R1 freeze's
-hashes to hide the drift; it is the record of what the terminal run actually executed.
+Evidence verification is commit-bound:
+
+```bash
+uv run --locked latent-art-bench verify-evidence
+```
+
+The audit resolves each freeze to the git commit that recorded it (a declared
+`recorded_git_commit`, or the commit that introduced the freeze blob), verifies every bound input
+against the bytes at that commit, verifies untracked research bytes in the working tree, and checks
+every event ledger's hash chain and every execution receipt's ledger, manifest, and content-
+addressed responses. Hashes are never refreshed. Later edits to `pyproject.toml`, `uv.lock`, or a
+shared module therefore no longer invalidate earlier freezes; they are reported only as informational
+working-tree drift.
+
+Exactly two bound inputs can never re-verify. The fixed-seed R1 freeze bound the pre-repair
+`federated_census.py` and its test module, and the R2 retry replaced those bytes before the first
+commit that contains either freeze, so no commit holds them. They are recorded in
+`data/manifests/painter_feature_generation_v1/evidence_acknowledgements.json` with the cause and the
+remaining evidence, and `tests/test_evidence.py` asserts that these are the only failures. Do not add
+to that file to hide a new mismatch. New freezes must record `recorded_git_commit` and be prepared
+from a tree whose bound inputs are clean against that commit.

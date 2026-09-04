@@ -1,8 +1,9 @@
-"""Command-line entry point for the Painter Feature Generation v1 census collectors.
+"""Command-line entry point for the Painter Feature Generation v1 tooling.
 
-Each subcommand is a thin pass-through to the collector module's own argument parser,
-so the CLI adds no behaviour of its own. The collectors are fail-closed and one-shot:
-see `studies/painter_feature_generation_v1/PROTOCOL.md` for the stage gates that govern
+Each subcommand is a thin pass-through to the module's own argument parser, so the CLI adds
+no behaviour of its own. Census collectors are listed first, then the evidence and R0
+artifact tools. The collectors are fail-closed and one-shot:
+see `studies/painter_feature_generation_v1/PROTOCOL_2.1.md` for the stage gates that govern
 when a census may be prepared, reviewed, authorized, and executed.
 """
 
@@ -12,6 +13,7 @@ from typing import Callable, List, Sequence
 
 import typer
 
+from latent_art_bench import evidence
 from latent_art_bench.painter_feature_generation_v1 import (
     aic_metadata,
     aic_metadata_r2,
@@ -19,7 +21,12 @@ from latent_art_bench.painter_feature_generation_v1 import (
     broad_media_followup_r2,
     broad_wikidata,
     broad_wikidata_retry,
+    cleveland_metadata,
+    content_lexicon,
+    exposure_denylist,
     federated_census,
+    prompt_library,
+    scene_prescreen,
 )
 
 app = typer.Typer(
@@ -35,6 +42,12 @@ _COLLECTORS: List[tuple] = [
     ("broad-media-followup-r2", broad_media_followup_r2.main, "Retry of the media follow-up."),
     ("aic-metadata", aic_metadata.main, "Art Institute of Chicago route census."),
     ("aic-metadata-r2", aic_metadata_r2.main, "Retry of the Art Institute route census."),
+    ("cleveland-metadata", cleveland_metadata.main, "Cleveland route on the shared engine."),
+    ("verify-evidence", evidence.main, "Commit-bound audit of freezes, ledgers, and receipts."),
+    ("prompt-library", prompt_library.main, "Render the §11.1 prompt library artifact."),
+    ("content-lexicon", content_lexicon.main, "Render the §7.4 content lexicon artifact."),
+    ("exposure-denylist", exposure_denylist.main, "Rebuild the pixel-exposure denylist."),
+    ("scene-prescreen", scene_prescreen.main, "Non-binding scene-support pre-screen."),
 ]
 
 

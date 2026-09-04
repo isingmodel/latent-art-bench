@@ -1,7 +1,10 @@
 # Evidence synthesis for generated-versus-real painter features
 
-Version: 2.0
-Aligned protocol: `painter-feature-generation-v1/2.0`
+Version: 2.0 (with a Protocol 2.1 note)
+Aligned protocol: `painter-feature-generation-v1/2.1` for Sections 1–5, 7, 8, 10–12;
+Sections 6 and 9 describe the Protocol 2.0 content control and human coding that Protocol 2.1
+replaced with a frozen metadata lexicon and uniform work weights on 2026-09-04. See
+`METHOD_DECISIONS.md`, MD-37 to MD-48, for the amended decisions and their rationale.
 
 ## 1. Bottom line
 
