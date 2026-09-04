@@ -1,0 +1,20 @@
+{
+  "authorization_note": "The maintainer authorized live metadata collection and directed that the neutral review be performed llm-as-a-judge. This seal covers exactly four unauthenticated GET requests to the Cleveland Museum of Art public Open Access API under census pfg-v1-cleveland-metadata-20260904. It authorizes no image request, no work admission, no feature extraction, and no generation, and it does not extend to any other route.",
+  "authorization_scope": {
+    "active_study_admission": false,
+    "feature_extraction": false,
+    "generation": false,
+    "image_downloads": false,
+    "metadata_requests": true,
+    "visual_coding": false
+  },
+  "authorized_by": "repository maintainer, in session, for this census only",
+  "census_id": "pfg-v1-cleveland-metadata-20260904",
+  "freeze_path": "data/manifests/painter_feature_generation_v1/cleveland_metadata_freeze.json",
+  "freeze_sha256": "6b4bd267ecf0ed36a9612a117b729df0a3088448861c2d725ec230c34d0e9834",
+  "protocol_id": "painter-feature-generation-v1/2.1",
+  "review_path": "data/manifests/painter_feature_generation_v1/cleveland_metadata_review.json",
+  "review_sha256": "7394bdb955e62b2f1da62e524c6bd3a37fa979a7be6e3fd4435151e287c81d8a",
+  "schema_version": "painter-feature-generation-v1-cleveland-metadata-authorization/1.0",
+  "status": "authorized_for_cleveland_metadata_execution"
+}
