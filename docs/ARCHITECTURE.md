@@ -12,11 +12,16 @@ either hash-bound by a census freeze or directly supports one.
 ## Entry points
 
 - The installed command is `latent-art-bench = latent_art_bench.cli:app`.
-- `cli.py` is a thin Typer application that registers each census collector as a pass-through
-  subcommand. It adds no behaviour of its own; every argument is parsed by the collector module.
+- `cli.py` is a thin Typer application that registers each census collector and each evidence or
+  R0 artifact tool as a pass-through subcommand. It adds no behaviour of its own; every argument
+  is parsed by the target module.
 - `scripts/collect_pfg_v1_*.py` are the equivalent standalone adapters. These scripts are
   hash-bound frozen inputs of the freezes that authorized their censuses, so they are evidence
-  and must not be edited.
+  and must not be edited. `scripts/verify_pfg_v1_evidence.py`,
+  `scripts/render_pfg_v1_prompt_library.py`, `scripts/render_pfg_v1_content_lexicon.py`,
+  `scripts/build_pfg_v1_exposure_denylist.py`, and `scripts/prescreen_pfg_v1_scene_support.py`
+  are the adapters for the tools below; `scripts/collect_pfg_v1_cleveland_metadata.py` is the
+  adapter for the Cleveland route.
 
 ## Shared package layers
 
@@ -25,45 +30,55 @@ Module paths in this table are relative to `src/latent_art_bench/`.
 | Area | Main modules | Responsibility |
 |---|---|---|
 | Deterministic I/O | `io.py` | Canonical JSON/JSONL, hashing, and atomic writes |
-| Contracts | `config.py`, `schemas.py` | Shared configuration and validated record shapes |
+| Evidence audit | `evidence.py` | Commit-bound verification of freezes, ledgers, and receipts; all git reads go through one `git cat-file --batch` per step |
+| Retired contracts | `config.py`, `schemas.py` | Pilot-era pydantic contracts with no runtime consumer; retained only because the R0 freezes bind them |
 | Census collectors | `painter_feature_generation_v1/` | Fail-closed source-route censuses |
+| R0 artifact tools | `painter_feature_generation_v1/prompt_library.py`, `content_lexicon.py`, `exposure_denylist.py`, `scene_prescreen.py` | Deterministic, offline renderers of the §11.1 prompt library, the §7.4 content lexicon, the §8 exposure denylist, and the non-binding corpus pre-screen |
 
-`io.py`, `config.py`, and `schemas.py` are hash-bound frozen inputs of every census freeze. They
-must stay byte-identical; a change to any of them invalidates the evidence chain of every census
-already executed. The same applies to `pyproject.toml`, `uv.lock`, `.gitignore`,
-`src/latent_art_bench/__init__.py`, and `tests/conftest.py`.
+`panel.py` is the single source of the four-painter roster; `artifact_cli.py` is the shared
+`--root/--check` command line of the R0 artifact renderers.
 
-`canonical_json` from `io.py` is the only shared dependency the collectors import. Everything else
-a collector needs — transport, screening, retention, publication — lives inside its own module, so
-one route can never silently change another's behaviour.
+`io.py`, `config.py`, `schemas.py`, `pyproject.toml`, `uv.lock`, `.gitignore`,
+`src/latent_art_bench/__init__.py`, and `tests/conftest.py` are bound by every census freeze.
+Verification is commit-bound, so editing one of them no longer invalidates earlier evidence; the
+terminal collectors and their frozen inputs are still left unmodified as policy.
+`tests/conftest.py` carries an unused pilot-era fixture that points at a config which no longer
+exists; it is kept only because the freezes bind it.
+
+The collectors import `canonical_json` and `hash_file` from `io.py`. The AIC and broad-media
+collectors additionally reuse private primitives from `federated_census.py` (event ledger, atomic
+writes, response store, metadata parsing), and `broad_wikidata_retry.py` reuses
+`broad_wikidata.py`. Route isolation is therefore a policy of separate configs, freezes, IDs, and
+paths, not of zero shared code.
 
 ## The active study
 
-The sole active research plan is `studies/painter_feature_generation_v1/PROTOCOL.md`, protocol 2.0.
-The workflow is deliberately small and sequential:
+The sole active research plan is `studies/painter_feature_generation_v1/PROTOCOL_2.1.md`,
+protocol 2.1; `PROTOCOL.md` is the frozen 2.0 text that authorized the completed censuses. The
+workflow is deliberately small and sequential:
 
 1. `R0` exhausts the frozen metadata source registry and records candidates without image download
    or admission.
 2. `R1` resolves authority, rights, physical-work identity, capture ancestry, and image quality and
    acquires lawful raw bytes under a separate authorization.
-3. `R2` double-codes masked eligibility derivatives, seals reliability/adjudication, reserves
-   independent-capture works, and assigns every new eligible work to development, qualification, or
-   confirmation by the frozen hash rule.
+3. `R2` applies the frozen content lexicon to authority metadata (no human coding, no pixels),
+   reserves independent-capture works, applies the exposure denylist, and assigns every new
+   eligible work to development, qualification, or confirmation by the frozen hash rule.
 4. `M0` qualifies color, spatial/orientation, and digital-texture measurements on development and
    auxiliary data only, then freezes scaling, margins, and whole-decision simulations.
-5. `G0` freezes one exact model, common-content prompt census, paired seeds, request order, repetition
-   count, and analysis.
+5. `G0` freezes one exact model, the 16-template prompt census, paired seeds, request order,
+   repetition count, the adherence classifier, and analysis.
 6. `G1` records every generation attempt and output while confirmation feature data remain unopened.
 7. `C0` opens the confirmation reference once and runs the frozen analysis.
 
-The earlier equal 360-work quota, three-way real split, 24-template frame, and entropy-projection
-machinery are retired. R0 forms an exhaustive authority/discovery/media union, reconciles it to
-physical works, and keeps actual unequal painter counts. At least three broad scene groups must be
-supported by all painters. Each retained confirmation group receives equal target mass and each work
-within group is uniform. Generation remains NO-GO unless each painter clears the role-specific
-screening floors (10 development, 10 qualification, and 20 confirmation works per retained group;
-confirmation ESS 100) and the actual design passes registered whole-decision simulation; these are
-not target-count stopping rules.
+The earlier equal 360-work quota, three-way real split, 24-template frame, entropy-projection
+machinery, and (since 2.1) scene-group stratification and human coding are retired. R0 forms an
+exhaustive authority/discovery/media union, reconciles it to physical works, and keeps actual
+unequal painter counts. The real target is uniform over metadata-declared outdoor-place works.
+Generation remains NO-GO unless each painter clears the screening floors (10 development, 10
+qualification, and 100 confirmation works; the 60/12 auxiliary panel; workflow crossing) and the
+actual design passes registered whole-decision simulation; these are not target-count stopping
+rules.
 
 ## Census collectors
 
@@ -82,6 +97,7 @@ ID bound to the predecessor's terminal evidence, never an in-place repair.
 | `broad_media_followup_r2.py` | same follow-up under a new ID | complete (182/182 requests) |
 | `aic_metadata.py` | Art Institute of Chicago route census | terminal on a string `classification_id` |
 | `aic_metadata_r2.py` | same route under a new ID | complete (4/4 requests) |
+| `census_engine.py` + `cleveland_metadata.py` | Cleveland Museum of Art route on the shared engine | config written; not prepared, reviewed, frozen, or executed |
 
 Each module has a thin `scripts/collect_pfg_v1_*.py` CLI adapter with `prepare` and `execute`
 subcommands and a matching test module under `tests/painter_feature_generation_v1/`. Every collector
@@ -93,6 +109,24 @@ Getty, Minneapolis, Paris Musées, and POP/Joconde — have no collector yet.
 The terminal collectors are kept, not deleted. Each is a frozen input of the freeze that authorized
 its run and of the successor freeze that binds its terminal evidence; removing one would make its
 census unverifiable.
+
+Three of the four routes terminated on their first run because the frozen parser rejected a valid
+provider representation (a `languagefallback` term, a plural `errors` envelope, a string
+`classification_id`), and each retry cost a ~1,300-line module copy. A future route should validate
+only the fields its screen actually uses and retain everything else raw, so that an unfamiliar
+representation is recorded rather than fatal.
+
+## Evidence and R0 artifact tools
+
+| Module | Command | Output |
+|---|---|---|
+| `evidence.py` | `latent-art-bench verify-evidence` | commit-bound audit of every freeze, event ledger, and execution receipt; exit 1 on any unacknowledged mismatch |
+| `prompt_library.py` | `latent-art-bench prompt-library [--check]` | `data/manifests/painter_feature_generation_v1/prompt_library.json`, the exact §11.1 artifact |
+| `content_lexicon.py` | `latent-art-bench content-lexicon [--check]` | `content_lexicon.json`, the §7.4 eligibility lexicon, plus the `classify` rule R2 will apply |
+| `exposure_denylist.py` | `latent-art-bench exposure-denylist [--check]` | `exposure_denylist.jsonl` and its receipt, rebuilt from pinned git blobs |
+| `scene_prescreen.py` | `latent-art-bench scene-prescreen` | non-binding corpus pre-screen JSON and Korean summary against the 2.1 floors |
+
+None of these tools makes a network request or opens an image.
 
 ## Data flow and gates
 
@@ -127,14 +161,34 @@ is not protocol eligibility, and a completed census is not an admitted corpus.
 Large runtime state lives beneath one ignored workspace root; tracked study definitions and compact
 evidence stay together in one versioned namespace.
 
+## Shared census engine
+
+`painter_feature_generation_v1/census_engine.py` holds the machinery every collector copied:
+config validation, exact intents, a commit-bound freeze, review and authorization seals, the
+one-shot lock, the hash-chained ledger, the content-addressed response store, and atomic
+publication. A route supplies a `RouteContract` with its endpoint, config validation, intent
+builder, response parser/screen, duplicate key, sort key, and receipt summary;
+`cleveland_metadata.py` is the reference consumer at about 300 lines.
+
+The engine differs from the copied collectors in three deliberate ways: `prepare` writes the
+freeze itself, records `recorded_git_commit`, and refuses to run when a tracked frozen input is
+dirty against HEAD; the review seal must state `reviewer_kind` (`human` or `llm_subagent`); and a
+route parser is expected to validate only the fields its screen uses and to retain everything
+else raw, so an unfamiliar provider representation is recorded rather than fatal.
+
+The seven existing collectors are not migrated. They are hash-bound evidence of what ran.
+
 ## Extension seams
 
 New work belongs in a new versioned namespace, not in an edit to a sealed one. When adding a source
 route:
 
-- copy the collector shape rather than generalizing across routes prematurely — the isolation is
-  what keeps one route's failure from contaminating another's evidence;
+- build it on `census_engine.RouteContract` rather than copying a collector; the isolation that
+  matters is separate configs, census IDs, freezes, and paths, not duplicated transport code;
 - keep the config, freeze, review, authorization, ledger, and publication paths disjoint from every
   existing census;
-- add the matching test module and adapter script in the same change; and
+- add the matching test module and adapter script in the same change, because the freeze binds
+  both;
+- commit the config and code before `prepare`, and commit the intents and freeze immediately
+  after, so `recorded_git_commit` verifies; and
 - never reuse a census ID, and never repair a terminal census in place.

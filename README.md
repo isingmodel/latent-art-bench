@@ -2,12 +2,16 @@
 
 LatentArtBench is a research project for testing whether images generated with a painter's name
 reproduce the measurable visual-feature distribution of that painter's authentic paintings. The
-active study compares distributions under a common outdoor-place content frame; it does not treat
-painter classification, centroid similarity, or one learned embedding as the answer.
+active study compares distributions within a metadata-declared outdoor-place content frame; it
+does not treat painter classification, centroid similarity, or one learned embedding as the answer.
 
-> **Status — 2026-09-03:** [Painter Feature Generation v1 Protocol 2.0](studies/painter_feature_generation_v1/PROTOCOL.md)
-> is the only active plan. The source frame is being rebuilt and no real work is admitted, no active
-> image is downloaded, no generation is registered, and no generated-versus-real result exists.
+> **Status — 2026-09-04:** [Painter Feature Generation v1 Protocol 2.1](studies/painter_feature_generation_v1/PROTOCOL_2.1.md)
+> is the only active plan. It removes every human coding step from Protocol 2.0, whose text stays
+> frozen at `PROTOCOL.md` as the authority for the censuses run under it. No real work is admitted,
+> no active image is downloaded, no generation is registered, and no generated-versus-real result
+> exists. A non-binding
+> [corpus pre-screen](reports/painter_feature_generation_v1/SCENE_SUPPORT_PRESCREEN_KO.md) shows
+> all four painters clear the 2.1 floor at the metadata upper bound, with Sisley the binding risk.
 > See [current status](docs/STATUS.md).
 
 ## Research design
@@ -16,25 +20,27 @@ The question is:
 
 > When one frozen generative model is prompted with Monet, Sisley, Pissarro, or Cézanne, do its
 > outputs reproduce that painter's real distribution of color, spatial/orientation, and digital
-> texture organization under the same broad landscape subject matter?
+> texture organization within the same outdoor-place subject domain?
 
 The design uses:
 
 - one physical painting as the real-data unit;
-- authority-verified oil-on-canvas outdoor-place works with lawful, technically adequate images;
-- at least three broad scene groups supported by all four painters, equally weighted;
+- authority-verified oil-on-canvas works whose metadata declares an outdoor place under a frozen
+  lexicon, with lawful, technically adequate images and no human coding;
+- uniform work weights within the outdoor-place domain and actual unequal painter counts;
 - a deterministic 20% development / 20% qualification / 60% confirmation assignment within
-  painter × scene × workflow, with previously exposed works restricted to development;
-- four painter-name conditions plus a matched artist-free control;
+  painter × workflow, with previously exposed works restricted to development;
+- all 16 prompt templates under four painter-name conditions plus a matched artist-free control;
 - paired seeds, no rerolling, and complete attempt accounting;
 - absolute distributional equivalence, all-neighbour specificity, control improvement, coverage,
-  availability/adherence, and near-copy exclusion as separate required gates; and
+  availability, and near-copy exclusion as separate required gates, with prompt adherence as an
+  automated diagnostic; and
 - learned features such as Kim A/C, CSD, CLIP, FID/KID, and classifier accuracy as diagnostics only.
 
 The previous 360-work-per-painter quota is retired. It had no literature or power basis and was
-not supported by the current evidence. The new corpus is an exhaustive physical-work union with
-actual unequal painter counts. “Enough data” is a
-conjunction of common scene support, equal-scene ESS, work/source/capture influence, and registered
+not supported by the current evidence. The corpus is an exhaustive physical-work union with
+actual unequal painter counts. “Enough data” is a conjunction of at least 100 confirmation works
+per painter, work/source/capture influence gates, the auxiliary capture panel, and registered
 whole-decision simulation—not a target-count stopping rule.
 
 ## Current data evidence
@@ -49,6 +55,8 @@ whole-decision simulation—not a target-count stopping rule.
 | AIC route R1 | 1 / 4 requests, terminal on a string `classification_id`; no manifest | terminal protocol evidence, not a completed source route |
 | AIC route R2 | 4 / 4 requests; 153 rows / 57 screened candidates | complete AIC route census, not authority verification or image acquisition |
 | separate direct official-source audit | 43 all-content candidates | not a reproducible complete source frame |
+| historical pixel-exposure denylist | 122 physical works, development-only | rebuilt from pinned git history; not yet frozen for M0 |
+| corpus pre-screen (non-binding) | 2.1 floor 179 per painter; lexicon upper bounds Monet 529 / Sisley 193 / Pissarro 256 / Cézanne 200 | a metadata upper bound, not a protocol count; admits or excludes nothing |
 | active admitted/downloaded/confirmation/generated/result counts | all 0 | metadata discovery succeeded; acquisition and analysis remain gated |
 
 The fixed-seed audit, broader discovery census, separately reviewed broad-media R2 follow-up, and
@@ -62,8 +70,9 @@ gates.
 ## Study disposition
 
 Painter Feature Generation v1 is the only study in this repository. Its canonical record is
-[Protocol 2.0](studies/painter_feature_generation_v1/PROTOCOL.md); its corpus disposition is NO-GO
-past R0. Earlier exploratory attempts were removed rather than carried as inactive namespaces.
+[Protocol 2.1](studies/painter_feature_generation_v1/PROTOCOL_2.1.md); Protocol 2.0 stays frozen
+at `PROTOCOL.md`. The corpus disposition is NO-GO past R0. Earlier exploratory attempts were
+removed rather than carried as inactive namespaces.
 
 The active study's own hash-bound evidence — freezes, reviews, authorizations, append-only request
 ledgers, and published manifests — retains its literal paths and must not be rewritten, reordered,
@@ -72,7 +81,7 @@ truncated, moved, or regenerated for cosmetic cleanup.
 ## Start here
 
 1. [Current status and boundary](docs/STATUS.md)
-2. [Canonical Protocol 2.0](studies/painter_feature_generation_v1/PROTOCOL.md)
+2. [Canonical Protocol 2.1](studies/painter_feature_generation_v1/PROTOCOL_2.1.md)
 3. [Detailed Korean research and data report](reports/painter_feature_generation_v1/RESEARCH_PLAN_AND_DATA_REPORT_KO.md)
 4. [Generated-versus-real literature review](literature_reviews/reviews/06_generated_vs_real_painter_fidelity.md)
 5. [Literature package](literature_reviews/README.md)
@@ -87,12 +96,16 @@ The project requires Python 3.9 or newer and `uv`.
 uv sync --locked --extra dev --extra learned
 uv run --locked ruff check .
 uv run --locked pytest -q -m "not live"
+uv run --locked latent-art-bench verify-evidence
 ```
 
-The standard test command is offline. A registered `live` test or data request is not research
+The standard test command is offline. The evidence audit verifies every freeze at the git commit
+that recorded it, plus every hash-chained ledger and execution receipt; it never refreshes a hash. A registered `live` test or data request is not research
 authorization; each active collection stage additionally requires its reviewed protocol freeze.
 
-The `latent-art-bench` console script exposes the seven census collectors as pass-through
+The `latent-art-bench` console script exposes the seven terminal collectors, the Cleveland route
+on the shared engine, the evidence audit (`verify-evidence`), and the R0 artifact tools
+(`prompt-library`, `content-lexicon`, `exposure-denylist`, `scene-prescreen`) as pass-through
 subcommands. Preparing a census is not authorization to execute one.
 
 ## Repository map
@@ -101,11 +114,11 @@ subcommands. Preparing a census is not authorization to execute one.
 |---|---|
 | `studies/painter_feature_generation_v1/` | sole active research protocol |
 | `literature_reviews/` | audited bibliography, searches, paper reviews, and method decisions |
-| `reports/painter_feature_generation_v1/` | current Korean report and compact evidence |
+| `reports/painter_feature_generation_v1/` | current Korean reports, the scene pre-screen, and compact evidence |
 | `configs/painter_feature_generation_v1/` | prospective collection contracts |
 | `data/manifests/painter_feature_generation_v1/` | compact tracked request/candidate manifests |
 | `research_workspace/painter_feature_generation_v1/` | ignored active raw responses and future image bytes |
-| `src/latent_art_bench/` and `tests/` | the census collectors, their shared primitives, and offline verification |
+| `src/latent_art_bench/` and `tests/` | the census collectors, the shared census engine, the evidence audit, the R0 artifact tools, and offline verification |
 | `docs/` | mutable status, index, architecture, and retention policy |
 | `artifacts/` | ignored local research bytes retained outside git |
 
@@ -117,7 +130,7 @@ broad recursive deletion under `artifacts/`, `data/`, or `research_workspace/`; 
 ## Research boundary
 
 External reference access, image acquisition, feature extraction, prompt/model freeze, generation,
-and confirmation open only through the stages in Protocol 2.0. A failed source cannot be silently
+and confirmation open only through the stages in Protocol 2.1. A failed source cannot be silently
 replaced; a failed result cannot be rescued by changing the painter, feature, margin, prompt, or
 denominator after protected data are seen.
 

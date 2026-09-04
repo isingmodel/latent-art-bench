@@ -1,0 +1,55 @@
+{
+  "schema_version": "painter-feature-generation-v1-cleveland-metadata-config/1.0",
+  "census_id": "pfg-v1-cleveland-metadata-20260904",
+  "protocol_id": "painter-feature-generation-v1/2.1",
+  "protocol_path": "studies/painter_feature_generation_v1/PROTOCOL_2.1.md",
+  "scope": {"metadata_requests": true, "image_downloads": false, "visual_coding": false, "active_study_admission": false, "feature_extraction": false, "generation": false},
+  "source_contract": {
+    "source_id": "cleveland_museum_of_art",
+    "endpoint": "https://openaccess-api.clevelandart.org/api/artworks/",
+    "method": "GET",
+    "authentication": "none",
+    "redirects": "forbidden",
+    "accept": "application/json",
+    "expected_content_type": "application/json",
+    "query_rule": "one exact GET per painter with artists=<exact CMA creator query>, limit=100, skip=0; no object-type filter so that prints, drawings, and paintings are all returned and screened locally",
+    "pagination_rule": "info.total must be a non-negative integer no larger than limit and must equal the number of returned data rows; a larger holding count is terminal and requires a new census ID with a larger frozen limit",
+    "terminal_condition": "all four exact creator responses pass delivery, pagination, and identity validation",
+    "canonicalization_rule": "retain every returned row; globally sort by painter_id then numeric CMA artwork id",
+    "duplicate_rule": "duplicate artwork ids within or across painter responses are terminal",
+    "rights_rule": "record share_license_status and rendition geometry without treating either as image-acquisition authorization",
+    "raw_response_rule": "stream decoded response bytes into a bounded buffer; store every complete accepted body once by SHA-256 in the census CAS",
+    "rate_limit_rule": "wait at least minimum_interval_seconds between completed request access times; never send concurrent requests",
+    "retry_rule": "no within-census retry; any transport failure, non-200 status, redirect, final-URL drift, Retry-After, invalid Date or content type, schema or pagination violation, response oversize, or CAS drift terminates the one-shot census and requires a new reviewed census ID",
+    "failure_rule": "preserve the lock, event ledger, and every received CAS body; publish neither candidate manifest nor receipt unless all four requests and all CAS objects verify",
+    "minimum_interval_seconds": 2.0,
+    "timeout_seconds": 60.0,
+    "maximum_response_bytes": 10485760,
+    "execution_start_not_after_utc": "2026-09-18T00:00:00Z"
+  },
+  "painters": [
+    {"painter_id": "claude_monet", "cma_artist_query": "Claude Monet"},
+    {"painter_id": "alfred_sisley", "cma_artist_query": "Alfred Sisley"},
+    {"painter_id": "camille_pissarro", "cma_artist_query": "Camille Pissarro"},
+    {"painter_id": "paul_cezanne", "cma_artist_query": "Paul Cézanne"}
+  ],
+  "screening_contract": {
+    "painting_tokens": ["painting"],
+    "required_medium_tokens": ["oil", "canvas"],
+    "minimum_reported_short_side": 1024,
+    "required_share_license_status": "CC0",
+    "page_limit": 100,
+    "candidate_gate": "a creators entry whose description starts with the exact query name, with role artist or unstated and no qualifier, plus painting type, oil and canvas tokens in technique or support, accession, share_license_status CC0, at least one rendition URL, and largest reported rendition short side at least 1024",
+    "authority_ceiling": "CMA holding-record candidate only until physical-work identity, rights receipt, and asset delivery are separately reconciled; rendition geometry is metadata only",
+    "malformed_field_rule": "only id and the pagination fields are terminal when malformed; every other field is retained raw and fails its own screen when absent or unexpected"
+  },
+  "paths": {
+    "request_intents": "data/manifests/painter_feature_generation_v1/cleveland_metadata_request_intents.jsonl",
+    "request_events": "data/manifests/painter_feature_generation_v1/cleveland_metadata_request_events.jsonl",
+    "freeze": "data/manifests/painter_feature_generation_v1/cleveland_metadata_freeze.json",
+    "publication_directory": "data/manifests/painter_feature_generation_v1/cleveland_metadata_publication",
+    "candidate_manifest": "data/manifests/painter_feature_generation_v1/cleveland_metadata_publication/candidates.jsonl",
+    "execution_receipt": "data/manifests/painter_feature_generation_v1/cleveland_metadata_publication/execution_receipt.json",
+    "workspace": "research_workspace/painter_feature_generation_v1/metadata/cleveland_metadata_20260904"
+  }
+}

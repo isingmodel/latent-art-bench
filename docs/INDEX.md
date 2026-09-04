@@ -17,9 +17,16 @@ identities.
 ## Active study: Painter Feature Generation v1
 
 - [Study overview](../studies/painter_feature_generation_v1/README.md)
-- [**Canonical generated-versus-real protocol**](../studies/painter_feature_generation_v1/PROTOCOL.md)
+- [**Canonical generated-versus-real protocol (2.1)**](../studies/painter_feature_generation_v1/PROTOCOL_2.1.md)
+- [Frozen Protocol 2.0 (superseded; authority for the completed censuses)](../studies/painter_feature_generation_v1/PROTOCOL.md)
 - [Detailed Korean research and data report](../reports/painter_feature_generation_v1/RESEARCH_PLAN_AND_DATA_REPORT_KO.md)
 - [Official source-route audit (Korean)](../reports/painter_feature_generation_v1/SOURCE_ROUTE_AUDIT_KO.md)
+- [Corpus-adequacy pre-screen (Korean, non-binding)](../reports/painter_feature_generation_v1/SCENE_SUPPORT_PRESCREEN_KO.md)
+- [Corpus-adequacy pre-screen evidence](../reports/painter_feature_generation_v1/evidence/scene_support_prescreen.json)
+- [§11.1 prompt library artifact](../data/manifests/painter_feature_generation_v1/prompt_library.json)
+- [§7.4 content lexicon artifact](../data/manifests/painter_feature_generation_v1/content_lexicon.json)
+- [§8 exposure denylist](../data/manifests/painter_feature_generation_v1/exposure_denylist.jsonl) and [its receipt](../data/manifests/painter_feature_generation_v1/exposure_denylist_receipt.json)
+- [Evidence acknowledgements](../data/manifests/painter_feature_generation_v1/evidence_acknowledgements.json)
 - [Data-readiness evidence](../reports/painter_feature_generation_v1/evidence/data_readiness_audit.json)
 - [Completed fixed-seed execution receipt](../data/manifests/painter_feature_generation_v1/federated_seed_metadata_execution_receipt_r2.json)
 - [Completed fixed-seed candidate manifest](../data/manifests/painter_feature_generation_v1/federated_seed_metadata_candidates_r2.jsonl)
@@ -46,29 +53,30 @@ identities.
 - [Evidence synthesis](../literature_reviews/SYNTHESIS.md)
 - [Method decision ledger](../literature_reviews/METHOD_DECISIONS.md)
 
-`PROTOCOL.md` is the only current canonical plan. Reports and literature files explain or support it;
-they do not independently authorize execution or override its rules.
+`PROTOCOL_2.1.md` is the only current canonical plan. `PROTOCOL.md` is the frozen 2.0 text that
+authorized the completed censuses and is not edited. Reports and literature files explain or support
+the plan; they do not independently authorize execution or override its rules.
 
-Protocol 2.0 compares one exact model's painter-name outputs with complete authority-backed finite
-populations of Monet, Sisley, Pissarro, and Cézanne outdoor-place oil-on-canvas paintings. It keeps
-actual unequal painter counts, gives every common supported broad scene group equal confirmation
-mass, and uses
-three separately qualified interpretable feature families: color, spatial/orientation, and digital
-texture organization. Previously exposed works are development-only; every new eligible work is
-assigned once to development, qualification, or sealed confirmation by a fixed hash rule.
+Protocol 2.1 compares one exact model's painter-name outputs with complete authority-backed finite
+populations of Monet, Sisley, Pissarro, and Cézanne metadata-declared outdoor-place oil-on-canvas
+paintings. It keeps actual unequal painter counts, weights every work uniformly, and uses three
+separately qualified interpretable feature families: color, spatial/orientation, and digital texture
+organization. Previously exposed works are development-only; every new eligible work is assigned
+once to development, qualification, or sealed confirmation by a fixed hash rule within painter ×
+workflow.
 
-The former 360-per-painter quota, three-way real split, 24-template frame, and entropy weights are
-retired. Source collection is exhaustive rather than count-stopped. Generation remains NO-GO until
-all painters support at least three scene groups; each retained group has at least 10 development,
-10 qualification, and 20 confirmation works; each confirmation equal-scene population has ESS at
-least 100; work/source/capture influence is acceptable; and the actual design passes whole-decision
-simulation. These are adequacy gates, not permission to stop a
-source census.
+The former 360-per-painter quota, three-way real split, 24-template frame, entropy weights, scene
+stratification, and human coding are retired. Source collection is exhaustive rather than
+count-stopped. Generation remains NO-GO until every painter has at least 10 development, 10
+qualification, and 100 confirmation works; the auxiliary capture panel and workflow-crossing gates
+hold; and the actual design passes whole-decision simulation. These are adequacy gates, not
+permission to stop a source census.
 
 R0 metadata tools cannot download or admit images. R1 separately binds authority, rights, identity,
-capture, and technical image acquisition. R2 seals two blind code streams and adjudication. M0
-qualifies measurements and freezes margins. G0 freezes `T=4G` exact prompts, one model, paired seeds,
-and `R` selected from `{25,50,75,100}`. G1 records every attempt while confirmation remains sealed;
-C0 opens the reference once. A reproduction statement requires absolute target fit, specificity
-against every other painter, improvement over the artist-free control, coverage, availability/
-adherence, and copy exclusion. Learned evaluators remain diagnostics.
+capture, and technical image acquisition. R2 applies the frozen content lexicon and the role rule.
+M0 qualifies measurements and freezes margins and copy thresholds. G0 freezes the 16 exact prompts,
+one model, paired seeds, the adherence classifier, and `R` selected from `{25,50,75,100}`. G1
+records every attempt while confirmation remains sealed; C0 opens the reference once. A
+reproduction statement requires absolute target fit, specificity against every other painter,
+improvement over the artist-free control, coverage, availability, and copy exclusion; adherence is
+an automated diagnostic. Learned evaluators remain diagnostics.
