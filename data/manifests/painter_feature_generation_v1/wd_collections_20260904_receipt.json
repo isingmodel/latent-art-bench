@@ -1,0 +1,214 @@
+{
+  "authorized_by": "repository maintainer, in session, 2026-09-04",
+  "census_id": "pfg-v1-wd-collections-20260904",
+  "complete": true,
+  "config_path": "configs/painter_feature_generation_v1/wd_collections.json",
+  "config_sha256": "2ce843ce26806f04d214cf6ed261016963b21d5932c9f44a650e11cf30d0de74",
+  "counts": {
+    "requests_planned": 9,
+    "requests_succeeded": 9,
+    "returned_records": 9,
+    "returned_records_by_painter": {
+      "None": 9
+    }
+  },
+  "finished_at_utc": "2026-09-04T06:45:30.911895Z",
+  "manifest_path": "data/manifests/painter_feature_generation_v1/wd_collections_20260904_records.jsonl",
+  "manifest_sha256": "4bad51bdd14e4c6a6cb3eeef2f38208d4441dc6ccf6b196754c687a17786abd7",
+  "note": "Counts are returned provider records, not works and not candidates. This census assigned no eligibility, no screening verdict, and no score. Attribution, medium and support, rights, geometry, and outdoor-place eligibility are decided at R1 and R2 from the retained raw fields. No image was requested and no work was admitted.",
+  "protocol_id": "painter-feature-generation-v1/2.2",
+  "requests": [
+    {
+      "error": null,
+      "final_url": "https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q511%7CQ807%7CQ4872%7CQ23402%7CQ35525%7CQ46815%7CQ49133%7CQ63828%7CQ71074%7CQ80784%7CQ82941%7CQ125634%7CQ128316%7CQ132783%7CQ153306%7CQ160112%7CQ160236%7CQ162111%7CQ163804%7CQ169542%7CQ170152%7CQ176251%7CQ180788%7CQ188740%7CQ190804%7CQ194533%7CQ194622%7CQ194626%7CQ195436%7CQ201469%7CQ210081%7CQ211262%7CQ212281%7CQ212594%7CQ214867%7CQ224124%7CQ239303%7CQ252071%7CQ279049%7CQ286389%7CQ295144%7CQ303139%7CQ314082%7CQ318289%7CQ325712%7CQ333515%7CQ371908%7CQ377500%7CQ377579%7CQ403080&props=labels%7Cdescriptions%7Cclaims&languages=en%7Cfr%7Cko&format=json&formatversion=2&errorformat=plaintext&curtimestamp=1",
+      "method": "GET",
+      "outcome": "success",
+      "painter_id": null,
+      "records": 1,
+      "request_id": "wd-collections-0001",
+      "requested_at_utc": "2026-09-04T06:44:40.279720Z",
+      "response_body_path": "responses/cc/ccd9459788f031d78c0e65c1dfd50660595dd2b639f9ac818176c7e8959c3700.response",
+      "response_bytes": 5206327,
+      "response_headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Fri, 04 Sep 2026 06:44:40 GMT",
+        "server": "mw-api-ext.eqiad.main-5cc9dcf59c-p8ftb"
+      },
+      "response_sha256": "ccd9459788f031d78c0e65c1dfd50660595dd2b639f9ac818176c7e8959c3700",
+      "response_truncated": false,
+      "status_code": 200,
+      "url": "https://www.wikidata.org/w/api.php"
+    },
+    {
+      "error": null,
+      "final_url": "https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q428559%7CQ428765%7CQ430682%7CQ459041%7CQ468458%7CQ475667%7CQ484054%7CQ496040%7CQ503176%7CQ510324%7CQ566661%7CQ569079%7CQ578485%7CQ592116%7CQ597355%7CQ632682%7CQ636400%7CQ639791%7CQ641630%7CQ650299%7CQ650519%7CQ653002%7CQ654762%7CQ657415%7CQ658725%7CQ666331%7CQ670250%7CQ671384%7CQ672759%7CQ673833%7CQ677561%7CQ679075%7CQ679527%7CQ682406%7CQ682827%7CQ683163%7CQ684556%7CQ685038%7CQ686329%7CQ693591%7CQ698582%7CQ700959%7CQ705551%7CQ705557%7CQ726781%7CQ731126%7CQ734266%7CQ743206%7CQ745866%7CQ768446&props=labels%7Cdescriptions%7Cclaims&languages=en%7Cfr%7Cko&format=json&formatversion=2&errorformat=plaintext&curtimestamp=1",
+      "method": "GET",
+      "outcome": "success",
+      "painter_id": null,
+      "records": 1,
+      "request_id": "wd-collections-0002",
+      "requested_at_utc": "2026-09-04T06:44:46.000334Z",
+      "response_body_path": "responses/c4/c430fa43eb9ffd44bb1a4f68625c157d0be2a8839bb6f0dfcba5130fbd10aac5.response",
+      "response_bytes": 3972949,
+      "response_headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Fri, 04 Sep 2026 06:44:46 GMT",
+        "server": "mw-api-ext.eqiad.main-5cc9dcf59c-mswdn"
+      },
+      "response_sha256": "c430fa43eb9ffd44bb1a4f68625c157d0be2a8839bb6f0dfcba5130fbd10aac5",
+      "response_truncated": false,
+      "status_code": 200,
+      "url": "https://www.wikidata.org/w/api.php"
+    },
+    {
+      "error": null,
+      "final_url": "https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q769765%7CQ770918%7CQ772297%7CQ775376%7CQ795228%7CQ806176%7CQ808462%7CQ809600%7CQ812285%7CQ819504%7CQ829296%7CQ840886%7CQ842858%7CQ843638%7CQ845468%7CQ847508%7CQ860812%7CQ861252%7CQ861588%7CQ865736%7CQ878253%7CQ913672%7CQ913808%7CQ924335%7CQ953345%7CQ965780%7CQ977015%7CQ1011471%7CQ1016909%7CQ1043967%7CQ1051928%7CQ1053735%7CQ1055037%7CQ1061094%7CQ1067909%7CQ1068063%7CQ1117704%7CQ1128657%7CQ1132918%7CQ1140507%7CQ1142988%7CQ1189960%7CQ1201549%7CQ1233913%7CQ1259209%7CQ1267958%7CQ1277393%7CQ1319192%7CQ1327886%7CQ1341595&props=labels%7Cdescriptions%7Cclaims&languages=en%7Cfr%7Cko&format=json&formatversion=2&errorformat=plaintext&curtimestamp=1",
+      "method": "GET",
+      "outcome": "success",
+      "painter_id": null,
+      "records": 1,
+      "request_id": "wd-collections-0003",
+      "requested_at_utc": "2026-09-04T06:44:59.827055Z",
+      "response_body_path": "responses/67/67c8a1fd486988264d118643359964c1c9cdab2dab490548666c8a667bab2611.response",
+      "response_bytes": 3276285,
+      "response_headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Fri, 04 Sep 2026 06:45:00 GMT",
+        "server": "mw-api-ext.eqiad.main-5cc9dcf59c-dw8hc"
+      },
+      "response_sha256": "67c8a1fd486988264d118643359964c1c9cdab2dab490548666c8a667bab2611",
+      "response_truncated": false,
+      "status_code": 200,
+      "url": "https://www.wikidata.org/w/api.php"
+    },
+    {
+      "error": null,
+      "final_url": "https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q1359908%7CQ1362629%7CQ1368166%7CQ1372546%7CQ1416890%7CQ1419555%7CQ1421440%7CQ1459037%7CQ1459878%7CQ1464509%7CQ1465387%7CQ1465805%7CQ1492387%7CQ1499958%7CQ1505892%7CQ1519002%7CQ1519050%7CQ1528356%7CQ1536471%7CQ1565911%7CQ1568434%7CQ1574475%7CQ1614504%7CQ1618645%7CQ1641836%7CQ1672292%7CQ1700481%7CQ1721563%7CQ1741629%7CQ1743116%7CQ1752085%7CQ1756399%7CQ1760539%7CQ1778179%7CQ1783956%7CQ1787100%7CQ1792552%7CQ1816301%7CQ1825229%7CQ1848918%7CQ1851283%7CQ1920251%7CQ1952944%7CQ1954370%7CQ1954623%7CQ1954748%7CQ1955692%7CQ1955739%7CQ1956195%7CQ1970945&props=labels%7Cdescriptions%7Cclaims&languages=en%7Cfr%7Cko&format=json&formatversion=2&errorformat=plaintext&curtimestamp=1",
+      "method": "GET",
+      "outcome": "success",
+      "painter_id": null,
+      "records": 1,
+      "request_id": "wd-collections-0004",
+      "requested_at_utc": "2026-09-04T06:45:05.708459Z",
+      "response_body_path": "responses/b8/b867971e30563db775cd54c922abfa360a1697282fb77ee6f1a383dc490865bc.response",
+      "response_bytes": 3008484,
+      "response_headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Fri, 04 Sep 2026 06:45:05 GMT",
+        "server": "mw-api-ext.eqiad.main-5cc9dcf59c-2v97v"
+      },
+      "response_sha256": "b867971e30563db775cd54c922abfa360a1697282fb77ee6f1a383dc490865bc",
+      "response_truncated": false,
+      "status_code": 200,
+      "url": "https://www.wikidata.org/w/api.php"
+    },
+    {
+      "error": null,
+      "final_url": "https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q1976985%7CQ1984633%7CQ1992004%7CQ2018379%7CQ2046319%7CQ2051997%7CQ2063082%7CQ2066737%7CQ2097646%7CQ2105170%7CQ2148186%7CQ2184071%7CQ2217420%7CQ2263119%7CQ2277827%7CQ2340634%7CQ2383136%7CQ2404549%7CQ2452513%7CQ2468251%7CQ2495870%7CQ2526644%7CQ2570775%7CQ2580202%7CQ2603905%7CQ2628596%7CQ2638817%7CQ2647884%7CQ2655386%7CQ2655425%7CQ2912600%7CQ2945648%7CQ2967822%7CQ2970522%7CQ2977589%7CQ2983474%7CQ3001838%7CQ3007727%7CQ3044753%7CQ3044768%7CQ3075622%7CQ3086934%7CQ3094628%7CQ3094641%7CQ3098373%7CQ3176133%7CQ3248015%7CQ3268627%7CQ3277885%7CQ3297769&props=labels%7Cdescriptions%7Cclaims&languages=en%7Cfr%7Cko&format=json&formatversion=2&errorformat=plaintext&curtimestamp=1",
+      "method": "GET",
+      "outcome": "success",
+      "painter_id": null,
+      "records": 1,
+      "request_id": "wd-collections-0005",
+      "requested_at_utc": "2026-09-04T06:45:11.934701Z",
+      "response_body_path": "responses/1f/1fce8363bed7091607edb3ad2664dff1f6253784732c9d7993f12f9a372e34c5.response",
+      "response_bytes": 2290425,
+      "response_headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Fri, 04 Sep 2026 06:45:12 GMT",
+        "server": "mw-api-ext.eqiad.main-5cc9dcf59c-fbsfg"
+      },
+      "response_sha256": "1fce8363bed7091607edb3ad2664dff1f6253784732c9d7993f12f9a372e34c5",
+      "response_truncated": false,
+      "status_code": 200,
+      "url": "https://www.wikidata.org/w/api.php"
+    },
+    {
+      "error": null,
+      "final_url": "https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q3329033%7CQ3329050%7CQ3329052%7CQ3329100%7CQ3329155%7CQ3329161%7CQ3329511%7CQ3329523%7CQ3329541%7CQ3329546%7CQ3329618%7CQ3329620%7CQ3329646%7CQ3330185%7CQ3330204%7CQ3330222%7CQ3330225%7CQ3330248%7CQ3330521%7CQ3330707%7CQ3330717%7CQ3345073%7CQ3383883%7CQ3458883%7CQ3478488%7CQ3486321%7CQ3492931%7CQ3567825%7CQ3747192%7CQ3753155%7CQ3757721%7CQ3783572%7CQ3816734%7CQ3837886%7CQ3878590%7CQ4013975%7CQ4115728%7CQ4140840%7CQ4328346%7CQ4556499%7CQ4674272%7CQ4674763%7CQ4799164%7CQ4819492%7CQ4859590%7CQ4916759%7CQ4968867%7CQ5114675%7CQ5263501%7CQ5284947&props=labels%7Cdescriptions%7Cclaims&languages=en%7Cfr%7Cko&format=json&formatversion=2&errorformat=plaintext&curtimestamp=1",
+      "method": "GET",
+      "outcome": "success",
+      "painter_id": null,
+      "records": 1,
+      "request_id": "wd-collections-0006",
+      "requested_at_utc": "2026-09-04T06:45:16.547198Z",
+      "response_body_path": "responses/83/83731de15b21da2a289e1b451a0371175be621c9ab7b952f6fbce7bd7add9fa8.response",
+      "response_bytes": 2041160,
+      "response_headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Fri, 04 Sep 2026 06:45:16 GMT",
+        "server": "mw-api-ext.eqiad.main-5cc9dcf59c-6gzvs"
+      },
+      "response_sha256": "83731de15b21da2a289e1b451a0371175be621c9ab7b952f6fbce7bd7add9fa8",
+      "response_truncated": false,
+      "status_code": 200,
+      "url": "https://www.wikidata.org/w/api.php"
+    },
+    {
+      "error": null,
+      "final_url": "https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q5314986%7CQ5359197%7CQ5415088%7CQ5459526%7CQ5478803%7CQ5495608%7CQ5506587%7CQ5507735%7CQ5572991%7CQ5637846%7CQ5935366%7CQ6023573%7CQ6217142%7CQ6298930%7CQ6379617%7CQ6436109%7CQ6515835%7CQ6803132%7CQ6815343%7CQ6815803%7CQ6868358%7CQ7012302%7CQ7300422%7CQ7367636%7CQ7412332%7CQ7419233%7CQ7492669%7CQ7569107%7CQ7739582%7CQ7753511%7CQ7885811%7CQ10333663%7CQ10357174%7CQ10854956%7CQ11274070%7CQ11283175%7CQ11286643%7CQ11301924%7CQ11340324%7CQ11345132%7CQ11357837%7CQ11414496%7CQ11417787%7CQ11426772%7CQ11447532%7CQ11467765%7CQ11468661%7CQ11493678%7CQ11503129%7CQ11530056&props=labels%7Cdescriptions%7Cclaims&languages=en%7Cfr%7Cko&format=json&formatversion=2&errorformat=plaintext&curtimestamp=1",
+      "method": "GET",
+      "outcome": "success",
+      "painter_id": null,
+      "records": 1,
+      "request_id": "wd-collections-0007",
+      "requested_at_utc": "2026-09-04T06:45:20.910742Z",
+      "response_body_path": "responses/29/29cf8d96b35f9e34b96c1903b4163b34d549cddf46e70c382523d133def73577.response",
+      "response_bytes": 1169254,
+      "response_headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Fri, 04 Sep 2026 06:45:21 GMT",
+        "server": "mw-api-ext.eqiad.canary-7f46c7f5d9-5tnrr"
+      },
+      "response_sha256": "29cf8d96b35f9e34b96c1903b4163b34d549cddf46e70c382523d133def73577",
+      "response_truncated": false,
+      "status_code": 200,
+      "url": "https://www.wikidata.org/w/api.php"
+    },
+    {
+      "error": null,
+      "final_url": "https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q11530732%7CQ11599987%7CQ11609688%7CQ11617518%7CQ11663204%7CQ11860868%7CQ12072937%7CQ12110695%7CQ14715853%7CQ14917275%7CQ15128575%7CQ15305978%7CQ15694044%7CQ15697027%7CQ15818188%7CQ16303321%7CQ16303680%7CQ16639039%7CQ18342548%7CQ18600731%7CQ18621174%7CQ19013512%7CQ19283604%7CQ19917343%7CQ20862230%7CQ20876003%7CQ22032181%7CQ23498495%7CQ23785329%7CQ25045355%7CQ26161257%7CQ26295754%7CQ27430435%7CQ27663014%7CQ27898150%7CQ28045660%7CQ28045665%7CQ28045674%7CQ28843765%7CQ29842752%7CQ41512158%7CQ41661713%7CQ42370205%7CQ50413488%7CQ55361621%7CQ56229813%7CQ56670130%7CQ56875825%7CQ57980808%7CQ59546080&props=labels%7Cdescriptions%7Cclaims&languages=en%7Cfr%7Cko&format=json&formatversion=2&errorformat=plaintext&curtimestamp=1",
+      "method": "GET",
+      "outcome": "success",
+      "painter_id": null,
+      "records": 1,
+      "request_id": "wd-collections-0008",
+      "requested_at_utc": "2026-09-04T06:45:25.964443Z",
+      "response_body_path": "responses/53/533caf905eda5c67ee6facffc3476865f90ca5a5411f93e5783bdf79953a4eb5.response",
+      "response_bytes": 861397,
+      "response_headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Fri, 04 Sep 2026 06:45:26 GMT",
+        "server": "mw-api-ext.eqiad.main-5cc9dcf59c-rflmw"
+      },
+      "response_sha256": "533caf905eda5c67ee6facffc3476865f90ca5a5411f93e5783bdf79953a4eb5",
+      "response_truncated": false,
+      "status_code": 200,
+      "url": "https://www.wikidata.org/w/api.php"
+    },
+    {
+      "error": null,
+      "final_url": "https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q60363894%7CQ60499706%7CQ61439050%7CQ61521218%7CQ62400958%7CQ63284794%7CQ64140672%7CQ64337658%7CQ66481459%7CQ67540395%7CQ68110244%7CQ73572768%7CQ77718000%7CQ78161758%7CQ84263944%7CQ86925581%7CQ90420044%7CQ94591163%7CQ94631769%7CQ96337378%7CQ96959908%7CQ97365797%7CQ98908473%7CQ99533760%7CQ105298810%7CQ106857407%7CQ109180218%7CQ109535454%7CQ109559220%7CQ109893034%7CQ110279441%7CQ111449521%7CQ111796449%7CQ113632284%7CQ114704176%7CQ114873993%7CQ115647494%7CQ116215271%7CQ117802356%7CQ124257858%7CQ126392389%7CQ126815975%7CQ130748726%7CQ132150975%7CQ132176507%7CQ134930670%7CQ135087947%7CQ135937566%7CQ138001780&props=labels%7Cdescriptions%7Cclaims&languages=en%7Cfr%7Cko&format=json&formatversion=2&errorformat=plaintext&curtimestamp=1",
+      "method": "GET",
+      "outcome": "success",
+      "painter_id": null,
+      "records": 1,
+      "request_id": "wd-collections-0009",
+      "requested_at_utc": "2026-09-04T06:45:29.633769Z",
+      "response_body_path": "responses/3a/3a275f968e4e1d130e30d3e1f28148333055d46f8a5a4d4a6f99f9be16a632d7.response",
+      "response_bytes": 212527,
+      "response_headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Fri, 04 Sep 2026 06:45:29 GMT",
+        "server": "mw-api-ext.eqiad.main-5cc9dcf59c-5n7pj"
+      },
+      "response_sha256": "3a275f968e4e1d130e30d3e1f28148333055d46f8a5a4d4a6f99f9be16a632d7",
+      "response_truncated": false,
+      "status_code": 200,
+      "url": "https://www.wikidata.org/w/api.php"
+    }
+  ],
+  "schema_version": "painter-feature-generation-v1-collection-receipt/2.2",
+  "source_id": "wikidata_collections",
+  "started_at_utc": "2026-09-04T06:44:40.234386Z"
+}
