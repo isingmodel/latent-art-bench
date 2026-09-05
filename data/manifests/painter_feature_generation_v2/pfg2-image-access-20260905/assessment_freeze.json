@@ -1,0 +1,68 @@
+{
+  "authorization": "2026-09-05 maintainer: use GPT-Image-1 and GPT-Image-2 via local OAuth; bounded access assessment only, no paid public API fallback.",
+  "base_url": "http://127.0.0.1:10532",
+  "inputs": [
+    {
+      "path": "pyproject.toml",
+      "sha256": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8"
+    },
+    {
+      "path": "src/latent_art_bench/io.py",
+      "sha256": "13e6372aa9814495a45700eb9e65d099c56bb1bb3032d72f7f9e00e6ba91a9b8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/artifacts.py",
+      "sha256": "8b48f0cfb433ac1769786aba366501b69ba1bec540a1a2f9e35e93ce45e9b0d7"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/model_assessment.py",
+      "sha256": "bd460259a4282df10e9e57d65c54e0ff1cf89a3a72ffb68a29fa0bb9086888ed"
+    },
+    {
+      "path": "studies/painter_feature_generation_v2/MODEL_ASSESSMENT_PROTOCOL_1.0.md",
+      "sha256": "d761cffa411f3bdf619efe357ee483af84f33ec6ac67184b186cdef3eccb90bd"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+    }
+  ],
+  "maximum_image_attempts": 2,
+  "predecessor": null,
+  "prepared_at_utc": "2026-09-05T01:07:47.706318+00:00",
+  "proxy_source": {
+    "files": [
+      {
+        "path": "README.md",
+        "sha256": "936776962658061102d4485e970016f230fac822ff298d991aee6cccf8b05b3e"
+      },
+      {
+        "path": "packages/openai-oauth/src/images.ts",
+        "sha256": "25ee6fe00dc96edecc3483415177071635dc9d3d51e8a55de38a608fbfa16aa4"
+      },
+      {
+        "path": "packages/openai-oauth-core/src/auth.ts",
+        "sha256": "5fd0f44eba9e17153d726407797a2c5b9402b36cefca7d382105c5391c4c699f"
+      },
+      {
+        "path": "packages/openai-oauth-core/src/image-models.ts",
+        "sha256": "ab0507b1768cfd051e1f82d73946d5582163fd4dd7591b371463957c6c59c66b"
+      },
+      {
+        "path": "packages/openai-oauth-core/src/transport.ts",
+        "sha256": "c2470c60bea8c0eb98a7eb247e6d3e8e11cebf726e65c3ff3443c9d9b0be09f4"
+      }
+    ],
+    "recorded_git_commit": "0a664bcc8e09649fcdd558e0bfbdd6447b85bca2",
+    "repository": "openai-oauth"
+  },
+  "recorded_git_commit": "f3fc823f9b5570f81dfe8d4c79ee113276ae54e2",
+  "requests_sha256": "133f56dc495148d23c437a85391b8a6a1ac40dd82a43a532a9df975c38cc6f0a",
+  "reviewer_kind": "operator_self_check_not_independent_review",
+  "run_id": "pfg2-image-access-20260905",
+  "schema_version": "image-model-access-freeze/1.0",
+  "software": {
+    "Pillow": "11.3.0",
+    "httpx": "0.28.1"
+  }
+}

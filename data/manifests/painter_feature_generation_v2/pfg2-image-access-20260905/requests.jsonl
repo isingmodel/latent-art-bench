@@ -1,0 +1,2 @@
+{"model":"gpt-image-1","payload":{"background":"opaque","model":"gpt-image-1","n":1,"output_format":"png","prompt":"A single red circle centered on a plain white background, no text.","quality":"medium","size":"1024x1024"},"request_id":"access-gpt-image-1"}
+{"model":"gpt-image-2","payload":{"background":"opaque","model":"gpt-image-2","n":1,"output_format":"png","prompt":"A single red circle centered on a plain white background, no text.","quality":"medium","size":"1024x1024"},"request_id":"access-gpt-image-2"}
