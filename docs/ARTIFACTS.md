@@ -8,6 +8,11 @@ tracked as evidence and which exist nowhere else.
 
 Preserve and review normally:
 
+- The separate `painter_prompt_supplement_v1` contract, configuration, source/tests, qualification
+  and design freeze. Its own manifest namespace retains the observed source generation-prefix
+  snapshot and input hashes; its report namespace retains numeric tables, plots and receipts.
+  These describe an explicitly post-registration supplement and never replace source evidence.
+
 - The new `painter_prompt_study_v1` source/tests, protocol, configuration and synthetic calibration
   records. Prospective freezes and compact ledgers/measurements belong to its own manifest namespace;
   terminal outputs may never be topped up or pooled into a new run.
@@ -85,6 +90,13 @@ The bounded prompt extension uses `research_workspace/painter_prompt_study_v1/`.
 1,920 total new images for `pps1-gpt-prompts-20260905`; its resource checks pass on local storage.
 Generation has started; empirical response bytes are retained there as each request finishes. Their compression,
 failure status or ignored path does not make them disposable.
+
+The refusal at source request sequence `415` and every later disposition remain evidence.
+The [post-registration supplement](PROMPT_SUPPLEMENT_WORKFLOW.md) uses terminal measured features
+and the existing reference/scaler. It authorizes no images, retries or extraction and preserves
+the original unavailable-primary result. Its committed design freeze must precede the original
+measurement ledger; retain the bound generation prefix exactly while the source ledger continues
+appending. Never truncate the source ledger to match that prefix or refresh either hash.
 
 ## Completed source-study boundary
 

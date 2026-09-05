@@ -1,0 +1,20 @@
+{
+  "schema_version": "painter-prompt-supplement/1.0",
+  "source_run_id": "pps1-gpt-prompts-20260905",
+  "qualification_id": "ppss1-qualification-20260905",
+  "repetitions": 4,
+  "minimum_pairs_per_template": 1,
+  "template_weighting": "equal_template_then_equal_available_repetition",
+  "coordinate_quantiles": "weighted_empirical_inverse_cdf_for_both_populations",
+  "family_size": 48,
+  "alpha": 0.05,
+  "permutation_seed": 8755477342009039575,
+  "permutation_draws": 99999,
+  "development_seed": 20260910,
+  "validation_seed": 20260911,
+  "trials_per_cell": 2000,
+  "maximum_null_wilson_upper": 0.065,
+  "new_provider_requests": 0,
+  "new_feature_extraction": false,
+  "registration_status": "specified_after_first_refusal_before_registered_feature_measurement"
+}

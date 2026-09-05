@@ -14,11 +14,18 @@ Full-precision JSON and CSV exports accompany the report.
 ## Current status — 2026-09-05
 
 The active extension is [repeated GPT Image generation with three prompt methods](docs/PROMPT_STUDY_WORKFLOW.md).
-It adds a prospectively fixed request grid, calibrated primary prompt contrasts, resumable
-generation and measurement, full outcome accounting, and comparison reports. The user approved
-**1,920 total new images** on 2026-09-05: 960 per alias, three methods and four repetitions.
-Generation has started; see [current status](docs/STATUS.md) for execution state. The counts
-below describe the completed existing-data report.
+It uses a prospectively fixed request grid, resumable generation and measurement, full outcome
+accounting, and a complete-grid primary analysis. The user approved **1,920 total requests** on
+2026-09-05: 960 per alias, three methods and four repetitions. A genuine refusal at request
+sequence `415` means the incomplete-grid primary will remain unavailable. The request cap and
+original workers are unchanged; no refused slot is retried or replaced.
+
+A separate [post-registration supplement](docs/PROMPT_SUPPLEMENT_WORKFLOW.md) was specified after
+the refusal and before new feature measurement. It reports equal-scene-weighted available-output
+distances and 48 exploratory matched-pair tests of a joint availability-and-feature sharp null,
+with Holm adjustment and no confidence intervals. Commit-bound qualification publication and
+freeze are pending. See [current status](docs/STATUS.md) for execution state. The counts below
+describe the completed existing-data report.
 
 - **Reference:** 649 measured confirmation paintings, from the existing 1,193-work frame.
 - **Generated images:** 2,000 SD-Turbo outputs and 160 GPT Image service outputs.
@@ -66,6 +73,8 @@ validation, formulas, output schemas and interpretation limits.
 
 | Path | Role |
 | --- | --- |
+| `src/latent_art_bench/painter_prompt_supplement_v1/` | Separate post-registration numeric supplement, qualification and module CLI |
+| `studies/painter_prompt_supplement_v1/` | Missingness weighting, exploratory joint-null tests and preservation contract |
 | `src/latent_art_bench/painter_prompt_study_v1/` | Prospective repeated-prompt generation, calibrated analysis and separate module CLI |
 | `studies/painter_prompt_study_v1/` | New prompt design and resource contract |
 | `src/latent_art_bench/painter_feature_distance_v1/` | Current descriptive distance analysis, plotting and CLI |

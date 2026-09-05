@@ -27,6 +27,17 @@ identities.
 The user approved 1,920 total new images on 2026-09-05. Preparation and execution use the disjoint
 `pps1-gpt-prompts-20260905` run. Existing evidence below remains sealed.
 
+## Post-registration supplement: Painter Prompt Supplement v1
+
+- [Missingness supplement, qualification and reproducibility commands](PROMPT_SUPPLEMENT_WORKFLOW.md)
+- [Supplement scientific contract](../studies/painter_prompt_supplement_v1/PROTOCOL.md)
+- [Fixed supplement configuration](../configs/painter_prompt_supplement_v1/study.json)
+
+Specified after source request sequence `415` was refused and before new feature measurement.
+The source cap remains 1,920 requests, its incomplete-grid primary remains unavailable, and the
+supplement adds no provider calls. Commit-bound qualification publication and freeze are pending;
+[current status](STATUS.md) records later checkpoints.
+
 ## Completed continuation: Painter Feature Generation v2
 
 The empirical painter-feature analysis report is complete; the maintainer deferred a prototype

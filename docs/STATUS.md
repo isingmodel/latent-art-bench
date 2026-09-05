@@ -15,6 +15,29 @@ Its process identity and per-stage logs are in `tmp/pps1-gpt-prompts-20260905/co
 `completed.json` there means all five commands passed; the report and its evidence receipts are
 the durable authority. Do not launch a competing measurement or report writer while it is alive.
 
+A genuine moderation refusal was recorded at zero-based request sequence `415`. It remains in
+its original slot and consumes one of the 1,920 requests. With that missing measurement, the
+original complete-grid primary will be unavailable; the original worker must still publish its
+terminal availability report. No retry, replacement or call outside the frozen grid is authorized.
+
+A separate [post-registration missingness supplement](PROMPT_SUPPLEMENT_WORKFLOW.md),
+`painter_prompt_supplement_v1`, was specified after this refusal and before new feature
+measurement. It preserves the original protocol, code, ledgers and workers. It will describe
+all measured outputs with equal weights across the 16 scenes, and report all 48 exploratory
+common-pair prompt tests under a joint availability-and-feature sharp null with no interference,
+Holm adjustment and no confidence intervals. An unavailable original primary stays unavailable.
+The aliases remain unverified service labels; reviews are maintainer-run LLM subagent reviews.
+
+Retained supplement synthetic development and validation runs pass the fixed numerical checks:
+all eight valid-null cells in each run must have Wilson 95% upper bounds at most 0.065, with no
+threshold or seed tuning. **Commit-bound qualification publication and supplement freeze are
+pending**, using proposed IDs `ppss1-qualification-20260905` and `ppss1-missingness-20260905`.
+The supplement freeze must be committed before source measurement starts. No empirical
+supplement result has been published. The approved source cap remains 1,920 requests.
+Supplement validation passed Ruff and all **722 offline tests**, including a full synthetic
+1,920-disposition numeric build and byte-for-byte replay of all 18 report files. Historical
+v1/v2 audits passed 2,902/15,809 checks; all 62 original generation-freeze inputs remain unchanged.
+
 The user requested additional `gpt-image-1`/`gpt-image-2` images, alternative prompt methods and
 paper-ready generated-versus-original feature-distance analysis. The new
 [`painter_prompt_study_v1` protocol](../studies/painter_prompt_study_v1/PROTOCOL.md) and
