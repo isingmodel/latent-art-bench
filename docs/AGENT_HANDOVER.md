@@ -2,8 +2,9 @@
 
 **Active extension — 2026-09-05:** the user subsequently requested more GPT Image samples,
 alternative prompting and paper-ready analysis. Read [current status](STATUS.md) and
-[the repeated-prompt workflow](PROMPT_STUDY_WORKFLOW.md) first. New execution is pending the preferred modest
-image cap; the historical task boundary described below is a sealed snapshot.
+[the repeated-prompt workflow](PROMPT_STUDY_WORKFLOW.md) first. The user approved 1,920 total new
+images on 2026-09-05; run `pps1-gpt-prompts-20260905` is being prepared. The historical task boundary
+described below is a sealed snapshot.
 
 **Subsequent implementation — 2026-09-05:** the user selected a descriptive distance-analysis
 extension using the existing images and 31 features, with reproducible commands and comparison

@@ -28,9 +28,10 @@ before any new generation. These complete-grid choices all fit the current local
 | 2 | 960 | 32 | 6.3 h | 8.6 GiB |
 | 4 | 1,920 | 64 | 12.5 h | 12.1 GiB |
 
-The proposed config uses four repetitions, pending the user's preferred cap. Its approved request
-ceiling remains zero until that choice is resolved. The estimates use the previous mean response
-size and latency, not guaranteed provider quota, output size or speed. All raw responses are
+The user approved **1,920 total new images** on 2026-09-05 (“1,920 is okay”). The config records
+four repetitions and an approved request ceiling of 1,920, shared across both aliases and all
+three methods. The estimates use the previous mean response size and latency, not guaranteed
+provider quota, output size or speed. All raw responses are
 losslessly compressed; decoded images exist only temporarily during measurement. About 24.7 GiB
 was available when the reduced design was prepared, so an external volume is no longer required
 for these options. Preserve all historical evidence bytes.
@@ -64,7 +65,8 @@ The [superseded interval-development record](../data/manifests/painter_prompt_st
 preserves all four larger-grid candidate jobs, including failed calibration cases. Its four
 published jobs also replay every retained value at tolerance 1e-12 using the
 `reproduce-interval-development pps1-calibration-20260905` command. It is not an active generation
-option. Both calibration records bind source commit `5ba1339`; no empirical run is registered.
+option. Both calibration records bind source commit `5ba1339`; the approved empirical run is
+`pps1-gpt-prompts-20260905`. See [current status](STATUS.md) for its execution state.
 
 ## Commands
 
@@ -130,8 +132,7 @@ empirical feature arrays or contacts the provider. Use `--help` for each command
 
 ## Remaining empirical work
 
-No new generation has run in this extension. Selecting the bounded image cap is the current external requirement; these smaller choices fit
-local storage. After approval, freeze and execute the complete grid,
+The 1,920-request grid is authorized and fits local storage. Freeze and execute the complete grid,
 audit and measure it, inspect the full comparison report, and document any service drift or
 missingness before treating the results as suitable for a paper. The previous 160 OAuth images
 remain the only empirical GPT Image sample until then.

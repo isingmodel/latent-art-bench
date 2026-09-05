@@ -2,10 +2,11 @@
 
 ## Active goal: repeated GPT Image prompt study
 
-**Execution blocked on the user's image cap.** The same unresolved choice persisted across three
-goal turns. Implementation and offline validation are complete; no generation freeze, empirical
-request, response store or new-image analysis exists. Resume after the user selects the total cap;
-record that choice in the config and commit the exact inputs before preparing a new run.
+**Execution authorized: 1,920 total new images.** On 2026-09-05 the user explicitly replied
+“1,920 is okay.” The approved config fixes four complete repetitions across both aliases and all
+three prompt methods. Implementation and offline validation are complete. The next action is to
+commit these authorized inputs, freeze `pps1-gpt-prompts-20260905`, and execute its registered grid.
+No request has been sent in this extension at this pre-freeze checkpoint.
 
 The user requested additional `gpt-image-1`/`gpt-image-2` images, alternative prompt methods and
 paper-ready generated-versus-original feature-distance analysis. The new
@@ -20,10 +21,11 @@ paper-ready generated-versus-original feature-distance analysis. The new
   three prompt methods within matched scene/alias/condition triplets and reports finite energy
   differences plus all 48 two-sided randomization p-values with Holm adjustment. It provides no
   population distance confidence intervals and states the sharp-null/no-interference assumptions.
-- Proposed choices are 480/960/1,920 total new images (16/32/64 per cell), roughly 3.1/6.3/12.5 serial
-  hours at prior speed. Each fits current local storage. The proposed config uses 1,920 but has
-  approved request ceiling zero while the user's cap preference is pending. No new image request
-  or feature extraction has run. The earlier large-grid interval proposal is superseded.
+- The approved ceiling is 1,920 total new requests: 960 per alias and 64 per alias/method/condition.
+  This is roughly 12.5 serial hours at prior speed; actual service speed and quota remain unknown.
+  Local storage checks pass, with a 12 GiB runtime ceiling and 5 GiB free-space reserve. The earlier
+  large-grid interval proposal is superseded. No additional probes, rerolls or paid fallback are
+  included in the authorization.
 - Small-study development and unseen-seed validation completed at 2,000 trials per null cell.
   All three sample counts satisfy the prespecified synthetic criterion. Maximum validation
   family-wise false rejection was 0.029/0.0385/0.045; Wilson 95% upper bounds stay below 0.065.

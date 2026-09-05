@@ -81,9 +81,10 @@ bytes.
 
 ## Active prompt-study boundary
 
-The bounded prompt extension uses `research_workspace/painter_prompt_study_v1/`. Its proposed
-480/960/1,920-image grids fit local storage. No new empirical response bytes exist until generation
-begins; once created, their compression, failure status or ignored path does not make them disposable.
+The bounded prompt extension uses `research_workspace/painter_prompt_study_v1/`. The user approved
+1,920 total new images for `pps1-gpt-prompts-20260905`; its resource checks pass on local storage.
+New empirical response bytes will be retained there when generation begins. Their compression,
+failure status or ignored path does not make them disposable.
 
 ## Completed source-study boundary
 

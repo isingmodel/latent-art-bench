@@ -19,12 +19,12 @@ identities.
 
 - [Repeated generation, prompt methods, sample-size planning and commands](PROMPT_STUDY_WORKFLOW.md)
 - [Prospective repeated-prompt protocol](../studies/painter_prompt_study_v1/PROTOCOL.md)
-- [Proposed resource configuration](../configs/painter_prompt_study_v1/study.json)
+- [Approved 1,920-request configuration](../configs/painter_prompt_study_v1/study.json)
 - [Active randomization qualification](../data/manifests/painter_prompt_study_v1/pps1-randomization-20260905/decision.json)
 - [Superseded interval-development calibration](../data/manifests/painter_prompt_study_v1/pps1-calibration-20260905/decision.json)
 
-New generation is pending the user's bounded image cap (480/960/1,920 total). Existing evidence below
-remains sealed.
+The user approved 1,920 total new images on 2026-09-05. Preparation and execution use the disjoint
+`pps1-gpt-prompts-20260905` run. Existing evidence below remains sealed.
 
 ## Completed continuation: Painter Feature Generation v2
 

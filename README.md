@@ -15,9 +15,10 @@ Full-precision JSON and CSV exports accompany the report.
 
 The active extension is [repeated GPT Image generation with three prompt methods](docs/PROMPT_STUDY_WORKFLOW.md).
 It adds a prospectively fixed request grid, calibrated primary prompt contrasts, resumable
-generation and measurement, full outcome accounting, and comparison reports. The proposed
-1,920-image design awaits the preferred cap (480/960/1,920 images); **no new images have
-been generated in this extension**. The counts below describe the completed existing-data report.
+generation and measurement, full outcome accounting, and comparison reports. The user approved
+**1,920 total new images** on 2026-09-05: 960 per alias, three methods and four repetitions.
+The run is being prepared; see [current status](docs/STATUS.md) for execution state. The counts
+below describe the completed existing-data report.
 
 - **Reference:** 649 measured confirmation paintings, from the existing 1,193-work frame.
 - **Generated images:** 2,000 SD-Turbo outputs and 160 GPT Image service outputs.
