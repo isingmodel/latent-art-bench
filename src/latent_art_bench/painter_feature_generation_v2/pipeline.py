@@ -64,6 +64,7 @@ def prepare(
         Path("uv.lock"),
         Path("pyproject.toml"),
         Path("src/latent_art_bench/io.py"),
+        Path("src/latent_art_bench/painter_feature_generation_v1/panel.py"),
     ]
     paths += [
         Path("studies/painter_feature_generation_v2") / f"PROTOCOL_1.{i}.md" for i in (1, 2, 3)

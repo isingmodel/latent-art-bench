@@ -422,6 +422,17 @@ def execute(root: Path, method_id: str) -> dict:
             Path("src/latent_art_bench/painter_feature_generation_v2/report.py"),
         ],
     )
+    paths += [
+        (output / name).relative_to(root)
+        for name in (
+            "method_freeze.json",
+            "confirmation_opening.json",
+            "access_events.jsonl",
+            "development_receipt.json",
+            "qualification_receipt.json",
+            "confirmation_receipt.json",
+        )
+    ]
     for experiment in frozen["experiment_ids"]:
         path = output / "experiments" / experiment / "analysis.json"
         if path.exists():
