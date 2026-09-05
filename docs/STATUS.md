@@ -33,8 +33,12 @@ Current v2 state:
   thumbnail dimensions. All evidence is retained, and none is spliced into the successor.
 - [Acquisition correction 1.3](../studies/painter_feature_generation_v2/PROTOCOL_1.3.md) recognizes
   Wikimedia's documented `thumb.wikimedia.org` migration and larger standard-size thumbnails.
-  The complete disjoint `pfg2-renderings-r2-20260905` acquisition is running on the same work frame.
-  Active feature extraction has not begun.
+  The complete disjoint `pfg2-renderings-r2-20260905` acquisition is terminal: 1,185 acquired,
+  six below the fixed 1,024-pixel floor and two unsupported formats. Acquired roles: 221 new
+  development, 91 historical development, 220 qualification and 653 confirmation.
+- Shared method `pfg2-method-20260905` was frozen at 02:29 UTC, bound to clean committed code,
+  protocols, calibration and both generation freezes. Development measurement is running;
+  confirmation remains closed until qualification and both generation terminal outputs are committed.
 - The current Codex credentials work. The old port-10531 proxy predates its source update and
   returns an expired-token error. A separate current-source instance on port 10532 authenticated
   and completed the two-request access experiment without restarting the original server.
@@ -46,8 +50,9 @@ Current v2 state:
   all 16 templates and five conditions, one scheduled repetition, no seeds or rerolls. Actual
   returned settings are retained under an explicitly service-level estimand, not asserted verified
   model snapshots. Its finite-population comparisons will be descriptive, without repetition CIs.
-- No manuscript is being prepared. The shared measurement, calibration, robustness and empirical
-  report integration are being completed before any active feature or confirmation opening.
+- No manuscript is being prepared. Shared measurement, finite comparisons, repeated-block analysis,
+  full-population crop sensitivity and the Markdown report renderer are implemented and tested.
+  The frozen analysis is now being executed; no active result is used to retune it.
 - The prespecified synthetic calibration completed 100 trials in each of three scenarios.
   Joint nondegenerate-endpoint coverage was 1.00 / 0.86 / 0.96 (null / shift / dispersion),
   with 48 zero-variance null contrasts lacking intervals. Nominal 95% intervals will therefore

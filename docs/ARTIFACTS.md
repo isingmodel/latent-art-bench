@@ -9,7 +9,8 @@ tracked as evidence and which exist nowhere else.
 Preserve and review normally:
 
 - Painter Feature Generation v2 protocols, source, request freezes, frame, ledgers, terminal
-  receipts, response diagnostics, and available-model analysis report; v2 access experiments do
+  receipts, shared method freeze, feature/scaling records, calibration, crop diagnostics,
+  response diagnostics, and available-model analysis reports; v2 access experiments do
   not replace or rewrite earlier terminal evidence;
 - source, tests, configs, documentation, and compact reports; and
 - Painter Feature Generation v1 protocols (2.1 canonical; 2.0 frozen at its path), R0 freezes,
