@@ -19,9 +19,9 @@ from latent_art_bench.painter_feature_generation_v2.artifacts import (
     MANIFESTS,
     PROTOCOL,
     WORKSPACE,
-    append_event,
     bindings,
     digest,
+    events,
     identifier,
     publish,
     stage_lock,
@@ -136,6 +136,25 @@ def _append_row(path: Path, row: dict) -> None:
         handle.write(canonical_json(row) + "\n")
         handle.flush()
         os.fsync(handle.fileno())
+
+
+def _access_writer(path: Path):
+    """Verify the chain once while holding the method's exclusive measurement lock."""
+    history = events(path)
+    sequence = len(history)
+    previous = history[-1]["event_sha256"] if history else None
+
+    def append(payload: dict) -> None:
+        nonlocal sequence, previous
+        row = dict(
+            payload, sequence=sequence, previous_sha256=previous, at_utc=utc_now().isoformat()
+        )
+        row["event_sha256"] = digest(row)
+        _append_row(path, row)
+        previous = row["event_sha256"]
+        sequence += 1
+
+    return append
 
 
 def measure_one(item: dict, short_side: int, crop_fraction: float = 0.0) -> dict:
@@ -299,6 +318,7 @@ def _measure(root: Path, method_id: str, stage: str, experiment_id: str | None =
         raise ValueError("measurement population or prior IDs changed")
     if not population:
         raise ValueError("no acquired images in this frozen role")
+    append_access = _access_writer(ledger)
 
     def pending():
         for item in population:
@@ -308,8 +328,7 @@ def _measure(root: Path, method_id: str, stage: str, experiment_id: str | None =
                 continue
             path = (root / item["raw_path"]).resolve()
             path.relative_to((root / WORKSPACE).resolve())
-            append_event(
-                ledger,
+            append_access(
                 dict(
                     kind="feature_read",
                     stage=stage,

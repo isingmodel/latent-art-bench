@@ -57,8 +57,8 @@ Canonical frame: `data/manifests/painter_feature_generation_v2/pfg2-frame-202609
 CLI: `uv run --locked --extra analysis --extra learned latent-art-bench paper-study -- --help`.
 Access CLI: `latent-art-bench model-assessment --help`; v2 audit: `latent-art-bench paper-study audit`.
 
-Latest complete-suite validation: Ruff passed; 332 offline tests passed; v1 audit 2,902 checks
-and v2 audit 4,607 checks, both with zero unacknowledged failures. The v2 count grows with
+Latest complete-suite validation: Ruff passed; 333 offline tests passed; v1 audit 2,902 checks
+and v2 audit 4,869 checks, both with zero unacknowledged failures. The v2 count grows with
 running ledgers and is not their terminal certificate. The two historical v1 acknowledgements
 remain unchanged.
 

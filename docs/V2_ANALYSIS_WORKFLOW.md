@@ -41,6 +41,9 @@ One OS lock serializes measurement stages. Three frozen worker threads perform t
 calculations, while the main writer preserves registered record order. Interrupted nonterminal
 measurement can continue from already recorded rows with unchanged inputs; a terminal stage
 cannot run again. No image-generation request is rerolled by measurement resumption.
+The measurement writer verifies the existing access chain once under the lock, then appends the
+same sequence/hash format with an fsync per event; it does not reread the entire growing chain
+for each image. The read-only audit independently verifies the complete chain afterward.
 
 ## Commands
 

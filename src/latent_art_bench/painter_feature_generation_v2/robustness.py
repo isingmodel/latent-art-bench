@@ -14,7 +14,6 @@ from latent_art_bench.painter_feature_generation_v2 import features, statistics
 from latent_art_bench.painter_feature_generation_v2.artifacts import (
     MANIFESTS,
     WORKSPACE,
-    append_event,
     bindings,
     identifier,
     publish,
@@ -26,7 +25,11 @@ from latent_art_bench.painter_feature_generation_v2.empirical import (
     generated_groups,
     load_stage,
 )
-from latent_art_bench.painter_feature_generation_v2.pipeline import _append_row, measure_one
+from latent_art_bench.painter_feature_generation_v2.pipeline import (
+    _access_writer,
+    _append_row,
+    measure_one,
+)
 
 
 def paired_changes(uncropped: list[dict], cropped: list[dict], scaler: dict) -> dict:
@@ -207,6 +210,7 @@ def _execute(root: Path, method_id: str) -> dict:
         for name in ("method_freeze.json", "confirmation_opening.json")
     ]
     output.mkdir(parents=True, exist_ok=True)
+    append_access = _access_writer(base / "access_events.jsonl")
     all_rows = {}
     for stage, crop in (("uncropped", 0.0), ("cropped", 0.01)):
         if (output / f"{stage}_receipt.json").exists():
@@ -227,8 +231,7 @@ def _execute(root: Path, method_id: str) -> dict:
                     continue
                 raw = (root / item["raw_path"]).resolve()
                 raw.relative_to((root / WORKSPACE).resolve())
-                append_event(
-                    base / "access_events.jsonl",
+                append_access(
                     dict(
                         kind="feature_read",
                         stage=f"robustness_{stage}",

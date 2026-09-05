@@ -4,7 +4,12 @@ import pytest
 
 from latent_art_bench.io import hash_file
 from latent_art_bench.painter_feature_generation_v2 import pipeline
-from latent_art_bench.painter_feature_generation_v2.artifacts import MANIFESTS, publish
+from latent_art_bench.painter_feature_generation_v2.artifacts import (
+    MANIFESTS,
+    append_event,
+    events,
+    publish,
+)
 
 
 def fixture(tmp_path):
@@ -97,3 +102,19 @@ def test_method_requires_committed_inputs(tmp_path):
     (tmp_path / path).write_text("fixture")
     with pytest.raises(ValueError, match="commit the exact"):
         pipeline._committed(tmp_path, [path])
+
+
+def test_single_writer_access_log_matches_shared_chain_contract_and_resumes(tmp_path):
+    path = tmp_path / "access_events.jsonl"
+    append_event(path, dict(kind="feature_read", image_id="prior"))
+    first_bytes = path.read_bytes()
+    writer = pipeline._access_writer(path)
+    writer(dict(kind="feature_read", image_id="next"))
+    writer(dict(kind="feature_read", image_id="third"))
+    assert path.read_bytes().startswith(first_bytes)
+    assert [r["image_id"] for r in events(path)] == ["prior", "next", "third"]
+    pipeline._access_writer(path)(dict(kind="feature_read", image_id="resumed"))
+    assert len(events(path)) == 4
+    path.write_text(path.read_text().replace("prior", "changed"))
+    with pytest.raises(ValueError, match="broken event chain"):
+        pipeline._access_writer(path)
