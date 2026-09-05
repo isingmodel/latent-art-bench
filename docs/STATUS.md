@@ -52,7 +52,10 @@ Current v2 state:
   responses report quality low with no model snapshot; sizes vary, mostly around 1400×1120,
   rather than the requested 1024-square / medium. Its service-level comparisons are descriptive.
 - Confirmation was opened once at the recorded receipt, after both generation grids and all
-  prerequisites were committed. Confirmation measurement is running under the unchanged method.
+  prerequisites were committed. Its terminal reference contains 649 measured works: Monet 297,
+  Sisley 106, Pissarro 141, Cézanne 105. Three unprofiled non-RGB images and one nonopaque-alpha
+  image failed normalization; all are retained. Generated-image measurement, the fixed comparisons,
+  and complete paired crop sensitivity are running sequentially under the unchanged method.
 - No manuscript is being prepared. Shared measurement, finite comparisons, repeated-block analysis,
   full-population crop sensitivity and the Markdown report renderer are implemented and tested.
   The frozen analysis is now being executed; no active result is used to retune it.
