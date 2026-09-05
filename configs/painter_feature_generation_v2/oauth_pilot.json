@@ -1,0 +1,19 @@
+{
+  "schema_version": "pfg-v2-oauth-pilot/1.0",
+  "base_url": "http://127.0.0.1:10532",
+  "aliases": ["gpt-image-1", "gpt-image-2"],
+  "repetitions": 1,
+  "maximum_requests": 160,
+  "size": "1024x1024",
+  "quality": "medium",
+  "output_format": "png",
+  "background": "opaque",
+  "minimum_decoded_short_side": 512,
+  "minimum_start_interval_seconds": 15,
+  "timeout_seconds": 240,
+  "maximum_response_bytes": 67108864,
+  "reserve_disk_bytes": 5368709120,
+  "order_salt": "pfg-v2-oauth-pilot-20260905-before-feature-opening",
+  "analysis_kind": "finite_descriptive_service_alias_comparison",
+  "predecessor_access_id": "pfg2-image-access-20260905"
+}
