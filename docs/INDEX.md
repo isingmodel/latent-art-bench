@@ -32,11 +32,15 @@ The user approved 1,920 total new images on 2026-09-05. Preparation and executio
 - [Missingness supplement, qualification and reproducibility commands](PROMPT_SUPPLEMENT_WORKFLOW.md)
 - [Supplement scientific contract](../studies/painter_prompt_supplement_v1/PROTOCOL.md)
 - [Fixed supplement configuration](../configs/painter_prompt_supplement_v1/study.json)
+- [Published supplement qualification](../data/manifests/painter_prompt_supplement_v1/ppss1-qualification-20260905/decision.json)
+- [Committed supplement design freeze](../data/manifests/painter_prompt_supplement_v1/ppss1-missingness-20260905/design_freeze.json)
 
 Specified after source request sequence `415` was refused and before new feature measurement.
 The source cap remains 1,920 requests, its incomplete-grid primary remains unavailable, and the
-supplement adds no provider calls. Commit-bound qualification publication and freeze are pending;
-[current status](STATUS.md) records later checkpoints.
+supplement adds no provider calls. Qualification passed and the design freeze was committed before
+source measurement. The empirical report remains pending; a separate worker waits for the original
+study's completion before building and verifying it. [Current status](STATUS.md) records execution
+checkpoints.
 
 ## Completed continuation: Painter Feature Generation v2
 

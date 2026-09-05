@@ -8,10 +8,12 @@ tracked as evidence and which exist nowhere else.
 
 Preserve and review normally:
 
-- The separate `painter_prompt_supplement_v1` contract, configuration, source/tests, qualification
-  and design freeze. Its own manifest namespace retains the observed source generation-prefix
-  snapshot and input hashes; its report namespace retains numeric tables, plots and receipts.
-  These describe an explicitly post-registration supplement and never replace source evidence.
+- The separate `painter_prompt_supplement_v1` contract, configuration, source/tests, published
+  qualification and committed design freeze. Its manifest namespace records the observed source
+  generation-prefix length and hash, input bindings and subsequent report receipts. Preserve the
+  source generation ledger containing that bound prefix while later events append. Numeric tables
+  and plots belong to its report namespace once published. These describe an explicitly
+  post-registration supplement and never replace source evidence.
 
 - The new `painter_prompt_study_v1` source/tests, protocol, configuration and synthetic calibration
   records. Prospective freezes and compact ledgers/measurements belong to its own manifest namespace;

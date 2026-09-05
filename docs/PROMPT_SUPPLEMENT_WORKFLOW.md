@@ -40,11 +40,21 @@ There are **no confidence intervals**, equivalence claims or verified underlying
 Requested OAuth aliases, image geometry, source capture and subject content limit interpretation.
 Reviews are maintainer-run LLM subagent reviews, not institutionally independent reviews.
 
-## Qualification and preparation
+## Published qualification and preparation — 2026-09-06
 
-Current state: retained synthetic development and validation runs pass their numerical checks.
-**Commit-bound qualification publication and the supplement freeze are still pending.** No
-empirical supplement result is complete. See [current status](STATUS.md) for later checkpoints.
+**Qualification passed and the supplement design is frozen.** No empirical supplement result
+has been published yet. See [current status](STATUS.md) for execution checkpoints.
+
+| Published record | Identity | Commit |
+| --- | --- | --- |
+| Exact supplement implementation and tests | `painter_prompt_supplement_v1` | `b029031` |
+| Passing qualification | `ppss1-qualification-20260905` | `ea6ee7b` |
+| Supplement design freeze | `ppss1-missingness-20260905` | `f877cf0` |
+
+All eight development and eight unseen-validation valid-null cells passed. The maximum observed
+family-wise rejection rates were `0.0475` and `0.043`; maximum Wilson 95% upper bounds were
+`0.0577209072` and `0.0528011087`, respectively. Published qualification records are identical to
+the retained fixed-seed outputs, and full numerical replay passed.
 
 Qualification includes independent weighted-energy and counterfactual assignment oracles, then
 2,000 trials in each of eight prescribed valid-null cells for **each** of development and unseen
@@ -53,32 +63,46 @@ at most `0.065`. Retain the separate method-dependent-availability stress result
 the threshold, cases or seeds after seeing results. Synthetic qualification does not establish
 the remote service's null assumptions or make the supplement preregistered.
 
-Run from the repository root. Keep both extras to preserve the shared environment. Commit the
-exact supplement source, tests, contract and configuration before qualification:
+The `qualify ppss1-qualification-20260905` and `prepare ppss1-missingness-20260905` creation
+commands have already been executed. These immutable IDs reject reuse. The
+[design freeze](../data/manifests/painter_prompt_supplement_v1/ppss1-missingness-20260905/design_freeze.json)
+was prepared at **2026-09-05 15:06:53 UTC** and committed at **15:06:57 UTC**, while source
+measurement was absent. It binds 83 inputs and the observed generation-ledger prefix of 579
+generated outcomes and one refusal. These counts describe that checkpoint, not current progress.
+The supplement audit passed, and all 62 original generation-freeze inputs remain unchanged.
+
+Publication must remain strictly earlier than the original measurement stage start; verification
+checks the committed freeze and the measurement event chain. The absence of a measurement ledger
+records a stage boundary, not institutional blinding. The qualification and freeze cannot be
+backdated, edited or regenerated.
+
+The current records can be checked now from the repository root. Keep both extras to preserve
+the shared environment:
 
 ```bash
-uv run --locked --extra analysis --extra learned python -m latent_art_bench.painter_prompt_supplement_v1.cli qualify ppss1-qualification-20260905
 uv run --locked --extra analysis --extra learned python -m latent_art_bench.painter_prompt_supplement_v1.cli check-qualification ppss1-qualification-20260905
+uv run --locked --extra analysis --extra learned python -m latent_art_bench.painter_prompt_supplement_v1.cli audit
 ```
 
-After committing the passing qualification record, prepare the proposed supplement ID:
-
-```bash
-uv run --locked --extra analysis --extra learned python -m latent_art_bench.painter_prompt_supplement_v1.cli prepare ppss1-missingness-20260905
-```
-
-Commit the resulting `design_freeze.json` **before the original measurement ledger exists**.
-It binds the source generation freeze, the observed generation-ledger prefix, supplement inputs
-and qualification. If that timing gate is missed, stop; do not backdate or relax it. The absence
-of a measurement ledger records a stage boundary, not institutional blinding.
+Ruff and all **722 offline tests** passed. This includes a full synthetic 1,920-disposition
+numeric build and byte-for-byte replay of all 18 report files. Historical v1/v2 audits passed
+2,902/15,809 checks. Synthetic validation does not constitute an empirical supplement result.
 
 ## Build and reproduce
 
-Wait for the original companion worker to finish its terminal measurement, unavailable-primary
-analysis, report and checks. Then run the separate supplement commands:
+A separate completion worker is already running. Its process identity is recorded in
+`tmp/ppss1-missingness-20260905/completion/worker.json` (started as PID `1571`). It waits for
+`tmp/pps1-gpt-prompts-20260905/completion/completed.json`, which records the original companion's
+successful terminal measurement, unavailable-primary analysis, report and checks. It then runs
+supplement `build ppss1-missingness-20260905`, `check ppss1-missingness-20260905` and `audit` in
+order, with logs under its own completion directory. It stops on failure and never generates
+images, retries requests or extracts features. Do not start a second supplement writer while it
+is alive. The original workers continue unchanged.
+
+**The empirical report remains pending.** Once the worker has published it, verify its numbers
+and all report bytes with:
 
 ```bash
-uv run --locked --extra analysis --extra learned python -m latent_art_bench.painter_prompt_supplement_v1.cli build ppss1-missingness-20260905
 uv run --locked --extra analysis --extra learned python -m latent_art_bench.painter_prompt_supplement_v1.cli check ppss1-missingness-20260905
 uv run --locked --extra analysis --extra learned python -m latent_art_bench.painter_prompt_supplement_v1.cli audit
 ```

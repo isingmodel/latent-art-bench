@@ -1,4 +1,4 @@
-# Current status and research boundary — 2026-09-05
+# Current status and research boundary — 2026-09-06
 
 ## Active goal: repeated GPT Image prompt study
 
@@ -28,15 +28,32 @@ common-pair prompt tests under a joint availability-and-feature sharp null with 
 Holm adjustment and no confidence intervals. An unavailable original primary stays unavailable.
 The aliases remain unverified service labels; reviews are maintainer-run LLM subagent reviews.
 
-Retained supplement synthetic development and validation runs pass the fixed numerical checks:
-all eight valid-null cells in each run must have Wilson 95% upper bounds at most 0.065, with no
-threshold or seed tuning. **Commit-bound qualification publication and supplement freeze are
-pending**, using proposed IDs `ppss1-qualification-20260905` and `ppss1-missingness-20260905`.
-The supplement freeze must be committed before source measurement starts. No empirical
-supplement result has been published. The approved source cap remains 1,920 requests.
+**The supplement qualification and design freeze are published and committed.** Source and tests
+are bound to `b029031`; qualification `ppss1-qualification-20260905` was committed at `ea6ee7b`.
+All eight development and eight unseen-validation valid-null cells passed the fixed Wilson-upper
+criterion of 0.065. Maximum observed family-wise rejection was 0.0475 / 0.043, with maximum Wilson
+95% upper bounds 0.0577209072 / 0.0528011087 (development / validation). Published records match the
+retained fixed-seed outputs, and full numerical replay passed; no thresholds or seeds were tuned.
+
+The [supplement freeze](../data/manifests/painter_prompt_supplement_v1/ppss1-missingness-20260905/design_freeze.json)
+was created at **2026-09-05 15:06:53 UTC** and committed at **15:06:57 UTC** in `f877cf0`, before
+the source measurement ledger existed. Its bound generation-prefix checkpoint contains 579
+generated outcomes and one refusal; these are freeze-time counts, not live progress. The
+supplement audit passed with 83 bound inputs, and all 62 original generation-freeze inputs remain
+unchanged. Its immutable IDs must not be reused for qualification or preparation.
+
+**The empirical supplement report is still pending.** A separate completion worker was started
+as PID `1571`; its identity and logs are recorded under
+`tmp/ppss1-missingness-20260905/completion/`, including `worker.json`. It waits for the original
+companion's `completed.json`, then runs supplement `build`, `check` and `audit` in order. It stops
+on failure and makes no new provider requests. Do not launch a competing supplement writer while
+it is alive. The original generation and companion workers continue unchanged, and the approved
+source cap remains 1,920 requests.
+
 Supplement validation passed Ruff and all **722 offline tests**, including a full synthetic
 1,920-disposition numeric build and byte-for-byte replay of all 18 report files. Historical
-v1/v2 audits passed 2,902/15,809 checks; all 62 original generation-freeze inputs remain unchanged.
+v1/v2 audits passed 2,902/15,809 checks. These checks qualify the implementation; they are not an
+empirical supplement result.
 
 The user requested additional `gpt-image-1`/`gpt-image-2` images, alternative prompt methods and
 paper-ready generated-versus-original feature-distance analysis. The new

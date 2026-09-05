@@ -11,7 +11,7 @@ reference-painter matrices, artist-free comparisons, painter specificity, featur
 and an exploratory comparison using 16 generated images per condition in each recorded block.
 Full-precision JSON and CSV exports accompany the report.
 
-## Current status — 2026-09-05
+## Current status — 2026-09-06
 
 The active extension is [repeated GPT Image generation with three prompt methods](docs/PROMPT_STUDY_WORKFLOW.md).
 It uses a prospectively fixed request grid, resumable generation and measurement, full outcome
@@ -23,9 +23,11 @@ original workers are unchanged; no refused slot is retried or replaced.
 A separate [post-registration supplement](docs/PROMPT_SUPPLEMENT_WORKFLOW.md) was specified after
 the refusal and before new feature measurement. It reports equal-scene-weighted available-output
 distances and 48 exploratory matched-pair tests of a joint availability-and-feature sharp null,
-with Holm adjustment and no confidence intervals. Commit-bound qualification publication and
-freeze are pending. See [current status](docs/STATUS.md) for execution state. The counts below
-describe the completed existing-data report.
+with Holm adjustment and no confidence intervals. Its qualification passed and its design freeze
+was committed before source measurement. A separate worker waits for the original study's
+completion, then builds and checks the supplement. **The empirical supplement report is still
+pending.** See [current status](docs/STATUS.md) for execution state. The counts below describe
+the completed existing-data report.
 
 - **Reference:** 649 measured confirmation paintings, from the existing 1,193-work frame.
 - **Generated images:** 2,000 SD-Turbo outputs and 160 GPT Image service outputs.
