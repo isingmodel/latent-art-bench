@@ -1,0 +1,13 @@
+{
+  "completed_at_utc": "2026-09-05T00:55:11.788297+00:00",
+  "ledger_sha256": "f2574198e935f856f207d945895006dfbda3b4292d52fd0ce6bab7f53f4ef96c",
+  "metadata_requests": 191,
+  "renderings_sha256": "c793456269d8d2141e4ab852c42e34e1ad85df70a77fa38fdd1c43b3f942001b",
+  "request_statuses": {
+    "success": 191
+  },
+  "run_id": "pfg2-renderings-20260905",
+  "statuses": {
+    "rendering_registered": 1193
+  }
+}

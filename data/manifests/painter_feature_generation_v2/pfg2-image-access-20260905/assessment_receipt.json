@@ -1,0 +1,78 @@
+{
+  "assessment_freeze_sha256": "07df01964178ae03cb888c91202378f3935dc14c521543f10de4deb8d4c1a1e1",
+  "authenticated_catalog": true,
+  "blocker": null,
+  "catalog": {
+    "headers": {
+      "content-type": "application/json; charset=utf-8",
+      "date": "Sat, 05 Sep 2026 01:07:54 GMT"
+    },
+    "http_status": 200,
+    "kind": "response",
+    "latency_seconds": 0.33384291699621826,
+    "raw_path": "research_workspace/painter_feature_generation_v2/pfg2-image-access-20260905/raw/108e7a8f3339fb7649c2704a58b4769608dd058e7527232e5a963428f375c5a4",
+    "raw_sha256": "108e7a8f3339fb7649c2704a58b4769608dd058e7527232e5a963428f375c5a4",
+    "request_id": "catalog"
+  },
+  "catalog_is_not_image_access_proof": true,
+  "completed_at_utc": "2026-09-05T01:08:22.802693+00:00",
+  "health": {
+    "headers": {
+      "content-type": "application/json; charset=utf-8",
+      "date": "Sat, 05 Sep 2026 01:07:54 GMT"
+    },
+    "http_status": 200,
+    "kind": "response",
+    "latency_seconds": 0.006710832996759564,
+    "raw_path": "research_workspace/painter_feature_generation_v2/pfg2-image-access-20260905/raw/c240dcf0f50089d68d422ff7571b453d787710c2775f13e97b9980fe6bd7fe14",
+    "raw_sha256": "c240dcf0f50089d68d422ff7571b453d787710c2775f13e97b9980fe6bd7fe14",
+    "request_id": "health"
+  },
+  "image_attempts": 2,
+  "images_generated": 0,
+  "ledger_sha256": "1292494b6724a8e3c642c451665b6c15b27bc874bae8eea49d51a9c265dadd65",
+  "outcomes": [
+    {
+      "attempted": true,
+      "blocker": null,
+      "error_kind": "ValueError",
+      "model": "gpt-image-1",
+      "request_id": "access-gpt-image-1",
+      "response": {
+        "headers": {
+          "content-type": "application/json",
+          "date": "Sat, 05 Sep 2026 01:08:09 GMT"
+        },
+        "http_status": 200,
+        "kind": "response",
+        "latency_seconds": 14.016352667007595,
+        "raw_path": "research_workspace/painter_feature_generation_v2/pfg2-image-access-20260905/raw/8869f8b0d24fb5aabe69defa76c0f3d80d36327ed3e10db77ba929465c64c045",
+        "raw_sha256": "8869f8b0d24fb5aabe69defa76c0f3d80d36327ed3e10db77ba929465c64c045",
+        "request_id": "access-gpt-image-1"
+      },
+      "status": "invalid_output"
+    },
+    {
+      "attempted": true,
+      "blocker": null,
+      "error_kind": "ValueError",
+      "model": "gpt-image-2",
+      "request_id": "access-gpt-image-2",
+      "response": {
+        "headers": {
+          "content-type": "application/json",
+          "date": "Sat, 05 Sep 2026 01:08:22 GMT"
+        },
+        "http_status": 200,
+        "kind": "response",
+        "latency_seconds": 13.538890208001249,
+        "raw_path": "research_workspace/painter_feature_generation_v2/pfg2-image-access-20260905/raw/d79eebe2411529fb7718803823dcfea7e29b2c310532d571d7af1e6e26867cad",
+        "raw_sha256": "d79eebe2411529fb7718803823dcfea7e29b2c310532d571d7af1e6e26867cad",
+        "request_id": "access-gpt-image-2"
+      },
+      "status": "invalid_output"
+    }
+  ],
+  "run_id": "pfg2-image-access-20260905",
+  "scope": "access_only_not_artistic_quality_or_fidelity"
+}
