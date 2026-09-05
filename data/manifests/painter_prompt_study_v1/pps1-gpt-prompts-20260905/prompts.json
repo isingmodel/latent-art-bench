@@ -1,0 +1,1977 @@
+{
+  "conditions": [
+    "claude_monet",
+    "alfred_sisley",
+    "camille_pissarro",
+    "paul_cezanne",
+    "artist_free"
+  ],
+  "construction_scope": "All original scene sentences remain unchanged. No reference images, artist-specific visual descriptors, measured feature targets, new subject objects, scene selection, or adaptive prompt optimization are used. Negative prompts and render settings are separate frozen transport fields and are never appended here.",
+  "counts": {
+    "conditions_per_method": 5,
+    "distinct_condition_cells": 15,
+    "methods": 3,
+    "prompts_per_block_per_service": 240,
+    "templates": 16,
+    "total_strings": 240
+  },
+  "exposure_disclosure": "The painters, original prompt census, 31-feature method, and earlier generated/reference numeric results were already exposed before this study. The new wording is a prospectively fixed text intervention for new generation draws against an already exposed reference population, not an unexposed confirmation design. No new outputs or artist-specific measured feature targets enter prompt construction.",
+  "method_ids": [
+    "by_name",
+    "style_instruction",
+    "style_aspects"
+  ],
+  "methods": [
+    {
+      "construction": "Use the baseline named or artist-free prompt verbatim.",
+      "control_rationale": "The original artist-free condition omits only the painter-name insertion, retaining the same medium and scene.",
+      "label": "Original by-name prompt",
+      "method_id": "by_name"
+    },
+    {
+      "artist_free_suffix": " Render this scene in a coherent painting style.",
+      "construction": "Append STYLE_NAMED or STYLE_FREE to the complete unchanged artist-free scene sentence.",
+      "control_rationale": "Both conditions explicitly request a painting style; only the named condition requests a particular painter. This control measures the generic instruction effect separately from painter-directed movement.",
+      "label": "Explicit style instruction",
+      "method_id": "style_instruction",
+      "named_suffix": " Render this scene in the painting style of {painter_name}."
+    },
+    {
+      "artist_free_suffix": " Render this scene in a coherent painting style. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "construction": "Append the exact shared ASPECT_INSTRUCTION to style_instruction under both the named and artist-free conditions.",
+      "control_rationale": "The additional aspect instruction is identical for named and artist-free prompts, so its generic effect has a matched control. It specifies no artist-dependent palette, motif, numeric target, or feature value.",
+      "label": "Style instruction with broad visual aspects",
+      "method_id": "style_aspects",
+      "named_suffix": " Render this scene in the painting style of {painter_name}. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene."
+    }
+  ],
+  "prompts": [
+    {
+      "condition": "claude_monet",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Claude Monet of a riverbank landscape, with water organizing the composition.",
+      "prompt_sha256": "16f80da2f108fb5bc2035928d034ebddb1f514e62857f823454e48a0362de690",
+      "scene_group": "water_organized",
+      "template_id": "W1"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Alfred Sisley of a riverbank landscape, with water organizing the composition.",
+      "prompt_sha256": "147e33d939ead7d3ba8439cb57d7c187b6c1e8c67191b769287d0d775d547f4c",
+      "scene_group": "water_organized",
+      "template_id": "W1"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Camille Pissarro of a riverbank landscape, with water organizing the composition.",
+      "prompt_sha256": "2d4f3612a635844a3914da865bf5ed1fa0a915eaec60c089f8fca764c1598f42",
+      "scene_group": "water_organized",
+      "template_id": "W1"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Paul Cézanne of a riverbank landscape, with water organizing the composition.",
+      "prompt_sha256": "9142f5b98a5af108a55c96d2578d4fa75aadd93b4cdb165b712298900e22d97c",
+      "scene_group": "water_organized",
+      "template_id": "W1"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas of a riverbank landscape, with water organizing the composition.",
+      "prompt_sha256": "442ca9553b74bbd5dd33349186be23a3c49a69e4129565ac48a9ec27bb79448c",
+      "scene_group": "water_organized",
+      "template_id": "W1"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Claude Monet of a coastal or harbor landscape, with water as the main spatial element.",
+      "prompt_sha256": "965ba5e0ab99d6badcb3b9d5378c5a233b2dfcef07ed335d501f16a0d75c47c2",
+      "scene_group": "water_organized",
+      "template_id": "W2"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Alfred Sisley of a coastal or harbor landscape, with water as the main spatial element.",
+      "prompt_sha256": "846b01c1147f8b89f276e4fe74fb213d5f0b196765a9f3a2e253948a01c0bae5",
+      "scene_group": "water_organized",
+      "template_id": "W2"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Camille Pissarro of a coastal or harbor landscape, with water as the main spatial element.",
+      "prompt_sha256": "bb11c0eb6f3913b95a6cc93a904a2b66d50635589d3cdd7cfc4d3b112fade880",
+      "scene_group": "water_organized",
+      "template_id": "W2"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Paul Cézanne of a coastal or harbor landscape, with water as the main spatial element.",
+      "prompt_sha256": "d6a44f25feb7dec68f427e8e910ddf8eeb80e08d0cc915ebb92c6bac1c3b4789",
+      "scene_group": "water_organized",
+      "template_id": "W2"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas of a coastal or harbor landscape, with water as the main spatial element.",
+      "prompt_sha256": "3ee9894d81617d9a42edf74eb28aa28c279b471a1f89bf270cb9d203e122419e",
+      "scene_group": "water_organized",
+      "template_id": "W2"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Claude Monet of a canal or lakeside landscape viewed from outdoors.",
+      "prompt_sha256": "385dfec1999865fb4d1cecbba88d2ed6ba70bf64c00990f8b1044d327c86adff",
+      "scene_group": "water_organized",
+      "template_id": "W3"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Alfred Sisley of a canal or lakeside landscape viewed from outdoors.",
+      "prompt_sha256": "11aadf3f21dbf203b293c3d255a758d34bcb0965dda77965095e9bd3a186a1a4",
+      "scene_group": "water_organized",
+      "template_id": "W3"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Camille Pissarro of a canal or lakeside landscape viewed from outdoors.",
+      "prompt_sha256": "25f057ca9a1b50a7a0a70650e657ba7eb1234df580eb963ffe846c5814a9bad6",
+      "scene_group": "water_organized",
+      "template_id": "W3"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Paul Cézanne of a canal or lakeside landscape viewed from outdoors.",
+      "prompt_sha256": "8ccb45f0c18939a3c4094103fd2d45d10243625e6c78ddc9c648491adfb4e118",
+      "scene_group": "water_organized",
+      "template_id": "W3"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas of a canal or lakeside landscape viewed from outdoors.",
+      "prompt_sha256": "bbdfe4caa5484142f68c892ce7678411eee75d897bc90e0df2c719439e32c945",
+      "scene_group": "water_organized",
+      "template_id": "W3"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Claude Monet of an outdoor waterside place, with both land and water visible.",
+      "prompt_sha256": "e6abdb19c69ae2b207eae0710135b4dbb6f395ce9dacf32b33601691b4432980",
+      "scene_group": "water_organized",
+      "template_id": "W4"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Alfred Sisley of an outdoor waterside place, with both land and water visible.",
+      "prompt_sha256": "078e91ea837690f8b75422ce2a51f1fd3298661e1cb155ae817124fe18425a8b",
+      "scene_group": "water_organized",
+      "template_id": "W4"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Camille Pissarro of an outdoor waterside place, with both land and water visible.",
+      "prompt_sha256": "c906b278bcaea38e194675b36c5c4c6400b9d64207e49611fc77d69ad27b4f00",
+      "scene_group": "water_organized",
+      "template_id": "W4"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Paul Cézanne of an outdoor waterside place, with both land and water visible.",
+      "prompt_sha256": "df9ad74ba62c97eab3bf310318358f5ea665a54b57fadbf41c047a43e86e5eac",
+      "scene_group": "water_organized",
+      "template_id": "W4"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas of an outdoor waterside place, with both land and water visible.",
+      "prompt_sha256": "f032ca4a5360ce5983ec5e48850ac61e6163bbf4b501532fd3e8d50c8f6d42dc",
+      "scene_group": "water_organized",
+      "template_id": "W4"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Claude Monet of an outdoor town street, with buildings organizing the composition.",
+      "prompt_sha256": "1c456453e5b45538707985925fc46afbeddab2381703162fc8f70cbe14817ddb",
+      "scene_group": "built_place_organized",
+      "template_id": "B1"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Alfred Sisley of an outdoor town street, with buildings organizing the composition.",
+      "prompt_sha256": "6ce91622c8f45ba6beca5e76d84247c648e9ffaf59faf1e5170eb29fc35924e3",
+      "scene_group": "built_place_organized",
+      "template_id": "B1"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Camille Pissarro of an outdoor town street, with buildings organizing the composition.",
+      "prompt_sha256": "c54ad85a8cd27ea147fa57405c9ac3877cf23642ba67d95bb6d52f4c8d93a722",
+      "scene_group": "built_place_organized",
+      "template_id": "B1"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Paul Cézanne of an outdoor town street, with buildings organizing the composition.",
+      "prompt_sha256": "c6c845f9c0e55dad298cb0472d80902fbf28c6ec3aaad493c3ea1c5af60dc895",
+      "scene_group": "built_place_organized",
+      "template_id": "B1"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas of an outdoor town street, with buildings organizing the composition.",
+      "prompt_sha256": "9f0b46d0eb2de72696ecd9b59cfe6219336573bdaf8a70a65d2adcd13fc8c32c",
+      "scene_group": "built_place_organized",
+      "template_id": "B1"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Claude Monet of a village or settlement viewed from outdoors.",
+      "prompt_sha256": "15e449ad167d7ebebff2754d5a037f0b41c14d5e494720e35ff6afa6d3dfdf1e",
+      "scene_group": "built_place_organized",
+      "template_id": "B2"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Alfred Sisley of a village or settlement viewed from outdoors.",
+      "prompt_sha256": "6fdbcee23cf7666264e0eb719235d92aebc70f8ebb544527e5b59ad759bb1e53",
+      "scene_group": "built_place_organized",
+      "template_id": "B2"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Camille Pissarro of a village or settlement viewed from outdoors.",
+      "prompt_sha256": "9c59a3e80a163192c9c584c4bd1acaa73cf08ecaf849652f2d18a7b03efc7f32",
+      "scene_group": "built_place_organized",
+      "template_id": "B2"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Paul Cézanne of a village or settlement viewed from outdoors.",
+      "prompt_sha256": "97bc464fb5629f7b5228febc1638ffcec083b764782df319427c1909dd27c683",
+      "scene_group": "built_place_organized",
+      "template_id": "B2"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas of a village or settlement viewed from outdoors.",
+      "prompt_sha256": "c2ad0c9ad9dc48d00d22740f005d239baba2bbf2a54e6063bfc29c6d87128cf0",
+      "scene_group": "built_place_organized",
+      "template_id": "B2"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Claude Monet of an outdoor square or built place, with architecture as the main spatial element.",
+      "prompt_sha256": "94dfdfd587d45ee9974b67e9e6c3e3b2a4ece1e86f32a92368e7b7d441de4682",
+      "scene_group": "built_place_organized",
+      "template_id": "B3"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Alfred Sisley of an outdoor square or built place, with architecture as the main spatial element.",
+      "prompt_sha256": "31700992758cba94be0f8d5e98d93e367d492f8a6ad237a00ffc60fe0355b5fc",
+      "scene_group": "built_place_organized",
+      "template_id": "B3"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Camille Pissarro of an outdoor square or built place, with architecture as the main spatial element.",
+      "prompt_sha256": "0c3076d1dc49b95f8ad21901cf8cbab0a62c3ad6a9d17eaa069757790fb9cec2",
+      "scene_group": "built_place_organized",
+      "template_id": "B3"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Paul Cézanne of an outdoor square or built place, with architecture as the main spatial element.",
+      "prompt_sha256": "ed6f0832b1180597a05a70fdbd5d8207194082cc2a3b72559599738bb02b7880",
+      "scene_group": "built_place_organized",
+      "template_id": "B3"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas of an outdoor square or built place, with architecture as the main spatial element.",
+      "prompt_sha256": "a4c8d7c15e97a6332c5bbef1d2f6fa6c5179feafcd0c57d8a13980eb0b9b2d4f",
+      "scene_group": "built_place_organized",
+      "template_id": "B3"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Claude Monet of buildings in an outdoor landscape, with the built place visually dominant.",
+      "prompt_sha256": "c4190ea5fe22569bb911726ac8a2d23eeeeae0c166690c92917c52b32ef1cf52",
+      "scene_group": "built_place_organized",
+      "template_id": "B4"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Alfred Sisley of buildings in an outdoor landscape, with the built place visually dominant.",
+      "prompt_sha256": "87b5708c700d10ab535b703901ec2994059766cf08ca7e2a5eccdd2de7f9d04e",
+      "scene_group": "built_place_organized",
+      "template_id": "B4"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Camille Pissarro of buildings in an outdoor landscape, with the built place visually dominant.",
+      "prompt_sha256": "757d4f415ea28c721dc88eb198bf765cccf2d8d2bbc7e6ba0a59bb9faffd756e",
+      "scene_group": "built_place_organized",
+      "template_id": "B4"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Paul Cézanne of buildings in an outdoor landscape, with the built place visually dominant.",
+      "prompt_sha256": "3503011b319a4646788a4cbf89459d5fa65df9468ec034dca6ae8c9262f3ca35",
+      "scene_group": "built_place_organized",
+      "template_id": "B4"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas of buildings in an outdoor landscape, with the built place visually dominant.",
+      "prompt_sha256": "587934aa666575a852c30531b432b26929a6b81c97c8f3c66b0be525d412a6b8",
+      "scene_group": "built_place_organized",
+      "template_id": "B4"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Claude Monet of a country road passing through an outdoor landscape.",
+      "prompt_sha256": "79c510995f64d3586d0103b542e27b2ffd80ee5552a44296c7df805db2bf5f1e",
+      "scene_group": "route_organized",
+      "template_id": "R1"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Alfred Sisley of a country road passing through an outdoor landscape.",
+      "prompt_sha256": "db6105a8b327f479eb3b88c11cf45ce53a4f389023e07770cf18ebb159865090",
+      "scene_group": "route_organized",
+      "template_id": "R1"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Camille Pissarro of a country road passing through an outdoor landscape.",
+      "prompt_sha256": "128f461390aa662582a0dd28c497507738e3ee6aeffc3a0e526af5244f22faea",
+      "scene_group": "route_organized",
+      "template_id": "R1"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Paul Cézanne of a country road passing through an outdoor landscape.",
+      "prompt_sha256": "f5fde190a5049eb610edc4500408be097afb49e30a886dcae8225a262fb19559",
+      "scene_group": "route_organized",
+      "template_id": "R1"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas of a country road passing through an outdoor landscape.",
+      "prompt_sha256": "e072d20578c446a244b302e881dc1327335bedaa14d05d953ffb86ee683d7f12",
+      "scene_group": "route_organized",
+      "template_id": "R1"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Claude Monet of a path or lane organizing a rural landscape.",
+      "prompt_sha256": "3207f069a31f688eac8deeb98bc425dd4d2da0df5e39163056ff53558260b79f",
+      "scene_group": "route_organized",
+      "template_id": "R2"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Alfred Sisley of a path or lane organizing a rural landscape.",
+      "prompt_sha256": "4419d8db38fe3f7b950e7eda136fb4f8ac66ee51fbfcd24646e6de16251bf222",
+      "scene_group": "route_organized",
+      "template_id": "R2"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Camille Pissarro of a path or lane organizing a rural landscape.",
+      "prompt_sha256": "576149f3012145d0051bc6aac030eb6f5b53b91458ca21ccdfc1c1829f34cf66",
+      "scene_group": "route_organized",
+      "template_id": "R2"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Paul Cézanne of a path or lane organizing a rural landscape.",
+      "prompt_sha256": "3ad4c7606803e8a62e4cb1f6f9e8aaaae6ed47698706cf341066f34778c58351",
+      "scene_group": "route_organized",
+      "template_id": "R2"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas of a path or lane organizing a rural landscape.",
+      "prompt_sha256": "8a4c85c4ed3b94901d0faf10e96e3bfb7462eff900a928a76be975510773aadf",
+      "scene_group": "route_organized",
+      "template_id": "R2"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Claude Monet of an outdoor track receding through fields or trees.",
+      "prompt_sha256": "0343c3f2fc557a7171992d62f8814abb0ebae27e85182ed65a66638a1cd7de94",
+      "scene_group": "route_organized",
+      "template_id": "R3"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Alfred Sisley of an outdoor track receding through fields or trees.",
+      "prompt_sha256": "3145932bb19329b17e8d30b023c0e886a5deb31e8d58a21110c642f373cc771d",
+      "scene_group": "route_organized",
+      "template_id": "R3"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Camille Pissarro of an outdoor track receding through fields or trees.",
+      "prompt_sha256": "d020c5a9f180693461e41db9ab6cf6f03fd1330c5bba7fda2932fe0412dccb6a",
+      "scene_group": "route_organized",
+      "template_id": "R3"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Paul Cézanne of an outdoor track receding through fields or trees.",
+      "prompt_sha256": "e361685fa5ee6b9f6ef053934a60a6a4c9048724c9a4944f894965a7f12c60b3",
+      "scene_group": "route_organized",
+      "template_id": "R3"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas of an outdoor track receding through fields or trees.",
+      "prompt_sha256": "32a5d1bfc4bb0a05c4dc937c94290a281c644202fec32fcae313d2324f9c156a",
+      "scene_group": "route_organized",
+      "template_id": "R3"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Claude Monet of a landscape structured around a visible road or path.",
+      "prompt_sha256": "3fab47897320bcd089cab9df76161d2549a4c752f01561ebd46c10bdc49c9bf6",
+      "scene_group": "route_organized",
+      "template_id": "R4"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Alfred Sisley of a landscape structured around a visible road or path.",
+      "prompt_sha256": "6fd4d26dcc257a5608a50f9c297d6696ab6338af70f5c29c97bd8c1b4eecd38e",
+      "scene_group": "route_organized",
+      "template_id": "R4"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Camille Pissarro of a landscape structured around a visible road or path.",
+      "prompt_sha256": "b58443f2b8d81c4363da2fd20da3c7e9080fb3f59ab7a9c5df3cd39f8a6d4d90",
+      "scene_group": "route_organized",
+      "template_id": "R4"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Paul Cézanne of a landscape structured around a visible road or path.",
+      "prompt_sha256": "2ef127ef358c8b09d46a36aff2fa49c3242b828d6b0be6d26de00d4406989499",
+      "scene_group": "route_organized",
+      "template_id": "R4"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas of a landscape structured around a visible road or path.",
+      "prompt_sha256": "024e715fb32ba006fba4a03718cff873a8330a15f1d8fadeead12eabeeb46bc7",
+      "scene_group": "route_organized",
+      "template_id": "R4"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Claude Monet of open fields and distant land viewed outdoors.",
+      "prompt_sha256": "f3de442c7af9cd88bf0775ee5423b09d87a8c291c3136626106ccd52f98dec5a",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L1"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Alfred Sisley of open fields and distant land viewed outdoors.",
+      "prompt_sha256": "4dd8f8e6b48740a9d967a189834ae1325d3f0d5c241cd0717aff3c8ee70c48fa",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L1"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Camille Pissarro of open fields and distant land viewed outdoors.",
+      "prompt_sha256": "80665de3e716f0af0abe3a63ffd49b253906eb9a8f6b4804a9f64025ae4cb08b",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L1"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Paul Cézanne of open fields and distant land viewed outdoors.",
+      "prompt_sha256": "4102c01ccc150df1e8e9dd76ba98a61f175710e88cd8e8390d2bc431a1df4855",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L1"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas of open fields and distant land viewed outdoors.",
+      "prompt_sha256": "5ecac658a19df1887198634e4d7c4684ffae5740909bad8664cb55c111b5ef4f",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L1"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Claude Monet of a wooded hillside or forest landscape.",
+      "prompt_sha256": "fd59c3fe728d2d94d8a60c8b6b225bc6921fdb48ab079fdcccc320b0fb5ede03",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L2"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Alfred Sisley of a wooded hillside or forest landscape.",
+      "prompt_sha256": "ef9d5815e0aa0965625eacde4848bcc508e4e3d86b213c4a5719ff48e63c2a07",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L2"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Camille Pissarro of a wooded hillside or forest landscape.",
+      "prompt_sha256": "807474745a97c3d828451284692dc0722e1c5d21e52b9d74ac0a504a24520db0",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L2"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Paul Cézanne of a wooded hillside or forest landscape.",
+      "prompt_sha256": "8454074cf072070763c84648444785f02059e467b3515d5368c5fdfd25494fab",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L2"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas of a wooded hillside or forest landscape.",
+      "prompt_sha256": "727b463eb0de7f2de63a1655ac295c010e7ab499d8b84077418c980c90ecbdfe",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L2"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Claude Monet of an orchard or garden landscape viewed outdoors.",
+      "prompt_sha256": "a9221b2698c160e0b92c5185b84ef4a17a22fbfd35a2a98f9a10a930434d995b",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L3"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Alfred Sisley of an orchard or garden landscape viewed outdoors.",
+      "prompt_sha256": "0214c1425cafeeab036f121f5073f481716833d563c94510224657584f25fb95",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L3"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Camille Pissarro of an orchard or garden landscape viewed outdoors.",
+      "prompt_sha256": "ef014ce9a39288bb41a2aeeaccf1322d928914a8d45c32382973b6058da22966",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L3"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Paul Cézanne of an orchard or garden landscape viewed outdoors.",
+      "prompt_sha256": "aa88980330a19e36d2040e3c99129fd01fbfa3a2e7b03cb81f4a0db180c9df51",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L3"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas of an orchard or garden landscape viewed outdoors.",
+      "prompt_sha256": "6b697b1171a715b5aefc00b5a7751da7a306bb825b7a23c39b1e5fa87718f689",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L3"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Claude Monet of an open or wooded landscape with no dominant building, road, or body of water.",
+      "prompt_sha256": "70a5e514f7bf18239fe1dc7be9022eec87b69e6283ba7e3c6b920bd67e18f777",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L4"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Alfred Sisley of an open or wooded landscape with no dominant building, road, or body of water.",
+      "prompt_sha256": "6c2d4446f5f3134c21f8c8406f86ccfb4253b0f9de49a2fbfbbf022040ade5d8",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L4"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Camille Pissarro of an open or wooded landscape with no dominant building, road, or body of water.",
+      "prompt_sha256": "c648449b03fc53f29ab3bc7d8c05db25f6d998deb3d06b49fe8d4b6824055e3c",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L4"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas by Paul Cézanne of an open or wooded landscape with no dominant building, road, or body of water.",
+      "prompt_sha256": "afb6362484d9e7357e762201571982202a31ba5e84a4a382b3edb8d8db1f2f34",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L4"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "by_name",
+      "prompt": "An oil painting on canvas of an open or wooded landscape with no dominant building, road, or body of water.",
+      "prompt_sha256": "5b94c5348ce4396bc135e458a6516b497a2a851f68d9000c8220d74601dfe874",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L4"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a riverbank landscape, with water organizing the composition. Render this scene in the painting style of Claude Monet.",
+      "prompt_sha256": "da19bf8a1203d8e01b20a6beb3c8a69b17093050fedf7a951e1ce8bfdf8e74ab",
+      "scene_group": "water_organized",
+      "template_id": "W1"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a riverbank landscape, with water organizing the composition. Render this scene in the painting style of Alfred Sisley.",
+      "prompt_sha256": "7244f39e0096a1e44be89c6f466841d64564fe69c74aac3c193513537d3f39eb",
+      "scene_group": "water_organized",
+      "template_id": "W1"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a riverbank landscape, with water organizing the composition. Render this scene in the painting style of Camille Pissarro.",
+      "prompt_sha256": "83eabb5db575acfa4289164077df57dc6bc352ce1003f6ba706ef2623eb6b0ec",
+      "scene_group": "water_organized",
+      "template_id": "W1"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a riverbank landscape, with water organizing the composition. Render this scene in the painting style of Paul Cézanne.",
+      "prompt_sha256": "7e258257d0b4b06dd8f06b9b00a17fb7bddb5c602e02677b030b069314dd4161",
+      "scene_group": "water_organized",
+      "template_id": "W1"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a riverbank landscape, with water organizing the composition. Render this scene in a coherent painting style.",
+      "prompt_sha256": "7bb26cf32be7ece70bd5885a6d0d9a423b32fe62a9ca7739d9239fa123394ac5",
+      "scene_group": "water_organized",
+      "template_id": "W1"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a coastal or harbor landscape, with water as the main spatial element. Render this scene in the painting style of Claude Monet.",
+      "prompt_sha256": "0df80ef2ff9f486073b4eeeb70cc233d62da6d24077885ba05733ce9505e00a3",
+      "scene_group": "water_organized",
+      "template_id": "W2"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a coastal or harbor landscape, with water as the main spatial element. Render this scene in the painting style of Alfred Sisley.",
+      "prompt_sha256": "06fa843271e96a8e180e0cf5fb2553eb1da21bb323a7d9972b76c8e2b1d51775",
+      "scene_group": "water_organized",
+      "template_id": "W2"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a coastal or harbor landscape, with water as the main spatial element. Render this scene in the painting style of Camille Pissarro.",
+      "prompt_sha256": "68fa6f0b28e775a41f909ddb1c48c79f1d0419240ab2ca679f3ac67b28feb608",
+      "scene_group": "water_organized",
+      "template_id": "W2"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a coastal or harbor landscape, with water as the main spatial element. Render this scene in the painting style of Paul Cézanne.",
+      "prompt_sha256": "74190925bee3a7ff93a167e47acd86fdd04a19b12f983949f62882a3e9367b40",
+      "scene_group": "water_organized",
+      "template_id": "W2"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a coastal or harbor landscape, with water as the main spatial element. Render this scene in a coherent painting style.",
+      "prompt_sha256": "a3e136c8c050f763d5e1bf2d7953605bb9788485bd0c62da41a78972fb7b66f7",
+      "scene_group": "water_organized",
+      "template_id": "W2"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a canal or lakeside landscape viewed from outdoors. Render this scene in the painting style of Claude Monet.",
+      "prompt_sha256": "97016a91585209772adcc1c8f9d9d6de2580ae3bc6f5795a6c585e3b36b0137d",
+      "scene_group": "water_organized",
+      "template_id": "W3"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a canal or lakeside landscape viewed from outdoors. Render this scene in the painting style of Alfred Sisley.",
+      "prompt_sha256": "a8af4627d0c39fdee137d88cd996e2d6d29cc07a0abead9a91818536182efb0e",
+      "scene_group": "water_organized",
+      "template_id": "W3"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a canal or lakeside landscape viewed from outdoors. Render this scene in the painting style of Camille Pissarro.",
+      "prompt_sha256": "b6abc5d0bfb31a82d39371ca47067805f9877c79c9925f9a10582ae14136a7de",
+      "scene_group": "water_organized",
+      "template_id": "W3"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a canal or lakeside landscape viewed from outdoors. Render this scene in the painting style of Paul Cézanne.",
+      "prompt_sha256": "377854bb15a21930ff1e10614a43195042acac138e04c0a06f9e0f1fd82756a8",
+      "scene_group": "water_organized",
+      "template_id": "W3"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a canal or lakeside landscape viewed from outdoors. Render this scene in a coherent painting style.",
+      "prompt_sha256": "dd19fdc8207276a36fb5e8c2e1d06cf38c793ea61b0f68bc60a1762948f4e0b5",
+      "scene_group": "water_organized",
+      "template_id": "W3"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of an outdoor waterside place, with both land and water visible. Render this scene in the painting style of Claude Monet.",
+      "prompt_sha256": "d2c9dfed921ce5708b7da2ffbc88b19dd592f2a390d130036c7578edd5a0c0d0",
+      "scene_group": "water_organized",
+      "template_id": "W4"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of an outdoor waterside place, with both land and water visible. Render this scene in the painting style of Alfred Sisley.",
+      "prompt_sha256": "91ea2beb7ceb699b2dd18c177c7d5f16cf17e0fdd45136e2f776e4fbd4912429",
+      "scene_group": "water_organized",
+      "template_id": "W4"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of an outdoor waterside place, with both land and water visible. Render this scene in the painting style of Camille Pissarro.",
+      "prompt_sha256": "729ecdbc876ced1b68dd10086234824958d2c9580149b4ac8c5e1ba3cfc94c35",
+      "scene_group": "water_organized",
+      "template_id": "W4"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of an outdoor waterside place, with both land and water visible. Render this scene in the painting style of Paul Cézanne.",
+      "prompt_sha256": "280909a42babef0a753d808eeb309d130347f54a0eac9ab3a6608d1d5b8f33d8",
+      "scene_group": "water_organized",
+      "template_id": "W4"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of an outdoor waterside place, with both land and water visible. Render this scene in a coherent painting style.",
+      "prompt_sha256": "fe8e7595119057b4a7b44047e7395d8e70b636df02e32f2dada21e14f3962b15",
+      "scene_group": "water_organized",
+      "template_id": "W4"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of an outdoor town street, with buildings organizing the composition. Render this scene in the painting style of Claude Monet.",
+      "prompt_sha256": "91be1223eb6c326737521d4c26624886ccccecd845ba8d9b46ac2a3ac796eb2f",
+      "scene_group": "built_place_organized",
+      "template_id": "B1"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of an outdoor town street, with buildings organizing the composition. Render this scene in the painting style of Alfred Sisley.",
+      "prompt_sha256": "a06286a95c75a14187129de5f89822c7cb0d439b43e7605b5e47a4562862e8b7",
+      "scene_group": "built_place_organized",
+      "template_id": "B1"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of an outdoor town street, with buildings organizing the composition. Render this scene in the painting style of Camille Pissarro.",
+      "prompt_sha256": "2dd179c5e9d417c32683e3b26cb0d82e4ff6538da67b43e7f562b70d4b75051f",
+      "scene_group": "built_place_organized",
+      "template_id": "B1"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of an outdoor town street, with buildings organizing the composition. Render this scene in the painting style of Paul Cézanne.",
+      "prompt_sha256": "0f925c79585fec4b014842a0b8a23d4527d49afbcc284641c6077cbc5175f5af",
+      "scene_group": "built_place_organized",
+      "template_id": "B1"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of an outdoor town street, with buildings organizing the composition. Render this scene in a coherent painting style.",
+      "prompt_sha256": "35596df276583ec8b18392fe9f85fd1de481caa7277ac387eb7c017d88bfe33b",
+      "scene_group": "built_place_organized",
+      "template_id": "B1"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a village or settlement viewed from outdoors. Render this scene in the painting style of Claude Monet.",
+      "prompt_sha256": "c4ab9f63de1463c6ebb1460c2a30d3ac5700be807bfb0f85881ef800c0e66f8a",
+      "scene_group": "built_place_organized",
+      "template_id": "B2"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a village or settlement viewed from outdoors. Render this scene in the painting style of Alfred Sisley.",
+      "prompt_sha256": "f89e997b3bbfdfb870aaeb15038ec91f236d075b2c4356c6bef619b03cab8cdc",
+      "scene_group": "built_place_organized",
+      "template_id": "B2"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a village or settlement viewed from outdoors. Render this scene in the painting style of Camille Pissarro.",
+      "prompt_sha256": "bbac07f0cee2afbc1aa6d32f011196f45a83d21940f7e36736cbaff6f19fa828",
+      "scene_group": "built_place_organized",
+      "template_id": "B2"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a village or settlement viewed from outdoors. Render this scene in the painting style of Paul Cézanne.",
+      "prompt_sha256": "4c5466aac4f87214847ed116686462c61fc90f011fe6a415b17f78b02a045be8",
+      "scene_group": "built_place_organized",
+      "template_id": "B2"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a village or settlement viewed from outdoors. Render this scene in a coherent painting style.",
+      "prompt_sha256": "03ecaf000bcd7c1fa84c7f19c61ab49c3518289937c587ce76e0fb50e3da8796",
+      "scene_group": "built_place_organized",
+      "template_id": "B2"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of an outdoor square or built place, with architecture as the main spatial element. Render this scene in the painting style of Claude Monet.",
+      "prompt_sha256": "9417839e087fcb2a98d06f22c45584cb4d413cf2032add8116951d2ee2fc070e",
+      "scene_group": "built_place_organized",
+      "template_id": "B3"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of an outdoor square or built place, with architecture as the main spatial element. Render this scene in the painting style of Alfred Sisley.",
+      "prompt_sha256": "2bbbb1dc07113a586663aa2e528ab7d1115aeb7c08658141865f6cd318c2c88b",
+      "scene_group": "built_place_organized",
+      "template_id": "B3"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of an outdoor square or built place, with architecture as the main spatial element. Render this scene in the painting style of Camille Pissarro.",
+      "prompt_sha256": "5b5372c8235af00d0cee7b430dc6ee38de9ce702532dab13e23e60c0a38a3e2e",
+      "scene_group": "built_place_organized",
+      "template_id": "B3"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of an outdoor square or built place, with architecture as the main spatial element. Render this scene in the painting style of Paul Cézanne.",
+      "prompt_sha256": "0d7bf9f05bd41165994df54d9cfd5177d65397760b9f253fbd311ad5ea949d8e",
+      "scene_group": "built_place_organized",
+      "template_id": "B3"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of an outdoor square or built place, with architecture as the main spatial element. Render this scene in a coherent painting style.",
+      "prompt_sha256": "ba0ffeccc8607a3457898a8cb802c85b81f4ae5b642ee7ebd339b595481d9080",
+      "scene_group": "built_place_organized",
+      "template_id": "B3"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of buildings in an outdoor landscape, with the built place visually dominant. Render this scene in the painting style of Claude Monet.",
+      "prompt_sha256": "f56c2682d834c6bb8c77289bc0bdfad4523c7e2a233f2b91f3f2d04b5dd92fe9",
+      "scene_group": "built_place_organized",
+      "template_id": "B4"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of buildings in an outdoor landscape, with the built place visually dominant. Render this scene in the painting style of Alfred Sisley.",
+      "prompt_sha256": "d00e39a30b82e39997ec0627795b2fbe45616b60080a370b0995b2c2b0b6c4b1",
+      "scene_group": "built_place_organized",
+      "template_id": "B4"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of buildings in an outdoor landscape, with the built place visually dominant. Render this scene in the painting style of Camille Pissarro.",
+      "prompt_sha256": "b5c926bf4fd808a12a1e82b642dbc4af1d5c0db7d106ecc3b0e3c8c020d8d049",
+      "scene_group": "built_place_organized",
+      "template_id": "B4"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of buildings in an outdoor landscape, with the built place visually dominant. Render this scene in the painting style of Paul Cézanne.",
+      "prompt_sha256": "e2451cf52228a9c17de55bd6fb4724edd6b2264d434b5c3cfc4234acda7fa66b",
+      "scene_group": "built_place_organized",
+      "template_id": "B4"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of buildings in an outdoor landscape, with the built place visually dominant. Render this scene in a coherent painting style.",
+      "prompt_sha256": "1d11f07fa50f037dd90e700db17c7f86af828a95187fb2de67c3df3f92f616ff",
+      "scene_group": "built_place_organized",
+      "template_id": "B4"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a country road passing through an outdoor landscape. Render this scene in the painting style of Claude Monet.",
+      "prompt_sha256": "ea57efb38a5660ffafde559e3ac63732c48cd90f28861080ca20e3d1ecea8c5a",
+      "scene_group": "route_organized",
+      "template_id": "R1"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a country road passing through an outdoor landscape. Render this scene in the painting style of Alfred Sisley.",
+      "prompt_sha256": "4cf122da174536a38176a013d139a6a2ae399f48af4fd4b88f6ed30ab1b7bc5a",
+      "scene_group": "route_organized",
+      "template_id": "R1"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a country road passing through an outdoor landscape. Render this scene in the painting style of Camille Pissarro.",
+      "prompt_sha256": "ea184ae9ca4565c223439b6918e18e2e305c908eec3809844bb6049b979276c2",
+      "scene_group": "route_organized",
+      "template_id": "R1"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a country road passing through an outdoor landscape. Render this scene in the painting style of Paul Cézanne.",
+      "prompt_sha256": "09ad8bcbf41c3be754dc3a48fe3ad07b0af06b07e98f74bc5e874e938cf7a056",
+      "scene_group": "route_organized",
+      "template_id": "R1"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a country road passing through an outdoor landscape. Render this scene in a coherent painting style.",
+      "prompt_sha256": "c99becbf27da7de3224fa9cb95ed4b0e924a49e0b5e133388bcfc1e70a740ee1",
+      "scene_group": "route_organized",
+      "template_id": "R1"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a path or lane organizing a rural landscape. Render this scene in the painting style of Claude Monet.",
+      "prompt_sha256": "eebb80717230338c54e408e1b870bb5c9925d7042d609e45110de5724d45840d",
+      "scene_group": "route_organized",
+      "template_id": "R2"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a path or lane organizing a rural landscape. Render this scene in the painting style of Alfred Sisley.",
+      "prompt_sha256": "ba3a5f6a62c18cb5b4d0583ac3130b925ac5484d50f02bbe6155e7ba340c44f4",
+      "scene_group": "route_organized",
+      "template_id": "R2"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a path or lane organizing a rural landscape. Render this scene in the painting style of Camille Pissarro.",
+      "prompt_sha256": "b40f78eec131fd66808bb1b686fc515c04f6ca0b19d16e97ede122ccedb92856",
+      "scene_group": "route_organized",
+      "template_id": "R2"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a path or lane organizing a rural landscape. Render this scene in the painting style of Paul Cézanne.",
+      "prompt_sha256": "990bc11c729854b65ffe93b8a1be6e584425e30c50c4389c2f22e17bc357a2fe",
+      "scene_group": "route_organized",
+      "template_id": "R2"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a path or lane organizing a rural landscape. Render this scene in a coherent painting style.",
+      "prompt_sha256": "18271c2307d37b613ef74f2b19300d9fb940f000f6026d47c842cb8671a57433",
+      "scene_group": "route_organized",
+      "template_id": "R2"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of an outdoor track receding through fields or trees. Render this scene in the painting style of Claude Monet.",
+      "prompt_sha256": "1421185fb09238b70aec823de43361cb19dd0ecc33871deb9fa5c2de3193a8f3",
+      "scene_group": "route_organized",
+      "template_id": "R3"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of an outdoor track receding through fields or trees. Render this scene in the painting style of Alfred Sisley.",
+      "prompt_sha256": "787e46aef6a11e456812da2f52ec256fa5cd5d1065ec3a6b80ceef92e9486143",
+      "scene_group": "route_organized",
+      "template_id": "R3"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of an outdoor track receding through fields or trees. Render this scene in the painting style of Camille Pissarro.",
+      "prompt_sha256": "308f9e7e665cbb073cc37e508e46355469743aedf066935b7a660f0d9798c300",
+      "scene_group": "route_organized",
+      "template_id": "R3"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of an outdoor track receding through fields or trees. Render this scene in the painting style of Paul Cézanne.",
+      "prompt_sha256": "9f436ad77c21a87de97d006785f3cf2e30cad9c04438ff13db3d9f228f34bf30",
+      "scene_group": "route_organized",
+      "template_id": "R3"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of an outdoor track receding through fields or trees. Render this scene in a coherent painting style.",
+      "prompt_sha256": "de185b62607e78d0f2a61bb74a8230e856ed0ec5ece53b6118ec53e5f59f0fe5",
+      "scene_group": "route_organized",
+      "template_id": "R3"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a landscape structured around a visible road or path. Render this scene in the painting style of Claude Monet.",
+      "prompt_sha256": "0db1bb2dea404200dc18314d394f077c958c772b30ec287285471b5b79fac08f",
+      "scene_group": "route_organized",
+      "template_id": "R4"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a landscape structured around a visible road or path. Render this scene in the painting style of Alfred Sisley.",
+      "prompt_sha256": "1d6355ba80eea25f1c0352bdae69d18b2f32808988cd5d8a1df528c14f63e466",
+      "scene_group": "route_organized",
+      "template_id": "R4"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a landscape structured around a visible road or path. Render this scene in the painting style of Camille Pissarro.",
+      "prompt_sha256": "b8fc708d9cc10e778e88897c923fd9e03c9f1efa63ee30478ab2dd7cf3b22449",
+      "scene_group": "route_organized",
+      "template_id": "R4"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a landscape structured around a visible road or path. Render this scene in the painting style of Paul Cézanne.",
+      "prompt_sha256": "ea139a286dde766748db938036141dc57e0ef33e4c8fcde446aff438e167f3f3",
+      "scene_group": "route_organized",
+      "template_id": "R4"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a landscape structured around a visible road or path. Render this scene in a coherent painting style.",
+      "prompt_sha256": "c9ed3949bc710ed5608a203668be7669d6d57eb5ccf9348d9efd33090986e103",
+      "scene_group": "route_organized",
+      "template_id": "R4"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of open fields and distant land viewed outdoors. Render this scene in the painting style of Claude Monet.",
+      "prompt_sha256": "4009e2050ab9b3cee37bb6198acf4e2f16130c13f1ccda8c7f6bc5587bd30fd0",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L1"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of open fields and distant land viewed outdoors. Render this scene in the painting style of Alfred Sisley.",
+      "prompt_sha256": "d1698045228eb329714161654e0eb26e901adc7e253b7e2c395f3e00f581a2c4",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L1"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of open fields and distant land viewed outdoors. Render this scene in the painting style of Camille Pissarro.",
+      "prompt_sha256": "f763ebaaff29ba520d05d17570cef8a9bf1aa8d6e225caab3b192080cf4cf76c",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L1"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of open fields and distant land viewed outdoors. Render this scene in the painting style of Paul Cézanne.",
+      "prompt_sha256": "864b2d8d105e909fbf738089df4863d3dd1b95495b4c616fc4b0f6389cc4d473",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L1"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of open fields and distant land viewed outdoors. Render this scene in a coherent painting style.",
+      "prompt_sha256": "f5534aab3b7fabdec9303eb2c8f34a90a2e214e62206a09068a960b212f66bc8",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L1"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a wooded hillside or forest landscape. Render this scene in the painting style of Claude Monet.",
+      "prompt_sha256": "eec91859ec1aee82482952521959485badce1855d84436ff1f45daf2f19558f3",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L2"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a wooded hillside or forest landscape. Render this scene in the painting style of Alfred Sisley.",
+      "prompt_sha256": "f646effaf661dfd8cb2622f348307219a0c2fd0e9cd0fee625ca28092a55f08b",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L2"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a wooded hillside or forest landscape. Render this scene in the painting style of Camille Pissarro.",
+      "prompt_sha256": "f90be086bb914f08364332ebf498f6fc3739529f9e3f8452a46ce50307676da2",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L2"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a wooded hillside or forest landscape. Render this scene in the painting style of Paul Cézanne.",
+      "prompt_sha256": "907d5ec6157141f63cf3c263c7c1f3c657e24d791e4f656970244cb1ec7ee9fc",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L2"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of a wooded hillside or forest landscape. Render this scene in a coherent painting style.",
+      "prompt_sha256": "2abba0495a2ba68a780c089754dbfab261512343086ae2b7e7d6b281fe85985c",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L2"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of an orchard or garden landscape viewed outdoors. Render this scene in the painting style of Claude Monet.",
+      "prompt_sha256": "3e3263fee36acbbe75310b255d89c313acdc8882a52eda7f272c0edce47d2762",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L3"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of an orchard or garden landscape viewed outdoors. Render this scene in the painting style of Alfred Sisley.",
+      "prompt_sha256": "8f6df3447f01dfe36a12d34d2f9960bca995183d49c2ad7f32593f639a60aad9",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L3"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of an orchard or garden landscape viewed outdoors. Render this scene in the painting style of Camille Pissarro.",
+      "prompt_sha256": "858fbc256af008518f82095d18feb3c66b287f490b8e44f78144c30049b3f849",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L3"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of an orchard or garden landscape viewed outdoors. Render this scene in the painting style of Paul Cézanne.",
+      "prompt_sha256": "f8bd318f2c2f762599f2864cda51cb7aa5150864b151605b7cbbae3b0ce4febe",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L3"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of an orchard or garden landscape viewed outdoors. Render this scene in a coherent painting style.",
+      "prompt_sha256": "7b342c678d86ee8631db043fb23333f1d568e0d0f8d3bb8e603568fa4abcd8b7",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L3"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of an open or wooded landscape with no dominant building, road, or body of water. Render this scene in the painting style of Claude Monet.",
+      "prompt_sha256": "606070e824169f3d286a09b5bc8124449adb0d0b0879b6b44d38a18a4acf4495",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L4"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of an open or wooded landscape with no dominant building, road, or body of water. Render this scene in the painting style of Alfred Sisley.",
+      "prompt_sha256": "f930688837f7d9e7f3b8513e67a25d197a7c447cc438eb61ac36349570b6df8b",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L4"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of an open or wooded landscape with no dominant building, road, or body of water. Render this scene in the painting style of Camille Pissarro.",
+      "prompt_sha256": "c56b8abffcb93607160ff42c9c264fa95d46fcb187a7b89848d92040fa5b5755",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L4"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of an open or wooded landscape with no dominant building, road, or body of water. Render this scene in the painting style of Paul Cézanne.",
+      "prompt_sha256": "0eb04de5f30b7f44f900258a69ec16f4645e8813c98311e8bb275af384177ed0",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L4"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_instruction",
+      "prompt": "An oil painting on canvas of an open or wooded landscape with no dominant building, road, or body of water. Render this scene in a coherent painting style.",
+      "prompt_sha256": "26288093ad60eacbf04e0d267eb700f345c956ad909b46b6b85947be28438091",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L4"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a riverbank landscape, with water organizing the composition. Render this scene in the painting style of Claude Monet. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "69909542209baca57e1d32d2bd8009774f5aca2219f29a0b05d2352919a493b8",
+      "scene_group": "water_organized",
+      "template_id": "W1"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a riverbank landscape, with water organizing the composition. Render this scene in the painting style of Alfred Sisley. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "7c954fd15a2212efd5bcbfba8c7dde0938f36e2b4b789b7daf3a2a077ff24829",
+      "scene_group": "water_organized",
+      "template_id": "W1"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a riverbank landscape, with water organizing the composition. Render this scene in the painting style of Camille Pissarro. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "24d99c767d712baea795c3aa483621c0d59e7194ebe0948f1fe50e76cf18fe1a",
+      "scene_group": "water_organized",
+      "template_id": "W1"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a riverbank landscape, with water organizing the composition. Render this scene in the painting style of Paul Cézanne. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "2db74a775297e75c3dd4fe0404f3f9b8fc7b138f0296f94f379e4b4cfe8158ec",
+      "scene_group": "water_organized",
+      "template_id": "W1"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a riverbank landscape, with water organizing the composition. Render this scene in a coherent painting style. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "ac43132080c08683e7d3cf656d978a2670d8caea4a45c5e5e661ea7325951477",
+      "scene_group": "water_organized",
+      "template_id": "W1"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a coastal or harbor landscape, with water as the main spatial element. Render this scene in the painting style of Claude Monet. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "1b8e32a45829651530a76436037138762e660947a0db0630fbc2eaeeb9e8d543",
+      "scene_group": "water_organized",
+      "template_id": "W2"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a coastal or harbor landscape, with water as the main spatial element. Render this scene in the painting style of Alfred Sisley. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "4bbbfb2fc248b960dfc1a4f2c560f447313262c6bac1e4176503aae5e8ae944e",
+      "scene_group": "water_organized",
+      "template_id": "W2"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a coastal or harbor landscape, with water as the main spatial element. Render this scene in the painting style of Camille Pissarro. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "dbc3ac137d3d501c22ccd4e32e228251e58d59ac94f5a253d0c8cd3d33f11c11",
+      "scene_group": "water_organized",
+      "template_id": "W2"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a coastal or harbor landscape, with water as the main spatial element. Render this scene in the painting style of Paul Cézanne. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "dffb3ba1fe9b991134803bca6c4b25c3fa36679e6a7f25e874bf66fb7f7df413",
+      "scene_group": "water_organized",
+      "template_id": "W2"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a coastal or harbor landscape, with water as the main spatial element. Render this scene in a coherent painting style. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "e741e7e5a467258c15d3e7cc8b07b75d2b055da2368d63e574edeeef8ade8edc",
+      "scene_group": "water_organized",
+      "template_id": "W2"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a canal or lakeside landscape viewed from outdoors. Render this scene in the painting style of Claude Monet. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "f41b0f396c76aa4992a93a620fd3629b27402e465e89be5a1b6d2f4ace73aff2",
+      "scene_group": "water_organized",
+      "template_id": "W3"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a canal or lakeside landscape viewed from outdoors. Render this scene in the painting style of Alfred Sisley. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "8a017338f6f23736b32d949606084b5a3a3f1f5daa46de03ec3ab669aee97779",
+      "scene_group": "water_organized",
+      "template_id": "W3"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a canal or lakeside landscape viewed from outdoors. Render this scene in the painting style of Camille Pissarro. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "07be908d6990abed22f8c9382483569bcc5fba9a9fc2519c61941ef0e1fddee2",
+      "scene_group": "water_organized",
+      "template_id": "W3"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a canal or lakeside landscape viewed from outdoors. Render this scene in the painting style of Paul Cézanne. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "288509f75e013612e1e9df3d2f394497ac516317905e2b537a0f9d24745cdc1e",
+      "scene_group": "water_organized",
+      "template_id": "W3"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a canal or lakeside landscape viewed from outdoors. Render this scene in a coherent painting style. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "b0797b000dbfb29afd0f118d552f2baf7e4546f60def9ee71504e39b93cfb6af",
+      "scene_group": "water_organized",
+      "template_id": "W3"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of an outdoor waterside place, with both land and water visible. Render this scene in the painting style of Claude Monet. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "1dadd8a2973c04face419e065835474bc5729c48541198939264a431e846b16e",
+      "scene_group": "water_organized",
+      "template_id": "W4"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of an outdoor waterside place, with both land and water visible. Render this scene in the painting style of Alfred Sisley. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "604695d11dedbd4b66151167fcaf4c02171a8cff6006e0fd7d292044eacd51e3",
+      "scene_group": "water_organized",
+      "template_id": "W4"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of an outdoor waterside place, with both land and water visible. Render this scene in the painting style of Camille Pissarro. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "ffa58ff9ae9403cf7005f6c40a592891504742571d9837ffd59908ec53d43db1",
+      "scene_group": "water_organized",
+      "template_id": "W4"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of an outdoor waterside place, with both land and water visible. Render this scene in the painting style of Paul Cézanne. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "546dae1c949d2e4ca7afed73d6cdb24a781040e8440bb3e8e7e419607aaff398",
+      "scene_group": "water_organized",
+      "template_id": "W4"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of an outdoor waterside place, with both land and water visible. Render this scene in a coherent painting style. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "618ce4e57c4cfe6215ad9d9fa444eb93f205740f6f7db64d1503f8da4e75e48e",
+      "scene_group": "water_organized",
+      "template_id": "W4"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of an outdoor town street, with buildings organizing the composition. Render this scene in the painting style of Claude Monet. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "4bca724c89afd9ed204d1d8757387c03f22a2b662139f97b35c4b63f355475d4",
+      "scene_group": "built_place_organized",
+      "template_id": "B1"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of an outdoor town street, with buildings organizing the composition. Render this scene in the painting style of Alfred Sisley. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "943a6fb044aa90c46e1ba854b137df7f02233138994275979fa4cd915071382d",
+      "scene_group": "built_place_organized",
+      "template_id": "B1"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of an outdoor town street, with buildings organizing the composition. Render this scene in the painting style of Camille Pissarro. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "56126f8456984840c805a1949b3abdf094d80a15beb9ed5cdf5d33c9be2facb6",
+      "scene_group": "built_place_organized",
+      "template_id": "B1"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of an outdoor town street, with buildings organizing the composition. Render this scene in the painting style of Paul Cézanne. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "faad1817f2f43aedc5ed564320f0a63cef7883e5f91a79ea046c90e363e8a5d2",
+      "scene_group": "built_place_organized",
+      "template_id": "B1"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of an outdoor town street, with buildings organizing the composition. Render this scene in a coherent painting style. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "0ea90d7c43d8d1ff616759337e18fc599791c58a5c84e0e31d7c86736138090f",
+      "scene_group": "built_place_organized",
+      "template_id": "B1"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a village or settlement viewed from outdoors. Render this scene in the painting style of Claude Monet. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "613399420a12a7baab41d53fd969cdba037428c9c9b2aa34cd1cf1b5d1f0fabb",
+      "scene_group": "built_place_organized",
+      "template_id": "B2"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a village or settlement viewed from outdoors. Render this scene in the painting style of Alfred Sisley. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "1eb911e431c9546511c138ebbdb2cc2f287d11c50235e8d5d837daf9d5c07e65",
+      "scene_group": "built_place_organized",
+      "template_id": "B2"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a village or settlement viewed from outdoors. Render this scene in the painting style of Camille Pissarro. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "bdaba0f68e247c8f9820ba395a87c679afc1ff61a43b105d51ae62e4d9ac35a2",
+      "scene_group": "built_place_organized",
+      "template_id": "B2"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a village or settlement viewed from outdoors. Render this scene in the painting style of Paul Cézanne. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "82c8751009eb3fe3875f7098e7196220f5d916300c9569b25b3f2bc8ee172fc7",
+      "scene_group": "built_place_organized",
+      "template_id": "B2"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a village or settlement viewed from outdoors. Render this scene in a coherent painting style. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "83317cfcf84bba41830eccb9e38f842ee014bef2f23750d2534741363995c452",
+      "scene_group": "built_place_organized",
+      "template_id": "B2"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of an outdoor square or built place, with architecture as the main spatial element. Render this scene in the painting style of Claude Monet. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "62f637000e320f0f11d7e2af4a33835d5db28b90b2a27ce73522cfc870938407",
+      "scene_group": "built_place_organized",
+      "template_id": "B3"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of an outdoor square or built place, with architecture as the main spatial element. Render this scene in the painting style of Alfred Sisley. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "d8df374377cb3a153dc99351f5cac3c3f36d323d57ecafa94b7f8358336bd533",
+      "scene_group": "built_place_organized",
+      "template_id": "B3"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of an outdoor square or built place, with architecture as the main spatial element. Render this scene in the painting style of Camille Pissarro. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "e63b6a7f4985e66b8d8f24579a36db906ddcc599d00acd380e0e11d58ee8c70e",
+      "scene_group": "built_place_organized",
+      "template_id": "B3"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of an outdoor square or built place, with architecture as the main spatial element. Render this scene in the painting style of Paul Cézanne. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "7ba8c3717c5bc3bd3d40b1180234c1d45f83e8871db8f1e6377eee24212ae871",
+      "scene_group": "built_place_organized",
+      "template_id": "B3"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of an outdoor square or built place, with architecture as the main spatial element. Render this scene in a coherent painting style. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "db662374637a4fb0178b08184d825b406bb2855fa40d5216c2131bb3ed1f9fd1",
+      "scene_group": "built_place_organized",
+      "template_id": "B3"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of buildings in an outdoor landscape, with the built place visually dominant. Render this scene in the painting style of Claude Monet. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "991b019c22a70884bd622a3a156ba39aec929bcbbbe69d073029d1cfe923819a",
+      "scene_group": "built_place_organized",
+      "template_id": "B4"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of buildings in an outdoor landscape, with the built place visually dominant. Render this scene in the painting style of Alfred Sisley. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "5dc1abeeb3d1aa40f14e3363c6cf4e249f318d444cfb0b05202cd86dd88747ba",
+      "scene_group": "built_place_organized",
+      "template_id": "B4"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of buildings in an outdoor landscape, with the built place visually dominant. Render this scene in the painting style of Camille Pissarro. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "5b9fe145215dded1d00b160eaa5d99ec8b0fbbaf147dc42b7deca4e264a97491",
+      "scene_group": "built_place_organized",
+      "template_id": "B4"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of buildings in an outdoor landscape, with the built place visually dominant. Render this scene in the painting style of Paul Cézanne. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "cac1e9a69e9ad11f35f2552dc5c4d56f1a3d719f2e012f6140ac1e7f975ce16c",
+      "scene_group": "built_place_organized",
+      "template_id": "B4"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of buildings in an outdoor landscape, with the built place visually dominant. Render this scene in a coherent painting style. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "6c36b5ac62be0c00af149fe4476011eeaac3bb5645e0ec960ff43a58e0675f2d",
+      "scene_group": "built_place_organized",
+      "template_id": "B4"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a country road passing through an outdoor landscape. Render this scene in the painting style of Claude Monet. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "f1f1beae79169a467e38151e85f216865998d61d66d36d0a929663efb2078483",
+      "scene_group": "route_organized",
+      "template_id": "R1"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a country road passing through an outdoor landscape. Render this scene in the painting style of Alfred Sisley. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "d624794ce06557df53f258ea6d792ceae286ada47557ae3ca0d454f20d11c747",
+      "scene_group": "route_organized",
+      "template_id": "R1"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a country road passing through an outdoor landscape. Render this scene in the painting style of Camille Pissarro. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "afa038c3bd949cc705bf5f4c39b6131bc7e7f21e24154b6cb1bb4214a4b82cf6",
+      "scene_group": "route_organized",
+      "template_id": "R1"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a country road passing through an outdoor landscape. Render this scene in the painting style of Paul Cézanne. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "28860a669aefe7701e547e84ae28264a1dac3429dd3ddbc5dc5447dd587b3f87",
+      "scene_group": "route_organized",
+      "template_id": "R1"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a country road passing through an outdoor landscape. Render this scene in a coherent painting style. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "3daa4898690f3ad168e2b1a9590ed87aaeb7b23f64272d95e993d3d3637e3f4c",
+      "scene_group": "route_organized",
+      "template_id": "R1"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a path or lane organizing a rural landscape. Render this scene in the painting style of Claude Monet. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "7d68b03370b13defce7122f0dea0185fe6aee6a3fe64d33dac98f108ee9b7b75",
+      "scene_group": "route_organized",
+      "template_id": "R2"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a path or lane organizing a rural landscape. Render this scene in the painting style of Alfred Sisley. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "889a0c50d24fbf9acc04cf4c81c2019cdb4fd7fde43e03c8dc299bb454a20469",
+      "scene_group": "route_organized",
+      "template_id": "R2"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a path or lane organizing a rural landscape. Render this scene in the painting style of Camille Pissarro. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "38d367f4d8ae1db990cbcfc180ed8f9ac1acd13c4fe4e25d61f87664054f0263",
+      "scene_group": "route_organized",
+      "template_id": "R2"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a path or lane organizing a rural landscape. Render this scene in the painting style of Paul Cézanne. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "e4e4ca272025625502f4f892c42b3cde71f1cb4d7792522fd370c8f15ce23415",
+      "scene_group": "route_organized",
+      "template_id": "R2"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a path or lane organizing a rural landscape. Render this scene in a coherent painting style. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "f828914f1437a51b1827ae1da05438194e82db6249782a90d44975a3fb93a755",
+      "scene_group": "route_organized",
+      "template_id": "R2"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of an outdoor track receding through fields or trees. Render this scene in the painting style of Claude Monet. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "02dbfb84db1342584ce9d7bcc3ba53c91ab8eeb64a7749d3648eac7c870626bd",
+      "scene_group": "route_organized",
+      "template_id": "R3"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of an outdoor track receding through fields or trees. Render this scene in the painting style of Alfred Sisley. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "9556849faf051e6054caa585b1cfe057c0f2c3711165cd6f8b9930bf4078468c",
+      "scene_group": "route_organized",
+      "template_id": "R3"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of an outdoor track receding through fields or trees. Render this scene in the painting style of Camille Pissarro. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "a4945a58920b11e2392ff85de7f25c4556dc431f251041b8c505539d162be978",
+      "scene_group": "route_organized",
+      "template_id": "R3"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of an outdoor track receding through fields or trees. Render this scene in the painting style of Paul Cézanne. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "23f3df77790034a42143c27a5c9848d907831672b073c950f9d5440634cdcc32",
+      "scene_group": "route_organized",
+      "template_id": "R3"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of an outdoor track receding through fields or trees. Render this scene in a coherent painting style. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "fda38f0fe8cdce386f0ba0dd2ecb0ab7e77dddb9a1b3908f339c670773e7a8fb",
+      "scene_group": "route_organized",
+      "template_id": "R3"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a landscape structured around a visible road or path. Render this scene in the painting style of Claude Monet. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "64d502c768dac373fdedff64de675138f80c13cef40a51a67bd6b6cef47ff8f1",
+      "scene_group": "route_organized",
+      "template_id": "R4"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a landscape structured around a visible road or path. Render this scene in the painting style of Alfred Sisley. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "450764dcecfa86780a7f1ebd30a7421eef8a5c251cb0c46239aa7063b5c08e79",
+      "scene_group": "route_organized",
+      "template_id": "R4"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a landscape structured around a visible road or path. Render this scene in the painting style of Camille Pissarro. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "89dbfcdc59f3b45b0addec1b3f17f603a198f18cf78dc522d8934043a98c6de3",
+      "scene_group": "route_organized",
+      "template_id": "R4"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a landscape structured around a visible road or path. Render this scene in the painting style of Paul Cézanne. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "e126b9dba00e59a2bb5d4d69bd56dc299462366e39dc62cb5e08b7cd27ab6610",
+      "scene_group": "route_organized",
+      "template_id": "R4"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a landscape structured around a visible road or path. Render this scene in a coherent painting style. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "4d083392e2cde3a56609c5496adbca92ca509cad29e4bb93a6921f1fa47472d4",
+      "scene_group": "route_organized",
+      "template_id": "R4"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of open fields and distant land viewed outdoors. Render this scene in the painting style of Claude Monet. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "0b1262c73e5de0eba5f7f6f1e271fa514d34b865d8fb87834da83d3b45dab70e",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L1"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of open fields and distant land viewed outdoors. Render this scene in the painting style of Alfred Sisley. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "04291c81e704b6a73c7052c1e3a6c5af54e3f5ea2f150bf585c3011826a48f7d",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L1"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of open fields and distant land viewed outdoors. Render this scene in the painting style of Camille Pissarro. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "7e04246887f33d4ed53b7cdfd4ef9d72659bcaa25d5df15fca886802f64b6b01",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L1"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of open fields and distant land viewed outdoors. Render this scene in the painting style of Paul Cézanne. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "c1b10398a465f98ff66bec0a2b20e17ac3305d356e8dfe52d338eeae166de605",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L1"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of open fields and distant land viewed outdoors. Render this scene in a coherent painting style. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "85cc212e363ffd02d13c960a770df2fb99546a4e0d9bc5f9faa6a6b5239d2777",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L1"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a wooded hillside or forest landscape. Render this scene in the painting style of Claude Monet. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "15f59dc3b6b85c170f59456e4dbc23c1750e7c2bb2abbf5b8959bf6a4682f188",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L2"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a wooded hillside or forest landscape. Render this scene in the painting style of Alfred Sisley. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "367c5e9dd8b38e005eba857beea57fca207a2f59f30bd5f8243ed357c8450da0",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L2"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a wooded hillside or forest landscape. Render this scene in the painting style of Camille Pissarro. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "a39a1b1f60e86b1b50d113cf8d06a79e4e808aa280ca577a249e11658d819771",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L2"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a wooded hillside or forest landscape. Render this scene in the painting style of Paul Cézanne. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "439c2efa0b0b8f0db2000447caf3408c9583886942aef27a8e9f761a4cf8bfdf",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L2"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of a wooded hillside or forest landscape. Render this scene in a coherent painting style. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "7bef87e62cb0cd9374814f4962196b2fcdaf5b37e2cbe900b8112687e2d34694",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L2"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of an orchard or garden landscape viewed outdoors. Render this scene in the painting style of Claude Monet. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "04934f62b63b4d22db073901ad58d420e5292f4a51f1371ee3f7c1fc895e4b34",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L3"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of an orchard or garden landscape viewed outdoors. Render this scene in the painting style of Alfred Sisley. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "73ae9ac9d07fd3a90ef59977b10ed4900d61e91f3e61d9afeca2103125d449c7",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L3"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of an orchard or garden landscape viewed outdoors. Render this scene in the painting style of Camille Pissarro. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "658334c7aca77dffbab08973e6091c1e1e8bd266a74002683d33214bec60a014",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L3"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of an orchard or garden landscape viewed outdoors. Render this scene in the painting style of Paul Cézanne. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "ad0c4f036bd9dc35a231d6170cde022504eb7c543a08838e3e2e91f47f6da126",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L3"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of an orchard or garden landscape viewed outdoors. Render this scene in a coherent painting style. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "8545586ee7f50e399970785b17209ce6dc291fd39c2681153c7105498c83668a",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L3"
+    },
+    {
+      "condition": "claude_monet",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of an open or wooded landscape with no dominant building, road, or body of water. Render this scene in the painting style of Claude Monet. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "f1ae1037e44a7257a3945c6807040a1652587da6003bef5c2b3551d91cc8784a",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L4"
+    },
+    {
+      "condition": "alfred_sisley",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of an open or wooded landscape with no dominant building, road, or body of water. Render this scene in the painting style of Alfred Sisley. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "b04e10619f08a351aea85db1723649cbdc856fc800a04f127c8336f24c82fc6f",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L4"
+    },
+    {
+      "condition": "camille_pissarro",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of an open or wooded landscape with no dominant building, road, or body of water. Render this scene in the painting style of Camille Pissarro. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "8031c858a12efba711c4cce18e724bdd5d5c7d04db8aad5dc4090c810b929030",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L4"
+    },
+    {
+      "condition": "paul_cezanne",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of an open or wooded landscape with no dominant building, road, or body of water. Render this scene in the painting style of Paul Cézanne. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "7ebc6245f60548e731bb2caf167a2c291432b828bc9fb747f8fbfdd5daac83e6",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L4"
+    },
+    {
+      "condition": "artist_free",
+      "method_id": "style_aspects",
+      "prompt": "An oil painting on canvas of an open or wooded landscape with no dominant building, road, or body of water. Render this scene in a coherent painting style. Attend to color relationships, the organization of forms, and the handling of painted marks; retain the stated scene.",
+      "prompt_sha256": "f7db28d0a7842029a5219ec6a83d449dd25b9fe52c14b28f80281b7782ed055c",
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L4"
+    }
+  ],
+  "schema_version": "painter-prompt-study-prompt-library/1.0",
+  "source": {
+    "path": "data/manifests/painter_feature_generation_v1/prompt_library.json",
+    "sha256": "fbe81e7cb93282dae96c3edd7df58ed3d43ee81516b6df113f3c8b56b07e09a7",
+    "strings_sha256": "c0d305dd59ace618ca0e882c90b14bc4a8e4c772226598cf0806cc4f6a829398"
+  },
+  "strings_sha256": "29104d33440dce27c734dc1e25104947778cb2456a9d9f2985d1df55f2e8db01"
+}
