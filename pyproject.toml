@@ -30,6 +30,13 @@ learned = [
   "opencv-python-headless>=4.11,<5",
   "safetensors>=0.6,<1",
   "torch>=2.7,<3",
+  "transformers>=4.44,<5",
+]
+analysis = [
+    "matplotlib>=3.9,<4",
+    "pywavelets>=1.6,<2",
+    "scikit-image>=0.24,<1",
+    "scipy>=1.13,<2",
 ]
 
 [project.scripts]

@@ -1,0 +1,79 @@
+{
+  "exposure_matched_records": 91,
+  "frame_id": "pfg2-frame-20260905",
+  "frame_sha256": "43c71972635421645b276051feaefc62ee6845d3807fcad352aaa72926e9bed2",
+  "identity_conflicts": [],
+  "input_admissions": 1193,
+  "inputs": [
+    {
+      "path": "data/manifests/painter_feature_generation_v1/broad_media_followup_publication_r2/candidates.jsonl",
+      "sha256": "3e14bf91eb0836ec09ae3d25fe9ffba7f618939208c4b944b0b0a5c228bc9ff7"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v1/exposure_denylist.jsonl",
+      "sha256": "4f64fe345f934b88f564938db2a46226118067eb75a9a6993622cb2926be3858"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v1/pfg_v1_r1_20260904_determination.jsonl",
+      "sha256": "b6beffe47ffa16d77c1fc424d2deeabb8518d30a77d441396ba6065daaf4700a"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v1/prompt_library.json",
+      "sha256": "fbe81e7cb93282dae96c3edd7df58ed3d43ee81516b6df113f3c8b56b07e09a7"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/corpus.py",
+      "sha256": "90031958bfd212ef856fc87a24b47cde701e6f609e1eb7a8f8dd11a389c34a50"
+    },
+    {
+      "path": "studies/painter_feature_generation_v2/PROTOCOL.md",
+      "sha256": "6fe5eec83321b540db4abce7862376be53cdff06bbcd45e50990f2d781f02b9b"
+    }
+  ],
+  "limitation": "Capture origin and complete physical-work identity are not verified. Exposure matches are conservative but incomplete where identifiers are absent.",
+  "merged_record_count": 0,
+  "reconciled_records": 1193,
+  "role_counts": {
+    "alfred_sisley": {
+      "confirmation": 107,
+      "development": 36,
+      "historical_development": 17,
+      "qualification": 36
+    },
+    "camille_pissarro": {
+      "confirmation": 142,
+      "development": 48,
+      "historical_development": 21,
+      "qualification": 48
+    },
+    "claude_monet": {
+      "confirmation": 303,
+      "development": 102,
+      "historical_development": 31,
+      "qualification": 102
+    },
+    "paul_cezanne": {
+      "confirmation": 106,
+      "development": 36,
+      "historical_development": 22,
+      "qualification": 36
+    }
+  },
+  "schema_version": "pfg-v2-frame/1.0",
+  "unresolved_denylist_entries": [
+    "work-aic-100026",
+    "work-aic-103139",
+    "work-aic-14624",
+    "work-aic-14655",
+    "work-aic-16544",
+    "work-aic-81555",
+    "work-aic-81557",
+    "work-aic-95654",
+    "work-nga-155712",
+    "work-nga-46653",
+    "work-nga-46673",
+    "work-nga-52189",
+    "work-nga-52197",
+    "work-nga-66430"
+  ]
+}

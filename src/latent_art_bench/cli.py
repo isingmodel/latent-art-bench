@@ -30,6 +30,7 @@ from latent_art_bench.painter_feature_generation_v1 import (
     prompt_library,
     scene_prescreen,
 )
+from latent_art_bench.painter_feature_generation_v2 import cli as paper_study
 
 app = typer.Typer(
     add_completion=False,
@@ -37,6 +38,7 @@ app = typer.Typer(
 )
 
 _COLLECTORS: List[tuple] = [
+    ("paper-study", paper_study.main, "Painter Feature Generation v2 paper pipeline."),
     ("federated-census", federated_census.main, "Fixed-seed Wikidata/Commons attrition audit."),
     ("broad-wikidata", broad_wikidata.main, "Broad exact-creator no-P186 discovery census."),
     ("broad-wikidata-retry", broad_wikidata_retry.main, "Retry of the broad discovery census."),

@@ -1,4 +1,36 @@
-# Current status and research boundary
+# Current status and research boundary — 2026-09-05
+
+The maintainer has requested completion of the analysis and a research paper, with prospective
+protocol improvements authorized. **Painter Feature Generation v2** is the active implementation;
+[its protocol](../studies/painter_feature_generation_v2/PROTOCOL.md) preserves the original research
+question and the v1 evidence while enabling a complete comparative paper without asserting
+uncalibrated equivalence. V1's strict reproduction claim remains unestablished.
+
+Current v2 state:
+
+- 1,193 recorded work identities retained; no additional works acquired from new metadata routes.
+- Roles assigned prospectively within painter. Confirmation: Monet 303, Sisley 107, Pissarro 142,
+  Cézanne 106 (658 total). Historical exposure matching restricts 91 records to development;
+  incomplete exposure identifiers remain an explicit limitation.
+- The 31-coordinate feature implementation, paired-block energy estimator, and immutable-stage
+  artifact code exist and have focused offline tests.
+- SD-Turbo revision `b261bac6fd2cf515557d5d0707481eafa0485ec2` is downloaded under the ignored v2
+  workspace. Its prospective configuration is 512×512, one step, 25 blocks × 16 prompts × five
+  conditions (2,000 attempts), running locally with no paid API spending.
+- Acquisition and generation execution freezes are being prepared. No v2 real image or generated
+  output has yet been acquired or analyzed; no empirical feature result or finished paper exists.
+- The original local image proxy reports an expired upstream authentication token. The registered
+  v2 local model does not use that service.
+
+Canonical frame: `data/manifests/painter_feature_generation_v2/pfg2-frame-20260905/`.
+CLI: `uv run --locked --extra analysis --extra learned latent-art-bench paper-study --help`.
+
+Large runtime bytes remain under `research_workspace/painter_feature_generation_v2/`. Preserve all
+v1 evidence and its ignored raw responses. V2 outputs have disjoint paths; none repairs or replaces
+a terminal v1 census. Reviews performed by the operator or an LLM are not institutionally
+independent reviews.
+
+## Historical v1 status (retained context; superseded as current operational guidance)
 
 Operational date: 2026-09-04
 

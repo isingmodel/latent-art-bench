@@ -15,6 +15,16 @@ identities.
 - [Contributing](../CONTRIBUTING.md)
 
 ## Active study: Painter Feature Generation v1
+ 
+This section is historical. The active continuation is
+[Painter Feature Generation v2](../studies/painter_feature_generation_v2/PROTOCOL.md), authorized
+2026-09-05 for implementation of the complete analysis and research paper. Its compact evidence
+lives under `data/manifests/painter_feature_generation_v2/` and large bytes under the ignored
+`research_workspace/painter_feature_generation_v2/`.
+
+- [V1 Protocol 2.2: collection amendment](../studies/painter_feature_generation_v1/PROTOCOL_2.2.md)
+- [V1 Protocol 2.3: Wikidata authority amendment](../studies/painter_feature_generation_v1/PROTOCOL_2.3.md)
+- [Recorded v1 R1 determination](../reports/painter_feature_generation_v1/R1_DETERMINATION_KO.md)
 
 - [Study overview](../studies/painter_feature_generation_v1/README.md)
 - [**Canonical generated-versus-real protocol (2.1)**](../studies/painter_feature_generation_v1/PROTOCOL_2.1.md)

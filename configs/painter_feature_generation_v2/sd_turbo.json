@@ -1,0 +1,21 @@
+{
+  "schema_version": "pfg-v2-model-config/1.0",
+  "model_id": "stabilityai/sd-turbo",
+  "revision": "b261bac6fd2cf515557d5d0707481eafa0485ec2",
+  "variant": "fp16",
+  "dtype": "float16",
+  "device": "mps",
+  "width": 512,
+  "height": 512,
+  "analysis_short_side": 512,
+  "num_inference_steps": 1,
+  "guidance_scale": 0.0,
+  "negative_prompt": null,
+  "repetitions": 25,
+  "batch_size": 1,
+  "torch_num_threads": 4,
+  "attention_slicing": "auto",
+  "master_seed": "d25658599de5c37d9d188945d609b8805f47b68976b9d90e9c536c196e5a21ce",
+  "model_card": "https://huggingface.co/stabilityai/sd-turbo",
+  "selection_reason": "Publicly available pinned research artifact executable on the available 16 GiB Apple Silicon computer without paid API calls. Selected before any active generation or image feature is observed."
+}

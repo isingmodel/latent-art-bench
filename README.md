@@ -1,5 +1,15 @@
 # LatentArtBench
 
+> **Current implementation — 2026-09-05:**
+> [Painter Feature Generation v2](studies/painter_feature_generation_v2/PROTOCOL.md) continues the
+> study toward a complete comparative analysis and research paper. Its 1,193-record frame has
+> prospective roles (658 confirmation records); the 31-feature measurement and paired-block
+> analysis code is implemented. Image execution and empirical results are pending. Use
+> [current status](docs/STATUS.md) for operational guidance. The v1 overview below is historical.
+
+Run the new pipeline with
+`uv run --locked --extra analysis --extra learned latent-art-bench paper-study --help`.
+
 LatentArtBench is a research project for testing whether images generated with a painter's name
 reproduce the measurable visual-feature distribution of that painter's authentic paintings. The
 active study compares distributions within a metadata-declared outdoor-place content frame; it
