@@ -2,13 +2,14 @@
 
 > **Current implementation — 2026-09-05:**
 > [Painter Feature Generation v2](studies/painter_feature_generation_v2/PROTOCOL.md) continues the
-> study toward an empirical analysis report, not a prototype paper. The
-> [available-image-model access report](reports/painter_feature_generation_v2/AVAILABLE_IMAGE_MODELS.md)
-> is complete. Its 1,193-record frame has
-> prospective roles (658 confirmation records); the 31-feature measurement and paired-block
-> analysis code is implemented. All 2,000 SD-Turbo images are generated. Both GPT Image aliases return
-> image bytes through the current Codex OAuth proxy, but returned settings differ from requests
-> and model snapshots are not attested. Full painter-feature results remain pending. Use
+> study with a **completed [empirical analysis report](reports/painter_feature_generation_v2/EMPIRICAL_ANALYSIS.md)**,
+> not a prototype paper. It covers 2,000 SD-Turbo images, 160 GPT Image service outputs, 649
+> measured confirmation works, all 31 features, and a complete paired crop check for 3,340 images.
+> Painter-name benefit and specificity are mixed; reproduction is not demonstrated. GPT results
+> identify requested OAuth aliases, not attested model snapshots, and nominal intervals remain
+> exploratory because synthetic calibration undercovered. The
+> [earlier access report](reports/painter_feature_generation_v2/AVAILABLE_IMAGE_MODELS.md)
+> documents the separate neutral-image experiment. Use
 > [current status](docs/STATUS.md) for operational guidance. The v1 overview below is historical.
 
 Run the new pipeline with

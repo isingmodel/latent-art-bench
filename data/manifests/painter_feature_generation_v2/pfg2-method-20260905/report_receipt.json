@@ -1,0 +1,58 @@
+{
+  "completed_at_utc": "2026-09-05T03:14:14.869633+00:00",
+  "deliverable": "analysis_report_not_manuscript",
+  "files": [
+    {
+      "path": "reports/painter_feature_generation_v2/EMPIRICAL_ANALYSIS.md",
+      "sha256": "2b65714a82447ad5db15441aebfef0637ee20635f354a19b351f8d9e2c44b636"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-calibration-20260905/calibration.json",
+      "sha256": "1548224921431fb5a292e6fda3f7b43b837338a3d6b7aee97f2879667fc9de33"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/access_events.jsonl",
+      "sha256": "50c19ea70e3d7f7265c607a74c6dba86d36d172311041ab4d336f97ecc8d8066"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/confirmation_opening.json",
+      "sha256": "f047b90ba5b4205478c61e0e2c430e3d6120b1fba6b33d0af00b3df9c7309566"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/confirmation_receipt.json",
+      "sha256": "22617ada4debec0dde30cbb9c492b986e67fe0c5382f0b8d69740466d934889a"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/development_receipt.json",
+      "sha256": "5a724637bbf4ff1e424be0259e53ceb47c4926dba926defcff2609c7057b1b1c"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/empirical_analysis.json",
+      "sha256": "34bf52e5f1c57984c7ee1da0b72950108a7bf550cf2f2512db72483ea206b3c8"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/experiments/pfg2-sd-turbo-20260905/analysis.json",
+      "sha256": "a1e2b46230b05908bff80d43a33930e437557b636d5af498c9f504cdb2752569"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/method_freeze.json",
+      "sha256": "0c254c629b37803c7e99f2c61485f6086f593f98cd8bc26b78a5c498f2b29200"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/qualification_receipt.json",
+      "sha256": "4d1ae1b261d7f5649bf2fcf85c7167b3567bba89c34da137e2f627390157a24d"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/robustness/robustness_analysis.json",
+      "sha256": "7c64b2e1640d365ee01c272cb8f9b5bf203585120c857cf4786bcafcc5a91130"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/report.py",
+      "sha256": "6a7977b2c61b66447a666c9c00d4d784835eb312ed57822833357e1c1a2b73ff"
+    }
+  ],
+  "method_id": "pfg2-method-20260905",
+  "recorded_git_commit": "a9f1f03f5139c731900ae2ad4d6a6b8997dc9530"
+}

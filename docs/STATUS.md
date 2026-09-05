@@ -1,13 +1,14 @@
 # Current status and research boundary — 2026-09-05
 
-The maintainer has requested continued implementation of the **empirical painter-feature analysis
-report**, deferring a prototype paper and offering GPT-Image-1 / GPT-Image-2 through Codex OAuth.
-The prospective empirical extension is [amendment 1.2](../studies/painter_feature_generation_v2/PROTOCOL_1.2.md).
-See the earlier
+The **empirical painter-feature analysis is complete**. Read the
+[final analysis report](../reports/painter_feature_generation_v2/EMPIRICAL_ANALYSIS.md), covering
+2,000 SD-Turbo images, 160 GPT Image service outputs, 649 confirmation works and full paired crop
+sensitivity. No manuscript was drafted, as requested. The prospective extension is
+[amendment 1.2](../studies/painter_feature_generation_v2/PROTOCOL_1.2.md). See also the earlier
 [completed model-access analysis](../reports/painter_feature_generation_v2/AVAILABLE_IMAGE_MODELS.md).
 **Painter Feature Generation v2** is the active implementation;
 [its protocol](../studies/painter_feature_generation_v2/PROTOCOL.md) preserves the original research
-question and the v1 evidence while enabling a complete comparative paper without asserting
+question and the v1 evidence while enabling a complete comparative analysis without asserting
 uncalibrated equivalence. V1's strict reproduction claim remains unestablished.
 
 Current v2 state:
@@ -20,10 +21,9 @@ Current v2 state:
   artifact code exist and have focused offline tests.
 - SD-Turbo revision `b261bac6fd2cf515557d5d0707481eafa0485ec2` is downloaded under the ignored v2
   workspace. Its prospective configuration is 512×512, one step, 25 blocks × 16 prompts × five
-  conditions (2,000 attempts), running locally with no paid API spending.
+  conditions (2,000 attempts), executed locally with no paid API spending.
 - The registered SD-Turbo run completed all 2,000 requests with 2,000 generated images and no
-  failures. Its terminal receipt and ledger are retained unchanged. No active painter-feature
-  result or finished paper exists yet.
+  failures. Its terminal receipt, ledger, measured features and analysis are retained unchanged.
 - Original-image acquisition is terminal-aborted under its 64 MiB resource contract: 41 terminal
   dispositions, 33 acquired and eight failed. Retain every byte and the terminal receipt; never
   resume this run in place or splice its successes into the replacement.
@@ -59,24 +59,25 @@ Current v2 state:
   finite comparisons for all three service conditions, 124 coordinate diagnostics per condition,
   source/profile/resolution strata and copy screens. Painter-name control improvement and
   wrong-painter specificity are distinct and mixed; no reproduction or model-ranking claim is made.
-- Full paired crop sensitivity is running for all 3,340 primary-success images at 496 pixels.
-  The final empirical report awaits this remaining diagnostic and final evidence verification.
-- No manuscript is being prepared. Shared measurement, finite comparisons, repeated-block analysis,
-  full-population crop sensitivity and the Markdown report renderer are implemented and tested.
-  The frozen analysis is now being executed; no active result is used to retune it.
+- Full paired crop sensitivity completed all 3,340 images in each 496-pixel branch, with no
+  measurement failures or invalid scaler coordinates. None of the 36 named-minus-control signs
+  reversed between the uncropped and cropped branches. This does not validate independent captures.
+- The Markdown report and its hash-bound receipt are complete. Shared measurement, finite
+  comparisons, repeated-block analysis and robustness are implemented, tested and executed.
+  No active result was used to retune the frozen analysis. No manuscript was produced.
 - The prespecified synthetic calibration completed 100 trials in each of three scenarios.
   Joint nondegenerate-endpoint coverage was 1.00 / 0.86 / 0.96 (null / shift / dispersion),
-  with 48 zero-variance null contrasts lacking intervals. Nominal 95% intervals will therefore
-  be reported as exploratory, not validated confidence guarantees. No active-outcome retuning.
+  with 48 zero-variance null contrasts lacking intervals. Nominal 95% intervals are therefore
+  reported as exploratory, not validated confidence guarantees. No active-outcome retuning.
 
 Canonical frame: `data/manifests/painter_feature_generation_v2/pfg2-frame-20260905/`.
 CLI: `uv run --locked --extra analysis --extra learned latent-art-bench paper-study -- --help`.
 Access CLI: `latent-art-bench model-assessment --help`; v2 audit: `latent-art-bench paper-study audit`.
 
 Latest complete-suite validation: Ruff passed; 334 offline tests passed; v1 audit 2,902 checks
-and v2 audit 7,366 checks, both with zero unacknowledged failures. The v2 count grows with
-running ledgers and is not their terminal certificate. The two historical v1 acknowledgements
-remain unchanged.
+and v2 audit 15,809 checks, both with zero unacknowledged failures. All study collection and
+measurement stages are terminal. The report reproduces byte-for-byte from sealed results and
+all six local report links resolve. The two historical v1 acknowledgements remain unchanged.
 
 Large runtime bytes remain under `research_workspace/painter_feature_generation_v2/`. Preserve all
 v1 evidence and its ignored raw responses. V2 outputs have disjoint paths; none repairs or replaces

@@ -1,5 +1,9 @@
 # Available image-generation models: access and research suitability
 
+Historical access-stage snapshot. The subsequent
+[completed empirical analysis](EMPIRICAL_ANALYSIS.md) supersedes the operational status and
+unexecuted-work statements below; the access measurements themselves remain unchanged.
+
 Assessed 2026-09-05. Deliverable: analysis report, not a prototype paper.
 Scope: models available through the specified local OAuth setup and the already registered
 local baseline. This is not an exhaustive market survey or a painter-fidelity benchmark.

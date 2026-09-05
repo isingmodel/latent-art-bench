@@ -16,14 +16,17 @@ identities.
 
 ## Active continuation: Painter Feature Generation v2
 
-The immediate deliverable is an empirical painter-feature analysis report; the maintainer deferred
-a prototype paper. Compact evidence lives under `data/manifests/painter_feature_generation_v2/`
+The empirical painter-feature analysis report is complete; the maintainer deferred a prototype
+paper. Compact evidence lives under `data/manifests/painter_feature_generation_v2/`
 and large bytes under the ignored `research_workspace/painter_feature_generation_v2/`.
 
-- [Available image models: completed access and research-suitability report](../reports/painter_feature_generation_v2/AVAILABLE_IMAGE_MODELS.md)
+- [Completed empirical painter-feature analysis report](../reports/painter_feature_generation_v2/EMPIRICAL_ANALYSIS.md)
+- [Earlier available-model access and research-suitability report](../reports/painter_feature_generation_v2/AVAILABLE_IMAGE_MODELS.md)
 - [V2 empirical workflow and reproducibility commands](V2_ANALYSIS_WORKFLOW.md)
 - [Shared empirical method freeze](../data/manifests/painter_feature_generation_v2/pfg2-method-20260905/method_freeze.json)
 - [Sealed primary empirical results](../data/manifests/painter_feature_generation_v2/pfg2-method-20260905/empirical_analysis.json)
+- [Complete paired crop sensitivity](../data/manifests/painter_feature_generation_v2/pfg2-method-20260905/robustness/robustness_analysis.json)
+- [Final report evidence receipt](../data/manifests/painter_feature_generation_v2/pfg2-method-20260905/report_receipt.json)
 - [V2 prospective study protocol](../studies/painter_feature_generation_v2/PROTOCOL.md)
 - [V2 acquisition amendment 1.1](../studies/painter_feature_generation_v2/PROTOCOL_1.1.md)
 - [V2 empirical comparison amendment 1.2](../studies/painter_feature_generation_v2/PROTOCOL_1.2.md)

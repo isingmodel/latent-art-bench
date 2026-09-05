@@ -31,7 +31,7 @@ are nevertheless kept unmodified as policy: they are the record of what actually
 Archive before removing:
 
 - `research_workspace/painter_feature_generation_v2/`, including pinned SD-Turbo weights,
-  ongoing generated images, original-image acquisition responses, rendering metadata responses,
+  completed generated images, original-image acquisition responses, rendering metadata responses,
   and GPT Image access response bodies with embedded base64 image bytes;
 - `research_workspace/painter_feature_generation_v1/`, the active study's content-addressed raw
   provider responses and one-shot locks — these are the bytes the tracked hashes attest to;
