@@ -5,11 +5,15 @@
 **Execution authorized: 1,920 total new images.** On 2026-09-05 the user explicitly replied
 “1,920 is okay.” The approved config fixes four complete repetitions across both aliases and all
 three prompt methods. The authorized inputs were committed at `3251bda`; the generation freeze
-was committed at `04106cc` after a 119-check evidence audit passed. **Generation is running** for
+was committed at `04106cc` after a 119-check evidence audit passed. **Generation started** for
 `pps1-gpt-prompts-20260905`, started at approximately 10:50 UTC through the inspected port-10532
 OAuth proxy. A process-bound sleep assertion is active. Do not launch another writer while this
-process is alive; read the CLI `status` and generation ledger for current counts. After terminal
-generation, measure retained outputs, analyze, render, reproduce and audit the report.
+process is alive; read the CLI `status` and generation ledger for current counts. A companion
+process waits for the terminal generation receipt, then runs `measure`, `analyze`, `report`,
+`check-run` and `audit` in order. It stops on any failed stage and never retries generation.
+Its process identity and per-stage logs are in `tmp/pps1-gpt-prompts-20260905/completion/`.
+`completed.json` there means all five commands passed; the report and its evidence receipts are
+the durable authority. Do not launch a competing measurement or report writer while it is alive.
 
 The user requested additional `gpt-image-1`/`gpt-image-2` images, alternative prompt methods and
 paper-ready generated-versus-original feature-distance analysis. The new
@@ -44,6 +48,10 @@ paper-ready generated-versus-original feature-distance analysis. The new
 - Validation: Ruff passed and **621 offline tests passed**. Historical v1 audit passed 2,902 checks
   with its two prior acknowledgements unchanged; v2 passed 15,809 checks. The previous distance
   report's 26 files still reproduce byte-for-byte. No historical evidence was modified.
+
+After recording the approved cap, Ruff, all 621 offline tests and both historical evidence audits
+passed again. Runtime accounting is append-only and will remain uncommitted until a terminal
+checkpoint; preserve it alongside the ignored original response bodies.
 
 ## Completed existing-data deliverable
 
