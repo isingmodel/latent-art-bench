@@ -1,0 +1,1503 @@
+{
+  "bootstrap_draws_per_trial": 999,
+  "calibration_freeze_sha256": "d4a213583dbbb30126c3e5df62f7cb8a420e37254e87e8747046f6c06aa377fe",
+  "completed_at_utc": "2026-09-05T01:41:02.481765+00:00",
+  "coordinates": 31,
+  "interpretation": "Coverage is a Monte Carlo diagnostic, not a guarantee. Zero-variance endpoints have no inferential interval. Near-null behavior can be poor.",
+  "repetitions": 25,
+  "scenarios": [
+    {
+      "coverage_mc_wilson_95": [
+        0.9630065017930143,
+        1.0
+      ],
+      "endpoint_truth_and_mc_bias": [
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "color",
+          "mc_bias": -0.0006675786011063334,
+          "painter_id": "claude_monet",
+          "truth": 0.0
+        },
+        {
+          "comparison": "alfred_sisley",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": 0.0,
+          "painter_id": "claude_monet",
+          "truth": 0.0
+        },
+        {
+          "comparison": "camille_pissarro",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": 0.0,
+          "painter_id": "claude_monet",
+          "truth": 0.0
+        },
+        {
+          "comparison": "paul_cezanne",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": 0.0,
+          "painter_id": "claude_monet",
+          "truth": 0.0
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "color",
+          "mc_bias": 0.0,
+          "painter_id": "claude_monet",
+          "truth": 0.0
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "color",
+          "mc_bias": -0.0006675786011063334,
+          "painter_id": "alfred_sisley",
+          "truth": 0.0
+        },
+        {
+          "comparison": "claude_monet",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": 0.0,
+          "painter_id": "alfred_sisley",
+          "truth": 0.0
+        },
+        {
+          "comparison": "camille_pissarro",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": 0.0,
+          "painter_id": "alfred_sisley",
+          "truth": 0.0
+        },
+        {
+          "comparison": "paul_cezanne",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": 0.0,
+          "painter_id": "alfred_sisley",
+          "truth": 0.0
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "color",
+          "mc_bias": 0.0,
+          "painter_id": "alfred_sisley",
+          "truth": 0.0
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "color",
+          "mc_bias": -0.0006675786011063334,
+          "painter_id": "camille_pissarro",
+          "truth": 0.0
+        },
+        {
+          "comparison": "claude_monet",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": 0.0,
+          "painter_id": "camille_pissarro",
+          "truth": 0.0
+        },
+        {
+          "comparison": "alfred_sisley",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": 0.0,
+          "painter_id": "camille_pissarro",
+          "truth": 0.0
+        },
+        {
+          "comparison": "paul_cezanne",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": 0.0,
+          "painter_id": "camille_pissarro",
+          "truth": 0.0
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "color",
+          "mc_bias": 0.0,
+          "painter_id": "camille_pissarro",
+          "truth": 0.0
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "color",
+          "mc_bias": -0.0006675786011063334,
+          "painter_id": "paul_cezanne",
+          "truth": 0.0
+        },
+        {
+          "comparison": "claude_monet",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": 0.0,
+          "painter_id": "paul_cezanne",
+          "truth": 0.0
+        },
+        {
+          "comparison": "alfred_sisley",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": 0.0,
+          "painter_id": "paul_cezanne",
+          "truth": 0.0
+        },
+        {
+          "comparison": "camille_pissarro",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": 0.0,
+          "painter_id": "paul_cezanne",
+          "truth": 0.0
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "color",
+          "mc_bias": 0.0,
+          "painter_id": "paul_cezanne",
+          "truth": 0.0
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "spatial",
+          "mc_bias": 0.0002902184668422514,
+          "painter_id": "claude_monet",
+          "truth": 8.881784197001252e-16
+        },
+        {
+          "comparison": "alfred_sisley",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": 0.0,
+          "painter_id": "claude_monet",
+          "truth": 0.0
+        },
+        {
+          "comparison": "camille_pissarro",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": 0.0,
+          "painter_id": "claude_monet",
+          "truth": 0.0
+        },
+        {
+          "comparison": "paul_cezanne",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": 0.0,
+          "painter_id": "claude_monet",
+          "truth": 0.0
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "spatial",
+          "mc_bias": 0.0,
+          "painter_id": "claude_monet",
+          "truth": 0.0
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "spatial",
+          "mc_bias": 0.0002902184668422514,
+          "painter_id": "alfred_sisley",
+          "truth": 8.881784197001252e-16
+        },
+        {
+          "comparison": "claude_monet",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": 0.0,
+          "painter_id": "alfred_sisley",
+          "truth": 0.0
+        },
+        {
+          "comparison": "camille_pissarro",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": 0.0,
+          "painter_id": "alfred_sisley",
+          "truth": 0.0
+        },
+        {
+          "comparison": "paul_cezanne",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": 0.0,
+          "painter_id": "alfred_sisley",
+          "truth": 0.0
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "spatial",
+          "mc_bias": 0.0,
+          "painter_id": "alfred_sisley",
+          "truth": 0.0
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "spatial",
+          "mc_bias": 0.0002902184668422514,
+          "painter_id": "camille_pissarro",
+          "truth": 8.881784197001252e-16
+        },
+        {
+          "comparison": "claude_monet",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": 0.0,
+          "painter_id": "camille_pissarro",
+          "truth": 0.0
+        },
+        {
+          "comparison": "alfred_sisley",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": 0.0,
+          "painter_id": "camille_pissarro",
+          "truth": 0.0
+        },
+        {
+          "comparison": "paul_cezanne",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": 0.0,
+          "painter_id": "camille_pissarro",
+          "truth": 0.0
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "spatial",
+          "mc_bias": 0.0,
+          "painter_id": "camille_pissarro",
+          "truth": 0.0
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "spatial",
+          "mc_bias": 0.0002902184668422514,
+          "painter_id": "paul_cezanne",
+          "truth": 8.881784197001252e-16
+        },
+        {
+          "comparison": "claude_monet",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": 0.0,
+          "painter_id": "paul_cezanne",
+          "truth": 0.0
+        },
+        {
+          "comparison": "alfred_sisley",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": 0.0,
+          "painter_id": "paul_cezanne",
+          "truth": 0.0
+        },
+        {
+          "comparison": "camille_pissarro",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": 0.0,
+          "painter_id": "paul_cezanne",
+          "truth": 0.0
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "spatial",
+          "mc_bias": 0.0,
+          "painter_id": "paul_cezanne",
+          "truth": 0.0
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "texture",
+          "mc_bias": 0.0002808985554150034,
+          "painter_id": "claude_monet",
+          "truth": 0.0
+        },
+        {
+          "comparison": "alfred_sisley",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": 0.0,
+          "painter_id": "claude_monet",
+          "truth": 0.0
+        },
+        {
+          "comparison": "camille_pissarro",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": 0.0,
+          "painter_id": "claude_monet",
+          "truth": 0.0
+        },
+        {
+          "comparison": "paul_cezanne",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": 0.0,
+          "painter_id": "claude_monet",
+          "truth": 0.0
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "texture",
+          "mc_bias": 0.0,
+          "painter_id": "claude_monet",
+          "truth": 0.0
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "texture",
+          "mc_bias": 0.0002808985554150034,
+          "painter_id": "alfred_sisley",
+          "truth": 0.0
+        },
+        {
+          "comparison": "claude_monet",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": 0.0,
+          "painter_id": "alfred_sisley",
+          "truth": 0.0
+        },
+        {
+          "comparison": "camille_pissarro",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": 0.0,
+          "painter_id": "alfred_sisley",
+          "truth": 0.0
+        },
+        {
+          "comparison": "paul_cezanne",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": 0.0,
+          "painter_id": "alfred_sisley",
+          "truth": 0.0
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "texture",
+          "mc_bias": 0.0,
+          "painter_id": "alfred_sisley",
+          "truth": 0.0
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "texture",
+          "mc_bias": 0.0002808985554150034,
+          "painter_id": "camille_pissarro",
+          "truth": 0.0
+        },
+        {
+          "comparison": "claude_monet",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": 0.0,
+          "painter_id": "camille_pissarro",
+          "truth": 0.0
+        },
+        {
+          "comparison": "alfred_sisley",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": 0.0,
+          "painter_id": "camille_pissarro",
+          "truth": 0.0
+        },
+        {
+          "comparison": "paul_cezanne",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": 0.0,
+          "painter_id": "camille_pissarro",
+          "truth": 0.0
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "texture",
+          "mc_bias": 0.0,
+          "painter_id": "camille_pissarro",
+          "truth": 0.0
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "texture",
+          "mc_bias": 0.0002808985554150034,
+          "painter_id": "paul_cezanne",
+          "truth": 0.0
+        },
+        {
+          "comparison": "claude_monet",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": 0.0,
+          "painter_id": "paul_cezanne",
+          "truth": 0.0
+        },
+        {
+          "comparison": "alfred_sisley",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": 0.0,
+          "painter_id": "paul_cezanne",
+          "truth": 0.0
+        },
+        {
+          "comparison": "camille_pissarro",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": 0.0,
+          "painter_id": "paul_cezanne",
+          "truth": 0.0
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "texture",
+          "mc_bias": 0.0,
+          "painter_id": "paul_cezanne",
+          "truth": 0.0
+        }
+      ],
+      "joint_coverage_nondegenerate_endpoints": 1.0,
+      "max_absolute_mc_bias": 0.0006675786011063334,
+      "scenario": "null",
+      "trials": 100,
+      "trials_with_all_60_intervals_covering_truth": 0,
+      "zero_variance_endpoint_counts": [
+        48
+      ]
+    },
+    {
+      "coverage_mc_wilson_95": [
+        0.7786281178903616,
+        0.9147365634006086
+      ],
+      "endpoint_truth_and_mc_bias": [
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "color",
+          "mc_bias": 0.0069272227503672035,
+          "painter_id": "claude_monet",
+          "truth": 0.18702303309066437
+        },
+        {
+          "comparison": "alfred_sisley",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": 0.005895077797486545,
+          "painter_id": "claude_monet",
+          "truth": -0.06407264500598031
+        },
+        {
+          "comparison": "camille_pissarro",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": 0.011955474210041166,
+          "painter_id": "claude_monet",
+          "truth": -1.6765392257974083
+        },
+        {
+          "comparison": "paul_cezanne",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": 0.016138212161064428,
+          "painter_id": "claude_monet",
+          "truth": -4.433282788071059
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "color",
+          "mc_bias": -0.003893719450290105,
+          "painter_id": "claude_monet",
+          "truth": -1.590293242514052
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "color",
+          "mc_bias": 0.006927222750367532,
+          "painter_id": "alfred_sisley",
+          "truth": 0.18702303309066437
+        },
+        {
+          "comparison": "claude_monet",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": -0.0037964819139029117,
+          "painter_id": "alfred_sisley",
+          "truth": -1.5057784100338762
+        },
+        {
+          "comparison": "camille_pissarro",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": 0.00589507779748657,
+          "painter_id": "alfred_sisley",
+          "truth": -0.06407264500598031
+        },
+        {
+          "comparison": "paul_cezanne",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": 0.011955474210041186,
+          "painter_id": "alfred_sisley",
+          "truth": -1.6765392257974083
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "color",
+          "mc_bias": -0.00019184944331733335,
+          "painter_id": "alfred_sisley",
+          "truth": -0.03088286092972181
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "color",
+          "mc_bias": 0.006927222750367017,
+          "painter_id": "camille_pissarro",
+          "truth": 0.18702303309066437
+        },
+        {
+          "comparison": "claude_monet",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": -0.005476486209493858,
+          "painter_id": "camille_pissarro",
+          "truth": -4.1916600890471125
+        },
+        {
+          "comparison": "alfred_sisley",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": -0.0037964819139029004,
+          "painter_id": "camille_pissarro",
+          "truth": -1.5057784100338767
+        },
+        {
+          "comparison": "paul_cezanne",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": 0.00589507779748657,
+          "painter_id": "camille_pissarro",
+          "truth": -0.0640726450059812
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "color",
+          "mc_bias": 0.005648982937196625,
+          "painter_id": "camille_pissarro",
+          "truth": -0.030882860929722283
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "color",
+          "mc_bias": 0.006927222750367168,
+          "painter_id": "paul_cezanne",
+          "truth": 0.18702303309066437
+        },
+        {
+          "comparison": "claude_monet",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": -0.00623489015848695,
+          "painter_id": "paul_cezanne",
+          "truth": -7.59022190004471
+        },
+        {
+          "comparison": "alfred_sisley",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": -0.005476486209494604,
+          "painter_id": "paul_cezanne",
+          "truth": -4.191660089047112
+        },
+        {
+          "comparison": "camille_pissarro",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": -0.0037964819139029026,
+          "painter_id": "paul_cezanne",
+          "truth": -1.5057784100338771
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "color",
+          "mc_bias": 0.011748926516253469,
+          "painter_id": "paul_cezanne",
+          "truth": -1.5902932425140526
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "spatial",
+          "mc_bias": 0.0037389616191659146,
+          "painter_id": "claude_monet",
+          "truth": 0.16583234161464588
+        },
+        {
+          "comparison": "alfred_sisley",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": 0.0027178103181787873,
+          "painter_id": "claude_monet",
+          "truth": -0.056866214156951145
+        },
+        {
+          "comparison": "camille_pissarro",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": 0.005027295197411248,
+          "painter_id": "claude_monet",
+          "truth": -1.48056086177676
+        },
+        {
+          "comparison": "paul_cezanne",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": 0.006365805213473368,
+          "painter_id": "claude_monet",
+          "truth": -3.8823534110829363
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "spatial",
+          "mc_bias": -0.002221215033557483,
+          "painter_id": "claude_monet",
+          "truth": -1.4048024083490847
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "spatial",
+          "mc_bias": 0.0037389616191677443,
+          "painter_id": "alfred_sisley",
+          "truth": 0.1658323416146441
+        },
+        {
+          "comparison": "claude_monet",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": -0.0021553925154084706,
+          "painter_id": "alfred_sisley",
+          "truth": -1.3305224688454342
+        },
+        {
+          "comparison": "camille_pissarro",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": 0.002717810318178774,
+          "painter_id": "alfred_sisley",
+          "truth": -0.05686621415695048
+        },
+        {
+          "comparison": "paul_cezanne",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": 0.005027295197411226,
+          "painter_id": "alfred_sisley",
+          "truth": -1.4805608617767616
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "spatial",
+          "mc_bias": -9.827962471310567e-05,
+          "painter_id": "alfred_sisley",
+          "truth": -0.02741084452770185
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "spatial",
+          "mc_bias": 0.0037389616191679,
+          "painter_id": "camille_pissarro",
+          "truth": 0.16583234161464322
+        },
+        {
+          "comparison": "claude_monet",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": -0.003538549351984881,
+          "painter_id": "camille_pissarro",
+          "truth": -3.673137987488031
+        },
+        {
+          "comparison": "alfred_sisley",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": -0.002155392515408472,
+          "painter_id": "camille_pissarro",
+          "truth": -1.3305224688454353
+        },
+        {
+          "comparison": "paul_cezanne",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": 0.002717810318178776,
+          "painter_id": "camille_pissarro",
+          "truth": -0.056866214156952366
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "spatial",
+          "mc_bias": 0.0026146966449171454,
+          "painter_id": "camille_pissarro",
+          "truth": -0.027410844527702156
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "spatial",
+          "mc_bias": 0.0037389616191679086,
+          "painter_id": "paul_cezanne",
+          "truth": 0.1658323416146441
+        },
+        {
+          "comparison": "claude_monet",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": -0.004467078815484058,
+          "painter_id": "paul_cezanne",
+          "truth": -6.60139779058103
+        },
+        {
+          "comparison": "alfred_sisley",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": -0.0035385493519849297,
+          "painter_id": "paul_cezanne",
+          "truth": -3.67313798748803
+        },
+        {
+          "comparison": "camille_pissarro",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": -0.002155392515408482,
+          "painter_id": "paul_cezanne",
+          "truth": -1.330522468845434
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "spatial",
+          "mc_bias": 0.004955314577797079,
+          "painter_id": "paul_cezanne",
+          "truth": -1.4048024083490847
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "texture",
+          "mc_bias": 0.0065747804926513,
+          "painter_id": "claude_monet",
+          "truth": 0.19814864209518124
+        },
+        {
+          "comparison": "alfred_sisley",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": 0.0049265979139953425,
+          "painter_id": "claude_monet",
+          "truth": -0.06789041390468409
+        },
+        {
+          "comparison": "camille_pissarro",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": 0.010315831826795241,
+          "painter_id": "claude_monet",
+          "truth": -1.7705786381051205
+        },
+        {
+          "comparison": "paul_cezanne",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": 0.01431340021855629,
+          "painter_id": "claude_monet",
+          "truth": -4.658429572971192
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "texture",
+          "mc_bias": -0.002857874953497257,
+          "painter_id": "claude_monet",
+          "truth": -1.6797929665469635
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "texture",
+          "mc_bias": 0.006574780492651486,
+          "painter_id": "alfred_sisley",
+          "truth": 0.19814864209518124
+        },
+        {
+          "comparison": "claude_monet",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": -0.002794750620057118,
+          "painter_id": "alfred_sisley",
+          "truth": -1.5907992534996118
+        },
+        {
+          "comparison": "camille_pissarro",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": 0.004926597913995354,
+          "painter_id": "alfred_sisley",
+          "truth": -0.06789041390468431
+        },
+        {
+          "comparison": "paul_cezanne",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": 0.01031583182679522,
+          "painter_id": "alfred_sisley",
+          "truth": -1.77057863810512
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "texture",
+          "mc_bias": -0.00015196643248903746,
+          "painter_id": "alfred_sisley",
+          "truth": -0.032724787419311285
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "texture",
+          "mc_bias": 0.006574780492651308,
+          "painter_id": "camille_pissarro",
+          "truth": 0.19814864209518213
+        },
+        {
+          "comparison": "claude_monet",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": -0.003781219843523984,
+          "painter_id": "camille_pissarro",
+          "truth": -4.406190407844977
+        },
+        {
+          "comparison": "alfred_sisley",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": -0.002794750620057105,
+          "painter_id": "camille_pissarro",
+          "truth": -1.590799253499611
+        },
+        {
+          "comparison": "paul_cezanne",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": 0.004926597913995365,
+          "painter_id": "camille_pissarro",
+          "truth": -0.06789041390468342
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "texture",
+          "mc_bias": 0.004713953895335758,
+          "painter_id": "camille_pissarro",
+          "truth": -0.03272478741931095
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "texture",
+          "mc_bias": 0.006574780492651247,
+          "painter_id": "paul_cezanne",
+          "truth": 0.19814864209518124
+        },
+        {
+          "comparison": "claude_monet",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": -0.004106912506771963,
+          "painter_id": "paul_cezanne",
+          "truth": -7.946589558844303
+        },
+        {
+          "comparison": "alfred_sisley",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": -0.003781219843523371,
+          "painter_id": "paul_cezanne",
+          "truth": -4.406190407844979
+        },
+        {
+          "comparison": "camille_pissarro",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": -0.002794750620057138,
+          "painter_id": "paul_cezanne",
+          "truth": -1.5907992534996132
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "texture",
+          "mc_bias": 0.01012663892757893,
+          "painter_id": "paul_cezanne",
+          "truth": -1.679792966546964
+        }
+      ],
+      "joint_coverage_nondegenerate_endpoints": 0.86,
+      "max_absolute_mc_bias": 0.016138212161064428,
+      "scenario": "shift",
+      "trials": 100,
+      "trials_with_all_60_intervals_covering_truth": 86,
+      "zero_variance_endpoint_counts": [
+        0
+      ]
+    },
+    {
+      "coverage_mc_wilson_95": [
+        0.9016292856411208,
+        0.9843366960084523
+      ],
+      "endpoint_truth_and_mc_bias": [
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "color",
+          "mc_bias": -0.0032149721220824466,
+          "painter_id": "claude_monet",
+          "truth": 0.3507744704067681
+        },
+        {
+          "comparison": "alfred_sisley",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": 0.020934898816059998,
+          "painter_id": "claude_monet",
+          "truth": -0.6994117765776697
+        },
+        {
+          "comparison": "camille_pissarro",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": 0.037695884781298795,
+          "painter_id": "claude_monet",
+          "truth": -2.579408450752682
+        },
+        {
+          "comparison": "paul_cezanne",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": 0.04896347427101635,
+          "painter_id": "claude_monet",
+          "truth": -5.314541910305528
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "color",
+          "mc_bias": -0.024295056613398126,
+          "painter_id": "claude_monet",
+          "truth": -1.5614741030015913
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "color",
+          "mc_bias": -0.0032149721220822423,
+          "painter_id": "alfred_sisley",
+          "truth": 0.3507744704067681
+        },
+        {
+          "comparison": "claude_monet",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": -0.02069843997850218,
+          "painter_id": "alfred_sisley",
+          "truth": -0.6377819821622794
+        },
+        {
+          "comparison": "camille_pissarro",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": 0.020934898816059953,
+          "painter_id": "alfred_sisley",
+          "truth": -0.6994117765776695
+        },
+        {
+          "comparison": "paul_cezanne",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": 0.03769588478129875,
+          "painter_id": "alfred_sisley",
+          "truth": -2.579408450752682
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "color",
+          "mc_bias": -0.010068119328151241,
+          "painter_id": "alfred_sisley",
+          "truth": 0.11330238332522446
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "color",
+          "mc_bias": -0.0032149721220824466,
+          "painter_id": "camille_pissarro",
+          "truth": 0.3507744704067681
+        },
+        {
+          "comparison": "claude_monet",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": -0.03701684475147151,
+          "painter_id": "camille_pissarro",
+          "truth": -2.4684875814207357
+        },
+        {
+          "comparison": "alfred_sisley",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": -0.02069843997850219,
+          "painter_id": "camille_pissarro",
+          "truth": -0.6377819821622797
+        },
+        {
+          "comparison": "paul_cezanne",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": 0.020934898816059973,
+          "painter_id": "camille_pissarro",
+          "truth": -0.69941177657767
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "color",
+          "mc_bias": 0.007630953513678183,
+          "painter_id": "camille_pissarro",
+          "truth": 0.11330238332522402
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "color",
+          "mc_bias": -0.0032149721220825623,
+          "painter_id": "paul_cezanne",
+          "truth": 0.3507744704067681
+        },
+        {
+          "comparison": "claude_monet",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": -0.04781092966655421,
+          "painter_id": "paul_cezanne",
+          "truth": -5.171104422460402
+        },
+        {
+          "comparison": "alfred_sisley",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": -0.037016844751471496,
+          "painter_id": "paul_cezanne",
+          "truth": -2.4684875814207365
+        },
+        {
+          "comparison": "camille_pissarro",
+          "endpoint": "specificity",
+          "family": "color",
+          "mc_bias": -0.02069843997850219,
+          "painter_id": "paul_cezanne",
+          "truth": -0.6377819821622799
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "color",
+          "mc_bias": 0.02233074279441935,
+          "painter_id": "paul_cezanne",
+          "truth": -1.561474103001592
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "spatial",
+          "mc_bias": -0.001055147822205429,
+          "painter_id": "claude_monet",
+          "truth": 0.29034836274436326
+        },
+        {
+          "comparison": "alfred_sisley",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": 0.0170260981021921,
+          "painter_id": "claude_monet",
+          "truth": -0.5902004928558322
+        },
+        {
+          "comparison": "camille_pissarro",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": 0.02999403391684879,
+          "painter_id": "claude_monet",
+          "truth": -2.2185039656982903
+        },
+        {
+          "comparison": "paul_cezanne",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": 0.038422610790661525,
+          "painter_id": "claude_monet",
+          "truth": -4.590764445478971
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "spatial",
+          "mc_bias": -0.01902240897019994,
+          "painter_id": "claude_monet",
+          "truth": -1.391397814224445
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "spatial",
+          "mc_bias": -0.0010551478222057308,
+          "painter_id": "alfred_sisley",
+          "truth": 0.29034836274436326
+        },
+        {
+          "comparison": "claude_monet",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": -0.017252368447446178,
+          "painter_id": "alfred_sisley",
+          "truth": -0.5888711876904968
+        },
+        {
+          "comparison": "camille_pissarro",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": 0.01702609810219209,
+          "painter_id": "alfred_sisley",
+          "truth": -0.5902004928558324
+        },
+        {
+          "comparison": "paul_cezanne",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": 0.02999403391684853,
+          "painter_id": "alfred_sisley",
+          "truth": -2.2185039656982912
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "spatial",
+          "mc_bias": -0.007347792296300577,
+          "painter_id": "alfred_sisley",
+          "truth": 0.0812012847163106
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "spatial",
+          "mc_bias": -0.0010551478222054645,
+          "painter_id": "camille_pissarro",
+          "truth": 0.29034836274436326
+        },
+        {
+          "comparison": "claude_monet",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": -0.030468127978405146,
+          "painter_id": "camille_pissarro",
+          "truth": -2.221318578212416
+        },
+        {
+          "comparison": "alfred_sisley",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": -0.017252368447446178,
+          "painter_id": "camille_pissarro",
+          "truth": -0.5888711876904968
+        },
+        {
+          "comparison": "paul_cezanne",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": 0.017026098102192074,
+          "painter_id": "camille_pissarro",
+          "truth": -0.5902004928558331
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "spatial",
+          "mc_bias": 0.007208310381400324,
+          "painter_id": "camille_pissarro",
+          "truth": 0.0812012847163106
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "spatial",
+          "mc_bias": -0.0010551478222057221,
+          "painter_id": "paul_cezanne",
+          "truth": 0.29034836274436326
+        },
+        {
+          "comparison": "claude_monet",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": -0.03878922535194855,
+          "painter_id": "paul_cezanne",
+          "truth": -4.598260894680662
+        },
+        {
+          "comparison": "alfred_sisley",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": -0.030468127978405323,
+          "painter_id": "paul_cezanne",
+          "truth": -2.221318578212416
+        },
+        {
+          "comparison": "camille_pissarro",
+          "endpoint": "specificity",
+          "family": "spatial",
+          "mc_bias": -0.017252368447446174,
+          "painter_id": "paul_cezanne",
+          "truth": -0.5888711876904971
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "spatial",
+          "mc_bias": 0.01870198713380047,
+          "painter_id": "paul_cezanne",
+          "truth": -1.3913978142244463
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "texture",
+          "mc_bias": -9.263589866983501e-05,
+          "painter_id": "claude_monet",
+          "truth": 0.37006600065738304
+        },
+        {
+          "comparison": "alfred_sisley",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": 0.021663710564287668,
+          "painter_id": "claude_monet",
+          "truth": -0.7803973990551152
+        },
+        {
+          "comparison": "camille_pissarro",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": 0.0396784945801878,
+          "painter_id": "claude_monet",
+          "truth": -2.809308556381314
+        },
+        {
+          "comparison": "paul_cezanne",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": 0.05227138617629391,
+          "painter_id": "claude_monet",
+          "truth": -5.7210130713068015
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "texture",
+          "mc_bias": -0.02014571823091055,
+          "painter_id": "claude_monet",
+          "truth": -1.675200231734212
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "texture",
+          "mc_bias": -9.263589866997712e-05,
+          "painter_id": "alfred_sisley",
+          "truth": 0.37006600065738304
+        },
+        {
+          "comparison": "claude_monet",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": -0.020013490181015278,
+          "painter_id": "alfred_sisley",
+          "truth": -0.6561175882514094
+        },
+        {
+          "comparison": "camille_pissarro",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": 0.021663710564287654,
+          "painter_id": "alfred_sisley",
+          "truth": -0.780397399055115
+        },
+        {
+          "comparison": "paul_cezanne",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": 0.03967849458018789,
+          "painter_id": "alfred_sisley",
+          "truth": -2.8093085563813145
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "texture",
+          "mc_bias": -0.0076029988405960005,
+          "painter_id": "alfred_sisley",
+          "truth": 0.11493616506534465
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "texture",
+          "mc_bias": -9.263589866938204e-05,
+          "painter_id": "camille_pissarro",
+          "truth": 0.37006600065738304
+        },
+        {
+          "comparison": "claude_monet",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": -0.034071571602330236,
+          "painter_id": "camille_pissarro",
+          "truth": -2.5864126301584554
+        },
+        {
+          "comparison": "alfred_sisley",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": -0.020013490181015295,
+          "painter_id": "camille_pissarro",
+          "truth": -0.656117588251409
+        },
+        {
+          "comparison": "paul_cezanne",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": 0.021663710564287633,
+          "painter_id": "camille_pissarro",
+          "truth": -0.7803973990551152
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "texture",
+          "mc_bias": 0.009893717588259165,
+          "painter_id": "camille_pissarro",
+          "truth": 0.1149361650653451
+        },
+        {
+          "comparison": null,
+          "endpoint": "target_fit",
+          "family": "texture",
+          "mc_bias": -9.263589866920441e-05,
+          "painter_id": "paul_cezanne",
+          "truth": 0.37006600065738215
+        },
+        {
+          "comparison": "claude_monet",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": -0.04220933564761023,
+          "painter_id": "paul_cezanne",
+          "truth": -5.432705777240335
+        },
+        {
+          "comparison": "alfred_sisley",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": -0.03407157160232995,
+          "painter_id": "paul_cezanne",
+          "truth": -2.5864126301584562
+        },
+        {
+          "comparison": "camille_pissarro",
+          "endpoint": "specificity",
+          "family": "texture",
+          "mc_bias": -0.020013490181015278,
+          "painter_id": "paul_cezanne",
+          "truth": -0.6561175882514094
+        },
+        {
+          "comparison": "artist_free",
+          "endpoint": "control_improvement",
+          "family": "texture",
+          "mc_bias": 0.025407078003821342,
+          "painter_id": "paul_cezanne",
+          "truth": -1.6752002317342125
+        }
+      ],
+      "joint_coverage_nondegenerate_endpoints": 0.96,
+      "max_absolute_mc_bias": 0.05227138617629391,
+      "scenario": "dispersion",
+      "trials": 100,
+      "trials_with_all_60_intervals_covering_truth": 96,
+      "zero_variance_endpoint_counts": [
+        0
+      ]
+    }
+  ],
+  "scope": "synthetic numerical calibration, not empirical painter evidence",
+  "seed": 20260905,
+  "source_block_states": 8,
+  "templates": 16,
+  "trials_per_scenario": 100
+}

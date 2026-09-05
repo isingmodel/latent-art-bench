@@ -1,0 +1,13 @@
+{
+  "complete_generated_grid": true,
+  "completed_at_utc": "2026-09-05T02:02:39.696433+00:00",
+  "expected_requests": 2000,
+  "experiment_id": "pfg2-sd-turbo-20260905",
+  "freeze_sha256": "5e0abf5117ad3c5fc01a6c6b888bc809138e9a1088b1b926f4c99ef69582c825",
+  "ledger_sha256": "9624eb74641218825d7b47c7079234302b11d6d03b33037e0515a646a395a182",
+  "outputs_sha256": "1b519dff82214574af0273a35b2ea63f3afec88ce74400f803de0233fbedc9c5",
+  "statuses": {
+    "generated": 2000
+  },
+  "terminal_requests": 2000
+}
