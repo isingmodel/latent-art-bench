@@ -1,0 +1,16 @@
+{
+  "at_utc": "2026-09-05T00:42:51.872873+00:00",
+  "completed_records": 41,
+  "errors": {
+    "file_exceeds_frozen_size_limit": 7,
+    "unsupported_format": 1
+  },
+  "freeze_sha256": "1e576244c4ed2dc6cf076b53b97a2b19b02303d52178efebee06608f77d4e08c",
+  "ledger_sha256": "3e45dea5283082100baf381a1ce36a8efbd421cffaf9661647dfa4e0f3624aec",
+  "reason": "Several selected originals exceed the prospectively frozen 64 MiB file ceiling. Stop this acquisition and prepare a disjoint documented-rendering acquisition of the same work frame; no original success is spliced into the successor.",
+  "status": "terminal_aborted_resource_contract",
+  "statuses": {
+    "acquired": 33,
+    "failed": 8
+  }
+}
