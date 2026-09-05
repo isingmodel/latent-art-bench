@@ -1,7 +1,10 @@
 # Current status and research boundary — 2026-09-05
 
-The maintainer has requested completion of the analysis and a research paper, with prospective
-protocol improvements authorized. **Painter Feature Generation v2** is the active implementation;
+The maintainer has changed the immediate deliverable to an **analysis report of available image
+models**, explicitly deferring a prototype research paper and offering GPT-Image-1 / GPT-Image-2
+through the local Codex OAuth proxy. See the
+[completed model-access analysis](../reports/painter_feature_generation_v2/AVAILABLE_IMAGE_MODELS.md).
+**Painter Feature Generation v2** is the active implementation;
 [its protocol](../studies/painter_feature_generation_v2/PROTOCOL.md) preserves the original research
 question and the v1 evidence while enabling a complete comparative paper without asserting
 uncalibrated equivalence. V1's strict reproduction claim remains unestablished.
@@ -17,13 +20,31 @@ Current v2 state:
 - SD-Turbo revision `b261bac6fd2cf515557d5d0707481eafa0485ec2` is downloaded under the ignored v2
   workspace. Its prospective configuration is 512×512, one step, 25 blocks × 16 prompts × five
   conditions (2,000 attempts), running locally with no paid API spending.
-- Acquisition and generation execution freezes are being prepared. No v2 real image or generated
-  output has yet been acquired or analyzed; no empirical feature result or finished paper exists.
-- The original local image proxy reports an expired upstream authentication token. The registered
-  v2 local model does not use that service.
+- The registered 2,000-request SD-Turbo run is in progress. Its frozen configuration and append-only
+  generation ledger are unchanged. No active painter-feature result or finished paper exists.
+- Original-image acquisition is terminal-aborted under its 64 MiB resource contract: 41 terminal
+  dispositions, 33 acquired and eight failed. Retain every byte and the terminal receipt; never
+  resume this run in place or splice its successes into the replacement.
+- Acquisition amendment 1.1 registered replacement Commons renderings for the same complete frame.
+  All 191 metadata requests succeeded and all 1,193 works have registered renderings. Replacement
+  image acquisition and active feature extraction have not begun.
+- The current Codex credentials work. The old port-10531 proxy predates its source update and
+  returns an expired-token error. A separate current-source instance on port 10532 authenticated
+  and completed the two-request access experiment without restarting the original server.
+- Both GPT Image aliases returned valid PNG bytes, but **1254×1254 / reported quality low**, despite
+  requesting 1024×1024 / medium. Neither response identifies a model snapshot. The sealed access
+  receipt retains `invalid_output`; a separate offline diagnosis records two decodable images and
+  zero contract-compliant images. This is access evidence, not an artistic-quality comparison.
+- No manuscript is being prepared. A larger GPT Image comparison has not been launched; actual
+  parameter control, route identity, and a bounded execution design need to be resolved first.
 
 Canonical frame: `data/manifests/painter_feature_generation_v2/pfg2-frame-20260905/`.
 CLI: `uv run --locked --extra analysis --extra learned latent-art-bench paper-study --help`.
+Access CLI: `latent-art-bench model-assessment --help`; v2 audit: `latent-art-bench paper-study audit`.
+
+Latest validation: Ruff passed; 298 offline tests passed; v1 audit 2,902 checks and v2 audit
+1,525 checks, both with zero unacknowledged failures. The v2 audit covers an ongoing generation
+prefix, not a completed grid. The two historical v1 acknowledgements remain unchanged.
 
 Large runtime bytes remain under `research_workspace/painter_feature_generation_v2/`. Preserve all
 v1 evidence and its ignored raw responses. V2 outputs have disjoint paths; none repairs or replaces
@@ -180,18 +201,19 @@ The complete, newly authorized R2 retry then repeated that follow-up under a new
   validates current P18 linkage, rights markers, reported geometry, exact member coverage,
   origin/redirect behaviour, retries, atomic receipts, and non-admission manifests;
 - separate output paths and explicit hash-bound linkage to the terminal first census;
-- neutral independent review with no blocking finding; and
+- maintainer-run LLM subagent review with no blocking finding (not institutional independence); and
 - all 165 requests completed on first attempt, producing 331 hash-chained events, 165
   content-addressed raw responses (about 51 MiB locally), and a 3,367-row non-admission candidate
   manifest with its execution receipt.
 
 The first prospective broad no-`P186` census (`pfg-v1-broad-wikidata-no-p186-20260902`) was
-independently approved and executed on 2026-09-02. Monet completed with 1,317 discovery-only rows.
+approved after maintainer-run LLM subagent review and executed on 2026-09-02. Monet completed with
+1,317 discovery-only rows.
 The next, Sisley, request returned provider HTTP 502 with `text/html`; the census therefore ended
 terminally after five hash-chained events. Its one-shot lock and both raw responses are preserved,
 and it emitted neither a candidate manifest nor an execution receipt. No R1 row is reusable.
 
-The independently reviewed R2 census then repeated the same four exact queries and parser, scope,
+The R2 census, reviewed by a maintainer-run LLM subagent, repeated the same four queries and parser, scope,
 cutoff, and all-or-none terminal rule under a new census ID and disjoint paths. Its only operational
 change was a five-second rather than two-second minimum request interval. The retry gate binds the
 exact R1 config, freeze, review, authorization, terminal ledger/event, one-shot lock, both raw
@@ -213,15 +235,16 @@ Broad-media R2 was then prospectively frozen under a new census ID and disjoint 
 only semantic change was strict recognition of a nonempty top-level plural `errors` array whose
 entries carry one unambiguous nonblank error code; existing retry classifications and ceilings were
 unchanged. The freeze bound 28 inputs, the complete R1 CAS/lock/event lineage, 182 deterministic
-intents, and six absent pre-execution outputs. Neutral independent quality review approved the exact
+intents, and six absent pre-execution outputs. Maintainer-run LLM subagent review approved the exact
 freeze with no blocker. R2 completed all 182 requests on their first R2 attempt: 89 Wikidata entity
 batches and 93 Commons media batches, 365 hash-chained events, 182 content-addressed raw responses
 (55,899,277 bytes locally), and a 3,722-row non-admission manifest. Of those rows, 2,029 pass the
 federated metadata discovery gate, representing 1,967 distinct item IDs; none is yet an
 authority-verified physical work, downloaded image, or active-study admission.
 
-The first Art Institute of Chicago route census (`pfg-v1-aic-metadata-20260902`) was independently
-reviewed, authorized, and executed on 2026-09-02. Its first request returned HTTP 200 with a
+The first Art Institute of Chicago route census (`pfg-v1-aic-metadata-20260902`) received
+maintainer-run LLM subagent review and was authorized and executed on 2026-09-02. Its first
+request returned HTTP 200 with a
 schema-valid body, but AIC returns `classification_id` as a nonblank string identifier such as
 `TM-66` while the frozen parser required an integer. The census therefore terminated fail-closed
 after one request with `terminal_delivery_or_schema_failure`. Its three-event hash-chained ledger,
@@ -233,7 +256,7 @@ manifest, publication, workspace, and CAS paths. Its only semantic change is tha
 is an optional nonblank string identifier; every source, query, transport, screening, retention, and
 publication rule is unchanged. The freeze binds 25 inputs, six absent pre-execution outputs, and the
 complete R1 config/freeze/review/authorization/intent/ledger/lock/CAS lineage together with the
-exact allowed config delta. Neutral independent quality review verified every frozen hash and
+exact allowed config delta. Maintainer-run LLM subagent review verified every frozen hash and
 absence, reconstructed the four intents identically under five hash seeds, replayed the exact R1
 terminal body — the R1 parser still fails with the recorded error while the R2 parser returns 46
 rows — and passed a production-gate mock over the exact committed seal. It approved with no blocking
@@ -397,7 +420,8 @@ responses into a successor, or refresh their hashes.
 
 ## Explicitly closed actions
 
-Until the corresponding Protocol 2.1 freeze is independently reviewed, do not:
+Under the historical v1 procedure, until the corresponding Protocol 2.1 freeze is reviewed
+(past reviews were maintainer-run LLM subagents, not institutional independence), do not:
 
 - retry, replace, or splice any terminal R1 census;
 - treat metadata rows or files as an active painter distribution;

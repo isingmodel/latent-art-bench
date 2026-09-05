@@ -1,0 +1,134 @@
+{
+  "analysis_kind": "posthoc_transport_diagnosis_not_painter_fidelity",
+  "contract_compliant_images": 0,
+  "decoded_images": 2,
+  "generated_at_utc": "2026-09-05T01:13:57.259404+00:00",
+  "inputs": [
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-image-access-20260905/assessment_freeze.json",
+      "sha256": "07df01964178ae03cb888c91202378f3935dc14c521543f10de4deb8d4c1a1e1"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-image-access-20260905/assessment_receipt.json",
+      "sha256": "40e9cc695bc3614448c92f83bc7f103d2b9ce07bd273ba04fe0bff22d50d842d"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-image-access-20260905/requests.jsonl",
+      "sha256": "133f56dc495148d23c437a85391b8a6a1ac40dd82a43a532a9df975c38cc6f0a"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-image-access-20260905/raw/8869f8b0d24fb5aabe69defa76c0f3d80d36327ed3e10db77ba929465c64c045",
+      "sha256": "8869f8b0d24fb5aabe69defa76c0f3d80d36327ed3e10db77ba929465c64c045"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-image-access-20260905/raw/d79eebe2411529fb7718803823dcfea7e29b2c310532d571d7af1e6e26867cad",
+      "sha256": "d79eebe2411529fb7718803823dcfea7e29b2c310532d571d7af1e6e26867cad"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/assessment_diagnostics.py",
+      "sha256": "2af8656c50c1a92f5daf9ef6b1fe445843aeee21a6906c99d0f2365f905a0083"
+    }
+  ],
+  "outcomes": [
+    {
+      "attempted": true,
+      "decoded_format": "png",
+      "decoded_height": 1254,
+      "decoded_rgb_sha256": "07ff88afc0ca5c52c0fb47f3a1e98b966aed551f03121655f7feff422482c4f0",
+      "decoded_width": 1254,
+      "http_status": 200,
+      "image_bytes_returned_and_decodable": true,
+      "image_sha256": "b6a5fd3616d68aaa841b27d08e7ae889494c0209665b41fb5186dd0135252fd4",
+      "latency_seconds": 14.016352667007595,
+      "mismatches": [
+        "decoded_size_differs_from_requested",
+        "reported_quality_differs_from_requested",
+        "reported_size_differs_from_requested"
+      ],
+      "mode": "RGB",
+      "model": "gpt-image-1",
+      "model_identity_independently_verified": false,
+      "note": "Reported quality is provider metadata, not a measured visual-quality score.",
+      "opaque": true,
+      "reported": {
+        "background": "opaque",
+        "model": null,
+        "output_format": "png",
+        "quality": "low",
+        "size": "1254x1254",
+        "usage": {
+          "input_tokens": 20,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 20
+          },
+          "output_tokens": 229,
+          "output_tokens_details": {
+            "image_tokens": 229,
+            "text_tokens": 0
+          },
+          "total_tokens": 249
+        }
+      },
+      "requested": {
+        "model": "gpt-image-1",
+        "output_format": "png",
+        "quality": "medium",
+        "size": "1024x1024"
+      },
+      "requested_contract_satisfied": false,
+      "terminal_access_status": "invalid_output"
+    },
+    {
+      "attempted": true,
+      "decoded_format": "png",
+      "decoded_height": 1254,
+      "decoded_rgb_sha256": "a85181f75f3097108d761ec52e3da9dfaf3cb4a40c722784a333783be5776a36",
+      "decoded_width": 1254,
+      "http_status": 200,
+      "image_bytes_returned_and_decodable": true,
+      "image_sha256": "d8787d6a90f5f4ba35af85597ad3f802202233505909c90187e1c0e37eb99b25",
+      "latency_seconds": 13.538890208001249,
+      "mismatches": [
+        "decoded_size_differs_from_requested",
+        "reported_quality_differs_from_requested",
+        "reported_size_differs_from_requested"
+      ],
+      "mode": "RGB",
+      "model": "gpt-image-2",
+      "model_identity_independently_verified": false,
+      "note": "Reported quality is provider metadata, not a measured visual-quality score.",
+      "opaque": true,
+      "reported": {
+        "background": "opaque",
+        "model": null,
+        "output_format": "png",
+        "quality": "low",
+        "size": "1254x1254",
+        "usage": {
+          "input_tokens": 20,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 20
+          },
+          "output_tokens": 229,
+          "output_tokens_details": {
+            "image_tokens": 229,
+            "text_tokens": 0
+          },
+          "total_tokens": 249
+        }
+      },
+      "requested": {
+        "model": "gpt-image-2",
+        "output_format": "png",
+        "quality": "medium",
+        "size": "1024x1024"
+      },
+      "requested_contract_satisfied": false,
+      "terminal_access_status": "invalid_output"
+    }
+  ],
+  "run_id": "pfg2-image-access-20260905",
+  "terminal_evidence_rewritten": false
+}

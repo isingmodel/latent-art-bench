@@ -8,6 +8,9 @@ tracked as evidence and which exist nowhere else.
 
 Preserve and review normally:
 
+- Painter Feature Generation v2 protocols, source, request freezes, frame, ledgers, terminal
+  receipts, response diagnostics, and available-model analysis report; v2 access experiments do
+  not replace or rewrite earlier terminal evidence;
 - source, tests, configs, documentation, and compact reports; and
 - Painter Feature Generation v1 protocols (2.1 canonical; 2.0 frozen at its path), R0 freezes,
   reviews, authorization seals, hash-chained
@@ -26,6 +29,9 @@ are nevertheless kept unmodified as policy: they are the record of what actually
 
 Archive before removing:
 
+- `research_workspace/painter_feature_generation_v2/`, including pinned SD-Turbo weights,
+  ongoing generated images, original-image acquisition responses, rendering metadata responses,
+  and GPT Image access response bodies with embedded base64 image bytes;
 - `research_workspace/painter_feature_generation_v1/`, the active study's content-addressed raw
   provider responses and one-shot locks — these are the bytes the tracked hashes attest to;
 - `artifacts/models/sd2-base-vae/` pinned model weights;
@@ -61,7 +67,14 @@ bytes.
 
 ## Active study boundary
 
-The active Painter Feature Generation v1 Protocol 2.1 uses the ignored
+The active v2 continuation uses `research_workspace/painter_feature_generation_v2/`. Acquisition
+and generation have produced ignored evidence; the model-access diagnosis found two decodable
+images that did not satisfy the requested settings. Preserve their HTTP bodies even though their
+terminal outcomes are `invalid_output`. See [current status](STATUS.md) for mutable stage state.
+
+### Historical v1 boundary
+
+The historical Painter Feature Generation v1 Protocol 2.1 uses the ignored
 `research_workspace/painter_feature_generation_v1/` root. It contains exploratory metadata, the
 completed fixed-seed audit's 165 content-addressed raw responses (about 51 MiB), the terminal broad
 R1 responses, the completed broad R2 census's four raw responses (1,163,447 bytes), and the

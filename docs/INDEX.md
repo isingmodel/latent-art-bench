@@ -14,13 +14,20 @@ identities.
 - [Config index](../configs/README.md)
 - [Contributing](../CONTRIBUTING.md)
 
-## Active study: Painter Feature Generation v1
- 
-This section is historical. The active continuation is
-[Painter Feature Generation v2](../studies/painter_feature_generation_v2/PROTOCOL.md), authorized
-2026-09-05 for implementation of the complete analysis and research paper. Its compact evidence
-lives under `data/manifests/painter_feature_generation_v2/` and large bytes under the ignored
-`research_workspace/painter_feature_generation_v2/`.
+## Active continuation: Painter Feature Generation v2
+
+The immediate deliverable is an available-model analysis report; the maintainer deferred a
+prototype paper. Compact evidence lives under `data/manifests/painter_feature_generation_v2/`
+and large bytes under the ignored `research_workspace/painter_feature_generation_v2/`.
+
+- [Available image models: completed access and research-suitability report](../reports/painter_feature_generation_v2/AVAILABLE_IMAGE_MODELS.md)
+- [V2 prospective study protocol](../studies/painter_feature_generation_v2/PROTOCOL.md)
+- [V2 acquisition amendment 1.1](../studies/painter_feature_generation_v2/PROTOCOL_1.1.md)
+- [Model-access assessment protocol 1.0](../studies/painter_feature_generation_v2/MODEL_ASSESSMENT_PROTOCOL_1.0.md)
+- [Sealed GPT Image access receipt](../data/manifests/painter_feature_generation_v2/pfg2-image-access-20260905/assessment_receipt.json)
+- [Offline response diagnosis](../data/manifests/painter_feature_generation_v2/pfg2-image-access-20260905/response_diagnostics.json)
+
+## Historical study: Painter Feature Generation v1
 
 - [V1 Protocol 2.2: collection amendment](../studies/painter_feature_generation_v1/PROTOCOL_2.2.md)
 - [V1 Protocol 2.3: Wikidata authority amendment](../studies/painter_feature_generation_v1/PROTOCOL_2.3.md)
@@ -63,7 +70,8 @@ lives under `data/manifests/painter_feature_generation_v2/` and large bytes unde
 - [Evidence synthesis](../literature_reviews/SYNTHESIS.md)
 - [Method decision ledger](../literature_reviews/METHOD_DECISIONS.md)
 
-`PROTOCOL_2.1.md` is the only current canonical plan. `PROTOCOL.md` is the frozen 2.0 text that
+Within historical v1, `PROTOCOL_2.1.md` with amendments 2.2/2.3 is canonical.
+`PROTOCOL.md` is the frozen 2.0 text that
 authorized the completed censuses and is not edited. Reports and literature files explain or support
 the plan; they do not independently authorize execution or override its rules.
 

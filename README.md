@@ -2,20 +2,27 @@
 
 > **Current implementation — 2026-09-05:**
 > [Painter Feature Generation v2](studies/painter_feature_generation_v2/PROTOCOL.md) continues the
-> study toward a complete comparative analysis and research paper. Its 1,193-record frame has
+> study toward a comparative analysis. The immediate deliverable is the
+> [available-image-model analysis report](reports/painter_feature_generation_v2/AVAILABLE_IMAGE_MODELS.md),
+> not a prototype paper. Its 1,193-record frame has
 > prospective roles (658 confirmation records); the 31-feature measurement and paired-block
-> analysis code is implemented. Image execution and empirical results are pending. Use
+> analysis code is implemented. SD-Turbo generation is running. Both GPT Image aliases return
+> image bytes through the current Codex OAuth proxy, but returned settings differ from requests
+> and model snapshots are not attested. Full painter-feature results remain pending. Use
 > [current status](docs/STATUS.md) for operational guidance. The v1 overview below is historical.
 
 Run the new pipeline with
 `uv run --locked --extra analysis --extra learned latent-art-bench paper-study --help`.
+
+Inspect the bounded GPT Image access tool with `latent-art-bench model-assessment --help`.
+Completed experiments are immutable; do not rerun them in place.
 
 LatentArtBench is a research project for testing whether images generated with a painter's name
 reproduce the measurable visual-feature distribution of that painter's authentic paintings. The
 active study compares distributions within a metadata-declared outdoor-place content frame; it
 does not treat painter classification, centroid similarity, or one learned embedding as the answer.
 
-> **Status — 2026-09-04:** [Painter Feature Generation v1 Protocol 2.1](studies/painter_feature_generation_v1/PROTOCOL_2.1.md)
+> **Historical pre-determination overview (superseded):** [Painter Feature Generation v1 Protocol 2.1](studies/painter_feature_generation_v1/PROTOCOL_2.1.md)
 > is the only active plan. It removes every human coding step from Protocol 2.0, whose text stays
 > frozen at `PROTOCOL.md` as the authority for the censuses run under it. No real work is admitted,
 > no active image is downloaded, no generation is registered, and no generated-versus-real result
