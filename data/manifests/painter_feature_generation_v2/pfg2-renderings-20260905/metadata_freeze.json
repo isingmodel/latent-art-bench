@@ -1,0 +1,57 @@
+{
+  "authorization": "2026-09-05 maintainer authorization to implement the research and revise its protocol; resource correction under amendment 1.1",
+  "frame_id": "pfg2-frame-20260905",
+  "frame_path": "data/manifests/painter_feature_generation_v2/pfg2-frame-20260905/frame.jsonl",
+  "inputs": [
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-acquisition-20260905/acquisition_events.jsonl",
+      "sha256": "3e45dea5283082100baf381a1ce36a8efbd421cffaf9661647dfa4e0f3624aec"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-acquisition-20260905/acquisition_freeze.json",
+      "sha256": "1e576244c4ed2dc6cf076b53b97a2b19b02303d52178efebee06608f77d4e08c"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-acquisition-20260905/terminal_receipt.json",
+      "sha256": "520ff24c682872dac672209ff754cc56be1f7cbdd5cd8df087e8063fb20457a5"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-frame-20260905/frame.jsonl",
+      "sha256": "43c71972635421645b276051feaefc62ee6845d3807fcad352aaa72926e9bed2"
+    },
+    {
+      "path": "src/latent_art_bench/io.py",
+      "sha256": "13e6372aa9814495a45700eb9e65d099c56bb1bb3032d72f7f9e00e6ba91a9b8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v1/determine.py",
+      "sha256": "fba5ea7fcbb1dc2d0ab9626b404f0495acc58d46dfc180452a321e4a02c02a9a"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/acquire.py",
+      "sha256": "1f7a9010bf55cc8dd7f5001a9e4fbd9a87c5cd0e2fb9e6fcd7a77391eb37017f"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/artifacts.py",
+      "sha256": "8b48f0cfb433ac1769786aba366501b69ba1bec540a1a2f9e35e93ce45e9b0d7"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/renderings.py",
+      "sha256": "de4de89556cbb25c3bc8c4b726d5136a48519920c83fd93cccceafaa897bf06e"
+    },
+    {
+      "path": "studies/painter_feature_generation_v2/PROTOCOL_1.1.md",
+      "sha256": "0f1a158df2e0df49ffd58fb4e53032924530ec82adb9b5e509a6a4304e2b69f0"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+    }
+  ],
+  "prepared_at_utc": "2026-09-05T00:49:54.684601+00:00",
+  "recorded_git_commit": "071b5b4f9515931512fb7f1d875dafad323ab342",
+  "requests": 191,
+  "requests_sha256": "25ff414ed79726839fe29b895308219cbd34b7219380542a5f858b8fa5847a96",
+  "reviewer_kind": "operator_self_check_not_independent_review",
+  "run_id": "pfg2-renderings-20260905"
+}
