@@ -1,0 +1,13 @@
+{
+  "completed_at_utc": "2026-09-05T02:30:48.805812+00:00",
+  "expected_records": 312,
+  "experiment_id": null,
+  "feature_file_sha256": "6001964b6f6d0a4958f4f546d48d81120b43c6587d55e248fd48b99dee3c821b",
+  "method_freeze_sha256": "0c254c629b37803c7e99f2c61485f6086f593f98cd8bc26b78a5c498f2b29200",
+  "scaler_sha256": "71f511235081dfc1e9846976320c69477bcbd04dd43fc9a2e271f7b0375497b9",
+  "stage": "development",
+  "statuses": {
+    "measured": 312
+  },
+  "terminal_records": 312
+}
