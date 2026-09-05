@@ -11,6 +11,7 @@ def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path.cwd())
     commands = parser.add_subparsers(dest="command", required=True)
+    commands.add_parser("audit", help="Offline verification of v2 evidence and retained bytes")
     frame = commands.add_parser("frame", help="Offline identity reconciliation and role assignment")
     frame.add_argument("--frame-id", required=True)
     prepare = commands.add_parser(
@@ -22,7 +23,10 @@ def main(argv=None) -> int:
     acquire.add_argument("--run-id", required=True)
     args = parser.parse_args(argv)
     root = args.root.resolve()
-    if args.command == "frame":
+    if args.command == "audit":
+        from .audit import audit
+        result = audit(root)
+    elif args.command == "frame":
         from .corpus import build_frame
         result = build_frame(root, args.frame_id)
     elif args.command == "prepare-acquisition":
@@ -32,4 +36,4 @@ def main(argv=None) -> int:
         from .acquire import execute
         result = execute(root, args.run_id)
     print(json.dumps(result, indent=2))
-    return 0
+    return 1 if result.get("overall") == "FAIL" else 0
