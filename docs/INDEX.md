@@ -20,6 +20,7 @@ identities.
 - [Repeated generation, prompt methods, sample-size planning and commands](PROMPT_STUDY_WORKFLOW.md)
 - [Prospective repeated-prompt protocol](../studies/painter_prompt_study_v1/PROTOCOL.md)
 - [Approved 1,920-request configuration](../configs/painter_prompt_study_v1/study.json)
+- [Active generation freeze](../data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/generation_freeze.json)
 - [Active randomization qualification](../data/manifests/painter_prompt_study_v1/pps1-randomization-20260905/decision.json)
 - [Superseded interval-development calibration](../data/manifests/painter_prompt_study_v1/pps1-calibration-20260905/decision.json)
 

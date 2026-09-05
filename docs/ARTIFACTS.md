@@ -83,7 +83,7 @@ bytes.
 
 The bounded prompt extension uses `research_workspace/painter_prompt_study_v1/`. The user approved
 1,920 total new images for `pps1-gpt-prompts-20260905`; its resource checks pass on local storage.
-New empirical response bytes will be retained there when generation begins. Their compression,
+Generation has started; empirical response bytes are retained there as each request finishes. Their compression,
 failure status or ignored path does not make them disposable.
 
 ## Completed source-study boundary

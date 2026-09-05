@@ -4,9 +4,12 @@
 
 **Execution authorized: 1,920 total new images.** On 2026-09-05 the user explicitly replied
 “1,920 is okay.” The approved config fixes four complete repetitions across both aliases and all
-three prompt methods. Implementation and offline validation are complete. The next action is to
-commit these authorized inputs, freeze `pps1-gpt-prompts-20260905`, and execute its registered grid.
-No request has been sent in this extension at this pre-freeze checkpoint.
+three prompt methods. The authorized inputs were committed at `3251bda`; the generation freeze
+was committed at `04106cc` after a 119-check evidence audit passed. **Generation is running** for
+`pps1-gpt-prompts-20260905`, started at approximately 10:50 UTC through the inspected port-10532
+OAuth proxy. A process-bound sleep assertion is active. Do not launch another writer while this
+process is alive; read the CLI `status` and generation ledger for current counts. After terminal
+generation, measure retained outputs, analyze, render, reproduce and audit the report.
 
 The user requested additional `gpt-image-1`/`gpt-image-2` images, alternative prompt methods and
 paper-ready generated-versus-original feature-distance analysis. The new
@@ -32,7 +35,8 @@ paper-ready generated-versus-original feature-distance analysis. The new
   These are contribution-space null constructions, not proof of service assumptions or image power.
   Prior paired-t/jackknife calibration is retained as superseded development history.
 - Both immutable calibration records are published against source commit `5ba1339`; all six
-  synthetic jobs reproduce, and the new evidence audit passes with no empirical runs registered.
+  synthetic jobs reproduce. The new evidence audit passed before the registered empirical run's
+  first request; its final audit remains due after generation and analysis.
 - Generation, terminal accounting, lossless response retention, resumable measurement, complete-grid
   analysis, report rendering and commit-bound audit are implemented. The complete offline synthetic
   pipeline also replays every numeric result and report byte without image access. Reviews are
