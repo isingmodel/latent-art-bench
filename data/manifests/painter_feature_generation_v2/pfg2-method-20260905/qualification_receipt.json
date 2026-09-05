@@ -1,0 +1,13 @@
+{
+  "completed_at_utc": "2026-09-05T02:32:40.203974+00:00",
+  "expected_records": 220,
+  "experiment_id": null,
+  "feature_file_sha256": "0ce804906cf1afc3bed369ecf6007a7aa291edd885d7521bc0e7d4368d03d8a3",
+  "method_freeze_sha256": "0c254c629b37803c7e99f2c61485f6086f593f98cd8bc26b78a5c498f2b29200",
+  "stage": "qualification",
+  "statuses": {
+    "failed": 1,
+    "measured": 219
+  },
+  "terminal_records": 220
+}
