@@ -95,6 +95,10 @@ def render(
                 alias,
                 result["generated_counts"]["artist_free"],
                 f"{sum(r['estimate'] < 0 for r in controls)}/12",
+                ", ".join(
+                    f"{sum(r['estimate'] < 0 for r in controls if r['family'] == f)}/4"
+                    for f in ("color", "spatial", "texture")
+                ),
                 f"{own_closest}/12",
             ]
         )
@@ -104,6 +108,7 @@ def render(
                 "Requested service / baseline",
                 "Images per condition",
                 "Negative named-minus-control contrasts",
+                "Color / spatial / texture breakdown",
                 "Own target closer than all three others",
             ],
             rows,
@@ -111,6 +116,10 @@ def render(
         "These are descriptive sign counts, not significance tests or a ranking. Each denominator "
         "is four painters × three families. Unequal generated sample sizes affect the finite "
         "V-statistic; the OAuth aliases have one repetition and unverified underlying snapshots.\n",
+        "Benefit over an artist-free control and painter specificity answer different questions. "
+        "More favorable control contrasts may reflect a weaker artist-free baseline, not better "
+        "absolute named-painter fit. Improvement over control does not mean the named painter is "
+        "closer than every wrong painter, and neither property demonstrates equivalence.\n",
         "## Registered experiment and observed service behavior\n",
         "SD-Turbo uses checkpoint `b261bac6fd2cf515557d5d0707481eafa0485ec2`, local FP16 MPS, "
         "512×512, one step, guidance 0, and 25 paired seed blocks. The OAuth pilot requests "
