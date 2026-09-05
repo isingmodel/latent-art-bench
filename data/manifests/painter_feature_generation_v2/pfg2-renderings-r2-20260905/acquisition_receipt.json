@@ -1,0 +1,12 @@
+{
+  "acquisitions_sha256": "3933e1627a0e7182baf899917cf651530f86c04b8e92b0312f7ada15dae98f5e",
+  "completed_at_utc": "2026-09-05T02:28:40.629752+00:00",
+  "freeze_sha256": "c44614f148bf5aa04f3e89aaaac5cc2ca117206a61f4191b7ef70ffa995221b0",
+  "ledger_sha256": "daa1041fb5bf6137e49ea4cf34254182261dfd85b4b80a330df0ba4e5d16f612",
+  "run_id": "pfg2-renderings-r2-20260905",
+  "statuses": {
+    "acquired": 1185,
+    "failed": 8
+  },
+  "terminal_records": 1193
+}
