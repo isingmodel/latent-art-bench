@@ -1,0 +1,85 @@
+{
+  "authorization": "2026-09-05 maintainer session: implement complete research analysis; local model, no paid API spending.",
+  "config": {
+    "analysis_short_side": 512,
+    "attention_slicing": "auto",
+    "batch_size": 1,
+    "device": "mps",
+    "dtype": "float16",
+    "guidance_scale": 0.0,
+    "height": 512,
+    "master_seed": "d25658599de5c37d9d188945d609b8805f47b68976b9d90e9c536c196e5a21ce",
+    "model_card": "https://huggingface.co/stabilityai/sd-turbo",
+    "model_id": "stabilityai/sd-turbo",
+    "negative_prompt": null,
+    "num_inference_steps": 1,
+    "repetitions": 25,
+    "revision": "b261bac6fd2cf515557d5d0707481eafa0485ec2",
+    "schema_version": "pfg-v2-model-config/1.0",
+    "selection_reason": "Publicly available pinned research artifact executable on the available 16 GiB Apple Silicon computer without paid API calls. Selected before any active generation or image feature is observed.",
+    "torch_num_threads": 4,
+    "variant": "fp16",
+    "width": 512
+  },
+  "experiment_id": "pfg2-sd-turbo-20260905",
+  "inputs": [
+    {
+      "path": "configs/painter_feature_generation_v2/sd_turbo.json",
+      "sha256": "7778078cb0e6d583995410de5bd06d3dc5e85ef6bc10fbf5dc38b949944edc0d"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v1/prompt_library.json",
+      "sha256": "fbe81e7cb93282dae96c3edd7df58ed3d43ee81516b6df113f3c8b56b07e09a7"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/model_sd_turbo.json",
+      "sha256": "3c32a888d1a7af44c8f01fbd3203f0256832c33e8e99e9486e415e44852641b6"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8"
+    },
+    {
+      "path": "src/latent_art_bench/io.py",
+      "sha256": "13e6372aa9814495a45700eb9e65d099c56bb1bb3032d72f7f9e00e6ba91a9b8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/artifacts.py",
+      "sha256": "8b48f0cfb433ac1769786aba366501b69ba1bec540a1a2f9e35e93ce45e9b0d7"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/features.py",
+      "sha256": "b295c2de1a8501e8ab335d88ed56ab8f2dc8b3ca704141b92e02ef586d48d172"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/generate.py",
+      "sha256": "3436153be32a03033ef6af46a71fb46dc34bfac38f89be27fd19acc3183566d4"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/statistics.py",
+      "sha256": "20830e7a90bc49666f0937ef7bc2ae3f11206f986c72eb8f80ad30cc24fcdaa8"
+    },
+    {
+      "path": "studies/painter_feature_generation_v2/PROTOCOL.md",
+      "sha256": "6fe5eec83321b540db4abce7862376be53cdff06bbcd45e50990f2d781f02b9b"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+    }
+  ],
+  "model_path": "research_workspace/painter_feature_generation_v2/models/sd-turbo-b261bac6fd2c",
+  "prepared_at_utc": "2026-09-05T00:37:30.561742+00:00",
+  "recorded_git_commit": "672bd9386e9fcd8bcd29922373fa3cf2b4cd891f",
+  "requests": 2000,
+  "requests_sha256": "f4cde51372c1cdf78625968845a95c01278e05ed14fc204fd29c560d3372b52b",
+  "reviewer_kind": "operator_self_check_not_independent_review",
+  "schema_version": "pfg-v2-generation-freeze/1.0",
+  "software": {
+    "Pillow": "11.3.0",
+    "diffusers": "0.36.0",
+    "numpy": "2.5.2",
+    "torch": "2.13.0",
+    "transformers": "4.57.6"
+  }
+}

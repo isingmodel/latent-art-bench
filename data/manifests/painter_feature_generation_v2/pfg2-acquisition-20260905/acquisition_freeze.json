@@ -1,0 +1,49 @@
+{
+  "authorization": "Maintainer's 2026-09-05 session request to implement the complete research analysis and prospectively improve its protocol.",
+  "expected_records": 1193,
+  "frame_id": "pfg2-frame-20260905",
+  "frame_path": "data/manifests/painter_feature_generation_v2/pfg2-frame-20260905/frame.jsonl",
+  "inputs": [
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-frame-20260905/frame.jsonl",
+      "sha256": "43c71972635421645b276051feaefc62ee6845d3807fcad352aaa72926e9bed2"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-frame-20260905/frame_receipt.json",
+      "sha256": "49d7c279bf3b91a13496f2a89819c7d127807ca312ee3384a69713233303e6a6"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8"
+    },
+    {
+      "path": "src/latent_art_bench/io.py",
+      "sha256": "13e6372aa9814495a45700eb9e65d099c56bb1bb3032d72f7f9e00e6ba91a9b8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/acquire.py",
+      "sha256": "1f7a9010bf55cc8dd7f5001a9e4fbd9a87c5cd0e2fb9e6fcd7a77391eb37017f"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/artifacts.py",
+      "sha256": "8b48f0cfb433ac1769786aba366501b69ba1bec540a1a2f9e35e93ce45e9b0d7"
+    },
+    {
+      "path": "studies/painter_feature_generation_v2/PROTOCOL.md",
+      "sha256": "6fe5eec83321b540db4abce7862376be53cdff06bbcd45e50990f2d781f02b9b"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+    }
+  ],
+  "max_attempts": 3,
+  "max_file_bytes": 67108864,
+  "minimum_interval_seconds": 1.0,
+  "prepared_at_utc": "2026-09-05T00:37:28.805837+00:00",
+  "recorded_git_commit": "672bd9386e9fcd8bcd29922373fa3cf2b4cd891f",
+  "reserve_disk_bytes": 5368709120,
+  "reviewer_kind": "operator_self_check_not_independent_review",
+  "run_id": "pfg2-acquisition-20260905",
+  "schema_version": "pfg-v2-acquisition-freeze/1.0"
+}
