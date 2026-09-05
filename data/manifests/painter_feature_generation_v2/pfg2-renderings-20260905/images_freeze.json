@@ -1,0 +1,28 @@
+{
+  "inputs": [
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-renderings-20260905/metadata_freeze.json",
+      "sha256": "afda62dde9275ff36673a446d3b3bd70326916a966d25702e6dcec0876e09269"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-renderings-20260905/metadata_receipt.json",
+      "sha256": "13a4e092a5f7280d4d76637b5f3d100584477d857c75ad0de999c8d8c22ce1d6"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-renderings-20260905/renderings.jsonl",
+      "sha256": "c793456269d8d2141e4ab852c42e34e1ad85df70a77fa38fdd1c43b3f942001b"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/renderings.py",
+      "sha256": "de4de89556cbb25c3bc8c4b726d5136a48519920c83fd93cccceafaa897bf06e"
+    },
+    {
+      "path": "studies/painter_feature_generation_v2/PROTOCOL_1.1.md",
+      "sha256": "0f1a158df2e0df49ffd58fb4e53032924530ec82adb9b5e509a6a4304e2b69f0"
+    }
+  ],
+  "prepared_at_utc": "2026-09-05T01:23:41.747331+00:00",
+  "recorded_git_commit": "b52a8e66796c3fdba1f5eebdd8cc57e82960324b",
+  "reviewer_kind": "operator_self_check_not_independent_review",
+  "run_id": "pfg2-renderings-20260905"
+}
