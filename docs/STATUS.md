@@ -37,8 +37,9 @@ Current v2 state:
   six below the fixed 1,024-pixel floor and two unsupported formats. Acquired roles: 221 new
   development, 91 historical development, 220 qualification and 653 confirmation.
 - Shared method `pfg2-method-20260905` was frozen at 02:29 UTC, bound to clean committed code,
-  protocols, calibration and both generation freezes. Development measurement is running;
-  confirmation remains closed until qualification and both generation terminal outputs are committed.
+  protocols, calibration and both generation freezes. Development completed 312/312 measurements;
+  the scaler uses 221 new-development works and all 31 coordinates have valid IQRs. Qualification
+  completed 219 measured / one unprofiled non-RGB failure. Both stages and the scaler are sealed.
 - The current Codex credentials work. The old port-10531 proxy predates its source update and
   returns an expired-token error. A separate current-source instance on port 10532 authenticated
   and completed the two-request access experiment without restarting the original server.
@@ -46,10 +47,12 @@ Current v2 state:
   requesting 1024×1024 / medium. Neither response identifies a model snapshot. The sealed access
   receipt retains `invalid_output`; a separate offline diagnosis records two decodable images and
   zero contract-compliant images. This is access evidence, not an artistic-quality comparison.
-- The complete 160-request OAuth pilot is running as `pfg2-oauth-pilot-20260905`: both aliases,
-  all 16 templates and five conditions, one scheduled repetition, no seeds or rerolls. Actual
-  returned settings are retained under an explicitly service-level estimand, not asserted verified
-  model snapshots. Its finite-population comparisons will be descriptive, without repetition CIs.
+- The 160-request OAuth pilot `pfg2-oauth-pilot-20260905` is terminal: 160 generated / no failures,
+  both aliases, all 16 templates and five conditions, one repetition, no seeds or rerolls. All
+  responses report quality low with no model snapshot; sizes vary, mostly around 1400×1120,
+  rather than the requested 1024-square / medium. Its service-level comparisons are descriptive.
+- Confirmation was opened once at the recorded receipt, after both generation grids and all
+  prerequisites were committed. Confirmation measurement is running under the unchanged method.
 - No manuscript is being prepared. Shared measurement, finite comparisons, repeated-block analysis,
   full-population crop sensitivity and the Markdown report renderer are implemented and tested.
   The frozen analysis is now being executed; no active result is used to retune it.
