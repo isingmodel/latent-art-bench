@@ -1,0 +1,62 @@
+{
+  "completed_at_utc": "2026-09-05T03:13:30.737645+00:00",
+  "crop_fraction": 0.01,
+  "expected_records": 3340,
+  "feature_file_sha256": "2503a4d559a5f78a3381f8f2550388aa61c2cc363d2252b2fe02e0fa6691d2d0",
+  "inputs": [
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/confirmation_features.jsonl",
+      "sha256": "01cc5167c09b88eab6a86885b72040f76fc8a7ca8a62acd56d85a8b16b2f7717"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/confirmation_opening.json",
+      "sha256": "f047b90ba5b4205478c61e0e2c430e3d6120b1fba6b33d0af00b3df9c7309566"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/confirmation_receipt.json",
+      "sha256": "22617ada4debec0dde30cbb9c492b986e67fe0c5382f0b8d69740466d934889a"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/development_features.jsonl",
+      "sha256": "6001964b6f6d0a4958f4f546d48d81120b43c6587d55e248fd48b99dee3c821b"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/development_receipt.json",
+      "sha256": "5a724637bbf4ff1e424be0259e53ceb47c4926dba926defcff2609c7057b1b1c"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/experiments/pfg2-oauth-pilot-20260905/generated_features.jsonl",
+      "sha256": "082e3ec32305b6d3b66e2f3a649d32a6741c6535b9cb46740cca9def605de772"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/experiments/pfg2-oauth-pilot-20260905/generated_receipt.json",
+      "sha256": "6080a2b0c62bc7b20fa3142233eea851bb6e7ece2dfc9a3fb2398286adff7616"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/experiments/pfg2-sd-turbo-20260905/generated_features.jsonl",
+      "sha256": "eaed290dbc6a4afe5a330b29a6721f4556914517e74eb4300bb0cb422192b560"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/experiments/pfg2-sd-turbo-20260905/generated_receipt.json",
+      "sha256": "b97c1233ad8e72fbde349f7b5b52aa2ed8de63619c0ed163bd40b535f4788509"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/method_freeze.json",
+      "sha256": "0c254c629b37803c7e99f2c61485f6086f593f98cd8bc26b78a5c498f2b29200"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/qualification_features.jsonl",
+      "sha256": "0ce804906cf1afc3bed369ecf6007a7aa291edd885d7521bc0e7d4368d03d8a3"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/qualification_receipt.json",
+      "sha256": "4d1ae1b261d7f5649bf2fcf85c7167b3567bba89c34da137e2f627390157a24d"
+    }
+  ],
+  "short_side": 496,
+  "stage": "cropped",
+  "statuses": {
+    "measured": 3340
+  },
+  "terminal_records": 3340
+}
