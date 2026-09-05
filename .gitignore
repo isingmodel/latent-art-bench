@@ -58,6 +58,9 @@ research_workspace/
 !reports/pilot_2/visual_qc/
 !reports/pilot_2/visual_qc/*.png
 
+# Compact plots of numeric feature distances; these contain no artwork pixels.
+!reports/painter_feature_distance_v1/plots/*.png
+
 # Python
 __pycache__/
 *.py[cod]

@@ -1,5 +1,36 @@
 # Current status and research boundary — 2026-09-05
 
+The current user-facing deliverable is the **[feature-distance report with comparison
+plots](../reports/painter_feature_distance_v1/REPORT.md)**. The user explicitly selected existing
+painters/images, the existing 31 interpretable features, and reproducible commands plus a plotted
+report. The implementation under `painter_feature_distance_v1` is a separate descriptive analysis
+of already exposed numeric v2 evidence; it is not a new image acquisition or generation study.
+
+- Completed 180 generated-condition × reference-painter × family distance cells, 36
+  target/control/specificity summaries, 372 coordinate diagnostics, and 48 reference distances.
+- All existing outputs and the 649 measured confirmation paintings retain their original feature
+  values and frozen development-only scaler. Every original endpoint and coordinate diagnostic
+  agrees with recomputation before report publication.
+- Sample-count sensitivity retains all 25 SD-Turbo blocks and the two single GPT blocks, with
+  16 templates per condition: 324 block comparisons. Observed min–max ranges are descriptive,
+  not confidence intervals, and do not match model identity or image geometry.
+- Delivered nine comparison plots in PNG/SVG, six full-precision CSV exports, JSON results,
+  Markdown report, and consumed-input/implementation/output hash provenance. No raw image was
+  read, no feature was extracted, no provider was contacted, and no study access ledger changed.
+- Commands: `latent-art-bench feature-distances build` creates a new output directory;
+  `latent-art-bench feature-distances check` validates and reproduces the existing bundle.
+  See the [analysis guide](FEATURE_DISTANCE_ANALYSIS.md) for locked-environment commands.
+- Validation after implementation: Ruff passed; **357 offline tests passed** (23 new distance
+  cases); v1 evidence audit passed with its two existing acknowledgements unchanged; v2 audit
+  passed 15,809 checks with zero failures. All 26 derived report files reproduce byte-for-byte.
+  The original English report hash is unchanged. Code review was a maintainer-run LLM subagent
+  review, not institutionally independent.
+
+The analysis reports observed feature distances. It makes no overall model-ranking or equivalence
+claim. Manuscript drafting remains deferred; all source-study stages remain terminal.
+
+## Sealed source study: Painter Feature Generation v2
+
 The **empirical painter-feature analysis is complete**. Read the
 [final analysis report](../reports/painter_feature_generation_v2/EMPIRICAL_ANALYSIS.md), covering
 2,000 SD-Turbo images, 160 GPT Image service outputs, 649 confirmation works and full paired crop

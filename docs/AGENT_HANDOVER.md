@@ -1,5 +1,11 @@
 # Agent handover: completed painter-feature analysis and research continuation
 
+**Subsequent implementation — 2026-09-05:** the user selected a descriptive distance-analysis
+extension using the existing images and 31 features, with reproducible commands and comparison
+plots. See the [current analysis guide](FEATURE_DISTANCE_ANALYSIS.md) and
+[distance report](../reports/painter_feature_distance_v1/REPORT.md). The snapshot and continuation
+options below describe the earlier handover; source study evidence remains sealed and unchanged.
+
 Prepared in English on 2026-09-05 at the user's request to hand the project to another agent.
 This is a mutable orientation document, not a protocol, execution authorization, new analysis,
 or replacement for sealed evidence. All repository paths below are relative to the repository

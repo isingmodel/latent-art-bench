@@ -1,159 +1,99 @@
 # LatentArtBench
 
-> **Current implementation — 2026-09-05:**
-> [Painter Feature Generation v2](studies/painter_feature_generation_v2/PROTOCOL.md) continues the
-> study with a **completed [empirical analysis report](reports/painter_feature_generation_v2/EMPIRICAL_ANALYSIS.md)**,
-> not a prototype paper. It covers 2,000 SD-Turbo images, 160 GPT Image service outputs, 649
-> measured confirmation works, all 31 features, and a complete paired crop check for 3,340 images.
-> Painter-name benefit and specificity are mixed; reproduction is not demonstrated. GPT results
-> identify requested OAuth aliases, not attested model snapshots, and nominal intervals remain
-> exploratory because synthetic calibration undercovered. The
-> [earlier access report](reports/painter_feature_generation_v2/AVAILABLE_IMAGE_MODELS.md)
-> documents the separate neutral-image experiment. Use
-> [current status](docs/STATUS.md) for operational guidance. The v1 overview below is historical.
+LatentArtBench analyzes **feature distances between image-generation outputs and original artists'
+reference paintings**. The current analysis uses Monet, Sisley, Pissarro, and Cézanne; 31
+interpretable color, spatial/orientation, and digital-texture features; and the existing SD-Turbo,
+`gpt-image-1`, and `gpt-image-2` service outputs.
 
-Run the new pipeline with
-`uv run --locked --extra analysis --extra learned latent-art-bench paper-study -- --help`.
+The [distance report with comparison plots](reports/painter_feature_distance_v1/REPORT.md) is the
+main entry point. It contains absolute model–artist distances, complete generated-condition ×
+reference-painter matrices, artist-free comparisons, painter specificity, feature diagnostics,
+and an exploratory comparison using 16 generated images per condition in each recorded block.
+Full-precision JSON and CSV exports accompany the report.
 
-Inspect the bounded GPT Image access tool with `latent-art-bench model-assessment --help`.
-Completed experiments are immutable; do not rerun them in place.
-See the [empirical workflow](docs/V2_ANALYSIS_WORKFLOW.md) for stage gates and CLI commands.
+## Current status — 2026-09-05
 
-LatentArtBench is a research project for testing whether images generated with a painter's name
-reproduce the measurable visual-feature distribution of that painter's authentic paintings. The
-active study compares distributions within a metadata-declared outdoor-place content frame; it
-does not treat painter classification, centroid similarity, or one learned embedding as the answer.
+- **Reference:** 649 measured confirmation paintings, from the existing 1,193-work frame.
+- **Generated images:** 2,000 SD-Turbo outputs and 160 GPT Image service outputs.
+- **Representation:** all 31 existing features, with the original normalization and frozen
+  development-only scaler; no learned embeddings or new image extraction.
+- **Distance analysis:** 180 complete matrix cells, 36 control/specificity summaries,
+  372 coordinate diagnostics, 48 reference-to-reference distances, and 324 block-level comparisons.
+- **Deliverable:** reproducible offline commands, a Markdown report, nine comparison plots in PNG
+  and SVG, six CSV tables, numeric JSON, and source/code/output hash provenance.
 
-> **Historical pre-determination overview (superseded):** [Painter Feature Generation v1 Protocol 2.1](studies/painter_feature_generation_v1/PROTOCOL_2.1.md)
-> is the only active plan. It removes every human coding step from Protocol 2.0, whose text stays
-> frozen at `PROTOCOL.md` as the authority for the censuses run under it. No real work is admitted,
-> no active image is downloaded, no generation is registered, and no generated-versus-real result
-> exists. A non-binding
-> [corpus pre-screen](reports/painter_feature_generation_v1/SCENE_SUPPORT_PRESCREEN_KO.md) shows
-> all four painters clear the 2.1 floor at the metadata upper bound, with Sisley the binding risk.
-> See [current status](docs/STATUS.md).
+Lower energy distance means closer measured feature distributions within the same feature family.
+The analysis describes the observed data; it provides no combined model ranking or calibrated
+reproduction threshold. GPT labels are requested service aliases with unverified underlying model
+snapshots. Sample size, output geometry, subject matter and capture differences affect interpretation.
 
-## Research design
+The original [v2 empirical report](reports/painter_feature_generation_v2/EMPIRICAL_ANALYSIS.md),
+[its Korean translation](reports/painter_feature_generation_v2/EMPIRICAL_ANALYSIS_KO.md), and all
+terminal study evidence are preserved. The original full paired crop analysis covered 3,340
+measured images. Manuscript drafting remains deferred.
 
-The question is:
+## Run and reproduce
 
-> When one frozen generative model is prompted with Monet, Sisley, Pissarro, or Cézanne, do its
-> outputs reproduce that painter's real distribution of color, spatial/orientation, and digital
-> texture organization within the same outdoor-place subject domain?
-
-The design uses:
-
-- one physical painting as the real-data unit;
-- authority-verified oil-on-canvas works whose metadata declares an outdoor place under a frozen
-  lexicon, with lawful, technically adequate images and no human coding;
-- uniform work weights within the outdoor-place domain and actual unequal painter counts;
-- a deterministic 20% development / 20% qualification / 60% confirmation assignment within
-  painter × workflow, with previously exposed works restricted to development;
-- all 16 prompt templates under four painter-name conditions plus a matched artist-free control;
-- paired seeds, no rerolling, and complete attempt accounting;
-- absolute distributional equivalence, all-neighbour specificity, control improvement, coverage,
-  availability, and near-copy exclusion as separate required gates, with prompt adherence as an
-  automated diagnostic; and
-- learned features such as Kim A/C, CSD, CLIP, FID/KID, and classifier accuracy as diagnostics only.
-
-The previous 360-work-per-painter quota is retired. It had no literature or power basis and was
-not supported by the current evidence. The corpus is an exhaustive physical-work union with
-actual unequal painter counts. “Enough data” is a conjunction of at least 100 confirmation works
-per painter, work/source/capture influence gates, the auxiliary capture panel, and registered
-whole-decision simulation—not a target-count stopping rule.
-
-## Current data evidence
-
-| Evidence layer | Current result | What it does not mean |
-|---|---:|---|
-| material-constrained Wikidata seed | 3,190 item candidates / 3,364 Commons filenames | not authority-verified works |
-| fixed-seed Commons audit | 3,367 rows; 2,029 metadata-qualified rows / 1,967 distinct item IDs | complete fixed-seed follow-up, not authority-verified works or full R0 |
-| broad no-`P186` Wikidata census | 3,722 rows / 3,543 distinct item IDs / 3,718 filenames | complete discovery route, not authority or rights verification |
-| broad-media follow-up R1 | 1 / 182 requests, terminal on a plural `errors:[maxlag]` HTTP 200 envelope; no manifest | terminal protocol evidence, not a completed media screen |
-| broad-media follow-up R2 | 182 / 182 requests; 3,722 rows / 2,029 metadata-qualified rows | complete metadata screen, not authority verification or image acquisition |
-| AIC route R1 | 1 / 4 requests, terminal on a string `classification_id`; no manifest | terminal protocol evidence, not a completed source route |
-| AIC route R2 | 4 / 4 requests; 153 rows / 57 screened candidates | complete AIC route census, not authority verification or image acquisition |
-| separate direct official-source audit | 43 all-content candidates | not a reproducible complete source frame |
-| historical pixel-exposure denylist | 122 physical works, development-only | rebuilt from pinned git history; not yet frozen for M0 |
-| corpus pre-screen (non-binding) | 2.1 floor 179 per painter; lexicon upper bounds Monet 529 / Sisley 193 / Pissarro 256 / Cézanne 200 | a metadata upper bound, not a protocol count; admits or excludes nothing |
-| active admitted/downloaded/confirmation/generated/result counts | all 0 | metadata discovery succeeded; acquisition and analysis remain gated |
-
-The fixed-seed audit, broader discovery census, separately reviewed broad-media R2 follow-up, and
-the Art Institute of Chicago route are complete. Each R1 remains frozen terminal evidence and was
-neither retried nor spliced: every R2 used a new census ID, disjoint paths, and its own complete
-request frame. The next steps are the remaining named source routes — Europeana, NGA, Cleveland,
-Yale, Getty, Minneapolis, Paris Musées, and POP/Joconde — and authority/rights/work-identity
-reconciliation across their union. Image acquisition, blind coding, and confirmation remain later
-gates.
-
-## Study disposition
-
-Painter Feature Generation v1 is the only study in this repository. Its canonical record is
-[Protocol 2.1](studies/painter_feature_generation_v1/PROTOCOL_2.1.md); Protocol 2.0 stays frozen
-at `PROTOCOL.md`. The corpus disposition is NO-GO past R0. Earlier exploratory attempts were
-removed rather than carried as inactive namespaces.
-
-The active study's own hash-bound evidence — freezes, reviews, authorizations, append-only request
-ledgers, and published manifests — retains its literal paths and must not be rewritten, reordered,
-truncated, moved, or regenerated for cosmetic cleanup.
-
-## Start here
-
-1. [Current status and boundary](docs/STATUS.md)
-2. [Canonical Protocol 2.1](studies/painter_feature_generation_v1/PROTOCOL_2.1.md)
-3. [Detailed Korean research and data report](reports/painter_feature_generation_v1/RESEARCH_PLAN_AND_DATA_REPORT_KO.md)
-4. [Generated-versus-real literature review](literature_reviews/reviews/06_generated_vs_real_painter_fidelity.md)
-5. [Literature package](literature_reviews/README.md)
-6. [Documentation index](docs/INDEX.md)
-7. [Artifact retention policy](docs/ARTIFACTS.md)
-
-## Development setup
-
-The project requires Python 3.9 or newer and `uv`.
+Use the locked environment with both extras to preserve the shared environment's dependencies.
+The delivered bundle already exists; verify it with:
 
 ```bash
-uv sync --locked --extra dev --extra learned
-uv run --locked ruff check .
-uv run --locked pytest -q -m "not live"
-uv run --locked latent-art-bench verify-evidence
+uv run --locked --extra analysis --extra learned latent-art-bench feature-distances check \
+  --output reports/painter_feature_distance_v1
 ```
 
-The standard test command is offline. The evidence audit verifies every freeze at the git commit
-that recorded it, plus every hash-chained ledger and execution receipt; it never refreshes a hash. A registered `live` test or data request is not research
-authorization; each active collection stage additionally requires its reviewed protocol freeze.
+To independently rebuild it at a new location:
 
-The `latent-art-bench` console script exposes the seven terminal collectors, the Cleveland route
-on the shared engine, the evidence audit (`verify-evidence`), and the R0 artifact tools
-(`prompt-library`, `content-lexicon`, `exposure-denylist`, `scene-prescreen`) as pass-through
-subcommands. Preparing a census is not authorization to execute one.
+```bash
+uv run --locked --extra analysis --extra learned latent-art-bench feature-distances build \
+  --output tmp/feature-distance-reproduction
+```
 
-## Repository map
+The commands read existing numeric feature records and never request images or append to the
+old study ledgers. Existing output directories are not overwritten. `check` verifies hashes and
+reproduces numeric results, CSV tables, prose and plots byte-for-byte in temporary storage.
+See [the analysis contract and command guide](docs/FEATURE_DISTANCE_ANALYSIS.md) for input
+validation, formulas, output schemas and interpretation limits.
+
+## Project map
 
 | Path | Role |
-|---|---|
-| `studies/painter_feature_generation_v1/` | sole active research protocol |
-| `literature_reviews/` | audited bibliography, searches, paper reviews, and method decisions |
-| `reports/painter_feature_generation_v1/` | current Korean reports, the scene pre-screen, and compact evidence |
-| `configs/painter_feature_generation_v1/` | prospective collection contracts |
-| `data/manifests/painter_feature_generation_v1/` | compact tracked request/candidate manifests |
-| `research_workspace/painter_feature_generation_v1/` | ignored active raw responses and future image bytes |
-| `src/latent_art_bench/` and `tests/` | the census collectors, the shared census engine, the evidence audit, the R0 artifact tools, and offline verification |
-| `docs/` | mutable status, index, architecture, and retention policy |
-| `artifacts/` | ignored local research bytes retained outside git |
+| --- | --- |
+| `src/latent_art_bench/painter_feature_distance_v1/` | Current descriptive distance analysis, plotting and CLI |
+| `reports/painter_feature_distance_v1/` | Distance report, plots, exports and provenance |
+| `src/latent_art_bench/painter_feature_generation_v2/` | Preserved collection, generation, measurement and analysis pipeline |
+| `studies/painter_feature_generation_v2/` | Source study protocol and prospective amendments |
+| `data/manifests/painter_feature_generation_v2/` | Compact sealed numeric inputs and study evidence |
+| `research_workspace/painter_feature_generation_v2/` | Ignored source images, generated images, weights and runtime evidence |
+| `studies/painter_feature_generation_v1/` | Historical protocols; v1 code and evidence remain in their existing paths |
+| `literature_reviews/` | Literature evidence and method rationale |
+| `tests/` | Offline verification; live tests require separate authorization |
+| `docs/` | Operational status, handover, analysis guide and evidence retention rules |
 
-Git intentionally excludes artwork, generated full-resolution images, model weights, feature arrays,
-and some raw responses. Ignored research bytes may be unique evidence. Never use `git clean -xfd` or
-broad recursive deletion under `artifacts/`, `data/`, or `research_workspace/`; follow the
-[retention policy](docs/ARTIFACTS.md).
+The `paper-study` CLI remains the stage interface for the completed v2 study. Its terminal
+collection, generation, measurement and report commands must not be rerun in place. A distance
+report build is a separate analysis of already exposed numeric evidence, not a restart of those
+stages or a newly blinded experiment.
 
-## Research boundary
+## Development and evidence
 
-External reference access, image acquisition, feature extraction, prompt/model freeze, generation,
-and confirmation open only through the stages in Protocol 2.1. A failed source cannot be silently
-replaced; a failed result cannot be rescued by changing the painter, feature, margin, prompt, or
-denominator after protected data are seen.
+```bash
+uv run --locked --extra analysis --extra learned ruff check .
+uv run --locked --extra analysis --extra learned pytest -q -m "not live"
+uv run --locked --extra analysis --extra learned latent-art-bench verify-evidence
+uv run --locked --extra analysis --extra learned latent-art-bench paper-study audit
+```
+
+Read [current status](docs/STATUS.md), [artifact retention rules](docs/ARTIFACTS.md), and
+[the agent handover](docs/AGENT_HANDOVER.md) before making changes. The [documentation
+index](docs/INDEX.md) distinguishes current guidance from historical protocols.
+
+Frozen protocols, receipts and ledgers are immutable; historical hashes resolve against their
+recording commits. Ignored artwork, model weights and response bytes may be unique evidence.
+A git clone alone does not preserve them. Never use `git clean -xfd` or broad deletion under
+`artifacts/`, `data/`, or `research_workspace/`.
 
 ## License
 
-Code and documentation are released under the [MIT License](LICENSE). Artwork, model weights,
-generated outputs, museum metadata, and third-party sources retain their own rights.
+Code and documentation use the [MIT License](LICENSE). Artwork, model weights, generated outputs,
+museum metadata, and third-party sources retain their own rights.

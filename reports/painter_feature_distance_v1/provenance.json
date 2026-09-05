@@ -1,0 +1,228 @@
+{
+  "code_inputs": [
+    {
+      "path": "pyproject.toml",
+      "sha256": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8"
+    },
+    {
+      "path": "src/latent_art_bench/cli.py",
+      "sha256": "ca4ac63abf6003296df6e961278424b2d09b17a221d395690cd22fc6018a4d1d"
+    },
+    {
+      "path": "src/latent_art_bench/io.py",
+      "sha256": "13e6372aa9814495a45700eb9e65d099c56bb1bb3032d72f7f9e00e6ba91a9b8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_distance_v1/__init__.py",
+      "sha256": "a707075809d8efb068c193a77a87dad3c3d286b8ea847abea898105c6820be30"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_distance_v1/analysis.py",
+      "sha256": "22d7b1bf8b55e916d5210bf19a636674cba86fdf35783ce8456682c784a98cb6"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_distance_v1/cli.py",
+      "sha256": "6d7529c5783a9d37f0a51de4cdf2a3d65e0757c225dbce212eea0d84a9a60116"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_distance_v1/report.py",
+      "sha256": "36bb382b1939e09b662e3ad9142a33052c507780d6ed34231edecaed45ad7517"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v1/panel.py",
+      "sha256": "b878fe3438c1006767c1d8ca608c1d57b64ed2bb2dff418864fd25c8c2d216b8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/artifacts.py",
+      "sha256": "8b48f0cfb433ac1769786aba366501b69ba1bec540a1a2f9e35e93ce45e9b0d7"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/empirical.py",
+      "sha256": "c5ed9f4f7f390de7087222d6b780744bb33eaf279ccedfbbeb706510336655a9"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/features.py",
+      "sha256": "b295c2de1a8501e8ab335d88ed56ab8f2dc8b3ca704141b92e02ef586d48d172"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/statistics.py",
+      "sha256": "20830e7a90bc49666f0937ef7bc2ae3f11206f986c72eb8f80ad30cc24fcdaa8"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+    }
+  ],
+  "kind": "derived_report_provenance_not_a_new_study_freeze",
+  "method_id": "pfg2-method-20260905",
+  "outputs": [
+    {
+      "path": "REPORT.md",
+      "sha256": "df7797eb8e7fe314628ccdde88d9cfe2d372b889cf77a353e0cf0afd4fbb83cb"
+    },
+    {
+      "path": "analysis.json",
+      "sha256": "02a4f6d3efe4b0b9436e3b34dd9911edd62b5ea1a505ab3314fa88a195a1a05e"
+    },
+    {
+      "path": "block_distances.csv",
+      "sha256": "dca8ae1f910a9bf72a9e516e1b254a4b6edfaf79cee8f6267a39c47607ef7f4c"
+    },
+    {
+      "path": "block_summary.csv",
+      "sha256": "f0f061e06cb42534e12b693318c1c3cf0b3f1024b199dff4550c91c29e2bd25b"
+    },
+    {
+      "path": "contrasts.csv",
+      "sha256": "511155813caf672bc5f01f47488c4b642c89a99a0249efd02574ea8004f5ff7b"
+    },
+    {
+      "path": "coordinates.csv",
+      "sha256": "94f681852dd52fd6d42bc904154f4bd1c43ad0dca0ec20387e8612f41e9a0a81"
+    },
+    {
+      "path": "distances.csv",
+      "sha256": "235bf8b987cc7d537d5f3e5e111193ca4ee072a85de53d0e6a1cf2e221ab9983"
+    },
+    {
+      "path": "plots/control_and_specificity.png",
+      "sha256": "288251970bd1b538313107c7bb7057a36c9229334eb65a8b93cf48a8b10512e7"
+    },
+    {
+      "path": "plots/control_and_specificity.svg",
+      "sha256": "dbd3e340d86413a9477fcbcd022a68ea025f8d1bfec9df381b21151c2ae76401"
+    },
+    {
+      "path": "plots/coordinates_color.png",
+      "sha256": "57b49b6c9cea848b2cf848520d2c3cbb19253cf428ed21b1c160f722089bd7b5"
+    },
+    {
+      "path": "plots/coordinates_color.svg",
+      "sha256": "2506394dbab103816762e65846d51360e52a0648b8ea323ca0dc6e4a6ed3b17a"
+    },
+    {
+      "path": "plots/coordinates_spatial.png",
+      "sha256": "d490d9171bc64c6e3bb3f7605881661ef8f4d2919d86b2d31700142f409fbfdb"
+    },
+    {
+      "path": "plots/coordinates_spatial.svg",
+      "sha256": "ed501289edf16932283b92ef7bb01bbf4c7e55e3dcbb85e562139ed55c835416"
+    },
+    {
+      "path": "plots/coordinates_texture.png",
+      "sha256": "185d2049d9f2cfa2c3bd36d476eb20cbcedea6678ddc45dc7275074d17142d92"
+    },
+    {
+      "path": "plots/coordinates_texture.svg",
+      "sha256": "aaf20aa7962c0c3fa59b4fb7353336b6a98e9faf7a6f53a0fc3be885b15d27b5"
+    },
+    {
+      "path": "plots/equal_count_blocks.png",
+      "sha256": "93093d6f26fa97856973a094774e603713c7845b0f711c274a1b75acbd39066c"
+    },
+    {
+      "path": "plots/equal_count_blocks.svg",
+      "sha256": "a2bf10696d22a4603029dc5dec69b44c66504b413059bbbcc390afe4e5c667e4"
+    },
+    {
+      "path": "plots/matrix_color.png",
+      "sha256": "9e03a730b4cc75f6bf50df91e6dfffe2aae9c4d61c1602e791267b072bb4e038"
+    },
+    {
+      "path": "plots/matrix_color.svg",
+      "sha256": "c8a3cd43e6ce186738f154d6b4fc642779db7db77fe6efa16ae10efcde295f4e"
+    },
+    {
+      "path": "plots/matrix_spatial.png",
+      "sha256": "8722f2d7291e019ca3552c68d84603ca9efda31599eed223b7c9e59ea8fb26a1"
+    },
+    {
+      "path": "plots/matrix_spatial.svg",
+      "sha256": "e10f6d3d51128dc3f64f671b928a00a95dbb8f7bd4a895b0b6d57eb7469cb025"
+    },
+    {
+      "path": "plots/matrix_texture.png",
+      "sha256": "09a053ffb78aa15baa0c139141ac9819343920e6d0bbd43ae787e51d0eca5afb"
+    },
+    {
+      "path": "plots/matrix_texture.svg",
+      "sha256": "611b199b0edbf7488baac1b8d91e59254ae0e0259778c7018499f1037eabcc39"
+    },
+    {
+      "path": "plots/target_distances.png",
+      "sha256": "f9d1c7ee7a36b5915a71cc357fa2734f1a00a7ceb76013d124ba612dbf0bf500"
+    },
+    {
+      "path": "plots/target_distances.svg",
+      "sha256": "92654dffba1c5c59d30fee3e39b147e8d719a446e575dbbc210e66a50f18b60a"
+    },
+    {
+      "path": "reference_distances.csv",
+      "sha256": "4448a58ab5631e937f3820e82cc53d00164a7728b3f08daa3ff33f47da4aa431"
+    }
+  ],
+  "runtime": {
+    "packages": {
+      "Pillow": "11.3.0",
+      "matplotlib": "3.11.1",
+      "numpy": "2.5.2",
+      "scipy": "1.18.1"
+    },
+    "python": "3.13.11"
+  },
+  "schema_version": "painter-feature-distance/1.0",
+  "source_inputs": [
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/confirmation_features.jsonl",
+      "sha256": "01cc5167c09b88eab6a86885b72040f76fc8a7ca8a62acd56d85a8b16b2f7717"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/confirmation_receipt.json",
+      "sha256": "22617ada4debec0dde30cbb9c492b986e67fe0c5382f0b8d69740466d934889a"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/development_receipt.json",
+      "sha256": "5a724637bbf4ff1e424be0259e53ceb47c4926dba926defcff2609c7057b1b1c"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/empirical_analysis.json",
+      "sha256": "34bf52e5f1c57984c7ee1da0b72950108a7bf550cf2f2512db72483ea206b3c8"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/experiments/pfg2-oauth-pilot-20260905/generated_features.jsonl",
+      "sha256": "082e3ec32305b6d3b66e2f3a649d32a6741c6535b9cb46740cca9def605de772"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/experiments/pfg2-oauth-pilot-20260905/generated_receipt.json",
+      "sha256": "6080a2b0c62bc7b20fa3142233eea851bb6e7ece2dfc9a3fb2398286adff7616"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/experiments/pfg2-sd-turbo-20260905/generated_features.jsonl",
+      "sha256": "eaed290dbc6a4afe5a330b29a6721f4556914517e74eb4300bb0cb422192b560"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/experiments/pfg2-sd-turbo-20260905/generated_receipt.json",
+      "sha256": "b97c1233ad8e72fbde349f7b5b52aa2ed8de63619c0ed163bd40b535f4788509"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/method_freeze.json",
+      "sha256": "0c254c629b37803c7e99f2c61485f6086f593f98cd8bc26b78a5c498f2b29200"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/report_receipt.json",
+      "sha256": "fc7534a1123eba2c8c3884bb6c5c0fd3a908a88cb74191b0069133d0b1086cd3"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/scaler.json",
+      "sha256": "71f511235081dfc1e9846976320c69477bcbd04dd43fc9a2e271f7b0375497b9"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-oauth-pilot-20260905/generation_receipt.json",
+      "sha256": "d4ee06e293a6b22d5dd5fa4d3dc04784c409dda4c286e97edebed1540b6af13c"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-sd-turbo-20260905/generation_receipt.json",
+      "sha256": "58dc9fdaa0c4c8d49124ee3653cbc4494d358b1d71d4956721b8f2e2aa0ef033"
+    }
+  ]
+}

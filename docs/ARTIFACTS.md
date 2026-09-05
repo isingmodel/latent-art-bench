@@ -8,6 +8,10 @@ tracked as evidence and which exist nowhere else.
 
 Preserve and review normally:
 
+- The derived `reports/painter_feature_distance_v1/` bundle: numeric JSON, six CSV tables,
+  Markdown report, compact numeric plots in PNG/SVG, and provenance. These plots contain no
+  artwork pixels. The `feature-distances check` command reproduces them without touching source
+  study evidence; future builds use a new output directory rather than replacing the bundle.
 - Painter Feature Generation v2 protocols, source, request freezes, frame, ledgers, terminal
   receipts, shared method freeze, feature/scaling records, calibration, crop diagnostics,
   response diagnostics, and available-model analysis reports; v2 access experiments do

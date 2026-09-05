@@ -21,6 +21,9 @@ The empirical painter-feature analysis report is complete; the maintainer deferr
 paper. Compact evidence lives under `data/manifests/painter_feature_generation_v2/`
 and large bytes under the ignored `research_workspace/painter_feature_generation_v2/`.
 
+- [Feature-distance report with comparison plots and exports](../reports/painter_feature_distance_v1/REPORT.md)
+- [Feature-distance analysis contract and reproducibility commands](FEATURE_DISTANCE_ANALYSIS.md)
+
 - [Completed empirical painter-feature analysis report](../reports/painter_feature_generation_v2/EMPIRICAL_ANALYSIS.md)
 - [Korean translation of the completed empirical analysis report](../reports/painter_feature_generation_v2/EMPIRICAL_ANALYSIS_KO.md)
 - [Earlier available-model access and research-suitability report](../reports/painter_feature_generation_v2/AVAILABLE_IMAGE_MODELS.md)

@@ -1,4 +1,4 @@
-"""Command-line entry point for the Painter Feature Generation v1 tooling.
+"""Command-line entry point for painter-feature distance analysis and preserved studies.
 
 Each subcommand is a thin pass-through to the module's own argument parser, so the CLI adds
 no behaviour of its own. Census collectors are listed first, then the evidence and R0
@@ -14,6 +14,7 @@ from typing import Callable, List, Sequence
 import typer
 
 from latent_art_bench import evidence
+from latent_art_bench.painter_feature_distance_v1 import cli as feature_distances
 from latent_art_bench.painter_feature_generation_v1 import (
     aic_metadata,
     aic_metadata_r2,
@@ -35,12 +36,13 @@ from latent_art_bench.painter_feature_generation_v2 import model_assessment
 
 app = typer.Typer(
     add_completion=False,
-    help="LatentArtBench — Painter Feature Generation v1 census collectors.",
+    help="LatentArtBench — generated-versus-painting feature distances and study evidence.",
 )
 
 _COLLECTORS: List[tuple] = [
+    ("feature-distances", feature_distances.main, "Offline distance tables, plots and report."),
     ("model-assessment", model_assessment.main, "Bounded localhost image-model access assessment."),
-    ("paper-study", paper_study.main, "Painter Feature Generation v2 paper pipeline."),
+    ("paper-study", paper_study.main, "Preserved Painter Feature Generation v2 study pipeline."),
     ("federated-census", federated_census.main, "Fixed-seed Wikidata/Commons attrition audit."),
     ("broad-wikidata", broad_wikidata.main, "Broad exact-creator no-P186 discovery census."),
     ("broad-wikidata-retry", broad_wikidata_retry.main, "Retry of the broad discovery census."),
