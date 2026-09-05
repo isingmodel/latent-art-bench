@@ -1,0 +1,38 @@
+{
+  "closed_at_utc": "2026-09-05T01:32:47.776842+00:00",
+  "failure_reasons": {
+    "nonallowlisted_media_url": 107,
+    "rendering_dimensions_mismatch": 85,
+    "unsupported_format": 2
+  },
+  "inputs": [
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-renderings-20260905/image_events.jsonl",
+      "sha256": "9715e69a50422131908236c3b39cf1e7871516d07193a96c6de999949c8fa641"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-renderings-20260905/images_freeze.json",
+      "sha256": "f666b3312291e45ef8c4b4b4cff90a1460402e87eddfa71f0c4412234d0c5bf9"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-renderings-20260905/metadata_receipt.json",
+      "sha256": "13a4e092a5f7280d4d76637b5f3d100584477d857c75ad0de999c8d8c22ce1d6"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-renderings-20260905/renderings.jsonl",
+      "sha256": "c793456269d8d2141e4ab852c42e34e1ad85df70a77fa38fdd1c43b3f942001b"
+    }
+  ],
+  "reason": "Frozen collector did not recognize documented thumbnail host migration and standard-size rounding; no active feature result observed; all prior bytes retained; new run required.",
+  "recorded_git_commit": "91dd6fb8e1d57a0453aebff0ea1e35c54291fdfb",
+  "run_id": "pfg2-renderings-20260905",
+  "status": "terminal_aborted_incorrect_geometry_and_host_contract",
+  "statuses": {
+    "acquired": 78,
+    "failed": 194
+  },
+  "terminal_records": 272,
+  "uncertain_work_ids": [
+    "wikidata:Q18683967"
+  ]
+}
