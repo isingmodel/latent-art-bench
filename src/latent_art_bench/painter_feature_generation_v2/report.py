@@ -206,6 +206,26 @@ def render(
         "upsampling to short side 512. It measures 11 color, eight spatial/orientation, and 12 "
         "digital-texture coordinates. A common equal-painter median/IQR transform is fitted only "
         "on new development. Qualification is diagnostic and does not select a method.\n",
+    ]
+    if repeated:
+        qualification = next(iter(repeated.values()))["qualification_diagnostics"]
+        qual_lookup = {(r["painter_id"], r["family"]): r["finite_energy"] for r in qualification}
+        text += [
+            "Development-to-qualification finite energy distances use the same 512-pixel "
+            "new-development scaler. These are reference-set diagnostics, not equivalence margins; "
+            "no pipeline was selected from them.\n",
+            table(
+                ["Painter", "Color", "Spatial", "Texture"],
+                [
+                    [
+                        NAMES[p],
+                        *[number(qual_lookup[p, f]) for f in ("color", "spatial", "texture")],
+                    ]
+                    for p in PAINTER_IDS
+                ],
+            ),
+        ]
+    text += [
         "## Complete finite comparisons\n",
         "Energy distance is computed between the finite measured reference and finite generated "
         "sets, with both self terms including diagonals (V-statistic). Lower own-target distance "
@@ -248,7 +268,8 @@ def render(
         ]
     text += [
         "All 124 coordinate median differences and IQR ratios per available service are "
-        "retained in `empirical_analysis.json`; none is thresholded into a reproduction label.\n",
+        f"retained in [the primary numeric result](../../{MANIFESTS / method_id}/"
+        "empirical_analysis.json); none is thresholded into a reproduction label.\n",
         "## Repeated SD-Turbo uncertainty and calibration\n",
         "The SD-Turbo generator estimator excludes equal repetition blocks in its generated self "
         "term; it differs from the finite tables above and may be negative. The 9,999 bootstrap "
@@ -259,7 +280,9 @@ def render(
         text.append(
             f"Experiment `{experiment}`: {result['repetitions']} blocks; all "
             f"{result['simultaneous_endpoint_count']} intervals are retained in its "
-            "`analysis.json`. The control intervals are shown below.\n"
+            f"[numeric result](../../{MANIFESTS / method_id}/"
+            f"experiments/{experiment}/analysis.json). "
+            "The control intervals are shown below.\n"
         )
         text.append(
             table(
@@ -330,7 +353,8 @@ def render(
         )
     text.append(
         "Crop results retain all target/specificity changes and paired feature-shift summaries "
-        "in `robustness_analysis.json`. Crops are dependent versions of one capture, not "
+        f"in [the crop result](../../{MANIFESTS / method_id}/robustness/robustness_analysis.json). "
+        "Crops are dependent versions of one capture, not "
         "independent reproductions of the physical painting.\n"
     )
     text.append(

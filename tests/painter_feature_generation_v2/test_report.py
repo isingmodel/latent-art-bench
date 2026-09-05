@@ -44,11 +44,24 @@ def test_report_renders_numbers_and_does_not_invent_a_model_ranking():
             ]
         ),
         dict(status="complete_paired_features", expected_records=200),
-        {},
+        {
+            "sd-fixture": dict(
+                repetitions=25,
+                simultaneous_endpoint_count=60,
+                endpoints=[],
+                qualification_diagnostics=[
+                    dict(painter_id=p, family=f, finite_energy=0.1234)
+                    for p in PAINTER_IDS
+                    for f in ("color", "spatial", "texture")
+                ],
+            )
+        },
     )
     assert "40 works: 40 acquired" in text
     assert "12/12" in text
     assert "0.8600" in text
+    assert "Development-to-qualification" in text and "0.1234" in text
+    assert "sd-fixture/analysis.json" in text
     assert "not demonstrated" in text
     assert "not significance tests or a ranking" in text
     assert "None means" not in text  # The literal metadata field is formatted as code.
