@@ -7,6 +7,7 @@ identities.
 ## Current guidance
 
 - [Current status and boundary](STATUS.md)
+- [Detailed English agent handover](AGENT_HANDOVER.md)
 - [Root README](../README.md)
 - [Architecture map](ARCHITECTURE.md)
 - [Artifact retention policy](ARTIFACTS.md)
@@ -21,6 +22,7 @@ paper. Compact evidence lives under `data/manifests/painter_feature_generation_v
 and large bytes under the ignored `research_workspace/painter_feature_generation_v2/`.
 
 - [Completed empirical painter-feature analysis report](../reports/painter_feature_generation_v2/EMPIRICAL_ANALYSIS.md)
+- [Korean translation of the completed empirical analysis report](../reports/painter_feature_generation_v2/EMPIRICAL_ANALYSIS_KO.md)
 - [Earlier available-model access and research-suitability report](../reports/painter_feature_generation_v2/AVAILABLE_IMAGE_MODELS.md)
 - [V2 empirical workflow and reproducibility commands](V2_ANALYSIS_WORKFLOW.md)
 - [Shared empirical method freeze](../data/manifests/painter_feature_generation_v2/pfg2-method-20260905/method_freeze.json)
