@@ -1,5 +1,39 @@
 # Current status and research boundary — 2026-09-05
 
+## Active goal: repeated GPT Image prompt study
+
+The user requested additional `gpt-image-1`/`gpt-image-2` images, alternative prompt methods and
+paper-ready generated-versus-original feature-distance analysis. The new
+[`painter_prompt_study_v1` protocol](../studies/painter_prompt_study_v1/PROTOCOL.md) and
+[workflow](PROMPT_STUDY_WORKFLOW.md) implement this prospectively in a separate namespace.
+
+- Three text-prompt methods × two requested aliases × four painters plus matched artist-free
+  controls × all 16 scenes = 480 requests per complete repetition.
+- The exposed 649-painting reference, all 31 features and existing development scaler stay fixed.
+  New results cannot alter the prompt inventory, statistical rule or sample count.
+- The user subsequently required a modest image count. The active design independently randomizes
+  three prompt methods within matched scene/alias/condition triplets and reports finite energy
+  differences plus all 48 two-sided randomization p-values with Holm adjustment. It provides no
+  population distance confidence intervals and states the sharp-null/no-interference assumptions.
+- Proposed choices are 480/960/1,920 total new images (16/32/64 per cell), roughly 3.1/6.3/12.5 serial
+  hours at prior speed. Each fits current local storage. The proposed config uses 1,920 but has
+  approved request ceiling zero while the user's cap preference is pending. No new image request
+  or feature extraction has run. The earlier large-grid interval proposal is superseded.
+- Small-study development and unseen-seed validation completed at 2,000 trials per null cell.
+  All three sample counts satisfy the prespecified synthetic criterion. Maximum validation
+  family-wise false rejection was 0.029/0.0385/0.045; Wilson 95% upper bounds stay below 0.065.
+  These are contribution-space null constructions, not proof of service assumptions or image power.
+  Prior paired-t/jackknife calibration is retained as superseded development history.
+- Generation, terminal accounting, lossless response retention, resumable measurement, complete-grid
+  analysis, report rendering and commit-bound audit are implemented. The complete offline synthetic
+  pipeline also replays every numeric result and report byte without image access. Reviews are
+  maintainer-run LLM subagent reviews, not institutionally independent.
+- Validation: Ruff passed and **621 offline tests passed**. Historical v1 audit passed 2,902 checks
+  with its two prior acknowledgements unchanged; v2 passed 15,809 checks. The previous distance
+  report's 26 files still reproduce byte-for-byte. No historical evidence was modified.
+
+## Completed existing-data deliverable
+
 The current user-facing deliverable is the **[feature-distance report with comparison
 plots](../reports/painter_feature_distance_v1/REPORT.md)**. The user explicitly selected existing
 painters/images, the existing 31 interpretable features, and reproducible commands plus a plotted
@@ -37,7 +71,7 @@ The **empirical painter-feature analysis is complete**. Read the
 sensitivity. No manuscript was drafted, as requested. The prospective extension is
 [amendment 1.2](../studies/painter_feature_generation_v2/PROTOCOL_1.2.md). See also the earlier
 [completed model-access analysis](../reports/painter_feature_generation_v2/AVAILABLE_IMAGE_MODELS.md).
-**Painter Feature Generation v2** is the active implementation;
+**Painter Feature Generation v2** is the sealed source implementation;
 [its protocol](../studies/painter_feature_generation_v2/PROTOCOL.md) preserves the original research
 question and the v1 evidence while enabling a complete comparative analysis without asserting
 uncalibrated equivalence. V1's strict reproduction claim remains unestablished.

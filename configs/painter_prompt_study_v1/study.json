@@ -1,0 +1,36 @@
+{
+  "schema_version": "painter-prompt-study/1.0",
+  "base_url": "http://127.0.0.1:10532",
+  "aliases": [
+    "gpt-image-1",
+    "gpt-image-2"
+  ],
+  "method_ids": [
+    "by_name",
+    "style_instruction",
+    "style_aspects"
+  ],
+  "repetitions": 4,
+  "maximum_requests": 1920,
+  "approved_maximum_requests": 0,
+  "authorization": null,
+  "paid_fallback": false,
+  "size": "1024x1024",
+  "quality": "medium",
+  "output_format": "png",
+  "background": "opaque",
+  "minimum_decoded_short_side": 512,
+  "minimum_start_interval_seconds": 15,
+  "timeout_seconds": 240,
+  "maximum_response_bytes": 67108864,
+  "reserve_disk_bytes": 5368709120,
+  "max_runtime_bytes": 12884901888,
+  "order_salt": "painter-prompt-study-v1-before-new-generation",
+  "primary_estimator": "paired_randomization",
+  "simultaneous_alpha": 0.05,
+  "calibration_id": "pps1-randomization-20260905",
+  "multiplicity": "holm",
+  "permutation_draws": 99999,
+  "permutation_seed": 8755477342009039575,
+  "order_seed": 9080151411733570857
+}

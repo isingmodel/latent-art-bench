@@ -8,6 +8,10 @@ tracked as evidence and which exist nowhere else.
 
 Preserve and review normally:
 
+- The new `painter_prompt_study_v1` source/tests, protocol, configuration and synthetic calibration
+  records. Prospective freezes and compact ledgers/measurements belong to its own manifest namespace;
+  terminal outputs may never be topped up or pooled into a new run.
+
 - The derived `reports/painter_feature_distance_v1/` bundle: numeric JSON, six CSV tables,
   Markdown report, compact numeric plots in PNG/SVG, and provenance. These plots contain no
   artwork pixels. The `feature-distances check` command reproduces them without touching source
@@ -33,6 +37,11 @@ are nevertheless kept unmodified as policy: they are the record of what actually
 ## Ignored but valuable local evidence
 
 Archive before removing:
+
+- `research_workspace/painter_prompt_study_v1/`, once generation begins: losslessly compressed
+  original HTTP bodies bind both stored and decompressed SHA-256 values. Failed and partial bodies
+  are evidence too. An external volume backing this namespace is part of the archive requirement;
+  decoding a temporary measurement image does not replace its retained source response.
 
 - `research_workspace/painter_feature_generation_v2/`, including pinned SD-Turbo weights,
   completed generated images, original-image acquisition responses, rendering metadata responses,
@@ -70,9 +79,15 @@ Delete exact targets only. Do not use `git clean -xfd` and do not recursively de
 `data/`, or `research_workspace/`: each contains a mixture of tracked records and ignored research
 bytes.
 
-## Active study boundary
+## Active prompt-study boundary
 
-The active v2 continuation uses `research_workspace/painter_feature_generation_v2/`. Acquisition
+The bounded prompt extension uses `research_workspace/painter_prompt_study_v1/`. Its proposed
+480/960/1,920-image grids fit local storage. No new empirical response bytes exist until generation
+begins; once created, their compression, failure status or ignored path does not make them disposable.
+
+## Completed source-study boundary
+
+The completed v2 continuation uses `research_workspace/painter_feature_generation_v2/`. Acquisition
 and generation have produced ignored evidence; the model-access diagnosis found two decodable
 images that did not satisfy the requested settings. Preserve their HTTP bodies even though their
 terminal outcomes are `invalid_output`. See [current status](STATUS.md) for mutable stage state.

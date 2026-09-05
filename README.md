@@ -13,6 +13,12 @@ Full-precision JSON and CSV exports accompany the report.
 
 ## Current status — 2026-09-05
 
+The active extension is [repeated GPT Image generation with three prompt methods](docs/PROMPT_STUDY_WORKFLOW.md).
+It adds a prospectively fixed request grid, calibrated primary prompt contrasts, resumable
+generation and measurement, full outcome accounting, and comparison reports. The proposed
+1,920-image design awaits the preferred cap (480/960/1,920 images); **no new images have
+been generated in this extension**. The counts below describe the completed existing-data report.
+
 - **Reference:** 649 measured confirmation paintings, from the existing 1,193-work frame.
 - **Generated images:** 2,000 SD-Turbo outputs and 160 GPT Image service outputs.
 - **Representation:** all 31 existing features, with the original normalization and frozen
@@ -59,6 +65,8 @@ validation, formulas, output schemas and interpretation limits.
 
 | Path | Role |
 | --- | --- |
+| `src/latent_art_bench/painter_prompt_study_v1/` | Prospective repeated-prompt generation, calibrated analysis and separate module CLI |
+| `studies/painter_prompt_study_v1/` | New prompt design and resource contract |
 | `src/latent_art_bench/painter_feature_distance_v1/` | Current descriptive distance analysis, plotting and CLI |
 | `reports/painter_feature_distance_v1/` | Distance report, plots, exports and provenance |
 | `src/latent_art_bench/painter_feature_generation_v2/` | Preserved collection, generation, measurement and analysis pipeline |

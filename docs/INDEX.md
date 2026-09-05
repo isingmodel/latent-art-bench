@@ -15,7 +15,16 @@ identities.
 - [Config index](../configs/README.md)
 - [Contributing](../CONTRIBUTING.md)
 
-## Active continuation: Painter Feature Generation v2
+## Active extension: Painter Prompt Study v1
+
+- [Repeated generation, prompt methods, sample-size planning and commands](PROMPT_STUDY_WORKFLOW.md)
+- [Prospective repeated-prompt protocol](../studies/painter_prompt_study_v1/PROTOCOL.md)
+- [Proposed resource configuration](../configs/painter_prompt_study_v1/study.json)
+
+New generation is pending the user's bounded image cap (480/960/1,920 total). Existing evidence below
+remains sealed.
+
+## Completed continuation: Painter Feature Generation v2
 
 The empirical painter-feature analysis report is complete; the maintainer deferred a prototype
 paper. Compact evidence lives under `data/manifests/painter_feature_generation_v2/`
