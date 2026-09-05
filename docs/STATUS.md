@@ -2,6 +2,11 @@
 
 ## Active goal: repeated GPT Image prompt study
 
+**Execution blocked on the user's image cap.** The same unresolved choice persisted across three
+goal turns. Implementation and offline validation are complete; no generation freeze, empirical
+request, response store or new-image analysis exists. Resume after the user selects the total cap;
+record that choice in the config and commit the exact inputs before preparing a new run.
+
 The user requested additional `gpt-image-1`/`gpt-image-2` images, alternative prompt methods and
 paper-ready generated-versus-original feature-distance analysis. The new
 [`painter_prompt_study_v1` protocol](../studies/painter_prompt_study_v1/PROTOCOL.md) and
