@@ -1,0 +1,154 @@
+{
+  "acquisition_id": "pfg2-renderings-r2-20260905",
+  "calibration_id": "pfg2-calibration-20260905",
+  "experiment_ids": [
+    "pfg2-sd-turbo-20260905",
+    "pfg2-oauth-pilot-20260905"
+  ],
+  "feature_names": [
+    "lightness_median",
+    "lightness_iqr",
+    "chroma_median",
+    "chroma_iqr",
+    "chromatic_fraction",
+    "hue_concentration",
+    "hue_entropy",
+    "deltae_01",
+    "deltae_04",
+    "deltae_16",
+    "deltae_slope",
+    "spectral_slope",
+    "spectral_residual",
+    "spectral_anisotropy",
+    "orientation_entropy",
+    "horizontal_vertical_balance",
+    "gradient_median",
+    "gradient_iqr",
+    "quadrant_jsd",
+    "wavelet_energy_1",
+    "wavelet_energy_2",
+    "wavelet_energy_3",
+    "wavelet_energy_4",
+    "wavelet_slope",
+    "wavelet_curvature",
+    "lbp_entropy_8",
+    "lbp_entropy_16",
+    "lbp_entropy_32",
+    "local_cv_01",
+    "local_cv_04",
+    "local_cv_16"
+  ],
+  "feature_workers": 3,
+  "frame_id": "pfg2-frame-20260905",
+  "inputs": [
+    {
+      "path": "configs/painter_feature_generation_v2/sd_turbo.json",
+      "sha256": "7778078cb0e6d583995410de5bd06d3dc5e85ef6bc10fbf5dc38b949944edc0d"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-calibration-20260905/calibration.json",
+      "sha256": "1548224921431fb5a292e6fda3f7b43b837338a3d6b7aee97f2879667fc9de33"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-calibration-20260905/calibration_freeze.json",
+      "sha256": "d4a213583dbbb30126c3e5df62f7cb8a420e37254e87e8747046f6c06aa377fe"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-frame-20260905/frame.jsonl",
+      "sha256": "43c71972635421645b276051feaefc62ee6845d3807fcad352aaa72926e9bed2"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-oauth-pilot-20260905/generation_freeze.json",
+      "sha256": "d3c3541124de496b030d474d80038fe98a55a81f78be54f2434237316c5c4fcd"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-renderings-r2-20260905/acquisition_receipt.json",
+      "sha256": "1da86910801bcc10e07b67c5255810abaab5e7487cd248bdfd1d96cf3270cbbc"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-renderings-r2-20260905/acquisitions.jsonl",
+      "sha256": "3933e1627a0e7182baf899917cf651530f86c04b8e92b0312f7ada15dae98f5e"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-sd-turbo-20260905/generation_freeze.json",
+      "sha256": "5e0abf5117ad3c5fc01a6c6b888bc809138e9a1088b1b926f4c99ef69582c825"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8"
+    },
+    {
+      "path": "src/latent_art_bench/io.py",
+      "sha256": "13e6372aa9814495a45700eb9e65d099c56bb1bb3032d72f7f9e00e6ba91a9b8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v1/panel.py",
+      "sha256": "b878fe3438c1006767c1d8ca608c1d57b64ed2bb2dff418864fd25c8c2d216b8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/artifacts.py",
+      "sha256": "8b48f0cfb433ac1769786aba366501b69ba1bec540a1a2f9e35e93ce45e9b0d7"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/calibration.py",
+      "sha256": "929fa0552a374539e25976bb9fcca7190602be06a0b5e53e8fca80ceb8ea6bf5"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/empirical.py",
+      "sha256": "c5ed9f4f7f390de7087222d6b780744bb33eaf279ccedfbbeb706510336655a9"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/features.py",
+      "sha256": "b295c2de1a8501e8ab335d88ed56ab8f2dc8b3ca704141b92e02ef586d48d172"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/pipeline.py",
+      "sha256": "f2edadc329b2b0a5490c5e1d8f542d5b3bc0bff7fb83ac82fe90d6389f7db37b"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/robustness.py",
+      "sha256": "87d68cf290f41ac5023881775ca87042e5de897d6626e3ce57807f6118a5d932"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/statistics.py",
+      "sha256": "20830e7a90bc49666f0937ef7bc2ae3f11206f986c72eb8f80ad30cc24fcdaa8"
+    },
+    {
+      "path": "studies/painter_feature_generation_v2/PROTOCOL.md",
+      "sha256": "6fe5eec83321b540db4abce7862376be53cdff06bbcd45e50990f2d781f02b9b"
+    },
+    {
+      "path": "studies/painter_feature_generation_v2/PROTOCOL_1.1.md",
+      "sha256": "0f1a158df2e0df49ffd58fb4e53032924530ec82adb9b5e509a6a4304e2b69f0"
+    },
+    {
+      "path": "studies/painter_feature_generation_v2/PROTOCOL_1.2.md",
+      "sha256": "b2983a7f3a455434b9df4bfc52bce1c1a95b49b7cf965410a1918f6e15c7c921"
+    },
+    {
+      "path": "studies/painter_feature_generation_v2/PROTOCOL_1.3.md",
+      "sha256": "04f65b2f50e90fa9755dd799b5ba7a16dbb3a9f0f214d54d986db97a37e5abf4"
+    },
+    {
+      "path": "tests/painter_feature_generation_v2/test_empirical.py",
+      "sha256": "d0be8cbcc207a8eaf194c7510059f0954e345c05d17d57d932d81a3f7ae21d46"
+    },
+    {
+      "path": "tests/painter_feature_generation_v2/test_methods.py",
+      "sha256": "756d60d8b82244de24d5d904039c4e5d276ab475af75d3947f98019d82641f4d"
+    },
+    {
+      "path": "tests/painter_feature_generation_v2/test_pipeline.py",
+      "sha256": "14b4e41118dafde510b95c7a3baa98c2e2740601c92be06863816dc73f4931d6"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+    }
+  ],
+  "method_id": "pfg2-method-20260905",
+  "prepared_at_utc": "2026-09-05T02:29:05.896738+00:00",
+  "recorded_git_commit": "3afc83a2eb3d2a126c24d598b73773f4c645a499",
+  "reviewer_kind": "operator_self_check_not_independent_review",
+  "short_side": 512
+}
