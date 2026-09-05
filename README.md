@@ -2,20 +2,21 @@
 
 > **Current implementation — 2026-09-05:**
 > [Painter Feature Generation v2](studies/painter_feature_generation_v2/PROTOCOL.md) continues the
-> study toward a comparative analysis. The immediate deliverable is the
-> [available-image-model analysis report](reports/painter_feature_generation_v2/AVAILABLE_IMAGE_MODELS.md),
-> not a prototype paper. Its 1,193-record frame has
+> study toward an empirical analysis report, not a prototype paper. The
+> [available-image-model access report](reports/painter_feature_generation_v2/AVAILABLE_IMAGE_MODELS.md)
+> is complete. Its 1,193-record frame has
 > prospective roles (658 confirmation records); the 31-feature measurement and paired-block
-> analysis code is implemented. SD-Turbo generation is running. Both GPT Image aliases return
+> analysis code is implemented. All 2,000 SD-Turbo images are generated. Both GPT Image aliases return
 > image bytes through the current Codex OAuth proxy, but returned settings differ from requests
 > and model snapshots are not attested. Full painter-feature results remain pending. Use
 > [current status](docs/STATUS.md) for operational guidance. The v1 overview below is historical.
 
 Run the new pipeline with
-`uv run --locked --extra analysis --extra learned latent-art-bench paper-study --help`.
+`uv run --locked --extra analysis --extra learned latent-art-bench paper-study -- --help`.
 
 Inspect the bounded GPT Image access tool with `latent-art-bench model-assessment --help`.
 Completed experiments are immutable; do not rerun them in place.
+See the [empirical workflow](docs/V2_ANALYSIS_WORKFLOW.md) for stage gates and CLI commands.
 
 LatentArtBench is a research project for testing whether images generated with a painter's name
 reproduce the measurable visual-feature distribution of that painter's authentic paintings. The

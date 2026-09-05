@@ -72,3 +72,26 @@ def test_invalid_recording_commit_is_not_excused_by_current_bytes(tmp_path):
         ),
     )
     assert audit(tmp_path)["failed"] == 1
+
+
+def test_nested_feature_receipt_verifies_method_freeze_and_counts(tmp_path):
+    base = tmp_path / MANIFESTS / "method"
+    publish(base / "method_freeze.json", dict(inputs=[]))
+    directory = base / "experiments" / "generation"
+    publish(
+        directory / "generated_features.jsonl", [dict(image_id="one", status="failed")], lines=True
+    )
+    publish(
+        directory / "generated_receipt.json",
+        dict(
+            stage="generated",
+            expected_records=2,
+            terminal_records=1,
+            statuses=dict(failed=1),
+            method_freeze_sha256=hash_file(base / "method_freeze.json"),
+            feature_file_sha256=hash_file(directory / "generated_features.jsonl"),
+        ),
+    )
+    result = audit(tmp_path)
+    assert result["failed"] == 1
+    assert "complete feature accounting" in result["failures"][0]

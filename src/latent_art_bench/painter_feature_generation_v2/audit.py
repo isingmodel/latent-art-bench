@@ -6,6 +6,7 @@ import hashlib
 import math
 import re
 import subprocess
+from collections import Counter
 from pathlib import Path
 
 from latent_art_bench.io import hash_file, read_json, read_jsonl
@@ -74,7 +75,20 @@ def audit(root: Path) -> dict:
                 "outputs_sha256": "outputs.jsonl",
                 "renderings_sha256": "renderings.jsonl",
                 "assessment_freeze_sha256": "assessment_freeze.json",
+                "calibration_freeze_sha256": "calibration_freeze.json",
+                "scaler_sha256": "scaler.json",
+                "development_feature_sha256": "development_features.jsonl",
+                "uncropped_feature_sha256": "uncropped_features.jsonl",
             }
+            if "method_freeze_sha256" in record:
+                parent = path.parent
+                while parent != root and not (parent / "method_freeze.json").is_file():
+                    parent = parent.parent
+                check(
+                    file_hash((parent / "method_freeze.json").relative_to(root))
+                    == record["method_freeze_sha256"],
+                    f"{label}: method freeze",
+                )
             if "requests_sha256" in record:
                 pairs["requests_sha256"] = (
                     "metadata_requests.jsonl" if "metadata" in path.name else "requests.jsonl"
@@ -107,6 +121,30 @@ def audit(root: Path) -> dict:
                         file_hash((path.parent / filename).relative_to(root)) == record[field],
                         f"{label}: {filename}",
                     )
+            if "feature_file_sha256" in record:
+                rows = read_jsonl(path.parent / f"{record['stage']}_features.jsonl")
+                check(
+                    len(rows) == record["terminal_records"] == record["expected_records"]
+                    and dict(Counter(r["status"] for r in rows)) == record["statuses"],
+                    f"{label}: complete feature accounting",
+                )
+            if path.name == "generation_receipt.json":
+                rows = read_jsonl(path.parent / "outputs.jsonl")
+                requests = read_jsonl(path.parent / "requests.jsonl")
+                check(
+                    len(rows)
+                    == len(requests)
+                    == record["terminal_requests"]
+                    == record["expected_requests"]
+                    and len({r["request_id"] for r in rows}) == len(rows)
+                    and {r["request_id"] for r in rows} == {r["request_id"] for r in requests},
+                    f"{label}: complete generation accounting",
+                )
+                check(
+                    record["complete_generated_grid"]
+                    == all(r["status"] == "generated" for r in rows),
+                    f"{label}: complete grid claim",
+                )
             if path.name == "assessment_receipt.json":
                 outcomes = record["outcomes"]
                 ledger_rows = events(path.parent / "assessment_events.jsonl")
