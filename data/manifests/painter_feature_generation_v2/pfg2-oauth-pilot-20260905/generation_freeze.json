@@ -1,0 +1,85 @@
+{
+  "authorization": "2026-09-05 maintainer: keep implementing the analysis using Codex OAuth; 160-request exploratory grid under amendment 1.2; no paid fallback.",
+  "config": {
+    "aliases": [
+      "gpt-image-1",
+      "gpt-image-2"
+    ],
+    "analysis_kind": "finite_descriptive_service_alias_comparison",
+    "background": "opaque",
+    "base_url": "http://127.0.0.1:10532",
+    "maximum_requests": 160,
+    "maximum_response_bytes": 67108864,
+    "minimum_decoded_short_side": 512,
+    "minimum_start_interval_seconds": 15,
+    "order_salt": "pfg-v2-oauth-pilot-20260905-before-feature-opening",
+    "output_format": "png",
+    "predecessor_access_id": "pfg2-image-access-20260905",
+    "quality": "medium",
+    "repetitions": 1,
+    "reserve_disk_bytes": 5368709120,
+    "schema_version": "pfg-v2-oauth-pilot/1.0",
+    "size": "1024x1024",
+    "timeout_seconds": 240
+  },
+  "experiment_id": "pfg2-oauth-pilot-20260905",
+  "inputs": [
+    {
+      "path": "configs/painter_feature_generation_v2/oauth_pilot.json",
+      "sha256": "e8c733c5c245f48d37c9415eba8199bad82f4e429ce6992a3fd4e4e0402bd7e9"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v1/prompt_library.json",
+      "sha256": "fbe81e7cb93282dae96c3edd7df58ed3d43ee81516b6df113f3c8b56b07e09a7"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-image-access-20260905/assessment_freeze.json",
+      "sha256": "07df01964178ae03cb888c91202378f3935dc14c521543f10de4deb8d4c1a1e1"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-image-access-20260905/assessment_receipt.json",
+      "sha256": "40e9cc695bc3614448c92f83bc7f103d2b9ce07bd273ba04fe0bff22d50d842d"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-image-access-20260905/response_diagnostics.json",
+      "sha256": "a6ea2f2c857fc51cb9f8734e965221c62b2e4a76fa28638d7c479e0507e26e78"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8"
+    },
+    {
+      "path": "src/latent_art_bench/io.py",
+      "sha256": "13e6372aa9814495a45700eb9e65d099c56bb1bb3032d72f7f9e00e6ba91a9b8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/artifacts.py",
+      "sha256": "8b48f0cfb433ac1769786aba366501b69ba1bec540a1a2f9e35e93ce45e9b0d7"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/model_assessment.py",
+      "sha256": "bd460259a4282df10e9e57d65c54e0ff1cf89a3a72ffb68a29fa0bb9086888ed"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/oauth_generate.py",
+      "sha256": "ac5957ebbc9d7a0b7e6361671b58bb021e88fae200b1260538db499376e2b32f"
+    },
+    {
+      "path": "studies/painter_feature_generation_v2/PROTOCOL_1.2.md",
+      "sha256": "b2983a7f3a455434b9df4bfc52bce1c1a95b49b7cf965410a1918f6e15c7c921"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+    }
+  ],
+  "prepared_at_utc": "2026-09-05T01:30:09.887513+00:00",
+  "recorded_git_commit": "b6f3a944138f329a1f033c3d04e459136b7bc86e",
+  "requests": 160,
+  "requests_sha256": "ccdb82998699894ff7101df7ee34db2f8c374893b8758cc23a6265e8ff20be9d",
+  "reviewer_kind": "operator_self_check_not_independent_review",
+  "software": {
+    "Pillow": "11.3.0",
+    "httpx": "0.28.1"
+  }
+}
