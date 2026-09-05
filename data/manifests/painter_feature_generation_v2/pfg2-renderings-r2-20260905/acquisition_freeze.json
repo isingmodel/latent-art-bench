@@ -1,0 +1,65 @@
+{
+  "authorization": "2026-09-05 maintainer: continue empirical analysis; complete disjoint acquisition correction under amendment 1.3",
+  "frame_id": "pfg2-frame-20260905",
+  "inputs": [
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-frame-20260905/frame.jsonl",
+      "sha256": "43c71972635421645b276051feaefc62ee6845d3807fcad352aaa72926e9bed2"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-renderings-20260905/image_events.jsonl",
+      "sha256": "9715e69a50422131908236c3b39cf1e7871516d07193a96c6de999949c8fa641"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-renderings-20260905/images_freeze.json",
+      "sha256": "f666b3312291e45ef8c4b4b4cff90a1460402e87eddfa71f0c4412234d0c5bf9"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-renderings-20260905/metadata_receipt.json",
+      "sha256": "13a4e092a5f7280d4d76637b5f3d100584477d857c75ad0de999c8d8c22ce1d6"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-renderings-20260905/renderings.jsonl",
+      "sha256": "c793456269d8d2141e4ab852c42e34e1ad85df70a77fa38fdd1c43b3f942001b"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-renderings-20260905/terminal_receipt.json",
+      "sha256": "fb4bdd313757486bf4ff53925eec0dfd4952801a9f6d27ccd05d62b118c49aec"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8"
+    },
+    {
+      "path": "src/latent_art_bench/io.py",
+      "sha256": "13e6372aa9814495a45700eb9e65d099c56bb1bb3032d72f7f9e00e6ba91a9b8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/artifacts.py",
+      "sha256": "8b48f0cfb433ac1769786aba366501b69ba1bec540a1a2f9e35e93ce45e9b0d7"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/renderings.py",
+      "sha256": "de4de89556cbb25c3bc8c4b726d5136a48519920c83fd93cccceafaa897bf06e"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/renderings_r2.py",
+      "sha256": "c267900276759af4af05fe2436aeabeaa010dbeb003f2ade102699b0123ccea5"
+    },
+    {
+      "path": "studies/painter_feature_generation_v2/PROTOCOL_1.3.md",
+      "sha256": "04f65b2f50e90fa9755dd799b5ba7a16dbb3a9f0f214d54d986db97a37e5abf4"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+    }
+  ],
+  "predecessor": "pfg2-renderings-20260905",
+  "prepared_at_utc": "2026-09-05T01:35:40.778013+00:00",
+  "recorded_git_commit": "4ee0af0ca5f595117c43bfe54fc315d6df5eccb6",
+  "requests": 1193,
+  "requests_sha256": "eb70dd97ef7a8c5b016791009da67c06083d863cb80a57b9d6801b9b886feb47",
+  "reviewer_kind": "operator_self_check_not_independent_review",
+  "run_id": "pfg2-renderings-r2-20260905"
+}
