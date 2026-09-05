@@ -149,6 +149,8 @@ def render(
         "service's returned shapes are not geometry-matched. Common short-side normalization "
         "does not remove this spatial/texture confound. The earlier neutral access probe's "
         "1254×1254 outputs are separate evidence, not the sizes of this painter grid.\n",
+        "For real paintings, the reported native dimensions describe the acquired Commons "
+        "rendering, not necessarily the original full-resolution photograph or physical canvas.\n",
         "## Corpus, attrition and measurement\n",
         "The real frame is Wikidata-declared outdoor-place paintings, not institutionally verified "
         "attribution or a probability sample of a painter's oeuvre. Works retain their fixed "
