@@ -1,0 +1,16 @@
+{
+  "analysis_kind": "finite_descriptive_service_alias_comparison",
+  "complete_generated_grid": true,
+  "completed_at_utc": "2026-09-05T02:33:45.993772+00:00",
+  "expected_requests": 160,
+  "experiment_id": "pfg2-oauth-pilot-20260905",
+  "freeze_sha256": "d3c3541124de496b030d474d80038fe98a55a81f78be54f2434237316c5c4fcd",
+  "image_attempts": 160,
+  "ledger_sha256": "7620e4b54ef292162412b7feaec29a0ea8c223b0ca99a20826b930117690375e",
+  "outputs_sha256": "900aad8ac411ef239e7d5c8f57963f99aaf2a61acfab6169706a806835492c2d",
+  "statuses": {
+    "generated": 160
+  },
+  "stopped_on": null,
+  "terminal_requests": 160
+}
