@@ -54,8 +54,13 @@ Current v2 state:
 - Confirmation was opened once at the recorded receipt, after both generation grids and all
   prerequisites were committed. Its terminal reference contains 649 measured works: Monet 297,
   Sisley 106, Pissarro 141, Cézanne 105. Three unprofiled non-RGB images and one nonopaque-alpha
-  image failed normalization; all are retained. Generated-image measurement, the fixed comparisons,
-  and complete paired crop sensitivity are running sequentially under the unchanged method.
+  image failed normalization; all are retained. All 2,160 generated images measured successfully.
+- Primary numeric results are complete and sealed: the 60-endpoint repeated SD-Turbo analysis,
+  finite comparisons for all three service conditions, 124 coordinate diagnostics per condition,
+  source/profile/resolution strata and copy screens. Painter-name control improvement and
+  wrong-painter specificity are distinct and mixed; no reproduction or model-ranking claim is made.
+- Full paired crop sensitivity is running for all 3,340 primary-success images at 496 pixels.
+  The final empirical report awaits this remaining diagnostic and final evidence verification.
 - No manuscript is being prepared. Shared measurement, finite comparisons, repeated-block analysis,
   full-population crop sensitivity and the Markdown report renderer are implemented and tested.
   The frozen analysis is now being executed; no active result is used to retune it.
@@ -68,8 +73,8 @@ Canonical frame: `data/manifests/painter_feature_generation_v2/pfg2-frame-202609
 CLI: `uv run --locked --extra analysis --extra learned latent-art-bench paper-study -- --help`.
 Access CLI: `latent-art-bench model-assessment --help`; v2 audit: `latent-art-bench paper-study audit`.
 
-Latest complete-suite validation: Ruff passed; 333 offline tests passed; v1 audit 2,902 checks
-and v2 audit 4,869 checks, both with zero unacknowledged failures. The v2 count grows with
+Latest complete-suite validation: Ruff passed; 334 offline tests passed; v1 audit 2,902 checks
+and v2 audit 7,366 checks, both with zero unacknowledged failures. The v2 count grows with
 running ledgers and is not their terminal certificate. The two historical v1 acknowledgements
 remain unchanged.
 
