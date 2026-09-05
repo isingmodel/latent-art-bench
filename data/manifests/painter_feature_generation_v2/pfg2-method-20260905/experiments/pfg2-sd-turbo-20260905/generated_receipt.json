@@ -1,0 +1,12 @@
+{
+  "completed_at_utc": "2026-09-05T02:44:41.721870+00:00",
+  "expected_records": 2000,
+  "experiment_id": "pfg2-sd-turbo-20260905",
+  "feature_file_sha256": "eaed290dbc6a4afe5a330b29a6721f4556914517e74eb4300bb0cb422192b560",
+  "method_freeze_sha256": "0c254c629b37803c7e99f2c61485f6086f593f98cd8bc26b78a5c498f2b29200",
+  "stage": "generated",
+  "statuses": {
+    "measured": 2000
+  },
+  "terminal_records": 2000
+}

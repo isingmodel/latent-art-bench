@@ -1,0 +1,1768 @@
+{
+  "bootstrap_replicates": 9999,
+  "bootstrap_rng": "PCG64",
+  "bootstrap_seed": 20260905,
+  "coordinate_diagnostics": [
+    {
+      "coordinate": "lightness_median",
+      "family": "color",
+      "iqr_ratio": 0.3961177557778096,
+      "median_difference": -0.6131253002469397,
+      "painter_id": "claude_monet",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "lightness_iqr",
+      "family": "color",
+      "iqr_ratio": 0.7007168823589007,
+      "median_difference": 0.24170475207342612,
+      "painter_id": "claude_monet",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "chroma_median",
+      "family": "color",
+      "iqr_ratio": 0.6384292632949641,
+      "median_difference": 0.04487911283113197,
+      "painter_id": "claude_monet",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "chroma_iqr",
+      "family": "color",
+      "iqr_ratio": 0.4864580842008203,
+      "median_difference": 0.08072199402749276,
+      "painter_id": "claude_monet",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "chromatic_fraction",
+      "family": "color",
+      "iqr_ratio": 0.6201737716691831,
+      "median_difference": 0.019531549777558915,
+      "painter_id": "claude_monet",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "hue_concentration",
+      "family": "color",
+      "iqr_ratio": 0.2240867665854365,
+      "median_difference": 0.7518154924979706,
+      "painter_id": "claude_monet",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "hue_entropy",
+      "family": "color",
+      "iqr_ratio": 0.6664989031439136,
+      "median_difference": -0.8498234322116993,
+      "painter_id": "claude_monet",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "deltae_01",
+      "family": "color",
+      "iqr_ratio": 0.34172861095209317,
+      "median_difference": -0.1721280373367342,
+      "painter_id": "claude_monet",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "deltae_04",
+      "family": "color",
+      "iqr_ratio": 0.44372072110725314,
+      "median_difference": 0.01305940150894229,
+      "painter_id": "claude_monet",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "deltae_16",
+      "family": "color",
+      "iqr_ratio": 0.4032176503827412,
+      "median_difference": 0.1412276394475243,
+      "painter_id": "claude_monet",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "deltae_slope",
+      "family": "color",
+      "iqr_ratio": 0.897606267135054,
+      "median_difference": 0.5962089238578165,
+      "painter_id": "claude_monet",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "lightness_median",
+      "family": "color",
+      "iqr_ratio": 0.3745240794301436,
+      "median_difference": -0.788171382372158,
+      "painter_id": "alfred_sisley",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "lightness_iqr",
+      "family": "color",
+      "iqr_ratio": 0.49938699821097543,
+      "median_difference": 0.04324616425168141,
+      "painter_id": "alfred_sisley",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "chroma_median",
+      "family": "color",
+      "iqr_ratio": 0.5889360968020834,
+      "median_difference": -0.16586806338957213,
+      "painter_id": "alfred_sisley",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "chroma_iqr",
+      "family": "color",
+      "iqr_ratio": 0.4475619172044105,
+      "median_difference": -0.07919500887450016,
+      "painter_id": "alfred_sisley",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "chromatic_fraction",
+      "family": "color",
+      "iqr_ratio": 0.7720279047778665,
+      "median_difference": -0.09822954369484958,
+      "painter_id": "alfred_sisley",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "hue_concentration",
+      "family": "color",
+      "iqr_ratio": 0.28566841159661693,
+      "median_difference": 0.6899014135125991,
+      "painter_id": "alfred_sisley",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "hue_entropy",
+      "family": "color",
+      "iqr_ratio": 0.5444250146287571,
+      "median_difference": -0.5051468288922634,
+      "painter_id": "alfred_sisley",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "deltae_01",
+      "family": "color",
+      "iqr_ratio": 0.4594500166639871,
+      "median_difference": -0.0745929901444165,
+      "painter_id": "alfred_sisley",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "deltae_04",
+      "family": "color",
+      "iqr_ratio": 0.5584106679198503,
+      "median_difference": 0.19112548221286538,
+      "painter_id": "alfred_sisley",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "deltae_16",
+      "family": "color",
+      "iqr_ratio": 0.458791782179301,
+      "median_difference": 0.2154490021824416,
+      "painter_id": "alfred_sisley",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "deltae_slope",
+      "family": "color",
+      "iqr_ratio": 0.5981099286179551,
+      "median_difference": 0.5354160330120352,
+      "painter_id": "alfred_sisley",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "lightness_median",
+      "family": "color",
+      "iqr_ratio": 0.34647135437601717,
+      "median_difference": -0.6712337916992812,
+      "painter_id": "camille_pissarro",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "lightness_iqr",
+      "family": "color",
+      "iqr_ratio": 0.5644347045470494,
+      "median_difference": -0.1680520965487059,
+      "painter_id": "camille_pissarro",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "chroma_median",
+      "family": "color",
+      "iqr_ratio": 0.6512548960555532,
+      "median_difference": 0.42462330364555234,
+      "painter_id": "camille_pissarro",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "chroma_iqr",
+      "family": "color",
+      "iqr_ratio": 0.3472374894071233,
+      "median_difference": 0.19198816015376796,
+      "painter_id": "camille_pissarro",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "chromatic_fraction",
+      "family": "color",
+      "iqr_ratio": 0.4181846182989072,
+      "median_difference": 0.5123241315627796,
+      "painter_id": "camille_pissarro",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "hue_concentration",
+      "family": "color",
+      "iqr_ratio": 0.1976827858330209,
+      "median_difference": 0.2978741539940094,
+      "painter_id": "camille_pissarro",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "hue_entropy",
+      "family": "color",
+      "iqr_ratio": 0.44361439511752027,
+      "median_difference": -0.4247582765877004,
+      "painter_id": "camille_pissarro",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "deltae_01",
+      "family": "color",
+      "iqr_ratio": 0.4562449178295415,
+      "median_difference": -0.195036915300134,
+      "painter_id": "camille_pissarro",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "deltae_04",
+      "family": "color",
+      "iqr_ratio": 0.5073850543312465,
+      "median_difference": 0.1580505542922846,
+      "painter_id": "camille_pissarro",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "deltae_16",
+      "family": "color",
+      "iqr_ratio": 0.43033359351156786,
+      "median_difference": 0.3976192522109954,
+      "painter_id": "camille_pissarro",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "deltae_slope",
+      "family": "color",
+      "iqr_ratio": 0.6583730486535386,
+      "median_difference": 0.8980495347824451,
+      "painter_id": "camille_pissarro",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "lightness_median",
+      "family": "color",
+      "iqr_ratio": 0.32417595200062455,
+      "median_difference": -0.32768330709631877,
+      "painter_id": "paul_cezanne",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "lightness_iqr",
+      "family": "color",
+      "iqr_ratio": 0.5855346341247862,
+      "median_difference": 0.028817081867075666,
+      "painter_id": "paul_cezanne",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "chroma_median",
+      "family": "color",
+      "iqr_ratio": 0.5051082129488286,
+      "median_difference": -0.4063416512689816,
+      "painter_id": "paul_cezanne",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "chroma_iqr",
+      "family": "color",
+      "iqr_ratio": 0.5081733314012007,
+      "median_difference": -0.38234298326781035,
+      "painter_id": "paul_cezanne",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "chromatic_fraction",
+      "family": "color",
+      "iqr_ratio": 0.8970613306037115,
+      "median_difference": -0.02674510629682897,
+      "painter_id": "paul_cezanne",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "hue_concentration",
+      "family": "color",
+      "iqr_ratio": 0.4986070490401079,
+      "median_difference": 0.0638516478119269,
+      "painter_id": "paul_cezanne",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "hue_entropy",
+      "family": "color",
+      "iqr_ratio": 0.5883725312699566,
+      "median_difference": 0.13706203043515325,
+      "painter_id": "paul_cezanne",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "deltae_01",
+      "family": "color",
+      "iqr_ratio": 0.5140989651457449,
+      "median_difference": -0.3138320445831505,
+      "painter_id": "paul_cezanne",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "deltae_04",
+      "family": "color",
+      "iqr_ratio": 0.5316899519682957,
+      "median_difference": -0.021453215637351697,
+      "painter_id": "paul_cezanne",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "deltae_16",
+      "family": "color",
+      "iqr_ratio": 0.4758186326377596,
+      "median_difference": 0.18563655985161975,
+      "painter_id": "paul_cezanne",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "deltae_slope",
+      "family": "color",
+      "iqr_ratio": 0.6528866681785219,
+      "median_difference": 0.7680671008162955,
+      "painter_id": "paul_cezanne",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "spectral_slope",
+      "family": "spatial",
+      "iqr_ratio": 0.6843884571611966,
+      "median_difference": -1.112028640527029,
+      "painter_id": "claude_monet",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "spectral_residual",
+      "family": "spatial",
+      "iqr_ratio": 0.8456680160362184,
+      "median_difference": 0.09452634195246107,
+      "painter_id": "claude_monet",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "spectral_anisotropy",
+      "family": "spatial",
+      "iqr_ratio": 1.037993755322997,
+      "median_difference": -0.03761139705634689,
+      "painter_id": "claude_monet",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "orientation_entropy",
+      "family": "spatial",
+      "iqr_ratio": 1.146133070523173,
+      "median_difference": -0.05914574703545744,
+      "painter_id": "claude_monet",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "horizontal_vertical_balance",
+      "family": "spatial",
+      "iqr_ratio": 0.7756037840255531,
+      "median_difference": -0.14041161853579198,
+      "painter_id": "claude_monet",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "gradient_median",
+      "family": "spatial",
+      "iqr_ratio": 0.2965773673968586,
+      "median_difference": -0.8156069855872468,
+      "painter_id": "claude_monet",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "gradient_iqr",
+      "family": "spatial",
+      "iqr_ratio": 0.28911621375325963,
+      "median_difference": -0.8014850905785503,
+      "painter_id": "claude_monet",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "quadrant_jsd",
+      "family": "spatial",
+      "iqr_ratio": 1.532292251266739,
+      "median_difference": 0.8688387603330178,
+      "painter_id": "claude_monet",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "spectral_slope",
+      "family": "spatial",
+      "iqr_ratio": 0.7125655254425259,
+      "median_difference": -0.7919283899102755,
+      "painter_id": "alfred_sisley",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "spectral_residual",
+      "family": "spatial",
+      "iqr_ratio": 0.7129768727110177,
+      "median_difference": -0.04895198592632566,
+      "painter_id": "alfred_sisley",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "spectral_anisotropy",
+      "family": "spatial",
+      "iqr_ratio": 0.6994796523739224,
+      "median_difference": -0.16426187797969177,
+      "painter_id": "alfred_sisley",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "orientation_entropy",
+      "family": "spatial",
+      "iqr_ratio": 1.3831513159262405,
+      "median_difference": -0.2040398614559474,
+      "painter_id": "alfred_sisley",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "horizontal_vertical_balance",
+      "family": "spatial",
+      "iqr_ratio": 0.8607710063009424,
+      "median_difference": -0.1283729558694839,
+      "painter_id": "alfred_sisley",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "gradient_median",
+      "family": "spatial",
+      "iqr_ratio": 0.3667197547584323,
+      "median_difference": -0.6341629348584763,
+      "painter_id": "alfred_sisley",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "gradient_iqr",
+      "family": "spatial",
+      "iqr_ratio": 0.3719387130940464,
+      "median_difference": -0.8558933074569677,
+      "painter_id": "alfred_sisley",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "quadrant_jsd",
+      "family": "spatial",
+      "iqr_ratio": 3.4240682313808777,
+      "median_difference": 1.2366660927075268,
+      "painter_id": "alfred_sisley",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "spectral_slope",
+      "family": "spatial",
+      "iqr_ratio": 0.43790912513230335,
+      "median_difference": -0.919656183979824,
+      "painter_id": "camille_pissarro",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "spectral_residual",
+      "family": "spatial",
+      "iqr_ratio": 0.7251858825795555,
+      "median_difference": 0.18517466056322743,
+      "painter_id": "camille_pissarro",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "spectral_anisotropy",
+      "family": "spatial",
+      "iqr_ratio": 0.9482353828672293,
+      "median_difference": 0.22798214128176128,
+      "painter_id": "camille_pissarro",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "orientation_entropy",
+      "family": "spatial",
+      "iqr_ratio": 1.8335597163833652,
+      "median_difference": -0.3949038826852952,
+      "painter_id": "camille_pissarro",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "horizontal_vertical_balance",
+      "family": "spatial",
+      "iqr_ratio": 1.0228125271110942,
+      "median_difference": -0.27652857545853304,
+      "painter_id": "camille_pissarro",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "gradient_median",
+      "family": "spatial",
+      "iqr_ratio": 0.3052027385385727,
+      "median_difference": -0.8973593747916373,
+      "painter_id": "camille_pissarro",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "gradient_iqr",
+      "family": "spatial",
+      "iqr_ratio": 0.3049629136550333,
+      "median_difference": -0.9846183331236847,
+      "painter_id": "camille_pissarro",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "quadrant_jsd",
+      "family": "spatial",
+      "iqr_ratio": 4.07219856726163,
+      "median_difference": 0.798348212113156,
+      "painter_id": "camille_pissarro",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "spectral_slope",
+      "family": "spatial",
+      "iqr_ratio": 0.7579380117659571,
+      "median_difference": -0.5248069897798766,
+      "painter_id": "paul_cezanne",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "spectral_residual",
+      "family": "spatial",
+      "iqr_ratio": 1.2912927943275083,
+      "median_difference": 0.7553598648248899,
+      "painter_id": "paul_cezanne",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "spectral_anisotropy",
+      "family": "spatial",
+      "iqr_ratio": 0.9136264627835556,
+      "median_difference": -0.009339962648582951,
+      "painter_id": "paul_cezanne",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "orientation_entropy",
+      "family": "spatial",
+      "iqr_ratio": 2.945388049386029,
+      "median_difference": -0.6760975107493056,
+      "painter_id": "paul_cezanne",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "horizontal_vertical_balance",
+      "family": "spatial",
+      "iqr_ratio": 1.0655404379613505,
+      "median_difference": -0.40731294081615144,
+      "painter_id": "paul_cezanne",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "gradient_median",
+      "family": "spatial",
+      "iqr_ratio": 0.46477046055875526,
+      "median_difference": -0.489359412185641,
+      "painter_id": "paul_cezanne",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "gradient_iqr",
+      "family": "spatial",
+      "iqr_ratio": 0.470943500962214,
+      "median_difference": -0.4273212327115851,
+      "painter_id": "paul_cezanne",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "quadrant_jsd",
+      "family": "spatial",
+      "iqr_ratio": 2.033369733346547,
+      "median_difference": 1.05266111852912,
+      "painter_id": "paul_cezanne",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "wavelet_energy_1",
+      "family": "texture",
+      "iqr_ratio": 0.5144533159193692,
+      "median_difference": -1.2038397954591105,
+      "painter_id": "claude_monet",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "wavelet_energy_2",
+      "family": "texture",
+      "iqr_ratio": 0.5971351459422599,
+      "median_difference": -1.1527161347800414,
+      "painter_id": "claude_monet",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "wavelet_energy_3",
+      "family": "texture",
+      "iqr_ratio": 0.6488141258765233,
+      "median_difference": -0.9684318246263981,
+      "painter_id": "claude_monet",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "wavelet_energy_4",
+      "family": "texture",
+      "iqr_ratio": 0.6945007401625668,
+      "median_difference": -0.7755169004331072,
+      "painter_id": "claude_monet",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "wavelet_slope",
+      "family": "texture",
+      "iqr_ratio": 0.6450593224375517,
+      "median_difference": 0.5569239815393356,
+      "painter_id": "claude_monet",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "wavelet_curvature",
+      "family": "texture",
+      "iqr_ratio": 0.7147892420816111,
+      "median_difference": 0.7956822246068431,
+      "painter_id": "claude_monet",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "lbp_entropy_8",
+      "family": "texture",
+      "iqr_ratio": 0.5667120226826029,
+      "median_difference": 0.06066333310174084,
+      "painter_id": "claude_monet",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "lbp_entropy_16",
+      "family": "texture",
+      "iqr_ratio": 0.688880367688523,
+      "median_difference": -0.08393070670015457,
+      "painter_id": "claude_monet",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "lbp_entropy_32",
+      "family": "texture",
+      "iqr_ratio": 0.8179823201826144,
+      "median_difference": 0.05432435545036496,
+      "painter_id": "claude_monet",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "local_cv_01",
+      "family": "texture",
+      "iqr_ratio": 0.4161646643211983,
+      "median_difference": -0.13903377996275484,
+      "painter_id": "claude_monet",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "local_cv_04",
+      "family": "texture",
+      "iqr_ratio": 0.4281079978614227,
+      "median_difference": -0.061954320477752844,
+      "painter_id": "claude_monet",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "local_cv_16",
+      "family": "texture",
+      "iqr_ratio": 0.5168463851370413,
+      "median_difference": 0.08254064773098668,
+      "painter_id": "claude_monet",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "wavelet_energy_1",
+      "family": "texture",
+      "iqr_ratio": 0.5424004250625634,
+      "median_difference": -1.0246698054371797,
+      "painter_id": "alfred_sisley",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "wavelet_energy_2",
+      "family": "texture",
+      "iqr_ratio": 0.5084633400972965,
+      "median_difference": -1.0525524693078085,
+      "painter_id": "alfred_sisley",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "wavelet_energy_3",
+      "family": "texture",
+      "iqr_ratio": 0.4853195384169034,
+      "median_difference": -0.9131321363277825,
+      "painter_id": "alfred_sisley",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "wavelet_energy_4",
+      "family": "texture",
+      "iqr_ratio": 0.45866333501547335,
+      "median_difference": -0.7471057003698602,
+      "painter_id": "alfred_sisley",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "wavelet_slope",
+      "family": "texture",
+      "iqr_ratio": 0.7373383656734253,
+      "median_difference": 0.33919537299031377,
+      "painter_id": "alfred_sisley",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "wavelet_curvature",
+      "family": "texture",
+      "iqr_ratio": 0.6333781769776515,
+      "median_difference": 0.8003304653167695,
+      "painter_id": "alfred_sisley",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "lbp_entropy_8",
+      "family": "texture",
+      "iqr_ratio": 0.6207547213282425,
+      "median_difference": -0.08094257244839431,
+      "painter_id": "alfred_sisley",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "lbp_entropy_16",
+      "family": "texture",
+      "iqr_ratio": 0.6962834511041661,
+      "median_difference": -0.30470493148476263,
+      "painter_id": "alfred_sisley",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "lbp_entropy_32",
+      "family": "texture",
+      "iqr_ratio": 0.8407707022971789,
+      "median_difference": -0.08684872697361197,
+      "painter_id": "alfred_sisley",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "local_cv_01",
+      "family": "texture",
+      "iqr_ratio": 0.4573941017412922,
+      "median_difference": -0.05911908257689591,
+      "painter_id": "alfred_sisley",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "local_cv_04",
+      "family": "texture",
+      "iqr_ratio": 0.48474388525354284,
+      "median_difference": -0.038290800397854374,
+      "painter_id": "alfred_sisley",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "local_cv_16",
+      "family": "texture",
+      "iqr_ratio": 0.41542692686095967,
+      "median_difference": 0.04312054096286916,
+      "painter_id": "alfred_sisley",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "wavelet_energy_1",
+      "family": "texture",
+      "iqr_ratio": 0.5290840024996231,
+      "median_difference": -1.2325543396918806,
+      "painter_id": "camille_pissarro",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "wavelet_energy_2",
+      "family": "texture",
+      "iqr_ratio": 0.5503772465459686,
+      "median_difference": -1.1602836184229153,
+      "painter_id": "camille_pissarro",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "wavelet_energy_3",
+      "family": "texture",
+      "iqr_ratio": 0.6374032517114254,
+      "median_difference": -0.9040318735442727,
+      "painter_id": "camille_pissarro",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "wavelet_energy_4",
+      "family": "texture",
+      "iqr_ratio": 0.6941638989102814,
+      "median_difference": -0.6688912834461276,
+      "painter_id": "camille_pissarro",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "wavelet_slope",
+      "family": "texture",
+      "iqr_ratio": 0.5267310402654235,
+      "median_difference": 0.7234092402515607,
+      "painter_id": "camille_pissarro",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "wavelet_curvature",
+      "family": "texture",
+      "iqr_ratio": 0.761559806009728,
+      "median_difference": 0.473476812759374,
+      "painter_id": "camille_pissarro",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "lbp_entropy_8",
+      "family": "texture",
+      "iqr_ratio": 0.4704367684256806,
+      "median_difference": 0.12995905715523742,
+      "painter_id": "camille_pissarro",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "lbp_entropy_16",
+      "family": "texture",
+      "iqr_ratio": 0.7542772265255039,
+      "median_difference": 0.3182009386583333,
+      "painter_id": "camille_pissarro",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "lbp_entropy_32",
+      "family": "texture",
+      "iqr_ratio": 0.8043508524647361,
+      "median_difference": 0.42747026444728004,
+      "painter_id": "camille_pissarro",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "local_cv_01",
+      "family": "texture",
+      "iqr_ratio": 0.3318990346062995,
+      "median_difference": -0.30174928363411524,
+      "painter_id": "camille_pissarro",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "local_cv_04",
+      "family": "texture",
+      "iqr_ratio": 0.3401818274456252,
+      "median_difference": -0.20200472331374833,
+      "painter_id": "camille_pissarro",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "local_cv_16",
+      "family": "texture",
+      "iqr_ratio": 0.45450465583919386,
+      "median_difference": 0.07693822715120796,
+      "painter_id": "camille_pissarro",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "wavelet_energy_1",
+      "family": "texture",
+      "iqr_ratio": 0.5041617398877515,
+      "median_difference": -0.4831212106047936,
+      "painter_id": "paul_cezanne",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "wavelet_energy_2",
+      "family": "texture",
+      "iqr_ratio": 0.5026257057062705,
+      "median_difference": -0.42201336487945074,
+      "painter_id": "paul_cezanne",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "wavelet_energy_3",
+      "family": "texture",
+      "iqr_ratio": 0.5345262099938677,
+      "median_difference": -0.22425506340163398,
+      "painter_id": "paul_cezanne",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "wavelet_energy_4",
+      "family": "texture",
+      "iqr_ratio": 0.5411686472689209,
+      "median_difference": -0.04726409132236756,
+      "painter_id": "paul_cezanne",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "wavelet_slope",
+      "family": "texture",
+      "iqr_ratio": 0.6947353652396505,
+      "median_difference": 0.5849085122070915,
+      "painter_id": "paul_cezanne",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "wavelet_curvature",
+      "family": "texture",
+      "iqr_ratio": 0.8537468000420506,
+      "median_difference": 0.45244802522851424,
+      "painter_id": "paul_cezanne",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "lbp_entropy_8",
+      "family": "texture",
+      "iqr_ratio": 0.5812618639354324,
+      "median_difference": -0.39858751104785195,
+      "painter_id": "paul_cezanne",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "lbp_entropy_16",
+      "family": "texture",
+      "iqr_ratio": 0.8336152125030731,
+      "median_difference": -0.07701208271458215,
+      "painter_id": "paul_cezanne",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "lbp_entropy_32",
+      "family": "texture",
+      "iqr_ratio": 1.0664840012523027,
+      "median_difference": 0.34976610997326574,
+      "painter_id": "paul_cezanne",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "local_cv_01",
+      "family": "texture",
+      "iqr_ratio": 0.4492925517309446,
+      "median_difference": -0.40308620658442995,
+      "painter_id": "paul_cezanne",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "local_cv_04",
+      "family": "texture",
+      "iqr_ratio": 0.5081942463308686,
+      "median_difference": -0.12667439649616494,
+      "painter_id": "paul_cezanne",
+      "status": "descriptive"
+    },
+    {
+      "coordinate": "local_cv_16",
+      "family": "texture",
+      "iqr_ratio": 0.43446562044835374,
+      "median_difference": 0.11665176311900899,
+      "painter_id": "paul_cezanne",
+      "status": "descriptive"
+    }
+  ],
+  "copy_diagnostic": {
+    "candidates": [],
+    "generated_exact_duplicate_excess": 0,
+    "limitation": "Uncalibrated 63-bit perceptual hash; not copying adjudication or evidence of training-data nonoverlap.",
+    "searched_real_records": 1180
+  },
+  "endpoints": [
+    {
+      "bootstrap_sd": 0.020080480978815575,
+      "comparison": null,
+      "endpoint": "target_fit",
+      "estimate": 0.8986242783971028,
+      "family": "color",
+      "lower": 0.8341304663704574,
+      "painter_id": "claude_monet",
+      "status": "estimated",
+      "upper": 0.9631180904237482
+    },
+    {
+      "bootstrap_sd": 0.005000401857076809,
+      "comparison": "alfred_sisley",
+      "endpoint": "specificity",
+      "estimate": 0.01642609250763316,
+      "family": "color",
+      "lower": 0.0003659703537751552,
+      "painter_id": "claude_monet",
+      "status": "estimated",
+      "upper": 0.03248621466149117
+    },
+    {
+      "bootstrap_sd": 0.007973627071922774,
+      "comparison": "camille_pissarro",
+      "endpoint": "specificity",
+      "estimate": 0.25696537670236985,
+      "family": "color",
+      "lower": 0.23135595001136183,
+      "painter_id": "claude_monet",
+      "status": "estimated",
+      "upper": 0.28257480339337787
+    },
+    {
+      "bootstrap_sd": 0.01730169198144475,
+      "comparison": "paul_cezanne",
+      "endpoint": "specificity",
+      "estimate": 0.02422459566694446,
+      "family": "color",
+      "lower": -0.031344395512669855,
+      "painter_id": "claude_monet",
+      "status": "estimated",
+      "upper": 0.07979358684655877
+    },
+    {
+      "bootstrap_sd": 0.01949025727995683,
+      "comparison": "artist_free",
+      "endpoint": "control_improvement",
+      "estimate": -0.3268197925908918,
+      "family": "color",
+      "lower": -0.3894179440341066,
+      "painter_id": "claude_monet",
+      "status": "estimated",
+      "upper": -0.26422164114767693
+    },
+    {
+      "bootstrap_sd": 0.01995971536765804,
+      "comparison": null,
+      "endpoint": "target_fit",
+      "estimate": 0.8294711546818208,
+      "family": "color",
+      "lower": 0.7653652135748756,
+      "painter_id": "alfred_sisley",
+      "status": "estimated",
+      "upper": 0.8935770957887659
+    },
+    {
+      "bootstrap_sd": 0.004269884049520435,
+      "comparison": "claude_monet",
+      "endpoint": "specificity",
+      "estimate": -0.05872407841537397,
+      "family": "color",
+      "lower": -0.07243794809587928,
+      "painter_id": "alfred_sisley",
+      "status": "estimated",
+      "upper": -0.04501020873486866
+    },
+    {
+      "bootstrap_sd": 0.0060860604698355905,
+      "comparison": "camille_pissarro",
+      "endpoint": "specificity",
+      "estimate": 0.2173388739603861,
+      "family": "color",
+      "lower": 0.1977918700644901,
+      "painter_id": "alfred_sisley",
+      "status": "estimated",
+      "upper": 0.2368858778562821
+    },
+    {
+      "bootstrap_sd": 0.021456572610069335,
+      "comparison": "paul_cezanne",
+      "endpoint": "specificity",
+      "estimate": -0.04807857851792674,
+      "family": "color",
+      "lower": -0.11699207526682298,
+      "painter_id": "alfred_sisley",
+      "status": "estimated",
+      "upper": 0.0208349182309695
+    },
+    {
+      "bootstrap_sd": 0.015128301406667566,
+      "comparison": "artist_free",
+      "endpoint": "control_improvement",
+      "estimate": -0.27496084090897344,
+      "family": "color",
+      "lower": -0.32354940949123867,
+      "painter_id": "alfred_sisley",
+      "status": "estimated",
+      "upper": -0.2263722723267082
+    },
+    {
+      "bootstrap_sd": 0.021156994383845783,
+      "comparison": null,
+      "endpoint": "target_fit",
+      "estimate": 1.1447749178638278,
+      "family": "color",
+      "lower": 1.076823596365102,
+      "painter_id": "camille_pissarro",
+      "status": "estimated",
+      "upper": 1.2127262393625535
+    },
+    {
+      "bootstrap_sd": 0.005565421431346385,
+      "comparison": "claude_monet",
+      "endpoint": "specificity",
+      "estimate": -0.3503917345129022,
+      "family": "color",
+      "lower": -0.3682665674923007,
+      "painter_id": "camille_pissarro",
+      "status": "estimated",
+      "upper": -0.33251690153350366
+    },
+    {
+      "bootstrap_sd": 0.003227566875539465,
+      "comparison": "alfred_sisley",
+      "endpoint": "specificity",
+      "estimate": -0.22017276425481258,
+      "family": "color",
+      "lower": -0.23053895476559125,
+      "painter_id": "camille_pissarro",
+      "status": "estimated",
+      "upper": -0.20980657374403391
+    },
+    {
+      "bootstrap_sd": 0.014102016645779402,
+      "comparison": "paul_cezanne",
+      "endpoint": "specificity",
+      "estimate": 0.31055419520172656,
+      "family": "color",
+      "lower": 0.2652618134251638,
+      "painter_id": "camille_pissarro",
+      "status": "estimated",
+      "upper": 0.3558465769782893
+    },
+    {
+      "bootstrap_sd": 0.02015590028759651,
+      "comparison": "artist_free",
+      "endpoint": "control_improvement",
+      "estimate": 0.05704821165376317,
+      "family": "color",
+      "lower": -0.007687829566935339,
+      "painter_id": "camille_pissarro",
+      "status": "estimated",
+      "upper": 0.12178425287446168
+    },
+    {
+      "bootstrap_sd": 0.013610751261504324,
+      "comparison": null,
+      "endpoint": "target_fit",
+      "estimate": 0.5785266039759842,
+      "family": "color",
+      "lower": 0.5348120518033069,
+      "painter_id": "paul_cezanne",
+      "status": "estimated",
+      "upper": 0.6222411561486615
+    },
+    {
+      "bootstrap_sd": 0.01209932070993628,
+      "comparison": "claude_monet",
+      "endpoint": "specificity",
+      "estimate": -1.17533653016583,
+      "family": "color",
+      "lower": -1.214196720633377,
+      "painter_id": "paul_cezanne",
+      "status": "estimated",
+      "upper": -1.136476339698283
+    },
+    {
+      "bootstrap_sd": 0.012324680269559827,
+      "comparison": "alfred_sisley",
+      "endpoint": "specificity",
+      "estimate": -1.145938752705392,
+      "family": "color",
+      "lower": -1.1855227454111474,
+      "painter_id": "paul_cezanne",
+      "status": "estimated",
+      "upper": -1.1063547599996364
+    },
+    {
+      "bootstrap_sd": 0.013675699512447419,
+      "comparison": "camille_pissarro",
+      "endpoint": "specificity",
+      "estimate": -1.174067186124291,
+      "family": "color",
+      "lower": -1.2179903369003684,
+      "painter_id": "paul_cezanne",
+      "status": "estimated",
+      "upper": -1.1301440353482137
+    },
+    {
+      "bootstrap_sd": 0.012292505242365165,
+      "comparison": "artist_free",
+      "endpoint": "control_improvement",
+      "estimate": -0.05487536909332014,
+      "family": "color",
+      "lower": -0.0943560231311406,
+      "painter_id": "paul_cezanne",
+      "status": "estimated",
+      "upper": -0.015394715055499678
+    },
+    {
+      "bootstrap_sd": 0.02364471563444346,
+      "comparison": null,
+      "endpoint": "target_fit",
+      "estimate": 0.9691556054211303,
+      "family": "spatial",
+      "lower": 0.8932143046544777,
+      "painter_id": "claude_monet",
+      "status": "estimated",
+      "upper": 1.0450969061877828
+    },
+    {
+      "bootstrap_sd": 0.008247639107745902,
+      "comparison": "alfred_sisley",
+      "endpoint": "specificity",
+      "estimate": -0.42945606271825376,
+      "family": "spatial",
+      "lower": -0.45594555203077264,
+      "painter_id": "claude_monet",
+      "status": "estimated",
+      "upper": -0.4029665734057349
+    },
+    {
+      "bootstrap_sd": 0.02131740647202399,
+      "comparison": "camille_pissarro",
+      "endpoint": "specificity",
+      "estimate": -0.8461989814045312,
+      "family": "spatial",
+      "lower": -0.9146655090416298,
+      "painter_id": "claude_monet",
+      "status": "estimated",
+      "upper": -0.7777324537674326
+    },
+    {
+      "bootstrap_sd": 0.018604579231246955,
+      "comparison": "paul_cezanne",
+      "endpoint": "specificity",
+      "estimate": 0.00534907631949455,
+      "family": "spatial",
+      "lower": -0.054404484217263356,
+      "painter_id": "claude_monet",
+      "status": "estimated",
+      "upper": 0.06510263685625245
+    },
+    {
+      "bootstrap_sd": 0.04089057582967859,
+      "comparison": "artist_free",
+      "endpoint": "control_improvement",
+      "estimate": -0.7725862968974515,
+      "family": "spatial",
+      "lower": -0.9039172701944931,
+      "painter_id": "claude_monet",
+      "status": "estimated",
+      "upper": -0.6412553236004099
+    },
+    {
+      "bootstrap_sd": 0.03117284774589447,
+      "comparison": null,
+      "endpoint": "target_fit",
+      "estimate": 1.4512301500617548,
+      "family": "spatial",
+      "lower": 1.3511102483034285,
+      "painter_id": "alfred_sisley",
+      "status": "estimated",
+      "upper": 1.5513500518200811
+    },
+    {
+      "bootstrap_sd": 0.005264151020747623,
+      "comparison": "claude_monet",
+      "endpoint": "specificity",
+      "estimate": 0.43842433001021597,
+      "family": "spatial",
+      "lower": 0.4215171071817319,
+      "painter_id": "alfred_sisley",
+      "status": "estimated",
+      "upper": 0.4553315528387
+    },
+    {
+      "bootstrap_sd": 0.010040291348200302,
+      "comparison": "camille_pissarro",
+      "endpoint": "specificity",
+      "estimate": -0.4100096205208379,
+      "family": "spatial",
+      "lower": -0.44225668988071626,
+      "painter_id": "alfred_sisley",
+      "status": "estimated",
+      "upper": -0.3777625511609595
+    },
+    {
+      "bootstrap_sd": 0.014279401474392996,
+      "comparison": "paul_cezanne",
+      "endpoint": "specificity",
+      "estimate": 0.4344865156345561,
+      "family": "spatial",
+      "lower": 0.38862441524392966,
+      "painter_id": "alfred_sisley",
+      "status": "estimated",
+      "upper": 0.48034861602518253
+    },
+    {
+      "bootstrap_sd": 0.049263605350024116,
+      "comparison": "artist_free",
+      "endpoint": "control_improvement",
+      "estimate": -0.865372625578515,
+      "family": "spatial",
+      "lower": -1.0235958128891758,
+      "painter_id": "alfred_sisley",
+      "status": "estimated",
+      "upper": -0.7071494382678543
+    },
+    {
+      "bootstrap_sd": 0.03332778768132713,
+      "comparison": null,
+      "endpoint": "target_fit",
+      "estimate": 1.438990086685851,
+      "family": "spatial",
+      "lower": 1.3319490214717724,
+      "painter_id": "camille_pissarro",
+      "status": "estimated",
+      "upper": 1.5460311518999295
+    },
+    {
+      "bootstrap_sd": 0.017415870539324866,
+      "comparison": "claude_monet",
+      "endpoint": "specificity",
+      "estimate": 0.6135492028939877,
+      "family": "spatial",
+      "lower": 0.5576134968703833,
+      "painter_id": "camille_pissarro",
+      "status": "estimated",
+      "upper": 0.6694849089175922
+    },
+    {
+      "bootstrap_sd": 0.012496826442745095,
+      "comparison": "alfred_sisley",
+      "endpoint": "specificity",
+      "estimate": 0.2493206808974957,
+      "family": "spatial",
+      "lower": 0.20918379491462055,
+      "painter_id": "camille_pissarro",
+      "status": "estimated",
+      "upper": 0.28945756688037083
+    },
+    {
+      "bootstrap_sd": 0.013154351297663987,
+      "comparison": "paul_cezanne",
+      "endpoint": "specificity",
+      "estimate": 0.827488193918732,
+      "family": "spatial",
+      "lower": 0.7852394917676722,
+      "painter_id": "camille_pissarro",
+      "status": "estimated",
+      "upper": 0.8697368960697918
+    },
+    {
+      "bootstrap_sd": 0.04502054852504863,
+      "comparison": "artist_free",
+      "endpoint": "control_improvement",
+      "estimate": -1.5191744255008057,
+      "family": "spatial",
+      "lower": -1.6637699059065851,
+      "painter_id": "camille_pissarro",
+      "status": "estimated",
+      "upper": -1.3745789450950263
+    },
+    {
+      "bootstrap_sd": 0.04872878035321342,
+      "comparison": null,
+      "endpoint": "target_fit",
+      "estimate": 1.1369434034206534,
+      "family": "spatial",
+      "lower": 0.9804379490093116,
+      "painter_id": "paul_cezanne",
+      "status": "estimated",
+      "upper": 1.2934488578319951
+    },
+    {
+      "bootstrap_sd": 0.016256040756095214,
+      "comparison": "claude_monet",
+      "endpoint": "specificity",
+      "estimate": -0.09050987937786115,
+      "family": "spatial",
+      "lower": -0.14272048319393224,
+      "painter_id": "paul_cezanne",
+      "status": "estimated",
+      "upper": -0.03829927556179006
+    },
+    {
+      "bootstrap_sd": 0.012988042278323434,
+      "comparison": "alfred_sisley",
+      "endpoint": "specificity",
+      "estimate": -0.5652903781637457,
+      "family": "spatial",
+      "lower": -0.6070049346116722,
+      "painter_id": "paul_cezanne",
+      "status": "estimated",
+      "upper": -0.5235758217158193
+    },
+    {
+      "bootstrap_sd": 0.013032617682952241,
+      "comparison": "camille_pissarro",
+      "endpoint": "specificity",
+      "estimate": -1.0004097593476686,
+      "family": "spatial",
+      "lower": -1.0422674815778377,
+      "painter_id": "paul_cezanne",
+      "status": "estimated",
+      "upper": -0.9585520371174995
+    },
+    {
+      "bootstrap_sd": 0.04530297788077815,
+      "comparison": "artist_free",
+      "endpoint": "control_improvement",
+      "estimate": -0.766991456680731,
+      "family": "spatial",
+      "lower": -0.912494034172404,
+      "painter_id": "paul_cezanne",
+      "status": "estimated",
+      "upper": -0.6214888791890579
+    },
+    {
+      "bootstrap_sd": 0.04465394906035207,
+      "comparison": null,
+      "endpoint": "target_fit",
+      "estimate": 1.492431063096174,
+      "family": "texture",
+      "lower": 1.3490130144954469,
+      "painter_id": "claude_monet",
+      "status": "estimated",
+      "upper": 1.635849111696901
+    },
+    {
+      "bootstrap_sd": 0.01678331272130509,
+      "comparison": "alfred_sisley",
+      "endpoint": "specificity",
+      "estimate": -1.0015046380418546,
+      "family": "texture",
+      "lower": -1.0554087161849122,
+      "painter_id": "claude_monet",
+      "status": "estimated",
+      "upper": -0.947600559898797
+    },
+    {
+      "bootstrap_sd": 0.014486840739470765,
+      "comparison": "camille_pissarro",
+      "endpoint": "specificity",
+      "estimate": -0.6890396589136589,
+      "family": "texture",
+      "lower": -0.7355680057444471,
+      "painter_id": "claude_monet",
+      "status": "estimated",
+      "upper": -0.6425113120828707
+    },
+    {
+      "bootstrap_sd": 0.02387456008389597,
+      "comparison": "paul_cezanne",
+      "endpoint": "specificity",
+      "estimate": -0.7048590531724361,
+      "family": "texture",
+      "lower": -0.7815385605952937,
+      "painter_id": "claude_monet",
+      "status": "estimated",
+      "upper": -0.6281795457495786
+    },
+    {
+      "bootstrap_sd": 0.024801255217522106,
+      "comparison": "artist_free",
+      "endpoint": "control_improvement",
+      "estimate": 0.1758483846200556,
+      "family": "texture",
+      "lower": 0.09619254899982357,
+      "painter_id": "claude_monet",
+      "status": "estimated",
+      "upper": 0.2555042202402876
+    },
+    {
+      "bootstrap_sd": 0.03753850682242929,
+      "comparison": null,
+      "endpoint": "target_fit",
+      "estimate": 1.6033620534511777,
+      "family": "texture",
+      "lower": 1.4827971424153912,
+      "painter_id": "alfred_sisley",
+      "status": "estimated",
+      "upper": 1.7239269644869641
+    },
+    {
+      "bootstrap_sd": 0.01776768046643983,
+      "comparison": "claude_monet",
+      "endpoint": "specificity",
+      "estimate": 0.595231935659752,
+      "family": "texture",
+      "lower": 0.5381662983694414,
+      "painter_id": "alfred_sisley",
+      "status": "estimated",
+      "upper": 0.6522975729500625
+    },
+    {
+      "bootstrap_sd": 0.017573245975597312,
+      "comparison": "camille_pissarro",
+      "endpoint": "specificity",
+      "estimate": 0.15880023282440625,
+      "family": "texture",
+      "lower": 0.10235907367867417,
+      "painter_id": "alfred_sisley",
+      "status": "estimated",
+      "upper": 0.21524139197013833
+    },
+    {
+      "bootstrap_sd": 0.013666913154145541,
+      "comparison": "paul_cezanne",
+      "endpoint": "specificity",
+      "estimate": 0.2707281009270148,
+      "family": "texture",
+      "lower": 0.226833169880401,
+      "painter_id": "alfred_sisley",
+      "status": "estimated",
+      "upper": 0.3146230319736286
+    },
+    {
+      "bootstrap_sd": 0.032355946365973234,
+      "comparison": "artist_free",
+      "endpoint": "control_improvement",
+      "estimate": -0.4100768588545749,
+      "family": "texture",
+      "lower": -0.5139965968863869,
+      "painter_id": "alfred_sisley",
+      "status": "estimated",
+      "upper": -0.3061571208227629
+    },
+    {
+      "bootstrap_sd": 0.044923541696951876,
+      "comparison": null,
+      "endpoint": "target_fit",
+      "estimate": 1.6907904468193182,
+      "family": "texture",
+      "lower": 1.546506529674557,
+      "painter_id": "camille_pissarro",
+      "status": "estimated",
+      "upper": 1.8350743639640794
+    },
+    {
+      "bootstrap_sd": 0.012074235200488892,
+      "comparison": "claude_monet",
+      "endpoint": "specificity",
+      "estimate": 0.47075400985815685,
+      "family": "texture",
+      "lower": 0.4319743881843852,
+      "painter_id": "camille_pissarro",
+      "status": "estimated",
+      "upper": 0.5095336315319285
+    },
+    {
+      "bootstrap_sd": 0.017393590087612147,
+      "comparison": "alfred_sisley",
+      "endpoint": "specificity",
+      "estimate": -0.11503408301517748,
+      "family": "texture",
+      "lower": -0.1708982294348987,
+      "painter_id": "camille_pissarro",
+      "status": "estimated",
+      "upper": -0.05916993659545624
+    },
+    {
+      "bootstrap_sd": 0.024576498090342465,
+      "comparison": "paul_cezanne",
+      "endpoint": "specificity",
+      "estimate": 0.27002606561466136,
+      "family": "texture",
+      "lower": 0.1910920973604185,
+      "painter_id": "camille_pissarro",
+      "status": "estimated",
+      "upper": 0.34896003386890423
+    },
+    {
+      "bootstrap_sd": 0.02404764346063147,
+      "comparison": "artist_free",
+      "endpoint": "control_improvement",
+      "estimate": -0.2409923036805406,
+      "family": "texture",
+      "lower": -0.31822771445929343,
+      "painter_id": "camille_pissarro",
+      "status": "estimated",
+      "upper": -0.16375689290178772
+    },
+    {
+      "bootstrap_sd": 0.023241675013555847,
+      "comparison": null,
+      "endpoint": "target_fit",
+      "estimate": 0.7018314556002396,
+      "family": "texture",
+      "lower": 0.627184627115902,
+      "painter_id": "paul_cezanne",
+      "status": "estimated",
+      "upper": 0.7764782840845773
+    },
+    {
+      "bootstrap_sd": 0.018138369767032866,
+      "comparison": "claude_monet",
+      "endpoint": "specificity",
+      "estimate": -1.0110182072416078,
+      "family": "texture",
+      "lower": -1.0692744119340616,
+      "painter_id": "paul_cezanne",
+      "status": "estimated",
+      "upper": -0.952762002549154
+    },
+    {
+      "bootstrap_sd": 0.006980782018724182,
+      "comparison": "alfred_sisley",
+      "endpoint": "specificity",
+      "estimate": -1.032402226556846,
+      "family": "texture",
+      "lower": -1.054822866968276,
+      "painter_id": "paul_cezanne",
+      "status": "estimated",
+      "upper": -1.009981586145416
+    },
+    {
+      "bootstrap_sd": 0.018716645996992055,
+      "comparison": "camille_pissarro",
+      "endpoint": "specificity",
+      "estimate": -1.2161178417118994,
+      "family": "texture",
+      "lower": -1.2762313345098428,
+      "painter_id": "paul_cezanne",
+      "status": "estimated",
+      "upper": -1.156004348913956
+    },
+    {
+      "bootstrap_sd": 0.024717605184460385,
+      "comparison": "artist_free",
+      "endpoint": "control_improvement",
+      "estimate": -0.741470761401632,
+      "family": "texture",
+      "lower": -0.8208579326649695,
+      "painter_id": "paul_cezanne",
+      "status": "estimated",
+      "upper": -0.6620835901382945
+    }
+  ],
+  "inference_scope": "approximate paired-block intervals, conditional on finite real frame",
+  "inputs": [
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/confirmation_features.jsonl",
+      "sha256": "01cc5167c09b88eab6a86885b72040f76fc8a7ca8a62acd56d85a8b16b2f7717"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/confirmation_opening.json",
+      "sha256": "f047b90ba5b4205478c61e0e2c430e3d6120b1fba6b33d0af00b3df9c7309566"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/development_features.jsonl",
+      "sha256": "6001964b6f6d0a4958f4f546d48d81120b43c6587d55e248fd48b99dee3c821b"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/experiments/pfg2-sd-turbo-20260905/generated_features.jsonl",
+      "sha256": "eaed290dbc6a4afe5a330b29a6721f4556914517e74eb4300bb0cb422192b560"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/qualification_features.jsonl",
+      "sha256": "0ce804906cf1afc3bed369ecf6007a7aa291edd885d7521bc0e7d4368d03d8a3"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/scaler.json",
+      "sha256": "71f511235081dfc1e9846976320c69477bcbd04dd43fc9a2e271f7b0375497b9"
+    }
+  ],
+  "qualification_diagnostics": [
+    {
+      "family": "color",
+      "finite_energy": 0.0900925607741776,
+      "painter_id": "claude_monet"
+    },
+    {
+      "family": "spatial",
+      "finite_energy": 0.049492010382010676,
+      "painter_id": "claude_monet"
+    },
+    {
+      "family": "texture",
+      "finite_energy": 0.15880797244115863,
+      "painter_id": "claude_monet"
+    },
+    {
+      "family": "color",
+      "finite_energy": 0.18563737382398893,
+      "painter_id": "alfred_sisley"
+    },
+    {
+      "family": "spatial",
+      "finite_energy": 0.15518158318418473,
+      "painter_id": "alfred_sisley"
+    },
+    {
+      "family": "texture",
+      "finite_energy": 0.15861118747494451,
+      "painter_id": "alfred_sisley"
+    },
+    {
+      "family": "color",
+      "finite_energy": 0.1849451326944913,
+      "painter_id": "camille_pissarro"
+    },
+    {
+      "family": "spatial",
+      "finite_energy": 0.12514955086580137,
+      "painter_id": "camille_pissarro"
+    },
+    {
+      "family": "texture",
+      "finite_energy": 0.09629996867501855,
+      "painter_id": "camille_pissarro"
+    },
+    {
+      "family": "color",
+      "finite_energy": 0.1570996098844133,
+      "painter_id": "paul_cezanne"
+    },
+    {
+      "family": "spatial",
+      "finite_energy": 0.2484252583952271,
+      "painter_id": "paul_cezanne"
+    },
+    {
+      "family": "texture",
+      "finite_energy": 0.11308965851681352,
+      "painter_id": "paul_cezanne"
+    }
+  ],
+  "real_counts": {
+    "alfred_sisley": 106,
+    "camille_pissarro": 141,
+    "claude_monet": 297,
+    "paul_cezanne": 105
+  },
+  "repetitions": 25,
+  "reproduction_status": "not_demonstrated_no_independent_capture_equivalence_calibration",
+  "schema_version": "pfg-v2-analysis/1.0",
+  "simultaneous_critical_value": 3.2117662965685345,
+  "simultaneous_endpoint_count": 60,
+  "templates": 16
+}
