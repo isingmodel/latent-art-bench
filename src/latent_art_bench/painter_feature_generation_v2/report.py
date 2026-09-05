@@ -41,6 +41,23 @@ def indexed(endpoints: list) -> dict:
     return {(r["painter_id"], r["family"], r["endpoint"], r["comparison"]): r for r in endpoints}
 
 
+def geometry_summary(counts: dict) -> str:
+    sizes = []
+    for size, count in counts.items():
+        parts = size.split("x")
+        if len(parts) == 2 and all(p.isdigit() for p in parts):
+            sizes.append((int(parts[0]), int(parts[1]), count))
+    if not sizes:
+        return "unreported"
+    total = sum(n for _, _, n in sizes)
+    width, height, count = sorted(sizes, key=lambda x: (-x[2], x[0], x[1]))[0]
+    landscape = sum(n for w, h, n in sizes if w > h)
+    return (
+        f"{len(sizes)} sizes; mode {width}×{height} ({count}/{total}); "
+        f"landscape {landscape}/{total}"
+    )
+
+
 def render(
     method_id: str, empirical: dict, calibration: dict, robustness: dict, repeated: dict[str, dict]
 ) -> str:
@@ -108,7 +125,7 @@ def render(
                 [
                     alias,
                     diagnostic["statuses"],
-                    diagnostic["decoded_sizes"],
+                    geometry_summary(diagnostic["decoded_sizes"]),
                     diagnostic["reported_settings"]["quality"],
                     diagnostic["reported_settings"]["model"],
                 ]
@@ -128,6 +145,10 @@ def render(
         "controls. `None` means no model identifier was returned, not a verified shared model. "
         "SD-Turbo has a local checkpoint contract rather than response-reported settings. "
         "Latency and every requested/returned mismatch are in the numeric result.\n",
+        "Preserving native aspect ratio means the square SD-Turbo canvases and the OAuth "
+        "service's returned shapes are not geometry-matched. Common short-side normalization "
+        "does not remove this spatial/texture confound. The earlier neutral access probe's "
+        "1254×1254 outputs are separate evidence, not the sizes of this painter grid.\n",
         "## Corpus, attrition and measurement\n",
         "The real frame is Wikidata-declared outdoor-place paintings, not institutionally verified "
         "attribution or a probability sample of a painter's oeuvre. Works retain their fixed "

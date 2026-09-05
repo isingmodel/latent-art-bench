@@ -71,3 +71,10 @@ def test_markdown_table_escapes_cells_and_has_commonmark_separation():
     rendered = report.table(["one"], [["a|b\nc"]])
     assert rendered.startswith("\n|")
     assert "a\\|b c" in rendered
+
+
+def test_native_geometry_summary_preserves_counts_without_a_large_dictionary_cell():
+    summary = report.geometry_summary({"1402x1122": 3, "1169x1346": 1})
+    assert "2 sizes" in summary and "1402×1122 (3/4)" in summary
+    assert "landscape 3/4" in summary
+    assert report.geometry_summary({"unreported": 4}) == "unreported"

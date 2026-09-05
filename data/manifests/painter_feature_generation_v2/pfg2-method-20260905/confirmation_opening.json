@@ -1,0 +1,62 @@
+{
+  "experiment_ids": [
+    "pfg2-sd-turbo-20260905",
+    "pfg2-oauth-pilot-20260905"
+  ],
+  "inputs": [
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-calibration-20260905/calibration.json",
+      "sha256": "1548224921431fb5a292e6fda3f7b43b837338a3d6b7aee97f2879667fc9de33"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/development_features.jsonl",
+      "sha256": "6001964b6f6d0a4958f4f546d48d81120b43c6587d55e248fd48b99dee3c821b"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/development_receipt.json",
+      "sha256": "5a724637bbf4ff1e424be0259e53ceb47c4926dba926defcff2609c7057b1b1c"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/method_freeze.json",
+      "sha256": "0c254c629b37803c7e99f2c61485f6086f593f98cd8bc26b78a5c498f2b29200"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/qualification_features.jsonl",
+      "sha256": "0ce804906cf1afc3bed369ecf6007a7aa291edd885d7521bc0e7d4368d03d8a3"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/qualification_receipt.json",
+      "sha256": "4d1ae1b261d7f5649bf2fcf85c7167b3567bba89c34da137e2f627390157a24d"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/scaler.json",
+      "sha256": "71f511235081dfc1e9846976320c69477bcbd04dd43fc9a2e271f7b0375497b9"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-oauth-pilot-20260905/generation_freeze.json",
+      "sha256": "d3c3541124de496b030d474d80038fe98a55a81f78be54f2434237316c5c4fcd"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-oauth-pilot-20260905/generation_receipt.json",
+      "sha256": "d4ee06e293a6b22d5dd5fa4d3dc04784c409dda4c286e97edebed1540b6af13c"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-oauth-pilot-20260905/outputs.jsonl",
+      "sha256": "900aad8ac411ef239e7d5c8f57963f99aaf2a61acfab6169706a806835492c2d"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-sd-turbo-20260905/generation_freeze.json",
+      "sha256": "5e0abf5117ad3c5fc01a6c6b888bc809138e9a1088b1b926f4c99ef69582c825"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-sd-turbo-20260905/generation_receipt.json",
+      "sha256": "58dc9fdaa0c4c8d49124ee3653cbc4494d358b1d71d4956721b8f2e2aa0ef033"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-sd-turbo-20260905/outputs.jsonl",
+      "sha256": "1b519dff82214574af0273a35b2ea63f3afec88ce74400f803de0233fbedc9c5"
+    }
+  ],
+  "opened_at_utc": "2026-09-05T02:34:44.454060+00:00",
+  "recorded_git_commit": "80b6da871f641c9138832aacf924f032ccb567c4"
+}
