@@ -2,7 +2,7 @@
 
 Protocol ID: `painter-prompt-study-v1/1.0`. Prepared 2026-09-05 in response to the maintainer's
 explicit goal of paper-ready generated-image feature-distance analysis, additional GPT image
-generation, and alternative prompt methods. **Prospective design under implementation; no new
+generation, and alternative prompt methods. **Prospective execution contract; no new
 generation is authorized by this document alone.** The complete request count, storage and runtime
 resources must be selected and explicitly authorized before a clean-input generation freeze.
 
@@ -58,8 +58,8 @@ inferential qualification is not assumed merely because the primary inventory ca
 
 The user subsequently required that the experiment not generate too many images. The active
 small-study choices are 1, 2 or 4 complete repetitions: 480, 960 or 1,920 requests in total,
-respectively 16, 32 or 64 images per alias/method/condition. The proposed default is four
-repetitions, pending the user's cap choice. These are bounded exploratory experiments; no count
+respectively 16, 32 or 64 images per alias/method/condition. Select and authorize one fixed count
+before the first request; do not adapt it to outcomes. These are bounded exploratory experiments; no count
 is claimed to guarantee narrow uncertainty, high power, equivalence or publication.
 
 For each alias × condition × scene × repetition, define three consecutive request positions.

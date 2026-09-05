@@ -60,6 +60,12 @@ has no carryover or that requested aliases identify model snapshots. Earlier pai
 synthetic candidates remain development history, not the inference used for this reduced design.
 Source inspection and review were maintainer-run LLM work, not institutionally independent reviews.
 
+The [superseded interval-development record](../data/manifests/painter_prompt_study_v1/pps1-calibration-20260905/decision.json)
+preserves all four larger-grid candidate jobs, including failed calibration cases. Its four
+published jobs also replay every retained value at tolerance 1e-12 using the
+`reproduce-interval-development pps1-calibration-20260905` command. It is not an active generation
+option. Both calibration records bind source commit `5ba1339`; no empirical run is registered.
+
 ## Commands
 
 Run from the repository root with the locked environment. The separate module CLI avoids

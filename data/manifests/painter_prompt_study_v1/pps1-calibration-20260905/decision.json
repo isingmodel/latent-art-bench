@@ -1,0 +1,209 @@
+{
+  "calibration_id": "pps1-calibration-20260905",
+  "criterion": "For each repetition count, all four scenarios in BOTH unseen-seed validation constructions must have a Wilson 95% Monte Carlo lower bound >= 0.95 for joint coverage of all 48 adjacent prompt contrasts, with no missing or zero-variance endpoint. Intervals use prespecified paired_t and alpha=0.025. This is finite synthetic qualification, not a universal confidence guarantee.",
+  "files": [
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-calibration-20260905/development_original.json",
+      "sha256": "6cfbccea3973d84220f714f789445ced39287c0517ed8d3d5c80e8d93b038ef5"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-calibration-20260905/development_conservative.json",
+      "sha256": "50def5252669bc510071243ac005c169a793ddc3363e5a0a0ff3e7b6c79155c4"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-calibration-20260905/validation_coupled.json",
+      "sha256": "f261dd623bdb5d822d3477cd5431e7eb42f02b0bc0ed481d68b74ce760d8cc43"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-calibration-20260905/validation_independent.json",
+      "sha256": "78652d032c5bce510c69d1a9e676b3a9ffa881d39e24dfe3c18f47b7d53187fa"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "pyproject.toml",
+      "sha256": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8"
+    },
+    {
+      "path": "src/latent_art_bench/io.py",
+      "sha256": "13e6372aa9814495a45700eb9e65d099c56bb1bb3032d72f7f9e00e6ba91a9b8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/artifacts.py",
+      "sha256": "8b48f0cfb433ac1769786aba366501b69ba1bec540a1a2f9e35e93ce45e9b0d7"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/calibration.py",
+      "sha256": "7624c44d3de1eda939e761e055e04b5066013758c379e758cb42dcfec0076567"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/calibration_record.py",
+      "sha256": "e83406887a6e9657953a4f99055acd051e94d504f98db20d3b553453cf585167"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/common.py",
+      "sha256": "8f399eb26069a283209437de51885ce38ca28a21759b359afc506d263107ec4f"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/statistics.py",
+      "sha256": "ea1f00990bfb647dea61b69418ac0f88c18a06814a9801c0f5a1d41020344654"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_calibration_record.py",
+      "sha256": "44ce207126d059abf380620f2ef1aa7c07ff6323ef4cf3ea3fda0504a5ba72a0"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_statistics.py",
+      "sha256": "6ce1e429197c8b67a8009d51c224973bb246136a59c6c305576499a4f0fab4af"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+    }
+  ],
+  "original_source_inputs": [
+    {
+      "path": "tmp/painter_prompt_calibration_development_seed20260906.json",
+      "sha256": "6cfbccea3973d84220f714f789445ced39287c0517ed8d3d5c80e8d93b038ef5"
+    },
+    {
+      "path": "tmp/painter_prompt_calibration_development_alpha0025_seed20260906.json",
+      "sha256": "50def5252669bc510071243ac005c169a793ddc3363e5a0a0ff3e7b6c79155c4"
+    },
+    {
+      "path": "tmp/painter_prompt_calibration_validation_alpha0025_seed20260907_shared_state.json",
+      "sha256": "f261dd623bdb5d822d3477cd5431e7eb42f02b0bc0ed481d68b74ce760d8cc43"
+    },
+    {
+      "path": "tmp/painter_prompt_calibration_validation_alpha0025_seed20260907_independent_conditions.json",
+      "sha256": "78652d032c5bce510c69d1a9e676b3a9ffa881d39e24dfe3c18f47b7d53187fa"
+    }
+  ],
+  "original_source_note": "Original temporary byte hashes are provenance only; parsed JSON values are retained in the four bound published files.",
+  "power_and_precision": [
+    {
+      "family_size": 48,
+      "full_repetitions": 20,
+      "half_width_over_observed_pair_sd": 1.6633125831856947,
+      "normal_theory_marginal_power": 0.009903025046848774,
+      "pairs": 10,
+      "requests": 9600,
+      "standardized_effect": 0.5
+    },
+    {
+      "family_size": 48,
+      "full_repetitions": 20,
+      "half_width_over_observed_pair_sd": 1.6633125831856947,
+      "normal_theory_marginal_power": 0.047028237171279484,
+      "pairs": 10,
+      "requests": 9600,
+      "standardized_effect": 0.8
+    },
+    {
+      "family_size": 48,
+      "full_repetitions": 20,
+      "half_width_over_observed_pair_sd": 1.6633125831856947,
+      "normal_theory_marginal_power": 0.10598389139428091,
+      "pairs": 10,
+      "requests": 9600,
+      "standardized_effect": 1.0
+    },
+    {
+      "family_size": 48,
+      "full_repetitions": 50,
+      "half_width_over_observed_pair_sd": 0.8009177798732517,
+      "normal_theory_marginal_power": 0.10199247390725759,
+      "pairs": 25,
+      "requests": 24000,
+      "standardized_effect": 0.5
+    },
+    {
+      "family_size": 48,
+      "full_repetitions": 50,
+      "half_width_over_observed_pair_sd": 0.8009177798732517,
+      "normal_theory_marginal_power": 0.5139782935128948,
+      "pairs": 25,
+      "requests": 24000,
+      "standardized_effect": 0.8
+    },
+    {
+      "family_size": 48,
+      "full_repetitions": 50,
+      "half_width_over_observed_pair_sd": 0.8009177798732517,
+      "normal_theory_marginal_power": 0.8158009330011433,
+      "pairs": 25,
+      "requests": 24000,
+      "standardized_effect": 1.0
+    },
+    {
+      "family_size": 48,
+      "full_repetitions": 100,
+      "half_width_over_observed_pair_sd": 0.525401823294384,
+      "normal_theory_marginal_power": 0.44046321550331957,
+      "pairs": 50,
+      "requests": 48000,
+      "standardized_effect": 0.5
+    },
+    {
+      "family_size": 48,
+      "full_repetitions": 100,
+      "half_width_over_observed_pair_sd": 0.525401823294384,
+      "normal_theory_marginal_power": 0.9667062670316022,
+      "pairs": 50,
+      "requests": 48000,
+      "standardized_effect": 0.8
+    },
+    {
+      "family_size": 48,
+      "full_repetitions": 100,
+      "half_width_over_observed_pair_sd": 0.525401823294384,
+      "normal_theory_marginal_power": 0.9991950420816303,
+      "pairs": 50,
+      "requests": 48000,
+      "standardized_effect": 1.0
+    }
+  ],
+  "power_scope": "normal IID pair contributions; marginal endpoint power, not joint power",
+  "prepared_at_utc": "2026-09-05T09:16:24.174585+00:00",
+  "primary_endpoints": 48,
+  "primary_estimator": "paired_t",
+  "primary_inventory": "adjacent_prompt_transitions_1_minus_0_and_2_minus_1",
+  "qualification": [
+    {
+      "minimum_validation_joint_coverage": 0.9725,
+      "minimum_validation_wilson_lower": 0.964376888484893,
+      "pairs": 10,
+      "qualified": true,
+      "repetitions": 20
+    },
+    {
+      "minimum_validation_joint_coverage": 0.971,
+      "minimum_validation_wilson_lower": 0.9626945430771895,
+      "pairs": 25,
+      "qualified": true,
+      "repetitions": 50
+    },
+    {
+      "minimum_validation_joint_coverage": 0.9705,
+      "minimum_validation_wilson_lower": 0.9621349108960856,
+      "pairs": 50,
+      "qualified": true,
+      "repetitions": 100
+    }
+  ],
+  "qualified_repetitions": [
+    20,
+    50,
+    100
+  ],
+  "recorded_git_commit": "5ba13398b59efaec9e43e8f7166a9cebe608531b",
+  "reviewer_kind": "maintainer_run_llm_subagent_not_institutionally_independent",
+  "schema_version": "painter-prompt-calibration-decision/1.0",
+  "simultaneous_alpha": 0.025,
+  "unqualified_scopes": [
+    "absolute_distance_intervals",
+    "jackknife_t_intervals",
+    "matched_control_difference_in_differences_intervals"
+  ],
+  "uses_empirical_outcomes_for_tuning": false
+}

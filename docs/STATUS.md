@@ -24,6 +24,8 @@ paper-ready generated-versus-original feature-distance analysis. The new
   family-wise false rejection was 0.029/0.0385/0.045; Wilson 95% upper bounds stay below 0.065.
   These are contribution-space null constructions, not proof of service assumptions or image power.
   Prior paired-t/jackknife calibration is retained as superseded development history.
+- Both immutable calibration records are published against source commit `5ba1339`; all six
+  synthetic jobs reproduce, and the new evidence audit passes with no empirical runs registered.
 - Generation, terminal accounting, lossless response retention, resumable measurement, complete-grid
   analysis, report rendering and commit-bound audit are implemented. The complete offline synthetic
   pipeline also replays every numeric result and report byte without image access. Reviews are

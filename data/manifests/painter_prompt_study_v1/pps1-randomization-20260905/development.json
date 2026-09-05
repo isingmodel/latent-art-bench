@@ -1,0 +1,654 @@
+{
+  "adjustment": "Holm",
+  "alpha": 0.05,
+  "criterion": "Every prescribed valid-null cell has Wilson95 upper <= 0.065. Chosen before development/validation; invalid stress is excluded.",
+  "endpoints": 48,
+  "exact_max_pairs": 16,
+  "invalid_persistent_sign_stress": [
+    {
+      "dependence": "independent_endpoints",
+      "endpoints": 48,
+      "exact_enumeration": true,
+      "family_rejection_rate": 1.0,
+      "family_rejection_wilson_95": [
+        0.9980829527187469,
+        0.9999999999999998
+      ],
+      "family_rejections": 2000,
+      "matched_scenes": 16,
+      "mean_rejected_endpoints": 48.0,
+      "monte_carlo_draws": 0,
+      "repetitions": 1,
+      "scenario": "constant_magnitude",
+      "trials": 2000
+    },
+    {
+      "dependence": "independent_endpoints",
+      "endpoints": 48,
+      "exact_enumeration": false,
+      "family_rejection_rate": 1.0,
+      "family_rejection_wilson_95": [
+        0.9980829527187469,
+        0.9999999999999998
+      ],
+      "family_rejections": 2000,
+      "matched_scenes": 32,
+      "mean_rejected_endpoints": 48.0,
+      "monte_carlo_draws": 99999,
+      "repetitions": 2,
+      "scenario": "constant_magnitude",
+      "trials": 2000
+    },
+    {
+      "dependence": "independent_endpoints",
+      "endpoints": 48,
+      "exact_enumeration": false,
+      "family_rejection_rate": 1.0,
+      "family_rejection_wilson_95": [
+        0.9980829527187469,
+        0.9999999999999998
+      ],
+      "family_rejections": 2000,
+      "matched_scenes": 64,
+      "mean_rejected_endpoints": 48.0,
+      "monte_carlo_draws": 99999,
+      "repetitions": 4,
+      "scenario": "constant_magnitude",
+      "trials": 2000
+    }
+  ],
+  "invalid_scope": "Persistent common sign across scenes violates independent within-scene swap invariance; the expected failure is not a qualified null.",
+  "monte_carlo_draws": 99999,
+  "null_cells": [
+    {
+      "dependence": "independent_endpoints",
+      "endpoints": 48,
+      "exact_enumeration": true,
+      "family_rejection_rate": 0.023,
+      "family_rejection_wilson_95": [
+        0.017287655978080053,
+        0.030541207128235243
+      ],
+      "family_rejections": 46,
+      "matched_scenes": 16,
+      "mean_rejected_endpoints": 0.0235,
+      "monte_carlo_draws": 0,
+      "repetitions": 1,
+      "scenario": "constant_magnitude",
+      "trials": 2000
+    },
+    {
+      "dependence": "shared_three_family_signs",
+      "endpoints": 48,
+      "exact_enumeration": true,
+      "family_rejection_rate": 0.0115,
+      "family_rejection_wilson_95": [
+        0.007675227286212753,
+        0.01719772790757136
+      ],
+      "family_rejections": 23,
+      "matched_scenes": 16,
+      "mean_rejected_endpoints": 0.0345,
+      "monte_carlo_draws": 0,
+      "repetitions": 1,
+      "scenario": "constant_magnitude",
+      "trials": 2000
+    },
+    {
+      "dependence": "independent_endpoints",
+      "endpoints": 48,
+      "exact_enumeration": true,
+      "family_rejection_rate": 0.019,
+      "family_rejection_wilson_95": [
+        0.013873784918301425,
+        0.025970414566263898
+      ],
+      "family_rejections": 38,
+      "matched_scenes": 16,
+      "mean_rejected_endpoints": 0.019,
+      "monte_carlo_draws": 0,
+      "repetitions": 1,
+      "scenario": "scene_magnitude_drift",
+      "trials": 2000
+    },
+    {
+      "dependence": "shared_three_family_signs",
+      "endpoints": 48,
+      "exact_enumeration": true,
+      "family_rejection_rate": 0.008,
+      "family_rejection_wilson_95": [
+        0.0049302968532159265,
+        0.012956077671536958
+      ],
+      "family_rejections": 16,
+      "matched_scenes": 16,
+      "mean_rejected_endpoints": 0.024,
+      "monte_carlo_draws": 0,
+      "repetitions": 1,
+      "scenario": "scene_magnitude_drift",
+      "trials": 2000
+    },
+    {
+      "dependence": "independent_endpoints",
+      "endpoints": 48,
+      "exact_enumeration": true,
+      "family_rejection_rate": 0.023,
+      "family_rejection_wilson_95": [
+        0.017287655978080053,
+        0.030541207128235243
+      ],
+      "family_rejections": 46,
+      "matched_scenes": 16,
+      "mean_rejected_endpoints": 0.024,
+      "monte_carlo_draws": 0,
+      "repetitions": 1,
+      "scenario": "rare_large_contribution",
+      "trials": 2000
+    },
+    {
+      "dependence": "shared_three_family_signs",
+      "endpoints": 48,
+      "exact_enumeration": true,
+      "family_rejection_rate": 0.006,
+      "family_rejection_wilson_95": [
+        0.003435594376936234,
+        0.010458448336941664
+      ],
+      "family_rejections": 12,
+      "matched_scenes": 16,
+      "mean_rejected_endpoints": 0.018,
+      "monte_carlo_draws": 0,
+      "repetitions": 1,
+      "scenario": "rare_large_contribution",
+      "trials": 2000
+    },
+    {
+      "dependence": "independent_endpoints",
+      "endpoints": 48,
+      "exact_enumeration": true,
+      "family_rejection_rate": 0.0,
+      "family_rejection_wilson_95": [
+        1.0842021724855044e-19,
+        0.001917047281252934
+      ],
+      "family_rejections": 0,
+      "matched_scenes": 16,
+      "mean_rejected_endpoints": 0.0,
+      "monte_carlo_draws": 0,
+      "repetitions": 1,
+      "scenario": "zero_contributions",
+      "trials": 2000
+    },
+    {
+      "dependence": "shared_three_family_signs",
+      "endpoints": 48,
+      "exact_enumeration": true,
+      "family_rejection_rate": 0.0,
+      "family_rejection_wilson_95": [
+        1.0842021724855044e-19,
+        0.001917047281252934
+      ],
+      "family_rejections": 0,
+      "matched_scenes": 16,
+      "mean_rejected_endpoints": 0.0,
+      "monte_carlo_draws": 0,
+      "repetitions": 1,
+      "scenario": "zero_contributions",
+      "trials": 2000
+    },
+    {
+      "dependence": "independent_endpoints",
+      "endpoints": 48,
+      "exact_enumeration": false,
+      "family_rejection_rate": 0.028,
+      "family_rejection_wilson_95": [
+        0.021625209947844046,
+        0.03618448268565872
+      ],
+      "family_rejections": 56,
+      "matched_scenes": 32,
+      "mean_rejected_endpoints": 0.0285,
+      "monte_carlo_draws": 99999,
+      "repetitions": 2,
+      "scenario": "constant_magnitude",
+      "trials": 2000
+    },
+    {
+      "dependence": "shared_three_family_signs",
+      "endpoints": 48,
+      "exact_enumeration": false,
+      "family_rejection_rate": 0.0095,
+      "family_rejection_wilson_95": [
+        0.006090240228609851,
+        0.014790383154299275
+      ],
+      "family_rejections": 19,
+      "matched_scenes": 32,
+      "mean_rejected_endpoints": 0.0285,
+      "monte_carlo_draws": 99999,
+      "repetitions": 2,
+      "scenario": "constant_magnitude",
+      "trials": 2000
+    },
+    {
+      "dependence": "independent_endpoints",
+      "endpoints": 48,
+      "exact_enumeration": false,
+      "family_rejection_rate": 0.0365,
+      "family_rejection_wilson_95": [
+        0.02912975228047479,
+        0.045647350549246665
+      ],
+      "family_rejections": 73,
+      "matched_scenes": 32,
+      "mean_rejected_endpoints": 0.038,
+      "monte_carlo_draws": 99999,
+      "repetitions": 2,
+      "scenario": "scene_magnitude_drift",
+      "trials": 2000
+    },
+    {
+      "dependence": "shared_three_family_signs",
+      "endpoints": 48,
+      "exact_enumeration": false,
+      "family_rejection_rate": 0.018,
+      "family_rejection_wilson_95": [
+        0.01302999144428223,
+        0.024818042134845595
+      ],
+      "family_rejections": 36,
+      "matched_scenes": 32,
+      "mean_rejected_endpoints": 0.0455,
+      "monte_carlo_draws": 99999,
+      "repetitions": 2,
+      "scenario": "scene_magnitude_drift",
+      "trials": 2000
+    },
+    {
+      "dependence": "independent_endpoints",
+      "endpoints": 48,
+      "exact_enumeration": false,
+      "family_rejection_rate": 0.0215,
+      "family_rejection_wilson_95": [
+        0.016000780509074646,
+        0.028833833739084404
+      ],
+      "family_rejections": 43,
+      "matched_scenes": 32,
+      "mean_rejected_endpoints": 0.0225,
+      "monte_carlo_draws": 99999,
+      "repetitions": 2,
+      "scenario": "rare_large_contribution",
+      "trials": 2000
+    },
+    {
+      "dependence": "shared_three_family_signs",
+      "endpoints": 48,
+      "exact_enumeration": false,
+      "family_rejection_rate": 0.005,
+      "family_rejection_wilson_95": [
+        0.0027181808584985597,
+        0.009179695949941846
+      ],
+      "family_rejections": 10,
+      "matched_scenes": 32,
+      "mean_rejected_endpoints": 0.015,
+      "monte_carlo_draws": 99999,
+      "repetitions": 2,
+      "scenario": "rare_large_contribution",
+      "trials": 2000
+    },
+    {
+      "dependence": "independent_endpoints",
+      "endpoints": 48,
+      "exact_enumeration": false,
+      "family_rejection_rate": 0.0,
+      "family_rejection_wilson_95": [
+        1.0842021724855044e-19,
+        0.001917047281252934
+      ],
+      "family_rejections": 0,
+      "matched_scenes": 32,
+      "mean_rejected_endpoints": 0.0,
+      "monte_carlo_draws": 99999,
+      "repetitions": 2,
+      "scenario": "zero_contributions",
+      "trials": 2000
+    },
+    {
+      "dependence": "shared_three_family_signs",
+      "endpoints": 48,
+      "exact_enumeration": false,
+      "family_rejection_rate": 0.0,
+      "family_rejection_wilson_95": [
+        1.0842021724855044e-19,
+        0.001917047281252934
+      ],
+      "family_rejections": 0,
+      "matched_scenes": 32,
+      "mean_rejected_endpoints": 0.0,
+      "monte_carlo_draws": 99999,
+      "repetitions": 2,
+      "scenario": "zero_contributions",
+      "trials": 2000
+    },
+    {
+      "dependence": "independent_endpoints",
+      "endpoints": 48,
+      "exact_enumeration": false,
+      "family_rejection_rate": 0.027,
+      "family_rejection_wilson_95": [
+        0.020752396241488,
+        0.035061130486577274
+      ],
+      "family_rejections": 54,
+      "matched_scenes": 64,
+      "mean_rejected_endpoints": 0.028,
+      "monte_carlo_draws": 99999,
+      "repetitions": 4,
+      "scenario": "constant_magnitude",
+      "trials": 2000
+    },
+    {
+      "dependence": "shared_three_family_signs",
+      "endpoints": 48,
+      "exact_enumeration": false,
+      "family_rejection_rate": 0.0105,
+      "family_rejection_wilson_95": [
+        0.006877887380873443,
+        0.015998901907473176
+      ],
+      "family_rejections": 21,
+      "matched_scenes": 64,
+      "mean_rejected_endpoints": 0.0315,
+      "monte_carlo_draws": 99999,
+      "repetitions": 4,
+      "scenario": "constant_magnitude",
+      "trials": 2000
+    },
+    {
+      "dependence": "independent_endpoints",
+      "endpoints": 48,
+      "exact_enumeration": false,
+      "family_rejection_rate": 0.043,
+      "family_rejection_wilson_95": [
+        0.03495107254461269,
+        0.05280110867045247
+      ],
+      "family_rejections": 86,
+      "matched_scenes": 64,
+      "mean_rejected_endpoints": 0.045,
+      "monte_carlo_draws": 99999,
+      "repetitions": 4,
+      "scenario": "scene_magnitude_drift",
+      "trials": 2000
+    },
+    {
+      "dependence": "shared_three_family_signs",
+      "endpoints": 48,
+      "exact_enumeration": false,
+      "family_rejection_rate": 0.0155,
+      "family_rejection_wilson_95": [
+        0.010940972933704062,
+        0.021916645881830028
+      ],
+      "family_rejections": 31,
+      "matched_scenes": 64,
+      "mean_rejected_endpoints": 0.044,
+      "monte_carlo_draws": 99999,
+      "repetitions": 4,
+      "scenario": "scene_magnitude_drift",
+      "trials": 2000
+    },
+    {
+      "dependence": "independent_endpoints",
+      "endpoints": 48,
+      "exact_enumeration": false,
+      "family_rejection_rate": 0.032,
+      "family_rejection_wilson_95": [
+        0.025139125203291417,
+        0.04065523105196132
+      ],
+      "family_rejections": 64,
+      "matched_scenes": 64,
+      "mean_rejected_endpoints": 0.033,
+      "monte_carlo_draws": 99999,
+      "repetitions": 4,
+      "scenario": "rare_large_contribution",
+      "trials": 2000
+    },
+    {
+      "dependence": "shared_three_family_signs",
+      "endpoints": 48,
+      "exact_enumeration": false,
+      "family_rejection_rate": 0.013,
+      "family_rejection_wilson_95": [
+        0.008886895534737305,
+        0.01898030851720305
+      ],
+      "family_rejections": 26,
+      "matched_scenes": 64,
+      "mean_rejected_endpoints": 0.0325,
+      "monte_carlo_draws": 99999,
+      "repetitions": 4,
+      "scenario": "rare_large_contribution",
+      "trials": 2000
+    },
+    {
+      "dependence": "independent_endpoints",
+      "endpoints": 48,
+      "exact_enumeration": false,
+      "family_rejection_rate": 0.0,
+      "family_rejection_wilson_95": [
+        1.0842021724855044e-19,
+        0.001917047281252934
+      ],
+      "family_rejections": 0,
+      "matched_scenes": 64,
+      "mean_rejected_endpoints": 0.0,
+      "monte_carlo_draws": 99999,
+      "repetitions": 4,
+      "scenario": "zero_contributions",
+      "trials": 2000
+    },
+    {
+      "dependence": "shared_three_family_signs",
+      "endpoints": 48,
+      "exact_enumeration": false,
+      "family_rejection_rate": 0.0,
+      "family_rejection_wilson_95": [
+        1.0842021724855044e-19,
+        0.001917047281252934
+      ],
+      "family_rejections": 0,
+      "matched_scenes": 64,
+      "mean_rejected_endpoints": 0.0,
+      "monte_carlo_draws": 99999,
+      "repetitions": 4,
+      "scenario": "zero_contributions",
+      "trials": 2000
+    }
+  ],
+  "power_diagnostics": [
+    {
+      "dependence": "independent_endpoints",
+      "endpoints": 48,
+      "exact_enumeration": true,
+      "family_rejection_rate": 0.36,
+      "family_rejection_wilson_95": [
+        0.33925030571320947,
+        0.3812864675255413
+      ],
+      "family_rejections": 720,
+      "matched_scenes": 16,
+      "mean_rejected_endpoints": 0.4365,
+      "monte_carlo_draws": 0,
+      "positive_sign_probability": 0.65,
+      "repetitions": 1,
+      "scenario": "constant_magnitude",
+      "trials": 2000
+    },
+    {
+      "dependence": "independent_endpoints",
+      "endpoints": 48,
+      "exact_enumeration": true,
+      "family_rejection_rate": 0.999,
+      "family_rejection_wilson_95": [
+        0.9963610657309615,
+        0.9997257210823479
+      ],
+      "family_rejections": 1998,
+      "matched_scenes": 16,
+      "mean_rejected_endpoints": 6.691,
+      "monte_carlo_draws": 0,
+      "positive_sign_probability": 0.8,
+      "repetitions": 1,
+      "scenario": "constant_magnitude",
+      "trials": 2000
+    },
+    {
+      "dependence": "independent_endpoints",
+      "endpoints": 48,
+      "exact_enumeration": true,
+      "family_rejection_rate": 1.0,
+      "family_rejection_wilson_95": [
+        0.9980829527187469,
+        0.9999999999999998
+      ],
+      "family_rejections": 2000,
+      "matched_scenes": 16,
+      "mean_rejected_endpoints": 44.609,
+      "monte_carlo_draws": 0,
+      "positive_sign_probability": 0.95,
+      "repetitions": 1,
+      "scenario": "constant_magnitude",
+      "trials": 2000
+    },
+    {
+      "dependence": "independent_endpoints",
+      "endpoints": 48,
+      "exact_enumeration": false,
+      "family_rejection_rate": 0.831,
+      "family_rejection_wilson_95": [
+        0.8139450174195418,
+        0.8467858972802685
+      ],
+      "family_rejections": 1662,
+      "matched_scenes": 32,
+      "mean_rejected_endpoints": 1.7025,
+      "monte_carlo_draws": 99999,
+      "positive_sign_probability": 0.65,
+      "repetitions": 2,
+      "scenario": "constant_magnitude",
+      "trials": 2000
+    },
+    {
+      "dependence": "independent_endpoints",
+      "endpoints": 48,
+      "exact_enumeration": false,
+      "family_rejection_rate": 1.0,
+      "family_rejection_wilson_95": [
+        0.9980829527187469,
+        0.9999999999999998
+      ],
+      "family_rejections": 2000,
+      "matched_scenes": 32,
+      "mean_rejected_endpoints": 32.033,
+      "monte_carlo_draws": 99999,
+      "positive_sign_probability": 0.8,
+      "repetitions": 2,
+      "scenario": "constant_magnitude",
+      "trials": 2000
+    },
+    {
+      "dependence": "independent_endpoints",
+      "endpoints": 48,
+      "exact_enumeration": false,
+      "family_rejection_rate": 1.0,
+      "family_rejection_wilson_95": [
+        0.9980829527187469,
+        0.9999999999999998
+      ],
+      "family_rejections": 2000,
+      "matched_scenes": 32,
+      "mean_rejected_endpoints": 48.0,
+      "monte_carlo_draws": 99999,
+      "positive_sign_probability": 0.95,
+      "repetitions": 2,
+      "scenario": "constant_magnitude",
+      "trials": 2000
+    },
+    {
+      "dependence": "independent_endpoints",
+      "endpoints": 48,
+      "exact_enumeration": false,
+      "family_rejection_rate": 0.9995,
+      "family_rejection_wilson_95": [
+        0.9971731374967338,
+        0.9999117322692944
+      ],
+      "family_rejections": 1999,
+      "matched_scenes": 64,
+      "mean_rejected_endpoints": 7.4395,
+      "monte_carlo_draws": 99999,
+      "positive_sign_probability": 0.65,
+      "repetitions": 4,
+      "scenario": "constant_magnitude",
+      "trials": 2000
+    },
+    {
+      "dependence": "independent_endpoints",
+      "endpoints": 48,
+      "exact_enumeration": false,
+      "family_rejection_rate": 1.0,
+      "family_rejection_wilson_95": [
+        0.9980829527187469,
+        0.9999999999999998
+      ],
+      "family_rejections": 2000,
+      "matched_scenes": 64,
+      "mean_rejected_endpoints": 47.958,
+      "monte_carlo_draws": 99999,
+      "positive_sign_probability": 0.8,
+      "repetitions": 4,
+      "scenario": "constant_magnitude",
+      "trials": 2000
+    },
+    {
+      "dependence": "independent_endpoints",
+      "endpoints": 48,
+      "exact_enumeration": false,
+      "family_rejection_rate": 1.0,
+      "family_rejection_wilson_95": [
+        0.9980829527187469,
+        0.9999999999999998
+      ],
+      "family_rejections": 2000,
+      "matched_scenes": 64,
+      "mean_rejected_endpoints": 48.0,
+      "monte_carlo_draws": 99999,
+      "positive_sign_probability": 0.95,
+      "repetitions": 4,
+      "scenario": "constant_magnitude",
+      "trials": 2000
+    }
+  ],
+  "power_scope": "Sign-alignment alternatives in contribution space, not raw feature effects or a guarantee of power for generated images.",
+  "repetitions": [
+    1,
+    2,
+    4
+  ],
+  "rng": "PCG64",
+  "schema_version": "painter-prompt-randomization-calibration/1.0",
+  "seed": 20260908,
+  "shortcut": "Exact finite weighted-Rademacher tails; conditional Monte Carlo exceedances sampled as Binomial(99999,p_exact). R1 uses the full exact tail.",
+  "simulation_scope": "Fixed contribution magnitudes and random paired assignment signs; 48 independent endpoints or 16 groups of three dependent families.",
+  "sources": [
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC6405018/",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC3416023/",
+    "https://doi.org/10.2307/4615733"
+  ],
+  "trials_per_cell": 2000,
+  "uses_empirical_outcomes_for_tuning": false
+}

@@ -1,0 +1,112 @@
+{
+  "adjustment": "Holm",
+  "calibration_id": "pps1-randomization-20260905",
+  "criterion": "All 8 valid-null cells at a repetition count, in BOTH 2000-trial development and unseen-seed validation, have Wilson95 upper <=0.065. Prespecified diagnostic criterion; theory still requires the actual randomization null.",
+  "exact_max_pairs": 16,
+  "files": [
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-randomization-20260905/development.json",
+      "sha256": "42a68ad71ee4e8a3bfe5374b6e240d062d1d95c1dc2b0acdd27de5a70b684e4a"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-randomization-20260905/validation.json",
+      "sha256": "8bf2824156ee87e52747f3175617b8c9b2e8da02330cee8d43591a0e0ca24df0"
+    }
+  ],
+  "inference_scope": "Conditional sharp no-effect/no-interference or joint paired-swap invariance; not a weak null of equal energy distances; no CIs.",
+  "inputs": [
+    {
+      "path": "pyproject.toml",
+      "sha256": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8"
+    },
+    {
+      "path": "src/latent_art_bench/io.py",
+      "sha256": "13e6372aa9814495a45700eb9e65d099c56bb1bb3032d72f7f9e00e6ba91a9b8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/artifacts.py",
+      "sha256": "8b48f0cfb433ac1769786aba366501b69ba1bec540a1a2f9e35e93ce45e9b0d7"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/calibration.py",
+      "sha256": "7624c44d3de1eda939e761e055e04b5066013758c379e758cb42dcfec0076567"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/calibration_record.py",
+      "sha256": "e83406887a6e9657953a4f99055acd051e94d504f98db20d3b553453cf585167"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/common.py",
+      "sha256": "8f399eb26069a283209437de51885ce38ca28a21759b359afc506d263107ec4f"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/randomization.py",
+      "sha256": "fec27f7a55ef75d2b7cbf66b6086696f83e051a3dd59f67faae596df1d043e5e"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/randomization_record.py",
+      "sha256": "b27eb93a4c4a456f1ef77bf906a4689144afe09c3856de76b69a2de5039443a0"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/statistics.py",
+      "sha256": "ea1f00990bfb647dea61b69418ac0f88c18a06814a9801c0f5a1d41020344654"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_randomization.py",
+      "sha256": "6d3139f0efc4208a2e3fb0b560e5b40d31fe5cdcdd96153d2809c06b832af46e"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_randomization_record.py",
+      "sha256": "47e1372f49d51f6bb576f61fdb2a2724da67b63d3705062adb9b849946f049a9"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+    }
+  ],
+  "invalid_scope": "Persistent common sign across scenes violates independent within-scene swap invariance; the expected failure is not a qualified null.",
+  "limitations": "Finite contribution-space constructions cannot establish service stationarity, absence of carryover, or actual generated-image power.",
+  "original_source_inputs": [
+    {
+      "path": "tmp/painter_prompt_randomization_development_seed20260908.json",
+      "sha256": "8bb131dfa54c147b3c8dd8e88c1df6d837f6b10672d01e4b8a1ea2428990ba35"
+    },
+    {
+      "path": "tmp/painter_prompt_randomization_validation_seed20260909.json",
+      "sha256": "1702362dd4dc50a1ac48b0588f092cd750d48df792c381c033b93ca951c00e52"
+    }
+  ],
+  "permutation_draws": 99999,
+  "power_scope": "Sign-alignment alternatives in contribution space, not raw feature effects or a guarantee of power for generated images.",
+  "prepared_at_utc": "2026-09-05T09:16:22.662173+00:00",
+  "primary_endpoints": 48,
+  "primary_estimator": "paired_randomization",
+  "qualification": [
+    {
+      "maximum_development_or_validation_wilson_upper": 0.03730545692281039,
+      "qualified": true,
+      "repetitions": 1
+    },
+    {
+      "maximum_development_or_validation_wilson_upper": 0.047855107023991705,
+      "qualified": true,
+      "repetitions": 2
+    },
+    {
+      "maximum_development_or_validation_wilson_upper": 0.05499069598122689,
+      "qualified": true,
+      "repetitions": 4
+    }
+  ],
+  "qualified_repetitions": [
+    1,
+    2,
+    4
+  ],
+  "recorded_git_commit": "5ba13398b59efaec9e43e8f7166a9cebe608531b",
+  "schema_version": "painter-prompt-randomization-decision/1.0",
+  "shortcut": "Exact finite weighted-Rademacher tails; conditional Monte Carlo exceedances sampled as Binomial(99999,p_exact). R1 uses the full exact tail.",
+  "simulation_scope": "Fixed contribution magnitudes and random paired assignment signs; 48 independent endpoints or 16 groups of three dependent families.",
+  "simultaneous_alpha": 0.05,
+  "uses_empirical_outcomes_for_tuning": false
+}
