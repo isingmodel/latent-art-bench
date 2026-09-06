@@ -15,6 +15,12 @@ identities.
 - [Config index](../configs/README.md)
 - [Contributing](../CONTRIBUTING.md)
 
+## Distribution scatter and separability exploration
+
+- [Original versus generated distributions: figures and results](../reports/painter_distribution_exploration_v1/REPORT.md)
+- [Post-hoc methods and interpretation boundaries](../studies/painter_distribution_exploration_v1/METHODS.md)
+- [Reproduction module](../src/latent_art_bench/painter_distribution_exploration_v1/report.py)
+
 ## Completed extension: Painter Prompt Study v1
 
 - [Repeated generation, prompt methods, sample-size planning and commands](PROMPT_STUDY_WORKFLOW.md)

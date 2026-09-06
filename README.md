@@ -5,8 +5,12 @@ reference paintings**. The current analysis uses Monet, Sisley, Pissarro, and CÃ
 interpretable color, spatial/orientation, and digital-texture features; and the existing SD-Turbo,
 `gpt-image-1`, and `gpt-image-2` service outputs.
 
+The new [distribution scatter and separability report](reports/painter_distribution_exploration_v1/REPORT.md)
+compares original and generated point clouds in common PCA views and evaluates their separability
+in the full feature space. This post-hoc exploration uses existing measurements and adds no images.
+
 The [main distance report after two authorized retries](reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906-r2/REPORT.md)
-is the latest entry point: **1,920 measured generated images**, three prompt methods, comparison
+contains: **1,920 measured generated images**, three prompt methods, comparison
 plots and full-precision tables. The
 [pre-retry exploratory statistical report](reports/painter_prompt_supplement_v1/ppss1-missingness-20260905/REPORT.md)
 retains its original 1,918-image data and inference. The earlier

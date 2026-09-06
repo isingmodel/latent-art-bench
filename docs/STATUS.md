@@ -1,5 +1,40 @@
 # Current status and research boundary — 2026-09-06
 
+## Completed exploration: original versus generated distributions
+
+The user requested scatter plots and an exploration of whether each painter's original and
+style-conditioned generated feature distributions separate. The new, explicitly post-hoc
+[distribution report](../reports/painter_distribution_exploration_v1/REPORT.md) uses existing
+numeric evidence only: 649 originals and 1,536 painter-conditioned generations from the complete
+1,920-image derived grid. The 384 artist-free outputs are outside this comparison. No images
+were generated, downloaded, opened or remeasured; original evidence and the two retry identities
+remain unchanged. This is a newly versioned derived analysis, not active-census work.
+
+- Four painter-specific common PCA bases, all 31 features and each of the three families;
+  balanced original/generated mass, with original-only all-31 PCA as a projection sensitivity.
+  The 14 PNG/SVG figures retain every point and shared limits within painter/feature set.
+- The first two joint PCs retain 42.9–47.8% of balanced all-31 variance. Scatter plots overlap,
+  while generated clouds are more concentrated and often shifted relative to originals.
+- Full-space generated/original total within-group sample variance ratios are 0.206–0.376
+  across the 24 all-31 cells (median 0.252). This is outlier-sensitive feature spread, not a
+  calibrated measure of artistic diversity. This summary was added after first plot inspection.
+- Fixed linear/RBF kernel ridge classifiers, without tuning or PCA input, use held-out whole
+  scenes and disjoint original works. Across all 24 all-31 cells, balanced accuracy is
+  0.913–0.976 (linear) / 0.940–0.983 (RBF). A nominal-block split is also reported. These are
+  descriptive scores, without p-values, confidence intervals or independent-session claims.
+- Exported 20 projection bases, 10,925 point coordinates, 240 classifier summaries, 10,860
+  all-31 out-of-fold prediction records and 96 within-group variance comparisons. Capture,
+  content and service artifacts remain possible explanations; painter style is not isolated.
+
+Read the [exact methods](../studies/painter_distribution_exploration_v1/METHODS.md). Reproduce with:
+
+```bash
+uv run --locked --extra analysis --extra learned python -m latent_art_bench.painter_distribution_exploration_v1.report check
+```
+
+The implementation and inputs are bound to a clean Git commit in the report's provenance.
+Historical frozen studies remain unchanged; this does not restore the original primary result.
+
 ## Completed follow-up: two refusal retries
 
 **Both user-authorized retries succeeded and were measured.** The latest

@@ -1,6 +1,13 @@
 # Agent handover: completed painter-feature analysis and research continuation
 
-**Latest follow-up — 2026-09-06:** the user authorized one exact retry for each of the two refused
+**Latest exploration — 2026-09-06:** the user requested scatter plots of original versus
+painter-conditioned generated feature distributions. The new
+[distribution report](../reports/painter_distribution_exploration_v1/REPORT.md) contains common
+PCA views, full-space grouped classification and within-group spread, using existing numeric
+records only. It is post-hoc: no new features, images or confirmatory inference. Read
+[current status](STATUS.md) for results, reproducibility and limitations.
+
+**Previous retry follow-up — 2026-09-06:** the user authorized one exact retry for each of the two refused
 requests. Both succeeded and were measured. The latest
 [main distance report](../reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906-r2/REPORT.md)
 uses 1,920 measured images; all source refusals, reports and ledgers remain unchanged. Results

@@ -6,6 +6,12 @@ tracked as evidence and which exist nowhere else.
 
 ## Canonical tracked material
 
+The separate `reports/painter_distribution_exploration_v1/` bundle retains numeric-only scatter
+plots, PCA loadings/coordinates, out-of-fold classifier predictions, spread tables and commit-bound
+provenance. Its source/tests and `studies/painter_distribution_exploration_v1/METHODS.md` describe
+post-hoc exploration of already exposed values. Preserve the published bundle; new revisions
+use distinct output paths. It has no raw-image or new measurement workspace.
+
 Preserve and review normally:
 
 - The `painter_prompt_retry_v1` two-attempt follow-up protocol, module, tests, freeze, ledgers,
