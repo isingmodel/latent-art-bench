@@ -15,8 +15,8 @@ attempts, including at most 588 paid initial attempts. The user's subsequent
 bounded transient-error retries: 1,050 total / 612 paid attempts, with the same $75 ceiling.
 The user reaffirmed $75 after the authenticated
 preflight showed about $50 available and stated that replenishment is configured. This supersedes
-the interim $45 planning limit. The technical pilot has spent **$0.8304855**; no research
-generation has occurred yet.
+the interim $45 planning limit. The technical pilot spent **$0.8304855**. The parallel research collector is now
+running; consult its read-only status command for current charge reservations and outcomes.
 
 Stage A is complete. The [diagnostic report](../reports/painter_distribution_study_v1/pdsv1-diagnostics-20260906/REPORT.md)
 and all 18 output files reproduce byte-for-byte. Content-equal spread ratios are 0.211–0.372 for
@@ -57,15 +57,26 @@ passed both fixed-seed phases. The implemented main collector, three measurement
 analysis pass **813 offline tests** (77.64 seconds); Ruff and the 2,902-check historical evidence
 audit pass. Main method source was committed at `d06cb95`; its four-file freeze/inventory
 was committed at `a03503b`. Development remeasurement completed all 442 sensitivity vectors
-from the same 221 works, and both new scalers are available. Fresh reference and generated
-fidelity vectors have not been measured.
+from the same 221 works, and both new scalers are available. Fresh reference measurement now has 210 successful vectors (70 works × three
+pipelines), with no failed vectors or duplicate raw hashes. Generated fidelity
+vectors remain pending terminal collection.
 
 Before the first research POST, the user requested staggered parallel calls. The sequential
 collector was stopped while waiting for its first window and permanently closed with status
 `superseded_before_dispatch`: **zero research attempts**. A prospective parallel successor is
 implemented with at most three in-flight requests, at least five seconds between starts,
-and one active request per model route. It will retain the frozen content/analysis design and
+and one active request per model route. It retains the frozen content/analysis design and
 the $75/1,050-attempt caps, with new execution paths and predecessor-bound evidence.
+Parallel source was committed at `1751557`, its execution freeze at `7ead740`.
+The single coordinator is running with eight windows beginning September 6 at
+14:30 UTC (23:30 KST), ending with the September 7 23:30 UTC window.
+All 819 pre-execution offline tests, Ruff and the historical evidence audit pass.
+The first live inspection observed nine started requests, six successful completed
+images, no failed outcomes, peak concurrency three, peak per-route concurrency one,
+and a minimum recorded start gap of 5.0043 seconds. These are an early operational
+snapshot, not a partial fidelity analysis. Full report rendering is implemented
+and its synthetic fixtures reproduce all 22 output files byte-for-byte. Final
+generated measurement, numeric analysis, report and paper results await collection.
 
 The English LaTeX/PDF paper prototype is drafted and visually checked; it distinguishes
 completed diagnostics and pilot outcomes from pending new-model comparisons. Human construct
@@ -75,7 +86,8 @@ the new collection and preserves all terminal historical evidence.
 `.env` is ignored and untracked. Tectonic, Pandoc and Poppler are available. Free storage was
 18.7 GiB at preflight; every collection stage preserves the 5 GiB reserve. Stage A validation:
 Ruff passed; the earlier pilot-stage suite passed 779 tests before the main implementation.
-The parallel implementation adds six offline tests; current validation is recorded below. The historical v1 evidence audit passes 2,902 checks. No subagent or
+The parallel and reporting implementations add nine offline tests; the full suite now
+passes 822 tests. Reference raw-to-feature replay verifies all 210 vectors. The historical v1 evidence audit passes 2,902 checks. No subagent or
 institutionally independent review was used.
 
 ## Original proposal snapshot, before execution authorization

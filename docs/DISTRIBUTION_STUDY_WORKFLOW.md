@@ -66,6 +66,21 @@ flag works for the successor reference stage. Completed development replays thro
 its original `measurement development --check` command. Raw image bytes are ignored local
 evidence and must be archived separately from Git; see [ARTIFACTS.md](ARTIFACTS.md).
 
+## Final comparison report
+
+After terminal generation and verified numeric analysis, commit the measurement,
+analysis and renderer inputs, then publish the report once:
+
+```bash
+uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.main_report build
+uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.main_report check
+```
+
+The report exports full-precision tables, every PCA point, classifier membership,
+paired contributions, availability, transport timing/settings and descriptive
+sensitivity figures. The report check re-renders every output in temporary storage
+and compares file hashes without changing the published bundle.
+
 ## Validation and writing
 
 ```bash

@@ -31,7 +31,12 @@ and [main contract](../studies/painter_distribution_study_v1/MAIN.md). Research 
 measurement and final paper results remain active work. The English LaTeX/PDF prototype is drafted
 with completed prior findings and prospective extension clearly separated. Seventy-six new artwork
 files are retained (five original-delivery files plus 71 successor thumbnails; these are not 76
-independent works). No new research generation has occurred yet. No human participants have
+independent works). The parallel coordinator is running against its committed 14:30 UTC September 6
+origin (`1751557` source / `7ead740` freeze); all 210 reference vectors succeeded.
+Generated measurement waits for terminal collection. The first live sample verified three
+concurrent requests, one per route, ≥5.0043-second starts and six successful returns.
+The `main_report` renderer is implemented (22 reproducible outputs); commit final
+analysis inputs before building its report. Full-suite validation passes 822 tests. No human participants have
 been recruited; venue and Kim's involvement remain undecided. Reasoning and documents stay English.
 
 **Latest exploration — 2026-09-06:** the user requested scatter plots of original versus

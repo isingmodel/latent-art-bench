@@ -317,8 +317,13 @@ unknown prior compression or demonstrate equivalent physical capture.
 Research generation requires a committed reference, prompt, endpoint, schedule
 and analysis freeze before evaluation features are extracted. At least eight
 collection windows span multiple days; repetitions of a brief occupy different
-windows. Actual timestamps, attempted slots, refusals and uncertain requests are
-retained. Scheduling across days does not by itself establish independent sessions.
+windows. A user-requested execution amendment closes the unused sequential
+collector before its first research request and uses three route workers, at most
+one active request per route, with globally staggered starts at least five seconds
+apart. Within-route randomized condition order is preserved. Actual timestamps,
+attempted slots, refusals and uncertain requests are retained. Scheduling across
+days does not by itself establish independent sessions; concurrent gateway traffic
+also leaves the no-interference assumption unverified.
 
 Prospective synthetic qualification passes for the eight paired all-31 prompt
 contrasts: six named-versus-free and two detailed-versus-generic OAuth contrasts.
