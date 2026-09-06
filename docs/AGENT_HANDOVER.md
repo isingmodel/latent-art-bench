@@ -10,12 +10,13 @@ and reported about $50 then available; the user says replenishment is configured
 $45 planning limit is superseded. Keep the 1,026-attempt / 588-paid-attempt maximum.
 
 Existing-data diagnostics are complete and all 18 report files replay byte-for-byte. GET-only
-reference and endpoint discovery is underway. The 18-request technical pilot is implemented
-and tested but requires its committed input and generation freezes before dispatch. Read
+reference and endpoint discovery is underway. The 18-request technical pilot completed with
+18 decodable images and $0.8304855 paid cost; its raw evidence is retained. The candidate-reference
+acquisition contract is implemented and tested and requires its committed freeze before access. Read
 [current status](STATUS.md), the [staged protocol](../studies/painter_distribution_study_v1/PROTOCOL.md)
 and [pilot contract](../studies/painter_distribution_study_v1/PILOT.md). Reference feasibility,
 main-study uncertainty qualification, research generation and paper completion remain active work.
-No new reference pixels or paid generation have yet been acquired. No human participants have
+No new reference pixels or research generations have yet been acquired. No human participants have
 been recruited; venue and Kim's involvement remain undecided. Reasoning and documents stay English.
 
 **Latest exploration — 2026-09-06:** the user requested scatter plots of original versus

@@ -1,0 +1,13 @@
+{
+  "budget": {
+    "accounted_usd": 0.8304855,
+    "attempts": 18,
+    "paid_attempts": 12,
+    "uncertain": 0,
+    "unresolved": 0
+  },
+  "events_sha256": "2d3cf3bd9708c7fe62503c50478b0d83c2e25782756cb10f664d7b6f0d7e2f24",
+  "freeze_sha256": "73f0b0438116478b64af1e7a63ee134f2cd3a0e61edccd793cbdce6093e32e16",
+  "requests": 18,
+  "run_id": "pdsv1-pilot-20260906"
+}

@@ -12,7 +12,8 @@ Implementation is in the new `painter_distribution_study_v1` namespace. Its
 studies. The operating cap is **$75**, including the pilot, and the generation cap is 1,026 total
 attempts, including at most 588 paid attempts. The user reaffirmed $75 after the authenticated
 preflight showed about $50 available and stated that replenishment is configured. This supersedes
-the interim $45 planning limit. No paid calls or new image acquisition have occurred yet.
+the interim $45 planning limit. The technical pilot has spent **$0.8304855**; no research
+generation or new reference image acquisition has occurred yet.
 
 Stage A is complete. The [diagnostic report](../reports/painter_distribution_study_v1/pdsv1-diagnostics-20260906/REPORT.md)
 and all 18 output files reproduce byte-for-byte. Content-equal spread ratios are 0.211–0.372 for
@@ -23,10 +24,18 @@ These remain descriptive diagnostics, not calibrated painter-style conclusions.
 
 GET-only reference and endpoint discovery is active under `pdsv1-metadata-20260906`. The key
 authenticated successfully; both proposed image models and pinned providers are listed.
-The [technical pilot contract](../studies/painter_distribution_study_v1/PILOT.md) specifies 18
-requests, exact route settings, retained responses, global spending guards and no automatic retries.
-Its implementation passes 11 new offline tests; source and request freezes must be committed
-before dispatch. Fresh reference selection and main-study statistical qualification remain open.
+The [technical pilot contract](../studies/painter_distribution_study_v1/PILOT.md) completed all 18
+requests successfully, without retries. Google returned six 1024×1024 JPEGs; BFL returned six
+1024×1024 PNGs. OAuth returned six nonsquare PNGs and reported low rather than requested medium
+quality. Paid routes share geometry but not encoding; OAuth requires a separate service comparison.
+The pilot source was committed at `2bd2fb9` and its freeze at `f202082`, before the first POST.
+The pilot's raw hashes, costs and container metadata are being verified for its qualification report.
+
+The [new reference contract](../studies/painter_distribution_study_v1/REFERENCES.md) selects 64 Monet
+and 48 Cézanne candidates using recorded identity/exposure checks, a 512-native-pixel minimum and
+an explicit outdoor-title screen. Visual content coding is still required. The selected identities
+and acquisition freeze must be committed before any image GET. Main-study statistical qualification
+and final reference/prompt/analysis freezes remain open.
 
 `.env` is ignored and untracked. Tectonic, Pandoc and Poppler are available. Free storage was
 18.7 GiB at preflight; every collection stage preserves the 5 GiB reserve. Stage A validation:
