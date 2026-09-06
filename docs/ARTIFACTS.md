@@ -6,6 +6,13 @@ tracked as evidence and which exist nowhere else.
 
 ## Canonical tracked material
 
+The active `painter_distribution_study_v1` namespace retains the completed diagnostic report,
+prospective stage contracts, source/tests, freezes and append-only metadata/generation events.
+Preserve all terminal files. Its ignored `research_workspace/painter_distribution_study_v1/`
+stores content-addressed metadata responses and subsequently raw compressed image responses;
+these bytes are evidence, including failed requests. Pilot images are technical evidence and
+must not enter research fidelity endpoints.
+
 The separate `reports/painter_distribution_exploration_v1/` bundle retains numeric-only scatter
 plots, PCA loadings/coordinates, out-of-fold classifier predictions, spread tables and commit-bound
 provenance. Its source/tests and `studies/painter_distribution_exploration_v1/METHODS.md` describe

@@ -1,17 +1,22 @@
 # Agent handover: completed painter-feature analysis and research continuation
 
-**Latest planning — 2026-09-06:** the user requested a further research proposal, answered scope
-questions, and asked the agent to choose the expansion axis based on the results and purpose.
-Budget is approximately $100 OpenRouter credit plus inexpensive OAuth; venue is undecided,
-learned features may wait, and new references/human evaluation are possible. All new reasoning
-and research writing should be in English. The
-[proposal](RESEARCH_PROPOSAL_20260906.md) prioritizes two additional model families after
-content/capture diagnostics, adds no painters, and narrows new generation to Monet/Cézanne and
-focused prompt controls. The proposed 1,026-attempt ceiling includes 588 paid calls; estimated
-image-output charges are $40.34 before ancillary costs, within a proposed $75 operating envelope.
-This is documentation for a newly versioned study, not an executed or frozen protocol. No new
-generation/acquisition/feature extraction occurred. Read [current status](STATUS.md) before acting;
-reference feasibility, statistical qualification and endpoint contracts remain to be established.
+**Active implementation goal — 2026-09-06:** the user authorized execution of the
+[proposal](RESEARCH_PROPOSAL_20260906.md) and an English paper prototype, delegating the remaining
+choices to the recommendations. Use multi-day collection, a computational paper now and human
+evaluation prepared for follow-up, with prospective reference-panel adaptation where needed.
+The new namespace is `painter_distribution_study_v1`; never reopen a historical terminal study.
+The user reaffirmed a $75 spending ceiling, including pilot calls, after the key authenticated
+and reported about $50 then available; the user says replenishment is configured. The interim
+$45 planning limit is superseded. Keep the 1,026-attempt / 588-paid-attempt maximum.
+
+Existing-data diagnostics are complete and all 18 report files replay byte-for-byte. GET-only
+reference and endpoint discovery is underway. The 18-request technical pilot is implemented
+and tested but requires its committed input and generation freezes before dispatch. Read
+[current status](STATUS.md), the [staged protocol](../studies/painter_distribution_study_v1/PROTOCOL.md)
+and [pilot contract](../studies/painter_distribution_study_v1/PILOT.md). Reference feasibility,
+main-study uncertainty qualification, research generation and paper completion remain active work.
+No new reference pixels or paid generation have yet been acquired. No human participants have
+been recruited; venue and Kim's involvement remain undecided. Reasoning and documents stay English.
 
 **Latest exploration — 2026-09-06:** the user requested scatter plots of original versus
 painter-conditioned generated feature distributions. The new

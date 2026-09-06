@@ -15,11 +15,13 @@ identities.
 - [Config index](../configs/README.md)
 - [Contributing](../CONTRIBUTING.md)
 
-## Proposed next research round
+## Active controlled-distribution research round
 
 - [Expansion decision, controlled study design and $100 budget](RESEARCH_PROPOSAL_20260906.md)
 - [Authorized staged execution protocol](../studies/painter_distribution_study_v1/PROTOCOL.md)
 - [Fixed existing-data diagnostic methods](../studies/painter_distribution_study_v1/DIAGNOSTICS.md)
+- [Completed existing-data diagnostic report](../reports/painter_distribution_study_v1/pdsv1-diagnostics-20260906/REPORT.md)
+- [Technical endpoint pilot and $75 spending contract](../studies/painter_distribution_study_v1/PILOT.md)
 
 Implementation authorized: two additional model families, two existing painter cases,
 content/capture controls and a focused prompt intervention. See current status for stage progress.

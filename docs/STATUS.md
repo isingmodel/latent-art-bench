@@ -9,17 +9,32 @@ for follow-up, and prospective reference-panel adaptation when availability requ
 
 Implementation is in the new `painter_distribution_study_v1` namespace. Its
 [staged protocol](../studies/painter_distribution_study_v1/PROTOCOL.md) preserves closed historical
-studies. The operating cap is $75 and the generation cap is 1,026 total attempts, including at most
-588 paid attempts. No paid calls or new image acquisition have occurred in this stage.
+studies. The operating cap is **$75**, including the pilot, and the generation cap is 1,026 total
+attempts, including at most 588 paid attempts. The user reaffirmed $75 after the authenticated
+preflight showed about $50 available and stated that replenishment is configured. This supersedes
+the interim $45 planning limit. No paid calls or new image acquisition have occurred yet.
 
-Local preflight confirmed the key is configured, `.env` is ignored and untracked, and Tectonic,
-Pandoc and Poppler are available. It did not authenticate or expose the key. Free storage was
-18.7 GiB at preflight; every collection stage must preserve the 5 GiB reserve. Stage A implements
-artist-free controls, content-mixture weighting, disjoint real/real baselines, robust spread and
-scene/work-disjoint transfer. Ruff passed and all 758 offline tests passed (77.30 seconds).
-Its source and methods are being committed before the diagnostic freeze and computation.
+Stage A is complete. The [diagnostic report](../reports/painter_distribution_study_v1/pdsv1-diagnostics-20260906/REPORT.md)
+and all 18 output files reproduce byte-for-byte. Content-equal spread ratios are 0.211–0.372 for
+named conditions and 0.378–0.728 for artist-free conditions. Artist-free separability is also high;
+coarse title-derived content labels do not rule out content differences. Disjoint original splits
+give substantially smaller energy discrepancies than the generated/original comparisons.
+These remain descriptive diagnostics, not calibrated painter-style conclusions.
 
-## Next research proposal prepared; execution has not started
+GET-only reference and endpoint discovery is active under `pdsv1-metadata-20260906`. The key
+authenticated successfully; both proposed image models and pinned providers are listed.
+The [technical pilot contract](../studies/painter_distribution_study_v1/PILOT.md) specifies 18
+requests, exact route settings, retained responses, global spending guards and no automatic retries.
+Its implementation passes 11 new offline tests; source and request freezes must be committed
+before dispatch. Fresh reference selection and main-study statistical qualification remain open.
+
+`.env` is ignored and untracked. Tectonic, Pandoc and Poppler are available. Free storage was
+18.7 GiB at preflight; every collection stage preserves the 5 GiB reserve. Stage A validation:
+Ruff passed; the current full offline suite passes **779 tests** (77.93 seconds), including 21
+discovery/transport cases. The historical v1 evidence audit passes 2,902 checks. No subagent or
+institutionally independent review was used.
+
+## Original proposal snapshot, before execution authorization
 
 The user requested an English research proposal and an explicit choice of expansion axis, with
 approximately $100 of OpenRouter credit and inexpensive OAuth access. Venue is undecided; learned
