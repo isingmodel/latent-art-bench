@@ -1,0 +1,39 @@
+{
+  "inputs": [
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-pilot-20260906/generation_events.jsonl",
+      "sha256": "2d3cf3bd9708c7fe62503c50478b0d83c2e25782756cb10f664d7b6f0d7e2f24"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-pilot-20260906/generation_freeze.json",
+      "sha256": "73f0b0438116478b64af1e7a63ee134f2cd3a0e61edccd793cbdce6093e32e16"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-pilot-20260906/generation_receipt.json",
+      "sha256": "a59a90a43fb23faf39067022ab3a3202cca79158e8d00b4dbb671baefc302d4a"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-pilot-20260906/requests.jsonl",
+      "sha256": "0565080ac7ef0f993ce2d91e0eef0cb0b5b6ec7aa89becfea51ca90cde661b73"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/pilot_summary.py",
+      "sha256": "c78080510337a83687feee41b76c323876b3b2a8a7f3e885009cbf2aff26d453"
+    },
+    {
+      "path": "tests/painter_distribution_study_v1/test_pilot_summary.py",
+      "sha256": "01d46580f5a039e51ae7cc1c7fe3698fc2777a9c7f557ebdab9649ff9c4c0e74"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "reports/painter_distribution_study_v1/pdsv1-pilot-20260906/REPORT.md",
+      "sha256": "2a14a16f35f8b514377a35c28ba1c214f58bbf22b62a94b338fdf07b1e09cfec"
+    },
+    {
+      "path": "reports/painter_distribution_study_v1/pdsv1-pilot-20260906/summary.json",
+      "sha256": "0571f2d6eac0b5f4d7b6ef7271b607e0d3706422f456954e94ffd9322226c659"
+    }
+  ],
+  "recorded_git_commit": "beb11e36d9e1546c819c4c5fb69348e1c835b6cc"
+}

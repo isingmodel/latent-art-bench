@@ -1,0 +1,72 @@
+{
+  "authority": "REFERENCES.md candidate acquisition only; no fidelity features",
+  "candidates_by_painter": {
+    "claude_monet": 64,
+    "paul_cezanne": 48
+  },
+  "candidates_sha256": "df1506377faa3ead68150b2906aebc927ef82affd5f86113f1abed721c17104e",
+  "dispositions": {
+    "candidate": 182,
+    "collection_work_identifier": 352,
+    "creator": 1,
+    "duplicate_candidate_identity": 6,
+    "geometry_format": 98,
+    "painting_oil_canvas": 167,
+    "previous_exposure_identity": 505,
+    "rights": 40,
+    "title_not_outdoor_candidate": 701
+  },
+  "inputs": [
+    {
+      "path": "data/manifests/painter_feature_generation_v1/broad_media_followup_publication_r2/candidates.jsonl",
+      "sha256": "3e14bf91eb0836ec09ae3d25fe9ffba7f618939208c4b944b0b0a5c228bc9ff7"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v1/exposure_denylist.jsonl",
+      "sha256": "4f64fe345f934b88f564938db2a46226118067eb75a9a6993622cb2926be3858"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-frame-20260905/frame.jsonl",
+      "sha256": "43c71972635421645b276051feaefc62ee6845d3807fcad352aaa72926e9bed2"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8"
+    },
+    {
+      "path": "src/latent_art_bench/io.py",
+      "sha256": "13e6372aa9814495a45700eb9e65d099c56bb1bb3032d72f7f9e00e6ba91a9b8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/references.py",
+      "sha256": "414c228aa1ea3628fe34ef3ee91d7bbc1904d2af52552f01d53e55965c7cbcd1"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/artifacts.py",
+      "sha256": "8b48f0cfb433ac1769786aba366501b69ba1bec540a1a2f9e35e93ce45e9b0d7"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/common.py",
+      "sha256": "8f399eb26069a283209437de51885ce38ca28a21759b359afc506d263107ec4f"
+    },
+    {
+      "path": "studies/painter_distribution_study_v1/PROTOCOL.md",
+      "sha256": "ac826d7af77018c81066991efbac45e042634fd64146a6a11ecfa70898c12f8e"
+    },
+    {
+      "path": "studies/painter_distribution_study_v1/REFERENCES.md",
+      "sha256": "104307af9f1be11f4466c7eceef1cf92fe336512387833afd030690ad844984f"
+    },
+    {
+      "path": "tests/painter_distribution_study_v1/test_references.py",
+      "sha256": "f1edc26aa67a22e34fed01d9e0ffa16e5f0e1fc0b70b8731e4e59daed235ab15"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+    }
+  ],
+  "recorded_git_commit": "beb11e36d9e1546c819c4c5fb69348e1c835b6cc",
+  "run_id": "pdsv1-reference-candidates-20260906",
+  "screening_sha256": "d7d8bb858f092a74c43a838aa95df0855f7a49331e00821a3a56daaf63e49b7e"
+}

@@ -1,0 +1,69 @@
+{
+  "fidelity_features_extracted": 0,
+  "matching": "Paid routes share observed 1024-square geometry, but JPEG/PNG differ. OAuth geometry and quality deviate; no fully matched rendering claim.",
+  "pilot_cost_usd": 0.8304855,
+  "projection_with_25_percent_headroom_and_pilot_usd": 50.69516550000001,
+  "requests": 18,
+  "research_projection_usd": 39.891744,
+  "routes": [
+    {
+      "attempts": 6,
+      "cost_resolved": true,
+      "decodable": 6,
+      "dispositions": {
+        "image_returned": 6
+      },
+      "formats": {
+        "JPEG": 6
+      },
+      "geometries": {
+        "1024x1024": 6
+      },
+      "maximum_cost_usd": 0.068513,
+      "mean_latency_seconds": 11.326859965338372,
+      "route": "nano_banana_2",
+      "total_cost_usd": 0.4104855
+    },
+    {
+      "attempts": 6,
+      "cost_resolved": true,
+      "decodable": 6,
+      "dispositions": {
+        "image_returned": 6
+      },
+      "formats": {
+        "PNG": 6
+      },
+      "geometries": {
+        "1024x1024": 6
+      },
+      "maximum_cost_usd": 0.07,
+      "mean_latency_seconds": 21.56615299314338,
+      "route": "flux_2_max",
+      "total_cost_usd": 0.42000000000000004
+    },
+    {
+      "attempts": 6,
+      "cost_resolved": true,
+      "decodable": 6,
+      "dispositions": {
+        "image_returned": 6
+      },
+      "formats": {
+        "PNG": 6
+      },
+      "geometries": {
+        "1397x1126": 1,
+        "1398x1125": 2,
+        "1402x1122": 1,
+        "1403x1121": 2
+      },
+      "maximum_cost_usd": 0.0,
+      "mean_latency_seconds": 24.7595074926503,
+      "route": "oauth_gpt_image_2",
+      "total_cost_usd": 0.0
+    }
+  ],
+  "run_id": "pdsv1-pilot-20260906",
+  "technical_qualification": true
+}
