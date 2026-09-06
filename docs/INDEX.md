@@ -31,6 +31,15 @@ The approved `pps1-gpt-prompts-20260905` run is terminal: 1,920 requests, 1,918 
 measured images, two refusals, no replacements. The original complete-grid primary remains
 unavailable. Existing evidence below remains sealed.
 
+## Two-refusal retry follow-up
+
+- [Two authorized exact-payload retries and descriptive completion protocol](../studies/painter_prompt_retry_v1/PROTOCOL.md)
+- [Retry transport, measurement, reporting and verification module](../src/latent_art_bench/painter_prompt_retry_v1.py)
+
+The user authorized exactly two additional attempts after the original study closed. Run
+`ppr1-two-refusals-20260906` retains disjoint evidence; later outputs cannot retroactively restore
+the original randomized time slots. See [current status](STATUS.md) for execution state.
+
 ## Post-registration supplement: Painter Prompt Supplement v1
 
 - [Missingness supplement, qualification and reproducibility commands](PROMPT_SUPPLEMENT_WORKFLOW.md)

@@ -8,6 +8,11 @@ tracked as evidence and which exist nowhere else.
 
 Preserve and review normally:
 
+- The `painter_prompt_retry_v1` two-attempt follow-up protocol, module, tests, freeze, ledgers,
+  measurements and report. Its raw bytes use the disjoint shared-transport runtime directory
+  `research_workspace/painter_prompt_study_v1/ppr1-two-refusals-20260906/`. They are additional
+  evidence and never replace either original refusal body or any prior report.
+
 - The separate `painter_prompt_supplement_v1` contract, configuration, source/tests, published
   qualification and committed design freeze. Its manifest namespace records the observed source
   generation-prefix length and hash, input bindings and subsequent report receipts. Preserve the

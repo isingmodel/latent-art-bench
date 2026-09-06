@@ -1,5 +1,20 @@
 # Current status and research boundary — 2026-09-06
 
+## Authorized follow-up: two refusal retries
+
+The user now explicitly requested retrying the two failed trials and reporting the main results.
+This authorizes **two additional requests only**, one exact-payload retry for each original refusal,
+in separate run `ppr1-two-refusals-20260906`. The
+[retry protocol](../studies/painter_prompt_retry_v1/PROTOCOL.md) preserves all terminal source and
+supplement evidence. Its implementation reuses the original transport and measurement primitives.
+The derived comparison will use successful retries in their missing slots and retain explicit
+provenance. Because their generation occurs after the randomized sequence, completed-grid
+distances are descriptive; the original registered primary and previous tests remain unchanged.
+
+Preparation and code checks are underway. No new request has been sent yet. The earlier no-extra-
+request wording below describes the closed source run; the user's latest authorization applies
+only to this disjoint two-attempt follow-up. Do not start another retry writer.
+
 ## Completed goal: repeated GPT Image prompt study
 
 The approved extension is **complete**. Read the
