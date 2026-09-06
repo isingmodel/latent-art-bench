@@ -32,8 +32,14 @@ Read the [exact methods](../studies/painter_distribution_exploration_v1/METHODS.
 uv run --locked --extra analysis --extra learned python -m latent_art_bench.painter_distribution_exploration_v1.report check
 ```
 
-The implementation and inputs are bound to a clean Git commit in the report's provenance.
-Historical frozen studies remain unchanged; this does not restore the original primary result.
+The implementation and 96 consumed inputs are bound to commit `1a8065b` in the report's
+provenance. All 35 report files reproduce byte-for-byte, including 14 PNG/SVG figures; the actual
+figures were visually inspected. Ruff passed and all **749 offline tests passed** (76.25 seconds).
+Historical v1/v2 audits passed 2,902 / 15,809 checks. A separate primal linear-ridge calculation
+reproduced all all-31 held-out scores within 2.25e-14; SVD reproduced all 20 PCA variance ratios
+within 3.89e-16. Both calculations were run by the same maintainer agent, not an independent review.
+Portable-path and document-link checks passed. Historical frozen studies remain unchanged;
+this does not restore the original primary result.
 
 ## Completed follow-up: two refusal retries
 

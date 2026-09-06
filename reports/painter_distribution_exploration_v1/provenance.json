@@ -1,0 +1,531 @@
+{
+  "inputs": [
+    {
+      "path": "configs/painter_prompt_study_v1/study.json",
+      "sha256": "f8282e2ba064db346c69d6049ea779fb14228ad0081965eb39f845fe55bdd69b"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v1/prompt_library.json",
+      "sha256": "fbe81e7cb93282dae96c3edd7df58ed3d43ee81516b6df113f3c8b56b07e09a7"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/confirmation_features.jsonl",
+      "sha256": "01cc5167c09b88eab6a86885b72040f76fc8a7ca8a62acd56d85a8b16b2f7717"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/confirmation_receipt.json",
+      "sha256": "22617ada4debec0dde30cbb9c492b986e67fe0c5382f0b8d69740466d934889a"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/development_receipt.json",
+      "sha256": "5a724637bbf4ff1e424be0259e53ceb47c4926dba926defcff2609c7057b1b1c"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/empirical_analysis.json",
+      "sha256": "34bf52e5f1c57984c7ee1da0b72950108a7bf550cf2f2512db72483ea206b3c8"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/experiments/pfg2-oauth-pilot-20260905/generated_features.jsonl",
+      "sha256": "082e3ec32305b6d3b66e2f3a649d32a6741c6535b9cb46740cca9def605de772"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/experiments/pfg2-oauth-pilot-20260905/generated_receipt.json",
+      "sha256": "6080a2b0c62bc7b20fa3142233eea851bb6e7ece2dfc9a3fb2398286adff7616"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/experiments/pfg2-sd-turbo-20260905/generated_features.jsonl",
+      "sha256": "eaed290dbc6a4afe5a330b29a6721f4556914517e74eb4300bb0cb422192b560"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/experiments/pfg2-sd-turbo-20260905/generated_receipt.json",
+      "sha256": "b97c1233ad8e72fbde349f7b5b52aa2ed8de63619c0ed163bd40b535f4788509"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/method_freeze.json",
+      "sha256": "0c254c629b37803c7e99f2c61485f6086f593f98cd8bc26b78a5c498f2b29200"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/report_receipt.json",
+      "sha256": "fc7534a1123eba2c8c3884bb6c5c0fd3a908a88cb74191b0069133d0b1086cd3"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/scaler.json",
+      "sha256": "71f511235081dfc1e9846976320c69477bcbd04dd43fc9a2e271f7b0375497b9"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-oauth-pilot-20260905/generation_receipt.json",
+      "sha256": "d4ee06e293a6b22d5dd5fa4d3dc04784c409dda4c286e97edebed1540b6af13c"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-sd-turbo-20260905/generation_receipt.json",
+      "sha256": "58dc9fdaa0c4c8d49124ee3653cbc4494d358b1d71d4956721b8f2e2aa0ef033"
+    },
+    {
+      "path": "data/manifests/painter_prompt_retry_v1/ppr1-two-refusals-20260906/generation_receipt.json",
+      "sha256": "9d9642ecba58400cfb177c9ac4e9774b716727e4e1f63ad25b68e71f763397f0"
+    },
+    {
+      "path": "data/manifests/painter_prompt_retry_v1/ppr1-two-refusals-20260906/measured_features.jsonl",
+      "sha256": "6f7d1bfec745f002a6ac70cd342240b60bd82edb6181dcdae4262acc8a5f0dac"
+    },
+    {
+      "path": "data/manifests/painter_prompt_retry_v1/ppr1-two-refusals-20260906/measurement_events.jsonl",
+      "sha256": "5be0489bd916d443ceabdc71b07d1c174098a159a9a36ed63df05c0f7a4ff998"
+    },
+    {
+      "path": "data/manifests/painter_prompt_retry_v1/ppr1-two-refusals-20260906/measurement_receipt.json",
+      "sha256": "5984ddbe384f2ce1c752ec5a338229f648b0f1000c6f86ffb4a3e1b16bcae1cd"
+    },
+    {
+      "path": "data/manifests/painter_prompt_retry_v1/ppr1-two-refusals-20260906/outputs.jsonl",
+      "sha256": "647b51080352ca5fec77b33f88384bb41cbd935b19472f327429fa8162f9b8ec"
+    },
+    {
+      "path": "data/manifests/painter_prompt_retry_v1/ppr1-two-refusals-20260906/retry_freeze.json",
+      "sha256": "0508dd73e6b14c2ebc72761ce9182b82a1c580af4c7e5181b199c781f17cb6b6"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/analysis.json",
+      "sha256": "c6691d11d0b9481cb9794cc05d1688c19c8949cd9b1b3005d9e0de12e00d8200"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/generation_events.jsonl",
+      "sha256": "26068ba30d408174d2e49e3f6ea3bffd09362142db730093456908e626059a08"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/generation_freeze.json",
+      "sha256": "05f7e44abafe3724c13469a01b0e126e752ad878b8d2482160bb2bd585387d98"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/generation_receipt.json",
+      "sha256": "7692ac4e1f40f988aad133bb717b863f25bff7abf9f996044292af03e3248ea2"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/measured_features.jsonl",
+      "sha256": "d398b851f6036feb666de90cf6ed24014cdd6616e514d87a91703a44c3a74482"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/measurement_events.jsonl",
+      "sha256": "bee952eeaf5857d6a90e5387ec45c3fd12482c7f4019217f74776d3455d7982a"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/measurement_receipt.json",
+      "sha256": "f45a709d7889bd33ecececdbb1b9ea89b8460546b18da7e84a67bf63ea818f31"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/outputs.jsonl",
+      "sha256": "c8bfcf32ea3295ae7e8e5b88796e350f6baa6d48cc9acef455bd92384203bcc7"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/prompts.json",
+      "sha256": "a658ec0214c067353437f2c8182b90295896b09daba7ad4f48790db05a0c0f19"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/report_receipt.json",
+      "sha256": "1bd9c5e7c242ffe9fa41bd0e40bdb662c2492febfcd9bcd845edbaebffc1f8c0"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/requests.jsonl",
+      "sha256": "6a4139f7b780cf450d3f435d5ac95c590eef9b5214ad6bf54f8b61ffc4657cc4"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-randomization-20260905/decision.json",
+      "sha256": "edbae0b9e908d3fe060d51f8c767b1b4d130e0ac4848a640dbf89366b987d8b0"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-randomization-20260905/development.json",
+      "sha256": "42a68ad71ee4e8a3bfe5374b6e240d062d1d95c1dc2b0acdd27de5a70b684e4a"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-randomization-20260905/validation.json",
+      "sha256": "8bf2824156ee87e52747f3175617b8c9b2e8da02330cee8d43591a0e0ca24df0"
+    },
+    {
+      "path": "data/manifests/painter_prompt_supplement_v1/ppss1-missingness-20260905/analysis.json",
+      "sha256": "f38e233fea287d97d440a4b8d7137f04bb23f2e90d0fedd2fa37ebaea4e3c6fe"
+    },
+    {
+      "path": "data/manifests/painter_prompt_supplement_v1/ppss1-missingness-20260905/design_freeze.json",
+      "sha256": "8dd263ffa01387be6b5d25ba6869fd374dc4e840903bd514de015f7710b7b675"
+    },
+    {
+      "path": "data/manifests/painter_prompt_supplement_v1/ppss1-missingness-20260905/report_receipt.json",
+      "sha256": "cfeccbeb8976d6c11584688dbe4bf2b612f90c55eb2e8f4d93f028c7dede6a87"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8"
+    },
+    {
+      "path": "src/latent_art_bench/io.py",
+      "sha256": "13e6372aa9814495a45700eb9e65d099c56bb1bb3032d72f7f9e00e6ba91a9b8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_exploration_v1/__init__.py",
+      "sha256": "d4e2662af04338131f3cf8433dec142060de43e4ea3ad02acc2ebf95392f8984"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_exploration_v1/analysis.py",
+      "sha256": "4e5c37ba52f9ff9e8993e74301f3305362ac5eb2ddad34470f36309386bf1b4f"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_exploration_v1/report.py",
+      "sha256": "cdce74cd1d49c9904c6f88a17188366bce967fb03b52184445bc09f1a721c58c"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_exploration_v1/statistics.py",
+      "sha256": "ea87fe5a72050eb85b28f81dd0e32e1d5e355ab0980b83f46ae58bf0f0e316fc"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_distance_v1/analysis.py",
+      "sha256": "22d7b1bf8b55e916d5210bf19a636674cba86fdf35783ce8456682c784a98cb6"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v1/panel.py",
+      "sha256": "b878fe3438c1006767c1d8ca608c1d57b64ed2bb2dff418864fd25c8c2d216b8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v1/prompt_library.py",
+      "sha256": "b9fc03e33e4d18c36ae7b9688763f340ec899f98ae8b3783c7371109180057d4"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/artifacts.py",
+      "sha256": "8b48f0cfb433ac1769786aba366501b69ba1bec540a1a2f9e35e93ce45e9b0d7"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/empirical.py",
+      "sha256": "c5ed9f4f7f390de7087222d6b780744bb33eaf279ccedfbbeb706510336655a9"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/features.py",
+      "sha256": "b295c2de1a8501e8ab335d88ed56ab8f2dc8b3ca704141b92e02ef586d48d172"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/model_assessment.py",
+      "sha256": "bd460259a4282df10e9e57d65c54e0ff1cf89a3a72ffb68a29fa0bb9086888ed"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/oauth_generate.py",
+      "sha256": "ac5957ebbc9d7a0b7e6361671b58bb021e88fae200b1260538db499376e2b32f"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/pipeline.py",
+      "sha256": "f2edadc329b2b0a5490c5e1d8f542d5b3bc0bff7fb83ac82fe90d6389f7db37b"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/statistics.py",
+      "sha256": "20830e7a90bc49666f0937ef7bc2ae3f11206f986c72eb8f80ad30cc24fcdaa8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_retry_v1.py",
+      "sha256": "8f8365003d9f9d276c3ea7fabc2bab5a78f595905f5c73a9f1c1ad013ff89fbf"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/__init__.py",
+      "sha256": "db507448d5134974ca1b407fd4396413b2b4a9b1bd8d8011b74dee30f8128683"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/analysis.py",
+      "sha256": "c78239d3c331fb99f6f33e2f171cf3794373a033b6438a251102b8ff6962b60a"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/audit.py",
+      "sha256": "3aeeb3a4a73aebb73723a21af44afa0a8601dfd66ca081be67b8c41965e96603"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/calibration.py",
+      "sha256": "7624c44d3de1eda939e761e055e04b5066013758c379e758cb42dcfec0076567"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/calibration_record.py",
+      "sha256": "e83406887a6e9657953a4f99055acd051e94d504f98db20d3b553453cf585167"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/cli.py",
+      "sha256": "9adeac0b6530a25050ce7025ee47a86ab89b1e832bb0c8cffd4ea7b135a3fb86"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/common.py",
+      "sha256": "8f399eb26069a283209437de51885ce38ca28a21759b359afc506d263107ec4f"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/design.py",
+      "sha256": "e744bb0792ab59e7f8196bafc5ba47f9643872769d6dad887410aa1a60b2c961"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/generation.py",
+      "sha256": "8bc7db4904d3bbbf6048767125002b9c07047a2be9b63168eb536eaccc30bc8b"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/measurement.py",
+      "sha256": "5a85a5e983d021f1006be9363c660b7167989918c55e5f140c2aba34dfcfa1af"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/prompts.py",
+      "sha256": "cff027af709ab49c4442e929f0cbcc63931f6ff0468908c39d3367df39fd4c10"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/randomization.py",
+      "sha256": "fec27f7a55ef75d2b7cbf66b6086696f83e051a3dd59f67faae596df1d043e5e"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/randomization_record.py",
+      "sha256": "b27eb93a4c4a456f1ef77bf906a4689144afe09c3856de76b69a2de5039443a0"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/report.py",
+      "sha256": "c549aa0a49aaba4f964143cb902a4c398befe8f2fd89245b84e414bc2547210c"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/reproduction.py",
+      "sha256": "2c334d9db83e7a65e42ed2d1d49ad2f16a895bb75ccf074fc00a5a2dd94855b4"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/statistics.py",
+      "sha256": "ea1f00990bfb647dea61b69418ac0f88c18a06814a9801c0f5a1d41020344654"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_supplement_v1/__init__.py",
+      "sha256": "4c880914048d20613bfbd3cebd67e613962e50fa75669c47e6fd64f84a1d2bf6"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_supplement_v1/report.py",
+      "sha256": "25b4ee9ed4d91aae972093a7eded071e350240019066d9ab1821914327949960"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_supplement_v1/statistics.py",
+      "sha256": "37ca07180a102d90afa8b8eebeccb5262e4d9ea22a458547b91b2d6713a648b9"
+    },
+    {
+      "path": "studies/painter_distribution_exploration_v1/METHODS.md",
+      "sha256": "1ce7a694b2cc5bc5b5da74f5d98ca48f13e23e645be181a179c40f3d3b1c126a"
+    },
+    {
+      "path": "studies/painter_prompt_retry_v1/PROTOCOL.md",
+      "sha256": "9266f047138cc7de5466fd2c5bb6d27a13b5fcca75bc6d996eeaf4e0f7b89272"
+    },
+    {
+      "path": "studies/painter_prompt_study_v1/PROTOCOL.md",
+      "sha256": "f7b2a3c981d07ada48a6e5eb07713d87ae02695aec7d0371bc78cf4a96aa943a"
+    },
+    {
+      "path": "tests/painter_distribution_exploration_v1/__init__.py",
+      "sha256": "14dac0b27deacd1f2ef728b0252e185aa01b55b4b2596dea9bc89fb7f4e0eb13"
+    },
+    {
+      "path": "tests/painter_distribution_exploration_v1/test_report.py",
+      "sha256": "0ca408e49dc701147cbd5ffb8393d0af9bc7746b6908aedb7a37026ef4b22b9e"
+    },
+    {
+      "path": "tests/painter_distribution_exploration_v1/test_statistics.py",
+      "sha256": "31790018a2b037ff77c2da22d96653d07380091bfc6f199c93b5df2c318a6cde"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/__init__.py",
+      "sha256": "714143f4f4d7bd90e1f9d4e84b34a6ad91ea671b9972ce9c28df81d06253a2fa"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_analysis.py",
+      "sha256": "8163ebd6939ae6fdedab965d4dc940ef66caf71806905771a6926210685bba36"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_audit.py",
+      "sha256": "52e55073fbc3a8b5dd6f0100c74f474b16b96af01a7defbbd9adebf540f22ab2"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_calibration_record.py",
+      "sha256": "44ce207126d059abf380620f2ef1aa7c07ff6323ef4cf3ea3fda0504a5ba72a0"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_design.py",
+      "sha256": "a26797153605ed678b651095dc6ca23b438a9f6adfd54155226e0134aedae249"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_dispatch.py",
+      "sha256": "f5b0b7f0eb80259eb7e0db1bc4c82b6e3d2215070e25314939845bf943537848"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_end_to_end.py",
+      "sha256": "b97b345f10f68e7510893eb570ad5287380599c6c0990458f16c321efb32f076"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_generation.py",
+      "sha256": "1b668c72a9cc87c950159110150ab7da11c0fe3053dd51534d36a83150263383"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_measurement.py",
+      "sha256": "f8a9cb8b799e4861eb4538e4c79010f4fe6075e4da1878b43c506a090b7352b8"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_prompts.py",
+      "sha256": "508f313cbc7a945d62eb43f85c33e02f9017226bf4af073d492d9495d5e7d70d"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_randomization.py",
+      "sha256": "6d3139f0efc4208a2e3fb0b560e5b40d31fe5cdcdd96153d2809c06b832af46e"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_randomization_record.py",
+      "sha256": "47e1372f49d51f6bb576f61fdb2a2724da67b63d3705062adb9b849946f049a9"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_report.py",
+      "sha256": "e28118ad74b6ad376100b47ef03b2c529855f5e086c1f67555f0b8bb79c940b0"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_statistics.py",
+      "sha256": "6ce1e429197c8b67a8009d51c224973bb246136a59c6c305576499a4f0fab4af"
+    },
+    {
+      "path": "tests/test_painter_prompt_retry_v1.py",
+      "sha256": "defa9b816632210dafbe2a8a4ee6df3b2c6017f25fa7ef83f17580b7eae5ef16"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+    }
+  ],
+  "interpretation": "post-hoc descriptive exploration",
+  "new_feature_extraction": false,
+  "new_images": 0,
+  "outputs": [
+    {
+      "path": "reports/painter_distribution_exploration_v1/REPORT.md",
+      "sha256": "d78b3dac6b007f5a4aa6b73fa7ad2cf8c08d5ef36d4ec4f46ce620d2d772775a"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/plots/alfred_sisley_all31.png",
+      "sha256": "6c784ddd474a32f1808923e64037338d5329354bba0bcabab2fe6b629f2afb21"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/plots/alfred_sisley_all31.svg",
+      "sha256": "65976a9a939e55bc61910b59dcd8050511841b7e3c395dbb9e94eff59c1b164d"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/plots/alfred_sisley_families.png",
+      "sha256": "78dc596d2b95cad9aecfc87ddea22755044c4841b4c41701ce1da8b49e951d48"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/plots/alfred_sisley_families.svg",
+      "sha256": "524d8095e16c997cbcc64226e1a3f513c686956d1d2f419387d24dbfecf71616"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/plots/alfred_sisley_original_only.png",
+      "sha256": "fd0aec2408b5fb530d03035c2ab9621fadfa7420a84474243b5d226a8fa90404"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/plots/alfred_sisley_original_only.svg",
+      "sha256": "7885dd7ecb17bfa55b3eb7ce89d9b7006518f57758f249d85798ae213641f9e6"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/plots/by_name_overview.png",
+      "sha256": "94a07ae5092f728a82dbbb44b6f68a5ffff2f2a776e61a75e986d7285db38710"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/plots/by_name_overview.svg",
+      "sha256": "84410c1b15dcad96fb4ca7de5c3c4af87b36592b01ab0590cdba926dea162bb5"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/plots/camille_pissarro_all31.png",
+      "sha256": "c7849a453d5cafbbdb9a4eb896399517f47516927d137d6ef1a72462cba8d4bc"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/plots/camille_pissarro_all31.svg",
+      "sha256": "0a5c4ab17b711177d6ba235f2223c44e6ee8e59db149c86101c800ff54112e57"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/plots/camille_pissarro_families.png",
+      "sha256": "2780dc4f93ed95b1d4da0ffffc4eff6da992ee651cd5fa7699f6ee9edc4b6143"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/plots/camille_pissarro_families.svg",
+      "sha256": "581f5e87321cc92979af1ce782dc9075b1d3870d565a519c6161b33780f5f643"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/plots/camille_pissarro_original_only.png",
+      "sha256": "4518420ae88e8424a768f595b7a48d67cd6ff87b373accdb40a6da0a4e9caa76"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/plots/camille_pissarro_original_only.svg",
+      "sha256": "01c1161dd3fd1d1f349ded8a56ebfb72bd1b308ad585b6e0fe0cb9e53d6d465e"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/plots/claude_monet_all31.png",
+      "sha256": "b68fd4a76cf8306940dbb4c02d457b05b435f5f6f8cb888735d2f26377c6ec2e"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/plots/claude_monet_all31.svg",
+      "sha256": "c7fba261fbad707f9c39ee7e3a5a7e936ac2edb3b87899c79d1b3481bc341655"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/plots/claude_monet_families.png",
+      "sha256": "de0566c01e5791cfa915143b6d4d289bfa7447977ce9fe1643d21601276b9005"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/plots/claude_monet_families.svg",
+      "sha256": "1d314302081ed6c686f7452c5e618f0f568a31631f77ce91344ad13e242fcbcb"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/plots/claude_monet_original_only.png",
+      "sha256": "e34ee7418e548df05ba4aa7f95414d20f27024185391fac5077171c2e412b9aa"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/plots/claude_monet_original_only.svg",
+      "sha256": "c7a473c21f0d5df817df67f0436d62f617d7d8d0431a1750d6a508dc124875e1"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/plots/paul_cezanne_all31.png",
+      "sha256": "783fe5a2513bff6c2ac156e981c3c493a4fbd947d8b4f5adae026f74c4f462b5"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/plots/paul_cezanne_all31.svg",
+      "sha256": "0b2e6aed72553efd1aa090f9ca646a2abb6f1d4dc3193a866b563ed85f3ed5fe"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/plots/paul_cezanne_families.png",
+      "sha256": "ae2cca92a692130ab2e7d316b6fccc5397fed15b7de078f022a8f7ef72e9803f"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/plots/paul_cezanne_families.svg",
+      "sha256": "cfbf7972ff16c2586a4a08e8fe91aadd762ab00c9a570e18586f27598f6f30d6"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/plots/paul_cezanne_original_only.png",
+      "sha256": "70e90f019bb04796f72ec44c6c987f84337ad33de9fc31730ff1c86d816eb47f"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/plots/paul_cezanne_original_only.svg",
+      "sha256": "a1e2a2b1377844868d5d103b3f677eb02929d25f7f5212efca176c7ed9843de0"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/plots/separability.png",
+      "sha256": "f3c0ce1813d05254946b075a6a95c0817721502a609413e6578538e294ef7066"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/plots/separability.svg",
+      "sha256": "e75527596448ba9cf142e63a3dd77908715ebad2af88364c1e6c2084dac7aa91"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/points.csv",
+      "sha256": "7f8d8fa6e758920f1b384a0ec1c29ca3e3254a6c61a23c85bab17f0cb5370c96"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/predictions.csv",
+      "sha256": "d3b124d3a88a27852464a51f9dc4b5612130c48199a047b08807964faa6ae4a1"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/projections.json",
+      "sha256": "09b680de79d005ccad89b3dbdee88185f1dcbfb8ca60f663903d2eb6aee070a2"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/separability.csv",
+      "sha256": "7c88bdbe36b4e42464db9ca098f46fa7ac1b93c1d35794d8f9735b54d36ad91d"
+    },
+    {
+      "path": "reports/painter_distribution_exploration_v1/spread.csv",
+      "sha256": "c820b44c223b322c0b2be21198631251e959223e792e9bab1e2d03024619fa0f"
+    }
+  ],
+  "recorded_git_commit": "1a8065b037d3b1f53e7b28aa3bbb277921ad9976",
+  "schema_version": "painter-distribution-exploration/1.0"
+}
