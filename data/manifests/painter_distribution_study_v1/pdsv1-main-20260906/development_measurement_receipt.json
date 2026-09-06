@@ -1,0 +1,23 @@
+{
+  "dispositions": {
+    "measured": 442
+  },
+  "duplicate_raw_hashes": {},
+  "images": 221,
+  "outputs": [
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-20260906/development_features.jsonl",
+      "sha256": "2050b9f10471473935afee5cbe2e0996499232f3b9fe6774667a2671bea3338b"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-20260906/scalers.json",
+      "sha256": "d886f0726715a228d7dd06cc57003616c06386b0321ca5611bcb4315a2a564b6"
+    }
+  ],
+  "pipelines": [
+    "resolution256",
+    "jpeg90_512"
+  ],
+  "source_freeze_sha256": "71a02ecb92c03245a5576ab521d95cf888dec89e4e630af79df80dafe2e8a483",
+  "stage": "development"
+}

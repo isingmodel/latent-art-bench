@@ -19,7 +19,13 @@ The standard-thumbnail successor completed all 71 deliveries under its committed
 Visual content review admits 38 Monet and 32 Cézanne works, excluding one figure-led painting;
 the 71 annotations retain ambiguity and border notes. Conditional prompt-inference qualification
 passed both fixed-seed phases. The main 1,008-slot collector, bounded retry handling, three feature
-pipelines and fixed analysis are implemented; their main freeze and execution are the next steps. Read
+pipelines and fixed analysis are implemented. Main source/freeze commits are `d06cb95`/`a03503b`;
+all 442 development sensitivity vectors succeeded. Before the first research POST, the user
+requested staggered parallel generation. The waiting sequential collector was stopped and
+permanently closed with zero research attempts. Implement a disjoint parallel successor with
+at most three in flight, five seconds between starts, and one active request per model route;
+reuse the frozen scientific primitives and completed development scalers. Do not edit the
+executed source or reopen the closed sequential census. Read
 [current status](STATUS.md), the [staged protocol](../studies/painter_distribution_study_v1/PROTOCOL.md)
 and [main contract](../studies/painter_distribution_study_v1/MAIN.md). Research generation,
 measurement and final paper results remain active work. The English LaTeX/PDF prototype is drafted

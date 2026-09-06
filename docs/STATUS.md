@@ -55,7 +55,17 @@ One figure-led Cézanne is excluded. Mixed content and visible thin borders are 
 This is not expert or independent human annotation. Conditional prompt-inference qualification
 passed both fixed-seed phases. The implemented main collector, three measurement pipelines and
 analysis pass **813 offline tests** (77.64 seconds); Ruff and the 2,902-check historical evidence
-audit pass. The main reference/prompt/analysis freeze is next. No new fidelity features were extracted.
+audit pass. Main method source was committed at `d06cb95`; its four-file freeze/inventory
+was committed at `a03503b`. Development remeasurement completed all 442 sensitivity vectors
+from the same 221 works, and both new scalers are available. Fresh reference and generated
+fidelity vectors have not been measured.
+
+Before the first research POST, the user requested staggered parallel calls. The sequential
+collector was stopped while waiting for its first window and permanently closed with status
+`superseded_before_dispatch`: **zero research attempts**. A prospective parallel successor is
+being implemented with at most three in-flight requests, at least five seconds between starts,
+and one active request per model route. It will retain the frozen content/analysis design and
+the $75/1,050-attempt caps, with new execution paths and predecessor-bound evidence.
 
 The English LaTeX/PDF paper prototype is drafted and visually checked; it distinguishes
 completed diagnostics and pilot outcomes from pending new-model comparisons. Human construct
