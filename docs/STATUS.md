@@ -140,6 +140,14 @@ its execution freeze at `fb21593`, before dispatch. The sole coordinator is
 `recovery run --watch`; its retry of `slot0108` returned a verified image.
 Original window times remain unchanged. Neither closed collector may be resumed.
 
+Window 0 is complete across the three components: **126 original slots, 125
+selected images and one retained OAuth refusal**, with one extra FLUX retry.
+All 27 recovery responses and image-container metadata verified. Including the
+18-request pilot, 145 attempts have completed; reported charges total $5.811998,
+plus the unchanged $5 contingency, with no unresolved request or unclassified
+cost. The live coordinator is waiting normally for window 1, September 6 at
+17:30 UTC (September 7, 02:30 KST). Seven windows / 882 initial slots remain.
+
 ## Original proposal snapshot, before execution authorization
 
 The user requested an English research proposal and an explicit choice of expansion axis, with
