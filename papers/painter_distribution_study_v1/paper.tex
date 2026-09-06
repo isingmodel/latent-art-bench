@@ -313,17 +313,89 @@ a separate service comparison where matched rendering is required. Symmetric
 must accompany the native-processing comparison. Such sensitivities cannot undo
 unknown prior compression or demonstrate equivalent physical capture.
 
+\subsection{Controlled measurement and distribution endpoints}
+The controlled reference panel has now produced all 210 expected feature vectors
+under three processing pipelines, without measurement failures or duplicate raw
+image hashes. Recomputing those vectors from retained source bytes reproduces
+all records. Both sensitivity scalers were fitted first, from 442 remeasurements
+of the same 221 historical development works. Research generation remains in
+progress; generated evaluation features are withheld until its terminal receipt.
+
+For painter $p$, let $N_{pc}$ denote the number of reference works in content
+class $c$, $N_p$ the total, and $n_{pc}$ the number of available generated
+observations in a particular route/condition cell. The primary weights are
+\begin{equation}
+ a_i=1/N_p,\qquad b_j=\frac{N_{pc}}{N_p n_{pc}}\quad\text{for }j\in c.
+\end{equation}
+Each cell is assigned 72 slots: eight briefs per content class, each repeated
+three times. Missing outputs redistribute only their own class's fixed mass;
+a required class with no measured output makes that comparison unavailable.
+The weighting is conditional on intended generated content, whose adherence has
+not been independently judged. Images are not discarded for failing to resemble
+a painter or for depicting the intended scene imperfectly. Effective weight size
+$1/\sum_j b_j^2$ is reported separately from the number of image files.
+
+Primary energy discrepancy and the two spread ratios use all 31 standardized
+features. Color, spatial and texture subsets remain descriptive. Prespecified
+sensitivities use the collected generated mixture, one-third mass per content
+class, only unambiguous reference annotations, only reference sources with native
+short sides at least 1024 pixels, and initial-attempt successes alone. The
+annotation and native-size restrictions redefine their reference class masses
+from the retained subset and are labeled accordingly. A 256-pixel short side
+and common JPEG encoding at quality 90 with 4:2:0 subsampling additionally probe
+processing sensitivity. No histogram, palette or texture matching is performed.
+
+For the new disjoint original/original baseline, each of 999 deterministic draws
+selects two nonoverlapping sets of $\lfloor N_{pc}/2\rfloor$ works per class and a
+generated set with the same class counts, without replacement. All sets retain
+the declared class masses. The resulting group sizes are 18 for Monet and 15 for
+Cézanne; the latter includes only one water work per group. The repeated draws
+characterize this finite panel and do not create independent reference samples.
+
+Secondary coverage uses an original-centered ball with radius $r_i$ equal to
+the distance to the third nearest distinct reference work:
+\begin{equation}
+ \widehat{C}=\sum_i a_i\,\mathbf{1}
+ \!\left\{\min_j\lVert x_i-y_j\rVert_2\leq r_i\right\}.
+\end{equation}
+We report all-available coverage and 100 uniform generated subsamples of size
+$\min(N_p,n_p)$, without replacement. These neighborhood measurements depend on
+sample size and representation and are not artistic-completeness scores.
+
+Fixed linear/RBF kernel-ridge detection uses six whole-brief folds and disjoint
+reference works, with no tuning or PCA input. Reference folds are assigned by
+content-stratified identity hashes, so sparse classes are distributed across
+folds. Training assigns equal total mass to original and generated labels and
+matches content masses within each label; held-out balanced accuracy and AUC use
+the same target masses. Eight whole-window folds provide a timing sensitivity.
+Every split and prediction is retained. For visualization, each painter has one
+common PCA fit with half the mass on originals and half shared equally across
+seven generated cells, using the primary content weights. Original-only PCA is
+also retained. Every point is shown under shared within-painter axes. Painter
+specificity compares each named cell with both reference painters under the
+same one-third-per-class mixture, separately from its absolute discrepancy.
+
 \subsection{Prospective inference and missingness boundary}
 Research generation requires a committed reference, prompt, endpoint, schedule
 and analysis freeze before evaluation features are extracted. At least eight
 collection windows span multiple days; repetitions of a brief occupy different
-windows. A user-requested execution amendment closes the unused sequential
-collector before its first research request and uses three route workers, at most
+windows. An execution amendment closed the unused sequential
+collector before its first research request and specified three route workers, at most
 one active request per route, with globally staggered starts at least five seconds
 apart. Within-route randomized condition order is preserved. Actual timestamps,
 attempted slots, refusals and uncertain requests are retained. Scheduling across
 days does not by itself establish independent sessions; concurrent gateway traffic
 also leaves the no-interference assumption unverified.
+
+The first parallel census closed after 48 attempted slots: 47 returned images
+and one explicit OAuth moderation refusal encoded as HTTP 400. A generic status
+rule had classified that refusal as a request-contract error. A prospective
+correction recognizes the verified, zero-charge moderation envelope as a failed
+observation and continues only the 960 unattempted slots, retaining predecessor
+failure history for the cluster stop. The blocked slot is not retried, rewritten
+or rerouted. The final derived view will retain both censuses, their interruption
+and every original slot identity. This correction preceded all generated-feature
+measurement; the 47 existing images were not selected by their measured outcomes.
 
 Prospective synthetic qualification passes for the eight paired all-31 prompt
 contrasts: six named-versus-free and two detailed-versus-generic OAuth contrasts.
@@ -339,6 +411,33 @@ intervals are not justified by the number of files alone.
 No significance-based sampling extension, silent replacement of missing outputs
 or retrospective change to a sealed endpoint is allowed. No new-model fidelity
 result, p-value or human result is available in this prototype revision.
+
+\subsection{Paired statistic and conditional interpretation}
+For a matched before/after pair $(A_i,B_i)$ with fixed class-adjusted weight
+$b_i$, define $C(v)=\sum_j a_j\lVert v-x_j\rVert_2$ and
+$T(v)=\sum_i b_i(\lVert v-A_i\rVert_2+\lVert v-B_i\rVert_2)$. The contribution
+\begin{equation}
+ c_i=b_i\{2[C(B_i)-C(A_i)]-[T(B_i)-T(A_i)]\}
+\end{equation}
+satisfies $\sum_i c_i=\widehat{\mathcal E}(X,B)-\widehat{\mathcal E}(X,A)$.
+Thus the contrast retains the within-generated pairwise terms; it is not a
+contrast of mean-to-centroid distances. Complementary condition swaps produce
+$\sum_i s_i c_i$ for assignment signs $s_i\in\{-1,1\}$. For the three-condition
+OAuth groups, each pairwise comparison conditions on the third condition's
+position in the uniformly randomized order.
+
+A contrast uses complete measured pairs sharing a brief, repetition and assigned
+window. If fewer than 24 pairs or 12 distinct briefs survive, or a required
+content class is absent, its endpoint is unavailable and retains $p=1$ in the
+fixed eight-test family. This is distinct from the all-available descriptive
+comparison. Two-sided Monte Carlo p-values use $(1+e)/(1+99999)$, where $e$ counts
+sign-draw statistics at least as extreme in absolute value, including numerical
+ties. Leave-one-window and leave-one-brief estimates assess sensitivity without
+being labeled confidence intervals. The sharp assignment null covers both
+availability and measured features for the full fixed slot policy, including its
+bounded technical retry rule; it is stronger than equality of expected distances.
+Treatment-dependent service duration and retry delays can affect later calls,
+so the randomization calculation does not remove the no-interference limitation.
 
 \section{Discussion}
 The completed results support the narrow empirical hypothesis of a feature-space
@@ -407,5 +506,6 @@ are pinned by \texttt{uv.lock}. Raw image acquisition and generation commands
 are separate from the standard offline test suite.
 
 \bibliographystyle{plainnat}
-\bibliography{references}
+{\interlinepenalty=10000
+\bibliography{references}}
 \end{document}

@@ -15,8 +15,9 @@ attempts, including at most 588 paid initial attempts. The user's subsequent
 bounded transient-error retries: 1,050 total / 612 paid attempts, with the same $75 ceiling.
 The user reaffirmed $75 after the authenticated
 preflight showed about $50 available and stated that replenishment is configured. This supersedes
-the interim $45 planning limit. The technical pilot spent **$0.8304855**. The first parallel collector is now terminal after a diagnosed refusal.
-Recorded total study charges are $3.3797815, with no unresolved intents or charges.
+the interim $45 planning limit. The technical pilot spent **$0.8304855**. The first parallel collector is terminal after a diagnosed refusal.
+Its closing study charges were $3.3797815, with no unresolved intents or charges;
+the frozen remaining-slot continuation is now running.
 
 Stage A is complete. The [diagnostic report](../reports/painter_distribution_study_v1/pdsv1-diagnostics-20260906/REPORT.md)
 and all 18 output files reproduce byte-for-byte. Content-equal spread ratios are 0.211–0.372 for
@@ -105,6 +106,9 @@ The refused slot is neither retried nor rewritten. Recognized explicit refusals
 remain failed observations; unknown/bad requests still stop, and predecessor
 failures continue to count toward the route failure-cluster rule. Combined results
 will retain all original slot identities, the 47 prior images and the missing refusal.
+Continuation source/terminal evidence was committed at `29027dd`, its freeze
+at `ec4ef09`, before resumed dispatch. Its coordinator is running. All **828 offline
+tests**, Ruff and the 2,902-check historical evidence audit pass.
 No generated fidelity vector has been measured. The 11-page paper now specifies
 the controlled statistics and their assumptions; final data/results remain pending.
 

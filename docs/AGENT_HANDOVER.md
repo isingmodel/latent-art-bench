@@ -48,7 +48,10 @@ slots at disjoint paths, retaining the original schedule and limits. The refusal
 is not retried or rewritten. `continuation_results.py` will combine both component
 receipts, measure their successful outputs and call the frozen scientific analysis.
 The 47 prior images are retained; the same missing-pair rules handle the refusal.
-Read the new refusal continuation contract and current status before dispatch.
+Continuation source/terminal evidence was committed at `29027dd` and the new
+execution freeze at `ec4ef09`; the sole live coordinator uses `continuation run --watch`.
+The old collector session is terminal. All 828 offline tests, Ruff and the historical
+evidence audit pass. Read the new refusal continuation contract and current status.
 
 **Latest exploration — 2026-09-06:** the user requested scatter plots of original versus
 painter-conditioned generated feature distributions. The new

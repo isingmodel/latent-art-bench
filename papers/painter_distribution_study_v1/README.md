@@ -1,7 +1,10 @@
 # English paper prototype
 
 `paper.tex` is a venue-neutral manuscript with anonymous author placeholders.
-It reports completed development evidence and the completed technical pilot;
+The current 11-page prototype specifies content weighting, full-distribution
+energy, spread, sample-matched original baselines, coverage, grouped detection
+and the conditional prompt statistic. It reports completed development evidence,
+the completed technical pilot and verified reference measurement;
 the controlled extension is explicitly marked in progress. No new-model fidelity
 results or human results are fabricated. Update those sections only from verified
 terminal evidence when the active study completes.
