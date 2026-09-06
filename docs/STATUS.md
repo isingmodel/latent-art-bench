@@ -1,5 +1,24 @@
 # Current status and research boundary — 2026-09-06
 
+## Active goal: implement the controlled study and paper prototype
+
+The user supplied `OPENROUTER_API_KEY` locally and requested implementation plus an English
+paper prototype, then explicitly delegated the outstanding choices to the recommendations.
+The adopted scope is multi-day collection, a computational paper with human evaluation prepared
+for follow-up, and prospective reference-panel adaptation when availability requires it.
+
+Implementation is in the new `painter_distribution_study_v1` namespace. Its
+[staged protocol](../studies/painter_distribution_study_v1/PROTOCOL.md) preserves closed historical
+studies. The operating cap is $75 and the generation cap is 1,026 total attempts, including at most
+588 paid attempts. No paid calls or new image acquisition have occurred in this stage.
+
+Local preflight confirmed the key is configured, `.env` is ignored and untracked, and Tectonic,
+Pandoc and Poppler are available. It did not authenticate or expose the key. Free storage was
+18.7 GiB at preflight; every collection stage must preserve the 5 GiB reserve. Stage A implements
+artist-free controls, content-mixture weighting, disjoint real/real baselines, robust spread and
+scene/work-disjoint transfer. Ruff passed and all 758 offline tests passed (77.30 seconds).
+Its source and methods are being committed before the diagnostic freeze and computation.
+
 ## Next research proposal prepared; execution has not started
 
 The user requested an English research proposal and an explicit choice of expansion axis, with

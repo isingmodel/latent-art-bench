@@ -1,0 +1,10 @@
+{
+  "schema_version": "painter-distribution-diagnostics/1.0",
+  "run_id": "pdsv1-diagnostics-20260906",
+  "seed": "painter-distribution-study-v1-stage-a-before-computation",
+  "split_draws": 128,
+  "classifier_baseline_draws": 16,
+  "maximum_matched_group_size": 64,
+  "transfer_folds": 4,
+  "feature_sets": ["all31", "color", "spatial", "texture"]
+}

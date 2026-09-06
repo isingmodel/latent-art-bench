@@ -18,9 +18,11 @@ identities.
 ## Proposed next research round
 
 - [Expansion decision, controlled study design and $100 budget](RESEARCH_PROPOSAL_20260906.md)
+- [Authorized staged execution protocol](../studies/painter_distribution_study_v1/PROTOCOL.md)
+- [Fixed existing-data diagnostic methods](../studies/painter_distribution_study_v1/DIAGNOSTICS.md)
 
-Planning only: two additional model families, two existing painter cases, content/capture controls
-and a focused prompt intervention. No new collection or generation has started.
+Implementation authorized: two additional model families, two existing painter cases,
+content/capture controls and a focused prompt intervention. See current status for stage progress.
 
 ## Distribution scatter and separability exploration
 
