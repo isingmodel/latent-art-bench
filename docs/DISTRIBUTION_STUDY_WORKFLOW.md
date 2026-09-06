@@ -19,6 +19,10 @@ cost, retaining a $5 contingency against the spending ceiling. Commit its new
 source, tests, contract and predecessor evidence before preparing its create-once
 freeze, then commit the freeze before dispatch:
 
+This preparation is complete for the active recovery: source `94c602e`, execution
+freeze `fb21593`. The preparation command below is a record of the completed step;
+do not prepare the same freeze again.
+
 ```bash
 uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.recovery prepare
 # Commit execution_freeze.json before running check or dispatching.

@@ -83,7 +83,8 @@ snapshots. Sample size, output geometry, subject matter and capture differences 
 The original [v2 empirical report](reports/painter_feature_generation_v2/EMPIRICAL_ANALYSIS.md),
 [its Korean translation](reports/painter_feature_generation_v2/EMPIRICAL_ANALYSIS_KO.md), and all
 terminal study evidence are preserved. The original full paired crop analysis covered 3,340
-measured images. Manuscript drafting remains deferred.
+measured images. The active distribution-study manuscript is available through the
+paper-prototype link above.
 
 ## Run and reproduce
 

@@ -18,7 +18,8 @@ preflight showed about $50 available and stated that replenishment is configured
 the interim $45 planning limit. The technical pilot spent **$0.8304855**. The first parallel collector is terminal after a diagnosed refusal.
 Its closing study charges were $3.3797815, with no unresolved intents or charges;
 the remaining-slot continuation later stopped on a complete FLUX 502 with missing cost.
-It retains 51 more images and that failure. A narrowly bounded recovery is being prepared.
+It retains 51 more images and that failure. The bounded recovery is now running;
+its single FLUX retry succeeded, with the failed-call reserve retained.
 
 Stage A is complete. The [diagnostic report](../reports/painter_distribution_study_v1/pdsv1-diagnostics-20260906/REPORT.md)
 and all 18 output files reproduce byte-for-byte. Content-equal spread ratios are 0.211–0.372 for
@@ -134,8 +135,10 @@ The recovery implements 908 untouched original slots plus one bound retry of
 `slot0108`, with the unchanged study design, schedule and caps. The earlier OAuth
 refusal stays missing. No generated features have been measured. All 838 offline tests,
 Ruff and the 2,902-check historical evidence audit pass. The updated 11-page PDF has
-been rendered and visually checked. The new source and execution freeze must be
-committed before dispatch; neither closed collector may be resumed.
+been rendered and visually checked. Recovery source was committed at `94c602e`,
+its execution freeze at `fb21593`, before dispatch. The sole coordinator is
+`recovery run --watch`; its retry of `slot0108` returned a verified image.
+Original window times remain unchanged. Neither closed collector may be resumed.
 
 ## Original proposal snapshot, before execution authorization
 

@@ -63,8 +63,13 @@ OpenRouter documents failed-image billing waivers, but the raw cost stays null;
 kept intact. New `recovery.py` and `recovery_results.py` passed qualification for
 908 untouched initial slots and one exact-payload FLUX retry. The final view binds
 three components and validates the sole cross-census retry update; the OAuth refusal
-is not retried. Neither older process is live. Freeze the new implementation before
-resuming generation, and keep all existing outcomes and scientific inputs unchanged.
+is not retried. Neither older process is live. Source `94c602e` and execution freeze
+`fb21593` were committed before recovery dispatch. The sole live coordinator is
+`recovery run --watch` (current execution session `68624`); the FLUX retry succeeded
+and its raw response/container metadata verified. Keep the original $5 reserve,
+all existing outcomes and scientific inputs unchanged. The worker will wait between
+the eight original windows; the last opens September 7 at 23:30 UTC (September 8,
+08:30 KST). Do not start another worker or measure generated features early.
 All 838 offline tests, Ruff and the 2,902-check historical evidence audit pass.
 The updated 11-page paper PDF has been rendered and visually checked.
 
