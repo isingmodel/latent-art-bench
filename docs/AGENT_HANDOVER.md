@@ -1,5 +1,18 @@
 # Agent handover: completed painter-feature analysis and research continuation
 
+**Latest planning — 2026-09-06:** the user requested a further research proposal, answered scope
+questions, and asked the agent to choose the expansion axis based on the results and purpose.
+Budget is approximately $100 OpenRouter credit plus inexpensive OAuth; venue is undecided,
+learned features may wait, and new references/human evaluation are possible. All new reasoning
+and research writing should be in English. The
+[proposal](RESEARCH_PROPOSAL_20260906.md) prioritizes two additional model families after
+content/capture diagnostics, adds no painters, and narrows new generation to Monet/Cézanne and
+focused prompt controls. The proposed 1,026-attempt ceiling includes 588 paid calls; estimated
+image-output charges are $40.34 before ancillary costs, within a proposed $75 operating envelope.
+This is documentation for a newly versioned study, not an executed or frozen protocol. No new
+generation/acquisition/feature extraction occurred. Read [current status](STATUS.md) before acting;
+reference feasibility, statistical qualification and endpoint contracts remain to be established.
+
 **Latest exploration — 2026-09-06:** the user requested scatter plots of original versus
 painter-conditioned generated feature distributions. The new
 [distribution report](../reports/painter_distribution_exploration_v1/REPORT.md) contains common

@@ -15,6 +15,13 @@ identities.
 - [Config index](../configs/README.md)
 - [Contributing](../CONTRIBUTING.md)
 
+## Proposed next research round
+
+- [Expansion decision, controlled study design and $100 budget](RESEARCH_PROPOSAL_20260906.md)
+
+Planning only: two additional model families, two existing painter cases, content/capture controls
+and a focused prompt intervention. No new collection or generation has started.
+
 ## Distribution scatter and separability exploration
 
 - [Original versus generated distributions: figures and results](../reports/painter_distribution_exploration_v1/REPORT.md)

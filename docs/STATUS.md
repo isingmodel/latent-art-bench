@@ -1,5 +1,27 @@
 # Current status and research boundary — 2026-09-06
 
+## Next research proposal prepared; execution has not started
+
+The user requested an English research proposal and an explicit choice of expansion axis, with
+approximately $100 of OpenRouter credit and inexpensive OAuth access. Venue is undecided; learned
+features may wait, and new reference evidence/human evaluation are possible. Read the
+[research proposal](RESEARCH_PROPOSAL_20260906.md) for the reasoning, literature and cost sources.
+
+The recommendation is to expand **model-family breadth** with Nano Banana 2 and FLUX.2 Max,
+preceded by content/capture diagnostics. Add no painters in this round; focus new generation on
+Monet and Cézanne, with named/artist-free controls and a generic/detailed intervention on one
+OAuth route. All four existing painters remain in the initial existing-data diagnostics.
+
+The proposed ceiling is 1,008 research attempts plus 18 technical attempts, including 588 paid
+attempts. Image-output estimates total $40.34 before ancillary costs; the initial operating
+envelope is $75 with $25 uncommitted. These are planning quantities, not established power or
+an executable spending contract. Reference feasibility, dependence-aware statistical qualification
+and actual endpoint cost/rendering contracts must be resolved in a new versioned protocol.
+
+This task changed documentation only. No generation, acquisition, feature extraction, encoder
+download or human recruitment was performed. Existing studies remain terminal and their evidence
+unchanged. The recommended next task is existing-data diagnostics and a reference-feasibility audit.
+
 ## Completed exploration: original versus generated distributions
 
 The user requested scatter plots and an exploration of whether each painter's original and
