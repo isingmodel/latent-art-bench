@@ -1,0 +1,115 @@
+{
+  "authority": "PILOT.md: 18 technical requests; no research measurement",
+  "inputs": [
+    {
+      "path": "configs/painter_distribution_study_v1/pilot.json",
+      "sha256": "410e8ca94404119bb262b2ac6f627eecfe692b52e95334d445bc36d687701cb2"
+    },
+    {
+      "path": "configs/painter_distribution_study_v1/pilot_endpoints.json",
+      "sha256": "55509c45121384b27570240c9ed40134be8ecb3ab6ebf863f1559f4d6bd272c2"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-metadata-20260906/responses/765c865e57488f2620f6860c6562b4d4696460e442f596c24bdb89895f7ea99d.body.gz",
+      "sha256": "7756a09166ec808da71f164b1df6e0449a0b03c3415ad0fdc57f81b9d40b551d"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-metadata-20260906/responses/8368c87b9e74d5487fe23c2ef2e32c3154d62ee3e09b7de7b8ae4f17fd263b44.body.gz",
+      "sha256": "761bf2a259041ebb454eab6897b8343e90ba1865f65574e8022ab81435b7916b"
+    },
+    {
+      "path": "src/latent_art_bench/io.py",
+      "sha256": "13e6372aa9814495a45700eb9e65d099c56bb1bb3032d72f7f9e00e6ba91a9b8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/__init__.py",
+      "sha256": "8f3b5db80cd2b3e8a7ed507c400dcacde713c0aa860b5083bd8161e17125f180"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/discovery.py",
+      "sha256": "211fe3d93077aec9861915b58fa57b2e8954dd17cdc291fdc1e5d33072d1d0eb"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/pilot.py",
+      "sha256": "4e4dd17539994098ea5a74a275d633eb7c753c759402043a7553be1cb8fd6f52"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/transport.py",
+      "sha256": "aa45db0e9b4b72dba62ec3d69c8d7ac1baf2473de86db625756823e83b281ffc"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/artifacts.py",
+      "sha256": "8b48f0cfb433ac1769786aba366501b69ba1bec540a1a2f9e35e93ce45e9b0d7"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/common.py",
+      "sha256": "8f399eb26069a283209437de51885ce38ca28a21759b359afc506d263107ec4f"
+    },
+    {
+      "path": "studies/painter_distribution_study_v1/PILOT.md",
+      "sha256": "13598bb110c0bf290d426ec4e95841108f13ac5b6b368c412adf74155b672d32"
+    },
+    {
+      "path": "studies/painter_distribution_study_v1/PROTOCOL.md",
+      "sha256": "ac826d7af77018c81066991efbac45e042634fd64146a6a11ecfa70898c12f8e"
+    },
+    {
+      "path": "tests/painter_distribution_study_v1/test_transport.py",
+      "sha256": "d86ef8291175c07933b480dbb3164e06c218e9cbb4acc19b2f3c8afdb6e28d1d"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+    }
+  ],
+  "proxy_source": {
+    "address": "127.0.0.1",
+    "executable": "bun",
+    "files": [
+      {
+        "path": "README.md",
+        "sha256": "936776962658061102d4485e970016f230fac822ff298d991aee6cccf8b05b3e"
+      },
+      {
+        "path": "packages/openai-oauth/src/images.ts",
+        "sha256": "25ee6fe00dc96edecc3483415177071635dc9d3d51e8a55de38a608fbfa16aa4"
+      },
+      {
+        "path": "packages/openai-oauth/src/server.ts",
+        "sha256": "15d0d5fb65a2ed6040d32cf49868012d746b90cf8224389a6488aa5a526d1ea2"
+      },
+      {
+        "path": "packages/openai-oauth/src/shared.ts",
+        "sha256": "09bbd833287916cf5cad7c74e687531ba0779b630b0d3458e34ec7df417d36aa"
+      },
+      {
+        "path": "packages/openai-oauth-core/src/auth.ts",
+        "sha256": "5fd0f44eba9e17153d726407797a2c5b9402b36cefca7d382105c5391c4c699f"
+      },
+      {
+        "path": "packages/openai-oauth-core/src/image-models.ts",
+        "sha256": "ab0507b1768cfd051e1f82d73946d5582163fd4dd7591b371463957c6c59c66b"
+      },
+      {
+        "path": "packages/openai-oauth-core/src/transport.ts",
+        "sha256": "c2470c60bea8c0eb98a7eb247e6d3e8e11cebf726e65c3ff3443c9d9b0be09f4"
+      }
+    ],
+    "pid": 93760,
+    "port": 10532,
+    "recorded_git_commit": "0a664bcc8e09649fcdd558e0bfbdd6447b85bca2",
+    "source_directory": "packages/openai-oauth",
+    "started_utc": "Sat Sep  5 01:05:53 2026"
+  },
+  "recorded_git_commit": "2bd2fb9cd2e0850676f31811a8db7b96b11c4807",
+  "requests_sha256": "0565080ac7ef0f993ce2d91e0eef0cb0b5b6ec7aa89becfea51ca90cde661b73",
+  "run_id": "pdsv1-pilot-20260906",
+  "software": {
+    "Pillow": "11.3.0",
+    "httpx": "0.28.1"
+  }
+}
