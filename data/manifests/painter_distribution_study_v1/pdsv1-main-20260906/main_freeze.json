@@ -1,0 +1,1469 @@
+{
+  "budget": {
+    "accounted_usd": 0.8304855,
+    "attempts": 18,
+    "paid_attempts": 12,
+    "uncertain": 0,
+    "unresolved": 0
+  },
+  "content_weights": {
+    "claude_monet": {
+      "built": 0.10526315789473684,
+      "land": 0.34210526315789475,
+      "water": 0.5526315789473685
+    },
+    "paul_cezanne": {
+      "built": 0.34375,
+      "land": 0.5625,
+      "water": 0.09375
+    }
+  },
+  "inferential_endpoints": 8,
+  "inputs": [
+    {
+      "path": "configs/painter_distribution_study_v1/research.json",
+      "sha256": "c596dae008ba7469701a3d7d17d9e8492397ca60d8416f5557dd72b1ef07f1dc"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-inference-20260906/decision.json",
+      "sha256": "1ae494beb84b9d4f3986d9e99f6d6c9aa7f4412da031086c1201ebf196789ad7"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-inference-20260906/development.json",
+      "sha256": "ca01f10b8ab7f3357b40fd94727ca1088bcc598ec6ad66162012106aaa6b7a60"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-inference-20260906/freeze.json",
+      "sha256": "02fe1b66b206a76e39f1691f6bc671dad30986b5113f03649cded90b82e10b3a"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-inference-20260906/validation.json",
+      "sha256": "a431540d2de02c18be6cf407d85c1faadb81c3f05455fb7bdfee8b559eedccc2"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-reference-coding-20260906/annotations.jsonl",
+      "sha256": "d12c6120c44a234c80639fcdf1718871421d3eafdfe82b12139c437c5b26dea0"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-reference-coding-20260906/receipt.json",
+      "sha256": "33d9b328f77d6107a29bfed9b7b07b7fb5d33b9cd1ff07fba64f530f7b80733f"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/acquisition_events.jsonl",
+      "sha256": "bc24ea5072ae405c00228e7056b8375192238df5781b62780bf15b4fe8798dc7"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/acquisition_freeze.json",
+      "sha256": "bd798bbb7fa7b7c4bb4cc78b69fa9bc6bbc75af1c99583fdd7fddb2bff2ec4ee"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/acquisition_receipt.json",
+      "sha256": "a80bcd4915d825db86af497c4cefa82cdabc1bdf6a5ee9af1eb78f564f91a0d9"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/deliveries.jsonl",
+      "sha256": "4d21c424a73e8e191b781b4dc4425e6c4a8b73aae41ed24edbe81c85d33aff1d"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/development_features.jsonl",
+      "sha256": "6001964b6f6d0a4958f4f546d48d81120b43c6587d55e248fd48b99dee3c821b"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/method_freeze.json",
+      "sha256": "0c254c629b37803c7e99f2c61485f6086f593f98cd8bc26b78a5c498f2b29200"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/scaler.json",
+      "sha256": "71f511235081dfc1e9846976320c69477bcbd04dd43fc9a2e271f7b0375497b9"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-renderings-r2-20260905/acquisitions.jsonl",
+      "sha256": "3933e1627a0e7182baf899917cf651530f86c04b8e92b0312f7ada15dae98f5e"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8"
+    },
+    {
+      "path": "reports/painter_distribution_study_v1/pdsv1-pilot-20260906/receipt.json",
+      "sha256": "3adce0f7d77e388cf053ee69218435dee89653221b2366ac79bc614a3f0c82d0"
+    },
+    {
+      "path": "reports/painter_distribution_study_v1/pdsv1-pilot-20260906/summary.json",
+      "sha256": "0571f2d6eac0b5f4d7b6ef7271b607e0d3706422f456954e94ffd9322226c659"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q105099583.bin",
+      "sha256": "888e2b8a4ffa62194112d1fc59e3dd1ccc9d4bdadbaba16c689e0d9c83bfa0c9"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q105099601.bin",
+      "sha256": "af6323876625dcd1975a4b4d5d860e0fa62c02a32d0ae606610a9223e44db64c"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q105099613.bin",
+      "sha256": "aa04ce369e1a87ccb7ff50572fc0e9223d027860c7ffe44b937523e84d32717f"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q105099626.bin",
+      "sha256": "cd9894ec92fd9d49999af614c10861f18bfcc58ec3a43c9218e5e25f49e91127"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q106879983.bin",
+      "sha256": "0ac06cd6186bb037503d035811d6ad0f4b591bdc4fe10bf8a3c80feeea3583dd"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q106925109.bin",
+      "sha256": "6da455046893826695cdb1165599c369faac9f7b864775492031b91a597390b8"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q108187503.bin",
+      "sha256": "4f3bf26bfb59a7e0a8709405cdcd1fab431a1122912feac8cddb48b043884eb5"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q108479438.bin",
+      "sha256": "c736550a7e0e622b9a833d5e69f62124912bfd53f9871033014199c429529a80"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q113520917.bin",
+      "sha256": "f183f99467145dd4b5c583fe1c2736893103a3daebeda017cd41c9c84fa5ad16"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q116143411.bin",
+      "sha256": "74056a6bc40a862e10902ff4828be44ca755a262b2844b8e285a06c9bf146534"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q117435199.bin",
+      "sha256": "96700d750fb10fdede69b72cf024330f3118e44edfb46898d9b44f51eec36358"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q117435200.bin",
+      "sha256": "25e826ee6aca029435a3bbd2a0f6ad7c871ee694d7b5e9adce059b2ac18eff45"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q119122440.bin",
+      "sha256": "4da24a29bcf9e07c7dbb4d38e7ca10e12c1359eed8ea0cebb54643cda123ba89"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q123469396.bin",
+      "sha256": "626f37851cbe6129a3c2dd626a3550fcfbdc5bb56dcdcb78262f368120c92d11"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q124156637.bin",
+      "sha256": "2bfed7a7efc3583e14ac12f4ae9428b7476d240364dad44bfdc75b271f44972d"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q135088199.bin",
+      "sha256": "5ba393e49b0b3884bce88369be9aac90152a8aeb0df2e0897f684953c65c43c9"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q135208928.bin",
+      "sha256": "f24ec538a3d206306ca00600ec8601e8e8d301e19aec86b781769da12d32ba8e"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q17492292.bin",
+      "sha256": "4109c95372c3d06bc16c5d895192dd0a9c2e244ee454def8f7d4f1140ff88319"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q17493461.bin",
+      "sha256": "f0d5f67db7a18dc16fb30b66e03b950c49d95f17ba9e44043432259ba0511e7b"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q17493907.bin",
+      "sha256": "eaa06b91ec0bdeca1dcf7d9cddf71f262471a1f44d640c13f4a8473fe408411e"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q19967292.bin",
+      "sha256": "fe7da819653acef3362c8dc43e0250df6d9ed76a68e082735d6cf7361a8ed031"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q20190070.bin",
+      "sha256": "ad600ae5e5a4045398ad0ef47458be4314a0eb554057d1c7fe55518c80d3ebb2"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q20198272.bin",
+      "sha256": "e51f5ce97e355964c2bbf3717aff7790d07b1120c865581933aa61ad63115959"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q20538824.bin",
+      "sha256": "5d0dc38b0841a4ff450999016a5a43d61f7b8f973f427ed210524506e2339b4e"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q20538849.bin",
+      "sha256": "0bf36f9a7d903ef5951618f8c2bb8633526bc69d3b81e5d05989db918bf33757"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q20809479.bin",
+      "sha256": "42a599f68585954e669dd44cd55f6a6b630f9ce9c62f9eed65e35288dba0d3f8"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q20879001.bin",
+      "sha256": "87fa6ab668ae7a814705993ce86db40ed94cfb14a8b3218a7ebd1ed5759ab599"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q22337850.bin",
+      "sha256": "e42f285dfa25b60490a219a1d55ee69c13c2f76f95bf2958ae1b675966c0d1ab"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q2450237.bin",
+      "sha256": "9fb20d3a1ed923716288af3faab4be10fc140936d115a7c3c8d738a740fde695"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q24953805.bin",
+      "sha256": "7080415bd80d3d059002fcc5bd3f26b297e68bb88dc214beb09e0b9b33b07d62"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q28039709.bin",
+      "sha256": "d4db4ff2fd8cf0ec29983c96e2a26b02353f9b302d49706d499705193bad1086"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q28126470.bin",
+      "sha256": "1c5fd4b8b0caa24408efb468cfd2108573d5d5769b4b9d2e46993809e4eaa221"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q28126472.bin",
+      "sha256": "2d27ec4c13b9185d1dd5c9fc90cf2d731904863864c8d44825410e208187bde6"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q28126494.bin",
+      "sha256": "8fa804dc6db3a8ef42ce9692f55483e37ea22321a548a94850e47581bafa6236"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q30093031.bin",
+      "sha256": "8680f07f28001859eb6eb0db3180503fbcbbbcfc33002e73fa9333bb9c3388a6"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q3794124.bin",
+      "sha256": "b7b2d3c4cc6135e21ff97d929b824fa82619c964b5c9105d0befd0f8dbfe80d6"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q3821663.bin",
+      "sha256": "3635b8079043f485c099dbad39f426aee7c9f44b016f3d15a6ce3a7c9f655fd4"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q3984602.bin",
+      "sha256": "3396eaa113153e0523da6d41ea6ad77b8669cbbfe33affafdba17c8b338b2c87"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q47615867.bin",
+      "sha256": "4404a0e6bd830dbfc7b0c8ff9e1ca12c9d9a712d8d5e8777d9a51713c4394f83"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q50415977.bin",
+      "sha256": "089fe597750ab9f0f3b0049bf4e856dd39a0634064d78e2ffa49b86f01a261ff"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q50700359.bin",
+      "sha256": "ed83161abd6bba50ec670e624a7c8238172f7f839aa02774a162a1819786f544"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q59530379.bin",
+      "sha256": "6469317eb2d3cab1cb895075be1e1c96020fcb566ef2509901ac8e6c5e9a82a0"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q63670617.bin",
+      "sha256": "d8b52a09d77f8b092d52a25c9e29ec7001d6b7a274d3fd336634e63f13ba958d"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q63870916.bin",
+      "sha256": "dbb51204a12a2d14260328006f666e756096da78836c93c25eaaba006c4e9fc4"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q63952037.bin",
+      "sha256": "19c7a5617fd39105d08f4aac8d3b075bf42a473d281f110c1191a58e8610129b"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q64212455.bin",
+      "sha256": "48846b970e0306b367ac76eace66ef1f9c201f6cbcf838955df4708710a55fb3"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q64244598.bin",
+      "sha256": "7de802c7c3189c2dacbab5bcc5556da8e155c329e11315ba74dad3af9c517ce4"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q64319425.bin",
+      "sha256": "e6dcea8d1fed73f08b2ca22429180b7e37d05aa14ce3d913b9cf13b8c3442ba1"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q64355195.bin",
+      "sha256": "be1f69960fa6e41a0a6c8992f9e43bf51622a389d68cbf46112890d887d404ca"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q64364677.bin",
+      "sha256": "b261451c27dc21ae4e3c0af80414b7b6f4749b0dbac833762d313da3beb4c0b3"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q64366377.bin",
+      "sha256": "f5787741525c86fbf2d770c0f682f1e616cb575fa0ca8b282cd769c20262e8cb"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q64370842.bin",
+      "sha256": "15166e2baacd280ede51ebc29990767dde0ed22f1bf13bca666ce0387e811676"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q64374464.bin",
+      "sha256": "45881d10862acb162a806b5ebb7382c2ed7d522802e80bb8c735736c3650aeef"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q66126523.bin",
+      "sha256": "d6368bc9d7a9bfeb664a131f02f8defd00b20257ffc76c5477033dd8380ca0a3"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q67158045.bin",
+      "sha256": "98ddb7818fcd5dc41e5768d4e6a7aa7259f7399748e59f4df0db935b6c0aa7df"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q67220780.bin",
+      "sha256": "a8c5c02b9a2f5aec5ddcad7512df41d0208bb2ffd19efa2857269b88b375f3ad"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q67609602.bin",
+      "sha256": "e5371c8e902a10e846151e1615955833bb80c76d4d310ab0c196cfd2da27b816"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q68372814.bin",
+      "sha256": "14bba58a2b40d59f206947917a923a54163b8618bb0b1cbf0e5a343e80d27356"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q79161263.bin",
+      "sha256": "c779a2e881f13a20a3201d94f20c52a313e064a90ef6209ba11c74162c72ce4a"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q79790733.bin",
+      "sha256": "f4d83dbbf3aaa7af37edc42f2d8920f8150bc5da0cf885161c4f3fb4fff85a51"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q79790741.bin",
+      "sha256": "72bc004152aa44666c7f9fb9a4060fcc60e18f473251582a99516ac832869baa"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q79868506.bin",
+      "sha256": "3b50872c9d258a9a10b3a17e9b567b926ef8ca25b8b1f6f84e92166824d17fe9"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q79889845.bin",
+      "sha256": "bb1dda49ce22450541e16b1247e4dbb7d2fe9c072b4e9110e3a17ad5e930a3bf"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q85224931.bin",
+      "sha256": "5bdb7e9ae7dff42a164be65a03c9aa2ac7195032be722ae391c12a32db98680a"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q87367853.bin",
+      "sha256": "66a6f2c0a54e872ada5ac8f229807829fdc86993bb32b6339f3429aeba8e3b1e"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q87842510.bin",
+      "sha256": "044feb33315714e43b460fa9b79a33bc6c1237cece87d2c9937b87db3e107b3f"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q91932567.bin",
+      "sha256": "4b34574968d650f047a7e0cc703834c2ed75e0f137f9ef82e533451a15915eb0"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q92787519.bin",
+      "sha256": "06d21cfd72372109a096df69b2401b9396a2bfbed79a0b70c84b07c3bad9fadb"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q92831691.bin",
+      "sha256": "c05f42390587cca955b7732a290bcc9522690d3ecdeb14cf04e856889aad1d56"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/responses/Q94637082.bin",
+      "sha256": "567409f941d795363e5de3ef833cd657976c52389d8762941e964ac186711a09"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/04010c690428065132aa3328870f762e6b68e3e7c0d5bcac9d38a107cc3f1e1c",
+      "sha256": "04010c690428065132aa3328870f762e6b68e3e7c0d5bcac9d38a107cc3f1e1c"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/04cb70377904bfa607a79b4444c4d769925fcfdf7fa47d23f7353c69293d85e2",
+      "sha256": "04cb70377904bfa607a79b4444c4d769925fcfdf7fa47d23f7353c69293d85e2"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/059b40fda500435dffc1b37cce719e52d42798e8038bedd7cbac4c9abf34c173",
+      "sha256": "059b40fda500435dffc1b37cce719e52d42798e8038bedd7cbac4c9abf34c173"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/067208e87762b90499ac64c486f52c5f4bfb24042ed6a4617953e5dfa1e97bf0",
+      "sha256": "067208e87762b90499ac64c486f52c5f4bfb24042ed6a4617953e5dfa1e97bf0"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/06ad9a6b030724586dad9535a51961fa650f4df56b8eaeb20fb6a9fea293e763",
+      "sha256": "06ad9a6b030724586dad9535a51961fa650f4df56b8eaeb20fb6a9fea293e763"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/0807e59e303df329850f282bff8fbb031024c1e839ff3aa9476995ae31d0c61c",
+      "sha256": "0807e59e303df329850f282bff8fbb031024c1e839ff3aa9476995ae31d0c61c"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/084391610a4aa206cbbc2e0ebab5da62a774abad47441643be48515a5f1dda7b",
+      "sha256": "084391610a4aa206cbbc2e0ebab5da62a774abad47441643be48515a5f1dda7b"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/08c37553a2c679655d30f2e11ee3deb55bc6ae2b13688bd009b9f2bb891ea398",
+      "sha256": "08c37553a2c679655d30f2e11ee3deb55bc6ae2b13688bd009b9f2bb891ea398"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/09cc0a74432f7408ac968b08596a70c8941ca03c58a43df3e5a6a37b9464b7e7",
+      "sha256": "09cc0a74432f7408ac968b08596a70c8941ca03c58a43df3e5a6a37b9464b7e7"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/0bb489bc7cdc65503db7ae37931fd03c8f020669bf2ca8d1c021e6f8c06050d1",
+      "sha256": "0bb489bc7cdc65503db7ae37931fd03c8f020669bf2ca8d1c021e6f8c06050d1"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/0c25f167807fe89308b9f4b280289f920df85dbd1dac9d0c7b3f78d444c4ea48",
+      "sha256": "0c25f167807fe89308b9f4b280289f920df85dbd1dac9d0c7b3f78d444c4ea48"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/0e5d941d42fd8d0f1203c8088acea6bb8abd23bf3856edc36e11bd3cbced69a9",
+      "sha256": "0e5d941d42fd8d0f1203c8088acea6bb8abd23bf3856edc36e11bd3cbced69a9"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/0ea2a1e9c26953945b11e45129db0854dde05102a200f6f70839a37488532a47",
+      "sha256": "0ea2a1e9c26953945b11e45129db0854dde05102a200f6f70839a37488532a47"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/0eae4128f463f6428708bf3fef4370f0a2876ac76c8c51ec7424ba1521c7f1dd",
+      "sha256": "0eae4128f463f6428708bf3fef4370f0a2876ac76c8c51ec7424ba1521c7f1dd"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/100d89d015343dc695b12c006755582450af89e80e1863c84cb14e6b710a74cf",
+      "sha256": "100d89d015343dc695b12c006755582450af89e80e1863c84cb14e6b710a74cf"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/13b658720db3668ce899bf050b25c6e60df4a38436e053029dd795bef07a25e6",
+      "sha256": "13b658720db3668ce899bf050b25c6e60df4a38436e053029dd795bef07a25e6"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/155870fd3ad9a8e3153b5048a57872b7f308786bb4acc0521d977a6176ae6a2f",
+      "sha256": "155870fd3ad9a8e3153b5048a57872b7f308786bb4acc0521d977a6176ae6a2f"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/15805a47a23cd028157beb2c7822772daa433004c552e61c1cf9be90885bf00c",
+      "sha256": "15805a47a23cd028157beb2c7822772daa433004c552e61c1cf9be90885bf00c"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/15ce431d3085dd38d7147bddffbd9c392d031aeab15fcd09163842e7ceba0e09",
+      "sha256": "15ce431d3085dd38d7147bddffbd9c392d031aeab15fcd09163842e7ceba0e09"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/16282bd23292b3f21225ad846377011d64f590a0681cd67c708bc209613818b3",
+      "sha256": "16282bd23292b3f21225ad846377011d64f590a0681cd67c708bc209613818b3"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/165ec25ea3a93d0226e7d541519bf24ad51b22b1ecd52c891504cf10b8f1749e",
+      "sha256": "165ec25ea3a93d0226e7d541519bf24ad51b22b1ecd52c891504cf10b8f1749e"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/1824d54b1ebd9b85234c0c8d68f85a1cb58aef9642919e5a493a045e4aa42e58",
+      "sha256": "1824d54b1ebd9b85234c0c8d68f85a1cb58aef9642919e5a493a045e4aa42e58"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/1876d3ea2ed65e3b5fb56e209b81053db8e01dfbcb63666e943744348d31ca2b",
+      "sha256": "1876d3ea2ed65e3b5fb56e209b81053db8e01dfbcb63666e943744348d31ca2b"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/18d1a964e6d7b1a943bebcb4e75415beaf95eb9bbd2f784bfc0eb77eee14aff6",
+      "sha256": "18d1a964e6d7b1a943bebcb4e75415beaf95eb9bbd2f784bfc0eb77eee14aff6"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/1bf334f83388de253741c42a75751aa85d84bafe0051ecbce477b3fd9ca39814",
+      "sha256": "1bf334f83388de253741c42a75751aa85d84bafe0051ecbce477b3fd9ca39814"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/1f67902dab1ada44c6d227cacdd821bdf682720ae9122c7690503af81dde9696",
+      "sha256": "1f67902dab1ada44c6d227cacdd821bdf682720ae9122c7690503af81dde9696"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/2008f361fdc90889916a62c2f846dfc92805b3f50627815d2b851e843c3b05e6",
+      "sha256": "2008f361fdc90889916a62c2f846dfc92805b3f50627815d2b851e843c3b05e6"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/211861de753f1b6ec8df2d65edd9d73d623adc44364a1afa801b10822d940fc4",
+      "sha256": "211861de753f1b6ec8df2d65edd9d73d623adc44364a1afa801b10822d940fc4"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/21e2bf26a7e371d0d85e18fbad88e359941d157004b2811720809c5c08c65627",
+      "sha256": "21e2bf26a7e371d0d85e18fbad88e359941d157004b2811720809c5c08c65627"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/2288a5d986d2407e9cf7e854f803281d238a7981442907772686bd56145142da",
+      "sha256": "2288a5d986d2407e9cf7e854f803281d238a7981442907772686bd56145142da"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/22ccc9446b5b8a6e2777f278172c58e56721ea7f0dbafff993077eb55eee0f7b",
+      "sha256": "22ccc9446b5b8a6e2777f278172c58e56721ea7f0dbafff993077eb55eee0f7b"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/22fc4e6fbc9ed14379f98cd0e4da89a80fcecf84fa786c9a2d28598c4211baed",
+      "sha256": "22fc4e6fbc9ed14379f98cd0e4da89a80fcecf84fa786c9a2d28598c4211baed"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/269823ca8ea45c99e8204a35e5e4add78d3eef0f6db2975570304e4c729d72ad",
+      "sha256": "269823ca8ea45c99e8204a35e5e4add78d3eef0f6db2975570304e4c729d72ad"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/27382900ac91cc624a5677ff0b989f289d14e96698aa17905b1e993d8cf438a5",
+      "sha256": "27382900ac91cc624a5677ff0b989f289d14e96698aa17905b1e993d8cf438a5"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/281db42365cf994faf86a6684d57d19e25a95ca763ecf5d6bda20423b65b0597",
+      "sha256": "281db42365cf994faf86a6684d57d19e25a95ca763ecf5d6bda20423b65b0597"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/2af99d952b4b8b40285adec02985d545e23f2ae4f3ed9e185c29350bebf64261",
+      "sha256": "2af99d952b4b8b40285adec02985d545e23f2ae4f3ed9e185c29350bebf64261"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/2bbde015c8f4f63434bfb960411ded363ba8a5e9be64f62e82b95ff838c25741",
+      "sha256": "2bbde015c8f4f63434bfb960411ded363ba8a5e9be64f62e82b95ff838c25741"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/2d0041e79cec0450ce5ece57120d116c9eff51cb01b790747a9fd8777d8f1f9b",
+      "sha256": "2d0041e79cec0450ce5ece57120d116c9eff51cb01b790747a9fd8777d8f1f9b"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/2d9f52dbc5bde615c7ee67a34e5af61fdf292d41fa5865ce54a7c10993c53b92",
+      "sha256": "2d9f52dbc5bde615c7ee67a34e5af61fdf292d41fa5865ce54a7c10993c53b92"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/2dd9a19af18003e4a440de1240539ab233f03823627595e659ea8a51eff80b06",
+      "sha256": "2dd9a19af18003e4a440de1240539ab233f03823627595e659ea8a51eff80b06"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/2dfc7f60e07d8ee9fe35a6801dfee67b7dc457a431acb93c0642fbcafd522ec7",
+      "sha256": "2dfc7f60e07d8ee9fe35a6801dfee67b7dc457a431acb93c0642fbcafd522ec7"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/2efc2a0fcd8de8e310771b52d20891cdc76549da8a1cf5f40dc84b91b6edd3f0",
+      "sha256": "2efc2a0fcd8de8e310771b52d20891cdc76549da8a1cf5f40dc84b91b6edd3f0"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/31d9d6b8c2c76211c44a5e344a70f2e7ff678aab9209bc0d2c48f109fc4bea52",
+      "sha256": "31d9d6b8c2c76211c44a5e344a70f2e7ff678aab9209bc0d2c48f109fc4bea52"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/333f67f8476feea9623a549491b9cd0bfcf1170676c5cc50664e3a9b23bd859f",
+      "sha256": "333f67f8476feea9623a549491b9cd0bfcf1170676c5cc50664e3a9b23bd859f"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/355d700359e458736970e1097091afa6e172541203ba860d6cde2e66f47b3ad5",
+      "sha256": "355d700359e458736970e1097091afa6e172541203ba860d6cde2e66f47b3ad5"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/35d47d8785b2f31f2f27958e08888021cf699e3409541a8b4c8a3316faeec215",
+      "sha256": "35d47d8785b2f31f2f27958e08888021cf699e3409541a8b4c8a3316faeec215"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/36a8c2e18edaf258fa26a99c111d5643f873085995fdc2d7bac23f6daf7a9f7d",
+      "sha256": "36a8c2e18edaf258fa26a99c111d5643f873085995fdc2d7bac23f6daf7a9f7d"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/384668b6c1d2e0f1c704b79f0c42357b3114119d82efecc417decde8afbe416a",
+      "sha256": "384668b6c1d2e0f1c704b79f0c42357b3114119d82efecc417decde8afbe416a"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/3870971c14690575673646e9a87b0f5d28afea1d63b2f8b9794d10d296c869ad",
+      "sha256": "3870971c14690575673646e9a87b0f5d28afea1d63b2f8b9794d10d296c869ad"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/38f00b0140f22309270230d17027bf42bd551462d7bb93dac517acfe2f64da12",
+      "sha256": "38f00b0140f22309270230d17027bf42bd551462d7bb93dac517acfe2f64da12"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/39151f002fc1614e9723ba9a1ce387acbcc667f5d2dfb9e0ca9ee87316578c1a",
+      "sha256": "39151f002fc1614e9723ba9a1ce387acbcc667f5d2dfb9e0ca9ee87316578c1a"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/3978b538e7200b3455755c0c5909142704d64d4fb23b179da84347c22e9cd8d5",
+      "sha256": "3978b538e7200b3455755c0c5909142704d64d4fb23b179da84347c22e9cd8d5"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/39aee65eb1154534d44c9ce932c0c93e473fe21e9224e6edffb625d4f4d4ab14",
+      "sha256": "39aee65eb1154534d44c9ce932c0c93e473fe21e9224e6edffb625d4f4d4ab14"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/3a19d81a902d4d1d0fcd98a3ff691aa9e78f67cf601ce8d912bc1ea07e5c8bbd",
+      "sha256": "3a19d81a902d4d1d0fcd98a3ff691aa9e78f67cf601ce8d912bc1ea07e5c8bbd"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/3a8fe08210ee5282a6ef192c250aa03873ed7404333da631c1c442cc512d959c",
+      "sha256": "3a8fe08210ee5282a6ef192c250aa03873ed7404333da631c1c442cc512d959c"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/3b30c890566159de666593b789824907f202a5f9cb22ab7002a2dbd8fab8676a",
+      "sha256": "3b30c890566159de666593b789824907f202a5f9cb22ab7002a2dbd8fab8676a"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/3bceab2a549f8d034f60465e1d5d13f41ac599a04db30fe21090340b58384892",
+      "sha256": "3bceab2a549f8d034f60465e1d5d13f41ac599a04db30fe21090340b58384892"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/3bd6e81ad76869f6729c2a9be9493965b587dc514a8c693bf35f7d4fb778cd67",
+      "sha256": "3bd6e81ad76869f6729c2a9be9493965b587dc514a8c693bf35f7d4fb778cd67"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/3cab0b68cb77e868c325b2e7055fcc1db0848ed741679f0d77367feed610579c",
+      "sha256": "3cab0b68cb77e868c325b2e7055fcc1db0848ed741679f0d77367feed610579c"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/3d8f1f4c2c4c50ef8458e6a763aa2e933ce63a7963960add9de418c3e9d0ae1a",
+      "sha256": "3d8f1f4c2c4c50ef8458e6a763aa2e933ce63a7963960add9de418c3e9d0ae1a"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/3eb34c26829cbadd3683359cca694437a0f481015e64d96107f666d321673a5a",
+      "sha256": "3eb34c26829cbadd3683359cca694437a0f481015e64d96107f666d321673a5a"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/3f99cd49736a876d6e550c0c36ad9ff94b75fd473b8bebee8f184265eed285ad",
+      "sha256": "3f99cd49736a876d6e550c0c36ad9ff94b75fd473b8bebee8f184265eed285ad"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/3fa17be81aafe5b758eab0d00611e021666a1964335ea260f2bb2ef991fff482",
+      "sha256": "3fa17be81aafe5b758eab0d00611e021666a1964335ea260f2bb2ef991fff482"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/40710a364feebc61422c24a294801e1d2840d7cc11476f4d1490515e7d4df0af",
+      "sha256": "40710a364feebc61422c24a294801e1d2840d7cc11476f4d1490515e7d4df0af"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/42cbe119e4f9ce81fa379ab0798a2ab8b07ab6fc69235ff61c37fc2e8bffde69",
+      "sha256": "42cbe119e4f9ce81fa379ab0798a2ab8b07ab6fc69235ff61c37fc2e8bffde69"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/430ba2048fa61a1ebadcc209c941199654327734a782422795353ad86a31b1ed",
+      "sha256": "430ba2048fa61a1ebadcc209c941199654327734a782422795353ad86a31b1ed"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/4392257592bd4ecd8a47547010e8d20133b4a9130b89d5e75c091d4ad8517c6d",
+      "sha256": "4392257592bd4ecd8a47547010e8d20133b4a9130b89d5e75c091d4ad8517c6d"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/441771d8a2b27e5909d1afd55cbbf4f50f8dbce2165a5441dd9977f48520959c",
+      "sha256": "441771d8a2b27e5909d1afd55cbbf4f50f8dbce2165a5441dd9977f48520959c"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/455e0a46a77b63aa02debe698462d1989d1bb11cd8a7dcdd57839da51b5a56fe",
+      "sha256": "455e0a46a77b63aa02debe698462d1989d1bb11cd8a7dcdd57839da51b5a56fe"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/469f31ed2dee784be1435ca6266234d6c43689ed7cb1d8c7ad1181406084f25e",
+      "sha256": "469f31ed2dee784be1435ca6266234d6c43689ed7cb1d8c7ad1181406084f25e"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/4b1943660c20b5e9b2a2996a19eb74f45a04e3193511caae1f3871913d5a6b4f",
+      "sha256": "4b1943660c20b5e9b2a2996a19eb74f45a04e3193511caae1f3871913d5a6b4f"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/4b4c506584495b2b3819187a091258c9f8f0abd26eac3eaef12a9bd200b39de5",
+      "sha256": "4b4c506584495b2b3819187a091258c9f8f0abd26eac3eaef12a9bd200b39de5"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/4c93bc41dee820a912c75d629f5ce60725c56e145345118b486b16d6348dfee4",
+      "sha256": "4c93bc41dee820a912c75d629f5ce60725c56e145345118b486b16d6348dfee4"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/4fb783be9760d1291aee879f5bcd7717b1964cda41d0f7aea08ca7c0230a1726",
+      "sha256": "4fb783be9760d1291aee879f5bcd7717b1964cda41d0f7aea08ca7c0230a1726"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/5237b1d11a9069bf0b09803c05e08998f28fbf2442d7e74469db675e14a40d89",
+      "sha256": "5237b1d11a9069bf0b09803c05e08998f28fbf2442d7e74469db675e14a40d89"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/54ab8e438dec078b0b0770e767970412a2b8df06e53010f276bd16f6014d6a02",
+      "sha256": "54ab8e438dec078b0b0770e767970412a2b8df06e53010f276bd16f6014d6a02"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/557322da8b0ef9332cb3f65d3ab7553390ccc7ac156cecc426db8e8ace28e74b",
+      "sha256": "557322da8b0ef9332cb3f65d3ab7553390ccc7ac156cecc426db8e8ace28e74b"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/55a4491a1ae9fbb8a10ad3809897089fdfb66a43e30de93b0839c0e6981dc69b",
+      "sha256": "55a4491a1ae9fbb8a10ad3809897089fdfb66a43e30de93b0839c0e6981dc69b"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/583bfdbaf804c023bb7a3621f92cc22b57fb6436b9859976b17fa23d43a63df7",
+      "sha256": "583bfdbaf804c023bb7a3621f92cc22b57fb6436b9859976b17fa23d43a63df7"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/587cb876509549f51d43f4b590d12c6848ec2279d54f8533e653ae84973b3133",
+      "sha256": "587cb876509549f51d43f4b590d12c6848ec2279d54f8533e653ae84973b3133"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/594e17401d436f03e7ecfc30918d93d89d0c18bdcd47701da534eb3ee9f0efaf",
+      "sha256": "594e17401d436f03e7ecfc30918d93d89d0c18bdcd47701da534eb3ee9f0efaf"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/5a93c6c777575f193027dfcec3d4f3338ba5ca354e50781f59874dceb45fb541",
+      "sha256": "5a93c6c777575f193027dfcec3d4f3338ba5ca354e50781f59874dceb45fb541"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/5b0db50efeaf18c289cd0ee8d245d1eb8c18385110a9c03b1336d9715cba211b",
+      "sha256": "5b0db50efeaf18c289cd0ee8d245d1eb8c18385110a9c03b1336d9715cba211b"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/5b1d315c96e52ace096714ebfefaf2d6f8a3eb6855c70adced82caf028cfc08f",
+      "sha256": "5b1d315c96e52ace096714ebfefaf2d6f8a3eb6855c70adced82caf028cfc08f"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/5b9c5737c72034bf7f2fda3143dbdd04866c6d41fb994bb0744a193edcf12799",
+      "sha256": "5b9c5737c72034bf7f2fda3143dbdd04866c6d41fb994bb0744a193edcf12799"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/5d6a36fd20a7d2cd1aece86603b32508274c9d005a58940a111a6c488b12560f",
+      "sha256": "5d6a36fd20a7d2cd1aece86603b32508274c9d005a58940a111a6c488b12560f"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/6066a24445cc27e7283b99a74201d529acc5554e0ff582fbc74586ef9bb06fa8",
+      "sha256": "6066a24445cc27e7283b99a74201d529acc5554e0ff582fbc74586ef9bb06fa8"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/60a0ccdefbc83c225cbc0f9073ce346640927847fdaf31df01b3d0b191807989",
+      "sha256": "60a0ccdefbc83c225cbc0f9073ce346640927847fdaf31df01b3d0b191807989"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/6428b8d2f54411bee2ebf1eca68393744173094759f72980255e89313ae6a32e",
+      "sha256": "6428b8d2f54411bee2ebf1eca68393744173094759f72980255e89313ae6a32e"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/656d0848a4ad93f5782ab8138231479dbfe40f0ef8d7a9be3eb41c0816cbe75b",
+      "sha256": "656d0848a4ad93f5782ab8138231479dbfe40f0ef8d7a9be3eb41c0816cbe75b"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/669204989770e8beedcf372883c7bb012ca2922322f31860334e3bb22cd9024c",
+      "sha256": "669204989770e8beedcf372883c7bb012ca2922322f31860334e3bb22cd9024c"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/6795e635e2aa24e81a7bd7cc526564bbce1b5e5f5148ddd9fb86ab7702f2c3a1",
+      "sha256": "6795e635e2aa24e81a7bd7cc526564bbce1b5e5f5148ddd9fb86ab7702f2c3a1"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/6906c84d37dee60d2e2246092877f45aaf27ce0da8034fdbe6a4131aaef9e45d",
+      "sha256": "6906c84d37dee60d2e2246092877f45aaf27ce0da8034fdbe6a4131aaef9e45d"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/692f121d429bfeb869221c794f5e50726584c82947417457fd0a47690b9237b6",
+      "sha256": "692f121d429bfeb869221c794f5e50726584c82947417457fd0a47690b9237b6"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/69ccd222860d904ddf6e79158f16a849b82a9461d435e1d8e6e88450e8545512",
+      "sha256": "69ccd222860d904ddf6e79158f16a849b82a9461d435e1d8e6e88450e8545512"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/6a740da5a0fe9357f5e023995cc82dd01b2b9f41b1f6f38c7b24726ebda34ec1",
+      "sha256": "6a740da5a0fe9357f5e023995cc82dd01b2b9f41b1f6f38c7b24726ebda34ec1"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/6b37f100a63f3d6457bf221a55aed449fefde6e20f2a8fb22728157c0edc30cf",
+      "sha256": "6b37f100a63f3d6457bf221a55aed449fefde6e20f2a8fb22728157c0edc30cf"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/6ca239a994cacb97d26e3af7441e0ac88108f88dbe5718670975a90fdb94937a",
+      "sha256": "6ca239a994cacb97d26e3af7441e0ac88108f88dbe5718670975a90fdb94937a"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/6df797ae9dba9c40a2ae18d10791ba319ff217edbd0ecafa39c5a6ca42626915",
+      "sha256": "6df797ae9dba9c40a2ae18d10791ba319ff217edbd0ecafa39c5a6ca42626915"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/70ae656e377d48f6a51499ec074441db06752306c4b227d835d41320824f8804",
+      "sha256": "70ae656e377d48f6a51499ec074441db06752306c4b227d835d41320824f8804"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/7263a8bad64cf54e1e50cd50c91ffbd85c76757f36daac8fb3f7f2f78008f131",
+      "sha256": "7263a8bad64cf54e1e50cd50c91ffbd85c76757f36daac8fb3f7f2f78008f131"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/73469a89e1ba879adbb2b5aa162e8e20145f1d514dccee92d21c6d8d91053d9f",
+      "sha256": "73469a89e1ba879adbb2b5aa162e8e20145f1d514dccee92d21c6d8d91053d9f"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/75b97686ab1b15a23fc7f728831ff127838925853f9b05678ff2936c55ffca47",
+      "sha256": "75b97686ab1b15a23fc7f728831ff127838925853f9b05678ff2936c55ffca47"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/775ee1930487fd4bec3b0b355b2a8803e4ac3bfeaceffb797b0b3ac1645342b6",
+      "sha256": "775ee1930487fd4bec3b0b355b2a8803e4ac3bfeaceffb797b0b3ac1645342b6"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/79213a41311629d74e26732a5f235b501a9912bb4e71ebe022c8f9fa582b1b5b",
+      "sha256": "79213a41311629d74e26732a5f235b501a9912bb4e71ebe022c8f9fa582b1b5b"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/7aeff4cc0670c1a9569e0225c70a2adaf5258d387b5a094b8b36cb4d2089d308",
+      "sha256": "7aeff4cc0670c1a9569e0225c70a2adaf5258d387b5a094b8b36cb4d2089d308"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/7b6fb3b68932c8bd1019b033727efef5db37a52567ecea4e082c4e26c52eab6a",
+      "sha256": "7b6fb3b68932c8bd1019b033727efef5db37a52567ecea4e082c4e26c52eab6a"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/7c6ade10f34c3e0622a4a25eb31f6b63f83aebd01ffce54375d27405108bb390",
+      "sha256": "7c6ade10f34c3e0622a4a25eb31f6b63f83aebd01ffce54375d27405108bb390"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/7f76767ef4aa6aed6ceda4acd9d6c5d54f93c455a9a37b3c847fcde1ac8575c8",
+      "sha256": "7f76767ef4aa6aed6ceda4acd9d6c5d54f93c455a9a37b3c847fcde1ac8575c8"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/86904164d10637dd54d49fa6470a418adbb2ca2b7202b1e0d4066232ea8971bc",
+      "sha256": "86904164d10637dd54d49fa6470a418adbb2ca2b7202b1e0d4066232ea8971bc"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/87b249706db381065a9f15dc304c1a6a5f8e033a6e8241a6892e3da0c4b8c37e",
+      "sha256": "87b249706db381065a9f15dc304c1a6a5f8e033a6e8241a6892e3da0c4b8c37e"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/87cac371637339fedaed3cb0ff3efcf24bbe64d8145eda1c188c8559d3f38995",
+      "sha256": "87cac371637339fedaed3cb0ff3efcf24bbe64d8145eda1c188c8559d3f38995"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/8b1e30d1c8c982e34e1b8738db5501390ff70fc318a68339267fd079aa66960a",
+      "sha256": "8b1e30d1c8c982e34e1b8738db5501390ff70fc318a68339267fd079aa66960a"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/8d109b3cf0ee989b21ab42b2320a3cfc6beb9e3d0b6ddb2bee7d9bf50dc2f29c",
+      "sha256": "8d109b3cf0ee989b21ab42b2320a3cfc6beb9e3d0b6ddb2bee7d9bf50dc2f29c"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/8d636b2853a9ea8a5d209e549cae42523a3a45a0791662aa28f20b2896f55c7d",
+      "sha256": "8d636b2853a9ea8a5d209e549cae42523a3a45a0791662aa28f20b2896f55c7d"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/8e92710422c66e8c966655a7d5dee3f634100e29b53c083f141f61afcdf85349",
+      "sha256": "8e92710422c66e8c966655a7d5dee3f634100e29b53c083f141f61afcdf85349"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/90113b93c9767780c61e5eedc4fda2c022b1e403a1f03d35d97cd69c5e3c0dc4",
+      "sha256": "90113b93c9767780c61e5eedc4fda2c022b1e403a1f03d35d97cd69c5e3c0dc4"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/924fc0a06dc9131ffc2489a1901dadd8a580d02f1f9530cbbcfaac89377ad513",
+      "sha256": "924fc0a06dc9131ffc2489a1901dadd8a580d02f1f9530cbbcfaac89377ad513"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/92d611b320098e01e42f86bd341153efc0c32a688606364925df79457ae154db",
+      "sha256": "92d611b320098e01e42f86bd341153efc0c32a688606364925df79457ae154db"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/931f97ceb6e05bf7ba2c902e4ba01794792f1e47d7d72ccbd1574c5f551a6c47",
+      "sha256": "931f97ceb6e05bf7ba2c902e4ba01794792f1e47d7d72ccbd1574c5f551a6c47"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/9418f57c0524b62974f2a8d486bf8bd0cca01a3fc28921ac6f245f51ac4b2a25",
+      "sha256": "9418f57c0524b62974f2a8d486bf8bd0cca01a3fc28921ac6f245f51ac4b2a25"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/99a33e7d23b21f84ca7f051050cbc8c93b01ee277a449cc20a7e6fed0b034d35",
+      "sha256": "99a33e7d23b21f84ca7f051050cbc8c93b01ee277a449cc20a7e6fed0b034d35"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/99ff8d1ca91d3e7abf9b72f5bee9e53c1363cbea72d4aaaccb19c95c9a2bdce5",
+      "sha256": "99ff8d1ca91d3e7abf9b72f5bee9e53c1363cbea72d4aaaccb19c95c9a2bdce5"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/9b3bf8ff07443066deea1d721505e1f59381615c6b00478756802178eb56b388",
+      "sha256": "9b3bf8ff07443066deea1d721505e1f59381615c6b00478756802178eb56b388"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/9bbeb2eab1f5e01a1d38118219c0baa844c63451ab66f2a878b3e4e7eb9c3182",
+      "sha256": "9bbeb2eab1f5e01a1d38118219c0baa844c63451ab66f2a878b3e4e7eb9c3182"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/9d0b1ed312e80d3d17ba5f4256531b59b81ee555ec4adadaa960cfcba70759e7",
+      "sha256": "9d0b1ed312e80d3d17ba5f4256531b59b81ee555ec4adadaa960cfcba70759e7"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/9e059443a4829c344ad4d9a9cb9f8b9d830b2444a309b9404a98bab67be4bed8",
+      "sha256": "9e059443a4829c344ad4d9a9cb9f8b9d830b2444a309b9404a98bab67be4bed8"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/9e701294ab38d11af1c6c2385485fffd1d8d391b6e5fa0b643f7125ba61edfbd",
+      "sha256": "9e701294ab38d11af1c6c2385485fffd1d8d391b6e5fa0b643f7125ba61edfbd"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/a08c4150df4ab80c783a69e284f4effb47f97a149eb00bfcfaf4b444c1e7b6a0",
+      "sha256": "a08c4150df4ab80c783a69e284f4effb47f97a149eb00bfcfaf4b444c1e7b6a0"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/a08dc223b2d93f7822c798e028f042fd41de694e615fb608e211524c87d5b39f",
+      "sha256": "a08dc223b2d93f7822c798e028f042fd41de694e615fb608e211524c87d5b39f"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/a27ca0caaa6e399230154874552c1b1db0a2a0790194436d89fc3125bae16d71",
+      "sha256": "a27ca0caaa6e399230154874552c1b1db0a2a0790194436d89fc3125bae16d71"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/a35b81de6337f63c61c7ef8e4b788018d44f201778b997835d24edf46aa93a93",
+      "sha256": "a35b81de6337f63c61c7ef8e4b788018d44f201778b997835d24edf46aa93a93"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/a47f53ffb9eea681f1e4d62f6c291fc7bfff463dd9f3dd1f0734cffed95cb570",
+      "sha256": "a47f53ffb9eea681f1e4d62f6c291fc7bfff463dd9f3dd1f0734cffed95cb570"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/a4c19eb941d71850183b79c3cae2f3fe8b8da7df478c5e13b2d28d3f61c99e51",
+      "sha256": "a4c19eb941d71850183b79c3cae2f3fe8b8da7df478c5e13b2d28d3f61c99e51"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/a581b3c656eecb332c3c7c2076b57fa668d0fcfbeb5073b6942a6e4169b7e3e1",
+      "sha256": "a581b3c656eecb332c3c7c2076b57fa668d0fcfbeb5073b6942a6e4169b7e3e1"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/a71a7dbfefa7473e82e0635902e0c3f3139aa9592085851c83c998de5e6623e4",
+      "sha256": "a71a7dbfefa7473e82e0635902e0c3f3139aa9592085851c83c998de5e6623e4"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/a9fbe92fd87f1de76ca53cf1d2102d384e512c77fea5d161e2d75d6b903c0780",
+      "sha256": "a9fbe92fd87f1de76ca53cf1d2102d384e512c77fea5d161e2d75d6b903c0780"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/ab13773d0e39fe8b6542e9da94eae387a006a63cedba0a22b5aa5af3441a7fae",
+      "sha256": "ab13773d0e39fe8b6542e9da94eae387a006a63cedba0a22b5aa5af3441a7fae"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/abb94f6f8e919ff9bc05e1d87ee8fda51310931495eebecff0b7896938829ad8",
+      "sha256": "abb94f6f8e919ff9bc05e1d87ee8fda51310931495eebecff0b7896938829ad8"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/abc689e7ebd36b366a5070c1d01eede97ee14c08f208d9168c8d975fe4d78589",
+      "sha256": "abc689e7ebd36b366a5070c1d01eede97ee14c08f208d9168c8d975fe4d78589"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/ac0574a4bdbf30d46b2de7e92a5fccce0a6e68a616d023218a91f928efd53561",
+      "sha256": "ac0574a4bdbf30d46b2de7e92a5fccce0a6e68a616d023218a91f928efd53561"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/ac9457f47f7968575ae59c05f9ba59cbe18f887b133a81dc16bd3dd38fdac63e",
+      "sha256": "ac9457f47f7968575ae59c05f9ba59cbe18f887b133a81dc16bd3dd38fdac63e"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/accdbfd5e57a0f695c07a674b972d3356c6b87105cdea00827d31f84428a78aa",
+      "sha256": "accdbfd5e57a0f695c07a674b972d3356c6b87105cdea00827d31f84428a78aa"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/ae8abab16cc507312d78ed4d912ef0eea567324ad8fa642781249da12382d6ea",
+      "sha256": "ae8abab16cc507312d78ed4d912ef0eea567324ad8fa642781249da12382d6ea"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/b1107f94cf41c73f5527f27b03f5eec65fb9d3b9ce7606a6d99569cf0fe3dab9",
+      "sha256": "b1107f94cf41c73f5527f27b03f5eec65fb9d3b9ce7606a6d99569cf0fe3dab9"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/b18c02f177a351014b01d6ed8006e6c21fa07c7690c18452a0bf9f3501471223",
+      "sha256": "b18c02f177a351014b01d6ed8006e6c21fa07c7690c18452a0bf9f3501471223"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/b2114f2d7dc8b2e328c32529297c69034a48452087c6346d045696d100f93d51",
+      "sha256": "b2114f2d7dc8b2e328c32529297c69034a48452087c6346d045696d100f93d51"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/b271b70aab0b06ca6f28a3b563f6339a21525905bd34cd69cbd2202ec775143c",
+      "sha256": "b271b70aab0b06ca6f28a3b563f6339a21525905bd34cd69cbd2202ec775143c"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/b45472cad8323fdf0d7828d2cef4a4aef13c51f3a630c062c5b7ad68a9577647",
+      "sha256": "b45472cad8323fdf0d7828d2cef4a4aef13c51f3a630c062c5b7ad68a9577647"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/b478a7dffddb1cc360d52f9a56fd595a230e4bc9601d6057185972b545d6edda",
+      "sha256": "b478a7dffddb1cc360d52f9a56fd595a230e4bc9601d6057185972b545d6edda"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/b6147c997c9f72439ff4d27f1f89329694ee4e391ca23dbbab833c5da3bc04b6",
+      "sha256": "b6147c997c9f72439ff4d27f1f89329694ee4e391ca23dbbab833c5da3bc04b6"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/b76a2b38675c89b0e2a12d794eacdc54cc184f3e6213363ecf038f4d0b90bf58",
+      "sha256": "b76a2b38675c89b0e2a12d794eacdc54cc184f3e6213363ecf038f4d0b90bf58"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/bb6fbf6b0fcfb2a2f4ec5fb4cbfbbd64214e1c3d7679e9543eb311e18c7cc1c9",
+      "sha256": "bb6fbf6b0fcfb2a2f4ec5fb4cbfbbd64214e1c3d7679e9543eb311e18c7cc1c9"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/bb743bd2973aed3075b8ef72a8701aabc59f4a0533f8520730392f80af41534b",
+      "sha256": "bb743bd2973aed3075b8ef72a8701aabc59f4a0533f8520730392f80af41534b"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/bbc7d331be0e4b2dea3485fc8f1d19cd45a8ac51b426f409b041da96c3e564fe",
+      "sha256": "bbc7d331be0e4b2dea3485fc8f1d19cd45a8ac51b426f409b041da96c3e564fe"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/bc54d076180f4b3118fa23cfaecaad322c77d46e456ebc0ff34b0d081e159501",
+      "sha256": "bc54d076180f4b3118fa23cfaecaad322c77d46e456ebc0ff34b0d081e159501"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/bd0d8bfbcedf3ecaa6cdb01188d875c541916cf43b247733c27f316a766a8cae",
+      "sha256": "bd0d8bfbcedf3ecaa6cdb01188d875c541916cf43b247733c27f316a766a8cae"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/be3b5178330e30a728b6a7788177ed13d36d505f9a3b504f9e01879b60a3f2c9",
+      "sha256": "be3b5178330e30a728b6a7788177ed13d36d505f9a3b504f9e01879b60a3f2c9"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/be7e2d9a432a7e84b8f3def9a918dab40ff17dfa7eab4f19bb57780774d251c4",
+      "sha256": "be7e2d9a432a7e84b8f3def9a918dab40ff17dfa7eab4f19bb57780774d251c4"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/bed194351adde626db9e060397eae778c30fc40a0539b154fcb2cdab193322d3",
+      "sha256": "bed194351adde626db9e060397eae778c30fc40a0539b154fcb2cdab193322d3"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/bf6a69c233d872649f4bdbe06604f06e22bbb5c7d93973d96f2fb167a9ef2674",
+      "sha256": "bf6a69c233d872649f4bdbe06604f06e22bbb5c7d93973d96f2fb167a9ef2674"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/bffe3bf61cc312c84d0a72eab612593d69b21f125a7f2e88e25558d299166faa",
+      "sha256": "bffe3bf61cc312c84d0a72eab612593d69b21f125a7f2e88e25558d299166faa"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/c145c7c8eeaf23954bf90c0ae7069113df85f08b24b59015f137b7d825d81b78",
+      "sha256": "c145c7c8eeaf23954bf90c0ae7069113df85f08b24b59015f137b7d825d81b78"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/c2c4ef8b1d3d99009a9e228b70452c748ea7dd3e457986d639a30cefb8a14d87",
+      "sha256": "c2c4ef8b1d3d99009a9e228b70452c748ea7dd3e457986d639a30cefb8a14d87"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/c31f15c668286300fbc0d7625472ac86b3670fbce72921b9c27fc6357ac2085d",
+      "sha256": "c31f15c668286300fbc0d7625472ac86b3670fbce72921b9c27fc6357ac2085d"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/c4a5fdaa36da5c66b03c7001826536d208a4906f02e61e5e81dcc2d8afeb043a",
+      "sha256": "c4a5fdaa36da5c66b03c7001826536d208a4906f02e61e5e81dcc2d8afeb043a"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/c780629c9e5a0e5df1041648aa34f52141d69bb2744efc6a37e19d3618200a32",
+      "sha256": "c780629c9e5a0e5df1041648aa34f52141d69bb2744efc6a37e19d3618200a32"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/c7994cf55d8655e4a71fa5c72d19f81aca4501a80839b9184e32316d3c66e264",
+      "sha256": "c7994cf55d8655e4a71fa5c72d19f81aca4501a80839b9184e32316d3c66e264"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/c90c8b7929e822c754302ddf44be8f194ce7c4d6f542906b0811b244b26b3b83",
+      "sha256": "c90c8b7929e822c754302ddf44be8f194ce7c4d6f542906b0811b244b26b3b83"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/c9e8cb1c202062270c0ca455ca9915b4926851420ce159778e7b4abe02e3f8d3",
+      "sha256": "c9e8cb1c202062270c0ca455ca9915b4926851420ce159778e7b4abe02e3f8d3"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/cb0624ab19015791bd7b6bddcd2b0dd2e8fc28ae31613701bc752adfff543625",
+      "sha256": "cb0624ab19015791bd7b6bddcd2b0dd2e8fc28ae31613701bc752adfff543625"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/cb574b33b3579c29a6af1b15d782fbac85d8c2e2db3d74be2216c76a35719114",
+      "sha256": "cb574b33b3579c29a6af1b15d782fbac85d8c2e2db3d74be2216c76a35719114"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/cbf6ed4b21b59d39281b761a799e41a3827a6e64ea399b402e9553f64bc01c8a",
+      "sha256": "cbf6ed4b21b59d39281b761a799e41a3827a6e64ea399b402e9553f64bc01c8a"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/cd0730e054c70730251b642b0ee24bbb05d243b1db984407633e5df63f51249e",
+      "sha256": "cd0730e054c70730251b642b0ee24bbb05d243b1db984407633e5df63f51249e"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/ce84a4f95361c3f50eea9c3de9bdb2e574a5da96fef86e7c3eeb5e524e5287f3",
+      "sha256": "ce84a4f95361c3f50eea9c3de9bdb2e574a5da96fef86e7c3eeb5e524e5287f3"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/cefd99832e551a381c663fa62cd9c198d5ee377e5c12766586ff88599b9163e5",
+      "sha256": "cefd99832e551a381c663fa62cd9c198d5ee377e5c12766586ff88599b9163e5"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/d01be6564dc02a013565dd922c0d31e145ecb0e27b448b376c071880b8337539",
+      "sha256": "d01be6564dc02a013565dd922c0d31e145ecb0e27b448b376c071880b8337539"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/d0dd7e8800c4145c6c97056aff347e47aeb11de9dd0f144334ee4afe2f79503c",
+      "sha256": "d0dd7e8800c4145c6c97056aff347e47aeb11de9dd0f144334ee4afe2f79503c"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/d358dac735f6ce6b73995add8d2c9eafa2607e7bf1e0b101341c2014762f9c16",
+      "sha256": "d358dac735f6ce6b73995add8d2c9eafa2607e7bf1e0b101341c2014762f9c16"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/d3a001076854e458b11eb6cec4bc95c2fd5ef1a34705e1164b8f77805d83e07c",
+      "sha256": "d3a001076854e458b11eb6cec4bc95c2fd5ef1a34705e1164b8f77805d83e07c"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/d42cfca4afc17c17928ffcbdaf7667f4aced8d6ab4df1cfe2df894a896d30e41",
+      "sha256": "d42cfca4afc17c17928ffcbdaf7667f4aced8d6ab4df1cfe2df894a896d30e41"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/d44e572b091ca63c1a539842129d003239841fbb800cf68201ada348e1d29952",
+      "sha256": "d44e572b091ca63c1a539842129d003239841fbb800cf68201ada348e1d29952"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/d484c29399597a09579a4c1185a968c92a03b54bc38fa28b1cfdb8c8efe5ad3a",
+      "sha256": "d484c29399597a09579a4c1185a968c92a03b54bc38fa28b1cfdb8c8efe5ad3a"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/d4f3b17f262ce99fc0f1026a3053a114f0b5d642bed7c28cb38f6be0f471abdd",
+      "sha256": "d4f3b17f262ce99fc0f1026a3053a114f0b5d642bed7c28cb38f6be0f471abdd"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/d8659fd9bef98fff62d21079aea9be877571d538b8647b759eebf6e427e6c5c3",
+      "sha256": "d8659fd9bef98fff62d21079aea9be877571d538b8647b759eebf6e427e6c5c3"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/db3dfad33c807b6daf8966a73b9bc076e0a78e5fa4419818a3c9990151d0d627",
+      "sha256": "db3dfad33c807b6daf8966a73b9bc076e0a78e5fa4419818a3c9990151d0d627"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/db5867a9b2171ef5c898fac3fde81dcea84f64c1696f2b12cce40c388d30bb62",
+      "sha256": "db5867a9b2171ef5c898fac3fde81dcea84f64c1696f2b12cce40c388d30bb62"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/dc10602bf7ed2178e9195f5edbe28b6f916b11a1041d65eddc460c3735cede62",
+      "sha256": "dc10602bf7ed2178e9195f5edbe28b6f916b11a1041d65eddc460c3735cede62"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/e01e390c512375ebe8f4fb16a546e716f1728e3e38b39dd0974a8dde1ebd4a63",
+      "sha256": "e01e390c512375ebe8f4fb16a546e716f1728e3e38b39dd0974a8dde1ebd4a63"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/e2efe5e2cef9db71f86e46ada33e215f3f44cf15496c2c1586a3c5781ce7256e",
+      "sha256": "e2efe5e2cef9db71f86e46ada33e215f3f44cf15496c2c1586a3c5781ce7256e"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/e3009c2ce1be73aaaa66790192320b5f0b2fa3b4d7b5e0083dad725a6ca9affe",
+      "sha256": "e3009c2ce1be73aaaa66790192320b5f0b2fa3b4d7b5e0083dad725a6ca9affe"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/e3561f83ad625b2dcdbb09826f74386429ff4d8ec4dee29b2b9294dad0397efa",
+      "sha256": "e3561f83ad625b2dcdbb09826f74386429ff4d8ec4dee29b2b9294dad0397efa"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/e8efced9e2a246e5f1cc6ad5b7271f4de2376041bef471c5e5ab3709108d37b8",
+      "sha256": "e8efced9e2a246e5f1cc6ad5b7271f4de2376041bef471c5e5ab3709108d37b8"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/e95bf4fc60800e5e1cfbbac130b627fccdd4c48e1048c7adc80e22195aa0a8cb",
+      "sha256": "e95bf4fc60800e5e1cfbbac130b627fccdd4c48e1048c7adc80e22195aa0a8cb"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/e9a3be830817c4d7f52dfee606903bd35a076d125c0e8262a668ef9281a57a92",
+      "sha256": "e9a3be830817c4d7f52dfee606903bd35a076d125c0e8262a668ef9281a57a92"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/e9c3839570d5a01a6b2684d3f3ca0c3aeb5b5a1d0644f334d73e467fc92b2a35",
+      "sha256": "e9c3839570d5a01a6b2684d3f3ca0c3aeb5b5a1d0644f334d73e467fc92b2a35"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/ea39425cfe411bf960f6a9c338094e39a0cd69da9ec58e7ba7e6e2ce84d5bffc",
+      "sha256": "ea39425cfe411bf960f6a9c338094e39a0cd69da9ec58e7ba7e6e2ce84d5bffc"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/eb100fd21fbdf9e1ca9676daf304623288649d2887e7c5ec208379f347e81fec",
+      "sha256": "eb100fd21fbdf9e1ca9676daf304623288649d2887e7c5ec208379f347e81fec"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/eb28bcafcbc26acafc21c35c8f2888acf8efc5c05d82abd099b823aab80c24c4",
+      "sha256": "eb28bcafcbc26acafc21c35c8f2888acf8efc5c05d82abd099b823aab80c24c4"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/ebb0f38e25ea52e39e8acfa810c682ee27dc7442598079ba3f1e3338b50f522a",
+      "sha256": "ebb0f38e25ea52e39e8acfa810c682ee27dc7442598079ba3f1e3338b50f522a"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/ec4bd967b56d9aa857be3a3ae7f482f5593f6ebf59bf409b7d134e4744d98a3c",
+      "sha256": "ec4bd967b56d9aa857be3a3ae7f482f5593f6ebf59bf409b7d134e4744d98a3c"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/f0166f25f4ad66a38f4f3cae5a18cccb55c45036af1635c3077f265dbdd5ae2c",
+      "sha256": "f0166f25f4ad66a38f4f3cae5a18cccb55c45036af1635c3077f265dbdd5ae2c"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/f0eba9ad5e39a334f6b3853d6bdd9122acbb7c70a3f59dacad26d8ed3b4a8ac8",
+      "sha256": "f0eba9ad5e39a334f6b3853d6bdd9122acbb7c70a3f59dacad26d8ed3b4a8ac8"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/f1249a0d0f9d220d8b986274f0fc0cf4b43b1dc96ebcce54a3dec707852eb989",
+      "sha256": "f1249a0d0f9d220d8b986274f0fc0cf4b43b1dc96ebcce54a3dec707852eb989"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/f2953408154b2d8d39b4da88a4492463b3a987b21f7cf7ea00a9346b407982c7",
+      "sha256": "f2953408154b2d8d39b4da88a4492463b3a987b21f7cf7ea00a9346b407982c7"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/f2bebfdf95c35e336577c063eb2a131dfe2de9cbc9629e1c80c09545070c3766",
+      "sha256": "f2bebfdf95c35e336577c063eb2a131dfe2de9cbc9629e1c80c09545070c3766"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/f334a7a7a73f41c685ab9faaecd0ab4aa71388864c8bc423b6d31ab4bc71966d",
+      "sha256": "f334a7a7a73f41c685ab9faaecd0ab4aa71388864c8bc423b6d31ab4bc71966d"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/f587a9d213b0de39845354ebaefb6669bf492717d99680d8e6e7cc7d4e474df9",
+      "sha256": "f587a9d213b0de39845354ebaefb6669bf492717d99680d8e6e7cc7d4e474df9"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/f5a30c9c193bf0704aefad59660b8dc18e1da2587f72c7f59520d1e57c156a1b",
+      "sha256": "f5a30c9c193bf0704aefad59660b8dc18e1da2587f72c7f59520d1e57c156a1b"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/f5f55f2786add4cbc19054103034a7dce72c7ead236c4b0b4d1f63cea6fe674a",
+      "sha256": "f5f55f2786add4cbc19054103034a7dce72c7ead236c4b0b4d1f63cea6fe674a"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/f64142251f62bc7b6281bef1a71e09498a891f45c9778ef98547bc3606da9cbf",
+      "sha256": "f64142251f62bc7b6281bef1a71e09498a891f45c9778ef98547bc3606da9cbf"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/f65788eb8f58000b417e25a618cdf8de388b6583424c21b40e4e417be4477ca9",
+      "sha256": "f65788eb8f58000b417e25a618cdf8de388b6583424c21b40e4e417be4477ca9"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/f69446490447a6369f84193fde9cff8524c20dcac629961d1f2656e16c28d742",
+      "sha256": "f69446490447a6369f84193fde9cff8524c20dcac629961d1f2656e16c28d742"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/f84481f7ea9573d7ecbad4cfbb4f5087f1d6802b68e954b3908e354391e1e5e0",
+      "sha256": "f84481f7ea9573d7ecbad4cfbb4f5087f1d6802b68e954b3908e354391e1e5e0"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/fb24d003f64ccb38cdf7c961ea685e59ea9cbc77669c49ddd329ee6fe10e7f60",
+      "sha256": "fb24d003f64ccb38cdf7c961ea685e59ea9cbc77669c49ddd329ee6fe10e7f60"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/fb7ccbeeb1bce5416be458d21758381194a64175725eb1099fd71ff8b3489970",
+      "sha256": "fb7ccbeeb1bce5416be458d21758381194a64175725eb1099fd71ff8b3489970"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/fc24bc5e487fe714f0fe85bd90ff52199c7ab2ef26ef465b0dc5089c5a1e5d02",
+      "sha256": "fc24bc5e487fe714f0fe85bd90ff52199c7ab2ef26ef465b0dc5089c5a1e5d02"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/fc40179bcb4772a9f9b9a1b989f52063824ecccddbad41d98f00b39b6fb2ea14",
+      "sha256": "fc40179bcb4772a9f9b9a1b989f52063824ecccddbad41d98f00b39b6fb2ea14"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/fc66c23167b695a334e4a5066bad17852678d62b550cf91bfe51ed4e35a851ea",
+      "sha256": "fc66c23167b695a334e4a5066bad17852678d62b550cf91bfe51ed4e35a851ea"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/fcfc7919153ebed835bc90f1fe21f8005d1846447f8739a57d86bdd095ffdaa7",
+      "sha256": "fcfc7919153ebed835bc90f1fe21f8005d1846447f8739a57d86bdd095ffdaa7"
+    },
+    {
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/ff806487257ab03759bfe823f4adf20998219a32598d1bbbd40204d69fb1fab0",
+      "sha256": "ff806487257ab03759bfe823f4adf20998219a32598d1bbbd40204d69fb1fab0"
+    },
+    {
+      "path": "src/latent_art_bench/io.py",
+      "sha256": "13e6372aa9814495a45700eb9e65d099c56bb1bb3032d72f7f9e00e6ba91a9b8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_exploration_v1/statistics.py",
+      "sha256": "ea87fe5a72050eb85b28f81dd0e32e1d5e355ab0980b83f46ae58bf0f0e316fc"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/__init__.py",
+      "sha256": "8f3b5db80cd2b3e8a7ed507c400dcacde713c0aa860b5083bd8161e17125f180"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/analysis.py",
+      "sha256": "1bceedc888cabd93a82cf77616cfc41173b0f6345362704e2c605edbc307f36c"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/collection.py",
+      "sha256": "4e99a43f36946f3c23916e3284ebfaf1dc474cbf17d3ed7a2ef16a3f41cd5c85"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/discovery.py",
+      "sha256": "211fe3d93077aec9861915b58fa57b2e8954dd17cdc291fdc1e5d33072d1d0eb"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/inference.py",
+      "sha256": "a038dfa9f042c85314ad9760e3c50a1c99dbd576a1a9a5a7fb00c20777ec5509"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/measurement.py",
+      "sha256": "30508b79aac37aa78b0875027dd6bef92ad5c14af968361649d7fe472bd9a387"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/reference_delivery.py",
+      "sha256": "1a120b116a88803187e172d550524091b47429c9206a3977f445b25efcc93e99"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/references.py",
+      "sha256": "414c228aa1ea3628fe34ef3ee91d7bbc1904d2af52552f01d53e55965c7cbcd1"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/statistics.py",
+      "sha256": "2744febc02a00b3f24a49bfafacd9f7a178c271178df96768e67088ea6473a62"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/study.py",
+      "sha256": "2e00d657c937ae231838077ecedbfb2063ae5deed532dfe8d8b7d17e98b4ae9e"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/transport.py",
+      "sha256": "aa45db0e9b4b72dba62ec3d69c8d7ac1baf2473de86db625756823e83b281ffc"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v1/panel.py",
+      "sha256": "b878fe3438c1006767c1d8ca608c1d57b64ed2bb2dff418864fd25c8c2d216b8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/artifacts.py",
+      "sha256": "8b48f0cfb433ac1769786aba366501b69ba1bec540a1a2f9e35e93ce45e9b0d7"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/features.py",
+      "sha256": "b295c2de1a8501e8ab335d88ed56ab8f2dc8b3ca704141b92e02ef586d48d172"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/statistics.py",
+      "sha256": "20830e7a90bc49666f0937ef7bc2ae3f11206f986c72eb8f80ad30cc24fcdaa8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/calibration.py",
+      "sha256": "7624c44d3de1eda939e761e055e04b5066013758c379e758cb42dcfec0076567"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/common.py",
+      "sha256": "8f399eb26069a283209437de51885ce38ca28a21759b359afc506d263107ec4f"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/randomization.py",
+      "sha256": "fec27f7a55ef75d2b7cbf66b6086696f83e051a3dd59f67faae596df1d043e5e"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/statistics.py",
+      "sha256": "ea1f00990bfb647dea61b69418ac0f88c18a06814a9801c0f5a1d41020344654"
+    },
+    {
+      "path": "studies/painter_distribution_study_v1/INFERENCE.md",
+      "sha256": "007e44de517b9d4ac12203647b356edd6a99c064c10fd755022967f6c9e9e187"
+    },
+    {
+      "path": "studies/painter_distribution_study_v1/MAIN.md",
+      "sha256": "fd308c677ec47698bac5672a841e1df44fd6ed7f773e2c80f629c5d9f8ed4f9a"
+    },
+    {
+      "path": "studies/painter_distribution_study_v1/PROTOCOL.md",
+      "sha256": "ac826d7af77018c81066991efbac45e042634fd64146a6a11ecfa70898c12f8e"
+    },
+    {
+      "path": "studies/painter_distribution_study_v1/REFERENCES.md",
+      "sha256": "104307af9f1be11f4466c7eceef1cf92fe336512387833afd030690ad844984f"
+    },
+    {
+      "path": "studies/painter_distribution_study_v1/REFERENCE_DELIVERY_R2.md",
+      "sha256": "a9d0b4423a3cdece390e06e23dcd4965e29c8759d4cb6ca5403e897bdd3df196"
+    },
+    {
+      "path": "studies/painter_distribution_study_v1/RETRY_AMENDMENT.md",
+      "sha256": "dac8dbca64319d335463c8767be5bed070983b25b5a745341cd7d91e1580ecf9"
+    },
+    {
+      "path": "tests/painter_distribution_study_v1/test_collection.py",
+      "sha256": "e3595d312ec43bf20de85462b6472c57f8267693bbc66cc2c4cf9600d69b7b57"
+    },
+    {
+      "path": "tests/painter_distribution_study_v1/test_main_analysis.py",
+      "sha256": "3c8ac1b117fb604e25df295b107b9f95020a142d217f1b34f65cd6d328603171"
+    },
+    {
+      "path": "tests/painter_distribution_study_v1/test_measurement.py",
+      "sha256": "ea97e900296ba8c61d14772c91466832962748821bc5c892e61a6c688957edf1"
+    },
+    {
+      "path": "tests/painter_distribution_study_v1/test_study.py",
+      "sha256": "d3ccbd51b61892ea0f01f9133776d2fa45931ed80a15b09d0060e513b1594af0"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+    }
+  ],
+  "inventories": [
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-20260906/development.jsonl",
+      "sha256": "5509abea2b815e1f8dc2fd1e434c523105ec5723308c58fc4d7b1bc4e9d72ae8"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-20260906/reference_panel.jsonl",
+      "sha256": "760ec4d5b4f5d7ea48a2a7ec23cdab3ca20d7994e0e92d7dec820ad453dca191"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-20260906/requests.jsonl",
+      "sha256": "802830b9f8b9bcfa5654ebb4002f3e2517c020f7cd9e9c33a22759fd43685767"
+    }
+  ],
+  "pipelines": [
+    "primary512",
+    "resolution256",
+    "jpeg90_512"
+  ],
+  "proxy_source": {
+    "address": "127.0.0.1",
+    "executable": "bun",
+    "files": [
+      {
+        "path": "README.md",
+        "sha256": "936776962658061102d4485e970016f230fac822ff298d991aee6cccf8b05b3e"
+      },
+      {
+        "path": "packages/openai-oauth/src/images.ts",
+        "sha256": "25ee6fe00dc96edecc3483415177071635dc9d3d51e8a55de38a608fbfa16aa4"
+      },
+      {
+        "path": "packages/openai-oauth/src/server.ts",
+        "sha256": "15d0d5fb65a2ed6040d32cf49868012d746b90cf8224389a6488aa5a526d1ea2"
+      },
+      {
+        "path": "packages/openai-oauth/src/shared.ts",
+        "sha256": "09bbd833287916cf5cad7c74e687531ba0779b630b0d3458e34ec7df417d36aa"
+      },
+      {
+        "path": "packages/openai-oauth-core/src/auth.ts",
+        "sha256": "5fd0f44eba9e17153d726407797a2c5b9402b36cefca7d382105c5391c4c699f"
+      },
+      {
+        "path": "packages/openai-oauth-core/src/image-models.ts",
+        "sha256": "ab0507b1768cfd051e1f82d73946d5582163fd4dd7591b371463957c6c59c66b"
+      },
+      {
+        "path": "packages/openai-oauth-core/src/transport.ts",
+        "sha256": "c2470c60bea8c0eb98a7eb247e6d3e8e11cebf726e65c3ff3443c9d9b0be09f4"
+      }
+    ],
+    "pid": 93760,
+    "port": 10532,
+    "recorded_git_commit": "0a664bcc8e09649fcdd558e0bfbdd6447b85bca2",
+    "source_directory": "packages/openai-oauth",
+    "started_utc": "Sat Sep  5 01:05:53 2026"
+  },
+  "recorded_git_commit": "d06cb95cb50c71e7ee161270b0a238c8ebf9d099",
+  "review_kind": "single_maintainer_llm_self_review",
+  "run_id": "pdsv1-main-20260906",
+  "software": {
+    "Pillow": "11.3.0",
+    "PyWavelets": "1.9.0",
+    "httpx": "0.28.1",
+    "numpy": "2.5.2",
+    "scikit-image": "0.26.0",
+    "scipy": "1.18.1"
+  },
+  "total_slots": 1008,
+  "window_offsets_hours": [
+    0,
+    3,
+    6,
+    9,
+    24,
+    27,
+    30,
+    33
+  ],
+  "window_origin_unix": 1788703200
+}
