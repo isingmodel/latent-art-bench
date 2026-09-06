@@ -1,0 +1,484 @@
+{
+  "authorization": "User: retry for those two failed trial. then give me the main results",
+  "authorized_at_date": "2026-09-06",
+  "config": {
+    "aliases": [
+      "gpt-image-1",
+      "gpt-image-2"
+    ],
+    "approved_maximum_requests": 1920,
+    "authorization": "User explicitly approved 1,920 total new images on 2026-09-05 ('1,920 is okay'), across both requested aliases and all three prompt methods. Use the existing local OAuth route; no paid API fallback.",
+    "background": "opaque",
+    "base_url": "http://127.0.0.1:10532",
+    "calibration_id": "pps1-randomization-20260905",
+    "max_runtime_bytes": 12884901888,
+    "maximum_requests": 1920,
+    "maximum_response_bytes": 67108864,
+    "method_ids": [
+      "by_name",
+      "style_instruction",
+      "style_aspects"
+    ],
+    "minimum_decoded_short_side": 512,
+    "minimum_start_interval_seconds": 15,
+    "multiplicity": "holm",
+    "order_salt": "painter-prompt-study-v1-before-new-generation",
+    "order_seed": 9080151411733570857,
+    "output_format": "png",
+    "paid_fallback": false,
+    "permutation_draws": 99999,
+    "permutation_seed": 8755477342009039575,
+    "primary_estimator": "paired_randomization",
+    "quality": "medium",
+    "repetitions": 4,
+    "reserve_disk_bytes": 5368709120,
+    "schema_version": "painter-prompt-study/1.0",
+    "simultaneous_alpha": 0.05,
+    "size": "1024x1024",
+    "timeout_seconds": 240
+  },
+  "inference": "post-hoc descriptive completion; no new randomization p-values or CIs",
+  "inputs": [
+    {
+      "path": "configs/painter_prompt_study_v1/study.json",
+      "sha256": "f8282e2ba064db346c69d6049ea779fb14228ad0081965eb39f845fe55bdd69b"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v1/prompt_library.json",
+      "sha256": "fbe81e7cb93282dae96c3edd7df58ed3d43ee81516b6df113f3c8b56b07e09a7"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/confirmation_features.jsonl",
+      "sha256": "01cc5167c09b88eab6a86885b72040f76fc8a7ca8a62acd56d85a8b16b2f7717"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/confirmation_receipt.json",
+      "sha256": "22617ada4debec0dde30cbb9c492b986e67fe0c5382f0b8d69740466d934889a"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/development_receipt.json",
+      "sha256": "5a724637bbf4ff1e424be0259e53ceb47c4926dba926defcff2609c7057b1b1c"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/empirical_analysis.json",
+      "sha256": "34bf52e5f1c57984c7ee1da0b72950108a7bf550cf2f2512db72483ea206b3c8"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/experiments/pfg2-oauth-pilot-20260905/generated_features.jsonl",
+      "sha256": "082e3ec32305b6d3b66e2f3a649d32a6741c6535b9cb46740cca9def605de772"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/experiments/pfg2-oauth-pilot-20260905/generated_receipt.json",
+      "sha256": "6080a2b0c62bc7b20fa3142233eea851bb6e7ece2dfc9a3fb2398286adff7616"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/experiments/pfg2-sd-turbo-20260905/generated_features.jsonl",
+      "sha256": "eaed290dbc6a4afe5a330b29a6721f4556914517e74eb4300bb0cb422192b560"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/experiments/pfg2-sd-turbo-20260905/generated_receipt.json",
+      "sha256": "b97c1233ad8e72fbde349f7b5b52aa2ed8de63619c0ed163bd40b535f4788509"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/method_freeze.json",
+      "sha256": "0c254c629b37803c7e99f2c61485f6086f593f98cd8bc26b78a5c498f2b29200"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/report_receipt.json",
+      "sha256": "fc7534a1123eba2c8c3884bb6c5c0fd3a908a88cb74191b0069133d0b1086cd3"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/scaler.json",
+      "sha256": "71f511235081dfc1e9846976320c69477bcbd04dd43fc9a2e271f7b0375497b9"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-oauth-pilot-20260905/generation_receipt.json",
+      "sha256": "d4ee06e293a6b22d5dd5fa4d3dc04784c409dda4c286e97edebed1540b6af13c"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-sd-turbo-20260905/generation_receipt.json",
+      "sha256": "58dc9fdaa0c4c8d49124ee3653cbc4494d358b1d71d4956721b8f2e2aa0ef033"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/analysis.json",
+      "sha256": "c6691d11d0b9481cb9794cc05d1688c19c8949cd9b1b3005d9e0de12e00d8200"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/generation_events.jsonl",
+      "sha256": "26068ba30d408174d2e49e3f6ea3bffd09362142db730093456908e626059a08"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/generation_freeze.json",
+      "sha256": "05f7e44abafe3724c13469a01b0e126e752ad878b8d2482160bb2bd585387d98"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/generation_receipt.json",
+      "sha256": "7692ac4e1f40f988aad133bb717b863f25bff7abf9f996044292af03e3248ea2"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/measured_features.jsonl",
+      "sha256": "d398b851f6036feb666de90cf6ed24014cdd6616e514d87a91703a44c3a74482"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/measurement_events.jsonl",
+      "sha256": "bee952eeaf5857d6a90e5387ec45c3fd12482c7f4019217f74776d3455d7982a"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/measurement_receipt.json",
+      "sha256": "f45a709d7889bd33ecececdbb1b9ea89b8460546b18da7e84a67bf63ea818f31"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/outputs.jsonl",
+      "sha256": "c8bfcf32ea3295ae7e8e5b88796e350f6baa6d48cc9acef455bd92384203bcc7"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/prompts.json",
+      "sha256": "a658ec0214c067353437f2c8182b90295896b09daba7ad4f48790db05a0c0f19"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/report_receipt.json",
+      "sha256": "1bd9c5e7c242ffe9fa41bd0e40bdb662c2492febfcd9bcd845edbaebffc1f8c0"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/requests.jsonl",
+      "sha256": "6a4139f7b780cf450d3f435d5ac95c590eef9b5214ad6bf54f8b61ffc4657cc4"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-randomization-20260905/decision.json",
+      "sha256": "edbae0b9e908d3fe060d51f8c767b1b4d130e0ac4848a640dbf89366b987d8b0"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-randomization-20260905/development.json",
+      "sha256": "42a68ad71ee4e8a3bfe5374b6e240d062d1d95c1dc2b0acdd27de5a70b684e4a"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-randomization-20260905/validation.json",
+      "sha256": "8bf2824156ee87e52747f3175617b8c9b2e8da02330cee8d43591a0e0ca24df0"
+    },
+    {
+      "path": "data/manifests/painter_prompt_supplement_v1/ppss1-missingness-20260905/analysis.json",
+      "sha256": "f38e233fea287d97d440a4b8d7137f04bb23f2e90d0fedd2fa37ebaea4e3c6fe"
+    },
+    {
+      "path": "data/manifests/painter_prompt_supplement_v1/ppss1-missingness-20260905/design_freeze.json",
+      "sha256": "8dd263ffa01387be6b5d25ba6869fd374dc4e840903bd514de015f7710b7b675"
+    },
+    {
+      "path": "data/manifests/painter_prompt_supplement_v1/ppss1-missingness-20260905/report_receipt.json",
+      "sha256": "cfeccbeb8976d6c11584688dbe4bf2b612f90c55eb2e8f4d93f028c7dede6a87"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8"
+    },
+    {
+      "path": "src/latent_art_bench/io.py",
+      "sha256": "13e6372aa9814495a45700eb9e65d099c56bb1bb3032d72f7f9e00e6ba91a9b8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_distance_v1/analysis.py",
+      "sha256": "22d7b1bf8b55e916d5210bf19a636674cba86fdf35783ce8456682c784a98cb6"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v1/panel.py",
+      "sha256": "b878fe3438c1006767c1d8ca608c1d57b64ed2bb2dff418864fd25c8c2d216b8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v1/prompt_library.py",
+      "sha256": "b9fc03e33e4d18c36ae7b9688763f340ec899f98ae8b3783c7371109180057d4"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/artifacts.py",
+      "sha256": "8b48f0cfb433ac1769786aba366501b69ba1bec540a1a2f9e35e93ce45e9b0d7"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/empirical.py",
+      "sha256": "c5ed9f4f7f390de7087222d6b780744bb33eaf279ccedfbbeb706510336655a9"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/features.py",
+      "sha256": "b295c2de1a8501e8ab335d88ed56ab8f2dc8b3ca704141b92e02ef586d48d172"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/model_assessment.py",
+      "sha256": "bd460259a4282df10e9e57d65c54e0ff1cf89a3a72ffb68a29fa0bb9086888ed"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/oauth_generate.py",
+      "sha256": "ac5957ebbc9d7a0b7e6361671b58bb021e88fae200b1260538db499376e2b32f"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/pipeline.py",
+      "sha256": "f2edadc329b2b0a5490c5e1d8f542d5b3bc0bff7fb83ac82fe90d6389f7db37b"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/statistics.py",
+      "sha256": "20830e7a90bc49666f0937ef7bc2ae3f11206f986c72eb8f80ad30cc24fcdaa8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_retry_v1.py",
+      "sha256": "8f8365003d9f9d276c3ea7fabc2bab5a78f595905f5c73a9f1c1ad013ff89fbf"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/__init__.py",
+      "sha256": "db507448d5134974ca1b407fd4396413b2b4a9b1bd8d8011b74dee30f8128683"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/analysis.py",
+      "sha256": "c78239d3c331fb99f6f33e2f171cf3794373a033b6438a251102b8ff6962b60a"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/audit.py",
+      "sha256": "3aeeb3a4a73aebb73723a21af44afa0a8601dfd66ca081be67b8c41965e96603"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/calibration.py",
+      "sha256": "7624c44d3de1eda939e761e055e04b5066013758c379e758cb42dcfec0076567"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/calibration_record.py",
+      "sha256": "e83406887a6e9657953a4f99055acd051e94d504f98db20d3b553453cf585167"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/cli.py",
+      "sha256": "9adeac0b6530a25050ce7025ee47a86ab89b1e832bb0c8cffd4ea7b135a3fb86"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/common.py",
+      "sha256": "8f399eb26069a283209437de51885ce38ca28a21759b359afc506d263107ec4f"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/design.py",
+      "sha256": "e744bb0792ab59e7f8196bafc5ba47f9643872769d6dad887410aa1a60b2c961"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/generation.py",
+      "sha256": "8bc7db4904d3bbbf6048767125002b9c07047a2be9b63168eb536eaccc30bc8b"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/measurement.py",
+      "sha256": "5a85a5e983d021f1006be9363c660b7167989918c55e5f140c2aba34dfcfa1af"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/prompts.py",
+      "sha256": "cff027af709ab49c4442e929f0cbcc63931f6ff0468908c39d3367df39fd4c10"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/randomization.py",
+      "sha256": "fec27f7a55ef75d2b7cbf66b6086696f83e051a3dd59f67faae596df1d043e5e"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/randomization_record.py",
+      "sha256": "b27eb93a4c4a456f1ef77bf906a4689144afe09c3856de76b69a2de5039443a0"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/report.py",
+      "sha256": "c549aa0a49aaba4f964143cb902a4c398befe8f2fd89245b84e414bc2547210c"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/reproduction.py",
+      "sha256": "2c334d9db83e7a65e42ed2d1d49ad2f16a895bb75ccf074fc00a5a2dd94855b4"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/statistics.py",
+      "sha256": "ea1f00990bfb647dea61b69418ac0f88c18a06814a9801c0f5a1d41020344654"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_supplement_v1/__init__.py",
+      "sha256": "4c880914048d20613bfbd3cebd67e613962e50fa75669c47e6fd64f84a1d2bf6"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_supplement_v1/report.py",
+      "sha256": "25b4ee9ed4d91aae972093a7eded071e350240019066d9ab1821914327949960"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_supplement_v1/statistics.py",
+      "sha256": "37ca07180a102d90afa8b8eebeccb5262e4d9ea22a458547b91b2d6713a648b9"
+    },
+    {
+      "path": "studies/painter_prompt_retry_v1/PROTOCOL.md",
+      "sha256": "9266f047138cc7de5466fd2c5bb6d27a13b5fcca75bc6d996eeaf4e0f7b89272"
+    },
+    {
+      "path": "studies/painter_prompt_study_v1/PROTOCOL.md",
+      "sha256": "f7b2a3c981d07ada48a6e5eb07713d87ae02695aec7d0371bc78cf4a96aa943a"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/__init__.py",
+      "sha256": "714143f4f4d7bd90e1f9d4e84b34a6ad91ea671b9972ce9c28df81d06253a2fa"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_analysis.py",
+      "sha256": "8163ebd6939ae6fdedab965d4dc940ef66caf71806905771a6926210685bba36"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_audit.py",
+      "sha256": "52e55073fbc3a8b5dd6f0100c74f474b16b96af01a7defbbd9adebf540f22ab2"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_calibration_record.py",
+      "sha256": "44ce207126d059abf380620f2ef1aa7c07ff6323ef4cf3ea3fda0504a5ba72a0"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_design.py",
+      "sha256": "a26797153605ed678b651095dc6ca23b438a9f6adfd54155226e0134aedae249"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_dispatch.py",
+      "sha256": "f5b0b7f0eb80259eb7e0db1bc4c82b6e3d2215070e25314939845bf943537848"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_end_to_end.py",
+      "sha256": "b97b345f10f68e7510893eb570ad5287380599c6c0990458f16c321efb32f076"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_generation.py",
+      "sha256": "1b668c72a9cc87c950159110150ab7da11c0fe3053dd51534d36a83150263383"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_measurement.py",
+      "sha256": "f8a9cb8b799e4861eb4538e4c79010f4fe6075e4da1878b43c506a090b7352b8"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_prompts.py",
+      "sha256": "508f313cbc7a945d62eb43f85c33e02f9017226bf4af073d492d9495d5e7d70d"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_randomization.py",
+      "sha256": "6d3139f0efc4208a2e3fb0b560e5b40d31fe5cdcdd96153d2809c06b832af46e"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_randomization_record.py",
+      "sha256": "47e1372f49d51f6bb576f61fdb2a2724da67b63d3705062adb9b849946f049a9"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_report.py",
+      "sha256": "e28118ad74b6ad376100b47ef03b2c529855f5e086c1f67555f0b8bb79c940b0"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_statistics.py",
+      "sha256": "6ce1e429197c8b67a8009d51c224973bb246136a59c6c305576499a4f0fab4af"
+    },
+    {
+      "path": "tests/test_painter_prompt_retry_v1.py",
+      "sha256": "defa9b816632210dafbe2a8a4ee6df3b2c6017f25fa7ef83f17580b7eae5ef16"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+    }
+  ],
+  "maximum_new_requests": 2,
+  "original_primary_status": "unavailable_incomplete_grid",
+  "prepared_at_utc": "2026-09-06T00:55:21.451045+00:00",
+  "proxy_source": {
+    "files": [
+      {
+        "path": "README.md",
+        "sha256": "936776962658061102d4485e970016f230fac822ff298d991aee6cccf8b05b3e"
+      },
+      {
+        "path": "packages/openai-oauth/src/images.ts",
+        "sha256": "25ee6fe00dc96edecc3483415177071635dc9d3d51e8a55de38a608fbfa16aa4"
+      },
+      {
+        "path": "packages/openai-oauth/src/server.ts",
+        "sha256": "15d0d5fb65a2ed6040d32cf49868012d746b90cf8224389a6488aa5a526d1ea2"
+      },
+      {
+        "path": "packages/openai-oauth/src/shared.ts",
+        "sha256": "09bbd833287916cf5cad7c74e687531ba0779b630b0d3458e34ec7df417d36aa"
+      },
+      {
+        "path": "packages/openai-oauth-core/src/auth.ts",
+        "sha256": "5fd0f44eba9e17153d726407797a2c5b9402b36cefca7d382105c5391c4c699f"
+      },
+      {
+        "path": "packages/openai-oauth-core/src/image-models.ts",
+        "sha256": "ab0507b1768cfd051e1f82d73946d5582163fd4dd7591b371463957c6c59c66b"
+      },
+      {
+        "path": "packages/openai-oauth-core/src/transport.ts",
+        "sha256": "c2470c60bea8c0eb98a7eb247e6d3e8e11cebf726e65c3ff3443c9d9b0be09f4"
+      }
+    ],
+    "listener": {
+      "address": "127.0.0.1",
+      "executable": "bun",
+      "pid": 93760,
+      "port": 10532,
+      "source_directory": "packages/openai-oauth",
+      "started_utc": "Sat Sep  5 01:05:53 2026"
+    },
+    "recorded_git_commit": "0a664bcc8e09649fcdd558e0bfbdd6447b85bca2",
+    "repository": "openai-oauth"
+  },
+  "recorded_git_commit": "38f113906dc6d4d45684abbdb1b5f0d35d2b386b",
+  "requests": [
+    {
+      "alias": "gpt-image-1",
+      "alias_position": 0,
+      "assignment_unit_id": "b0000-L3-camille_pissarro-gpt-image-1",
+      "block": 0,
+      "cell_position": 69,
+      "condition": "camille_pissarro",
+      "method_id": "by_name",
+      "method_position": 1,
+      "order_hash": "d875c5a5ae36c4586a2def9237b359f2941364c5e11586801eeff4ebe1e5cedb",
+      "payload": {
+        "background": "opaque",
+        "model": "gpt-image-1",
+        "n": 1,
+        "output_format": "png",
+        "prompt": "An oil painting on canvas by Camille Pissarro of an orchard or garden landscape viewed outdoors.",
+        "quality": "medium",
+        "size": "1024x1024"
+      },
+      "prompt": "An oil painting on canvas by Camille Pissarro of an orchard or garden landscape viewed outdoors.",
+      "request_id": "b0000-L3-camille_pissarro-by_name-gpt-image-1",
+      "sequence": 415,
+      "template_id": "L3",
+      "treatment_position": 1
+    },
+    {
+      "alias": "gpt-image-1",
+      "alias_position": 0,
+      "assignment_unit_id": "b0003-B2-paul_cezanne-gpt-image-1",
+      "block": 3,
+      "cell_position": 46,
+      "condition": "paul_cezanne",
+      "method_id": "by_name",
+      "method_position": 2,
+      "order_hash": "9989d7bfa39d0bb984b705386f00292934b962c0a06b862f9615614831579f81",
+      "payload": {
+        "background": "opaque",
+        "model": "gpt-image-1",
+        "n": 1,
+        "output_format": "png",
+        "prompt": "An oil painting on canvas by Paul Cézanne of a village or settlement viewed from outdoors.",
+        "quality": "medium",
+        "size": "1024x1024"
+      },
+      "prompt": "An oil painting on canvas by Paul Cézanne of a village or settlement viewed from outdoors.",
+      "request_id": "b0003-B2-paul_cezanne-by_name-gpt-image-1",
+      "sequence": 1718,
+      "template_id": "B2",
+      "treatment_position": 2
+    }
+  ],
+  "run_id": "ppr1-two-refusals-20260906",
+  "schema_version": "painter-prompt-retry/1.0",
+  "source_method_id": "pfg2-method-20260905",
+  "source_refusals": [
+    {
+      "output_sha256": "2f13d8bf7c953d6f690e3f4371f8af4626b4d3b25dd6247b18f988b25aca846e",
+      "sequence": 415
+    },
+    {
+      "output_sha256": "818dc5cf6a3e231a795105cceae495454db55851cf8158b44a6096428460b2d5",
+      "sequence": 1718
+    }
+  ],
+  "source_run_id": "pps1-gpt-prompts-20260905",
+  "workspace": "research_workspace/painter_prompt_study_v1/ppr1-two-refusals-20260906"
+}

@@ -40,6 +40,10 @@ data/manifests/*
 !data/manifests/painter_prompt_supplement_v1/
 !data/manifests/painter_prompt_supplement_v1/**/
 !data/manifests/painter_prompt_supplement_v1/**/*.json
+!data/manifests/painter_prompt_retry_v1/
+!data/manifests/painter_prompt_retry_v1/**/
+!data/manifests/painter_prompt_retry_v1/**/*.json
+!data/manifests/painter_prompt_retry_v1/**/*.jsonl
 
 !artifacts/
 artifacts/*
@@ -69,6 +73,7 @@ research_workspace/
 !reports/painter_feature_distance_v1/plots/*.png
 !reports/painter_prompt_study_v1/*/plots/*.png
 !reports/painter_prompt_supplement_v1/*/plots/*.png
+!reports/painter_prompt_retry_v1/*/plots/*.png
 
 # Python
 __pycache__/
