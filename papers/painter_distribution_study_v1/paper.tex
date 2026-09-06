@@ -1,0 +1,389 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,graphicx,booktabs,tabularx,enumitem}
+\usepackage[round,authoryear]{natbib}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+\usepackage{microtype}
+\graphicspath{{../../reports/painter_distribution_study_v1/pdsv1-diagnostics-20260906/plots/}}
+\setlength{\parskip}{3pt}
+\setlength{\parindent}{1em}
+\setlength{\emergencystretch}{2em}
+\title{Painter Names and Feature Distributions:\\Comparing Generated Images with Original Paintings}
+\author{Anonymous authors\\\small Research manuscript prototype}
+\date{6 September 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+An image can suggest a painter's style while occupying a different distribution
+of measurable image properties. We investigate this distinction using 31 fixed,
+interpretable color, spatial and digital-texture features. Completed development
+analyses compare 649 digital painting surrogates by Monet, Sisley, Pissarro and
+Cézanne with 1,920 generated images from two requested GPT Image service aliases,
+three prompt methods and matched artist-free controls. Across painter-conditioned
+cells, generated/original total sample-variance ratios range from 0.206 to 0.376,
+and scene/work-disjoint RBF classification reaches balanced accuracy 0.940--0.983.
+Artist-free images are also readily distinguished (0.915--0.990), and broad
+content reweighting changes the spread ratios little. These observations support
+an empirical feature-distribution gap, while leaving its painter specificity,
+perceptual meaning and capture-related causes unresolved. We therefore design a
+focused extension with two additional model families, visually coded reference
+content and a prompt-specificity intervention. An 18-image technical pilot
+succeeds at a total paid cost of \$0.8305, but reveals encoding differences between
+the paid routes and render deviations on the OAuth comparator. This prototype
+reports the completed evidence and distinguishes it from the ongoing controlled
+extension; it does not claim completed new-model fidelity results or human validation.
+\end{abstract}
+
+\section{Introduction}
+The question motivating this study is whether painter-conditioned image
+generation reproduces the distribution of visual properties found across a
+painter's original works. A small distance to a painter's average feature vector
+does not answer this question: generated images can cluster tightly near that
+average while failing to reproduce variation across works. Conversely, a
+recognizable artistic reference may coexist with systematic differences in
+palette, spatial organization or digital texture.
+
+We distinguish four properties: distribution discrepancy, within-set spread,
+reference coverage and painter specificity. None is an aesthetic quality score.
+The measured objects are digital reproductions of paintings and generated image
+files. Their comparison combines artistic choices with content, reproduction,
+resizing, encoding and service behavior. Treating every detectable difference as
+a failure of painter-style reproduction would overstate what the measurements identify.
+
+The completed analysis suggests a useful, narrower hypothesis: under the tested
+prompt libraries and image processing, painter-conditioned generations occupy
+more concentrated and distinguishable feature distributions than the recorded
+original-painting surrogates. The extension asks whether this pattern persists
+under stronger content controls and across additional model families. Its
+contribution is intended to be explanatory evidence about the gap, rather than
+another demonstration that two scatter clouds can separate.
+
+\section{Related work and the distinct research question}
+Quantitative art research has characterized painting collections using color,
+image statistics and information-theoretic measures
+\citep{kim2014,lee2020,sigaki2018}. Kim et al.'s 2026 study concerns contextual
+multimodal navigation through art-historical development \citep{kim2026}. Our
+sampling unit and target differ: we compare within-painter distributions across
+distinct works with newly generated text-to-image collections, with painter-name
+and prompt-content interventions. We do not claim to replicate its art-evolution
+analysis or its complete measurement system. Our fixed 31-feature representation
+is the existing implementation in this project.
+
+Asperti's recent preprint reports separation of human and generated paintings
+in CLIP space and investigates preprocessing robustness, interpretable multiscale
+structure and inversion \citep{asperti2026}. Thus, scatter separation alone is not
+sufficient novelty for this work. We emphasize painter-conditional comparisons,
+explicit artist-free controls and the effects of prompt content on a fixed
+interpretable representation. We have not run CLIP or reproduced that preprint's
+inversion experiments. More generally, feature-space distinctions need not have
+the perceptual significance assumed by a style evaluator.
+
+Generative-model evaluation separates fidelity and coverage for related reasons
+\citep{naeem2020}. Resizing and compression can change measured differences
+\citep{parmar2022}; digital-surrogate provenance is consequently part of the
+experimental design rather than a minor file-handling detail. Energy statistics
+provide a distributional comparison based on pairwise distances
+\citep{szekely2013}, without reducing each collection to its centroid.
+
+\section{Completed development data and methods}
+\subsection{Reference paintings and generation accounting}
+The reference analysis uses 649 measured original-painting surrogates: 297 Monet,
+106 Sisley, 141 Pissarro and 105 Cézanne. The broader recorded frame also contains
+development and qualification works; they cannot be relabeled as new holdouts.
+A separate 221-work development set supplies the frozen feature scaler.
+
+The repeated prompt study has two requested service aliases, \texttt{gpt-image-1}
+and \texttt{gpt-image-2}; three methods (by name, explicit style instruction,
+and style instruction plus aspects); 16 scene templates; and four repetitions.
+For each alias/method there are four named painter conditions and an artist-free
+condition. This gives 1,920 planned slots, with 64 images per condition.
+The original run returned 1,918 images and two moderation refusals. Two later,
+explicitly authorized requests used the exact refused payloads and succeeded.
+The derived descriptive grid therefore contains 1,920 measured images from
+1,922 requests: 1,536 named and 384 artist-free images.
+
+The two later images do not restore their original randomized time positions.
+The original complete-grid primary remains unavailable, while its source
+refusals and earlier analyses remain preserved. The descriptive results below
+use the completed derived grid. We do not attach new randomization p-values or
+confidence intervals to that retrospective replacement. Requested aliases are
+service labels; the available evidence does not attest distinct underlying model
+snapshots. Accordingly, they are not treated as two independently verified model families.
+
+\subsection{Feature representation and processing}
+Each image is represented by 11 color, eight spatial and 12 digital-texture
+features. Color includes lightness and chroma location/spread, hue organization,
+and multiscale chromatic differences. Spatial features include spectral shape,
+orientation organization, gradients and quadrant differences. Texture includes
+wavelet energies and trends, local binary-pattern entropies and local luminance
+variation. These are measurements of digital images, not direct measurements of
+physical brushstroke relief or a validated complete definition of painter style.
+
+The primary normalization applies EXIF orientation, converts valid embedded
+profiles to sRGB, assumes sRGB when compatible unprofiled data are present,
+rejects nonopaque images and preserves aspect ratio at a 512-pixel short side.
+It uses Lanczos resampling without upsampling or discretionary cropping.
+Each coordinate is centered by the development median and divided by the
+development interquartile range. Development painters receive equal total mass;
+no generated or new reference feature is used to fit that scaler.
+
+\subsection{Distribution discrepancy, spread and content weights}
+Let $x_i$ and $y_j$ be standardized reference and generated vectors, with
+nonnegative weights $a_i$ and $b_j$ that each sum to one. We report the empirical
+V-statistic energy discrepancy
+\begin{align}
+\widehat{\mathcal E}(X,Y)={}&2\sum_{i,j}a_i b_j\lVert x_i-y_j\rVert_2
+-\sum_{i,k}a_i a_k\lVert x_i-x_k\rVert_2\nonumber\\
+&-\sum_{j,l}b_j b_l\lVert y_j-y_l\rVert_2.
+\label{eq:energy}
+\end{align}
+All pairwise terms contribute; the reference mean is not the sole comparison
+target. The finite-sample V-statistic has a nonzero sampling baseline even when
+independent samples come from one common population.
+
+We report the ratio of total within-group sample variances for ordinary
+unweighted data. Weighted analyses use the population-form trace
+$\sum_i a_i\lVert x_i-\sum_k a_k x_k\rVert^2$ in both numerator and denominator.
+The sample and population definitions have different finite-sample denominators.
+A complementary robust summary divides the sum of squared generated coordinate
+IQRs by the corresponding reference sum. Undefined coordinate ratios remain
+undefined rather than being stabilized by an arbitrary constant.
+
+Content weighting assigns equal total mass to four previously recorded broad
+classes. Original labels come from title metadata; generated labels come from
+the intended prompt. This is a sensitivity to the assigned content mixture,
+not independent validation of actual depicted content. The old title lexicon can
+confuse geographic names with composition, and the four classes cannot control
+all subjects, viewpoints or scene complexity.
+
+\subsection{Real/real baselines and separation}
+For each painter, 128 deterministic draws partition distinct original works into
+two disjoint groups of size $n=\min(64,\lfloor N/2\rfloor)$. Matched-$n$
+generated/original comparisons use the same original subsets. These repeated
+draws reuse one corpus; they are not 128 independent studies, population confidence
+intervals or an artistic-equivalence margin.
+
+Common PCA views retain all points and shared axes within a painter. PCA is
+descriptive and is not used to train the detector. Fixed linear and RBF
+kernel-ridge classifiers use ridge 0.01, class-balanced training and no
+hyperparameter search. Test folds hold out complete generated scene families
+and distinct original works. Transfer analyses additionally hold out the target
+painter or requested alias as specified in the released membership records.
+Group-disjoint evaluation addresses leakage from repeated prompts and works
+\citep{roberts2017}; it does not establish independent backend sessions.
+
+\section{Completed development results}
+\subsection{Concentration and separability}
+Table~\ref{tab:spread} summarizes the all-31-feature cells. Named generation has
+substantially smaller empirical spread than the originals under both variance
+and IQR-based summaries. The artist-free cells have larger spread ratios than
+the named ranges but are also distinguishable from originals.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{lrrrr}
+\toprule
+Condition & Sample variance & Content-equal variance & IQR spread & RBF BA\\
+\midrule
+Named & .206--.376 & .211--.372 & .215--.396 & .940--.983\\
+Artist-free & .369--.750 & .378--.728 & .352--.646 & .915--.990\\
+\bottomrule
+\end{tabular}
+\caption{Ranges over four painters, two requested aliases and three prompt
+methods. Spread values are generated/reference ratios. BA is balanced accuracy.
+The content-equal column uses weighted population variance.}
+\label{tab:spread}
+\end{table}
+
+\begin{figure}[ht]
+\centering\includegraphics[width=\linewidth]{content_standardization.png}
+\caption{The fixed content-mixture sensitivity changes all-31 spread ratios
+little. This result concerns recorded title/prompt categories; it does not
+establish that visual content is adequately matched.}
+\label{fig:content}
+\end{figure}
+
+\subsection{Comparison with finite-sample original splits}
+The matched-$n$ real/real energy medians are much smaller than the corresponding
+generated/original medians (Table~\ref{tab:baseline}). This descriptive comparison
+argues against sample count alone explaining the observed discrepancy. It does
+not isolate a stylistic cause: original splits share the corpus's mixture of
+capture and content conditions, whereas comparisons with generated images need not.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrrrr}
+\toprule
+Painter & $n$ & Original/original & Named/original & Artist-free/original\\
+\midrule
+Monet &64& .1932&2.0683&1.7319\\
+Sisley &53& .2149&1.6776&1.8779\\
+Pissarro &64& .1635&1.9745&1.8537\\
+Cézanne &52& .1989&2.1419&1.6570\\
+\bottomrule
+\end{tabular}
+\caption{All-31 matched-sample energy medians. Generated medians pool methods
+and aliases descriptively. Each draw uses disjoint original groups. These are
+finite-corpus reference distributions, not calibrated tests.}
+\label{tab:baseline}
+\end{table}
+
+\begin{figure}[p]
+\centering\includegraphics[width=\linewidth,height=0.78\textheight,keepaspectratio]{named_artist_free_pca.png}
+\caption{Named and artist-free generations in common painter-specific PCA
+views. Every point is retained. The unsupervised projections describe overlap
+and concentration; full-space group-disjoint scores provide a separate measure
+of detectability. The axes are not validated perceptual style dimensions.}
+\label{fig:pca}
+\end{figure}
+
+\subsection{Transfer and prompt-method evidence}
+Cross-painter transfer yields median balanced accuracy .839 for linear and .828
+for RBF models, with broad ranges .516--.952 and .500--.944. Cross-alias transfer
+is stronger: medians .956 and .965, with ranges .949--.973 and .947--.983.
+Transferability is compatible with shared generated-image or capture-related
+signatures. It does not imply the absence of painter-associated cues.
+
+The earlier family-specific distance comparison found by-name prompting closest
+in 19 of 24 combinations of alias, painter and feature family; style-plus-aspects was closest
+in the other five. Explicit style instruction had larger distance than by-name
+prompting in all 24 comparisons. Adding aspects improved distance in 13 of 24.
+These observed directions motivate a narrower new intervention. They do not
+establish each model's best achievable prompt or justify generalizing to
+unobserved prompt libraries.
+
+\section{Controlled extension: protocol and technical qualification}
+\subsection{Choice of expansion axis}
+We expand model-family breadth and improve the comparison target before adding
+more painters. New collection focuses on Monet and Cézanne. The existing four
+painter results are retained as development evidence. This is a disclosed
+two-painter case study, chosen after earlier outcomes were known; it cannot
+estimate the prevalence of the phenomenon across all painters or traditions.
+
+The planned research grid contains 24 content briefs per painter, three
+repetitions, named and artist-free conditions on three routes, plus a generic
+named condition on the OAuth route: 1,008 research requests. Eighteen separate
+technical requests make the total ceiling 1,026, including at most 588 paid
+requests. The spending ceiling is \$75, including the pilot. Sample counts are
+affordability choices pending design qualification, not asserted statistical power.
+
+The reference target initially specified 48 fresh works per painter and 12
+content strata. The recorded identity audit selects 64 Monet and 48 Cézanne
+candidates outside the prior exposure indexes. Original delivery encounters
+Wikimedia rate limits; a separately frozen successor follows its supported
+thumbnail policy. Nonupsampled standard delivery supports 38 Monet and 33
+Cézanne candidates. Final visual eligibility and the resulting panel remain
+in progress. The reduced candidate counts are disclosed before measurement;
+no final 48-work panel or fully balanced 12-stratum design is claimed.
+
+Visually coded water, built and land organization will replace geographic-name
+heuristics for this extension. Nested content descriptions will guide prompts
+without supplying reference images or selecting outputs. Independent photographic
+capture pairs have not been established. Thumbnail and alternate-file provenance
+cannot substitute for evidence of distinct capture events.
+
+\subsection{Technical pilot results}
+All six requests per route return decodable images. Google
+\texttt{gemini-3.1-flash-image} through the pinned Google AI Studio provider
+returns 1024-square JPEGs, costing \$0.4105 in total. BFL \texttt{flux.2-max}
+through its pinned provider returns 1024-square PNGs, costing \$0.4200.
+The local OAuth \texttt{gpt-image-2} comparator returns nonsquare PNGs with
+short sides 1121--1126 and reports low rather than requested medium quality.
+No paid fallback, retry, prompt rewrite or feature-based pilot selection occurs.
+
+The total paid pilot cost is \$0.8304855. Using each paid route's maximum observed
+cost projects the remaining 576 paid requests to \$39.8917. Adding 25\% headroom
+and the pilot gives \$50.6952, within the \$75 ceiling. This projection is not a
+guarantee of future pricing. The worker reserves \$5 before a paid request and
+stops when cost is unresolved or the spending guard would be crossed.
+
+Both paid routes share observed geometry, but their encodings differ. OAuth is
+a separate service comparison where matched rendering is required. Symmetric
+256-short-side and common-JPEG sensitivities, with development-only scaling,
+must accompany the native-processing comparison. Such sensitivities cannot undo
+unknown prior compression or demonstrate equivalent physical capture.
+
+\subsection{Prospective inference and missingness boundary}
+Research generation requires a committed reference, prompt, endpoint, schedule
+and analysis freeze before evaluation features are extracted. At least eight
+collection windows span multiple days; repetitions of a brief occupy different
+windows. Actual timestamps, attempted slots, refusals and uncertain requests are
+retained. Scheduling across days does not by itself establish independent sessions.
+
+Uncertainty qualification must reflect reference, brief and window dependence.
+Ordinary image-level bootstrap intervals are not justified merely because there
+are many generated files. If inferential qualification fails, the study reports
+effect sizes and sensitivity analyses without unsupported confirmatory claims.
+No significance-based sampling extension, silent replacement of missing outputs
+or retrospective change to a sealed endpoint is allowed. No new-model fidelity
+result, p-value or human result is available in this prototype revision.
+
+\section{Discussion}
+The completed results support the narrow empirical hypothesis of a feature-space
+gap and reduced spread in the tested generated collections. They provide weaker
+support for the stronger claim that generation intrinsically fails to reproduce
+a painter's style distribution. In particular, artist-free detection and
+cross-alias transfer suggest a component shared across generation conditions;
+coarse content weighting does not eliminate finer composition differences;
+and digital reproduction remains unresolved.
+
+A productive interpretation separates recognition from distribution reproduction.
+Painter naming may improve proximity or specificity without recovering the range
+of original works. Conversely, a strong detector may respond to properties that
+matter little to human observers. The present features cannot establish
+recognizability, authenticity, copying, aesthetic merit or equivalence to an
+artist's practice. Those claims require additional construct validation.
+
+The next empirical results should therefore be judged by how controls change
+effect patterns. Persistence across new families and stronger content controls
+would broaden the evidence for a distributional gap. A substantial reduction
+after content or processing controls would support those explanations instead.
+Either outcome is scientifically useful. Selecting the interpretation only after
+seeing which result favors the initial hypothesis would weaken the contribution.
+
+\section{Limitations and reproducibility}
+The original corpus is a finite collection of available digital surrogates, not
+a probability sample of each painter's oeuvre. The new reference panel is small
+and availability constrained. Service aliases and live model slugs lack attested
+immutable weight snapshots. Prompt repetition, shared briefs and service state
+can induce dependence. Title-based development labels and later maintainer-LLM
+visual annotations are not independent expert judgments. All review so far is
+maintainer/LLM self-review; none is institutionally independent.
+
+The paper source, compact manifests, exact prompts, preprocessing code, report
+tables, split memberships and hashes are retained in the repository. Raw artwork
+and complete generated-image responses remain in an ignored local evidence
+workspace; a Git checkout alone does not reconstruct those bytes. Acquisition
+licenses and source identities are recorded, and failed responses remain evidence.
+The new study uses its own namespace and does not modify historical terminal runs.
+
+Human evaluation is a prepared follow-up, not an executed component. Expert
+review could assess painter recognizability and perceived variation using blinded,
+balanced stimuli and independent annotation. Learned representations are also
+deferred; adding a learned evaluator would not automatically establish that its
+distance is calibrated to human style judgments. Neither a collaborator's
+participation nor authorship is presumed in this prototype.
+
+\appendix
+\section{Reproduction entry points}
+From the repository root, the completed numeric development bundle can be checked
+without provider calls or feature extraction:
+\begin{quote}\small\ttfamily
+uv run --locked --extra analysis --extra learned python -m\\
+latent\_art\_bench.painter\_distribution\_study\_v1.diagnostics check
+\end{quote}
+The technical pilot's costs, container metadata and retained raw responses are checked with:
+\begin{quote}\small\ttfamily
+uv run --locked python -m\\
+latent\_art\_bench.painter\_distribution\_study\_v1.pilot\_summary check
+\end{quote}
+The optional environment label \texttt{learned} in the first command supplies
+existing dependencies; this analysis does not download or run a learned encoder.
+Canonical stage status is in \texttt{docs/STATUS.md}. Frozen protocols and terminal
+ledgers must not be edited to make an audit pass. Exact software dependencies
+are pinned by \texttt{uv.lock}. Raw image acquisition and generation commands
+are separate from the standard offline test suite.
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+\end{document}

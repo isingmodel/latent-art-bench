@@ -9,11 +9,14 @@ for follow-up, and prospective reference-panel adaptation when availability requ
 
 Implementation is in the new `painter_distribution_study_v1` namespace. Its
 [staged protocol](../studies/painter_distribution_study_v1/PROTOCOL.md) preserves closed historical
-studies. The operating cap is **$75**, including the pilot, and the generation cap is 1,026 total
-attempts, including at most 588 paid attempts. The user reaffirmed $75 after the authenticated
+studies. The operating cap is **$75**, including the pilot, and the generation cap is 1,026 initial
+attempts, including at most 588 paid initial attempts. The user's subsequent
+[retry instruction](../studies/painter_distribution_study_v1/RETRY_AMENDMENT.md) adds at most 24
+bounded transient-error retries: 1,050 total / 612 paid attempts, with the same $75 ceiling.
+The user reaffirmed $75 after the authenticated
 preflight showed about $50 available and stated that replenishment is configured. This supersedes
 the interim $45 planning limit. The technical pilot has spent **$0.8304855**; no research
-generation or new reference image acquisition has occurred yet.
+generation has occurred yet.
 
 Stage A is complete. The [diagnostic report](../reports/painter_distribution_study_v1/pdsv1-diagnostics-20260906/REPORT.md)
 and all 18 output files reproduce byte-for-byte. Content-equal spread ratios are 0.211–0.372 for
@@ -45,8 +48,17 @@ Wikimedia explicitly recommends supported thumbnail sizes. The prospective
 ten-minute cooldown and stops on the first new rate limit. Its fixed standard-thumbnail inventory
 has 38 Monet and 33 Cézanne works; 41 candidates cannot meet both standard delivery and nonupsampling
 512-pixel geometry. Four fresh imageinfo responses confirm unchanged parent SHA-1s. R2 requires its
-own committed freeze and disjoint paths. Visual content coding, main-study statistical qualification
-and final reference/prompt/analysis freezes remain open. No new fidelity features were extracted.
+own committed freeze and disjoint paths. R2 completed all **71/71** deliveries; every retained
+raw file and the event hash verified. Single-maintainer LLM visual coding admits **70 works**:
+38 Monet (21 water / 4 built / 13 land) and 32 Cézanne (3 water / 11 built / 18 land).
+One figure-led Cézanne is excluded. Mixed content and visible thin borders are recorded.
+This is not expert or independent human annotation. Main statistical qualification and final
+reference/prompt/analysis freezes remain open. No new fidelity features were extracted.
+
+The English LaTeX/PDF paper prototype is drafted and visually checked; it distinguishes
+completed diagnostics and pilot outcomes from pending new-model comparisons. Human construct
+validation is prepared as a follow-up. The user-authorized retry amendment is prospective for
+the new collection and preserves all terminal historical evidence.
 
 `.env` is ignored and untracked. Tectonic, Pandoc and Poppler are available. Free storage was
 18.7 GiB at preflight; every collection stage preserves the 5 GiB reserve. Stage A validation:

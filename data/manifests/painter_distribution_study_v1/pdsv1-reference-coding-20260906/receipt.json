@@ -1,0 +1,24 @@
+{
+  "annotations_sha256": "d12c6120c44a234c80639fcdf1718871421d3eafdfe82b12139c437c5b26dea0",
+  "counts": {
+    "claude_monet": {
+      "built": 4,
+      "land": 13,
+      "water": 21
+    },
+    "paul_cezanne": {
+      "built": 11,
+      "land": 18,
+      "water": 3
+    }
+  },
+  "eligible": 70,
+  "excluded_work_ids": [
+    "wikidata:Q64354100"
+  ],
+  "fidelity_features_extracted": 0,
+  "independent_human_review": false,
+  "reviewed": 71,
+  "reviewer_kind": "single_maintainer_llm",
+  "source_receipt_sha256": "a80bcd4915d825db86af497c4cefa82cdabc1bdf6a5ee9af1eb78f564f91a0d9"
+}

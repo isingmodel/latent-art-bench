@@ -1,0 +1,13 @@
+{
+  "attempted": 71,
+  "completed_at_utc": "2026-09-06T13:07:49.865594+00:00",
+  "dispositions": {
+    "acquired": 71
+  },
+  "events_sha256": "bc24ea5072ae405c00228e7056b8375192238df5781b62780bf15b4fe8798dc7",
+  "fidelity_features_extracted": 0,
+  "freeze_sha256": "bd798bbb7fa7b7c4bb4cc78b69fa9bc6bbc75af1c99583fdd7fddb2bff2ec4ee",
+  "run_id": "pdsv1-reference-delivery-r2-20260906",
+  "status": "completed",
+  "unattempted_work_ids": []
+}

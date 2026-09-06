@@ -25,6 +25,10 @@ identities.
 - [Reference identity screen, acquisition and content-coding contract](../studies/painter_distribution_study_v1/REFERENCES.md)
 - [Completed technical pilot qualification](../reports/painter_distribution_study_v1/pdsv1-pilot-20260906/REPORT.md)
 - [Wikimedia delivery correction and reduced reference panel](../studies/painter_distribution_study_v1/REFERENCE_DELIVERY_R2.md)
+- [Conditional prompt inference and synthetic qualification](../studies/painter_distribution_study_v1/INFERENCE.md)
+- [User-authorized bounded retry policy](../studies/painter_distribution_study_v1/RETRY_AMENDMENT.md)
+- [Prepared human construct-validation follow-up](../studies/painter_distribution_study_v1/HUMAN_FOLLOWUP.md)
+- [English paper prototype and build instructions](../papers/painter_distribution_study_v1/README.md)
 
 Implementation authorized: two additional model families, two existing painter cases,
 content/capture controls and a focused prompt intervention. See current status for stage progress.
