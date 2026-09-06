@@ -36,7 +36,7 @@ origin (`1751557` source / `7ead740` freeze); all 210 reference vectors succeede
 Generated measurement waits for terminal collection. The first live sample verified three
 concurrent requests, one per route, ≥5.0043-second starts and six successful returns.
 The `main_report` renderer is implemented (22 reproducible outputs); commit final
-analysis inputs before building its report. Full-suite validation passes 822 tests. No human participants have
+analysis inputs before building its report. Pre-correction full-suite validation passed 822 tests. No human participants have
 been recruited; venue and Kim's involvement remain undecided. Reasoning and documents stay English.
 
 **Latest operational correction:** the first parallel collector is permanently

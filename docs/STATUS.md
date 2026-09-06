@@ -88,8 +88,8 @@ the new collection and preserves all terminal historical evidence.
 `.env` is ignored and untracked. Tectonic, Pandoc and Poppler are available. Free storage was
 18.7 GiB at preflight; every collection stage preserves the 5 GiB reserve. Stage A validation:
 Ruff passed; the earlier pilot-stage suite passed 779 tests before the main implementation.
-The parallel and reporting implementations add nine offline tests; the full suite now
-passes 822 tests. Reference raw-to-feature replay verifies all 210 vectors. The historical v1 evidence audit passes 2,902 checks. No subagent or
+The parallel and reporting implementations added nine offline tests; that pre-correction
+suite passed 822 tests. Reference raw-to-feature replay verifies all 210 vectors. The historical v1 evidence audit passes 2,902 checks. No subagent or
 institutionally independent review was used.
 
 ### Refusal diagnosis and continuation
@@ -107,7 +107,9 @@ remain failed observations; unknown/bad requests still stop, and predecessor
 failures continue to count toward the route failure-cluster rule. Combined results
 will retain all original slot identities, the 47 prior images and the missing refusal.
 Continuation source/terminal evidence was committed at `29027dd`, its freeze
-at `ec4ef09`, before resumed dispatch. Its coordinator is running. All **828 offline
+at `ec4ef09`, before resumed dispatch. Its coordinator is running. The first nine
+continuation outcomes were successful, across all three routes; recorded study charges
+were $3.8616185 at that early check, with no stop event or uncertain charge. All **828 offline
 tests**, Ruff and the 2,902-check historical evidence audit pass.
 No generated fidelity vector has been measured. The 11-page paper now specifies
 the controlled statistics and their assumptions; final data/results remain pending.
