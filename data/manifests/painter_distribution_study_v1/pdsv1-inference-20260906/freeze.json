@@ -1,0 +1,69 @@
+{
+  "development_seed": 2026090601,
+  "inputs": [
+    {
+      "path": "pyproject.toml",
+      "sha256": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8"
+    },
+    {
+      "path": "src/latent_art_bench/io.py",
+      "sha256": "13e6372aa9814495a45700eb9e65d099c56bb1bb3032d72f7f9e00e6ba91a9b8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_exploration_v1/statistics.py",
+      "sha256": "ea87fe5a72050eb85b28f81dd0e32e1d5e355ab0980b83f46ae58bf0f0e316fc"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/inference.py",
+      "sha256": "a038dfa9f042c85314ad9760e3c50a1c99dbd576a1a9a5a7fb00c20777ec5509"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/statistics.py",
+      "sha256": "2744febc02a00b3f24a49bfafacd9f7a178c271178df96768e67088ea6473a62"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/artifacts.py",
+      "sha256": "8b48f0cfb433ac1769786aba366501b69ba1bec540a1a2f9e35e93ce45e9b0d7"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/features.py",
+      "sha256": "b295c2de1a8501e8ab335d88ed56ab8f2dc8b3ca704141b92e02ef586d48d172"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/statistics.py",
+      "sha256": "20830e7a90bc49666f0937ef7bc2ae3f11206f986c72eb8f80ad30cc24fcdaa8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/calibration.py",
+      "sha256": "7624c44d3de1eda939e761e055e04b5066013758c379e758cb42dcfec0076567"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/common.py",
+      "sha256": "8f399eb26069a283209437de51885ce38ca28a21759b359afc506d263107ec4f"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/randomization.py",
+      "sha256": "fec27f7a55ef75d2b7cbf66b6086696f83e051a3dd59f67faae596df1d043e5e"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/statistics.py",
+      "sha256": "ea1f00990bfb647dea61b69418ac0f88c18a06814a9801c0f5a1d41020344654"
+    },
+    {
+      "path": "studies/painter_distribution_study_v1/INFERENCE.md",
+      "sha256": "007e44de517b9d4ac12203647b356edd6a99c064c10fd755022967f6c9e9e187"
+    },
+    {
+      "path": "tests/painter_distribution_study_v1/test_inference.py",
+      "sha256": "e326fa42cfb25e6b5744ee3b7a81dc4e0742147d1de3a66c1e4c7e2745a93dd9"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+    }
+  ],
+  "maximum_wilson_upper": 0.065,
+  "recorded_git_commit": "a9b92765f2cd2e71b348067d7d4b80ffbaa5d692",
+  "trials_per_cell": 10000,
+  "validation_seed": 2026090701
+}
