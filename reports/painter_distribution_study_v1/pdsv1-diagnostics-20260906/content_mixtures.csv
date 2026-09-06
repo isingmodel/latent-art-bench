@@ -1,0 +1,17 @@
+painter_id,content_class,original_count,original_fraction,intended_generated_fraction
+claude_monet,water_organized,191,0.6430976430976431,0.25
+claude_monet,built_place_organized,67,0.2255892255892256,0.25
+claude_monet,route_organized,8,0.026936026936026935,0.25
+claude_monet,open_or_wooded_land,31,0.10437710437710437,0.25
+alfred_sisley,water_organized,52,0.49056603773584906,0.25
+alfred_sisley,built_place_organized,29,0.27358490566037735,0.25
+alfred_sisley,route_organized,9,0.08490566037735849,0.25
+alfred_sisley,open_or_wooded_land,16,0.1509433962264151,0.25
+camille_pissarro,water_organized,28,0.19858156028368795,0.25
+camille_pissarro,built_place_organized,77,0.5460992907801419,0.25
+camille_pissarro,route_organized,12,0.0851063829787234,0.25
+camille_pissarro,open_or_wooded_land,24,0.1702127659574468,0.25
+paul_cezanne,water_organized,31,0.29523809523809524,0.25
+paul_cezanne,built_place_organized,28,0.26666666666666666,0.25
+paul_cezanne,route_organized,12,0.11428571428571428,0.25
+paul_cezanne,open_or_wooded_land,34,0.3238095238095238,0.25
