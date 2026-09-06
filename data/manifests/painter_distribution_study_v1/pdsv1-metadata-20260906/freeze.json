@@ -1,0 +1,79 @@
+{
+  "allowed_sources": {
+    "api.artic.edu": [
+      "/api/v1/"
+    ],
+    "api.clevelandart.org": [
+      "/api/artworks"
+    ],
+    "api.github.com": [
+      "/repos/NationalGalleryOfArt/opendata/"
+    ],
+    "collectionapi.metmuseum.org": [
+      "/public/collection/v1/"
+    ],
+    "commons.wikimedia.org": [
+      "/w/api.php"
+    ],
+    "openrouter.ai": [
+      "/api/v1/images/models",
+      "/api/v1/models",
+      "/api/v1/credits",
+      "/api/v1/key"
+    ],
+    "query.wikidata.org": [
+      "/sparql"
+    ],
+    "raw.githubusercontent.com": [
+      "/NationalGalleryOfArt/opendata/"
+    ],
+    "www.wikidata.org": [
+      "/w/api.php"
+    ]
+  },
+  "authority": "PROTOCOL.md Stage B; GET only",
+  "inputs": [
+    {
+      "path": "pyproject.toml",
+      "sha256": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8"
+    },
+    {
+      "path": "src/latent_art_bench/io.py",
+      "sha256": "13e6372aa9814495a45700eb9e65d099c56bb1bb3032d72f7f9e00e6ba91a9b8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/discovery.py",
+      "sha256": "211fe3d93077aec9861915b58fa57b2e8954dd17cdc291fdc1e5d33072d1d0eb"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/artifacts.py",
+      "sha256": "8b48f0cfb433ac1769786aba366501b69ba1bec540a1a2f9e35e93ce45e9b0d7"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/calibration_record.py",
+      "sha256": "e83406887a6e9657953a4f99055acd051e94d504f98db20d3b553453cf585167"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/common.py",
+      "sha256": "8f399eb26069a283209437de51885ce38ca28a21759b359afc506d263107ec4f"
+    },
+    {
+      "path": "studies/painter_distribution_study_v1/PROTOCOL.md",
+      "sha256": "ac826d7af77018c81066991efbac45e042634fd64146a6a11ecfa70898c12f8e"
+    },
+    {
+      "path": "tests/painter_distribution_study_v1/test_discovery.py",
+      "sha256": "525fdc62da23ac584650db24caf38d7c1d31113065d8539f7764585a43bf7ccd"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+    }
+  ],
+  "max_requests": 1000,
+  "max_response_bytes": 134217728,
+  "max_total_bytes": 262144000,
+  "recorded_git_commit": "58d2dc8d7a2abaf7df4aeeaa57ac03cf45fe8267",
+  "run_id": "pdsv1-metadata-20260906",
+  "schema_version": "painter-distribution-metadata-freeze/1.0"
+}
