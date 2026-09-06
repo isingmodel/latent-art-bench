@@ -15,8 +15,8 @@ attempts, including at most 588 paid initial attempts. The user's subsequent
 bounded transient-error retries: 1,050 total / 612 paid attempts, with the same $75 ceiling.
 The user reaffirmed $75 after the authenticated
 preflight showed about $50 available and stated that replenishment is configured. This supersedes
-the interim $45 planning limit. The technical pilot spent **$0.8304855**. The parallel research collector is now
-running; consult its read-only status command for current charge reservations and outcomes.
+the interim $45 planning limit. The technical pilot spent **$0.8304855**. The first parallel collector is now terminal after a diagnosed refusal.
+Recorded total study charges are $3.3797815, with no unresolved intents or charges.
 
 Stage A is complete. The [diagnostic report](../reports/painter_distribution_study_v1/pdsv1-diagnostics-20260906/REPORT.md)
 and all 18 output files reproduce byte-for-byte. Content-equal spread ratios are 0.211–0.372 for
@@ -68,8 +68,9 @@ implemented with at most three in-flight requests, at least five seconds between
 and one active request per model route. It retains the frozen content/analysis design and
 the $75/1,050-attempt caps, with new execution paths and predecessor-bound evidence.
 Parallel source was committed at `1751557`, its execution freeze at `7ead740`.
-The single coordinator is running with eight windows beginning September 6 at
-14:30 UTC (23:30 KST), ending with the September 7 23:30 UTC window.
+The first coordinator was started with eight windows beginning September 6 at
+14:30 UTC (23:30 KST), ending with the September 7 23:30 UTC window. It is now
+closed after the diagnosed refusal below; the continuation keeps those window times.
 All 819 pre-execution offline tests, Ruff and the historical evidence audit pass.
 The first live inspection observed nine started requests, six successful completed
 images, no failed outcomes, peak concurrency three, peak per-route concurrency one,
@@ -89,6 +90,23 @@ Ruff passed; the earlier pilot-stage suite passed 779 tests before the main impl
 The parallel and reporting implementations add nine offline tests; the full suite now
 passes 822 tests. Reference raw-to-feature replay verifies all 210 vectors. The historical v1 evidence audit passes 2,902 checks. No subagent or
 institutionally independent review was used.
+
+### Refusal diagnosis and continuation
+
+The parallel collector stopped at 14:35 UTC with 48 terminal slots: **47 images
+and one OAuth HTTP 400 moderation refusal** (`slot0036`). Its generic HTTP 400
+rule classified the explicit `moderation_blocked` error as a contract problem.
+All 48 retained raw responses verified. Preserve the closed census and its
+[diagnosis and continuation contract](../studies/painter_distribution_study_v1/REFUSAL_CONTINUATION.md).
+
+The implemented continuation executes only the 960 unattempted original slots,
+with the original window origin, three staggered route workers and unchanged caps.
+The refused slot is neither retried nor rewritten. Recognized explicit refusals
+remain failed observations; unknown/bad requests still stop, and predecessor
+failures continue to count toward the route failure-cluster rule. Combined results
+will retain all original slot identities, the 47 prior images and the missing refusal.
+No generated fidelity vector has been measured. The 11-page paper now specifies
+the controlled statistics and their assumptions; final data/results remain pending.
 
 ## Original proposal snapshot, before execution authorization
 

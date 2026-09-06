@@ -23,7 +23,7 @@ from latent_art_bench.painter_feature_generation_v2.artifacts import (
 )
 from latent_art_bench.painter_prompt_study_v1.common import committed
 
-from . import parallel_collection as p
+from . import continuation as p
 from . import study as s
 
 DIRECTORY = Path("reports") / "painter_distribution_study_v1" / p.RUN_ID
@@ -264,6 +264,12 @@ def markdown(data):
         "recorded starts at least five seconds apart. Actual timing and availability remain "
         "part of the evidence. GPT Image 2 is a local service alias, not an attested snapshot.",
         "",
+        "This derived view retains the stopped parallel predecessor's 48 outcomes "
+        "(47 images and one OAuth moderation refusal) and the continuation of its 960 "
+        "unattempted slots. The refusal was not retried, rewritten or rerouted. "
+        "The predecessor remains terminal; the continuation preserves the original "
+        "scientific inventory, reference and endpoints.",
+        "",
         "The primary comparison uses all 31 features, the fixed historical development "
         "scaler, and generated content masses matched to each finite reference panel. "
         "Original works receive equal weight. These are distribution comparisons, not "
@@ -321,7 +327,7 @@ def markdown(data):
         lines.append(
             f"| {PAINTERS[r['painter_id']]} | {ROUTES[r['route']]} | "
             f"{CONDITIONS[r['before']]} → {CONDITIONS[r['after']]} | {r['pairs']} | "
-            f"{number(r.get('estimate'))} | {number(r['raw_p'])} | {number(r['holm_p'])} |"
+            f"{number(r.get('estimate'))} | {r['raw_p']:.5g} | {r['holm_p']:.5g} |"
         )
     lines += [
         "",
@@ -349,7 +355,7 @@ def markdown(data):
         "",
         "```bash",
         "uv run --locked --extra analysis python -m "
-        "latent_art_bench.painter_distribution_study_v1.parallel_results analysis --check",
+        "latent_art_bench.painter_distribution_study_v1.continuation_results analysis --check",
         "uv run --locked --extra analysis python -m "
         "latent_art_bench.painter_distribution_study_v1.main_report check",
         "```",

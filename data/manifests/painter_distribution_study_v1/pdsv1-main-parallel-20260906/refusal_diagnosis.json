@@ -1,0 +1,14 @@
+{
+  "cost_usd": 0,
+  "diagnosis": "Explicit service moderation refusal was classified as a generic HTTP 400 contract error.",
+  "disposition": "Preserve this failed slot without retry or prompt rewriting. A prospective successor may execute only the 960 unattempted frozen slots.",
+  "error_code": "moderation_blocked",
+  "error_type": "image_generation_user_error",
+  "http_status": 400,
+  "moderation_stage": "input",
+  "request_id": "slot0036",
+  "source_run_id": "pdsv1-main-parallel-20260906",
+  "successful_images": 47,
+  "unresolved_charges": 0,
+  "verified_raw_responses": 48
+}

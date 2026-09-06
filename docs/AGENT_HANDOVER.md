@@ -39,6 +39,17 @@ The `main_report` renderer is implemented (22 reproducible outputs); commit fina
 analysis inputs before building its report. Full-suite validation passes 822 tests. No human participants have
 been recruited; venue and Kim's involvement remain undecided. Reasoning and documents stay English.
 
+**Latest operational correction:** the first parallel collector is permanently
+terminal at 48 attempts, 47 images and one OAuth `moderation_blocked` HTTP 400.
+The generic HTTP 400 rule overclassified this as a contract failure. All 48 raw
+responses verified; recorded total study charge is $3.3797815, with no uncertain
+charge or unresolved request. `continuation.py` executes only the 960 unattempted
+slots at disjoint paths, retaining the original schedule and limits. The refusal
+is not retried or rewritten. `continuation_results.py` will combine both component
+receipts, measure their successful outputs and call the frozen scientific analysis.
+The 47 prior images are retained; the same missing-pair rules handle the refusal.
+Read the new refusal continuation contract and current status before dispatch.
+
 **Latest exploration — 2026-09-06:** the user requested scatter plots of original versus
 painter-conditioned generated feature distributions. The new
 [distribution report](../reports/painter_distribution_exploration_v1/REPORT.md) contains common

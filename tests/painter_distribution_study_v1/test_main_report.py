@@ -81,7 +81,30 @@ def fixture():
             status="unavailable",
             raw_p=1.0,
             holm_p=1.0,
+        ),
+        dict(
+            endpoint_index=1,
+            painter_id=s.PAINTERS[1],
+            route=s.ROUTES[2],
+            before="generic_named",
+            after="named",
+            pairs=72,
+            status="available",
+            estimate=-0.2,
+            raw_p=0.00001,
+            holm_p=0.00008,
+        ),
+    ]
+    data["sensitivity_contrasts"] = [
+        dict(
+            endpoint_index=1,
+            excluded_kind="window",
+            excluded_value=i,
+            estimate=-0.3 + i * 0.02,
+            status="descriptive",
+            pairs=63,
         )
+        for i in range(8)
     ]
     return data
 
@@ -101,6 +124,7 @@ def test_render_is_byte_reproducible_and_preserves_unavailable_and_precision(tmp
     report = (first / "REPORT.md").read_text()
     assert "stopped_for_diagnosis" in report and "Terminal slots: 2/1,008" in report
     assert "not confidence intervals" in report
+    assert "| 1e-05 | 8e-05 |" in report
     coordinates = list(csv.DictReader((first / "projection_points.csv").open()))
     assert len(coordinates) == 2 * 2 * (2 + 2 * len(r.CELLS))
 
