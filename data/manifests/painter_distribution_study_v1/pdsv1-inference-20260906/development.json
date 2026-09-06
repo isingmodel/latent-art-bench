@@ -1,0 +1,459 @@
+{
+  "hypothetical_sign_bias_power": [
+    {
+      "endpoint_dependence": "independent",
+      "family_rejections": 1608,
+      "family_size": 8,
+      "invalid_window_signs": false,
+      "mean_rejected_endpoints": 0.1827,
+      "pairs": 72,
+      "positive_sign_probability": 0.55,
+      "rejection_rate": 0.1608,
+      "scenario": "constant",
+      "trials": 10000,
+      "wilson_95": [
+        0.1537305997542224,
+        0.16812990474044456
+      ]
+    },
+    {
+      "endpoint_dependence": "independent",
+      "family_rejections": 9810,
+      "family_size": 8,
+      "invalid_window_signs": false,
+      "mean_rejected_endpoints": 3.7075,
+      "pairs": 72,
+      "positive_sign_probability": 0.65,
+      "rejection_rate": 0.981,
+      "scenario": "constant",
+      "trials": 10000,
+      "wilson_95": [
+        0.978133606848393,
+        0.983496986719016
+      ]
+    },
+    {
+      "endpoint_dependence": "independent",
+      "family_rejections": 10000,
+      "family_size": 8,
+      "invalid_window_signs": false,
+      "mean_rejected_endpoints": 7.9441,
+      "pairs": 72,
+      "positive_sign_probability": 0.75,
+      "rejection_rate": 1.0,
+      "scenario": "constant",
+      "trials": 10000,
+      "wilson_95": [
+        0.9996160016293234,
+        1.0
+      ]
+    }
+  ],
+  "invalid_window_synchronized_assignments": {
+    "endpoint_dependence": "independent",
+    "family_rejections": 9308,
+    "family_size": 8,
+    "invalid_window_signs": true,
+    "mean_rejected_endpoints": 2.3203,
+    "pairs": 72,
+    "positive_sign_probability": 0.5,
+    "rejection_rate": 0.9308,
+    "scenario": "constant",
+    "trials": 10000,
+    "wilson_95": [
+      0.9256585084682405,
+      0.9356106385355845
+    ]
+  },
+  "monte_carlo_draws": 99999,
+  "null_cells": [
+    {
+      "endpoint_dependence": "independent",
+      "family_rejections": 157,
+      "family_size": 8,
+      "invalid_window_signs": false,
+      "mean_rejected_endpoints": 0.0167,
+      "pairs": 24,
+      "positive_sign_probability": 0.5,
+      "rejection_rate": 0.0157,
+      "scenario": "constant",
+      "trials": 10000,
+      "wilson_95": [
+        0.013442876541463032,
+        0.018329064280374313
+      ]
+    },
+    {
+      "endpoint_dependence": "shared",
+      "family_rejections": 14,
+      "family_size": 8,
+      "invalid_window_signs": false,
+      "mean_rejected_endpoints": 0.0112,
+      "pairs": 24,
+      "positive_sign_probability": 0.5,
+      "rejection_rate": 0.0014,
+      "scenario": "constant",
+      "trials": 10000,
+      "wilson_95": [
+        0.000834162028874972,
+        0.002348761146363729
+      ]
+    },
+    {
+      "endpoint_dependence": "independent",
+      "family_rejections": 372,
+      "family_size": 8,
+      "invalid_window_signs": false,
+      "mean_rejected_endpoints": 0.0385,
+      "pairs": 24,
+      "positive_sign_probability": 0.5,
+      "rejection_rate": 0.0372,
+      "scenario": "content_weights",
+      "trials": 10000,
+      "wilson_95": [
+        0.03366490829585304,
+        0.0410905205960452
+      ]
+    },
+    {
+      "endpoint_dependence": "shared",
+      "family_rejections": 41,
+      "family_size": 8,
+      "invalid_window_signs": false,
+      "mean_rejected_endpoints": 0.0328,
+      "pairs": 24,
+      "positive_sign_probability": 0.5,
+      "rejection_rate": 0.0041,
+      "scenario": "content_weights",
+      "trials": 10000,
+      "wilson_95": [
+        0.0030238546563457033,
+        0.005556994927691345
+      ]
+    },
+    {
+      "endpoint_dependence": "independent",
+      "family_rejections": 402,
+      "family_size": 8,
+      "invalid_window_signs": false,
+      "mean_rejected_endpoints": 0.0416,
+      "pairs": 24,
+      "positive_sign_probability": 0.5,
+      "rejection_rate": 0.0402,
+      "scenario": "window_drift",
+      "trials": 10000,
+      "wilson_95": [
+        0.03652333626057827,
+        0.04422978864109592
+      ]
+    },
+    {
+      "endpoint_dependence": "shared",
+      "family_rejections": 55,
+      "family_size": 8,
+      "invalid_window_signs": false,
+      "mean_rejected_endpoints": 0.044,
+      "pairs": 24,
+      "positive_sign_probability": 0.5,
+      "rejection_rate": 0.0055,
+      "scenario": "window_drift",
+      "trials": 10000,
+      "wilson_95": [
+        0.004228233256266611,
+        0.007151541132332541
+      ]
+    },
+    {
+      "endpoint_dependence": "independent",
+      "family_rejections": 423,
+      "family_size": 8,
+      "invalid_window_signs": false,
+      "mean_rejected_endpoints": 0.0433,
+      "pairs": 24,
+      "positive_sign_probability": 0.5,
+      "rejection_rate": 0.0423,
+      "scenario": "rare_large",
+      "trials": 10000,
+      "wilson_95": [
+        0.03852772656784895,
+        0.046423785540668394
+      ]
+    },
+    {
+      "endpoint_dependence": "shared",
+      "family_rejections": 53,
+      "family_size": 8,
+      "invalid_window_signs": false,
+      "mean_rejected_endpoints": 0.0424,
+      "pairs": 24,
+      "positive_sign_probability": 0.5,
+      "rejection_rate": 0.0053,
+      "scenario": "rare_large",
+      "trials": 10000,
+      "wilson_95": [
+        0.004054522887776702,
+        0.006925405100170722
+      ]
+    },
+    {
+      "endpoint_dependence": "independent",
+      "family_rejections": 413,
+      "family_size": 8,
+      "invalid_window_signs": false,
+      "mean_rejected_endpoints": 0.0421,
+      "pairs": 48,
+      "positive_sign_probability": 0.5,
+      "rejection_rate": 0.0413,
+      "scenario": "constant",
+      "trials": 10000,
+      "wilson_95": [
+        0.03757291371455923,
+        0.04537936639069948
+      ]
+    },
+    {
+      "endpoint_dependence": "shared",
+      "family_rejections": 53,
+      "family_size": 8,
+      "invalid_window_signs": false,
+      "mean_rejected_endpoints": 0.0424,
+      "pairs": 48,
+      "positive_sign_probability": 0.5,
+      "rejection_rate": 0.0053,
+      "scenario": "constant",
+      "trials": 10000,
+      "wilson_95": [
+        0.004054522887776702,
+        0.006925405100170722
+      ]
+    },
+    {
+      "endpoint_dependence": "independent",
+      "family_rejections": 406,
+      "family_size": 8,
+      "invalid_window_signs": false,
+      "mean_rejected_endpoints": 0.0417,
+      "pairs": 48,
+      "positive_sign_probability": 0.5,
+      "rejection_rate": 0.0406,
+      "scenario": "content_weights",
+      "trials": 10000,
+      "wilson_95": [
+        0.03690491219282244,
+        0.0446479055101552
+      ]
+    },
+    {
+      "endpoint_dependence": "shared",
+      "family_rejections": 59,
+      "family_size": 8,
+      "invalid_window_signs": false,
+      "mean_rejected_endpoints": 0.0472,
+      "pairs": 48,
+      "positive_sign_probability": 0.5,
+      "rejection_rate": 0.0059,
+      "scenario": "content_weights",
+      "trials": 10000,
+      "wilson_95": [
+        0.004577046502138715,
+        0.007602420687763897
+      ]
+    },
+    {
+      "endpoint_dependence": "independent",
+      "family_rejections": 465,
+      "family_size": 8,
+      "invalid_window_signs": false,
+      "mean_rejected_endpoints": 0.0477,
+      "pairs": 48,
+      "positive_sign_probability": 0.5,
+      "rejection_rate": 0.0465,
+      "scenario": "window_drift",
+      "trials": 10000,
+      "wilson_95": [
+        0.042544258319017675,
+        0.05080402820318598
+      ]
+    },
+    {
+      "endpoint_dependence": "shared",
+      "family_rejections": 55,
+      "family_size": 8,
+      "invalid_window_signs": false,
+      "mean_rejected_endpoints": 0.044,
+      "pairs": 48,
+      "positive_sign_probability": 0.5,
+      "rejection_rate": 0.0055,
+      "scenario": "window_drift",
+      "trials": 10000,
+      "wilson_95": [
+        0.004228233256266611,
+        0.007151541132332541
+      ]
+    },
+    {
+      "endpoint_dependence": "independent",
+      "family_rejections": 303,
+      "family_size": 8,
+      "invalid_window_signs": false,
+      "mean_rejected_endpoints": 0.0306,
+      "pairs": 48,
+      "positive_sign_probability": 0.5,
+      "rejection_rate": 0.0303,
+      "scenario": "rare_large",
+      "trials": 10000,
+      "wilson_95": [
+        0.02711656606925434,
+        0.03384416200015925
+      ]
+    },
+    {
+      "endpoint_dependence": "shared",
+      "family_rejections": 41,
+      "family_size": 8,
+      "invalid_window_signs": false,
+      "mean_rejected_endpoints": 0.0328,
+      "pairs": 48,
+      "positive_sign_probability": 0.5,
+      "rejection_rate": 0.0041,
+      "scenario": "rare_large",
+      "trials": 10000,
+      "wilson_95": [
+        0.0030238546563457033,
+        0.005556994927691345
+      ]
+    },
+    {
+      "endpoint_dependence": "independent",
+      "family_rejections": 321,
+      "family_size": 8,
+      "invalid_window_signs": false,
+      "mean_rejected_endpoints": 0.0332,
+      "pairs": 72,
+      "positive_sign_probability": 0.5,
+      "rejection_rate": 0.0321,
+      "scenario": "constant",
+      "trials": 10000,
+      "wilson_95": [
+        0.028820922446793868,
+        0.03573842322848528
+      ]
+    },
+    {
+      "endpoint_dependence": "shared",
+      "family_rejections": 42,
+      "family_size": 8,
+      "invalid_window_signs": false,
+      "mean_rejected_endpoints": 0.0336,
+      "pairs": 72,
+      "positive_sign_probability": 0.5,
+      "rejection_rate": 0.0042,
+      "scenario": "constant",
+      "trials": 10000,
+      "wilson_95": [
+        0.0031088769681385277,
+        0.005671895816224385
+      ]
+    },
+    {
+      "endpoint_dependence": "independent",
+      "family_rejections": 433,
+      "family_size": 8,
+      "invalid_window_signs": false,
+      "mean_rejected_endpoints": 0.0446,
+      "pairs": 72,
+      "positive_sign_probability": 0.5,
+      "rejection_rate": 0.0433,
+      "scenario": "content_weights",
+      "trials": 10000,
+      "wilson_95": [
+        0.03948313833238368,
+        0.04746760577939231
+      ]
+    },
+    {
+      "endpoint_dependence": "shared",
+      "family_rejections": 45,
+      "family_size": 8,
+      "invalid_window_signs": false,
+      "mean_rejected_endpoints": 0.036,
+      "pairs": 72,
+      "positive_sign_probability": 0.5,
+      "rejection_rate": 0.0045,
+      "scenario": "content_weights",
+      "trials": 10000,
+      "wilson_95": [
+        0.003364971291591769,
+        0.006015571093748737
+      ]
+    },
+    {
+      "endpoint_dependence": "independent",
+      "family_rejections": 440,
+      "family_size": 8,
+      "invalid_window_signs": false,
+      "mean_rejected_endpoints": 0.0455,
+      "pairs": 72,
+      "positive_sign_probability": 0.5,
+      "rejection_rate": 0.044,
+      "scenario": "window_drift",
+      "trials": 10000,
+      "wilson_95": [
+        0.040152272336549465,
+        0.04819793417750757
+      ]
+    },
+    {
+      "endpoint_dependence": "shared",
+      "family_rejections": 70,
+      "family_size": 8,
+      "invalid_window_signs": false,
+      "mean_rejected_endpoints": 0.056,
+      "pairs": 72,
+      "positive_sign_probability": 0.5,
+      "rejection_rate": 0.007,
+      "scenario": "window_drift",
+      "trials": 10000,
+      "wilson_95": [
+        0.005544619309554507,
+        0.008834003083932618
+      ]
+    },
+    {
+      "endpoint_dependence": "independent",
+      "family_rejections": 344,
+      "family_size": 8,
+      "invalid_window_signs": false,
+      "mean_rejected_endpoints": 0.0347,
+      "pairs": 72,
+      "positive_sign_probability": 0.5,
+      "rejection_rate": 0.0344,
+      "scenario": "rare_large",
+      "trials": 10000,
+      "wilson_95": [
+        0.031002883969362332,
+        0.03815469531341171
+      ]
+    },
+    {
+      "endpoint_dependence": "shared",
+      "family_rejections": 44,
+      "family_size": 8,
+      "invalid_window_signs": false,
+      "mean_rejected_endpoints": 0.0352,
+      "pairs": 72,
+      "positive_sign_probability": 0.5,
+      "rejection_rate": 0.0044,
+      "scenario": "rare_large",
+      "trials": 10000,
+      "wilson_95": [
+        0.0032794410394017762,
+        0.0059011781456128655
+      ]
+    }
+  ],
+  "qualified": true,
+  "scope": "Conditional sharp joint null of no prompt effect on availability and features, with no interference; not an absolute distribution-equality test, population confidence interval or proof of actual service assumptions.",
+  "seed": 2026090601,
+  "trials": 10000
+}

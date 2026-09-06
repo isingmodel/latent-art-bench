@@ -1,0 +1,23 @@
+{
+  "absolute_distance_confidence_intervals_qualified": false,
+  "evidence": [
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-inference-20260906/development.json",
+      "sha256": "ca01f10b8ab7f3357b40fd94727ca1088bcc598ec6ad66162012106aaa6b7a60"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-inference-20260906/freeze.json",
+      "sha256": "02fe1b66b206a76e39f1691f6bc671dad30986b5113f03649cded90b82e10b3a"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-inference-20260906/validation.json",
+      "sha256": "a431540d2de02c18be6cf407d85c1faadb81c3f05455fb7bdfee8b559eedccc2"
+    }
+  ],
+  "image_level_power_established": false,
+  "monte_carlo_draws": 99999,
+  "multiplicity": "Holm 8",
+  "population_style_equivalence_qualified": false,
+  "qualified": true,
+  "reference_scope": "conditional on the fixed finite reference and weights"
+}

@@ -260,25 +260,33 @@ painter results are retained as development evidence. This is a disclosed
 two-painter case study, chosen after earlier outcomes were known; it cannot
 estimate the prevalence of the phenomenon across all painters or traditions.
 
-The planned research grid contains 24 content briefs per painter, three
+The research grid uses the same 24 content briefs across both painters, with three
 repetitions, named and artist-free conditions on three routes, plus a generic
-named condition on the OAuth route: 1,008 research requests. Eighteen separate
-technical requests make the total ceiling 1,026, including at most 588 paid
-requests. The spending ceiling is \$75, including the pilot. Sample counts are
-affordability choices pending design qualification, not asserted statistical power.
+named condition on OAuth: 1,008 research slots. Eighteen separate technical
+requests and at most 24 bounded transient-error retries give a ceiling of 1,050
+attempts, including at most 612 paid attempts. The spending ceiling is \$75,
+including the pilot and retries. Successful images are never regenerated or
+selected among alternatives. Sample counts reflect affordability and design
+coverage; they do not establish power for an image-space effect.
 
 The reference target initially specified 48 fresh works per painter and 12
 content strata. The recorded identity audit selects 64 Monet and 48 Cézanne
 candidates outside the prior exposure indexes. Original delivery encounters
 Wikimedia rate limits; a separately frozen successor follows its supported
 thumbnail policy. Nonupsampled standard delivery supports 38 Monet and 33
-Cézanne candidates. Final visual eligibility and the resulting panel remain
-in progress. The reduced candidate counts are disclosed before measurement;
-no final 48-work panel or fully balanced 12-stratum design is claimed.
+Cézanne candidates. All 71 deliveries succeed. Single-maintainer LLM visual
+coding excludes one figure-led Cézanne, leaving 38 Monet and 32 Cézanne works.
+These unequal counts are disclosed before measurement; no 48-work panel or
+fully balanced 12-stratum design is claimed.
 
-Visually coded water, built and land organization will replace geographic-name
-heuristics for this extension. Nested content descriptions will guide prompts
-without supplying reference images or selecting outputs. Independent photographic
+Visually coded water, built and land organization replaces geographic-name
+heuristics. Counts are 21/4/13 for Monet and 3/11/18 for Cézanne. The primary
+comparison gives original works equal weight and generated images the same fixed
+class masses as their target reference. Eight shared briefs per class support this
+weighting. Collected-mixture and equal-class sensitivities are also required;
+the latter heavily weights Cézanne's three water scenes. Mixed annotations remain
+flagged, with an exclusion sensitivity. This is coarse content control, not exact
+scene matching or independent expert annotation. Independent photographic
 capture pairs have not been established. Thumbnail and alternate-file provenance
 cannot substitute for evidence of distinct capture events.
 
@@ -293,7 +301,9 @@ No paid fallback, retry, prompt rewrite or feature-based pilot selection occurs.
 
 The total paid pilot cost is \$0.8304855. Using each paid route's maximum observed
 cost projects the remaining 576 paid requests to \$39.8917. Adding 25\% headroom
-and the pilot gives \$50.6952, within the \$75 ceiling. This projection is not a
+and the pilot gives \$50.6952. Including all 24 potential retries at the highest
+observed unit cost, with the same headroom, gives \$52.7952 within the \$75 ceiling.
+This projection is not a
 guarantee of future pricing. The worker reserves \$5 before a paid request and
 stops when cost is unresolved or the spending guard would be crossed.
 
@@ -310,10 +320,17 @@ collection windows span multiple days; repetitions of a brief occupy different
 windows. Actual timestamps, attempted slots, refusals and uncertain requests are
 retained. Scheduling across days does not by itself establish independent sessions.
 
-Uncertainty qualification must reflect reference, brief and window dependence.
-Ordinary image-level bootstrap intervals are not justified merely because there
-are many generated files. If inferential qualification fails, the study reports
-effect sizes and sensitivity analyses without unsupported confirmatory claims.
+Prospective synthetic qualification passes for the eight paired all-31 prompt
+contrasts: six named-versus-free and two detailed-versus-generic OAuth contrasts.
+Two fixed-seed phases each use 10,000 trials in 24 null cells covering pair counts,
+contribution heterogeneity, window drift and endpoint dependence. Actual tests use
+99,999 Monte Carlo sign draws and Holm adjustment. Their sharp null concerns
+availability and features under the randomized slot policy, conditional on the
+finite reference, with no interference. Service carryover and retry-induced timing
+remain limitations. This qualification does not validate absolute-distribution
+p-values, oeuvre-sampling intervals or actual image-space power. Absolute gaps and
+leave-window/brief ranges remain descriptive. Ordinary image-level bootstrap
+intervals are not justified by the number of files alone.
 No significance-based sampling extension, silent replacement of missing outputs
 or retrospective change to a sealed endpoint is allowed. No new-model fidelity
 result, p-value or human result is available in this prototype revision.

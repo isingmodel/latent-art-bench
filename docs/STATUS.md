@@ -52,8 +52,10 @@ own committed freeze and disjoint paths. R2 completed all **71/71** deliveries; 
 raw file and the event hash verified. Single-maintainer LLM visual coding admits **70 works**:
 38 Monet (21 water / 4 built / 13 land) and 32 Cézanne (3 water / 11 built / 18 land).
 One figure-led Cézanne is excluded. Mixed content and visible thin borders are recorded.
-This is not expert or independent human annotation. Main statistical qualification and final
-reference/prompt/analysis freezes remain open. No new fidelity features were extracted.
+This is not expert or independent human annotation. Conditional prompt-inference qualification
+passed both fixed-seed phases. The implemented main collector, three measurement pipelines and
+analysis pass **813 offline tests** (77.64 seconds); Ruff and the 2,902-check historical evidence
+audit pass. The main reference/prompt/analysis freeze is next. No new fidelity features were extracted.
 
 The English LaTeX/PDF paper prototype is drafted and visually checked; it distinguishes
 completed diagnostics and pilot outcomes from pending new-model comparisons. Human construct
@@ -62,8 +64,8 @@ the new collection and preserves all terminal historical evidence.
 
 `.env` is ignored and untracked. Tectonic, Pandoc and Poppler are available. Free storage was
 18.7 GiB at preflight; every collection stage preserves the 5 GiB reserve. Stage A validation:
-Ruff passed; the current full offline suite passes **779 tests** (77.93 seconds), including 21
-discovery/transport cases. The historical v1 evidence audit passes 2,902 checks. No subagent or
+Ruff passed; the earlier pilot-stage suite passed 779 tests before the main implementation.
+The current total is 813 as recorded above. The historical v1 evidence audit passes 2,902 checks. No subagent or
 institutionally independent review was used.
 
 ## Original proposal snapshot, before execution authorization

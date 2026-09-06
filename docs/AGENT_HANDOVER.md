@@ -7,17 +7,25 @@ evaluation prepared for follow-up, with prospective reference-panel adaptation w
 The new namespace is `painter_distribution_study_v1`; never reopen a historical terminal study.
 The user reaffirmed a $75 spending ceiling, including pilot calls, after the key authenticated
 and reported about $50 then available; the user says replenishment is configured. The interim
-$45 planning limit is superseded. Keep the 1,026-attempt / 588-paid-attempt maximum.
+$45 planning limit is superseded. The user additionally authorized retries for isolated failures
+and diagnosis/fixes for widespread failures. The prospective retry amendment permits at most
+24 extra attempts: 1,050 total / 612 paid attempts, within the unchanged $75 ceiling.
 
 Existing-data diagnostics are complete and all 18 report files replay byte-for-byte. GET-only
 reference and endpoint discovery completed 81 GETs. The 18-request technical pilot completed with
 18 decodable images and $0.8304855 paid cost; its evidence and qualification report are retained.
 Original-reference delivery stopped permanently after 97 attempts (five acquired, 92 rate-limited).
-The prospective standard-thumbnail successor has 71 works and needs its own committed freeze. Read
+The standard-thumbnail successor completed all 71 deliveries under its committed freeze.
+Visual content review admits 38 Monet and 32 Cézanne works, excluding one figure-led painting;
+the 71 annotations retain ambiguity and border notes. Conditional prompt-inference qualification
+passed both fixed-seed phases. The main 1,008-slot collector, bounded retry handling, three feature
+pipelines and fixed analysis are implemented; their main freeze and execution are the next steps. Read
 [current status](STATUS.md), the [staged protocol](../studies/painter_distribution_study_v1/PROTOCOL.md)
-and [pilot contract](../studies/painter_distribution_study_v1/PILOT.md). Reference feasibility,
-main-study uncertainty qualification, research generation and paper completion remain active work.
-Five new reference files and no new research generations are acquired so far. No human participants have
+and [main contract](../studies/painter_distribution_study_v1/MAIN.md). Research generation,
+measurement and final paper results remain active work. The English LaTeX/PDF prototype is drafted
+with completed prior findings and prospective extension clearly separated. Seventy-six new artwork
+files are retained (five original-delivery files plus 71 successor thumbnails; these are not 76
+independent works). No new research generation has occurred yet. No human participants have
 been recruited; venue and Kim's involvement remain undecided. Reasoning and documents stay English.
 
 **Latest exploration — 2026-09-06:** the user requested scatter plots of original versus
