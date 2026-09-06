@@ -1,0 +1,31 @@
+{
+  "attempted": 97,
+  "dispositions": {
+    "acquired": 5,
+    "failed_acquisition": 92
+  },
+  "events_sha256": "3777df2dc5917fae9437932eac2afaa0d977669ae53df1b96b712317b07b4a35",
+  "fidelity_features_extracted": 0,
+  "freeze_sha256": "cacc9b88abb13a570321ed99ea608a3e1ddf92c5f003da4ca1f41499fa8f6d3c",
+  "planned_candidates": 112,
+  "run_id": "pdsv1-reference-candidates-20260906",
+  "status": "operator_stopped_rate_limit",
+  "stop_reason": "Wikimedia HTTP 429 explicitly asks for a less disruptive approach or preferred thumbnail sizes. Operator stopped the worker between requests after observing repeated 429 responses; all 97 intents have terminal evidence. The original full-inventory stopping rule is superseded by this provider rate-limit stop. No responses or hashes were changed. This run is permanently terminal.",
+  "unattempted_work_ids": [
+    "wikidata:Q79161263",
+    "wikidata:Q108479438",
+    "wikidata:Q64366377",
+    "wikidata:Q64319425",
+    "wikidata:Q87842510",
+    "wikidata:Q20190070",
+    "wikidata:Q20879001",
+    "wikidata:Q28126470",
+    "wikidata:Q63670617",
+    "wikidata:Q88311915",
+    "wikidata:Q64354100",
+    "wikidata:Q3984602",
+    "wikidata:Q63870916",
+    "wikidata:Q60668625",
+    "wikidata:Q135088199"
+  ]
+}

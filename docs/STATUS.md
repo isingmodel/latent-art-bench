@@ -22,20 +22,31 @@ coarse title-derived content labels do not rule out content differences. Disjoin
 give substantially smaller energy discrepancies than the generated/original comparisons.
 These remain descriptive diagnostics, not calibrated painter-style conclusions.
 
-GET-only reference and endpoint discovery is active under `pdsv1-metadata-20260906`. The key
+GET-only reference and endpoint discovery is complete under `pdsv1-metadata-20260906`: 81 requests,
+172,175,160 received bytes, all retained and hashed. The key
 authenticated successfully; both proposed image models and pinned providers are listed.
 The [technical pilot contract](../studies/painter_distribution_study_v1/PILOT.md) completed all 18
 requests successfully, without retries. Google returned six 1024×1024 JPEGs; BFL returned six
 1024×1024 PNGs. OAuth returned six nonsquare PNGs and reported low rather than requested medium
 quality. Paid routes share geometry but not encoding; OAuth requires a separate service comparison.
 The pilot source was committed at `2bd2fb9` and its freeze at `f202082`, before the first POST.
-The pilot's raw hashes, costs and container metadata are being verified for its qualification report.
+The [pilot qualification report](../reports/painter_distribution_study_v1/pdsv1-pilot-20260906/REPORT.md)
+verifies raw hashes, costs and container metadata. The projected research charge, plus 25% headroom
+and pilot cost, is $50.6952. All three routes meet the prospective technical criterion.
 
 The [new reference contract](../studies/painter_distribution_study_v1/REFERENCES.md) selects 64 Monet
 and 48 Cézanne candidates using recorded identity/exposure checks, a 512-native-pixel minimum and
-an explicit outdoor-title screen. Visual content coding is still required. The selected identities
-and acquisition freeze must be committed before any image GET. Main-study statistical qualification
-and final reference/prompt/analysis freezes remain open.
+an explicit outdoor-title screen. Its original-delivery run is now permanently terminal: 97 attempts,
+five acquired files, 92 HTTP 429 responses, 15 unattempted. The operator stopped it between requests
+after observing rate limits. Its first collector lacked a rate-limit stop guard; preserve the record.
+
+Wikimedia explicitly recommends supported thumbnail sizes. The prospective
+[R2 delivery amendment](../studies/painter_distribution_study_v1/REFERENCE_DELIVERY_R2.md) uses a
+ten-minute cooldown and stops on the first new rate limit. Its fixed standard-thumbnail inventory
+has 38 Monet and 33 Cézanne works; 41 candidates cannot meet both standard delivery and nonupsampling
+512-pixel geometry. Four fresh imageinfo responses confirm unchanged parent SHA-1s. R2 requires its
+own committed freeze and disjoint paths. Visual content coding, main-study statistical qualification
+and final reference/prompt/analysis freezes remain open. No new fidelity features were extracted.
 
 `.env` is ignored and untracked. Tectonic, Pandoc and Poppler are available. Free storage was
 18.7 GiB at preflight; every collection stage preserves the 5 GiB reserve. Stage A validation:
