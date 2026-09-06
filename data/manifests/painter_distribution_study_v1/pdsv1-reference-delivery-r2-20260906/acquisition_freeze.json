@@ -1,0 +1,101 @@
+{
+  "deliveries_by_painter": {
+    "claude_monet": 38,
+    "paul_cezanne": 33
+  },
+  "deliveries_sha256": "4d21c424a73e8e191b781b4dc4425e6c4a8b73aae41ed24edbe81c85d33aff1d",
+  "earliest_dispatch_unix": 1788699200.847302,
+  "inputs": [
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-metadata-20260906/events.jsonl",
+      "sha256": "53efef55a8fdb779474b89be11efd3d07bef5c22b22026449546ea19e3bb0b56"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-metadata-20260906/freeze.json",
+      "sha256": "c80ed0ed11a182bc72268d3174bde70e43138e993f5849c9b0c77c04e7ebf94d"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-metadata-20260906/terminal_receipt.json",
+      "sha256": "18ebdbe1efea231c556a16a3f7426b607fde9cfdd9d3b91c2ba18a4ab2aaf43f"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-reference-candidates-20260906/acquisition_events.jsonl",
+      "sha256": "3777df2dc5917fae9437932eac2afaa0d977669ae53df1b96b712317b07b4a35"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-reference-candidates-20260906/acquisition_freeze.json",
+      "sha256": "cacc9b88abb13a570321ed99ea608a3e1ddf92c5f003da4ca1f41499fa8f6d3c"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-reference-candidates-20260906/acquisition_receipt.json",
+      "sha256": "b07f52516e28c45d920457b8f0ae2b0d342ef1ceed7bf5b294e361a1bd897da4"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-reference-candidates-20260906/candidates.jsonl",
+      "sha256": "df1506377faa3ead68150b2906aebc927ef82affd5f86113f1abed721c17104e"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-metadata-20260906/responses/7fd60985c4985b16e03c0dbfa2e44fd1f5027ae30eb06191f01be7920cd19107.body.gz",
+      "sha256": "2d0f3ccf2d5b5f2626e208e8c903670d451c1b51e86b16c0a6f4c176662b0db3"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-metadata-20260906/responses/aadcdc7e4219e5481a2819bd093d7614c4e36edbcc519754d953fa8e16a3a70a.body.gz",
+      "sha256": "97cbff2ccdf985b8b3a372ea3e2229cb1c4937940315f1bc37fbb5372a451422"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-metadata-20260906/responses/efd09d944fd48142531daa4b44701b918f8c04521c4015db1a393a6cd56dff74.body.gz",
+      "sha256": "06ea4ea3aae49dfaa6387d2dde0923f5464d5a09323f81af5697535b8e8b362a"
+    },
+    {
+      "path": "research_workspace/painter_distribution_study_v1/pdsv1-metadata-20260906/responses/fcbd89e395a9a1c0636d44f3a84f18b1b20152751d726c7111705eb77217e765.body.gz",
+      "sha256": "0cf963251411b8f7e5f90aff2f6b24b024b19a7dff823f6ba00dda2fe553634a"
+    },
+    {
+      "path": "src/latent_art_bench/io.py",
+      "sha256": "13e6372aa9814495a45700eb9e65d099c56bb1bb3032d72f7f9e00e6ba91a9b8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/discovery.py",
+      "sha256": "211fe3d93077aec9861915b58fa57b2e8954dd17cdc291fdc1e5d33072d1d0eb"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/reference_delivery.py",
+      "sha256": "1a120b116a88803187e172d550524091b47429c9206a3977f445b25efcc93e99"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/references.py",
+      "sha256": "414c228aa1ea3628fe34ef3ee91d7bbc1904d2af52552f01d53e55965c7cbcd1"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/artifacts.py",
+      "sha256": "8b48f0cfb433ac1769786aba366501b69ba1bec540a1a2f9e35e93ce45e9b0d7"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/common.py",
+      "sha256": "8f399eb26069a283209437de51885ce38ca28a21759b359afc506d263107ec4f"
+    },
+    {
+      "path": "studies/painter_distribution_study_v1/REFERENCE_DELIVERY_R2.md",
+      "sha256": "a9d0b4423a3cdece390e06e23dcd4965e29c8759d4cb6ca5403e897bdd3df196"
+    },
+    {
+      "path": "tests/painter_distribution_study_v1/test_reference_delivery.py",
+      "sha256": "e07cbbf0184e9852fc85238e29862e145b55712312ec2094536ce4344c8d23eb"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+    }
+  ],
+  "maximum_response_bytes": 16777216,
+  "minimum_interval_seconds": 10,
+  "omitted": 41,
+  "predecessor_id": "pdsv1-reference-candidates-20260906",
+  "recorded_git_commit": "56289899c9d1f3df92020a75127e07a445613f87",
+  "run_id": "pdsv1-reference-delivery-r2-20260906",
+  "source_pixels_or_features_used_for_selection": false
+}
