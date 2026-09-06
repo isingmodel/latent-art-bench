@@ -6,11 +6,16 @@ and [configuration](../configs/painter_prompt_supplement_v1/study.json) were spe
 first service refusal, at zero-based request sequence `415`, and before measurement of the new
 generated images. The retained response is a service moderation refusal, not a decoding failure.
 
-The original study and its workers continue unchanged. Its complete-grid primary remains
-unavailable for an incomplete grid; this supplement does not restore it. The cap stays at
-**1,920 requests**, including refusals. The supplement adds no retries, replacements, provider
-calls or feature extractions; it reads features from the original authorized measurement stage.
-Do not launch competing generation, measurement or report workers.
+The original study and supplement are complete. All **1,920 approved requests** were attempted:
+**1,918 images generated and measured, two moderation refusals**, with no measurement failures
+among generated images. The second refusal was sequence `1718`, also `gpt-image-1`/`by_name`
+(Cézanne; the first was Pissarro). The original complete-grid primary remains unavailable; this
+supplement does not restore it. Neither refusal was retried or replaced. The supplement added
+no provider calls or feature extractions; it read the original authorized measurements.
+
+Read the [completed report with plots and exports](../reports/painter_prompt_supplement_v1/ppss1-missingness-20260905/REPORT.md).
+All generation, measurement and report writers have finished successfully. Terminal evidence
+must not be rebuilt or resumed in place.
 
 ## Analysis and limits
 
@@ -42,8 +47,8 @@ Reviews are maintainer-run LLM subagent reviews, not institutionally independent
 
 ## Published qualification and preparation — 2026-09-06
 
-**Qualification passed and the supplement design is frozen.** No empirical supplement result
-has been published yet. See [current status](STATUS.md) for execution checkpoints.
+**Qualification passed, the design is frozen and the empirical report is complete.** See
+[current status](STATUS.md) for terminal accounting and verification.
 
 | Published record | Identity | Commit |
 | --- | --- | --- |
@@ -88,19 +93,51 @@ Ruff and all **722 offline tests** passed. This includes a full synthetic 1,920-
 numeric build and byte-for-byte replay of all 18 report files. Historical v1/v2 audits passed
 2,902/15,809 checks. Synthetic validation does not constitute an empirical supplement result.
 
-## Build and reproduce
+## Empirical result — 2026-09-06
 
-A separate completion worker is already running. Its process identity is recorded in
-`tmp/ppss1-missingness-20260905/completion/worker.json` (started as PID `1571`). It waits for
-`tmp/pps1-gpt-prompts-20260905/completion/completed.json`, which records the original companion's
-successful terminal measurement, unavailable-primary analysis, report and checks. It then runs
-supplement `build ppss1-missingness-20260905`, `check ppss1-missingness-20260905` and `audit` in
-order, with logs under its own completion directory. It stops on failure and never generates
-images, retries requests or extracts features. Do not start a second supplement writer while it
-is alive. The original workers continue unchanged.
+All 48 exploratory endpoints are available. Forty-two have 64 common measured pairs and six
+have 63; every scene remains represented. The full exports contain 360 distance cells, 72 target
+summaries, 744 coordinate diagnostics, 1,024 pair records, 3,072 family contribution records,
+72 secondary contrasts, 48 chronology diagnostics, 30 availability cells and 480 scene cells.
 
-**The empirical report remains pending.** Once the worker has published it, verify its numbers
-and all report bytes with:
+Explicit style instruction increased finite distance relative to by-name prompting in all 24
+artist × alias × feature-family comparisons on the observed paired supports. Three reject the
+declared joint sharp null after correction across all 48 tests:
+
+| Requested service | Painter / family | Paired distance increase | Raw p | Holm p |
+| --- | --- | ---: | ---: | ---: |
+| `gpt-image-1` | Monet / color | 0.2246521525 | 0.00052 | 0.02444 |
+| `gpt-image-2` | Monet / color | 0.3580528744 | 0.00001 | 0.00048 |
+| `gpt-image-2` | Pissarro / texture | 0.2933245456 | 0.00058 | 0.02668 |
+
+Adding aspects to style instruction had mixed directions (13 decreases, 11 increases) and no
+Holm rejection. Nonsignificance does not establish equivalence or absence of an effect. Distances
+are comparable within each feature family only; these results do not rank artistic quality or
+verified underlying models. Joint-null rejection cannot isolate feature changes from availability.
+
+All generated images had decoded geometry different from requested 1024×1024; reported quality
+was low for 1,906 images and medium for 12. Both aliases lack attested model snapshots. The
+reference consists of already exposed digital surrogates, not a probability sample of entire
+oeuvres. No exact generated duplicates or reference perceptual-hash candidates were found,
+but the uncalibrated hash screen cannot establish originality or training-data nonoverlap.
+
+## Reproduce the completed report
+
+The original measurement and report worker completed successfully. The supplement worker then
+completed `build`, `check` and `audit` at **2026-09-06 00:23:39 UTC**. Diagnostic logs remain under
+`tmp/pps1-gpt-prompts-20260905/completion/` and
+`tmp/ppss1-missingness-20260905/completion/`; durable receipts and hash-bound reports are the
+authority. Do not rerun creation commands against these terminal IDs.
+
+Final verification repeated Ruff, all 722 offline tests, source/supplement audits and both
+historical evidence audits successfully. All 18 empirical report files reproduce byte-for-byte.
+A separate maintainer-run LLM subagent implementation reproduced all 360 distances within
+1.56e-15, all 744 coordinate records exactly, and all 48 raw/Holm p-values exactly; actual plots
+and every CSV inventory were reviewed. All 62 original, 79 qualification and 83 supplement
+bindings match current bytes and their recorded commits. These reviews are not institutionally
+independent. See [current status](STATUS.md) for the complete audit and retention accounting.
+
+Verify the empirical numbers and all 18 report files with:
 
 ```bash
 uv run --locked --extra analysis --extra learned python -m latent_art_bench.painter_prompt_supplement_v1.cli check ppss1-missingness-20260905

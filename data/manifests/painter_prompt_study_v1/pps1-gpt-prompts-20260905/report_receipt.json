@@ -1,0 +1,43 @@
+{
+  "analysis_status": "unavailable_incomplete_grid",
+  "completed_at_utc": "2026-09-06T00:22:16.066008+00:00",
+  "files": [
+    {
+      "path": "reports/painter_prompt_study_v1/pps1-gpt-prompts-20260905/REPORT.md",
+      "sha256": "d1faf616e374e3428f0455e2f2b5eb954ac803fdb04e7eaac8a25b7773639440"
+    },
+    {
+      "path": "reports/painter_prompt_study_v1/pps1-gpt-prompts-20260905/availability.csv",
+      "sha256": "6badf769524e6aa92b69b93b74ddb46cd8ba69221612f4c4785749089af39abf"
+    },
+    {
+      "path": "reports/painter_prompt_study_v1/pps1-gpt-prompts-20260905/inputs.csv",
+      "sha256": "05f51e6c78dcfb5a7c7aaf35cc2fb3ef52eb7025cd557b0a23d4b0382760c86b"
+    },
+    {
+      "path": "reports/painter_prompt_study_v1/pps1-gpt-prompts-20260905/service_diagnostics.json",
+      "sha256": "6f7a9178b422f4e0c92188882c8983882e751c9366f85b7423f8700df860c6c0"
+    },
+    {
+      "path": "reports/painter_prompt_study_v1/pps1-gpt-prompts-20260905/template_availability.csv",
+      "sha256": "5a511d5b396472ca8a46a12830bd5c06b66fde6edb8776fd17f56ee7b5d51165"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/analysis.json",
+      "sha256": "c6691d11d0b9481cb9794cc05d1688c19c8949cd9b1b3005d9e0de12e00d8200"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/report.py",
+      "sha256": "c549aa0a49aaba4f964143cb902a4c398befe8f2fd89245b84e414bc2547210c"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/generation_freeze.json",
+      "sha256": "05f7e44abafe3724c13469a01b0e126e752ad878b8d2482160bb2bd585387d98"
+    }
+  ],
+  "recorded_git_commit": "3251bda9dddee395f5637bbfca8bd9f2993f76fa",
+  "run_id": "pps1-gpt-prompts-20260905",
+  "schema_version": "painter-prompt-study-report-receipt/1.0"
+}

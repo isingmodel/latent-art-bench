@@ -1,101 +1,108 @@
 # Current status and research boundary — 2026-09-06
 
-## Active goal: repeated GPT Image prompt study
+## Completed goal: repeated GPT Image prompt study
 
-**Execution authorized: 1,920 total new images.** On 2026-09-05 the user explicitly replied
-“1,920 is okay.” The approved config fixes four complete repetitions across both aliases and all
-three prompt methods. The authorized inputs were committed at `3251bda`; the generation freeze
-was committed at `04106cc` after a 119-check evidence audit passed. **Generation started** for
-`pps1-gpt-prompts-20260905`, started at approximately 10:50 UTC through the inspected port-10532
-OAuth proxy. A process-bound sleep assertion is active. Do not launch another writer while this
-process is alive; read the CLI `status` and generation ledger for current counts. A companion
-process waits for the terminal generation receipt, then runs `measure`, `analyze`, `report`,
-`check-run` and `audit` in order. It stops on any failed stage and never retries generation.
-Its process identity and per-stage logs are in `tmp/pps1-gpt-prompts-20260905/completion/`.
-`completed.json` there means all five commands passed; the report and its evidence receipts are
-the durable authority. Do not launch a competing measurement or report writer while it is alive.
+The approved extension is **complete**. Read the
+[exploratory prompt-comparison report](../reports/painter_prompt_supplement_v1/ppss1-missingness-20260905/REPORT.md)
+and [reproduction workflow](PROMPT_SUPPLEMENT_WORKFLOW.md). The original
+[registered report](../reports/painter_prompt_study_v1/pps1-gpt-prompts-20260905/REPORT.md)
+retains its `unavailable_incomplete_grid` primary status.
 
-A genuine moderation refusal was recorded at zero-based request sequence `415`. It remains in
-its original slot and consumes one of the 1,920 requests. With that missing measurement, the
-original complete-grid primary will be unavailable; the original worker must still publish its
-terminal availability report. No retry, replacement or call outside the frozen grid is authorized.
+### Terminal accounting
 
-A separate [post-registration missingness supplement](PROMPT_SUPPLEMENT_WORKFLOW.md),
-`painter_prompt_supplement_v1`, was specified after this refusal and before new feature
-measurement. It preserves the original protocol, code, ledgers and workers. It will describe
-all measured outputs with equal weights across the 16 scenes, and report all 48 exploratory
-common-pair prompt tests under a joint availability-and-feature sharp null with no interference,
-Holm adjustment and no confidence intervals. An unavailable original primary stays unavailable.
-The aliases remain unverified service labels; reviews are maintainer-run LLM subagent reviews.
+Run `pps1-gpt-prompts-20260905` attempted all **1,920 approved requests exactly once**, producing
+**1,918 generated and measured images** and **two moderation refusals**. There were no additional
+measurement failures, replacement requests or retries. Generation ended at **2026-09-06 00:04:14
+UTC**; measurement ended at **00:22:12 UTC**. Both completion workers exited successfully; the
+supplement's build, check and audit finished at **00:23:39 UTC**. All stages are terminal.
 
-**The supplement qualification and design freeze are published and committed.** Source and tests
-are bound to `b029031`; qualification `ppss1-qualification-20260905` was committed at `ea6ee7b`.
+- Requested aliases: `gpt-image-1` has 958 measured outputs and two refusals; `gpt-image-2` has 960
+  measured outputs. These are service labels, without attested underlying model snapshots.
+- Design: three prompt methods × two aliases × four painters plus matched artist-free controls ×
+  16 scenes × four repetitions. This gives 64 planned outputs per alias/method/condition.
+- Both refusals were HTTP 400 input-moderation responses under `gpt-image-1`/`by_name`: sequence
+  `415` (Pissarro, L3, block 0) and `1718` (Cézanne, B2, block 3). Their original responses and
+  positions remain evidence. They consume two of the approved requests; do not top up the grid.
+- The exposed reference remains 649 measured painting surrogates (Monet 297, Sisley 106,
+  Pissarro 141, Cézanne 105), with the unchanged 221-work development scaler and all 31 color,
+  spatial and digital-texture features at the original 512-short-side normalization.
+- Losslessly compressed original HTTP bodies remain under the ignored
+  `research_workspace/painter_prompt_study_v1/pps1-gpt-prompts-20260905/`. Compact terminal
+  ledgers, measurements, receipts and report hashes are in its manifest namespace. Preserve both.
+  Exactly 1,920 unique gzip bodies occupy 5,764,937,227 bytes (5.369 GiB), retaining 7,642,864,266
+  uncompressed response bytes. Both stored and uncompressed hashes passed verification.
+
+### Available-output supplement
+
+The [post-registration supplement](PROMPT_SUPPLEMENT_WORKFLOW.md), `ppss1-missingness-20260905`,
+was specified after the first refusal and before new-image feature measurement. It does not
+restore the original primary result. Its 18-file report bundle contains 10 full-precision CSVs,
+three PNG/SVG plots, a Markdown report and diagnostics JSON.
+
+- All 360 descriptive distance cells, 72 target summaries, 744 coordinate diagnostics and 72
+  secondary contrasts are available. Available outputs receive equal total mass across 16 scenes.
+- All 48 exploratory prompt endpoints are retained and available: 42 use 64 common measured
+  pairs and six use 63. The 1,024 planned pair records retain both exclusions; the 3,072 family
+  contribution records retain all six excluded contributions. Before/after distances in these
+  tests use common support, which differs from all-available support where a request was refused.
+- All 24 by-name → style-instruction estimates are positive on their observed supports, meaning
+  greater finite feature distance after the explicit instruction. Three reject the joint null
+  after Holm correction: Monet color under both aliases, and Pissarro texture under `gpt-image-2`.
+  Added-aspect directions are mixed and none rejects after Holm correction. These observations
+  do not establish a population effect, a feature-only causal effect or an aesthetic ranking.
+- The tests address a joint sharp null of no method effect on availability AND measured features,
+  conditional on third-method positions, with no interference. There are 99,999 seeded swaps per
+  endpoint, a fixed 48-test Holm family and no confidence intervals or equivalence claims.
+- Returned geometry differs from requested 1024×1024 in all 1,918 outputs; reported quality is
+  `low` for 1,906 and `medium` for 12 despite a medium request. Content, capture and hidden service
+  behavior can affect distances. No exact generated duplicates or reference perceptual-hash
+  candidates were found; that uncalibrated screen is not a copying or originality verdict.
+
+### Frozen design and validation
+
+The authorized source inputs were committed at `3251bda` and the generation freeze at `04106cc`.
+All 62 original freeze-bound inputs remain unchanged. The supplement implementation/tests are
+bound to `b029031`, qualification to `ea6ee7b`, and design freeze to `f877cf0`. The supplement
+freeze was created **2026-09-05 15:06:53 UTC** and committed at **15:06:57 UTC**, before measurement.
+It binds 83 inputs and a source-ledger prefix containing 579 generated outputs and one refusal;
+these are immutable checkpoint counts, not the terminal counts above.
+
 All eight development and eight unseen-validation valid-null cells passed the fixed Wilson-upper
-criterion of 0.065. Maximum observed family-wise rejection was 0.0475 / 0.043, with maximum Wilson
-95% upper bounds 0.0577209072 / 0.0528011087 (development / validation). Published records match the
-retained fixed-seed outputs, and full numerical replay passed; no thresholds or seeds were tuned.
+criterion of 0.065 at 2,000 trials per cell. Maximum observed family-wise rejection was
+0.0475 / 0.043, with maximum Wilson 95% upper bounds 0.0577209072 / 0.0528011087. Full numerical
+qualification replay passed; no thresholds or seeds were tuned. Synthetic qualification does not
+establish the actual service's assumptions or guarantee power for image outcomes.
 
-The [supplement freeze](../data/manifests/painter_prompt_supplement_v1/ppss1-missingness-20260905/design_freeze.json)
-was created at **2026-09-05 15:06:53 UTC** and committed at **15:06:57 UTC** in `f877cf0`, before
-the source measurement ledger existed. Its bound generation-prefix checkpoint contains 579
-generated outcomes and one refusal; these are freeze-time counts, not live progress. The
-supplement audit passed with 83 bound inputs, and all 62 original generation-freeze inputs remain
-unchanged. Its immutable IDs must not be reused for qualification or preparation.
+Final handoff verification passed on 2026-09-06:
 
-**The empirical supplement report is still pending.** A separate completion worker was started
-as PID `1571`; its identity and logs are recorded under
-`tmp/ppss1-missingness-20260905/completion/`, including `worker.json`. It waits for the original
-companion's `completed.json`, then runs supplement `build`, `check` and `audit` in order. It stops
-on failure and makes no new provider requests. Do not launch a competing supplement writer while
-it is alive. The original generation and companion workers continue unchanged, and the approved
-source cap remains 1,920 requests.
+- Ruff clean; all **722 offline tests passed** (79.57 seconds).
+- Source audit: **5,977 checks passed**, including the inspected proxy source and retained bodies.
+  Source and supplement numeric/report-byte replay passed for all five and 18 files respectively.
+  The earlier distance bundle's 26 files also reproduce byte-for-byte.
+- Supplement evidence audit passed. Current bytes and recorded Git blobs match all 62 original,
+  79 qualification and 83 supplement inputs. Committed supplement publication preceded the
+  hash-chained measurement start by 8h57m20.661s. No frozen input or acknowledgement changed.
+- Historical v1/v2 audits: **2,902 / 15,809 checks passed**, retaining exactly the two existing
+  v1 acknowledgements. Portable-path checks passed for all new terminal text artifacts.
+- A separate numerical implementation recomputed all 360 weighted distances (maximum absolute
+  error 1.56e-15), all 744 coordinate records (exact), 48 paired estimates, 3,066 included
+  coefficients and 72 secondary contrasts. All 48 raw and Holm p-values match exactly.
+- All three actual PNG/SVG plots and full-precision CSV inventories were reviewed. The original
+  unavailable-primary report has no plots; its generic figure-footer wording is explained in
+  [the source workflow](PROMPT_STUDY_WORKFLOW.md) without changing frozen report bytes.
 
-Supplement validation passed Ruff and all **722 offline tests**, including a full synthetic
-1,920-disposition numeric build and byte-for-byte replay of all 18 report files. Historical
-v1/v2 audits passed 2,902/15,809 checks. These checks qualify the implementation; they are not an
-empirical supplement result.
+Reviews, including the separate numeric implementation and visual checks, are **maintainer-run
+LLM subagent reviews**, not institutionally independent reviews. Diagnostic verification logs
+are retained under `tmp/final-evidence-audit-20260906/`; durable manifests and reports remain
+the evidence authority.
 
-The user requested additional `gpt-image-1`/`gpt-image-2` images, alternative prompt methods and
-paper-ready generated-versus-original feature-distance analysis. The new
-[`painter_prompt_study_v1` protocol](../studies/painter_prompt_study_v1/PROTOCOL.md) and
-[workflow](PROMPT_STUDY_WORKFLOW.md) implement this prospectively in a separate namespace.
-
-- Three text-prompt methods × two requested aliases × four painters plus matched artist-free
-  controls × all 16 scenes = 480 requests per complete repetition.
-- The exposed 649-painting reference, all 31 features and existing development scaler stay fixed.
-  New results cannot alter the prompt inventory, statistical rule or sample count.
-- The user subsequently required a modest image count. The active design independently randomizes
-  three prompt methods within matched scene/alias/condition triplets and reports finite energy
-  differences plus all 48 two-sided randomization p-values with Holm adjustment. It provides no
-  population distance confidence intervals and states the sharp-null/no-interference assumptions.
-- The approved ceiling is 1,920 total new requests: 960 per alias and 64 per alias/method/condition.
-  This is roughly 12.5 serial hours at prior speed; actual service speed and quota remain unknown.
-  Local storage checks pass, with a 12 GiB runtime ceiling and 5 GiB free-space reserve. The earlier
-  large-grid interval proposal is superseded. No additional probes, rerolls or paid fallback are
-  included in the authorization.
-- Small-study development and unseen-seed validation completed at 2,000 trials per null cell.
-  All three sample counts satisfy the prespecified synthetic criterion. Maximum validation
-  family-wise false rejection was 0.029/0.0385/0.045; Wilson 95% upper bounds stay below 0.065.
-  These are contribution-space null constructions, not proof of service assumptions or image power.
-  Prior paired-t/jackknife calibration is retained as superseded development history.
-- Both immutable calibration records are published against source commit `5ba1339`; all six
-  synthetic jobs reproduce. The new evidence audit passed before the registered empirical run's
-  first request; its final audit remains due after generation and analysis.
-- Generation, terminal accounting, lossless response retention, resumable measurement, complete-grid
-  analysis, report rendering and commit-bound audit are implemented. The complete offline synthetic
-  pipeline also replays every numeric result and report byte without image access. Reviews are
-  maintainer-run LLM subagent reviews, not institutionally independent.
-- Validation: Ruff passed and **621 offline tests passed**. Historical v1 audit passed 2,902 checks
-  with its two prior acknowledgements unchanged; v2 passed 15,809 checks. The previous distance
-  report's 26 files still reproduce byte-for-byte. No historical evidence was modified.
-
-After recording the approved cap, Ruff, all 621 offline tests and both historical evidence audits
-passed again. Runtime accounting is append-only and will remain uncommitted until a terminal
-checkpoint; preserve it alongside the ignored original response bodies.
+Do not resume generation, remeasure images, rewrite terminal evidence or reuse immutable run IDs.
+Read-only `check`/`audit` commands are in the workflow. Future empirical expansion requires a new
+versioned design and authorization; manuscript drafting remains deferred.
 
 ## Completed existing-data deliverable
 
-The current user-facing deliverable is the **[feature-distance report with comparison
+The earlier existing-data deliverable is the **[feature-distance report with comparison
 plots](../reports/painter_feature_distance_v1/REPORT.md)**. The user explicitly selected existing
 painters/images, the existing 31 interpretable features, and reproducible commands plus a plotted
 report. The implementation under `painter_feature_distance_v1` is a separate descriptive analysis

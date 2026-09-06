@@ -1,0 +1,80 @@
+{
+  "complete_measured_grid": false,
+  "completed_at_utc": "2026-09-06T00:22:12.590839+00:00",
+  "expected_records": 1920,
+  "feature_file_sha256": "d398b851f6036feb666de90cf6ed24014cdd6616e514d87a91703a44c3a74482",
+  "feature_names": [
+    "lightness_median",
+    "lightness_iqr",
+    "chroma_median",
+    "chroma_iqr",
+    "chromatic_fraction",
+    "hue_concentration",
+    "hue_entropy",
+    "deltae_01",
+    "deltae_04",
+    "deltae_16",
+    "deltae_slope",
+    "spectral_slope",
+    "spectral_residual",
+    "spectral_anisotropy",
+    "orientation_entropy",
+    "horizontal_vertical_balance",
+    "gradient_median",
+    "gradient_iqr",
+    "quadrant_jsd",
+    "wavelet_energy_1",
+    "wavelet_energy_2",
+    "wavelet_energy_3",
+    "wavelet_energy_4",
+    "wavelet_slope",
+    "wavelet_curvature",
+    "lbp_entropy_8",
+    "lbp_entropy_16",
+    "lbp_entropy_32",
+    "local_cv_01",
+    "local_cv_04",
+    "local_cv_16"
+  ],
+  "freeze_sha256": "05f7e44abafe3724c13469a01b0e126e752ad878b8d2482160bb2bd585387d98",
+  "generation_receipt_sha256": "7692ac4e1f40f988aad133bb717b863f25bff7abf9f996044292af03e3248ea2",
+  "inputs": [
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/generation_freeze.json",
+      "sha256": "05f7e44abafe3724c13469a01b0e126e752ad878b8d2482160bb2bd585387d98"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/generation_receipt.json",
+      "sha256": "7692ac4e1f40f988aad133bb717b863f25bff7abf9f996044292af03e3248ea2"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/generation_events.jsonl",
+      "sha256": "26068ba30d408174d2e49e3f6ea3bffd09362142db730093456908e626059a08"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/requests.jsonl",
+      "sha256": "6a4139f7b780cf450d3f435d5ac95c590eef9b5214ad6bf54f8b61ffc4657cc4"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/outputs.jsonl",
+      "sha256": "c8bfcf32ea3295ae7e8e5b88796e350f6baa6d48cc9acef455bd92384203bcc7"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/prompts.json",
+      "sha256": "a658ec0214c067353437f2c8182b90295896b09daba7ad4f48790db05a0c0f19"
+    }
+  ],
+  "ledger_sha256": "bee952eeaf5857d6a90e5387ec45c3fd12482c7f4019217f74776d3455d7982a",
+  "outputs_sha256": "c8bfcf32ea3295ae7e8e5b88796e350f6baa6d48cc9acef455bd92384203bcc7",
+  "run_id": "pps1-gpt-prompts-20260905",
+  "schema_version": "painter-prompt-study-measurement-receipt/1.0",
+  "short_side": 512,
+  "stage": "generated",
+  "status": "complete",
+  "statuses": {
+    "measured": 1918,
+    "not_generated": 2
+  },
+  "terminal": true,
+  "terminal_records": 1920
+}

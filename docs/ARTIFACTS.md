@@ -86,19 +86,20 @@ Delete exact targets only. Do not use `git clean -xfd` and do not recursively de
 `data/`, or `research_workspace/`: each contains a mixture of tracked records and ignored research
 bytes.
 
-## Active prompt-study boundary
+## Completed prompt-study boundary
 
 The bounded prompt extension uses `research_workspace/painter_prompt_study_v1/`. The user approved
 1,920 total new images for `pps1-gpt-prompts-20260905`; its resource checks pass on local storage.
-Generation has started; empirical response bytes are retained there as each request finishes. Their compression,
-failure status or ignored path does not make them disposable.
+All 1,920 requests are terminal, with 1,918 generated/measured images and two refusals. The
+original compressed HTTP bodies, terminal ledgers and measurement/report receipts are retained.
+Their compression, failure status or ignored path does not make them disposable.
 
-The refusal at source request sequence `415` and every later disposition remain evidence.
+The refusals at source request sequences `415` and `1718` and every other disposition remain evidence.
 The [post-registration supplement](PROMPT_SUPPLEMENT_WORKFLOW.md) uses terminal measured features
 and the existing reference/scaler. It authorizes no images, retries or extraction and preserves
 the original unavailable-primary result. Its committed design freeze must precede the original
-measurement ledger; retain the bound generation prefix exactly while the source ledger continues
-appending. Never truncate the source ledger to match that prefix or refresh either hash.
+measurement ledger. The terminal source ledger retains the exact bound prefix and all subsequent
+events. Never truncate the source ledger to match that prefix or refresh either hash.
 
 ## Completed source-study boundary
 

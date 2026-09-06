@@ -1,12 +1,15 @@
 # Agent handover: completed painter-feature analysis and research continuation
 
-**Active extension — 2026-09-05:** the user subsequently requested more GPT Image samples,
+**Completed extension — 2026-09-06:** the user subsequently requested more GPT Image samples,
 alternative prompting and paper-ready analysis. Read [current status](STATUS.md) and
-[the repeated-prompt workflow](PROMPT_STUDY_WORKFLOW.md) first. The user approved 1,920 total new
-images on 2026-09-05; run `pps1-gpt-prompts-20260905` has started, with automatic analysis and
-verification queued after terminal generation. Check live processes before resuming any writer.
-The historical task boundary
-described below is a sealed snapshot.
+[the completed prompt-comparison report](../reports/painter_prompt_supplement_v1/ppss1-missingness-20260905/REPORT.md)
+first. All 1,920 approved requests were attempted once: 1,918 images generated and measured,
+two moderation refusals, no replacements. The original complete-grid primary remains unavailable.
+The separate post-registration supplement was frozen before feature measurement and reports
+all 48 exploratory comparisons, 360 distance cells and three PNG/SVG plots. See
+[its workflow](PROMPT_SUPPLEMENT_WORKFLOW.md) for commands, findings and limits. All workers
+finished successfully; generation and measurement must not be restarted. The historical task
+boundary described below is a sealed snapshot.
 
 **Subsequent implementation — 2026-09-05:** the user selected a descriptive distance-analysis
 extension using the existing images and 31 features, with reproducible commands and comparison

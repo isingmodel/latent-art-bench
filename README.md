@@ -5,29 +5,42 @@ reference paintings**. The current analysis uses Monet, Sisley, Pissarro, and C�
 interpretable color, spatial/orientation, and digital-texture features; and the existing SD-Turbo,
 `gpt-image-1`, and `gpt-image-2` service outputs.
 
-The [distance report with comparison plots](reports/painter_feature_distance_v1/REPORT.md) is the
-main entry point. It contains absolute model–artist distances, complete generated-condition ×
-reference-painter matrices, artist-free comparisons, painter specificity, feature diagnostics,
-and an exploratory comparison using 16 generated images per condition in each recorded block.
-Full-precision JSON and CSV exports accompany the report.
+The [new prompt-comparison report](reports/painter_prompt_supplement_v1/ppss1-missingness-20260905/REPORT.md)
+is the main entry point: 1,918 newly generated images, three prompt methods, comparison plots,
+full-precision tables and reproducible statistics. The earlier
+[existing-data distance report](reports/painter_feature_distance_v1/REPORT.md) also covers
+SD-Turbo, artist-free comparisons and painter specificity.
 
 ## Current status — 2026-09-06
 
-The active extension is [repeated GPT Image generation with three prompt methods](docs/PROMPT_STUDY_WORKFLOW.md).
-It uses a prospectively fixed request grid, resumable generation and measurement, full outcome
-accounting, and a complete-grid primary analysis. The user approved **1,920 total requests** on
-2026-09-05: 960 per alias, three methods and four repetitions. A genuine refusal at request
-sequence `415` means the incomplete-grid primary will remain unavailable. The request cap and
-original workers are unchanged; no refused slot is retried or replaced.
+The [repeated GPT Image study](docs/PROMPT_STUDY_WORKFLOW.md) is complete. All **1,920 approved
+requests** were attempted once: **1,918 images generated and measured, two service refusals**.
+The grid covers two requested aliases, three methods (by name, style instruction, style plus
+aspects), four painters plus matched artist-free controls, 16 scenes and four repetitions.
+There are 958 measured outputs under `gpt-image-1` and 960 under `gpt-image-2`.
 
 A separate [post-registration supplement](docs/PROMPT_SUPPLEMENT_WORKFLOW.md) was specified after
-the refusal and before new feature measurement. It reports equal-scene-weighted available-output
+the first refusal and before new feature measurement. Its [completed report](reports/painter_prompt_supplement_v1/ppss1-missingness-20260905/REPORT.md)
+reports equal-scene-weighted available-output
 distances and 48 exploratory matched-pair tests of a joint availability-and-feature sharp null,
 with Holm adjustment and no confidence intervals. Its qualification passed and its design freeze
-was committed before source measurement. A separate worker waits for the original study's
-completion, then builds and checks the supplement. **The empirical supplement report is still
-pending.** See [current status](docs/STATUS.md) for execution state. The counts below describe
-the completed existing-data report.
+was committed before source measurement. The original complete-grid primary remains
+[unavailable](reports/painter_prompt_study_v1/pps1-gpt-prompts-20260905/REPORT.md); neither refused
+slot was retried or replaced. Numerical and report-byte replay passed.
+
+On the observed matched supports, explicit style instruction increased distance relative to
+by-name prompting in all 24 artist × alias × feature-family comparisons. Three of these reject
+the exploratory joint null after Holm adjustment: Monet color under each alias and Pissarro
+texture under `gpt-image-2`. Added aspects had mixed directions, with no Holm rejection. These
+are finite-sample observations, not evidence of verified model superiority or aesthetic quality.
+See [the workflow](docs/PROMPT_SUPPLEMENT_WORKFLOW.md) for estimates and interpretation limits.
+
+The new bundle includes 360 distance cells, 744 coordinate diagnostics, all 48 exploratory tests,
+10 CSV tables and three plots in PNG/SVG. It retains the same 649-painting reference, 221-painting
+development scaler and 31 features. Reviews are maintainer-run LLM subagent reviews, not
+institutionally independent. [Current status](docs/STATUS.md) records the terminal evidence.
+
+The separately preserved existing-data report contains:
 
 - **Reference:** 649 measured confirmation paintings, from the existing 1,193-work frame.
 - **Generated images:** 2,000 SD-Turbo outputs and 160 GPT Image service outputs.
@@ -51,7 +64,14 @@ measured images. Manuscript drafting remains deferred.
 ## Run and reproduce
 
 Use the locked environment with both extras to preserve the shared environment's dependencies.
-The delivered bundle already exists; verify it with:
+Both delivered bundles already exist. Verify the new prompt supplement with:
+
+```bash
+uv run --locked --extra analysis --extra learned python -m latent_art_bench.painter_prompt_supplement_v1.cli check ppss1-missingness-20260905
+uv run --locked --extra analysis --extra learned python -m latent_art_bench.painter_prompt_supplement_v1.cli audit
+```
+
+Verify the earlier existing-data bundle with:
 
 ```bash
 uv run --locked --extra analysis --extra learned latent-art-bench feature-distances check \
@@ -77,6 +97,8 @@ validation, formulas, output schemas and interpretation limits.
 | --- | --- |
 | `src/latent_art_bench/painter_prompt_supplement_v1/` | Separate post-registration numeric supplement, qualification and module CLI |
 | `studies/painter_prompt_supplement_v1/` | Missingness weighting, exploratory joint-null tests and preservation contract |
+| `reports/painter_prompt_supplement_v1/ppss1-missingness-20260905/` | Completed prompt comparison report, full-precision tables and PNG/SVG plots |
+| `reports/painter_prompt_study_v1/pps1-gpt-prompts-20260905/` | Original unavailable-primary report and complete request accounting |
 | `src/latent_art_bench/painter_prompt_study_v1/` | Prospective repeated-prompt generation, calibrated analysis and separate module CLI |
 | `studies/painter_prompt_study_v1/` | New prompt design and resource contract |
 | `src/latent_art_bench/painter_feature_distance_v1/` | Current descriptive distance analysis, plotting and CLI |

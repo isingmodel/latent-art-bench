@@ -1,0 +1,19 @@
+{
+  "complete_generated_grid": false,
+  "completed_at_utc": "2026-09-06T00:04:14.355515+00:00",
+  "expected_requests": 1920,
+  "freeze_sha256": "05f7e44abafe3724c13469a01b0e126e752ad878b8d2482160bb2bd585387d98",
+  "image_attempts": 1920,
+  "ledger_sha256": "26068ba30d408174d2e49e3f6ea3bffd09362142db730093456908e626059a08",
+  "outputs_sha256": "c8bfcf32ea3295ae7e8e5b88796e350f6baa6d48cc9acef455bd92384203bcc7",
+  "run_id": "pps1-gpt-prompts-20260905",
+  "schema_version": "painter-prompt-study-generation-receipt/1.0",
+  "status": "complete",
+  "statuses": {
+    "generated": 1918,
+    "refused": 2
+  },
+  "stopped_on": null,
+  "terminal": true,
+  "terminal_requests": 1920
+}

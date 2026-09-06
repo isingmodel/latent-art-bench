@@ -5,6 +5,13 @@ images, prospectively fixed prompt methods, and analysis of distance from origin
 The [protocol](../studies/painter_prompt_study_v1/PROTOCOL.md) defines the scientific contract.
 The older descriptive and empirical reports remain sealed source evidence.
 
+**Completed 2026-09-06:** run `pps1-gpt-prompts-20260905` attempted all 1,920 approved requests
+once, yielding 1,918 generated and measured images and two moderation refusals. Its
+[registered report](../reports/painter_prompt_study_v1/pps1-gpt-prompts-20260905/REPORT.md)
+retains the unavailable incomplete-grid primary. The separate
+[post-registration supplement](PROMPT_SUPPLEMENT_WORKFLOW.md) provides the completed exploratory
+distance comparisons, tables and plots. Neither refused slot was retried or replaced.
+
 ## Design and resource decision
 
 The three methods are the exact original “by artist” prompts, an explicit style instruction,
@@ -130,9 +137,20 @@ For separate synthetic experiments, `simulate` accepts explicit seeds, trial cou
 counts, family alpha and condition dependence and writes a fresh output path. It never reads
 empirical feature arrays or contacts the provider. Use `--help` for each command's options.
 
-## Remaining empirical work
+## Terminal run boundary
 
-The 1,920-request grid is authorized and fits local storage. Freeze and execute the complete grid,
-audit and measure it, inspect the full comparison report, and document any service drift or
-missingness before treating the results as suitable for a paper. The previous 160 OAuth images
-remain the only empirical GPT Image sample until then.
+The authorized 1,920-request run and its measurement, reporting and audits are complete. Both
+refusals are retained at their original `gpt-image-1`/`by_name` slots: sequence 415 (Pissarro,
+L3, block 0) and 1718 (Cézanne, B2, block 3). Returned settings, geometry and alias limitations
+are reported explicitly. The 1,918 new measurements are separate from the earlier 160 OAuth
+outputs. Source and supplement evidence must not be topped up, overwritten or regenerated.
+
+The original unavailable-primary bundle has five files and no figures. Its generic footer says
+figures are provided as PNG/SVG, but no inference plot was emitted, as required by the incomplete
+grid rule. The three actual PNG/SVG comparisons are in the separate supplement bundle. This
+presentation note leaves the frozen renderer and its recorded report bytes unchanged.
+
+For this completed run, use `check-run pps1-gpt-prompts-20260905` and `audit --proxy-root
+PROXY_CHECKOUT` only. The creation commands above document the stage interface; another empirical
+run requires a new design/ID and authorization. Use the supplement's `check` command to reproduce
+its exploratory numbers and report bytes without provider calls or image extraction.

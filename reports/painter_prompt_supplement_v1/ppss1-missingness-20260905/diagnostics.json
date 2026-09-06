@@ -1,0 +1,1388 @@
+{
+  "aliases": [
+    "gpt-image-1",
+    "gpt-image-2"
+  ],
+  "analysis_id": "ppss1-missingness-20260905",
+  "completed_at_utc": "2026-09-06T00:23:07.845467+00:00",
+  "copy_diagnostics": {
+    "candidates": [],
+    "generated_exact_duplicate_excess": 0,
+    "limitation": "Uncalibrated 63-bit perceptual hash; not copying adjudication or evidence of training-data nonoverlap.",
+    "scope": "649 exposed confirmation references and successful measurements only",
+    "searched_real_records": 649
+  },
+  "families": {
+    "color": [
+      "lightness_median",
+      "lightness_iqr",
+      "chroma_median",
+      "chroma_iqr",
+      "chromatic_fraction",
+      "hue_concentration",
+      "hue_entropy",
+      "deltae_01",
+      "deltae_04",
+      "deltae_16",
+      "deltae_slope"
+    ],
+    "spatial": [
+      "spectral_slope",
+      "spectral_residual",
+      "spectral_anisotropy",
+      "orientation_entropy",
+      "horizontal_vertical_balance",
+      "gradient_median",
+      "gradient_iqr",
+      "quadrant_jsd"
+    ],
+    "texture": [
+      "wavelet_energy_1",
+      "wavelet_energy_2",
+      "wavelet_energy_3",
+      "wavelet_energy_4",
+      "wavelet_slope",
+      "wavelet_curvature",
+      "lbp_entropy_8",
+      "lbp_entropy_16",
+      "lbp_entropy_32",
+      "local_cv_01",
+      "local_cv_04",
+      "local_cv_16"
+    ]
+  },
+  "inference": {
+    "alpha": 0.05,
+    "confidence_intervals": false,
+    "eligible_endpoints": 48,
+    "endpoint_count": 48,
+    "family_size": 48,
+    "method": "post_registration_paired_joint_randomization",
+    "multiplicity": "Holm",
+    "null": "joint sharp no-method-effect on availability AND measured features, with no interference across requests, conditional on third-method slots; not equal distances or feature-only null",
+    "permutation_draws": 99999,
+    "permutation_seed": 8755477342009039575,
+    "quantile_rule": "weighted_empirical_inverse_cdf",
+    "scope": "post-registration supplement; original registered primary is not restored",
+    "unavailable_holm_rule": "input1 reserves the family; reported p-values remain null",
+    "weights": "equal mass1/16 per template; uniform within available or common-pair template"
+  },
+  "inputs": [
+    {
+      "path": "configs/painter_prompt_study_v1/study.json",
+      "sha256": "f8282e2ba064db346c69d6049ea779fb14228ad0081965eb39f845fe55bdd69b"
+    },
+    {
+      "path": "configs/painter_prompt_supplement_v1/study.json",
+      "sha256": "d03e2b602818571b90170280c72d3488120500e2ca1733425f5cd55435001e0d"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v1/prompt_library.json",
+      "sha256": "fbe81e7cb93282dae96c3edd7df58ed3d43ee81516b6df113f3c8b56b07e09a7"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/confirmation_features.jsonl",
+      "sha256": "01cc5167c09b88eab6a86885b72040f76fc8a7ca8a62acd56d85a8b16b2f7717"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/confirmation_receipt.json",
+      "sha256": "22617ada4debec0dde30cbb9c492b986e67fe0c5382f0b8d69740466d934889a"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/development_receipt.json",
+      "sha256": "5a724637bbf4ff1e424be0259e53ceb47c4926dba926defcff2609c7057b1b1c"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/empirical_analysis.json",
+      "sha256": "34bf52e5f1c57984c7ee1da0b72950108a7bf550cf2f2512db72483ea206b3c8"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/experiments/pfg2-oauth-pilot-20260905/generated_features.jsonl",
+      "sha256": "082e3ec32305b6d3b66e2f3a649d32a6741c6535b9cb46740cca9def605de772"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/experiments/pfg2-oauth-pilot-20260905/generated_receipt.json",
+      "sha256": "6080a2b0c62bc7b20fa3142233eea851bb6e7ece2dfc9a3fb2398286adff7616"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/experiments/pfg2-sd-turbo-20260905/generated_features.jsonl",
+      "sha256": "eaed290dbc6a4afe5a330b29a6721f4556914517e74eb4300bb0cb422192b560"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/experiments/pfg2-sd-turbo-20260905/generated_receipt.json",
+      "sha256": "b97c1233ad8e72fbde349f7b5b52aa2ed8de63619c0ed163bd40b535f4788509"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/method_freeze.json",
+      "sha256": "0c254c629b37803c7e99f2c61485f6086f593f98cd8bc26b78a5c498f2b29200"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/report_receipt.json",
+      "sha256": "fc7534a1123eba2c8c3884bb6c5c0fd3a908a88cb74191b0069133d0b1086cd3"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/scaler.json",
+      "sha256": "71f511235081dfc1e9846976320c69477bcbd04dd43fc9a2e271f7b0375497b9"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-oauth-pilot-20260905/generation_receipt.json",
+      "sha256": "d4ee06e293a6b22d5dd5fa4d3dc04784c409dda4c286e97edebed1540b6af13c"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-sd-turbo-20260905/generation_receipt.json",
+      "sha256": "58dc9fdaa0c4c8d49124ee3653cbc4494d358b1d71d4956721b8f2e2aa0ef033"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/analysis.json",
+      "sha256": "c6691d11d0b9481cb9794cc05d1688c19c8949cd9b1b3005d9e0de12e00d8200"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/generation_events.jsonl",
+      "sha256": "26068ba30d408174d2e49e3f6ea3bffd09362142db730093456908e626059a08"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/generation_freeze.json",
+      "sha256": "05f7e44abafe3724c13469a01b0e126e752ad878b8d2482160bb2bd585387d98"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/generation_receipt.json",
+      "sha256": "7692ac4e1f40f988aad133bb717b863f25bff7abf9f996044292af03e3248ea2"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/measured_features.jsonl",
+      "sha256": "d398b851f6036feb666de90cf6ed24014cdd6616e514d87a91703a44c3a74482"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/measurement_events.jsonl",
+      "sha256": "bee952eeaf5857d6a90e5387ec45c3fd12482c7f4019217f74776d3455d7982a"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/measurement_receipt.json",
+      "sha256": "f45a709d7889bd33ecececdbb1b9ea89b8460546b18da7e84a67bf63ea818f31"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/outputs.jsonl",
+      "sha256": "c8bfcf32ea3295ae7e8e5b88796e350f6baa6d48cc9acef455bd92384203bcc7"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/prompts.json",
+      "sha256": "a658ec0214c067353437f2c8182b90295896b09daba7ad4f48790db05a0c0f19"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/report_receipt.json",
+      "sha256": "1bd9c5e7c242ffe9fa41bd0e40bdb662c2492febfcd9bcd845edbaebffc1f8c0"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/requests.jsonl",
+      "sha256": "6a4139f7b780cf450d3f435d5ac95c590eef9b5214ad6bf54f8b61ffc4657cc4"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-randomization-20260905/decision.json",
+      "sha256": "edbae0b9e908d3fe060d51f8c767b1b4d130e0ac4848a640dbf89366b987d8b0"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-randomization-20260905/development.json",
+      "sha256": "42a68ad71ee4e8a3bfe5374b6e240d062d1d95c1dc2b0acdd27de5a70b684e4a"
+    },
+    {
+      "path": "data/manifests/painter_prompt_study_v1/pps1-randomization-20260905/validation.json",
+      "sha256": "8bf2824156ee87e52747f3175617b8c9b2e8da02330cee8d43591a0e0ca24df0"
+    },
+    {
+      "path": "data/manifests/painter_prompt_supplement_v1/ppss1-missingness-20260905/design_freeze.json",
+      "sha256": "8dd263ffa01387be6b5d25ba6869fd374dc4e840903bd514de015f7710b7b675"
+    },
+    {
+      "path": "data/manifests/painter_prompt_supplement_v1/ppss1-qualification-20260905/decision.json",
+      "sha256": "a6e27f5fa423f41eef13ef9f4a13f88428919b0119dd5b3b6592b32946954754"
+    },
+    {
+      "path": "data/manifests/painter_prompt_supplement_v1/ppss1-qualification-20260905/development.json",
+      "sha256": "ff2a65b20d79bbbf8ac2b9812366405ef6ce2ae0839770723dc8c25737c6348a"
+    },
+    {
+      "path": "data/manifests/painter_prompt_supplement_v1/ppss1-qualification-20260905/oracles.json",
+      "sha256": "8a5f72ddb304416f3c4521ec379131fd50b7a4fbf73708d103cbcbd5f69cb5f2"
+    },
+    {
+      "path": "data/manifests/painter_prompt_supplement_v1/ppss1-qualification-20260905/validation.json",
+      "sha256": "76f5c14d90e3ea98a4bb4ef4867dfd46fb54093fa1cce95d3de0850ae1f0e988"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8"
+    },
+    {
+      "path": "src/latent_art_bench/io.py",
+      "sha256": "13e6372aa9814495a45700eb9e65d099c56bb1bb3032d72f7f9e00e6ba91a9b8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_distance_v1/analysis.py",
+      "sha256": "22d7b1bf8b55e916d5210bf19a636674cba86fdf35783ce8456682c784a98cb6"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v1/panel.py",
+      "sha256": "b878fe3438c1006767c1d8ca608c1d57b64ed2bb2dff418864fd25c8c2d216b8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v1/prompt_library.py",
+      "sha256": "b9fc03e33e4d18c36ae7b9688763f340ec899f98ae8b3783c7371109180057d4"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/artifacts.py",
+      "sha256": "8b48f0cfb433ac1769786aba366501b69ba1bec540a1a2f9e35e93ce45e9b0d7"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/empirical.py",
+      "sha256": "c5ed9f4f7f390de7087222d6b780744bb33eaf279ccedfbbeb706510336655a9"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/features.py",
+      "sha256": "b295c2de1a8501e8ab335d88ed56ab8f2dc8b3ca704141b92e02ef586d48d172"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/model_assessment.py",
+      "sha256": "bd460259a4282df10e9e57d65c54e0ff1cf89a3a72ffb68a29fa0bb9086888ed"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/oauth_generate.py",
+      "sha256": "ac5957ebbc9d7a0b7e6361671b58bb021e88fae200b1260538db499376e2b32f"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/pipeline.py",
+      "sha256": "f2edadc329b2b0a5490c5e1d8f542d5b3bc0bff7fb83ac82fe90d6389f7db37b"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/statistics.py",
+      "sha256": "20830e7a90bc49666f0937ef7bc2ae3f11206f986c72eb8f80ad30cc24fcdaa8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/__init__.py",
+      "sha256": "db507448d5134974ca1b407fd4396413b2b4a9b1bd8d8011b74dee30f8128683"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/analysis.py",
+      "sha256": "c78239d3c331fb99f6f33e2f171cf3794373a033b6438a251102b8ff6962b60a"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/audit.py",
+      "sha256": "3aeeb3a4a73aebb73723a21af44afa0a8601dfd66ca081be67b8c41965e96603"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/calibration.py",
+      "sha256": "7624c44d3de1eda939e761e055e04b5066013758c379e758cb42dcfec0076567"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/calibration_record.py",
+      "sha256": "e83406887a6e9657953a4f99055acd051e94d504f98db20d3b553453cf585167"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/cli.py",
+      "sha256": "9adeac0b6530a25050ce7025ee47a86ab89b1e832bb0c8cffd4ea7b135a3fb86"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/common.py",
+      "sha256": "8f399eb26069a283209437de51885ce38ca28a21759b359afc506d263107ec4f"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/design.py",
+      "sha256": "e744bb0792ab59e7f8196bafc5ba47f9643872769d6dad887410aa1a60b2c961"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/generation.py",
+      "sha256": "8bc7db4904d3bbbf6048767125002b9c07047a2be9b63168eb536eaccc30bc8b"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/measurement.py",
+      "sha256": "5a85a5e983d021f1006be9363c660b7167989918c55e5f140c2aba34dfcfa1af"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/prompts.py",
+      "sha256": "cff027af709ab49c4442e929f0cbcc63931f6ff0468908c39d3367df39fd4c10"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/randomization.py",
+      "sha256": "fec27f7a55ef75d2b7cbf66b6086696f83e051a3dd59f67faae596df1d043e5e"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/randomization_record.py",
+      "sha256": "b27eb93a4c4a456f1ef77bf906a4689144afe09c3856de76b69a2de5039443a0"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/report.py",
+      "sha256": "c549aa0a49aaba4f964143cb902a4c398befe8f2fd89245b84e414bc2547210c"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/reproduction.py",
+      "sha256": "2c334d9db83e7a65e42ed2d1d49ad2f16a895bb75ccf074fc00a5a2dd94855b4"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/statistics.py",
+      "sha256": "ea1f00990bfb647dea61b69418ac0f88c18a06814a9801c0f5a1d41020344654"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_supplement_v1/__init__.py",
+      "sha256": "4c880914048d20613bfbd3cebd67e613962e50fa75669c47e6fd64f84a1d2bf6"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_supplement_v1/artifacts.py",
+      "sha256": "8d53828996f6aa0f95f0483d912bddd2e07ba93f9cbfaa5eb8264b2e878b9fe0"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_supplement_v1/cli.py",
+      "sha256": "2724dc28a534f9faf024fa4932664b546a2a8d0317cab56d5c3b3232458df09b"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_supplement_v1/report.py",
+      "sha256": "25b4ee9ed4d91aae972093a7eded071e350240019066d9ab1821914327949960"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_supplement_v1/statistics.py",
+      "sha256": "37ca07180a102d90afa8b8eebeccb5262e4d9ea22a458547b91b2d6713a648b9"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_supplement_v1/validation.py",
+      "sha256": "206a29e5cd20378d6d67a6e3e1e6903b8c54395b86067384bbc5755fe60f134c"
+    },
+    {
+      "path": "studies/painter_prompt_study_v1/PROTOCOL.md",
+      "sha256": "f7b2a3c981d07ada48a6e5eb07713d87ae02695aec7d0371bc78cf4a96aa943a"
+    },
+    {
+      "path": "studies/painter_prompt_supplement_v1/PROTOCOL.md",
+      "sha256": "d813f2e62756736f0eba8d96b6c3d51155259d2f47f143ab2af475da5ec90e34"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/__init__.py",
+      "sha256": "714143f4f4d7bd90e1f9d4e84b34a6ad91ea671b9972ce9c28df81d06253a2fa"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_analysis.py",
+      "sha256": "8163ebd6939ae6fdedab965d4dc940ef66caf71806905771a6926210685bba36"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_audit.py",
+      "sha256": "52e55073fbc3a8b5dd6f0100c74f474b16b96af01a7defbbd9adebf540f22ab2"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_calibration_record.py",
+      "sha256": "44ce207126d059abf380620f2ef1aa7c07ff6323ef4cf3ea3fda0504a5ba72a0"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_design.py",
+      "sha256": "a26797153605ed678b651095dc6ca23b438a9f6adfd54155226e0134aedae249"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_dispatch.py",
+      "sha256": "f5b0b7f0eb80259eb7e0db1bc4c82b6e3d2215070e25314939845bf943537848"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_end_to_end.py",
+      "sha256": "b97b345f10f68e7510893eb570ad5287380599c6c0990458f16c321efb32f076"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_generation.py",
+      "sha256": "1b668c72a9cc87c950159110150ab7da11c0fe3053dd51534d36a83150263383"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_measurement.py",
+      "sha256": "f8a9cb8b799e4861eb4538e4c79010f4fe6075e4da1878b43c506a090b7352b8"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_prompts.py",
+      "sha256": "508f313cbc7a945d62eb43f85c33e02f9017226bf4af073d492d9495d5e7d70d"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_randomization.py",
+      "sha256": "6d3139f0efc4208a2e3fb0b560e5b40d31fe5cdcdd96153d2809c06b832af46e"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_randomization_record.py",
+      "sha256": "47e1372f49d51f6bb576f61fdb2a2724da67b63d3705062adb9b849946f049a9"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_report.py",
+      "sha256": "e28118ad74b6ad376100b47ef03b2c529855f5e086c1f67555f0b8bb79c940b0"
+    },
+    {
+      "path": "tests/painter_prompt_study_v1/test_statistics.py",
+      "sha256": "6ce1e429197c8b67a8009d51c224973bb246136a59c6c305576499a4f0fab4af"
+    },
+    {
+      "path": "tests/painter_prompt_supplement_v1/__init__.py",
+      "sha256": "6c1788620c6315657cbd657699580a8470af3ea128217d4ab2e10b441e8c44a8"
+    },
+    {
+      "path": "tests/painter_prompt_supplement_v1/test_artifacts.py",
+      "sha256": "1d3ebe82a8cd26871480b3d97c3ba584a6e0828ab26e6538812dc0360768eef7"
+    },
+    {
+      "path": "tests/painter_prompt_supplement_v1/test_integration.py",
+      "sha256": "be82960a854f6b1c7b541d83d344f905a789a1b8e175d63846a15bc710d2af5d"
+    },
+    {
+      "path": "tests/painter_prompt_supplement_v1/test_report.py",
+      "sha256": "c2d72a4097af8a3133aab5852e2fbb02bb38765b68aa4a53a160f79fb1cb37f4"
+    },
+    {
+      "path": "tests/painter_prompt_supplement_v1/test_statistics.py",
+      "sha256": "6f09ae0061a7707e5a133f2eebba8756210e2ddd0d6055258029e01aff424eaf"
+    },
+    {
+      "path": "tests/painter_prompt_supplement_v1/test_validation.py",
+      "sha256": "d44b413c54a1f5daa7f151af910b63d402f25260c519198b51288dbf35c2e2db"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+    }
+  ],
+  "methods": [
+    "by_name",
+    "style_instruction",
+    "style_aspects"
+  ],
+  "painters": [
+    "claude_monet",
+    "alfred_sisley",
+    "camille_pissarro",
+    "paul_cezanne"
+  ],
+  "qualification": {
+    "created_at_utc": "2026-09-05T15:04:48.450597+00:00",
+    "criterion": "Every prescribed valid-null cell in development and unseen-seed validation has a Wilson 95% upper bound <= 0.065 for FWER over all 48 hypotheses. All independent numerical/allocation oracles must pass. No retuning if a cell fails.",
+    "files": [
+      {
+        "path": "data/manifests/painter_prompt_supplement_v1/ppss1-qualification-20260905/development.json",
+        "sha256": "ff2a65b20d79bbbf8ac2b9812366405ef6ce2ae0839770723dc8c25737c6348a"
+      },
+      {
+        "path": "data/manifests/painter_prompt_supplement_v1/ppss1-qualification-20260905/oracles.json",
+        "sha256": "8a5f72ddb304416f3c4521ec379131fd50b7a4fbf73708d103cbcbd5f69cb5f2"
+      },
+      {
+        "path": "data/manifests/painter_prompt_supplement_v1/ppss1-qualification-20260905/validation.json",
+        "sha256": "76f5c14d90e3ea98a4bb4ef4867dfd46fb54093fa1cce95d3de0850ae1f0e988"
+      }
+    ],
+    "inputs": [
+      {
+        "path": "configs/painter_prompt_study_v1/study.json",
+        "sha256": "f8282e2ba064db346c69d6049ea779fb14228ad0081965eb39f845fe55bdd69b"
+      },
+      {
+        "path": "configs/painter_prompt_supplement_v1/study.json",
+        "sha256": "d03e2b602818571b90170280c72d3488120500e2ca1733425f5cd55435001e0d"
+      },
+      {
+        "path": "data/manifests/painter_feature_generation_v1/prompt_library.json",
+        "sha256": "fbe81e7cb93282dae96c3edd7df58ed3d43ee81516b6df113f3c8b56b07e09a7"
+      },
+      {
+        "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/confirmation_features.jsonl",
+        "sha256": "01cc5167c09b88eab6a86885b72040f76fc8a7ca8a62acd56d85a8b16b2f7717"
+      },
+      {
+        "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/confirmation_receipt.json",
+        "sha256": "22617ada4debec0dde30cbb9c492b986e67fe0c5382f0b8d69740466d934889a"
+      },
+      {
+        "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/development_receipt.json",
+        "sha256": "5a724637bbf4ff1e424be0259e53ceb47c4926dba926defcff2609c7057b1b1c"
+      },
+      {
+        "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/empirical_analysis.json",
+        "sha256": "34bf52e5f1c57984c7ee1da0b72950108a7bf550cf2f2512db72483ea206b3c8"
+      },
+      {
+        "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/experiments/pfg2-oauth-pilot-20260905/generated_features.jsonl",
+        "sha256": "082e3ec32305b6d3b66e2f3a649d32a6741c6535b9cb46740cca9def605de772"
+      },
+      {
+        "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/experiments/pfg2-oauth-pilot-20260905/generated_receipt.json",
+        "sha256": "6080a2b0c62bc7b20fa3142233eea851bb6e7ece2dfc9a3fb2398286adff7616"
+      },
+      {
+        "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/experiments/pfg2-sd-turbo-20260905/generated_features.jsonl",
+        "sha256": "eaed290dbc6a4afe5a330b29a6721f4556914517e74eb4300bb0cb422192b560"
+      },
+      {
+        "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/experiments/pfg2-sd-turbo-20260905/generated_receipt.json",
+        "sha256": "b97c1233ad8e72fbde349f7b5b52aa2ed8de63619c0ed163bd40b535f4788509"
+      },
+      {
+        "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/method_freeze.json",
+        "sha256": "0c254c629b37803c7e99f2c61485f6086f593f98cd8bc26b78a5c498f2b29200"
+      },
+      {
+        "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/report_receipt.json",
+        "sha256": "fc7534a1123eba2c8c3884bb6c5c0fd3a908a88cb74191b0069133d0b1086cd3"
+      },
+      {
+        "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/scaler.json",
+        "sha256": "71f511235081dfc1e9846976320c69477bcbd04dd43fc9a2e271f7b0375497b9"
+      },
+      {
+        "path": "data/manifests/painter_feature_generation_v2/pfg2-oauth-pilot-20260905/generation_receipt.json",
+        "sha256": "d4ee06e293a6b22d5dd5fa4d3dc04784c409dda4c286e97edebed1540b6af13c"
+      },
+      {
+        "path": "data/manifests/painter_feature_generation_v2/pfg2-sd-turbo-20260905/generation_receipt.json",
+        "sha256": "58dc9fdaa0c4c8d49124ee3653cbc4494d358b1d71d4956721b8f2e2aa0ef033"
+      },
+      {
+        "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/generation_freeze.json",
+        "sha256": "05f7e44abafe3724c13469a01b0e126e752ad878b8d2482160bb2bd585387d98"
+      },
+      {
+        "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/prompts.json",
+        "sha256": "a658ec0214c067353437f2c8182b90295896b09daba7ad4f48790db05a0c0f19"
+      },
+      {
+        "path": "data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/requests.jsonl",
+        "sha256": "6a4139f7b780cf450d3f435d5ac95c590eef9b5214ad6bf54f8b61ffc4657cc4"
+      },
+      {
+        "path": "data/manifests/painter_prompt_study_v1/pps1-randomization-20260905/decision.json",
+        "sha256": "edbae0b9e908d3fe060d51f8c767b1b4d130e0ac4848a640dbf89366b987d8b0"
+      },
+      {
+        "path": "data/manifests/painter_prompt_study_v1/pps1-randomization-20260905/development.json",
+        "sha256": "42a68ad71ee4e8a3bfe5374b6e240d062d1d95c1dc2b0acdd27de5a70b684e4a"
+      },
+      {
+        "path": "data/manifests/painter_prompt_study_v1/pps1-randomization-20260905/validation.json",
+        "sha256": "8bf2824156ee87e52747f3175617b8c9b2e8da02330cee8d43591a0e0ca24df0"
+      },
+      {
+        "path": "pyproject.toml",
+        "sha256": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8"
+      },
+      {
+        "path": "src/latent_art_bench/io.py",
+        "sha256": "13e6372aa9814495a45700eb9e65d099c56bb1bb3032d72f7f9e00e6ba91a9b8"
+      },
+      {
+        "path": "src/latent_art_bench/painter_feature_distance_v1/analysis.py",
+        "sha256": "22d7b1bf8b55e916d5210bf19a636674cba86fdf35783ce8456682c784a98cb6"
+      },
+      {
+        "path": "src/latent_art_bench/painter_feature_generation_v1/panel.py",
+        "sha256": "b878fe3438c1006767c1d8ca608c1d57b64ed2bb2dff418864fd25c8c2d216b8"
+      },
+      {
+        "path": "src/latent_art_bench/painter_feature_generation_v1/prompt_library.py",
+        "sha256": "b9fc03e33e4d18c36ae7b9688763f340ec899f98ae8b3783c7371109180057d4"
+      },
+      {
+        "path": "src/latent_art_bench/painter_feature_generation_v2/artifacts.py",
+        "sha256": "8b48f0cfb433ac1769786aba366501b69ba1bec540a1a2f9e35e93ce45e9b0d7"
+      },
+      {
+        "path": "src/latent_art_bench/painter_feature_generation_v2/empirical.py",
+        "sha256": "c5ed9f4f7f390de7087222d6b780744bb33eaf279ccedfbbeb706510336655a9"
+      },
+      {
+        "path": "src/latent_art_bench/painter_feature_generation_v2/features.py",
+        "sha256": "b295c2de1a8501e8ab335d88ed56ab8f2dc8b3ca704141b92e02ef586d48d172"
+      },
+      {
+        "path": "src/latent_art_bench/painter_feature_generation_v2/model_assessment.py",
+        "sha256": "bd460259a4282df10e9e57d65c54e0ff1cf89a3a72ffb68a29fa0bb9086888ed"
+      },
+      {
+        "path": "src/latent_art_bench/painter_feature_generation_v2/oauth_generate.py",
+        "sha256": "ac5957ebbc9d7a0b7e6361671b58bb021e88fae200b1260538db499376e2b32f"
+      },
+      {
+        "path": "src/latent_art_bench/painter_feature_generation_v2/pipeline.py",
+        "sha256": "f2edadc329b2b0a5490c5e1d8f542d5b3bc0bff7fb83ac82fe90d6389f7db37b"
+      },
+      {
+        "path": "src/latent_art_bench/painter_feature_generation_v2/statistics.py",
+        "sha256": "20830e7a90bc49666f0937ef7bc2ae3f11206f986c72eb8f80ad30cc24fcdaa8"
+      },
+      {
+        "path": "src/latent_art_bench/painter_prompt_study_v1/__init__.py",
+        "sha256": "db507448d5134974ca1b407fd4396413b2b4a9b1bd8d8011b74dee30f8128683"
+      },
+      {
+        "path": "src/latent_art_bench/painter_prompt_study_v1/analysis.py",
+        "sha256": "c78239d3c331fb99f6f33e2f171cf3794373a033b6438a251102b8ff6962b60a"
+      },
+      {
+        "path": "src/latent_art_bench/painter_prompt_study_v1/audit.py",
+        "sha256": "3aeeb3a4a73aebb73723a21af44afa0a8601dfd66ca081be67b8c41965e96603"
+      },
+      {
+        "path": "src/latent_art_bench/painter_prompt_study_v1/calibration.py",
+        "sha256": "7624c44d3de1eda939e761e055e04b5066013758c379e758cb42dcfec0076567"
+      },
+      {
+        "path": "src/latent_art_bench/painter_prompt_study_v1/calibration_record.py",
+        "sha256": "e83406887a6e9657953a4f99055acd051e94d504f98db20d3b553453cf585167"
+      },
+      {
+        "path": "src/latent_art_bench/painter_prompt_study_v1/cli.py",
+        "sha256": "9adeac0b6530a25050ce7025ee47a86ab89b1e832bb0c8cffd4ea7b135a3fb86"
+      },
+      {
+        "path": "src/latent_art_bench/painter_prompt_study_v1/common.py",
+        "sha256": "8f399eb26069a283209437de51885ce38ca28a21759b359afc506d263107ec4f"
+      },
+      {
+        "path": "src/latent_art_bench/painter_prompt_study_v1/design.py",
+        "sha256": "e744bb0792ab59e7f8196bafc5ba47f9643872769d6dad887410aa1a60b2c961"
+      },
+      {
+        "path": "src/latent_art_bench/painter_prompt_study_v1/generation.py",
+        "sha256": "8bc7db4904d3bbbf6048767125002b9c07047a2be9b63168eb536eaccc30bc8b"
+      },
+      {
+        "path": "src/latent_art_bench/painter_prompt_study_v1/measurement.py",
+        "sha256": "5a85a5e983d021f1006be9363c660b7167989918c55e5f140c2aba34dfcfa1af"
+      },
+      {
+        "path": "src/latent_art_bench/painter_prompt_study_v1/prompts.py",
+        "sha256": "cff027af709ab49c4442e929f0cbcc63931f6ff0468908c39d3367df39fd4c10"
+      },
+      {
+        "path": "src/latent_art_bench/painter_prompt_study_v1/randomization.py",
+        "sha256": "fec27f7a55ef75d2b7cbf66b6086696f83e051a3dd59f67faae596df1d043e5e"
+      },
+      {
+        "path": "src/latent_art_bench/painter_prompt_study_v1/randomization_record.py",
+        "sha256": "b27eb93a4c4a456f1ef77bf906a4689144afe09c3856de76b69a2de5039443a0"
+      },
+      {
+        "path": "src/latent_art_bench/painter_prompt_study_v1/report.py",
+        "sha256": "c549aa0a49aaba4f964143cb902a4c398befe8f2fd89245b84e414bc2547210c"
+      },
+      {
+        "path": "src/latent_art_bench/painter_prompt_study_v1/reproduction.py",
+        "sha256": "2c334d9db83e7a65e42ed2d1d49ad2f16a895bb75ccf074fc00a5a2dd94855b4"
+      },
+      {
+        "path": "src/latent_art_bench/painter_prompt_study_v1/statistics.py",
+        "sha256": "ea1f00990bfb647dea61b69418ac0f88c18a06814a9801c0f5a1d41020344654"
+      },
+      {
+        "path": "src/latent_art_bench/painter_prompt_supplement_v1/__init__.py",
+        "sha256": "4c880914048d20613bfbd3cebd67e613962e50fa75669c47e6fd64f84a1d2bf6"
+      },
+      {
+        "path": "src/latent_art_bench/painter_prompt_supplement_v1/artifacts.py",
+        "sha256": "8d53828996f6aa0f95f0483d912bddd2e07ba93f9cbfaa5eb8264b2e878b9fe0"
+      },
+      {
+        "path": "src/latent_art_bench/painter_prompt_supplement_v1/cli.py",
+        "sha256": "2724dc28a534f9faf024fa4932664b546a2a8d0317cab56d5c3b3232458df09b"
+      },
+      {
+        "path": "src/latent_art_bench/painter_prompt_supplement_v1/report.py",
+        "sha256": "25b4ee9ed4d91aae972093a7eded071e350240019066d9ab1821914327949960"
+      },
+      {
+        "path": "src/latent_art_bench/painter_prompt_supplement_v1/statistics.py",
+        "sha256": "37ca07180a102d90afa8b8eebeccb5262e4d9ea22a458547b91b2d6713a648b9"
+      },
+      {
+        "path": "src/latent_art_bench/painter_prompt_supplement_v1/validation.py",
+        "sha256": "206a29e5cd20378d6d67a6e3e1e6903b8c54395b86067384bbc5755fe60f134c"
+      },
+      {
+        "path": "studies/painter_prompt_study_v1/PROTOCOL.md",
+        "sha256": "f7b2a3c981d07ada48a6e5eb07713d87ae02695aec7d0371bc78cf4a96aa943a"
+      },
+      {
+        "path": "studies/painter_prompt_supplement_v1/PROTOCOL.md",
+        "sha256": "d813f2e62756736f0eba8d96b6c3d51155259d2f47f143ab2af475da5ec90e34"
+      },
+      {
+        "path": "tests/painter_prompt_study_v1/__init__.py",
+        "sha256": "714143f4f4d7bd90e1f9d4e84b34a6ad91ea671b9972ce9c28df81d06253a2fa"
+      },
+      {
+        "path": "tests/painter_prompt_study_v1/test_analysis.py",
+        "sha256": "8163ebd6939ae6fdedab965d4dc940ef66caf71806905771a6926210685bba36"
+      },
+      {
+        "path": "tests/painter_prompt_study_v1/test_audit.py",
+        "sha256": "52e55073fbc3a8b5dd6f0100c74f474b16b96af01a7defbbd9adebf540f22ab2"
+      },
+      {
+        "path": "tests/painter_prompt_study_v1/test_calibration_record.py",
+        "sha256": "44ce207126d059abf380620f2ef1aa7c07ff6323ef4cf3ea3fda0504a5ba72a0"
+      },
+      {
+        "path": "tests/painter_prompt_study_v1/test_design.py",
+        "sha256": "a26797153605ed678b651095dc6ca23b438a9f6adfd54155226e0134aedae249"
+      },
+      {
+        "path": "tests/painter_prompt_study_v1/test_dispatch.py",
+        "sha256": "f5b0b7f0eb80259eb7e0db1bc4c82b6e3d2215070e25314939845bf943537848"
+      },
+      {
+        "path": "tests/painter_prompt_study_v1/test_end_to_end.py",
+        "sha256": "b97b345f10f68e7510893eb570ad5287380599c6c0990458f16c321efb32f076"
+      },
+      {
+        "path": "tests/painter_prompt_study_v1/test_generation.py",
+        "sha256": "1b668c72a9cc87c950159110150ab7da11c0fe3053dd51534d36a83150263383"
+      },
+      {
+        "path": "tests/painter_prompt_study_v1/test_measurement.py",
+        "sha256": "f8a9cb8b799e4861eb4538e4c79010f4fe6075e4da1878b43c506a090b7352b8"
+      },
+      {
+        "path": "tests/painter_prompt_study_v1/test_prompts.py",
+        "sha256": "508f313cbc7a945d62eb43f85c33e02f9017226bf4af073d492d9495d5e7d70d"
+      },
+      {
+        "path": "tests/painter_prompt_study_v1/test_randomization.py",
+        "sha256": "6d3139f0efc4208a2e3fb0b560e5b40d31fe5cdcdd96153d2809c06b832af46e"
+      },
+      {
+        "path": "tests/painter_prompt_study_v1/test_randomization_record.py",
+        "sha256": "47e1372f49d51f6bb576f61fdb2a2724da67b63d3705062adb9b849946f049a9"
+      },
+      {
+        "path": "tests/painter_prompt_study_v1/test_report.py",
+        "sha256": "e28118ad74b6ad376100b47ef03b2c529855f5e086c1f67555f0b8bb79c940b0"
+      },
+      {
+        "path": "tests/painter_prompt_study_v1/test_statistics.py",
+        "sha256": "6ce1e429197c8b67a8009d51c224973bb246136a59c6c305576499a4f0fab4af"
+      },
+      {
+        "path": "tests/painter_prompt_supplement_v1/__init__.py",
+        "sha256": "6c1788620c6315657cbd657699580a8470af3ea128217d4ab2e10b441e8c44a8"
+      },
+      {
+        "path": "tests/painter_prompt_supplement_v1/test_artifacts.py",
+        "sha256": "1d3ebe82a8cd26871480b3d97c3ba584a6e0828ab26e6538812dc0360768eef7"
+      },
+      {
+        "path": "tests/painter_prompt_supplement_v1/test_integration.py",
+        "sha256": "be82960a854f6b1c7b541d83d344f905a789a1b8e175d63846a15bc710d2af5d"
+      },
+      {
+        "path": "tests/painter_prompt_supplement_v1/test_report.py",
+        "sha256": "c2d72a4097af8a3133aab5852e2fbb02bb38765b68aa4a53a160f79fb1cb37f4"
+      },
+      {
+        "path": "tests/painter_prompt_supplement_v1/test_statistics.py",
+        "sha256": "6f09ae0061a7707e5a133f2eebba8756210e2ddd0d6055258029e01aff424eaf"
+      },
+      {
+        "path": "tests/painter_prompt_supplement_v1/test_validation.py",
+        "sha256": "d44b413c54a1f5daa7f151af910b63d402f25260c519198b51288dbf35c2e2db"
+      },
+      {
+        "path": "uv.lock",
+        "sha256": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+      }
+    ],
+    "qualification_id": "ppss1-qualification-20260905",
+    "qualified": true,
+    "recorded_git_commit": "b029031b9e63f279a52d9f99162fb3b428a73174",
+    "reviewer_kind": "maintainer_run_llm_subagent_not_institutionally_independent",
+    "schema_version": "painter-prompt-supplement-qualification/1.0"
+  },
+  "recorded_git_commit": "ea6ee7bf597088d99a2a0d44cd2cd3bf2f9e0150",
+  "reference_counts": {
+    "alfred_sisley": 106,
+    "camille_pissarro": 141,
+    "claude_monet": 297,
+    "paul_cezanne": 105
+  },
+  "registered_primary_status": "unavailable_incomplete_grid",
+  "registration_status": "specified_after_first_refusal_before_registered_feature_measurement",
+  "repetitions": 4,
+  "scaler_development_counts": {
+    "alfred_sisley": 36,
+    "camille_pissarro": 48,
+    "claude_monet": 101,
+    "paul_cezanne": 36
+  },
+  "schema_version": "painter-prompt-supplement-analysis/1.0",
+  "service_diagnostics": {
+    "gpt-image-1/by_name": {
+      "gpt-image-1": {
+        "decoded_sizes": {
+          "1315x1197": 1,
+          "1362x1155": 1,
+          "1364x1153": 1,
+          "1369x1149": 1,
+          "1375x1144": 2,
+          "1376x1143": 1,
+          "1378x1141": 1,
+          "1379x1141": 1,
+          "1382x1138": 1,
+          "1390x1132": 1,
+          "1391x1131": 1,
+          "1392x1130": 5,
+          "1393x1129": 2,
+          "1394x1128": 6,
+          "1395x1127": 1,
+          "1397x1126": 18,
+          "1398x1125": 9,
+          "1399x1124": 10,
+          "1400x1123": 9,
+          "1401x1123": 3,
+          "1402x1122": 91,
+          "1403x1121": 79,
+          "1404x1120": 38,
+          "1405x1119": 4,
+          "1405x1120": 19,
+          "1406x1119": 4,
+          "1407x1118": 7,
+          "1408x1117": 1,
+          "unreported": 2
+        },
+        "latency_seconds_min_median_max": [
+          7.0371479579480365,
+          23.33930120797595,
+          36.067958375031594
+        ],
+        "reported_settings": {
+          "model": {
+            "None": 320
+          },
+          "output_format": {
+            "None": 2,
+            "png": 318
+          },
+          "quality": {
+            "None": 2,
+            "low": 318
+          },
+          "size": {
+            "1315x1197": 1,
+            "1362x1155": 1,
+            "1364x1153": 1,
+            "1369x1149": 1,
+            "1375x1144": 2,
+            "1376x1143": 1,
+            "1378x1141": 1,
+            "1379x1141": 1,
+            "1382x1138": 1,
+            "1390x1132": 1,
+            "1391x1131": 1,
+            "1392x1130": 5,
+            "1393x1129": 2,
+            "1394x1128": 6,
+            "1395x1127": 1,
+            "1397x1126": 18,
+            "1398x1125": 9,
+            "1399x1124": 10,
+            "1400x1123": 9,
+            "1401x1123": 3,
+            "1402x1122": 91,
+            "1403x1121": 79,
+            "1404x1120": 38,
+            "1405x1119": 4,
+            "1405x1120": 19,
+            "1406x1119": 4,
+            "1407x1118": 7,
+            "1408x1117": 1,
+            "None": 2
+          }
+        },
+        "setting_mismatches": {
+          "decoded_size": 318,
+          "quality": 318,
+          "size": 318
+        },
+        "statuses": {
+          "generated": 318,
+          "refused": 2
+        }
+      }
+    },
+    "gpt-image-1/style_aspects": {
+      "gpt-image-1": {
+        "decoded_sizes": {
+          "1372x1147": 1,
+          "1375x1144": 1,
+          "1376x1143": 1,
+          "1377x1142": 2,
+          "1378x1141": 2,
+          "1379x1141": 1,
+          "1380x1140": 1,
+          "1381x1139": 2,
+          "1382x1138": 2,
+          "1386x1135": 1,
+          "1387x1134": 3,
+          "1388x1133": 1,
+          "1389x1132": 1,
+          "1391x1131": 1,
+          "1392x1130": 5,
+          "1393x1129": 4,
+          "1394x1128": 7,
+          "1396x1127": 2,
+          "1397x1126": 10,
+          "1398x1125": 7,
+          "1399x1124": 4,
+          "1400x1123": 9,
+          "1401x1123": 9,
+          "1402x1122": 91,
+          "1403x1121": 56,
+          "1404x1120": 46,
+          "1405x1119": 13,
+          "1405x1120": 25,
+          "1406x1119": 6,
+          "1407x1118": 3,
+          "1408x1117": 2,
+          "1409x1116": 1
+        },
+        "latency_seconds_min_median_max": [
+          17.346649250015616,
+          24.888885958498577,
+          43.297844999993686
+        ],
+        "reported_settings": {
+          "model": {
+            "None": 320
+          },
+          "output_format": {
+            "png": 320
+          },
+          "quality": {
+            "low": 317,
+            "medium": 3
+          },
+          "size": {
+            "1372x1147": 1,
+            "1375x1144": 1,
+            "1376x1143": 1,
+            "1377x1142": 2,
+            "1378x1141": 2,
+            "1379x1141": 1,
+            "1380x1140": 1,
+            "1381x1139": 2,
+            "1382x1138": 2,
+            "1386x1135": 1,
+            "1387x1134": 3,
+            "1388x1133": 1,
+            "1389x1132": 1,
+            "1391x1131": 1,
+            "1392x1130": 5,
+            "1393x1129": 4,
+            "1394x1128": 7,
+            "1396x1127": 2,
+            "1397x1126": 10,
+            "1398x1125": 7,
+            "1399x1124": 4,
+            "1400x1123": 9,
+            "1401x1123": 9,
+            "1402x1122": 91,
+            "1403x1121": 56,
+            "1404x1120": 46,
+            "1405x1119": 13,
+            "1405x1120": 25,
+            "1406x1119": 6,
+            "1407x1118": 3,
+            "1408x1117": 2,
+            "1409x1116": 1
+          }
+        },
+        "setting_mismatches": {
+          "decoded_size": 320,
+          "quality": 317,
+          "size": 320
+        },
+        "statuses": {
+          "generated": 320
+        }
+      }
+    },
+    "gpt-image-1/style_instruction": {
+      "gpt-image-1": {
+        "decoded_sizes": {
+          "1254x1254": 1,
+          "1362x1155": 1,
+          "1364x1153": 2,
+          "1369x1149": 1,
+          "1375x1144": 2,
+          "1376x1143": 2,
+          "1387x1134": 2,
+          "1390x1132": 1,
+          "1391x1131": 2,
+          "1392x1130": 2,
+          "1393x1129": 1,
+          "1394x1128": 5,
+          "1395x1127": 3,
+          "1396x1127": 2,
+          "1397x1126": 13,
+          "1398x1125": 12,
+          "1399x1124": 9,
+          "1400x1123": 6,
+          "1401x1123": 6,
+          "1402x1122": 116,
+          "1403x1121": 67,
+          "1404x1120": 22,
+          "1405x1119": 9,
+          "1405x1120": 21,
+          "1406x1119": 4,
+          "1407x1118": 5,
+          "1408x1117": 1,
+          "1409x1117": 1,
+          "1413x1113": 1
+        },
+        "latency_seconds_min_median_max": [
+          17.80417912499979,
+          24.737558750028256,
+          44.987015416962095
+        ],
+        "reported_settings": {
+          "model": {
+            "None": 320
+          },
+          "output_format": {
+            "png": 320
+          },
+          "quality": {
+            "low": 316,
+            "medium": 4
+          },
+          "size": {
+            "1254x1254": 1,
+            "1362x1155": 1,
+            "1364x1153": 2,
+            "1369x1149": 1,
+            "1375x1144": 2,
+            "1376x1143": 2,
+            "1387x1134": 2,
+            "1390x1132": 1,
+            "1391x1131": 2,
+            "1392x1130": 2,
+            "1393x1129": 1,
+            "1394x1128": 5,
+            "1395x1127": 3,
+            "1396x1127": 2,
+            "1397x1126": 13,
+            "1398x1125": 12,
+            "1399x1124": 9,
+            "1400x1123": 6,
+            "1401x1123": 6,
+            "1402x1122": 116,
+            "1403x1121": 67,
+            "1404x1120": 22,
+            "1405x1119": 9,
+            "1405x1120": 21,
+            "1406x1119": 4,
+            "1407x1118": 5,
+            "1408x1117": 1,
+            "1409x1117": 1,
+            "1413x1113": 1
+          }
+        },
+        "setting_mismatches": {
+          "decoded_size": 320,
+          "quality": 316,
+          "size": 320
+        },
+        "statuses": {
+          "generated": 320
+        }
+      }
+    },
+    "gpt-image-2/by_name": {
+      "gpt-image-2": {
+        "decoded_sizes": {
+          "1119x1406": 1,
+          "1121x1403": 1,
+          "1127x1396": 1,
+          "1356x1159": 1,
+          "1363x1154": 1,
+          "1365x1152": 1,
+          "1369x1149": 2,
+          "1375x1144": 3,
+          "1376x1143": 3,
+          "1377x1142": 1,
+          "1378x1141": 1,
+          "1381x1139": 1,
+          "1383x1137": 3,
+          "1386x1135": 1,
+          "1387x1134": 1,
+          "1388x1133": 1,
+          "1389x1132": 1,
+          "1391x1131": 1,
+          "1392x1130": 4,
+          "1393x1129": 4,
+          "1394x1128": 13,
+          "1395x1127": 1,
+          "1396x1127": 1,
+          "1397x1126": 11,
+          "1398x1125": 10,
+          "1399x1124": 10,
+          "1400x1123": 7,
+          "1401x1123": 7,
+          "1402x1122": 91,
+          "1403x1121": 72,
+          "1404x1120": 32,
+          "1405x1119": 3,
+          "1405x1120": 20,
+          "1406x1119": 5,
+          "1407x1118": 3,
+          "1408x1117": 1
+        },
+        "latency_seconds_min_median_max": [
+          17.751203499967232,
+          23.560989896475803,
+          32.68423883296782
+        ],
+        "reported_settings": {
+          "model": {
+            "None": 320
+          },
+          "output_format": {
+            "png": 320
+          },
+          "quality": {
+            "low": 320
+          },
+          "size": {
+            "1119x1406": 1,
+            "1121x1403": 1,
+            "1127x1396": 1,
+            "1356x1159": 1,
+            "1363x1154": 1,
+            "1365x1152": 1,
+            "1369x1149": 2,
+            "1375x1144": 3,
+            "1376x1143": 3,
+            "1377x1142": 1,
+            "1378x1141": 1,
+            "1381x1139": 1,
+            "1383x1137": 3,
+            "1386x1135": 1,
+            "1387x1134": 1,
+            "1388x1133": 1,
+            "1389x1132": 1,
+            "1391x1131": 1,
+            "1392x1130": 4,
+            "1393x1129": 4,
+            "1394x1128": 13,
+            "1395x1127": 1,
+            "1396x1127": 1,
+            "1397x1126": 11,
+            "1398x1125": 10,
+            "1399x1124": 10,
+            "1400x1123": 7,
+            "1401x1123": 7,
+            "1402x1122": 91,
+            "1403x1121": 72,
+            "1404x1120": 32,
+            "1405x1119": 3,
+            "1405x1120": 20,
+            "1406x1119": 5,
+            "1407x1118": 3,
+            "1408x1117": 1
+          }
+        },
+        "setting_mismatches": {
+          "decoded_size": 320,
+          "quality": 320,
+          "size": 320
+        },
+        "statuses": {
+          "generated": 320
+        }
+      }
+    },
+    "gpt-image-2/style_aspects": {
+      "gpt-image-2": {
+        "decoded_sizes": {
+          "1361x1156": 1,
+          "1364x1153": 1,
+          "1375x1144": 4,
+          "1376x1143": 1,
+          "1377x1142": 2,
+          "1381x1139": 1,
+          "1383x1137": 1,
+          "1386x1135": 1,
+          "1387x1134": 1,
+          "1389x1132": 1,
+          "1390x1132": 2,
+          "1391x1131": 1,
+          "1392x1130": 8,
+          "1393x1129": 5,
+          "1394x1128": 6,
+          "1395x1127": 1,
+          "1396x1127": 1,
+          "1397x1126": 14,
+          "1398x1125": 7,
+          "1399x1124": 5,
+          "1400x1123": 4,
+          "1401x1123": 7,
+          "1402x1122": 103,
+          "1403x1121": 60,
+          "1404x1120": 30,
+          "1405x1119": 13,
+          "1405x1120": 23,
+          "1406x1119": 8,
+          "1407x1118": 6,
+          "1416x1111": 1,
+          "1417x1110": 1
+        },
+        "latency_seconds_min_median_max": [
+          17.943393292021938,
+          24.38956766651245,
+          42.12551099999109
+        ],
+        "reported_settings": {
+          "model": {
+            "None": 320
+          },
+          "output_format": {
+            "png": 320
+          },
+          "quality": {
+            "low": 319,
+            "medium": 1
+          },
+          "size": {
+            "1361x1156": 1,
+            "1364x1153": 1,
+            "1375x1144": 4,
+            "1376x1143": 1,
+            "1377x1142": 2,
+            "1381x1139": 1,
+            "1383x1137": 1,
+            "1386x1135": 1,
+            "1387x1134": 1,
+            "1389x1132": 1,
+            "1390x1132": 2,
+            "1391x1131": 1,
+            "1392x1130": 8,
+            "1393x1129": 5,
+            "1394x1128": 6,
+            "1395x1127": 1,
+            "1396x1127": 1,
+            "1397x1126": 14,
+            "1398x1125": 7,
+            "1399x1124": 5,
+            "1400x1123": 4,
+            "1401x1123": 7,
+            "1402x1122": 103,
+            "1403x1121": 60,
+            "1404x1120": 30,
+            "1405x1119": 13,
+            "1405x1120": 23,
+            "1406x1119": 8,
+            "1407x1118": 6,
+            "1416x1111": 1,
+            "1417x1110": 1
+          }
+        },
+        "setting_mismatches": {
+          "decoded_size": 320,
+          "quality": 319,
+          "size": 320
+        },
+        "statuses": {
+          "generated": 320
+        }
+      }
+    },
+    "gpt-image-2/style_instruction": {
+      "gpt-image-2": {
+        "decoded_sizes": {
+          "1128x1394": 1,
+          "1161x1355": 1,
+          "1365x1152": 1,
+          "1374x1145": 1,
+          "1375x1144": 1,
+          "1377x1142": 1,
+          "1386x1135": 2,
+          "1387x1134": 2,
+          "1389x1132": 1,
+          "1390x1132": 2,
+          "1391x1131": 1,
+          "1392x1130": 6,
+          "1393x1129": 5,
+          "1394x1128": 7,
+          "1395x1127": 1,
+          "1396x1127": 1,
+          "1397x1126": 11,
+          "1398x1125": 6,
+          "1399x1124": 3,
+          "1400x1123": 7,
+          "1401x1123": 6,
+          "1402x1122": 113,
+          "1403x1121": 51,
+          "1404x1120": 34,
+          "1405x1119": 5,
+          "1405x1120": 32,
+          "1406x1119": 7,
+          "1407x1118": 7,
+          "1408x1117": 1,
+          "1409x1117": 1,
+          "1412x1114": 2
+        },
+        "latency_seconds_min_median_max": [
+          18.42838075000327,
+          24.567619375506183,
+          43.66955266596051
+        ],
+        "reported_settings": {
+          "model": {
+            "None": 320
+          },
+          "output_format": {
+            "png": 320
+          },
+          "quality": {
+            "low": 316,
+            "medium": 4
+          },
+          "size": {
+            "1128x1394": 1,
+            "1161x1355": 1,
+            "1365x1152": 1,
+            "1374x1145": 1,
+            "1375x1144": 1,
+            "1377x1142": 1,
+            "1386x1135": 2,
+            "1387x1134": 2,
+            "1389x1132": 1,
+            "1390x1132": 2,
+            "1391x1131": 1,
+            "1392x1130": 6,
+            "1393x1129": 5,
+            "1394x1128": 7,
+            "1395x1127": 1,
+            "1396x1127": 1,
+            "1397x1126": 11,
+            "1398x1125": 6,
+            "1399x1124": 3,
+            "1400x1123": 7,
+            "1401x1123": 6,
+            "1402x1122": 113,
+            "1403x1121": 51,
+            "1404x1120": 34,
+            "1405x1119": 5,
+            "1405x1120": 32,
+            "1406x1119": 7,
+            "1407x1118": 7,
+            "1408x1117": 1,
+            "1409x1117": 1,
+            "1412x1114": 2
+          }
+        },
+        "setting_mismatches": {
+          "decoded_size": 320,
+          "quality": 316,
+          "size": 320
+        },
+        "statuses": {
+          "generated": 320
+        }
+      }
+    }
+  },
+  "source_method_id": "pfg2-method-20260905",
+  "source_run_id": "pps1-gpt-prompts-20260905"
+}

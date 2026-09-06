@@ -1,6 +1,6 @@
 # Documentation index
 
-Use this index to distinguish the one active research plan from the evidence that supports it.
+Use this index to distinguish current deliverables and guidance from preserved study evidence.
 Frozen and hash-bound records retain their original paths because those paths are evidence
 identities.
 
@@ -15,17 +15,21 @@ identities.
 - [Config index](../configs/README.md)
 - [Contributing](../CONTRIBUTING.md)
 
-## Active extension: Painter Prompt Study v1
+## Completed extension: Painter Prompt Study v1
 
 - [Repeated generation, prompt methods, sample-size planning and commands](PROMPT_STUDY_WORKFLOW.md)
 - [Prospective repeated-prompt protocol](../studies/painter_prompt_study_v1/PROTOCOL.md)
 - [Approved 1,920-request configuration](../configs/painter_prompt_study_v1/study.json)
-- [Active generation freeze](../data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/generation_freeze.json)
-- [Active randomization qualification](../data/manifests/painter_prompt_study_v1/pps1-randomization-20260905/decision.json)
+- [Original registered report and complete availability accounting](../reports/painter_prompt_study_v1/pps1-gpt-prompts-20260905/REPORT.md)
+- [Terminal generation receipt](../data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/generation_receipt.json)
+- [Terminal measurement receipt](../data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/measurement_receipt.json)
+- [Generation freeze](../data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/generation_freeze.json)
+- [Randomization qualification](../data/manifests/painter_prompt_study_v1/pps1-randomization-20260905/decision.json)
 - [Superseded interval-development calibration](../data/manifests/painter_prompt_study_v1/pps1-calibration-20260905/decision.json)
 
-The user approved 1,920 total new images on 2026-09-05. Preparation and execution use the disjoint
-`pps1-gpt-prompts-20260905` run. Existing evidence below remains sealed.
+The approved `pps1-gpt-prompts-20260905` run is terminal: 1,920 requests, 1,918 generated and
+measured images, two refusals, no replacements. The original complete-grid primary remains
+unavailable. Existing evidence below remains sealed.
 
 ## Post-registration supplement: Painter Prompt Supplement v1
 
@@ -34,13 +38,16 @@ The user approved 1,920 total new images on 2026-09-05. Preparation and executio
 - [Fixed supplement configuration](../configs/painter_prompt_supplement_v1/study.json)
 - [Published supplement qualification](../data/manifests/painter_prompt_supplement_v1/ppss1-qualification-20260905/decision.json)
 - [Committed supplement design freeze](../data/manifests/painter_prompt_supplement_v1/ppss1-missingness-20260905/design_freeze.json)
+- [Completed exploratory report with comparison plots and full-precision exports](../reports/painter_prompt_supplement_v1/ppss1-missingness-20260905/REPORT.md)
+- [Terminal supplement analysis](../data/manifests/painter_prompt_supplement_v1/ppss1-missingness-20260905/analysis.json)
+- [Report evidence receipt](../data/manifests/painter_prompt_supplement_v1/ppss1-missingness-20260905/report_receipt.json)
 
 Specified after source request sequence `415` was refused and before new feature measurement.
 The source cap remains 1,920 requests, its incomplete-grid primary remains unavailable, and the
 supplement adds no provider calls. Qualification passed and the design freeze was committed before
-source measurement. The empirical report remains pending; a separate worker waits for the original
-study's completion before building and verifying it. [Current status](STATUS.md) records execution
-checkpoints.
+source measurement. The empirical report is complete, with all 48 exploratory endpoints and
+three PNG/SVG comparison plots. [Current status](STATUS.md) records terminal accounting and
+verification. Reviews are maintainer-run LLM subagent reviews, not institutional independence.
 
 ## Completed continuation: Painter Feature Generation v2
 
