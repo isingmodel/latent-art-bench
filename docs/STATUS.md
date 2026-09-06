@@ -1,19 +1,62 @@
 # Current status and research boundary — 2026-09-06
 
-## Authorized follow-up: two refusal retries
+## Completed follow-up: two refusal retries
 
-The user now explicitly requested retrying the two failed trials and reporting the main results.
-This authorizes **two additional requests only**, one exact-payload retry for each original refusal,
-in separate run `ppr1-two-refusals-20260906`. The
-[retry protocol](../studies/painter_prompt_retry_v1/PROTOCOL.md) preserves all terminal source and
-supplement evidence. Its implementation reuses the original transport and measurement primitives.
-The derived comparison will use successful retries in their missing slots and retain explicit
-provenance. Because their generation occurs after the randomized sequence, completed-grid
-distances are descriptive; the original registered primary and previous tests remain unchanged.
+**Both user-authorized retries succeeded and were measured.** The latest
+[main distance report](../reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906-r2/REPORT.md)
+uses a complete derived grid of **1,920 measured images**, with 64 per alias/method/condition.
+The earlier 1,920 attempts plus these two retries total **1,922 requests**, 1,920 generated images
+and two preserved original refusals. No third retry, rewording or fallback was used.
 
-Preparation and code checks are underway. No new request has been sent yet. The earlier no-extra-
-request wording below describes the closed source run; the user's latest authorization applies
-only to this disjoint two-attempt follow-up. Do not start another retry writer.
+Run `ppr1-two-refusals-20260906` dispatched the exact original `gpt-image-1`/`by_name` payloads
+for source sequences 415 (Pissarro) and 1718 (Cézanne), in that order. Both returned HTTP 200;
+generation ended at **2026-09-06 00:57:04 UTC**. Their returned images are 1403×1121 and 1402×1122,
+both reported quality low despite requested 1024×1024/medium. Two gzip bodies totaling 5,809,781
+bytes retain the original responses under the disjoint shared-transport runtime path
+`research_workspace/painter_prompt_study_v1/ppr1-two-refusals-20260906/`.
+
+The [retry protocol](../studies/painter_prompt_retry_v1/PROTOCOL.md), source and tests were committed
+at `38f1139`; the 82-input retry freeze was committed at `861dcc3` before either request. Original
+study and supplement files remain unchanged. Successful retry features are associated with their
+original missing slots only in the derived analysis, with explicit replacement provenance.
+
+The main results retain the same 649 reference paintings, 221-work scaler and all 31 features:
+
+- By-name prompts have the smallest distance among all three methods in **19/24**
+  alias × painter × family cells; style plus aspects is smallest in the other **5/24**.
+- Explicit style instruction has larger distance than by-name prompting in **24/24** comparisons.
+  Adding aspects reduces distance relative to style instruction in **13/24** comparisons.
+- Exactly 24 full-matrix cells changed, involving the two retried conditions against all four
+  reference painters and three families. Only six target distances changed; the largest absolute
+  target change was 0.0078919015 (Pissarro texture under `gpt-image-1`).
+- Exported all 360 distances, 72 targets, 48 adjacent-method differences, 72 artist-free comparisons,
+  24 changed cells, 30 availability rows and a PNG/SVG figure. No new randomization p-values or
+  confidence intervals are claimed: these later outputs do not occupy the original randomized
+  time slots. The original primary and pre-retry exploratory tests keep their original status/data.
+
+A separate direct uniform-energy calculation reproduced every new distance within **2.45e-15**.
+The retry's numeric/report-byte check passed, including retained response hashes. Ruff passed;
+the full offline suite passed **732 tests in 74.54 seconds**. Historical v1/v2 audits passed
+2,902 / 15,809 checks, the original prompt-study audit passed 5,977 checks, and the original
+supplement audit passed. The two historical acknowledgements remain unchanged. The final figure
+revision check reproduced all nine files byte-for-byte with no numeric changes; its actual PNG
+was visually inspected and every point is inside the shared family bounds. No subagent review
+was used for this follow-up.
+
+The first retry report's shared-axis plot clipped a lower-row point. A separate revision at the
+linked `-r2` path fixes family limits using both aliases plus an 8% margin; all CSVs and numeric
+results are unchanged. Its renderer/tests are committed at `0e8080f`. The original report and its
+hash receipt remain preserved. No image generation or feature extraction was repeated for this fix.
+
+Reproduce from the repository root without provider calls or feature extraction:
+
+```bash
+uv run --locked --extra analysis --extra learned python -m latent_art_bench.painter_prompt_retry_report_v2 check
+```
+
+All retry stages are terminal. Do not redispatch these requests or reuse the run ID. The original
+no-extra-request wording below describes the preceding closed run; the user's later authorization
+applied only to this completed two-attempt follow-up.
 
 ## Completed goal: repeated GPT Image prompt study
 

@@ -1,5 +1,12 @@
 # Agent handover: completed painter-feature analysis and research continuation
 
+**Latest follow-up — 2026-09-06:** the user authorized one exact retry for each of the two refused
+requests. Both succeeded and were measured. The latest
+[main distance report](../reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906-r2/REPORT.md)
+uses 1,920 measured images; all source refusals, reports and ledgers remain unchanged. Results
+are descriptive because the retry images were generated after the original randomized sequence.
+Read [current status](STATUS.md) for accounting, commands and the preserved figure correction.
+
 **Completed extension — 2026-09-06:** the user subsequently requested more GPT Image samples,
 alternative prompting and paper-ready analysis. Read [current status](STATUS.md) and
 [the completed prompt-comparison report](../reports/painter_prompt_supplement_v1/ppss1-missingness-20260905/REPORT.md)

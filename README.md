@@ -5,13 +5,26 @@ reference paintings**. The current analysis uses Monet, Sisley, Pissarro, and C�
 interpretable color, spatial/orientation, and digital-texture features; and the existing SD-Turbo,
 `gpt-image-1`, and `gpt-image-2` service outputs.
 
-The [new prompt-comparison report](reports/painter_prompt_supplement_v1/ppss1-missingness-20260905/REPORT.md)
-is the main entry point: 1,918 newly generated images, three prompt methods, comparison plots,
-full-precision tables and reproducible statistics. The earlier
+The [main distance report after two authorized retries](reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906-r2/REPORT.md)
+is the latest entry point: **1,920 measured generated images**, three prompt methods, comparison
+plots and full-precision tables. The
+[pre-retry exploratory statistical report](reports/painter_prompt_supplement_v1/ppss1-missingness-20260905/REPORT.md)
+retains its original 1,918-image data and inference. The earlier
 [existing-data distance report](reports/painter_feature_distance_v1/REPORT.md) also covers
 SD-Turbo, artist-free comparisons and painter specificity.
 
 ## Current status — 2026-09-06
+
+**Both subsequently authorized retries succeeded.** The complete derived grid contains 1,920
+measured images, 64 per alias/method/condition. Across the original run and two retries there
+were 1,922 requests, with both original refusals preserved. By-name prompts are closest among
+the three methods in 19/24 painter × alias × family cells; style plus aspects is closest in
+the other five. Explicit style instruction has larger distance than by-name prompting in all
+24 comparisons. The completed view is descriptive because the two later outputs were outside
+the original randomized request sequence. See [current status](docs/STATUS.md) for exact retry
+provenance, results and verification.
+
+The following accounting describes the preserved pre-retry experiment:
 
 The [repeated GPT Image study](docs/PROMPT_STUDY_WORKFLOW.md) is complete. All **1,920 approved
 requests** were attempted once: **1,918 images generated and measured, two service refusals**.
@@ -64,7 +77,13 @@ measured images. Manuscript drafting remains deferred.
 ## Run and reproduce
 
 Use the locked environment with both extras to preserve the shared environment's dependencies.
-Both delivered bundles already exist. Verify the new prompt supplement with:
+Verify the latest completed-grid report and corrected figure with:
+
+```bash
+uv run --locked --extra analysis --extra learned python -m latent_art_bench.painter_prompt_retry_report_v2 check
+```
+
+Verify the pre-retry prompt supplement with:
 
 ```bash
 uv run --locked --extra analysis --extra learned python -m latent_art_bench.painter_prompt_supplement_v1.cli check ppss1-missingness-20260905

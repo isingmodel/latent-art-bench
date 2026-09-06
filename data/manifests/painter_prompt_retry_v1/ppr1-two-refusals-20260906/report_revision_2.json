@@ -1,0 +1,99 @@
+{
+  "created_at_utc": "2026-09-06T01:02:37.268421+00:00",
+  "inputs": [
+    {
+      "path": "data/manifests/painter_prompt_retry_v1/ppr1-two-refusals-20260906/analysis.json",
+      "sha256": "16f2be9f9e1a5b794848f65841d7188779319ed3e83ecd123228052daa5ecbb1"
+    },
+    {
+      "path": "data/manifests/painter_prompt_retry_v1/ppr1-two-refusals-20260906/report_receipt.json",
+      "sha256": "6d8cbe6410c1d3ddcdb3dca960710507de48bfef3e2ddc7a0da87c96e45481dc"
+    },
+    {
+      "path": "reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906/REPORT.md",
+      "sha256": "8ee3dd61bf34dd20f9d735caf17d9ab93073a4bfc6ff484231e894659e6f0adf"
+    },
+    {
+      "path": "reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906/absolute.csv",
+      "sha256": "94c6dc138b12e39feaa68f76219236d349fc50b6909551b6ecdd46a4cfff8308"
+    },
+    {
+      "path": "reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906/availability.csv",
+      "sha256": "180a2192f75ca4ead0cd981407124b68c7316f306849ddcebc709b79c29ecfc9"
+    },
+    {
+      "path": "reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906/changes.csv",
+      "sha256": "d9bb0a6451f19eba0b9345a7842f056dc9b385a1eaa3306696565856892cdee2"
+    },
+    {
+      "path": "reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906/contrasts.csv",
+      "sha256": "645a7619a9577aaad35cf49aeb1a978d33496aed214649bb80e40cc0a4700fa5"
+    },
+    {
+      "path": "reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906/control_comparisons.csv",
+      "sha256": "c4328e39088e04386026d071faf2b961d0b543239f6325736517ea1d846cf99e"
+    },
+    {
+      "path": "reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906/distances.csv",
+      "sha256": "213efa596ff1faa4fd0447d4c6df9fd4f040b0e048ba8f4f9a7b7ca4f8414d78"
+    },
+    {
+      "path": "reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906/plots/target_distances.png",
+      "sha256": "c585fa86600a9cc491ddc501ba4743285eddde66d7c8392286409b4addcb2a67"
+    },
+    {
+      "path": "reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906/plots/target_distances.svg",
+      "sha256": "d72db084caba2f253527f74e9bd698eb602b691168682800bab1e3c6be334a39"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_retry_report_v2.py",
+      "sha256": "03f65e99c58374263e60d4bbc85d47362ec403fb4514c7b433fa8f70caa3daed"
+    },
+    {
+      "path": "tests/test_painter_prompt_retry_report_v2.py",
+      "sha256": "ee18d46c05e011617f1440171e714dc60cd68a2dfa23ac63b2cfae9b5a742882"
+    }
+  ],
+  "numeric_changes": false,
+  "original_report_preserved": true,
+  "outputs": [
+    {
+      "path": "reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906-r2/REPORT.md",
+      "sha256": "414e0f16ecbbfeaa394b31db74249d4ff43324697cf0d87830d472fd46a36e74"
+    },
+    {
+      "path": "reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906-r2/absolute.csv",
+      "sha256": "94c6dc138b12e39feaa68f76219236d349fc50b6909551b6ecdd46a4cfff8308"
+    },
+    {
+      "path": "reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906-r2/availability.csv",
+      "sha256": "180a2192f75ca4ead0cd981407124b68c7316f306849ddcebc709b79c29ecfc9"
+    },
+    {
+      "path": "reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906-r2/changes.csv",
+      "sha256": "d9bb0a6451f19eba0b9345a7842f056dc9b385a1eaa3306696565856892cdee2"
+    },
+    {
+      "path": "reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906-r2/contrasts.csv",
+      "sha256": "645a7619a9577aaad35cf49aeb1a978d33496aed214649bb80e40cc0a4700fa5"
+    },
+    {
+      "path": "reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906-r2/control_comparisons.csv",
+      "sha256": "c4328e39088e04386026d071faf2b961d0b543239f6325736517ea1d846cf99e"
+    },
+    {
+      "path": "reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906-r2/distances.csv",
+      "sha256": "213efa596ff1faa4fd0447d4c6df9fd4f040b0e048ba8f4f9a7b7ca4f8414d78"
+    },
+    {
+      "path": "reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906-r2/plots/target_distances.png",
+      "sha256": "9b889abf8cc0c1ce7c7fcbf34e4f50ec10bbc66c40c6f223cace2e937a6ba957"
+    },
+    {
+      "path": "reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906-r2/plots/target_distances.svg",
+      "sha256": "1ad5e80b3984878a3e2c149fbb81f52af28e9ff2a59921b8563290fcaa9190ca"
+    }
+  ],
+  "reason": "Original figure could clip lower-row points after upper-row shared-axis autoscale was disabled. Revision sets the family maximum from both aliases plus 8% margin.",
+  "recorded_git_commit": "0e8080f67a3f5f0c27508cc4e83d86db261a7466"
+}

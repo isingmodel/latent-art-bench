@@ -35,10 +35,14 @@ unavailable. Existing evidence below remains sealed.
 
 - [Two authorized exact-payload retries and descriptive completion protocol](../studies/painter_prompt_retry_v1/PROTOCOL.md)
 - [Retry transport, measurement, reporting and verification module](../src/latent_art_bench/painter_prompt_retry_v1.py)
+- [Completed main distance report and corrected comparison figure](../reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906-r2/REPORT.md)
+- [Retry generation and measurement accounting](../data/manifests/painter_prompt_retry_v1/ppr1-two-refusals-20260906/generation_receipt.json)
+- [Figure revision receipt](../data/manifests/painter_prompt_retry_v1/ppr1-two-refusals-20260906/report_revision_2.json)
 
 The user authorized exactly two additional attempts after the original study closed. Run
-`ppr1-two-refusals-20260906` retains disjoint evidence; later outputs cannot retroactively restore
-the original randomized time slots. See [current status](STATUS.md) for execution state.
+`ppr1-two-refusals-20260906` completed both successfully, giving 1,920 measured images in the
+derived comparison. It retains disjoint evidence; later outputs cannot retroactively restore
+the original randomized time slots. See [current status](STATUS.md) for results and verification.
 
 ## Post-registration supplement: Painter Prompt Supplement v1
 
