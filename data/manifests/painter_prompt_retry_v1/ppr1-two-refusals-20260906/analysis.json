@@ -1,0 +1,5919 @@
+{
+  "absolute": [
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 0.5948073821162723,
+      "family": "color",
+      "finite_distance": 0.5948073821162723,
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 0.7943690355082116,
+      "family": "spatial",
+      "finite_distance": 0.7943690355082116,
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 1.6772200344842,
+      "family": "texture",
+      "finite_distance": 1.6772200344842,
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 0.752500521923622,
+      "family": "color",
+      "finite_distance": 0.752500521923622,
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 0.516766553921562,
+      "family": "spatial",
+      "finite_distance": 0.516766553921562,
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 1.1850752223069283,
+      "family": "texture",
+      "finite_distance": 1.1850752223069283,
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 0.9073849265224578,
+      "family": "color",
+      "finite_distance": 0.9073849265224578,
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 0.7152928914442049,
+      "family": "spatial",
+      "finite_distance": 0.7152928914442049,
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 1.3729145197474206,
+      "family": "texture",
+      "finite_distance": 1.3729145197474206,
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 0.7104584726692591,
+      "family": "color",
+      "finite_distance": 0.7104584726692591,
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 0.6227900976896481,
+      "family": "spatial",
+      "finite_distance": 0.6227900976896481,
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 2.0646353224533844,
+      "family": "texture",
+      "finite_distance": 2.0646353224533844,
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 0.8194595346421363,
+      "family": "color",
+      "finite_distance": 0.8194595346421363,
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 0.9416340453603085,
+      "family": "spatial",
+      "finite_distance": 0.9416340453603085,
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 1.7233321921887481,
+      "family": "texture",
+      "finite_distance": 1.7233321921887481,
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 0.8762278618095294,
+      "family": "color",
+      "finite_distance": 0.8762278618095294,
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 0.5817114141535393,
+      "family": "spatial",
+      "finite_distance": 0.5817114141535393,
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 1.408914688670019,
+      "family": "texture",
+      "finite_distance": 1.408914688670019,
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 1.0744942826693407,
+      "family": "color",
+      "finite_distance": 1.0744942826693407,
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 0.9018986435482248,
+      "family": "spatial",
+      "finite_distance": 0.9018986435482248,
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 1.6359106797035643,
+      "family": "texture",
+      "finite_distance": 1.6359106797035643,
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 0.87752373157825,
+      "family": "color",
+      "finite_distance": 0.87752373157825,
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 0.7353433759263748,
+      "family": "spatial",
+      "finite_distance": 0.7353433759263748,
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 2.2360777656585147,
+      "family": "texture",
+      "finite_distance": 2.2360777656585147,
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 0.9698600827230404,
+      "family": "color",
+      "finite_distance": 0.9698600827230404,
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 0.9925509786851023,
+      "family": "spatial",
+      "finite_distance": 0.9925509786851023,
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 1.8277656487820566,
+      "family": "texture",
+      "finite_distance": 1.8277656487820566,
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 0.8349343985421547,
+      "family": "color",
+      "finite_distance": 0.8349343985421547,
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 0.6024433534123983,
+      "family": "spatial",
+      "finite_distance": 0.6024433534123983,
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 1.4641348320749528,
+      "family": "texture",
+      "finite_distance": 1.4641348320749528,
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 0.8715874293538928,
+      "family": "color",
+      "finite_distance": 0.8715874293538928,
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 0.8794619831193047,
+      "family": "spatial",
+      "finite_distance": 0.8794619831193047,
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 1.7123014751885266,
+      "family": "texture",
+      "finite_distance": 1.7123014751885266,
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 0.7591406956931188,
+      "family": "color",
+      "finite_distance": 0.7591406956931188,
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 0.6450429992718774,
+      "family": "spatial",
+      "finite_distance": 0.6450429992718774,
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 2.031354877308557,
+      "family": "texture",
+      "finite_distance": 2.031354877308557,
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 0.5003885222942783,
+      "family": "color",
+      "finite_distance": 0.5003885222942783,
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 0.8220854827202841,
+      "family": "spatial",
+      "finite_distance": 0.8220854827202841,
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 1.6419154037220098,
+      "family": "texture",
+      "finite_distance": 1.6419154037220098,
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 0.7529104736001548,
+      "family": "color",
+      "finite_distance": 0.7529104736001548,
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 0.5664964262778698,
+      "family": "spatial",
+      "finite_distance": 0.5664964262778698,
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 1.3201149763709745,
+      "family": "texture",
+      "finite_distance": 1.3201149763709745,
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 1.009620987710992,
+      "family": "color",
+      "finite_distance": 1.009620987710992,
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 0.7653347704961937,
+      "family": "spatial",
+      "finite_distance": 0.7653347704961937,
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 1.337881042027714,
+      "family": "texture",
+      "finite_distance": 1.337881042027714,
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 0.8232198333655629,
+      "family": "color",
+      "finite_distance": 0.8232198333655629,
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 0.6341135030734515,
+      "family": "spatial",
+      "finite_distance": 0.6341135030734515,
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 2.119113419741493,
+      "family": "texture",
+      "finite_distance": 2.119113419741493,
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 0.8584413967134195,
+      "family": "color",
+      "finite_distance": 0.8584413967134195,
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 1.0235893715638826,
+      "family": "spatial",
+      "finite_distance": 1.0235893715638826,
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 1.857634063975959,
+      "family": "texture",
+      "finite_distance": 1.857634063975959,
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 0.7951407647818973,
+      "family": "color",
+      "finite_distance": 0.7951407647818973,
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 0.666875113973528,
+      "family": "spatial",
+      "finite_distance": 0.666875113973528,
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 1.4363120458929037,
+      "family": "texture",
+      "finite_distance": 1.4363120458929037,
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 1.040401628244715,
+      "family": "color",
+      "finite_distance": 1.040401628244715,
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 0.8961626952765205,
+      "family": "spatial",
+      "finite_distance": 0.8961626952765205,
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 1.6312055876515055,
+      "family": "texture",
+      "finite_distance": 1.6312055876515055,
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 0.8319554772643731,
+      "family": "color",
+      "finite_distance": 0.8319554772643731,
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 0.7390550771242761,
+      "family": "spatial",
+      "finite_distance": 0.7390550771242761,
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 2.2289329030682152,
+      "family": "texture",
+      "finite_distance": 2.2289329030682152,
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 0.8952636009061483,
+      "family": "color",
+      "finite_distance": 0.8952636009061483,
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 0.9604716395387869,
+      "family": "spatial",
+      "finite_distance": 0.9604716395387869,
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 1.8318115506586814,
+      "family": "texture",
+      "finite_distance": 1.8318115506586814,
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 0.8004376585915174,
+      "family": "color",
+      "finite_distance": 0.8004376585915174,
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 0.6866485707986825,
+      "family": "spatial",
+      "finite_distance": 0.6866485707986825,
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 1.4708727533466273,
+      "family": "texture",
+      "finite_distance": 1.4708727533466273,
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 0.8908976013616612,
+      "family": "color",
+      "finite_distance": 0.8908976013616612,
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 0.8946137335203452,
+      "family": "spatial",
+      "finite_distance": 0.8946137335203452,
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 1.7308288939712373,
+      "family": "texture",
+      "finite_distance": 1.7308288939712373,
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 0.7813665578564586,
+      "family": "color",
+      "finite_distance": 0.7813665578564586,
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 0.6886057819877818,
+      "family": "spatial",
+      "finite_distance": 0.6886057819877818,
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 1.936714060597992,
+      "family": "texture",
+      "finite_distance": 1.936714060597992,
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    }
+  ],
+  "availability": [
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "measured": 64,
+      "method_id": "by_name",
+      "planned": 64
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "measured": 64,
+      "method_id": "by_name",
+      "planned": 64
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "measured": 64,
+      "method_id": "by_name",
+      "planned": 64
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "measured": 64,
+      "method_id": "by_name",
+      "planned": 64
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "measured": 64,
+      "method_id": "by_name",
+      "planned": 64
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "measured": 64,
+      "method_id": "style_instruction",
+      "planned": 64
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "measured": 64,
+      "method_id": "style_instruction",
+      "planned": 64
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "measured": 64,
+      "method_id": "style_instruction",
+      "planned": 64
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "measured": 64,
+      "method_id": "style_instruction",
+      "planned": 64
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "measured": 64,
+      "method_id": "style_instruction",
+      "planned": 64
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "measured": 64,
+      "method_id": "style_aspects",
+      "planned": 64
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "measured": 64,
+      "method_id": "style_aspects",
+      "planned": 64
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "measured": 64,
+      "method_id": "style_aspects",
+      "planned": 64
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "measured": 64,
+      "method_id": "style_aspects",
+      "planned": 64
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "measured": 64,
+      "method_id": "style_aspects",
+      "planned": 64
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "measured": 64,
+      "method_id": "by_name",
+      "planned": 64
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "measured": 64,
+      "method_id": "by_name",
+      "planned": 64
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "measured": 64,
+      "method_id": "by_name",
+      "planned": 64
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "measured": 64,
+      "method_id": "by_name",
+      "planned": 64
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "measured": 64,
+      "method_id": "by_name",
+      "planned": 64
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "measured": 64,
+      "method_id": "style_instruction",
+      "planned": 64
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "measured": 64,
+      "method_id": "style_instruction",
+      "planned": 64
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "measured": 64,
+      "method_id": "style_instruction",
+      "planned": 64
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "measured": 64,
+      "method_id": "style_instruction",
+      "planned": 64
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "measured": 64,
+      "method_id": "style_instruction",
+      "planned": 64
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "measured": 64,
+      "method_id": "style_aspects",
+      "planned": 64
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "measured": 64,
+      "method_id": "style_aspects",
+      "planned": 64
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "measured": 64,
+      "method_id": "style_aspects",
+      "planned": 64
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "measured": 64,
+      "method_id": "style_aspects",
+      "planned": 64
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "measured": 64,
+      "method_id": "style_aspects",
+      "planned": 64
+    }
+  ],
+  "changes": [
+    {
+      "alias": "gpt-image-1",
+      "change": -0.00011560798846188547,
+      "condition": "camille_pissarro",
+      "distance": 1.4355168928753952,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "previous_distance": 1.435632500863857,
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "change": 0.005418156261390639,
+      "condition": "camille_pissarro",
+      "distance": 0.9149206082127925,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "previous_distance": 0.9095024519514019,
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "change": 0.00706901916441649,
+      "condition": "camille_pissarro",
+      "distance": 1.5485231771488996,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "previous_distance": 1.5414541579844832,
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "change": 0.00034026231183448274,
+      "condition": "camille_pissarro",
+      "distance": 1.3567626890668638,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "previous_distance": 1.3564224267550293,
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "change": 0.005910112599010642,
+      "condition": "camille_pissarro",
+      "distance": 0.8431802307148581,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "previous_distance": 0.8372701181158475,
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "change": 0.009398992661381778,
+      "condition": "camille_pissarro",
+      "distance": 1.4069185392016432,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "previous_distance": 1.3975195465402614,
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "change": 0.0005730219834192418,
+      "condition": "camille_pissarro",
+      "distance": 0.9073849265224578,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "previous_distance": 0.9068119045390386,
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "change": 0.005527720112123102,
+      "condition": "camille_pissarro",
+      "distance": 0.7152928914442049,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "previous_distance": 0.7097651713320818,
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "change": 0.007891901489579078,
+      "condition": "camille_pissarro",
+      "distance": 1.3729145197474206,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "previous_distance": 1.3650226182578415,
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "change": -0.0015788058110195458,
+      "condition": "camille_pissarro",
+      "distance": 2.2824427606889466,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "previous_distance": 2.284021566499966,
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "change": 0.006108311013060419,
+      "condition": "camille_pissarro",
+      "distance": 1.5661393680912288,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "previous_distance": 1.5600310570781684,
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "change": 0.011403071321444358,
+      "condition": "camille_pissarro",
+      "distance": 2.571160578695692,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "previous_distance": 2.559757507374248,
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "change": -0.00024609936447550496,
+      "condition": "paul_cezanne",
+      "distance": 0.7911837718994865,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "previous_distance": 0.791429871263962,
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "change": 0.007059229428487246,
+      "condition": "paul_cezanne",
+      "distance": 0.9810809518606476,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "previous_distance": 0.9740217224321603,
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "change": -0.0015944077523166733,
+      "condition": "paul_cezanne",
+      "distance": 1.695279342339131,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "previous_distance": 1.6968737500914477,
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "change": 0.00020151037114857218,
+      "condition": "paul_cezanne",
+      "distance": 0.9242452297794472,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "previous_distance": 0.9240437194082987,
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "change": 0.008625631413515134,
+      "condition": "paul_cezanne",
+      "distance": 1.213963685660656,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "previous_distance": 1.2053380542471408,
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "change": 0.003930657963068018,
+      "condition": "paul_cezanne",
+      "distance": 2.0005247035723173,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "previous_distance": 1.9965940456092492,
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "change": 0.004843648084155383,
+      "condition": "paul_cezanne",
+      "distance": 1.0124596869808788,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "previous_distance": 1.0076160388967235,
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "change": 0.007817853409488595,
+      "condition": "paul_cezanne",
+      "distance": 1.2115507606850353,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "previous_distance": 1.2037329072755467,
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "change": 0.002690204615832581,
+      "condition": "paul_cezanne",
+      "distance": 2.244823168068466,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "previous_distance": 2.2421329634526335,
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "change": -0.0012802445811566088,
+      "condition": "paul_cezanne",
+      "distance": 0.7104584726692591,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "previous_distance": 0.7117387172504157,
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "change": -0.0019493767775462523,
+      "condition": "paul_cezanne",
+      "distance": 0.6227900976896481,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "previous_distance": 0.6247394744671944,
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "change": -0.0022066487064642537,
+      "condition": "paul_cezanne",
+      "distance": 2.0646353224533844,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "previous_distance": 2.0668419711598487,
+      "reference_count": 105
+    }
+  ],
+  "contrasts": [
+    {
+      "after": "style_instruction",
+      "after_distance": 0.8194595346421363,
+      "alias": "gpt-image-1",
+      "before": "by_name",
+      "before_distance": 0.5948073821162723,
+      "estimate": 0.224652152525864,
+      "family": "color",
+      "painter_id": "claude_monet"
+    },
+    {
+      "after": "style_aspects",
+      "after_distance": 0.9698600827230404,
+      "alias": "gpt-image-1",
+      "before": "style_instruction",
+      "before_distance": 0.8194595346421363,
+      "estimate": 0.15040054808090408,
+      "family": "color",
+      "painter_id": "claude_monet"
+    },
+    {
+      "after": "style_instruction",
+      "after_distance": 0.9416340453603085,
+      "alias": "gpt-image-1",
+      "before": "by_name",
+      "before_distance": 0.7943690355082116,
+      "estimate": 0.1472650098520969,
+      "family": "spatial",
+      "painter_id": "claude_monet"
+    },
+    {
+      "after": "style_aspects",
+      "after_distance": 0.9925509786851023,
+      "alias": "gpt-image-1",
+      "before": "style_instruction",
+      "before_distance": 0.9416340453603085,
+      "estimate": 0.050916933324793856,
+      "family": "spatial",
+      "painter_id": "claude_monet"
+    },
+    {
+      "after": "style_instruction",
+      "after_distance": 1.7233321921887481,
+      "alias": "gpt-image-1",
+      "before": "by_name",
+      "before_distance": 1.6772200344842,
+      "estimate": 0.04611215770454802,
+      "family": "texture",
+      "painter_id": "claude_monet"
+    },
+    {
+      "after": "style_aspects",
+      "after_distance": 1.8277656487820566,
+      "alias": "gpt-image-1",
+      "before": "style_instruction",
+      "before_distance": 1.7233321921887481,
+      "estimate": 0.1044334565933085,
+      "family": "texture",
+      "painter_id": "claude_monet"
+    },
+    {
+      "after": "style_instruction",
+      "after_distance": 0.8762278618095294,
+      "alias": "gpt-image-1",
+      "before": "by_name",
+      "before_distance": 0.752500521923622,
+      "estimate": 0.12372733988590734,
+      "family": "color",
+      "painter_id": "alfred_sisley"
+    },
+    {
+      "after": "style_aspects",
+      "after_distance": 0.8349343985421547,
+      "alias": "gpt-image-1",
+      "before": "style_instruction",
+      "before_distance": 0.8762278618095294,
+      "estimate": -0.04129346326737471,
+      "family": "color",
+      "painter_id": "alfred_sisley"
+    },
+    {
+      "after": "style_instruction",
+      "after_distance": 0.5817114141535393,
+      "alias": "gpt-image-1",
+      "before": "by_name",
+      "before_distance": 0.516766553921562,
+      "estimate": 0.06494486023197732,
+      "family": "spatial",
+      "painter_id": "alfred_sisley"
+    },
+    {
+      "after": "style_aspects",
+      "after_distance": 0.6024433534123983,
+      "alias": "gpt-image-1",
+      "before": "style_instruction",
+      "before_distance": 0.5817114141535393,
+      "estimate": 0.020731939258858967,
+      "family": "spatial",
+      "painter_id": "alfred_sisley"
+    },
+    {
+      "after": "style_instruction",
+      "after_distance": 1.408914688670019,
+      "alias": "gpt-image-1",
+      "before": "by_name",
+      "before_distance": 1.1850752223069283,
+      "estimate": 0.2238394663630907,
+      "family": "texture",
+      "painter_id": "alfred_sisley"
+    },
+    {
+      "after": "style_aspects",
+      "after_distance": 1.4641348320749528,
+      "alias": "gpt-image-1",
+      "before": "style_instruction",
+      "before_distance": 1.408914688670019,
+      "estimate": 0.05522014340493375,
+      "family": "texture",
+      "painter_id": "alfred_sisley"
+    },
+    {
+      "after": "style_instruction",
+      "after_distance": 1.0744942826693407,
+      "alias": "gpt-image-1",
+      "before": "by_name",
+      "before_distance": 0.9073849265224578,
+      "estimate": 0.16710935614688283,
+      "family": "color",
+      "painter_id": "camille_pissarro"
+    },
+    {
+      "after": "style_aspects",
+      "after_distance": 0.8715874293538928,
+      "alias": "gpt-image-1",
+      "before": "style_instruction",
+      "before_distance": 1.0744942826693407,
+      "estimate": -0.2029068533154479,
+      "family": "color",
+      "painter_id": "camille_pissarro"
+    },
+    {
+      "after": "style_instruction",
+      "after_distance": 0.9018986435482248,
+      "alias": "gpt-image-1",
+      "before": "by_name",
+      "before_distance": 0.7152928914442049,
+      "estimate": 0.18660575210401986,
+      "family": "spatial",
+      "painter_id": "camille_pissarro"
+    },
+    {
+      "after": "style_aspects",
+      "after_distance": 0.8794619831193047,
+      "alias": "gpt-image-1",
+      "before": "style_instruction",
+      "before_distance": 0.9018986435482248,
+      "estimate": -0.02243666042892012,
+      "family": "spatial",
+      "painter_id": "camille_pissarro"
+    },
+    {
+      "after": "style_instruction",
+      "after_distance": 1.6359106797035643,
+      "alias": "gpt-image-1",
+      "before": "by_name",
+      "before_distance": 1.3729145197474206,
+      "estimate": 0.26299615995614367,
+      "family": "texture",
+      "painter_id": "camille_pissarro"
+    },
+    {
+      "after": "style_aspects",
+      "after_distance": 1.7123014751885266,
+      "alias": "gpt-image-1",
+      "before": "style_instruction",
+      "before_distance": 1.6359106797035643,
+      "estimate": 0.0763907954849623,
+      "family": "texture",
+      "painter_id": "camille_pissarro"
+    },
+    {
+      "after": "style_instruction",
+      "after_distance": 0.87752373157825,
+      "alias": "gpt-image-1",
+      "before": "by_name",
+      "before_distance": 0.7104584726692591,
+      "estimate": 0.16706525890899093,
+      "family": "color",
+      "painter_id": "paul_cezanne"
+    },
+    {
+      "after": "style_aspects",
+      "after_distance": 0.7591406956931188,
+      "alias": "gpt-image-1",
+      "before": "style_instruction",
+      "before_distance": 0.87752373157825,
+      "estimate": -0.11838303588513122,
+      "family": "color",
+      "painter_id": "paul_cezanne"
+    },
+    {
+      "after": "style_instruction",
+      "after_distance": 0.7353433759263748,
+      "alias": "gpt-image-1",
+      "before": "by_name",
+      "before_distance": 0.6227900976896481,
+      "estimate": 0.11255327823672667,
+      "family": "spatial",
+      "painter_id": "paul_cezanne"
+    },
+    {
+      "after": "style_aspects",
+      "after_distance": 0.6450429992718774,
+      "alias": "gpt-image-1",
+      "before": "style_instruction",
+      "before_distance": 0.7353433759263748,
+      "estimate": -0.09030037665449742,
+      "family": "spatial",
+      "painter_id": "paul_cezanne"
+    },
+    {
+      "after": "style_instruction",
+      "after_distance": 2.2360777656585147,
+      "alias": "gpt-image-1",
+      "before": "by_name",
+      "before_distance": 2.0646353224533844,
+      "estimate": 0.17144244320513025,
+      "family": "texture",
+      "painter_id": "paul_cezanne"
+    },
+    {
+      "after": "style_aspects",
+      "after_distance": 2.031354877308557,
+      "alias": "gpt-image-1",
+      "before": "style_instruction",
+      "before_distance": 2.2360777656585147,
+      "estimate": -0.2047228883499579,
+      "family": "texture",
+      "painter_id": "paul_cezanne"
+    },
+    {
+      "after": "style_instruction",
+      "after_distance": 0.8584413967134195,
+      "alias": "gpt-image-2",
+      "before": "by_name",
+      "before_distance": 0.5003885222942783,
+      "estimate": 0.35805287441914113,
+      "family": "color",
+      "painter_id": "claude_monet"
+    },
+    {
+      "after": "style_aspects",
+      "after_distance": 0.8952636009061483,
+      "alias": "gpt-image-2",
+      "before": "style_instruction",
+      "before_distance": 0.8584413967134195,
+      "estimate": 0.03682220419272886,
+      "family": "color",
+      "painter_id": "claude_monet"
+    },
+    {
+      "after": "style_instruction",
+      "after_distance": 1.0235893715638826,
+      "alias": "gpt-image-2",
+      "before": "by_name",
+      "before_distance": 0.8220854827202841,
+      "estimate": 0.2015038888435985,
+      "family": "spatial",
+      "painter_id": "claude_monet"
+    },
+    {
+      "after": "style_aspects",
+      "after_distance": 0.9604716395387869,
+      "alias": "gpt-image-2",
+      "before": "style_instruction",
+      "before_distance": 1.0235893715638826,
+      "estimate": -0.06311773202509574,
+      "family": "spatial",
+      "painter_id": "claude_monet"
+    },
+    {
+      "after": "style_instruction",
+      "after_distance": 1.857634063975959,
+      "alias": "gpt-image-2",
+      "before": "by_name",
+      "before_distance": 1.6419154037220098,
+      "estimate": 0.21571866025394915,
+      "family": "texture",
+      "painter_id": "claude_monet"
+    },
+    {
+      "after": "style_aspects",
+      "after_distance": 1.8318115506586814,
+      "alias": "gpt-image-2",
+      "before": "style_instruction",
+      "before_distance": 1.857634063975959,
+      "estimate": -0.025822513317277584,
+      "family": "texture",
+      "painter_id": "claude_monet"
+    },
+    {
+      "after": "style_instruction",
+      "after_distance": 0.7951407647818973,
+      "alias": "gpt-image-2",
+      "before": "by_name",
+      "before_distance": 0.7529104736001548,
+      "estimate": 0.042230291181742485,
+      "family": "color",
+      "painter_id": "alfred_sisley"
+    },
+    {
+      "after": "style_aspects",
+      "after_distance": 0.8004376585915174,
+      "alias": "gpt-image-2",
+      "before": "style_instruction",
+      "before_distance": 0.7951407647818973,
+      "estimate": 0.005296893809620062,
+      "family": "color",
+      "painter_id": "alfred_sisley"
+    },
+    {
+      "after": "style_instruction",
+      "after_distance": 0.666875113973528,
+      "alias": "gpt-image-2",
+      "before": "by_name",
+      "before_distance": 0.5664964262778698,
+      "estimate": 0.10037868769565828,
+      "family": "spatial",
+      "painter_id": "alfred_sisley"
+    },
+    {
+      "after": "style_aspects",
+      "after_distance": 0.6866485707986825,
+      "alias": "gpt-image-2",
+      "before": "style_instruction",
+      "before_distance": 0.666875113973528,
+      "estimate": 0.019773456825154412,
+      "family": "spatial",
+      "painter_id": "alfred_sisley"
+    },
+    {
+      "after": "style_instruction",
+      "after_distance": 1.4363120458929037,
+      "alias": "gpt-image-2",
+      "before": "by_name",
+      "before_distance": 1.3201149763709745,
+      "estimate": 0.11619706952192921,
+      "family": "texture",
+      "painter_id": "alfred_sisley"
+    },
+    {
+      "after": "style_aspects",
+      "after_distance": 1.4708727533466273,
+      "alias": "gpt-image-2",
+      "before": "style_instruction",
+      "before_distance": 1.4363120458929037,
+      "estimate": 0.03456070745372353,
+      "family": "texture",
+      "painter_id": "alfred_sisley"
+    },
+    {
+      "after": "style_instruction",
+      "after_distance": 1.040401628244715,
+      "alias": "gpt-image-2",
+      "before": "by_name",
+      "before_distance": 1.009620987710992,
+      "estimate": 0.03078064053372298,
+      "family": "color",
+      "painter_id": "camille_pissarro"
+    },
+    {
+      "after": "style_aspects",
+      "after_distance": 0.8908976013616612,
+      "alias": "gpt-image-2",
+      "before": "style_instruction",
+      "before_distance": 1.040401628244715,
+      "estimate": -0.14950402688305386,
+      "family": "color",
+      "painter_id": "camille_pissarro"
+    },
+    {
+      "after": "style_instruction",
+      "after_distance": 0.8961626952765205,
+      "alias": "gpt-image-2",
+      "before": "by_name",
+      "before_distance": 0.7653347704961937,
+      "estimate": 0.1308279247803268,
+      "family": "spatial",
+      "painter_id": "camille_pissarro"
+    },
+    {
+      "after": "style_aspects",
+      "after_distance": 0.8946137335203452,
+      "alias": "gpt-image-2",
+      "before": "style_instruction",
+      "before_distance": 0.8961626952765205,
+      "estimate": -0.001548961756175249,
+      "family": "spatial",
+      "painter_id": "camille_pissarro"
+    },
+    {
+      "after": "style_instruction",
+      "after_distance": 1.6312055876515055,
+      "alias": "gpt-image-2",
+      "before": "by_name",
+      "before_distance": 1.337881042027714,
+      "estimate": 0.2933245456237914,
+      "family": "texture",
+      "painter_id": "camille_pissarro"
+    },
+    {
+      "after": "style_aspects",
+      "after_distance": 1.7308288939712373,
+      "alias": "gpt-image-2",
+      "before": "style_instruction",
+      "before_distance": 1.6312055876515055,
+      "estimate": 0.09962330631973182,
+      "family": "texture",
+      "painter_id": "camille_pissarro"
+    },
+    {
+      "after": "style_instruction",
+      "after_distance": 0.8319554772643731,
+      "alias": "gpt-image-2",
+      "before": "by_name",
+      "before_distance": 0.8232198333655629,
+      "estimate": 0.008735643898810208,
+      "family": "color",
+      "painter_id": "paul_cezanne"
+    },
+    {
+      "after": "style_aspects",
+      "after_distance": 0.7813665578564586,
+      "alias": "gpt-image-2",
+      "before": "style_instruction",
+      "before_distance": 0.8319554772643731,
+      "estimate": -0.050588919407914545,
+      "family": "color",
+      "painter_id": "paul_cezanne"
+    },
+    {
+      "after": "style_instruction",
+      "after_distance": 0.7390550771242761,
+      "alias": "gpt-image-2",
+      "before": "by_name",
+      "before_distance": 0.6341135030734515,
+      "estimate": 0.1049415740508246,
+      "family": "spatial",
+      "painter_id": "paul_cezanne"
+    },
+    {
+      "after": "style_aspects",
+      "after_distance": 0.6886057819877818,
+      "alias": "gpt-image-2",
+      "before": "style_instruction",
+      "before_distance": 0.7390550771242761,
+      "estimate": -0.05044929513649432,
+      "family": "spatial",
+      "painter_id": "paul_cezanne"
+    },
+    {
+      "after": "style_instruction",
+      "after_distance": 2.2289329030682152,
+      "alias": "gpt-image-2",
+      "before": "by_name",
+      "before_distance": 2.119113419741493,
+      "estimate": 0.10981948332672209,
+      "family": "texture",
+      "painter_id": "paul_cezanne"
+    },
+    {
+      "after": "style_aspects",
+      "after_distance": 1.936714060597992,
+      "alias": "gpt-image-2",
+      "before": "style_instruction",
+      "before_distance": 2.2289329030682152,
+      "estimate": -0.29221884247022323,
+      "family": "texture",
+      "painter_id": "paul_cezanne"
+    }
+  ],
+  "control_comparisons": [
+    {
+      "alias": "gpt-image-1",
+      "family": "color",
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "target_minus_artist_free": -0.7399290187454373
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "color",
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "target_minus_artist_free": -0.500202029584321
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "color",
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "target_minus_artist_free": -0.4415355024221743
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "spatial",
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "target_minus_artist_free": 0.5836204815708492
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "spatial",
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "target_minus_artist_free": 0.7286287332690979
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "spatial",
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "target_minus_artist_free": 0.7864470237130501
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "texture",
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "target_minus_artist_free": 0.2673595858445288
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "texture",
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "target_minus_artist_free": 0.46323390734795633
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "texture",
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "target_minus_artist_free": 0.5216333571880727
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "color",
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "target_minus_artist_free": -0.47083286399444235
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "color",
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "target_minus_artist_free": -0.3101230541258322
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "color",
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "target_minus_artist_free": -0.43835262428469624
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "spatial",
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "target_minus_artist_free": 0.14796699278390735
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "spatial",
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "target_minus_artist_free": 0.22755435511455957
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "spatial",
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "target_minus_artist_free": 0.2540578709674295
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "texture",
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "target_minus_artist_free": -0.46965068568234614
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "texture",
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "target_minus_artist_free": -0.06455067174713602
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "texture",
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "target_minus_artist_free": 0.06699662037858833
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "color",
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "target_minus_artist_free": -0.22792143676686782
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "color",
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "target_minus_artist_free": -0.0638992447168123
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "color",
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "target_minus_artist_free": -0.34168758340153715
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "spatial",
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "target_minus_artist_free": 0.018110969363502427
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "spatial",
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "target_minus_artist_free": 0.2615024897868101
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "spatial",
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "target_minus_artist_free": 0.2770506811871396
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "texture",
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "target_minus_artist_free": -0.051514942155907795
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "texture",
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "target_minus_artist_free": 0.4111573834108939
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "texture",
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "target_minus_artist_free": 0.45518757520121933
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "color",
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "target_minus_artist_free": 0.07140307425458103
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "color",
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "target_minus_artist_free": 0.280068513356454
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "color",
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "target_minus_artist_free": 0.17235846825574463
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "spatial",
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "target_minus_artist_free": -0.1584381238870618
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "spatial",
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "target_minus_artist_free": -0.01482784232230161
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "spatial",
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "target_minus_artist_free": -0.02636012793053677
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "texture",
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "target_minus_artist_free": 0.5022599925623186
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "texture",
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "target_minus_artist_free": 0.7716954087171819
+    },
+    {
+      "alias": "gpt-image-1",
+      "family": "texture",
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "target_minus_artist_free": 0.684301767672157
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "color",
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "target_minus_artist_free": -0.862472173815972
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "color",
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "target_minus_artist_free": -0.4771195112931048
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "color",
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "target_minus_artist_free": -0.511724848560442
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "spatial",
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "target_minus_artist_free": 0.588806016134662
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "spatial",
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "target_minus_artist_free": 0.7905498642186273
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "spatial",
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "target_minus_artist_free": 0.7313165710133891
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "texture",
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "target_minus_artist_free": 0.24600403161888962
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "texture",
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "target_minus_artist_free": 0.6941687326126138
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "texture",
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "target_minus_artist_free": 0.5675886182913872
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "color",
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "target_minus_artist_free": -0.48688056566364657
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "color",
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "target_minus_artist_free": -0.3611072572595062
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "color",
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "target_minus_artist_free": -0.4690939776577441
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "spatial",
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "target_minus_artist_free": 0.17268086370081637
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "spatial",
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "target_minus_artist_free": 0.2882613008079704
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "spatial",
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "target_minus_artist_free": 0.3081814534411622
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "texture",
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "target_minus_artist_free": -0.41883645503286804
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "texture",
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "target_minus_artist_free": 0.04620907546920572
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "texture",
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "target_minus_artist_free": 0.02182301412587906
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "color",
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "target_minus_artist_free": -0.15671973976287434
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "color",
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "target_minus_artist_free": -0.08770275308244901
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "color",
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "target_minus_artist_free": -0.3101533493295139
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "spatial",
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "target_minus_artist_free": 0.05184502465607821
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "spatial",
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "target_minus_artist_free": 0.22194470269652267
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "spatial",
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "target_minus_artist_free": 0.2840571980396003
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "texture",
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "target_minus_artist_free": -0.06653569046824348
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "texture",
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "target_minus_artist_free": 0.5229658650489883
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "texture",
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "target_minus_artist_free": 0.47566316972611133
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "color",
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "target_minus_artist_free": 0.17098659890277657
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "color",
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "target_minus_artist_free": 0.22311059482886408
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "color",
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "target_minus_artist_free": 0.1633921287178839
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "spatial",
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "target_minus_artist_free": -0.19574077587273164
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "spatial",
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "target_minus_artist_free": -0.049569554802513904
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "spatial",
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "target_minus_artist_free": 0.030059239575044527
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "texture",
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "target_minus_artist_free": 0.43839780900644687
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "texture",
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "target_minus_artist_free": 0.767960937244375
+    },
+    {
+      "alias": "gpt-image-2",
+      "family": "texture",
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "target_minus_artist_free": 0.5127584638886098
+    }
+  ],
+  "distances": [
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 0.5948073821162723,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 0.7943690355082116,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 1.6772200344842,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 0.7366629214008067,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 0.7384883945802483,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 1.4982185265384755,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 0.7994679718394702,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 0.7264448763406568,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 1.6313924114617775,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 1.761722353781579,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 1.5935803150093353,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 2.7154209555264406,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 0.8955300804389918,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 0.54789970529739,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 1.4606371600254269,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 0.752500521923622,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 0.516766553921562,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 1.1850752223069283,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 0.6666260499540697,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 0.6631564353938826,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 1.3979557016907855,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 2.1256729889172443,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 1.3276699431051355,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 2.50587949307772,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 1.4355168928753952,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 0.9149206082127925,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 1.5485231771488996,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 1.3567626890668638,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 0.8431802307148581,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 1.4069185392016432,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 0.9073849265224578,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 0.7152928914442049,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 1.3729145197474206,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 2.2824427606889466,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 1.5661393680912288,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 2.571160578695692,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 0.7911837718994865,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 0.9810809518606476,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 1.695279342339131,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 0.9242452297794472,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 1.213963685660656,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 2.0005247035723173,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 1.0124596869808788,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 1.2115507606850353,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 2.244823168068466,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 0.7104584726692591,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 0.6227900976896481,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 2.0646353224533844,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 1.3347364008617095,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 0.21074855393736236,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 1.4098604486396713,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 1.2233333859180644,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 0.36879956113765466,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 1.6547259079892744,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 1.1353063632893257,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 0.6971819220807025,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 1.4244294619033284,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 0.6390553984146781,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 0.7812282215767099,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 1.5623753298910659,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 0.8194595346421363,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 0.9416340453603085,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 1.7233321921887481,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 1.0016570564977243,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 0.8451859508882626,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 1.465394599797964,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 1.2200742449692472,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 0.8368854002698596,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 1.5941362118919793,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 1.971249736949223,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 1.8291493460936685,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 2.7451855939835625,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 0.9676682565898631,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 0.6347728902837888,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 1.6835197729580442,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 0.8762278618095294,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 0.5817114141535393,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 1.408914688670019,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 0.8956367017960043,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 0.6802671979164088,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 1.648160841589351,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 2.3562774898916308,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 1.353442879178243,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 2.7744815362641195,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 1.5659198492742232,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 1.1943740569650563,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 1.8611624471866863,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 1.5452689198496457,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 1.0635234040296149,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 1.7119775711264127,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 1.0744942826693407,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 0.9018986435482248,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 1.6359106797035643,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 2.396257209879402,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 1.97676387737826,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 2.886345998459741,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 0.9808798095343634,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 1.2371088940960102,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 1.8199574905818419,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 1.1820734571184497,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 1.473940158957189,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 2.253370462781943,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 1.315976214229758,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 1.4356493880594492,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 2.433989355291378,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 0.87752373157825,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 0.7353433759263748,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 2.2360777656585147,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 1.3196615642264573,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 0.21300531209121054,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 1.2600982848407918,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 1.1863509159353616,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 0.35415705903897976,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 1.473465360417155,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 1.138393527386153,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 0.6403961537614147,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 1.2247532962926704,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 0.597455218221796,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 0.7501712182486764,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 1.4643823569413328,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 0.9698600827230404,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 0.9925509786851023,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 1.8277656487820566,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 1.1887225503890362,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 0.919047821117557,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 1.489841204140044,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 1.4652626385303644,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 0.928124076364377,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 1.7001005995023617,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 2.0304388703680463,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 1.8354884147610702,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "claude_monet",
+      "distance": 2.7415833386470867,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 0.9093278573644852,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 0.6820992759150226,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 1.785710740293866,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 0.8349343985421547,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 0.6024433534123983,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 1.4641348320749528,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 0.9781657639779382,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 0.6645544942039325,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 1.7253285366355355,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 2.349577209282695,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 1.4564964166592416,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "alfred_sisley",
+      "distance": 2.87800652388354,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 1.2121864730840297,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 1.1526129644498875,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 1.917059195371394,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 1.2584752293777988,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 1.03471901387947,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 1.721916069754944,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 0.8715874293538928,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 0.8794619831193047,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 1.7123014751885266,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 2.0936865585238653,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 1.9027545400413906,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "camille_pissarro",
+      "distance": 2.8760431694927453,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 0.9540070540295142,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 1.1261018586969582,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 1.8179310768453376,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 1.1434265513675246,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 1.3378927032399126,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 2.0447102373768455,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 1.3335522674990667,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 1.3049894319093664,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 2.393868507453236,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 0.7591406956931188,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 0.6450429992718774,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "paul_cezanne",
+      "distance": 2.031354877308557,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 1.4113955851452147,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 0.20610395497205225,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 1.306132291593984,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 1.273287022826851,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 0.3483854824449688,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 1.3971382116963644,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 1.21327501275543,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 0.6024113019321651,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 1.2571138999873073,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 0.5867822274373742,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 0.6714031272024141,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-1",
+      "condition": "artist_free",
+      "distance": 1.3470531096363998,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 0.5003885222942783,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 0.8220854827202841,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 1.6419154037220098,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 0.6326970236962894,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 0.7753452425413356,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 1.4169939711962394,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 0.6524648193353937,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 0.7752059099089994,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 1.6151221896833812,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 1.6161178837907972,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 1.6412720696327447,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 2.594132247021549,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 0.8602255725989802,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 0.5758913880340772,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 1.571585873516344,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 0.7529104736001548,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 0.5664964262778698,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 1.3201149763709745,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 0.7505747219564591,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 0.7235011387193739,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 1.5326415059394085,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 2.2373713716756365,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 1.3338635555107135,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 2.6512738386676165,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 1.5449377592480538,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 0.9366180770878003,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 1.502507399288207,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 1.471634519060061,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 0.8747656911622448,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 1.3710630417148444,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 1.009620987710992,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 0.7653347704961937,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 1.337881042027714,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 2.375494272286266,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 1.6234730530463977,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 2.512131027571584,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 0.8863972095218038,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 1.0204971751256076,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 1.7108485140743235,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 1.0341603107727704,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 1.2629072418907916,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 2.0430251249080973,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 1.0871069095908747,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 1.2796754356646023,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 2.2700342254810266,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 0.8232198333655629,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 0.6341135030734515,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 2.119113419741493,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 1.3628606961102503,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 0.23327946658562215,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 1.3959113721031202,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 1.2397910392638014,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 0.3938155625770534,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 1.7389514314038426,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 1.1663407274738664,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 0.7134897458401155,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 1.4044167324959576,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 0.6522332344627864,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 0.8298542789461831,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 1.6807156107350463,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "by_name",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 0.8584413967134195,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 1.0235893715638826,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 1.857634063975959,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 1.0739629725285496,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 0.9309330764492274,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 1.567891319515082,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 1.2962430453308293,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 0.9023690825410879,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 1.76581943474891,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 2.048895371290354,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 1.8995216956076595,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 2.8191761245358684,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 0.884253022843319,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 0.7557270686300597,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 1.7772538633345412,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 0.7951407647818973,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 0.666875113973528,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 1.4363120458929037,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 0.7993095109604176,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 0.7232258903394104,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 1.7026714927058144,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 2.260109709351029,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 1.5403718294037487,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 2.8409221984936956,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 1.5222529920533283,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 1.1793273316179345,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 1.8705407767963298,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 1.5114273889590435,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 1.04247405933273,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 1.6689955360291069,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 1.040401628244715,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 0.8961626952765205,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 1.6312055876515055,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 2.339116660204766,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 1.9803416278629034,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 2.847625300712929,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 0.9701942637287577,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 1.2392535870188557,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 1.8612438132783502,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 1.1588494224679522,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 1.4817028647574972,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 2.2546536981109577,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 1.289439920063463,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 1.459563404430235,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 2.481881029949035,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 0.8319554772643731,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 0.7390550771242761,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 2.2289329030682152,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 1.3355609080065243,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 0.23303950734525536,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 1.1634653313633452,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 1.1562480220414035,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 0.37861381316555764,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 1.390102970423698,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 1.128104381327164,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 0.6742179925799978,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 1.1082397226025171,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 0.608844882435509,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 0.78862463192679,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 1.4609719658238403,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_instruction",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 0.8952636009061483,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 0.9604716395387869,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 1.8318115506586814,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 1.1450535892708018,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 0.8851611185770376,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 1.5434364290467086,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 1.3917673530707053,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 0.8746145796861109,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 1.7309418540855117,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 1.9959263342235567,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 1.7985432786655737,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "claude_monet",
+      "distance": 2.769891730535474,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 0.8647113045040626,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 0.7823439943684973,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 1.786639678165911,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 0.8004376585915174,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 0.6866485707986825,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 1.4708727533466273,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 0.9031502325520568,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 0.7399082035988203,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 1.704898767923281,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 2.282980380115645,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 1.564724025211559,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "alfred_sisley",
+      "distance": 2.889775213420421,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 1.250035180722826,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 1.1939579091630457,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 1.974733730176664,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 1.2987050233562751,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 1.0457168110968145,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 1.7350964108772082,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 0.8908976013616612,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 0.8946137335203452,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 1.7308288939712373,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 2.1782279775623956,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 1.9996626338881238,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "camille_pissarro",
+      "distance": 2.9514715433984633,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 0.9412482364786725,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 1.1547395874563187,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 1.7071481993792343,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 1.1331058930949958,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 1.3516529786394396,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 1.960586049384094,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 1.3029231474886456,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 1.2956594818558418,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 2.261725562088226,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 0.7813665578564586,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 0.6886057819877818,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "paul_cezanne",
+      "distance": 1.936714060597992,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 1.4069884494665903,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 0.2291550685253978,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 1.2642229323672942,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "claude_monet",
+      "reference_count": 297
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 1.2695316362492615,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 0.37846711735752026,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 1.4490497392207482,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "alfred_sisley",
+      "reference_count": 106
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 1.201050950691175,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 0.610556535480745,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 1.255165724245126,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "camille_pissarro",
+      "reference_count": 141
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 0.6179744291385747,
+      "family": "color",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 0.6585465424127372,
+      "family": "spatial",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    },
+    {
+      "alias": "gpt-image-2",
+      "condition": "artist_free",
+      "distance": 1.4239555967093822,
+      "family": "texture",
+      "generated_count": 64,
+      "method_id": "style_aspects",
+      "painter_id": "paul_cezanne",
+      "reference_count": 105
+    }
+  ],
+  "inference": "post-hoc descriptive completion; no new p-values, CIs or confirmatory claim",
+  "measured": 1920,
+  "original_primary_status": "unavailable_incomplete_grid",
+  "reference_counts": {
+    "alfred_sisley": 106,
+    "camille_pissarro": 141,
+    "claude_monet": 297,
+    "paul_cezanne": 105
+  },
+  "retried_measured": 2,
+  "retries": [
+    {
+      "condition": "camille_pissarro",
+      "sequence": 415,
+      "status": "measured"
+    },
+    {
+      "condition": "paul_cezanne",
+      "sequence": 1718,
+      "status": "measured"
+    }
+  ],
+  "run_id": "ppr1-two-refusals-20260906",
+  "scaler_development_counts": {
+    "alfred_sisley": 36,
+    "camille_pissarro": 48,
+    "claude_monet": 101,
+    "paul_cezanne": 36
+  },
+  "source_run_id": "pps1-gpt-prompts-20260905",
+  "weighting": "each scene has mass 1/16; uniform within successful scene outputs"
+}

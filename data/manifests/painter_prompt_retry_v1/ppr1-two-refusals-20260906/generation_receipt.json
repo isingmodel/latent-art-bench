@@ -1,0 +1,23 @@
+{
+  "attempted": 2,
+  "completed_at_utc": "2026-09-06T00:57:04.739636+00:00",
+  "inputs": [
+    {
+      "path": "data/manifests/painter_prompt_retry_v1/ppr1-two-refusals-20260906/generation_events.jsonl",
+      "sha256": "3f661caffc9163ce6c3e29b9b33791cc44ee7472c83e40d6047ea4f67e84bd4e"
+    },
+    {
+      "path": "data/manifests/painter_prompt_retry_v1/ppr1-two-refusals-20260906/outputs.jsonl",
+      "sha256": "647b51080352ca5fec77b33f88384bb41cbd935b19472f327429fa8162f9b8ec"
+    },
+    {
+      "path": "data/manifests/painter_prompt_retry_v1/ppr1-two-refusals-20260906/retry_freeze.json",
+      "sha256": "0508dd73e6b14c2ebc72761ce9182b82a1c580af4c7e5181b199c781f17cb6b6"
+    }
+  ],
+  "run_id": "ppr1-two-refusals-20260906",
+  "statuses": {
+    "generated": 2
+  },
+  "terminal": true
+}

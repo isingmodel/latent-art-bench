@@ -1,0 +1,26 @@
+{
+  "completed_at_utc": "2026-09-06T00:57:31.827316+00:00",
+  "inputs": [
+    {
+      "path": "data/manifests/painter_prompt_retry_v1/ppr1-two-refusals-20260906/generation_receipt.json",
+      "sha256": "9d9642ecba58400cfb177c9ac4e9774b716727e4e1f63ad25b68e71f763397f0"
+    },
+    {
+      "path": "data/manifests/painter_prompt_retry_v1/ppr1-two-refusals-20260906/measured_features.jsonl",
+      "sha256": "6f7d1bfec745f002a6ac70cd342240b60bd82edb6181dcdae4262acc8a5f0dac"
+    },
+    {
+      "path": "data/manifests/painter_prompt_retry_v1/ppr1-two-refusals-20260906/measurement_events.jsonl",
+      "sha256": "5be0489bd916d443ceabdc71b07d1c174098a159a9a36ed63df05c0f7a4ff998"
+    },
+    {
+      "path": "data/manifests/painter_prompt_retry_v1/ppr1-two-refusals-20260906/outputs.jsonl",
+      "sha256": "647b51080352ca5fec77b33f88384bb41cbd935b19472f327429fa8162f9b8ec"
+    }
+  ],
+  "run_id": "ppr1-two-refusals-20260906",
+  "statuses": {
+    "measured": 2
+  },
+  "terminal": true
+}
