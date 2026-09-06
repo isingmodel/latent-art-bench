@@ -1,4 +1,4 @@
-# Current status and research boundary — 2026-09-06
+# Current status and research boundary — 2026-09-07
 
 ## Active goal: implement the controlled study and paper prototype
 
@@ -17,7 +17,8 @@ The user reaffirmed $75 after the authenticated
 preflight showed about $50 available and stated that replenishment is configured. This supersedes
 the interim $45 planning limit. The technical pilot spent **$0.8304855**. The first parallel collector is terminal after a diagnosed refusal.
 Its closing study charges were $3.3797815, with no unresolved intents or charges;
-the frozen remaining-slot continuation is now running.
+the remaining-slot continuation later stopped on a complete FLUX 502 with missing cost.
+It retains 51 more images and that failure. A narrowly bounded recovery is being prepared.
 
 Stage A is complete. The [diagnostic report](../reports/painter_distribution_study_v1/pdsv1-diagnostics-20260906/REPORT.md)
 and all 18 output files reproduce byte-for-byte. Content-equal spread ratios are 0.211–0.372 for
@@ -107,12 +108,34 @@ remain failed observations; unknown/bad requests still stop, and predecessor
 failures continue to count toward the route failure-cluster rule. Combined results
 will retain all original slot identities, the 47 prior images and the missing refusal.
 Continuation source/terminal evidence was committed at `29027dd`, its freeze
-at `ec4ef09`, before resumed dispatch. Its coordinator is running. The first nine
+at `ec4ef09`, before resumed dispatch. That coordinator later closed as described
+below. The first nine
 continuation outcomes were successful, across all three routes; recorded study charges
 were $3.8616185 at that early check, with no stop event or uncertain charge. All **828 offline
 tests**, Ruff and the 2,902-check historical evidence audit pass.
 No generated fidelity vector has been measured. The 11-page paper now specifies
 the controlled statistics and their assumptions; final data/results remain pending.
+
+### Complete transient failure and reserved-cost recovery
+
+The remaining-slot collector is now also terminal: 52 attempts, 51 images and one
+complete FLUX HTTP 502 submission error (`slot0108`), with no image, generation ID
+or reported charge. All 52 raw responses verified. Across both censuses there are
+100 original attempted slots and 98 images. Provider-reported study charges are
+$5.601998; raw conservative accounting retains another $5 for the missing cost.
+There is no unresolved request, but the frozen accounting marks the cost unknown.
+
+OpenRouter's published Image API billing policy waives failed-image requests. The
+[new recovery contract](../studies/painter_distribution_study_v1/TRANSIENT_RECOVERY.md)
+does not invent a zero-cost receipt: it retains the full $5 reserve while allowing
+one technical retry of this narrowly identified complete error. Incomplete or
+unclassified responses still stop; the refusal rule and failure-cluster guard remain.
+The recovery implements 908 untouched original slots plus one bound retry of
+`slot0108`, with the unchanged study design, schedule and caps. The earlier OAuth
+refusal stays missing. No generated features have been measured. All 838 offline tests,
+Ruff and the 2,902-check historical evidence audit pass. The updated 11-page PDF has
+been rendered and visually checked. The new source and execution freeze must be
+committed before dispatch; neither closed collector may be resumed.
 
 ## Original proposal snapshot, before execution authorization
 

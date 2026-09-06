@@ -31,7 +31,7 @@ and [main contract](../studies/painter_distribution_study_v1/MAIN.md). Research 
 measurement and final paper results remain active work. The English LaTeX/PDF prototype is drafted
 with completed prior findings and prospective extension clearly separated. Seventy-six new artwork
 files are retained (five original-delivery files plus 71 successor thumbnails; these are not 76
-independent works). The parallel coordinator is running against its committed 14:30 UTC September 6
+independent works). The first parallel coordinator ran against its committed 14:30 UTC September 6
 origin (`1751557` source / `7ead740` freeze); all 210 reference vectors succeeded.
 Generated measurement waits for terminal collection. The first live sample verified three
 concurrent requests, one per route, ≥5.0043-second starts and six successful returns.
@@ -45,13 +45,28 @@ The generic HTTP 400 rule overclassified this as a contract failure. All 48 raw
 responses verified; recorded total study charge is $3.3797815, with no uncertain
 charge or unresolved request. `continuation.py` executes only the 960 unattempted
 slots at disjoint paths, retaining the original schedule and limits. The refusal
-is not retried or rewritten. `continuation_results.py` will combine both component
-receipts, measure their successful outputs and call the frozen scientific analysis.
+is not retried or rewritten. Its planned `continuation_results.py` is now superseded
+by the three-component recovery below; do not run that closed census's analysis.
 The 47 prior images are retained; the same missing-pair rules handle the refusal.
 Continuation source/terminal evidence was committed at `29027dd` and the new
-execution freeze at `ec4ef09`; the sole live coordinator uses `continuation run --watch`.
-The old collector session is terminal. All 828 offline tests, Ruff and the historical
+execution freeze at `ec4ef09`; its coordinator subsequently closed on the failure below.
+Both old collector sessions are terminal. All 828 pre-recovery offline tests, Ruff and the historical
 evidence audit pass. Read the new refusal continuation contract and current status.
+
+**Newest operational correction:** `pdsv1-main-continuation-20260906` is now
+permanently terminal at 52 attempts (51 images, one complete FLUX 502 at `slot0108`).
+Its missing `usage.cost` triggered the frozen uncertainty guard. All raw responses
+verified. The original two components now total 100 attempted slots / 98 images.
+Provider-reported study charges are $5.601998 plus a retained $5 contingency.
+OpenRouter documents failed-image billing waivers, but the raw cost stays null;
+`TRANSIENT_RECOVERY.md` defines a narrow complete-error exception with the reserve
+kept intact. New `recovery.py` and `recovery_results.py` passed qualification for
+908 untouched initial slots and one exact-payload FLUX retry. The final view binds
+three components and validates the sole cross-census retry update; the OAuth refusal
+is not retried. Neither older process is live. Freeze the new implementation before
+resuming generation, and keep all existing outcomes and scientific inputs unchanged.
+All 838 offline tests, Ruff and the 2,902-check historical evidence audit pass.
+The updated 11-page paper PDF has been rendered and visually checked.
 
 **Latest exploration — 2026-09-06:** the user requested scatter plots of original versus
 painter-conditioned generated feature distributions. The new

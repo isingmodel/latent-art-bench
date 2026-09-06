@@ -7,18 +7,22 @@ replacing it. The $75 ceiling includes pilot charges, failures and bounded retri
 
 ## Preparation and collection
 
-Metadata, pilot, reference delivery, scientific design freeze and development
-remeasurement are complete and must not be rerun. The sequential collector is
-permanently closed with zero research attempts. The first staggered parallel census is also terminal: 47 images and one explicit
-OAuth moderation refusal. The [remaining-slot continuation](../studies/painter_distribution_study_v1/REFUSAL_CONTINUATION.md)
-executes only its 960 unattempted slots and combines both sets of recorded outcomes
-for the unchanged scientific design. The refused slot is not retried or rewritten. Its new implementation and
-contract must be committed before preparing its create-once execution freeze:
+Metadata, pilot, reference delivery, scientific design and all reference/development
+measurement are complete. The unused sequential collector and two parallel censuses
+are permanently terminal. The latter retain 100 original slot outcomes: 98 images,
+one OAuth moderation refusal and one complete FLUX 502 failure with no reported cost.
+
+The [bounded recovery](../studies/painter_distribution_study_v1/TRANSIENT_RECOVERY.md)
+executes 908 unattempted original slots and one authorized technical retry of the
+FLUX failure. It preserves the refused slot, all successes and the missing reported
+cost, retaining a $5 contingency against the spending ceiling. Commit its new
+source, tests, contract and predecessor evidence before preparing its create-once
+freeze, then commit the freeze before dispatch:
 
 ```bash
-uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.continuation prepare
+uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.recovery prepare
 # Commit execution_freeze.json before running check or dispatching.
-uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.continuation check
+uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.recovery check
 ```
 
 Collection uses three workers, one active call per model route, and globally
@@ -27,28 +31,28 @@ separation across days. Calls spend credit; the `.env` key stays private. Run on
 coordinator only:
 
 ```bash
-uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.continuation run --watch
-uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.continuation status
+uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.recovery run --watch
+uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.recovery status
 ```
 
 Without `--watch`, the collector executes currently due slots and returns while
 waiting for a later window. It does not close the run merely because a window is
 not due. A completed initial attempt is never sent again on resumption. The
 prospective conditional retry has its own child census ID and source-linked
-evidence. An unknown outcome/charge or a failure cluster stops further dispatch;
+evidence. An unclassified unknown outcome/charge or a failure cluster stops further dispatch;
 inspect the cause before a separately frozen successor, never alter a receipt.
 
 ## Measurement and analysis
 
 The 70-work reference panel and all development scalers are already measured
 and verified; never rerun them. Once the remaining-slot collection is complete,
-bind both terminal components into the combined collection receipt, then measure
+bind all three terminal components into the combined collection receipt, then measure
 the selected successful images. Each writing command is create-once:
 
 ```bash
-uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.continuation_results combine
-uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.continuation_results generated
-uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.continuation_results analysis
+uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.recovery_results combine
+uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.recovery_results generated
+uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.recovery_results analysis
 ```
 
 The primary scaler is unchanged. The 256-pixel and JPEG sensitivities each fit
@@ -58,8 +62,8 @@ or generated measurement. No model weights or learned encoders are needed.
 Nonmutating reproducibility checks:
 
 ```bash
-uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.continuation_results analysis --check
-uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.continuation_results generated --check
+uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.recovery_results analysis --check
+uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.recovery_results generated --check
 ```
 
 The analysis check replays numeric results. The measurement check reopens retained

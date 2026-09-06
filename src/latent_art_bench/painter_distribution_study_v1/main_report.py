@@ -23,7 +23,7 @@ from latent_art_bench.painter_feature_generation_v2.artifacts import (
 )
 from latent_art_bench.painter_prompt_study_v1.common import committed
 
-from . import continuation as p
+from . import recovery as p
 from . import study as s
 
 DIRECTORY = Path("reports") / "painter_distribution_study_v1" / p.RUN_ID
@@ -256,19 +256,27 @@ def markdown(data):
         f"Terminal slots: {accounting['terminal_slots']}/1,008. "
         f"Dispositions: `{json.dumps(accounting['dispositions'], sort_keys=True)}`.",
         "",
-        f"Total study accounting including pilot and retries: ${budget['accounted_usd']:.7f}; "
-        f"{budget['attempts']} attempts, {budget['paid_attempts']} paid. "
-        f"Unresolved intents: {budget['unresolved']}; uncertain charges: {budget['uncertain']}.",
+        f"Conservative study accounting including pilot, retries and reserves: "
+        f"${budget['accounted_usd']:.7f}; {budget['attempts']} attempts, "
+        f"{budget['paid_attempts']} paid. Provider-reported charges: "
+        f"${budget.get('provider_reported_usd', budget['accounted_usd']):.7f}. "
+        f"Retained failed-call contingency: ${budget.get('contingency_reserve_usd', 0):.2f} "
+        f"for {budget.get('missing_cost_failures', 0)} cost-omitting failed calls. "
+        f"Unresolved intents: {budget['unresolved']}; "
+        f"unclassified uncertainty: {budget['uncertain']}.",
         "",
         "Three concurrent route workers use at most one call per route, with globally "
         "recorded starts at least five seconds apart. Actual timing and availability remain "
         "part of the evidence. GPT Image 2 is a local service alias, not an attested snapshot.",
         "",
-        "This derived view retains the stopped parallel predecessor's 48 outcomes "
-        "(47 images and one OAuth moderation refusal) and the continuation of its 960 "
-        "unattempted slots. The refusal was not retried, rewritten or rerouted. "
-        "The predecessor remains terminal; the continuation preserves the original "
-        "scientific inventory, reference and endpoints.",
+        "This derived view retains two stopped predecessors: 48 initial outcomes "
+        "(47 images and one OAuth moderation refusal), then 52 outcomes "
+        "(51 images and one FLUX 502 submission failure). Recovery executes the "
+        "908 unattempted original slots and one bound technical retry of the FLUX "
+        "failure. The OAuth refusal was not retried, rewritten or rerouted. "
+        "Both predecessors remain terminal. Missing reported costs retain $5 "
+        "contingencies despite OpenRouter's documented failed-image billing waiver; "
+        "the report does not substitute that policy for a per-request invoice.",
         "",
         "The primary comparison uses all 31 features, the fixed historical development "
         "scaler, and generated content masses matched to each finite reference panel. "
@@ -355,7 +363,7 @@ def markdown(data):
         "",
         "```bash",
         "uv run --locked --extra analysis python -m "
-        "latent_art_bench.painter_distribution_study_v1.continuation_results analysis --check",
+        "latent_art_bench.painter_distribution_study_v1.recovery_results analysis --check",
         "uv run --locked --extra analysis python -m "
         "latent_art_bench.painter_distribution_study_v1.main_report check",
         "```",

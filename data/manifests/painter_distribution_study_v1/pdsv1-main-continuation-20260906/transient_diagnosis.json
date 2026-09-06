@@ -1,0 +1,16 @@
+{
+  "diagnosis": "A complete explicit upstream submission failure omitted usage.cost. The prior guard correctly stopped under its frozen rule.",
+  "http_status": 502,
+  "policy_source": "https://openrouter.ai/blog/tutorials/image-generation-models/",
+  "prospective_resolution": "Preserve the missing reported cost and its $5 reserve. A new protocol may distinguish this complete failed submission from an unknown outcome and authorize one technical retry.",
+  "provider": "Black Forest Labs",
+  "reported_cost_usd": null,
+  "request_id": "slot0108",
+  "response_complete": true,
+  "returned_generation_id": false,
+  "returned_image": false,
+  "source_run_id": "pdsv1-main-continuation-20260906",
+  "successful_images": 51,
+  "support_source": "https://openrouter.zendesk.com/hc/en-us/articles/51693138951451-Was-I-charged-for-a-failed-errored-or-empty-response-Zero-Completion-Insurance",
+  "verified_terminal_raw_responses": 52
+}
