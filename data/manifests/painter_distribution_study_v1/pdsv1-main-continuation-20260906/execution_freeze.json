@@ -1,0 +1,135 @@
+{
+  "budget": {
+    "accounted_usd": 3.379781499999998,
+    "attempts": 66,
+    "paid_attempts": 49,
+    "uncertain": 0,
+    "unresolved": 0
+  },
+  "content_weights": {
+    "claude_monet": {
+      "built": 0.10526315789473684,
+      "land": 0.34210526315789475,
+      "water": 0.5526315789473685
+    },
+    "paul_cezanne": {
+      "built": 0.34375,
+      "land": 0.5625,
+      "water": 0.09375
+    }
+  },
+  "inputs": [
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-parallel-20260906/execution_freeze.json",
+      "sha256": "8eceae37060c8af3f2887f9f3530e61f62d38a546bf9c75508c01107d207e19c"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-parallel-20260906/generation_events.jsonl",
+      "sha256": "bb7fc6cdf184e9bc117b160465f7d78a8c46873da638c615efb6e44cbc15f214"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-parallel-20260906/generation_receipt.json",
+      "sha256": "407926a20629426332c063f1f83c86c4a8a5e7c33117b92757b19ffccc052448"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-parallel-20260906/operator_events.jsonl",
+      "sha256": "e8ca2edc6242c59357b1620963c87874d39c6155586d8cd23e421f5c95f832b8"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-parallel-20260906/reference_features.jsonl",
+      "sha256": "22b1b57bc4ee468e4e21fe171330f397acc70c625a86df18786a0d73a660a39e"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-parallel-20260906/reference_measurement_receipt.json",
+      "sha256": "2dae5ed8e5b0fcfa73c428c094b87f51bc331879c728f711310e94b577272f1a"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-parallel-20260906/refusal_diagnosis.json",
+      "sha256": "4ace498a1e195c6223b884010eb489cb9fbdecc6e2db64da06c38963ea120180"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-parallel-20260906/slot_events.jsonl",
+      "sha256": "a20934aef1cfdfc8e4681f049b3d5909f602852d7e44115e9402c04ed292ad75"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/continuation.py",
+      "sha256": "3aec67eefe8a80a2338c3a7f4fe45a9c1736ccf8b1c05ae5256972fbae5e8658"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/continuation_results.py",
+      "sha256": "c07e86ae9d86cf02a75db54efb853b7c22058f4d6a973d40bb555c09f71d027c"
+    },
+    {
+      "path": "studies/painter_distribution_study_v1/REFUSAL_CONTINUATION.md",
+      "sha256": "6e5735d1e837b8ebf90e380ecdef467e2f79616776588c56edb7c2d27cd01761"
+    },
+    {
+      "path": "tests/painter_distribution_study_v1/test_continuation.py",
+      "sha256": "832f485ae14fe12cc933bef9e67fc01d429bf1d68e8b21b1381c2559ad29b45f"
+    },
+    {
+      "path": "tests/painter_distribution_study_v1/test_continuation_results.py",
+      "sha256": "730a316d80725a96e5c10205997f4fe08d869a34ca6c0ffff7f85a7ad5834df4"
+    }
+  ],
+  "maximum_in_flight": 3,
+  "maximum_per_route": 1,
+  "minimum_start_interval_seconds": 5,
+  "predecessor_id": "pdsv1-main-parallel-20260906",
+  "proxy_source": {
+    "address": "127.0.0.1",
+    "executable": "bun",
+    "files": [
+      {
+        "path": "README.md",
+        "sha256": "936776962658061102d4485e970016f230fac822ff298d991aee6cccf8b05b3e"
+      },
+      {
+        "path": "packages/openai-oauth/src/images.ts",
+        "sha256": "25ee6fe00dc96edecc3483415177071635dc9d3d51e8a55de38a608fbfa16aa4"
+      },
+      {
+        "path": "packages/openai-oauth/src/server.ts",
+        "sha256": "15d0d5fb65a2ed6040d32cf49868012d746b90cf8224389a6488aa5a526d1ea2"
+      },
+      {
+        "path": "packages/openai-oauth/src/shared.ts",
+        "sha256": "09bbd833287916cf5cad7c74e687531ba0779b630b0d3458e34ec7df417d36aa"
+      },
+      {
+        "path": "packages/openai-oauth-core/src/auth.ts",
+        "sha256": "5fd0f44eba9e17153d726407797a2c5b9402b36cefca7d382105c5391c4c699f"
+      },
+      {
+        "path": "packages/openai-oauth-core/src/image-models.ts",
+        "sha256": "ab0507b1768cfd051e1f82d73946d5582163fd4dd7591b371463957c6c59c66b"
+      },
+      {
+        "path": "packages/openai-oauth-core/src/transport.ts",
+        "sha256": "c2470c60bea8c0eb98a7eb247e6d3e8e11cebf726e65c3ff3443c9d9b0be09f4"
+      }
+    ],
+    "pid": 93760,
+    "port": 10532,
+    "recorded_git_commit": "0a664bcc8e09649fcdd558e0bfbdd6447b85bca2",
+    "source_directory": "packages/openai-oauth",
+    "started_utc": "Sat Sep  5 01:05:53 2026"
+  },
+  "recorded_git_commit": "29027dd6e1c0a7fb57cea5327d78cf92d76eaebc",
+  "request_inventory_sha256": "92e7e340c678f3588d5becf53bc8883fa8a8df06b87a2b1cd2ed97ddb00a1126",
+  "run_id": "pdsv1-main-continuation-20260906",
+  "scientific_freeze_sha256": "71a02ecb92c03245a5576ab521d95cf888dec89e4e630af79df80dafe2e8a483",
+  "scientific_total_slots": 1008,
+  "total_slots": 960,
+  "window_offsets_hours": [
+    0,
+    3,
+    6,
+    9,
+    24,
+    27,
+    30,
+    33
+  ],
+  "window_origin_unix": 1788705000
+}
