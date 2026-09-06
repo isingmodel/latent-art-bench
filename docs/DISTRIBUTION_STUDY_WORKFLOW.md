@@ -7,22 +7,27 @@ replacing it. The $75 ceiling includes pilot charges, failures and bounded retri
 
 ## Preparation and collection
 
-The metadata and technical pilot stages are complete and must not be rerun.
-For the not-yet-created main design, commit all code, tests, contracts, annotation
-and qualification inputs, prepare the freeze, then commit its four inventory/
-freeze files before dispatch. Preparation is create-once:
+Metadata, pilot, reference delivery, scientific design freeze and development
+remeasurement are complete and must not be rerun. The sequential collector is
+permanently closed with zero research attempts. The user-requested
+[parallel successor](../studies/painter_distribution_study_v1/PARALLEL_COLLECTION.md)
+keeps the 1,008 frozen payloads and scientific design. Its new implementation and
+contract must be committed before preparing its create-once execution freeze:
 
 ```bash
-uv run --locked python -m latent_art_bench.painter_distribution_study_v1.study prepare
-uv run --locked python -m latent_art_bench.painter_distribution_study_v1.study check
+uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.parallel_collection prepare
+# Commit execution_freeze.json before running check or dispatching.
+uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.parallel_collection check
 ```
 
-Collection uses the committed earliest UTC window times and actual provider calls.
-It spends credit. The `.env` key stays private. Run one collector only:
+Collection uses three workers, one active call per model route, and globally
+staggered starts at least five seconds apart. Eight prospective UTC windows retain
+separation across days. Calls spend credit; the `.env` key stays private. Run one
+coordinator only:
 
 ```bash
-uv run --locked python -m latent_art_bench.painter_distribution_study_v1.collection run --watch
-uv run --locked python -m latent_art_bench.painter_distribution_study_v1.collection status
+uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.parallel_collection run --watch
+uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.parallel_collection status
 ```
 
 Without `--watch`, the collector executes currently due slots and returns while
@@ -34,15 +39,14 @@ inspect the cause before a separately frozen successor, never alter a receipt.
 
 ## Measurement and analysis
 
-After the main freeze is committed, process development and references. Generated
-measurement requires a terminal collection receipt. All three stages retain their
-failures and source hashes. Each command writes once:
+After the successor freeze is committed, process the reference panel. Generated
+measurement requires a terminal collection receipt. Both stages retain failures
+and source hashes in the successor directory. Each command writes once:
 
 ```bash
-uv run --locked python -m latent_art_bench.painter_distribution_study_v1.measurement development
-uv run --locked python -m latent_art_bench.painter_distribution_study_v1.measurement reference
-uv run --locked python -m latent_art_bench.painter_distribution_study_v1.measurement generated
-uv run --locked python -m latent_art_bench.painter_distribution_study_v1.analysis build
+uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.parallel_results reference
+uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.parallel_results generated
+uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.parallel_results analysis
 ```
 
 The primary scaler is unchanged. The 256-pixel and JPEG sensitivities each fit
@@ -52,13 +56,14 @@ or generated measurement. No model weights or learned encoders are needed.
 Nonmutating reproducibility checks:
 
 ```bash
-uv run --locked python -m latent_art_bench.painter_distribution_study_v1.analysis check
-uv run --locked python -m latent_art_bench.painter_distribution_study_v1.measurement generated --check
+uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.parallel_results analysis --check
+uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.parallel_results generated --check
 ```
 
 The analysis check replays numeric results. The measurement check reopens retained
 raw images and recomputes their features; it makes no provider request. The same
-flag works for development/reference stages. Raw image bytes are ignored local
+flag works for the successor reference stage. Completed development replays through
+its original `measurement development --check` command. Raw image bytes are ignored local
 evidence and must be archived separately from Git; see [ARTIFACTS.md](ARTIFACTS.md).
 
 ## Validation and writing

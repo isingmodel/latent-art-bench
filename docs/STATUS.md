@@ -63,7 +63,7 @@ fidelity vectors have not been measured.
 Before the first research POST, the user requested staggered parallel calls. The sequential
 collector was stopped while waiting for its first window and permanently closed with status
 `superseded_before_dispatch`: **zero research attempts**. A prospective parallel successor is
-being implemented with at most three in-flight requests, at least five seconds between starts,
+implemented with at most three in-flight requests, at least five seconds between starts,
 and one active request per model route. It will retain the frozen content/analysis design and
 the $75/1,050-attempt caps, with new execution paths and predecessor-bound evidence.
 
@@ -75,7 +75,7 @@ the new collection and preserves all terminal historical evidence.
 `.env` is ignored and untracked. Tectonic, Pandoc and Poppler are available. Free storage was
 18.7 GiB at preflight; every collection stage preserves the 5 GiB reserve. Stage A validation:
 Ruff passed; the earlier pilot-stage suite passed 779 tests before the main implementation.
-The current total is 813 as recorded above. The historical v1 evidence audit passes 2,902 checks. No subagent or
+The parallel implementation adds six offline tests; current validation is recorded below. The historical v1 evidence audit passes 2,902 checks. No subagent or
 institutionally independent review was used.
 
 ## Original proposal snapshot, before execution authorization

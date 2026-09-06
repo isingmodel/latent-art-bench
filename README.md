@@ -5,6 +5,13 @@ reference paintings**. The current analysis uses Monet, Sisley, Pissarro, and CÃ
 interpretable color, spatial/orientation, and digital-texture features; and the existing SD-Turbo,
 `gpt-image-1`, and `gpt-image-2` service outputs.
 
+The active [controlled distribution study](docs/DISTRIBUTION_STUDY_WORKFLOW.md)
+adds Google Nano Banana 2 and FLUX.2 Max, alongside the OAuth GPT Image 2 service,
+with 1,008 planned images, matched content controls and a $75 ceiling. Collection
+uses three concurrent route workers with starts staggered by at least five seconds.
+The [English paper prototype](papers/painter_distribution_study_v1/README.md)
+separates completed historical results from the pending controlled comparison.
+
 The new [distribution scatter and separability report](reports/painter_distribution_exploration_v1/REPORT.md)
 compares original and generated point clouds in common PCA views and evaluates their separability
 in the full feature space. This post-hoc exploration uses existing measurements and adds no images.

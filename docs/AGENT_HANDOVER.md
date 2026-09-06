@@ -22,9 +22,9 @@ passed both fixed-seed phases. The main 1,008-slot collector, bounded retry hand
 pipelines and fixed analysis are implemented. Main source/freeze commits are `d06cb95`/`a03503b`;
 all 442 development sensitivity vectors succeeded. Before the first research POST, the user
 requested staggered parallel generation. The waiting sequential collector was stopped and
-permanently closed with zero research attempts. Implement a disjoint parallel successor with
+permanently closed with zero research attempts. The implemented disjoint parallel successor uses
 at most three in flight, five seconds between starts, and one active request per model route;
-reuse the frozen scientific primitives and completed development scalers. Do not edit the
+it reuses the frozen scientific primitives and completed development scalers. Do not edit the
 executed source or reopen the closed sequential census. Read
 [current status](STATUS.md), the [staged protocol](../studies/painter_distribution_study_v1/PROTOCOL.md)
 and [main contract](../studies/painter_distribution_study_v1/MAIN.md). Research generation,

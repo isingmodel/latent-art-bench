@@ -27,6 +27,7 @@ identities.
 - [Wikimedia delivery correction and reduced reference panel](../studies/painter_distribution_study_v1/REFERENCE_DELIVERY_R2.md)
 - [Conditional prompt inference and synthetic qualification](../studies/painter_distribution_study_v1/INFERENCE.md)
 - [Controlled main study: reference mixture, requests and analysis](../studies/painter_distribution_study_v1/MAIN.md)
+- [User-requested staggered parallel execution](../studies/painter_distribution_study_v1/PARALLEL_COLLECTION.md)
 - [Main-study execution and reproduction commands](DISTRIBUTION_STUDY_WORKFLOW.md)
 - [User-authorized bounded retry policy](../studies/painter_distribution_study_v1/RETRY_AMENDMENT.md)
 - [Prepared human construct-validation follow-up](../studies/painter_distribution_study_v1/HUMAN_FOLLOWUP.md)
