@@ -72,12 +72,12 @@ the eight original windows; the last opens September 7 at 23:30 UTC (September 8
 08:30 KST). Do not start another worker or measure generated features early.
 All 838 offline tests, Ruff and the 2,902-check historical evidence audit pass.
 The updated 11-page paper PDF has been rendered and visually checked.
-Windows 0 and 1 are complete: 252 original slots / 251 selected images / one
-retained refusal, with the extra FLUX retry successful. Window 1 has 126 initial
-successes. All 153 recovery response bodies and container metadata verified;
+Windows 0–2 are complete: 378 original slots / 377 selected images / one
+retained refusal, with the extra FLUX retry successful. Windows 1 and 2 each have
+126 initial successes. All 279 recovery response bodies and container metadata verified;
 the execution freeze and historical evidence audit pass. The same live coordinator
-is waiting for window 2 at September 6 20:30 UTC; 756 initial slots remain.
-Reported pilot-plus-study charges are $10.7932195 plus the retained $5 contingency,
+is waiting for window 3 at September 6 23:30 UTC; 630 initial slots remain.
+Reported pilot-plus-study charges are $15.774803 plus the retained $5 contingency,
 with no unresolved request or unclassified cost. This is operational accounting,
 not partial fidelity analysis. Do not re-run tests or other completed stages merely
 to fill scheduled waiting time; monitor the existing live session coarsely.
