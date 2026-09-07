@@ -5,7 +5,7 @@ reproductions of artists' paintings**, using 31 interpretable color, spatial and
 texture features. Historical studies cover Monet, Sisley, Pissarro and Cézanne.
 
 The current [methodological revision report](reports/painter_distribution_revision_v1/pdrv1-numeric-20260907/REPORT.md)
-and [revised English paper prototype](papers/painter_distribution_revision_v1/paper.pdf)
+and [rewritten English research manuscript](papers/painter_distribution_revision_v1/paper.pdf)
 use the completed **1,006 generated images, 70 reference paintings and 221 development
 works**. This separately frozen post-result revision adds four metric views,
 within/between-brief variation, reference influence, painter-label placebos,

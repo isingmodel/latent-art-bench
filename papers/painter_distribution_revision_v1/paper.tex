@@ -1,581 +1,607 @@
 \documentclass[11pt]{article}
 \usepackage[a4paper,margin=25mm]{geometry}
-\usepackage{amsmath,amssymb,graphicx,booktabs,tabularx,enumitem}
+\usepackage{amsmath,amssymb,graphicx,booktabs,tabularx}
 \usepackage[round,authoryear]{natbib}
+\usepackage[font=small,labelfont=bf]{caption}
 \usepackage[colorlinks=true,allcolors=blue]{hyperref}
-\usepackage{microtype,pdflscape}
-\graphicspath{{../../reports/painter_distribution_revision_v1/pdrv1-numeric-20260907/plots/}{../../reports/painter_distribution_study_v1/pdsv1-analysis-20260907/}}
-\setlength{\parskip}{3pt}
+\usepackage{microtype,flafter}
+\graphicspath{{figures/}}
 \setlength{\parindent}{1em}
+\setlength{\parskip}{2pt}
 \setlength{\emergencystretch}{2em}
-\title{Painter Naming Changes Feature Proximity and Variation:\\A Controlled Two-Painter Case Study}
-\author{Anonymous authors\\\small Revised research manuscript prototype}
-\date{7 September 2026}
+\clubpenalty=10000
+\widowpenalty=10000
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.08}
+\renewcommand{\floatpagefraction}{0.75}
+\newcommand{\E}{\widehat{\mathcal E}}
+\newcommand{\V}{\mathcal V}
+\title{Painter Naming and the Distribution of Generated Art:\\Feature Proximity and Variation in Two Painter Cases}
+\author{Anonymous authors}
+\date{}
 \begin{document}
 \maketitle
 \begin{abstract}
-Painter-conditioned images may approach a reference collection while reproducing
-only part of its measured variation. We compare 1,006 generated images from two
-paid routes and an OAuth service with 70 digital painting surrogates by Monet
-and C\'ezanne, using 24 shared briefs, three repetitions and randomized condition
-orders. With 31 fixed interpretable features, all four paid-route painter-naming
-contrasts reduce empirical energy discrepancy and reject the prespecified
-conditional sharp null after Holm adjustment. A declared post-result revision
-then examines metric weighting, variation decomposition, reference influence,
-coverage and cross-route detection without adding inferential tests. Named/free
-total-trace ratios remain below one across four metric views and three processing
-pipelines, but within-brief contraction is not universal: OAuth C\'ezanne's primary
-ratio is 1.139 despite aggregate contraction to 0.651. Removing texture reverses
-Nano Banana 2 Monet's proximity improvement at 256 pixels and its below-reference
-spread at 512 pixels. Fixed-threshold cross-route balanced accuracy decreases under naming in every
-tested direction. All paid outputs are square and all references nonsquare, so absolute
-detectability is vulnerable to nuisance differences. These results support a
-finite-feature account of prompt-conditioned proximity and variation, without
-validating perceptual style collapse. The original tests and evidence are
-preserved; the revision generates zero images and spends no additional budget.
+An image generator may produce a recognizable painter reference without reproducing
+variation across that painter's works. We examine how adding a painter's name
+changes the feature distribution of generated paintings, using 70 digital
+reproductions by Monet and C\'ezanne and 1,006 images from three generation
+services. Shared scene descriptions, repeated generation and randomized prompt
+order support within-service comparisons. In a fixed representation of 31 color,
+spatial and digital-texture features, naming reduces energy discrepancy from the
+reference panel in all six service--painter comparisons. The four Nano Banana 2
+and FLUX.2 Max contrasts reject the conditional randomization null after Holm
+adjustment across eight tests. Named collections have lower empirical aggregate variation than their matched
+artist-free collections in all 72 descriptive comparisons across feature views
+and processing pipelines. Decomposition shows that this does not uniformly mean less variation
+between repetitions of the same prompt. Proximity changes are less consistent across these views: removing
+texture and reducing resolution reverses one of those four primary directions. We conclude that painter naming changes both proximity and the
+organization of variation in these generated collections. The results concern
+measured digital-image distributions; reference selection, reproduction differences
+and absent human validation limit conclusions about artistic style.
 \end{abstract}
 
 \section{Introduction}
-The question motivating this study is whether painter-conditioned image
-generation reproduces the distribution of visual properties found across a
-painter's original works. A small distance to a painter's average feature vector
-does not answer this question: generated images can cluster tightly near that
-average while failing to reproduce variation across works. Conversely, a
-recognizable artistic reference may coexist with systematic differences in
-palette, spatial organization or digital texture.
+What does it mean for a generated collection to resemble a painter's work?
+Individual images can evoke a familiar palette or motif while covering only a
+small part of the variation present across the painter's paintings. Conversely,
+a collection can be diverse yet systematically differ from those paintings.
+Evaluating resemblance therefore requires more than distance to an average image
+or average feature vector. It requires comparing distributions and asking what
+kind of variation those distributions contain.
 
-We distinguish four properties: distribution discrepancy, within-set spread,
-reference coverage and painter specificity. None is an aesthetic quality score.
-The measured objects are digital reproductions of paintings and generated image
-files. Their comparison combines artistic choices with content, reproduction,
-resizing, encoding and service behavior. Treating every detectable difference as
-a failure of painter-style reproduction would overstate what the measurements identify.
+Painter naming offers a direct intervention with which to study this problem.
+Given the same description of a scene, adding ``in the style of Claude Monet''
+changes the artistic instruction while leaving the written scene description
+intact. The resulting images need not change only in style: the instruction may
+also affect composition, depicted content or service behavior. Nevertheless,
+the comparison identifies how the complete generation system responds to an
+explicit painter reference under a common prompt design.
 
-Our experimental question is whether adding a painter's name changes empirical
-feature discrepancy from that painter's finite reference panel. Spread and
-detection address separate descriptive questions. We do not treat a broad claim
-of ``style collapse'' as an already validated hypothesis. The four paid-route
-contrasts provide conditional assignment evidence; subsequent diagnostics locate
-which parts of the observed contraction depend on measurement or comparison target.
-The original controlled study and the post-result revision are reported separately.
-All review was maintainer-run LLM subagent review with coordinator checking,
-not independent human or institutional peer review.
+We study this intervention for Monet and C\'ezanne with two commercial model
+routes and a third image-generation service. The experiment uses 24 shared scene
+descriptions, three repetitions per description and a reference panel of 70
+paintings. We measure discrepancy from each painter's reference distribution
+using pairwise feature distances and measure variation within generated sets
+separately. A decomposition distinguishes variation between repetitions of the
+same description from variation between descriptions. This distinction matters:
+a narrower collection could result from more similar responses to different
+scenes, more consistent repetitions, or both.
 
-\section{Related work and the distinct research question}
-Quantitative art research has characterized painting collections using color,
-image statistics and information-theoretic measures
-\citep{kim2014,lee2020,sigaki2018}. Kim et al.'s 2026 study concerns contextual
-multimodal navigation through art-historical development \citep{kim2026}. Our
-sampling unit and target differ: we compare within-painter distributions across
-distinct works with newly generated text-to-image collections, with painter-name
-and prompt-content interventions. We do not claim to replicate its art-evolution
-analysis or its complete measurement system. Our fixed 31-feature representation
-is the existing implementation in this project.
+Our contribution is an empirical account of this prompt intervention and its
+measurement limits. The primary comparisons show that closer feature
+distributions can accompany reduced aggregate variation. Subsequent diagnostics
+locate that variation and test the dependence of the findings on feature choice,
+image processing and the reference panel. The study is a comparison of selected
+painter cases, rather than an estimate of how often a phenomenon occurs across
+art history. It also separates observable image statistics from perceptual
+judgments: neither proximity nor concentration alone establishes successful
+stylistic imitation or a loss of artistic diversity.
 
-Kim et al.\ analyze 72,447 paintings using learned formal/contextual vectors;
-their separate image-to-image experiment samples 500 source paintings per century
-and compares future-context tokens with an empty prompt. Our text-only painter-name
-intervention does not replicate that contextual instrument. AI-Pastiche evaluates
-artistic imitation with actual human authenticity and prompt-adherence surveys
-\citep{asperti2025pastiche,asperti2025pastichev1}; detailed methods here follow its
-12-generator, 73-prompt arXiv v1, with published metadata checked separately.
-AI-WikiArt instead uses 39,530 originals from 128 artists, captions of originals
-to condition three generators, and six VLMs for attribution judgments
-\citep{fu2025aiwikiart}. VLM judgments are not an independent human panel.
-Our narrower contribution is the randomized prompt comparison and decomposition
-of empirical distribution changes, not greater artist breadth or human validation.
+\section{Related work}
+Quantitative studies of art have used color statistics, image structure and
+information-theoretic measures to characterize variation across painting
+collections \citep{kim2014,sigaki2018,lee2020}. More recently,
+\citet{kim2026} combined learned formal and contextual representations to study
+art-historical development, including a context-conditioned image-to-image
+experiment. Our question is different: we use text-only generation to examine
+how a painter-name intervention changes the distribution of interpretable
+features relative to a finite set of that painter's works.
 
-Asperti's recent preprint reports separation of human and generated paintings
-in CLIP space and investigates preprocessing robustness, interpretable multiscale
-structure and inversion \citep{asperti2026}. Thus, scatter separation alone is not
-sufficient novelty for this work. We emphasize painter-conditional comparisons,
-explicit artist-free controls and the effects of prompt content on a fixed
-interpretable representation. We have not run CLIP or reproduced that preprint's
-inversion experiments. More generally, feature-space distinctions need not have
-the perceptual significance assumed by a style evaluator.
+Research on generated art has also examined artistic imitation and attribution.
+AI-Pastiche assesses generated paintings through human authenticity and
+prompt-adherence surveys \citep{asperti2025pastiche}. AI-WikiArt uses captions
+of original paintings to condition generation and evaluates attribution with
+vision-language models \citep{fu2025aiwikiart}. These approaches address judgments
+about individual images and their attribution. Our distribution-level analysis
+complements them by distinguishing feature proximity from variation across and
+within scene descriptions; it does not replace human evaluation.
 
-Generative-model evaluation separates fidelity and coverage for related reasons
-\citep{naeem2020}. Resizing and compression can change measured differences
-\citep{parmar2022}; digital-surrogate provenance is consequently part of the
-experimental design rather than a minor file-handling detail. Energy statistics
-provide a distributional comparison based on pairwise distances
-\citep{szekely2013}, without reducing each collection to its centroid.
+Separation between human and generated paintings in learned feature space is
+already documented and investigated by \citet{asperti2026}. Consequently,
+scatter separation or detection accuracy alone is not the contribution here.
+More generally, generative-model evaluation distinguishes fidelity from diversity
+and coverage \citep{naeem2020}, while preprocessing can substantially affect
+feature-based comparisons \citep{parmar2022}. We apply this distinction to
+painter naming and use energy discrepancy \citep{szekely2013} to compare full
+empirical distributions without reducing either collection to its centroid.
 
-\subsection{Prior exposure and case selection}
-Earlier project analyses used 649 digital painting surrogates across Monet,
-Sisley, Pissarro and C\'ezanne and a 1,920-image prompt grid. Two late refusal
-retries completed its descriptive grid but did not restore its original
-complete-grid inference. Those exposed outcomes motivated additional model
-families and the present two-painter study. They are development evidence,
-not independent confirmation, and are not pooled into the new reference panel.
-The same 221 historical development works set the measurement scales. Painter
-selection and the revision choices do not support prevalence claims across artists
-or retrospective preregistration. The historical report retains the earlier results.
+\section{Methods}
+\subsection{Reference paintings and generation design}
+The reference panel contains 38 Monet and 32 C\'ezanne works, represented by
+Wikimedia-delivered digital reproductions. The painters were selected after
+exploratory work on four painters; those exploratory results are not pooled
+into this analysis. Reference identities were screened against prior project
+exposure records. The available panel is not a probability sample of either
+painter's oeuvre. Selection depended on image availability and landscape
+eligibility, with one figure-led work excluded during visual coding.
 
-\section{Controlled study design}
-\subsection{Choice of expansion axis}
-We expand model-family breadth and improve the comparison target before adding
-more painters. New collection focuses on Monet and Cézanne. The existing four
-painter results are retained as development evidence. This is a disclosed
-two-painter case study, chosen after earlier outcomes were known; it cannot
-estimate the prevalence of the phenomenon across all painters or traditions.
+Three broad content classes organize the comparison: water-dominated scenes,
+built scenes and land-dominated scenes. Their reference counts are 21/4/13 for
+Monet and 3/11/18 for C\'ezanne. Coding was performed through a maintainer-run LLM
+visual assessment, without independent human adjudication; 17 mixed or uncertain
+annotations remain flagged. These classes provide coarse content adjustment.
+They do not match each generated image to a specific original composition.
 
-The research grid uses the same 24 content briefs across both painters, with three
-repetitions, named and artist-free conditions on three routes, plus a generic
-named condition on OAuth: 1,008 research slots. Eighteen separate technical
-requests and at most 24 bounded transient-error retries give a ceiling of 1,050
-attempts, including at most 612 paid attempts. The spending ceiling is \$75,
-including the pilot and retries. Successful images are never regenerated or
-selected among alternatives. Sample counts reflect affordability and design
-coverage; they do not establish power for an image-space effect.
+The prompt inventory contains eight descriptions per content class. Each is used
+for both painters, with three repetitions, giving 72 intended images per
+service--painter--condition cell. The artist-free prompt begins ``Create an oil
+painting on canvas.'' The named prompt adds ``In the style of [painter].'' Both
+then give the identical detailed scene description and request only the painting
+area, without a frame, signature, letters or watermark. No original painting is
+provided to the generator. A third, generic named condition on one service
+replaces the detailed description with a short scene description; this changes
+content specificity as well as prompt length. An exact example appears in
+Appendix~\ref{app:prompt}.
 
-The reference target initially specified 48 fresh works per painter and 12
-content strata. The recorded identity audit selects 64 Monet and 48 Cézanne
-candidates outside the prior exposure indexes. Original delivery encounters
-Wikimedia rate limits; a separately frozen successor follows its supported
-thumbnail policy. Nonupsampled standard delivery supports 38 Monet and 33
-Cézanne candidates. All 71 deliveries succeed. Single-maintainer LLM visual
-coding excludes one figure-led Cézanne, leaving 38 Monet and 32 Cézanne works.
-These unequal counts are disclosed before measurement; no 48-work panel or
-fully balanced 12-stratum design is claimed.
+The commercial routes request Google's \texttt{gemini-3.1-flash-image}, termed
+Nano Banana 2 (NB2), and Black Forest Labs' \texttt{flux.2-max} (FLUX), through
+fixed OpenRouter providers. A local OAuth image service requests
+\texttt{gpt-image-2}, termed the OAuth service below. These are requested service
+identifiers, not attestations of immutable model weights. NB2 and FLUX return
+1024-by-1024 images, in JPEG and PNG respectively. The OAuth service returns
+PNGs with variable geometry and reported quality: 424 of 430 images report low
+quality and six report medium, all six in artist-free conditions. Its prompt
+comparison therefore includes possible changes in delivered quality.
 
-Visually coded water, built and land organization replaces geographic-name
-heuristics. Counts are 21/4/13 for Monet and 3/11/18 for Cézanne. The primary
-comparison gives original works equal weight and generated images the same fixed
-class masses as their target reference. Eight shared briefs per class support this
-weighting. Collected-mixture and equal-class sensitivities are also required;
-the latter heavily weights Cézanne's three water scenes. Mixed annotations remain
-flagged, with an exclusion sensitivity. This is coarse content control, not exact
-scene matching or independent expert annotation. Independent photographic
-capture pairs have not been established. Thumbnail and alternate-file provenance
-cannot substitute for evidence of distinct capture events.
+Condition order is randomized independently within each service, painter,
+description and repetition group. For the OAuth service, all three conditions
+are randomly ordered. Repetitions are distributed across eight assigned
+collection batches; the realized collection spans approximately 11.5 hours.
+Batches do not represent independent backend sessions. The 1,008 assigned
+slots yield 1,006 images: 288 each for NB2 and FLUX, and 430 for OAuth. Two
+C\'ezanne/OAuth/generic requests are refused and remain missing. One transient
+FLUX failure is recovered by an exact-payload technical retry. Successful images
+are retained without selecting among alternatives or screening for stylistic
+resemblance. Generated content classes refer to the intended prompts; adherence
+has not been independently assessed.
 
-\subsection{Generation routes, rendering and availability}
-The paid routes request Google \texttt{gemini-3.1-flash-image} and BFL
-\texttt{flux.2-max} through their pinned providers; the local OAuth route requests
-\texttt{gpt-image-2}. Six separate technical pilot calls per route verify transport
-before research collection. Requested identifiers do not attest immutable weights.
+\subsection{Feature representation and distribution measures}
+Each image is measured in 31 interpretable coordinates: 11 color, eight spatial
+and 12 digital-texture features (Appendix~\ref{app:features}). The primary
+pipeline applies orientation metadata, converts valid embedded color profiles
+to sRGB, assumes sRGB for compatible unprofiled files and preserves aspect ratio
+at a 512-pixel short side. Images are opaque and resized with Lanczos filtering,
+without upsampling or discretionary cropping. Each coordinate is standardized
+by its median and interquartile range (IQR) in a separate development collection
+of 221 works from four painters, with equal total weight per development painter.
+Neither current references nor generated images fit this transformation.
 
-The controlled collection retains 1,006 images from 1,008 fixed slots: 288 Nano
-Banana 2, 288 FLUX.2 Max and 430 OAuth outputs. Two OAuth generic-named C\'ezanne
-slots receive moderation refusals and remain missing. One complete FLUX 502
-receives one successful exact-payload technical retry under the fixed rule.
-Including 18 pilot attempts, there are 1,027 physical attempts, 589 paid.
-All outcomes, costs and retries remain in the retained transport receipts.
-No successful output is regenerated or selected among visual alternatives.
-
-All paid research outputs are 1024-square: Google JPEG and BFL PNG. OAuth returns
-430 PNGs with short sides 1087--1254 pixels; eight are square. Of these, 424 report
-low quality and six report medium despite all requesting medium. The six medium
-outputs are artist-free (three per painter); all named outputs report low.
-These response fields do not attest an immutable model or comparable rendering.
-OAuth is therefore a separate service comparison. A prompt contrast on that route
-includes any prompt-induced service handling; it cannot isolate painter naming
-at fixed delivered quality. No output is filtered by its reported quality.
-Symmetric 256-pixel and common-JPEG sensitivities probe processing effects but
-cannot undo earlier encoding or generation-quality differences.
-
-\section{Distribution measurements and statistical analysis}
-\subsection{Feature representation and processing}
-Each image is represented by 11 color, eight spatial and 12 digital-texture
-features. Color includes lightness and chroma location/spread, hue organization,
-and multiscale chromatic differences. Spatial features include spectral shape,
-orientation organization, gradients and quadrant differences. Texture includes
-wavelet energies and trends, local binary-pattern entropies and local luminance
-variation. These are measurements of digital images, not direct measurements of
-physical brushstroke relief or a validated complete definition of painter style.
-
-The primary normalization applies EXIF orientation, converts valid embedded
-profiles to sRGB, assumes sRGB when compatible unprofiled data are present,
-rejects nonopaque images and preserves aspect ratio at a 512-pixel short side.
-It uses Lanczos resampling without upsampling or discretionary cropping.
-Each coordinate is centered by the development median and divided by the
-development interquartile range. Development painters receive equal total mass;
-no generated or new reference feature is used to fit that scaler.
-
-
-\subsection{Distribution discrepancy and spread}
-Let $x_i$ and $y_j$ be standardized reference and generated vectors, with
-nonnegative weights $a_i$ and $b_j$ that each sum to one. We report the empirical
-V-statistic energy discrepancy
+For reference vectors $X=\{x_i\}$ and generated vectors $Y=\{y_j\}$, let
+$a_i,b_j$ be nonnegative weights summing to one within each set. We use the
+empirical V-statistic energy discrepancy
 \begin{align}
-\widehat{\mathcal E}(X,Y)={}&2\sum_{i,j}a_i b_j\lVert x_i-y_j\rVert_2
--\sum_{i,k}a_i a_k\lVert x_i-x_k\rVert_2\nonumber\\
-&-\sum_{j,l}b_j b_l\lVert y_j-y_l\rVert_2.
+\E(X,Y)={}&2\sum_{i,j}a_i b_j\|x_i-y_j\|_2
+-\sum_{i,k}a_i a_k\|x_i-x_k\|_2 \nonumber\\
+&-\sum_{j,l}b_j b_l\|y_j-y_l\|_2.
 \label{eq:energy}
 \end{align}
-All pairwise terms contribute; the reference mean is not the sole comparison
-target. The finite-sample V-statistic has a nonzero sampling baseline even when
-independent samples come from one common population.
+This statistic incorporates distances within and between the two collections.
+Its finite-sample baseline need not be zero for independent samples from the
+same population. We interpret lower values as closer empirical distributions
+in the specified feature geometry, not as a calibrated degree of artistic
+similarity.
 
-We report the ratio of total within-group sample variances for ordinary
-unweighted data. Weighted analyses use the population-form trace
-$\sum_i a_i\lVert x_i-\sum_k a_k x_k\rVert^2$ in both numerator and denominator.
-The sample and population definitions have different finite-sample denominators.
-A complementary robust summary divides the sum of squared generated coordinate
-IQRs by the corresponding reference sum. Undefined coordinate ratios remain
-undefined rather than being stabilized by an arbitrary constant.
+References have equal weight, $a_i=1/N_p$. If painter $p$ has $N_{pc}$ reference
+works in class $c$ and a generated cell has $n_{pc}$ available images in that
+class, a generated image receives $b_j=N_{pc}/(N_p n_{pc})$. Thus both distributions
+have the reference panel's class proportions. This weighting reduces differences
+in broad content mixture but leaves within-class content differences unresolved.
 
-
-\subsection{Content control and sensitivity analyses}
-The controlled reference panel has now produced all 210 expected feature vectors
-under three processing pipelines, without measurement failures or duplicate raw
-image hashes. Recomputing those vectors from retained source bytes reproduces
-all records. Both sensitivity scalers were fitted first, from 442 remeasurements
-of the same 221 historical development works. All 1,006 selected generated images produce their 3,018 expected vectors without
-measurement failures or duplicate raw hashes. Generated features are first
-accessed after terminal collection, and retained raw bytes support exact replay.
-
-For painter $p$, let $N_{pc}$ denote the number of reference works in content
-class $c$, $N_p$ the total, and $n_{pc}$ the number of available generated
-observations in a particular route/condition cell. The primary weights are
+To measure spread, we use the weighted population-form covariance trace
 \begin{equation}
- a_i=1/N_p,\qquad b_j=\frac{N_{pc}}{N_p n_{pc}}\quad\text{for }j\in c.
+\V(Y)=\sum_j b_j\|y_j-\bar y\|_2^2,
+\qquad \bar y=\sum_j b_jy_j.
+\label{eq:trace}
 \end{equation}
-Each cell is assigned 72 slots: eight briefs per content class, each repeated
-three times. Missing outputs redistribute only their own class's fixed mass;
-a required class with no measured output makes that comparison unavailable.
-The weighting is conditional on intended generated content, whose adherence has
-not been independently judged. Images are not discarded for failing to resemble
-a painter or for depicting the intended scene imperfectly. Effective weight size
-$1/\sum_j b_j^2$ is reported separately from the number of image files.
+We distinguish the generated/reference ratio $\V(Y)/\V(X)$ from the
+named/artist-free ratio $\V(Y_{\mathrm N})/\V(Y_{\mathrm F})$.
+A value below one has a different comparison target in these two ratios.
+Coordinate-wise squared IQR sums provide a complementary spread summary.
 
-Primary energy discrepancy and the two spread ratios use all 31 standardized
-features. Color, spatial and texture subsets remain descriptive. Prespecified
-sensitivities use the collected generated mixture, one-third mass per content
-class, only unambiguous reference annotations, only retained reference files with recorded parent-surrogate
-short sides at least 1024 pixels, and initial-attempt successes alone. The
-annotation and native-size restrictions redefine their reference class masses
-from the retained subset and are labeled accordingly. A 256-pixel short side
-and common JPEG encoding at quality 90 with 4:2:0 subsampling additionally probe
-processing sensitivity. No histogram, palette or texture matching is performed.
-
-For the new disjoint original/original baseline, each of 999 deterministic draws
-selects two nonoverlapping sets of $\lfloor N_{pc}/2\rfloor$ works per class and a
-generated set with the same class counts, without replacement. All sets retain
-the declared class masses. The resulting group sizes are 18 for Monet and 15 for
-Cézanne; the latter includes only one water work per group. The repeated draws
-characterize this finite panel and do not create independent reference samples.
-
-Secondary coverage uses an original-centered ball with radius $r_i$ equal to
-the distance to the third nearest distinct reference work:
+Repeated descriptions allow an exact descriptive decomposition. For description
+$b$, let $w_b$ be its total image weight and $\bar y_b$ its weighted mean. Then
 \begin{equation}
- \widehat{C}=\sum_i a_i\,\mathbf{1}
- \!\left\{\min_j\lVert x_i-y_j\rVert_2\leq r_i\right\}.
+\V(Y)=
+\underbrace{\sum_b\sum_{j\in b}b_j\|y_j-\bar y_b\|_2^2}_{W:\ \text{within descriptions}}
++\underbrace{\sum_b w_b\|\bar y_b-\bar y\|_2^2}_{B:\ \text{between description means}}.
+\label{eq:decomposition}
 \end{equation}
-We report all-available coverage and 100 uniform generated subsamples of size
-$\min(N_p,n_p)$, without replacement. These neighborhood measurements depend on
-sample size and representation and are not artistic-completeness scores.
+The between-description term can be further separated into within-class and
+between-class components. With three repetitions per description, these are
+finite-set summaries, not bias-corrected estimates of population variance
+components.
+In particular, the between-description term also includes noise in means
+estimated from only three images.
 
-Fixed linear/RBF kernel-ridge detection uses six whole-brief folds and disjoint
-reference works, with no tuning or PCA input. Reference folds are assigned by
-content-stratified identity hashes, so sparse classes are distributed across
-folds. Training assigns equal total mass to original and generated labels and
-matches content masses within each label; held-out balanced accuracy and AUC use
-the same target masses. Eight folds over assigned collection batches provide a
-timing sensitivity; the batches do not identify independent service sessions.
-Every split and prediction is retained. For visualization, each painter has one
-common PCA fit with half the mass on originals and half shared equally across
-seven generated cells, using the primary content weights. Original-only PCA is
-also retained. Every point is shown under shared within-painter axes. Painter
-specificity compares each named cell with both reference painters under the
-same one-third-per-class mixture, separately from its absolute discrepancy.
+\subsection{Prompt contrasts and inference}
+The prespecified inferential family comprises six named-minus-artist-free
+energy contrasts and two detailed-minus-generic named contrasts on OAuth. A
+contrast uses complete pairs sharing the description, repetition and assigned
+batch, with the same content weights in both conditions. The paired statistic
+retains all terms in Equation~\ref{eq:energy}; it is not a difference of average
+distances to a reference mean. Appendix~\ref{app:inference} gives the swap identity.
 
-\subsection{Assignment, execution and missingness}
-The reference, prompt inventory, endpoints, scaling and analysis are committed
-before evaluation features are extracted. Repetitions are assigned to eight
-batches with originally planned offsets 0, 3, 6, 9, 24, 27, 30 and 33 hours.
-Within-route condition order is randomized, with at most one active call per
-route and globally staggered starts at least five seconds apart. All attempts,
-refusals, technical retries and actual timestamps are preserved.
+For each contrast, 99,999 Monte Carlo sign assignments yield a two-sided
+randomization $p$-value with the plus-one correction. Holm adjustment controls
+the fixed family of eight tests at level .05. The sharp null states that prompt
+assignment changes neither availability nor measured features in any assigned
+position, under the fixed request and technical-retry policy and no interference.
+For a pairwise OAuth comparison, the third condition's position is conditioned
+on. The tests concern this finite design and reference panel. They do not test
+an oeuvre-wide mean effect, perceptual equivalence or equality of original and
+generated population distributions. Treatment-dependent call duration or service
+carryover could violate no interference.
 
-At the user's request, the remaining four batches ran consecutively rather
-than waiting for the originally planned offsets. Original assignments and actual
-timestamps remain evidence; the full 33-hour schedule was not executed. Closed
-collection components and their separately bound corrections are retained, with
-all decisions preceding generated-feature measurement. Assigned batches do not
-identify independent backend sessions. The revision examines timing sensitivities
-without changing the original randomization calculation.
+The prompt inventory, primary metrics and test family were specified before
+current evaluation features were measured. Feature-view, variance-decomposition,
+reference-influence, painter-interaction and additional detection/coverage
+analyses were designed after the primary results were observed. These subsequent
+analyses are descriptive; they introduce no additional significance tests or
+population confidence intervals.
 
-Prospective synthetic qualification passes for the eight paired all-31 prompt
-contrasts: six named-versus-free and two detailed-versus-generic OAuth contrasts.
-Two fixed-seed phases each use 10,000 trials in 24 null cells covering pair counts,
-contribution heterogeneity, window drift and endpoint dependence. Actual tests use
-99,999 Monte Carlo sign draws and Holm adjustment. Their sharp null concerns
-availability and features under the randomized slot policy, conditional on the
-finite reference, with no interference. Service carryover and retry-induced timing
-remain limitations. This qualification does not validate absolute-distribution
-p-values, oeuvre-sampling intervals or actual image-space power. Absolute gaps and
-leave-batch/brief ranges remain descriptive. Ordinary image-level bootstrap
-intervals are not justified by the number of files alone.
-No significance-based sampling extension, silent replacement of missing outputs
-or retrospective change to a sealed endpoint is allowed. Human construct validation remains unperformed. Absolute discrepancy and spread
-are descriptive; only the eight prespecified prompt contrasts carry conditional
-randomization p-values.
+\subsection{Measurement and reference diagnostics}
+We examine three processing pipelines: the primary 512-pixel pipeline, a
+256-pixel version and common JPEG encoding at quality 90 with 4:2:0 subsampling
+at 512 pixels. Each uses its own development-only scaler. Four feature views
+cross these pipelines: all 31 coordinates; 28 coordinates after dropping three
+derived multiscale summaries; 31 coordinates divided by the square root of their
+family size; and the 19 color/spatial coordinates with texture removed. The
+family-rescaled squared distance sums mean squared differences within each
+family; it does not equalize observed family variance or perceptual importance.
+This gives 12 views per service--painter comparison.
 
-\subsection{Paired statistic and conditional interpretation}
-For a matched before/after pair $(A_i,B_i)$ with fixed class-adjusted weight
-$b_i$, define $C(v)=\sum_j a_j\lVert v-x_j\rVert_2$ and
-$T(v)=\sum_i b_i(\lVert v-A_i\rVert_2+\lVert v-B_i\rVert_2)$. The contribution
+Reference diagnostics delete one work, holding-collection membership group or
+content class at a time. Collection groups use exact recorded sets of holding-
+collection IDs and do not identify photographic capture workflows. Work and
+collection-group deletions preserve the original content-class masses while
+reweighting the remaining works within each class; class deletion renormalizes
+the surviving class masses. A separate
+analysis refits the scaler after omitting each development
+painter. Painter specificity uses equal one-third content-class weights for
+both painters. With $G_M,G_C$ denoting collections assigned to Monet and
+C\'ezanne, define
 \begin{equation}
- c_i=b_i\{2[C(B_i)-C(A_i)]-[T(B_i)-T(A_i)]\}
+I=\E(X_M,G_M)+\E(X_C,G_C)-\E(X_M,G_C)-\E(X_C,G_M).
+\label{eq:specificity}
 \end{equation}
-satisfies $\sum_i c_i=\widehat{\mathcal E}(X,B)-\widehat{\mathcal E}(X,A)$.
-Thus the contrast retains the within-generated pairwise terms; it is not a
-contrast of mean-to-centroid distances. Complementary condition swaps produce
-$\sum_i s_i c_i$ for assignment signs $s_i\in\{-1,1\}$. For the three-condition
-OAuth groups, each pairwise comparison conditions on the third condition's
-position in the uniformly randomized order.
+Negative $I$ favors own-painter over cross-painter alignment. The within-reference
+and within-generated terms cancel, making this a contrast of relative alignment.
+Artist-free prompts are identical across the two collection labels and provide
+a descriptive control for their arbitrary painter assignment.
 
-A contrast uses complete measured pairs sharing a brief, repetition and assigned
-batch. If fewer than 24 pairs or 12 distinct briefs survive, or a required
-content class is absent, its endpoint is unavailable and retains $p=1$ in the
-fixed eight-test family. This is distinct from the all-available descriptive
-comparison. Two-sided Monte Carlo p-values use $(1+e)/(1+99999)$, where $e$ counts
-sign-draw statistics at least as extreme in absolute value, including numerical
-ties. Leave-one-batch and leave-one-brief estimates assess sensitivity without
-being labeled confidence intervals. The sharp assignment null covers both
-availability and measured features for the full fixed slot policy, including its
-bounded technical retry rule; it is stronger than equality of expected distances.
-Treatment-dependent service duration and retry delays can affect later calls,
-so the randomization calculation does not remove the no-interference limitation.
+For visualization, we fit one common principal-component analysis (PCA) per
+painter, assigning half the weight to references and sharing half equally across
+the seven generated cells, with content weighting within each. All cells use
+that painter's common axes. Full-space linear and radial-basis-function (RBF)
+kernel-ridge classifiers use six folds holding out entire generated descriptions
+and disjoint original works, without tuning or PCA inputs. This grouping respects
+the repeated-prompt structure \citep{roberts2017}. Cross-service evaluation trains
+on one service and tests on another using the same held-out description/work
+scheme. We report balanced accuracy at a fixed zero decision threshold and mean
+within-fold AUC separately; the former also depends on calibration. Technical
+classifier and coverage details appear in Appendix~\ref{app:diagnostics}.
 
-\section{Controlled results}
-\subsection{Proximity and spread are distinct}
-All 14 primary cells and all eight inferential endpoints are available.
-Table~\ref{tab:primary} compares the full distributions, not just painter means.
-Every named condition has less total empirical variance than its reference
-(ratios .306--.756). Detailed named ratios are .354--.756; the two generic-named
-OAuth cells are .306 and .395. Naming also contracts spread relative to the
-corresponding artist-free condition in all six route/painter comparisons.
-However, paid artist-free ratios are 1.069--1.535. The data therefore support
-concentration of these painter-conditioned collections, not an intrinsic claim
-that generated images always have less variation.
+\section{Results}
+\subsection{Painter naming improves primary feature proximity}
+Painter naming lowers primary energy discrepancy in all six service--painter
+comparisons (Figure~\ref{fig:primary}). NB2 decreases from 4.188 to 3.342 for
+Monet and from 4.704 to 2.886 for C\'ezanne; FLUX decreases from 1.990 to 1.365
+and from 1.700 to 0.804, respectively. These four contrasts reject the conditional
+sharp null after adjustment across the eight-test family
+(Table~\ref{tab:contrasts}). The OAuth differences are smaller, and neither
+survives adjustment. The detailed-versus-generic comparisons likewise provide
+no rejection after adjustment. Non-rejection does not establish equivalence.
 
-\begin{table}[ht]
-\centering\small
-\begin{tabular}{lllrrrr}
-\toprule
-Painter & Route & Prompt & Energy & Variance & IQR sum & RBF BA\\
-\midrule
-Monet & NB2 & Free & 4.188 & 1.086 & 1.131 & 0.939\\
- & NB2 & Named & 3.342 & 0.756 & 0.966 & 0.906\\
- & FLUX & Free & 1.990 & 1.071 & 0.941 & 0.901\\
- & FLUX & Named & 1.365 & 0.354 & 0.377 & 0.953\\
- & OAuth & Free & 2.567 & 0.863 & 1.176 & 0.960\\
- & OAuth & Named & 2.333 & 0.478 & 0.586 & 0.962\\
- & OAuth & Generic & 2.370 & 0.306 & 0.330 & 0.987\\
-\midrule
-Cézanne & NB2 & Free & 4.704 & 1.535 & 1.371 & 0.970\\
- & NB2 & Named & 2.886 & 0.716 & 0.785 & 0.977\\
- & FLUX & Free & 1.700 & 1.069 & 0.950 & 0.903\\
- & FLUX & Named & 0.804 & 0.492 & 0.567 & 0.893\\
- & OAuth & Free & 1.941 & 0.787 & 0.928 & 0.958\\
- & OAuth & Named & 1.884 & 0.512 & 0.461 & 0.920\\
- & OAuth & Generic & 2.166 & 0.395 & 0.299 & 0.918\\
-\bottomrule
-\end{tabular}
-\caption{Primary 512-pixel, all-31, reference-content-weighted results.
-Variance and squared-IQR-sum values are generated/original ratios.
-BA holds out whole briefs and distinct original works. Each cell has 72 images
-except Cézanne/OAuth/generic (70); references have 38 Monet and 32 Cézanne works.
-NB2 denotes Nano Banana 2; FLUX denotes FLUX.2 Max; OAuth is the GPT Image 2
-service. Named uses detailed briefs; Generic uses generic named briefs.}
-\label{tab:primary}
-\end{table}
-
-The contraction is uneven across feature families. Among the eight named cells,
-color variance ratios range .291--.745 and digital texture .143--.460. Spatial
-ratios range .665--1.520, with four detailed named cells above one. Thus, lower
-aggregate spread does not mean lower variation in every type of visual property.
-These family results are descriptive and do not identify a physical brushstroke
-or perceptual-diversity mechanism.
-
-\begin{figure}[p]
-\centering\includegraphics[width=\linewidth]{distribution_metrics.png}
-\caption{Full-distribution discrepancy and two spread summaries across the three
-fixed processing pipelines. Named means detailed named; Generic means generic
-named. Every pipeline uses its own development-only scaler. Dashed lines mark a
-spread ratio of one, not a calibrated equivalence boundary.}
-\label{fig:metrics}
+\begin{figure}[tbp]
+\centering\includegraphics[width=\linewidth]{primary_comparison.pdf}
+\caption{Primary feature discrepancy and spread under artist-free and named
+prompting. Energy compares each generated distribution with its painter's
+reference panel. Trace ratios compare generated spread with reference spread;
+the line at one denotes equal empirical trace. Each displayed generated cell
+contains 72 images; reference panels contain 38 Monet and 32 C\'ezanne works.
+The panels are descriptive and do not share a numerical scale.}
+\label{fig:primary}
 \end{figure}
 
-\subsection{Scatter overlap coexists with full-space detectability}
-The balanced joint PCA retains 48.4\% of weighted variation in its first two
-components for Monet and 46.0\% for Cézanne. The clouds overlap in these views
-(Figure~\ref{fig:controlled-pca}), with route- and condition-specific shifts and
-concentration. Original-only PCA, retained in the report, explains 55.6\% and
-52.2\% in two dimensions and also shows overlap. Neither projection supports a
-claim of perfectly disjoint distributions.
-
-In all 31 features, whole-brief/work-disjoint RBF balanced accuracy is .893--.987
-across all 14 cells, including artist-free controls. Linear accuracy is .837--.969.
-Holding out assigned batches gives .889--.987 (RBF) and .822--.969 (linear).
-These fixed-model descriptive scores establish practical detectability within
-the recorded evaluation splits. They do not identify which differences represent
-painter style, nor provide an absolute distribution-equality test.
-
-\begin{figure}[p]
-\centering\includegraphics[width=\linewidth]{pca_balanced_joint.png}
-\caption{Common painter-specific PCA with every original and generated point
-retained. Each painter uses one basis and shared limits across routes. Originals
-receive half the fit weight; generated cells share the other half. Overlap in
-two projected dimensions coexists with strong held-out full-space detection.}
-\label{fig:controlled-pca}
-\end{figure}
-
-\subsection{Painter naming improves primary 31-feature proximity on the paid routes}
-All six primary named-minus-free energy point estimates are negative
-(Table~\ref{tab:contrasts}). The four paid-route contrasts reject the fixed
-conditional sharp null after Holm adjustment over eight tests. Their improvements
-range from .625 to 1.818 energy units. Every leave-one-brief and leave-one-batch
-estimate for those four contrasts remains negative. These ranges describe the
-finite design; they are not confidence intervals.
-
-Neither OAuth naming contrast rejects after adjustment (Holm $p=.19308$ for Monet
-and $p=1$ for Cézanne). The generic-to-detailed OAuth contrast is small for Monet
-($-.0375$, Holm $p=1$) and larger for Cézanne ($-.2723$, Holm $p=.0928$), using
-70 complete Cézanne pairs because both refusals occur in its generic condition.
-Non-rejection does not establish no effect. Detailed named OAuth images have
-more empirical spread than generic ones for both painters, but this comparison
-changes content specificity as well as wording; it is not a pure length effect.
-
-\begin{table}[ht]
+\begin{table}[tbp]
 \centering\small
-\begin{tabular}{lllrrrr}
+\begin{tabular}{lllrrr}
 \toprule
-Route & Painter & Contrast & Pairs & Energy change & Raw $p$ & Holm $p$\\
+Comparison & Service & Painter & Pairs & $\Delta\E$ & Holm $p$\\
 \midrule
-NB2 & Monet & Name & 72 & -0.8462 & 0.00062 & 0.0031\\
-NB2 & Cézanne & Name & 72 & -1.8176 & $10^{-5}$ & $8\times10^{-5}$\\
-FLUX & Monet & Name & 72 & -0.6246 & $10^{-5}$ & $8\times10^{-5}$\\
-FLUX & Cézanne & Name & 72 & -0.8956 & $10^{-5}$ & $8\times10^{-5}$\\
-OAuth & Monet & Name & 72 & -0.2339 & 0.06436 & 0.19308\\
-OAuth & Cézanne & Name & 72 & -0.0561 & 0.61624 & 1\\
-OAuth & Monet & Detail & 72 & -0.0375 & 0.773 & 1\\
-OAuth & Cézanne & Detail & 70 & -0.2723 & 0.0232 & 0.0928\\
+Named $-$ free & NB2 & Monet & 72 & $-0.846$ & .00310\\
+ & NB2 & C\'ezanne & 72 & $-1.818$ & .00008\\
+ & FLUX & Monet & 72 & $-0.625$ & .00008\\
+ & FLUX & C\'ezanne & 72 & $-0.896$ & .00008\\
+ & OAuth & Monet & 72 & $-0.234$ & .19308\\
+ & OAuth & C\'ezanne & 72 & $-0.056$ & 1.00000\\
+\midrule
+Detailed $-$ generic & OAuth & Monet & 72 & $-0.037$ & 1.00000\\
+ & OAuth & C\'ezanne & 70 & $-0.272$ & .09280\\
 \bottomrule
 \end{tabular}
-\caption{Prespecified two-sided paired tests, 99,999 Monte Carlo sign draws,
-Holm family size eight. Name compares artist-free with detailed named; Detail
-compares generic named with detailed named. Negative values mean closer after
-the intervention, on complete matched pairs. The sharp null includes availability
-and features under the fixed slot/retry policy and assumes no interference.}
+\caption{The complete prespecified test family, using the primary 31-feature
+representation and matched pairs. Negative changes indicate smaller energy
+in the first condition. Values are conditional randomization results, with
+99,999 sign draws and Holm correction across all eight comparisons. Both
+conditions in the final two rows name the painter.}
 \label{tab:contrasts}
 \end{table}
 
-\begin{figure}[p]
-\centering\includegraphics[width=\linewidth]{prompt_contrasts.png}
-\caption{Complete-pair estimates and leave-one-assigned-batch ranges. Shared
-service state and timing dependence remain limitations of the conditional tests;
-the displayed lines are not uncertainty intervals for a painter's oeuvre.}
-\label{fig:contrasts}
+The same primary feature space also shows that the named collections have less
+aggregate spread than the references. Generated/reference trace ratios for the
+six detailed named cells range from .354 to .756, whereas the four NB2 and FLUX
+artist-free cells range from 1.069 to 1.535. Thus, reduced spread is not a general
+property of all generated images in this experiment. It is associated with the
+tested painter-naming conditions. The two generic named OAuth cells have still
+lower reference-relative ratios, .306 for Monet and .395 for C\'ezanne, although
+their energy contrasts do not establish an advantage of detailed prompting.
+
+Energy and spread are distinct summaries but are not statistically independent:
+Equation~\ref{eq:energy} includes a within-generated distance term. These results
+therefore describe the joint behavior of two measurements, not evidence for a
+necessary trade-off between fidelity and diversity.
+
+Under equal content-class weights, naming also strengthens relative
+own-painter alignment. The interaction $I$ changes from .101 to $-.855$ for
+NB2, from $-.048$ to $-1.755$ for FLUX and from $-.044$ to $-1.802$ for OAuth.
+Its named-minus-free change is negative in all 36 service/view/pipeline
+combinations. This joint contrast does not require each generated collection
+individually to be closest to its own painter's references. Separately generated
+artist-free collections have identical
+prompt payloads across painter labels yet nonzero empirical discrepancies.
+These controls illustrate finite-set
+and collection variability; they do not provide an equivalence threshold.
+
+\subsection{Aggregate contraction has different within-prompt components}
+The named/artist-free total-trace ratios range from .331 to .697 in the primary
+representation. Decomposition reveals different sources of this contraction
+(Figure~\ref{fig:variation}). FLUX reduces both within-description and
+between-description variation strongly: the respective ratios are .309 and .337
+for Monet, and .489 and .451 for C\'ezanne. For NB2/C\'ezanne, within-description
+variation decreases to .786 while between-description variation decreases to
+.378. Its aggregate reduction therefore conceals a much larger relative change
+between descriptions than between repetitions of a description.
+
+The OAuth/C\'ezanne case shows why the distinction is necessary. Total trace
+falls to .651 of its artist-free value even though within-description trace
+rises to 1.139; between-description trace falls to .583. A tighter overall cloud
+can therefore coexist with more variable repetitions. These observations do not
+identify a latent model mechanism or demonstrate fewer perceptually distinct
+outputs. They locate the measured variation in the actual repeated-prompt design.
+
+\begin{figure}[tbp]
+\centering\includegraphics[width=\linewidth]{variation_ratios.pdf}
+\caption{Where generated variation changes under naming. Each point is a
+named/artist-free trace ratio in the primary representation. Total variation
+is the sum of within-description and between-description components, so its
+ratio need not equal their unweighted average. The line at one denotes no
+change. OAuth/C\'ezanne contracts in total while increasing within-description
+variation. These finite-set decompositions are descriptive.}
+\label{fig:variation}
 \end{figure}
 
-\subsection{Finite-reference baselines, coverage and specificity}
-Across the 14 matched-sample comparisons, original/original energy medians range
-.697--.753, while original/generated medians range 1.170--5.232. Every generated
-comparison has a larger median than its corresponding original split. The lowest
-generated median is Cézanne/FLUX/named (1.170 versus .718); its subsample ranges
-overlap the original baseline. These finite-panel draws do not establish a
-population rejection or an equivalence threshold.
+\subsection{Contraction is more consistent than proximity across feature views}
+All 72 named/artist-free total-trace ratios across the four feature views and
+three pipelines are below one, ranging from .308 to .816. Proximity is less
+consistent: 66 of 72 energy changes are negative. Both FLUX painter comparisons
+and NB2/C\'ezanne remain negative in all 12 view/pipeline combinations. For
+NB2/Monet, the 256-pixel color/spatial-only comparison instead increases energy
+by .416. The same no-texture view at 512 pixels gives a named/reference trace
+ratio of 1.101. Consequently, robust contraction relative to artist-free outputs
+does not imply robust below-reference spread or uniformly improved proximity.
 
-FLUX named outputs have the lowest primary energy among the tested routes for
-both painters (1.365 Monet, .804 Cézanne), together with the highest named
-all-available neighborhood coverage (.789 and .750). Equal-size subsample
-coverage medians are lower (.737 and .672). For Monet/FLUX, naming improves
-energy from 1.990 to 1.365 and coverage from .553 to .789, while variance contracts
-from 1.071 to .354. Proximity, spread and neighborhood coverage can therefore move
-in different ways; a single distance cannot describe all three.
+The sensitivity has a substantive measurement basis. Texture coordinates
+contribute 49.0\% and 47.1\% of primary reference trace for Monet and C\'ezanne.
+Some multiscale coordinates are strongly correlated in development data.
+Agreement among such coordinates does not constitute independent evidence of the same
+artistic property. The diagnostic views probe this dependence without selecting
+a preferred representation from the observed effects.
 
-Under equal content-class masses, five of six detailed named cells are closer to
-their own reference painter than to the other painter. Nano Banana 2's Monet
-condition is the exception: energy 3.687 to Monet versus 3.488 to Cézanne.
-Improved proximity to a requested target thus does not guarantee painter
-specificity. This two-painter comparison is descriptive and is not a validated
-recognition task or a general model leaderboard.
-This original own/other ranking includes reference-specific within-distribution
-terms. The post-result double contrast below cancels those terms; its negative
-interaction and this individual nearest-reference exception answer different questions.
+Deleting individual reference works, holding-collection groups or content classes preserves
+the direction of all four NB2/FLUX primary proximity changes. These directions
+also survive omission of any one development painter from scaling. Some OAuth
+changes cross zero under these perturbations. Deletion stability supports the
+paid-service comparisons within the available panel, but does not correct shared
+reproduction differences or turn that panel into an oeuvre sample.
 
-\subsection{Processing and reference sensitivities}
-For the eight named cells, total-variance ratios remain below one under both
-fixed processing sensitivities: .315--.831 at 256 pixels and .310--.797 after
-common JPEG encoding. All four paid-route naming effects retain their negative
-descriptive energy direction under both. OAuth is less stable: Monet's naming
-difference changes from $-.234$ in the primary pipeline to $+.017$ at 256 pixels.
-No additional significance family is introduced for these sensitivities.
+\subsection{Visible overlap and detectability answer different questions}
+The common PCA views show overlapping clouds with changes in location and
+concentration (Figure~\ref{fig:pca}). The first two components retain 48.4\% of
+weighted variation for Monet and 46.0\% for C\'ezanne, leaving more than half
+outside the plots. Visual overlap consequently cannot establish equality of the
+full distributions. Conversely, separation in a projection would not establish
+a difference in artistic style.
 
-Collected-mixture, equal-content and unambiguous-reference analyses retain
-aggregate variance ratios below one for all eight named cells. Some IQR-based
-ratios exceed one after reweighting or reference restriction. The native-1024
-restriction is particularly limited: only four Monet and 19 Cézanne reference
-files remain; the four Monet works contain two water, no built and two land
-scenes. These counts use parent metadata, not delivered thumbnail dimensions,
-which would retain 18 C\'ezanne files. This changes content support as well as
-resolution metadata. Nano Banana 2's Monet variance ratio becomes 1.107 in that primary
-subset (1.123 at 256 pixels; 1.178 after JPEG). This is a material exception to
-uniform robustness and a change in the finite comparison target. It cannot serve
-as a strong independent capture control. Initial-only analysis preserves all
-named cells; its only additional exclusion is the retried FLUX artist-free slot.
+\begin{figure}[tbp]
+\centering\includegraphics[width=\linewidth]{common_pca.pdf}
+\caption{Original and generated feature distributions in common painter-specific
+PCA coordinates. Every image is shown; references are repeated across service
+panels for comparison. Axes and limits are shared within each painter, but the
+two painters have separate PCA fits. The generic named condition is available
+only for OAuth. Projections show overlap and concentration while retaining
+less than half of total weighted variation.}
+\label{fig:pca}
+\end{figure}
 
-\input{revision}
+In the full feature space, within-service RBF balanced accuracy ranges from
+.893 to .987 across the 14 original/generated comparisons. However, all 576
+NB2/FLUX images are square and all 70 references are nonsquare: a rule using
+only square geometry separates these domains perfectly. Capture workflows for
+the reference reproductions are also unresolved. High classification accuracy
+therefore establishes differences between the recorded image domains, not a
+validated stylistic distinction.
 
-\section{Limitations and reproducibility}
-The original corpus is a finite collection of available digital surrogates, not
-a probability sample of each painter's oeuvre. The new reference panel is small
-and availability constrained. Service aliases and live model slugs lack attested
-immutable weight snapshots. Prompt repetition, shared briefs and service state
-can induce dependence. Title-based development labels and later maintainer-LLM
-visual annotations are not independent expert judgments. All review so far is
-maintainer-run LLM subagent review and coordinator checking; none is
-institutionally independent or a substitute for human construct validation.
+Cross-service behavior further limits detector interpretation. At the fixed
+threshold, naming lowers balanced accuracy in every directed service/painter
+comparison for both kernels. Named-condition ranges are .410--.874 for the
+linear kernel and .447--.704 for RBF. This need not mean uniformly weaker
+ranking discrimination. For Monet with training on FLUX and testing on OAuth,
+linear balanced accuracy falls from .904 to .874 while mean within-fold AUC
+rises from .953 to .968. The observed threshold transfer includes calibration
+changes; below-chance scores are not evidence that generated images have become
+more authentic.
 
-The paper source, compact manifests, exact prompts, preprocessing code, report
-tables, split memberships and hashes are retained in the repository. Raw artwork
-and complete generated-image responses remain in an ignored local evidence
-workspace; a Git checkout alone does not reconstruct those bytes. Acquisition
-licenses and source identities are recorded, and failed responses remain evidence.
-The new study uses its own namespace and does not modify historical terminal runs.
+\section{Discussion}
+The central result is that painter naming changes proximity and variation
+together, but the two measurements require separate interpretation. In the
+primary representation, NB2 and FLUX generate distributions closer to their
+painter references under naming, accompanied by lower total variation. The
+repeated-description design shows why describing this simply as ``diversity
+loss'' is insufficient. Naming can reduce differences between responses to
+different descriptions while leaving variability between repetitions relatively
+intact, or even increasing it. Evaluations that pool all generated images into
+one cloud conceal this distinction.
 
-Human evaluation is a prepared follow-up, not an executed component. Expert
-review could assess painter recognizability and perceived variation using blinded,
-balanced stimuli and independent annotation. Learned representations are also
-deferred; adding a learned evaluator would not automatically establish that its
-distance is calibrated to human style judgments. Neither a collaborator's
-participation nor authorship is presumed in this prototype.
+One possible explanation is that painter instructions encourage recurrent visual
+choices across otherwise different scenes. Our measurements are compatible with
+that interpretation but do not distinguish it from changes in depicted content,
+composition or rendering. In particular, broad prompt classes do not guarantee
+matched realized scenes. Human judgments of set-level stylistic range and
+independent content coding would be needed to test whether the observed changes
+correspond to stylistic concentration as perceived by viewers.
+
+The representation also determines what ``closer'' means. Interpretable
+coordinates make color, spatial and texture contributions inspectable, but they
+do not provide a complete or independently validated model of style. Texture
+has substantial weight in the current feature geometry, and the NB2/Monet
+counterexample prevents a representation-independent proximity claim. The 72
+sensitivity comparisons reuse the same images and are not 72 independent
+replications. Robustness across their fixed views is evidence about measurement
+choices, not about new painters, content inventories or generation runs.
+
+Reference quality constrains the absolute comparison more strongly than image
+count alone. The current panel contains selected, unequally represented content
+classes and digital reproductions with unresolved capture workflows. Shared
+aspect ratio within the paid named/free comparisons removes a simple binary
+geometry difference between those prompt arms, but not the original/generated
+geometry mismatch or other rendering and content effects. Collection duration,
+mutable service implementations and the OAuth quality imbalance further limit
+transportability. None of these results supplies a universal model ranking.
+
+The next validation should therefore use independently coded reference panels,
+controlled reproductions and human judgments of the same generated sets. A
+learned representation could test another feature geometry, but agreement with
+it would not by itself establish perceptual validity. Additional generations
+are most informative when they replicate the intervention with new descriptions,
+painter cases or independently repeated collections, rather than merely enlarge
+the current cells.
+
+\section{Conclusion}
+For these Monet and C\'ezanne reference panels, painter naming often improves
+primary feature proximity while reducing aggregate generated variation. Within the fixed diagnostic grid, aggregate
+contraction is more consistent across measurement variants than proximity
+improvement, and it does not uniformly reflect reduced variation between
+repetitions. Distribution-based evaluation of generated art should therefore
+report what changes within and between prompts, alongside its reference and
+representation choices. The present results establish a bounded computational
+finding, not an assessment of artistic worth or perceptual style reproduction.
+
+\section*{Data and code availability}
+The accompanying repository contains the exact prompt inventory, reference
+identities and annotations, standardized feature vectors, analysis code, complete
+numeric tables and figure-generation code. The controlled-study and subsequent
+diagnostic reports retain all prespecified endpoints and the additional
+sensitivity results summarized here. The manuscript README gives their locations
+and offline reproduction commands. Raw painting reproductions and full-resolution
+generated images are retained separately and are not included in the repository's
+redistributed files. Numeric replay does not require image-generation API access.
 
 \appendix
-\input{reproduction}
-
-\section{Preserved controlled-study reproduction}
-From the repository root, replay the completed controlled numerical analysis and
-all report files without provider calls:
-\begin{quote}\small\ttfamily
-uv run --locked --extra analysis python -m\\
-latent\_art\_bench.painter\_distribution\_study\_v1.analysis\_publication check\\[4pt]
-uv run --locked --extra analysis python -m\\
-latent\_art\_bench.painter\_distribution\_study\_v1.main\_report check
+\section{Prompt and feature specification}
+\label{app:prompt}
+An example detailed named prompt is:
+\begin{quote}\small
+Create an oil painting on canvas. In the style of Claude Monet. Scene: A pond
+viewed from close to its edge, with groups of floating lily pads, gaps of open
+water and reflections of surrounding trees. The water fills the scene; no horizon
+or prominent person is visible. Render only the painting area, without a
+surrounding frame, signature, letters or watermark.
 \end{quote}
-A separate \texttt{immediate\_results generated --check} reopens retained raw bytes
-and recomputes all 3,018 feature vectors. The original calculation reached its
-JSON exporter, which rejected four NumPy Boolean rejection flags before writing
-any result file. The disclosed publication adapter converts only those flags to
-native Booleans and requires exact value equality after JSON round-trip. It uses
-a separate publication namespace and leaves the frozen statistical calculation
-unchanged. Its source, inputs and publication freeze are committed before writing
-the completed analysis. This representational correction is not a scientific
-endpoint amendment.
+The artist-free version removes only the painter-style sentence. The generic
+named version substitutes ``A pond with water lilies.'' for the detailed scene.
+All 24 descriptions are available in the accompanying prompt inventory.
 
-Historical diagnostics replay through the same package's \texttt{diagnostics check}
-entry point. Exact dependencies are pinned by \texttt{uv.lock}; no learned encoder
-is run. Current operational status and commands are in \texttt{docs/STATUS.md} and
-\texttt{docs/DISTRIBUTION\_STUDY\_WORKFLOW.md}. Raw image bytes require the separately
-retained local evidence workspace. No completed collector or writing stage should
-be restarted to reproduce a report.
+\label{app:features}
+\begin{table}[htbp]
+\centering\small
+\begin{tabularx}{\linewidth}{l r X}
+\toprule
+Family & Count & Coordinates\\
+\midrule
+Color & 11 & Lightness median/IQR; chroma median/IQR; chromatic fraction;
+hue concentration/entropy; chromatic differences at three scales and their slope.\\
+Spatial & 8 & Spectral slope/residual/anisotropy; orientation entropy;
+horizontal--vertical balance; gradient median/IQR; quadrant divergence.\\
+Digital texture & 12 & Four wavelet energies, their slope and curvature;
+three local-binary-pattern entropies; local coefficients of variation at three scales.\\
+\bottomrule
+\end{tabularx}
+\caption{The fixed interpretable representation. Coordinates describe digital
+image statistics, not physical paint relief. The 28-coordinate view removes
+chromatic-difference slope, wavelet slope and wavelet curvature.}
+\end{table}
 
-\clearpage\input{revision_figures}\clearpage
+\section{Paired randomization statistic}
+\label{app:inference}
+Let $A_i,B_i$ be a retained pair with common weight $b_i$, and define
+$C(v)=\sum_j a_j\|v-x_j\|_2$ and
+$T(v)=\sum_i b_i(\|v-A_i\|_2+\|v-B_i\|_2)$. Then
+\begin{equation}
+ c_i=b_i\{2[C(B_i)-C(A_i)]-[T(B_i)-T(A_i)]\},\qquad
+ \sum_i c_i=\E(X,B)-\E(X,A).
+\end{equation}
+Complementary pair swaps produce $\sum_i s_i c_i$, $s_i\in\{-1,1\}$, exactly,
+including the within-generated distances. Independent randomized condition
+positions justify the sign assignments under the stated sharp null. Repeated
+scene descriptions are not treated as independently sampled scenes for
+population inference. With $e$ sign draws at least as extreme in absolute value
+as the observed statistic, including ties, $p=(1+e)/100{,}000$. All contrasts
+retain 24 distinct descriptions; the two missing generic outputs reduce only
+the C\'ezanne detailed/generic comparison to 70 pairs.
+
+\section{Supporting distribution diagnostics}
+\label{app:diagnostics}
+For $d=31$ standardized coordinates, the fixed kernels are
+$K_{\mathrm L}(u,v)=u^\top v/d+1$ and
+$K_{\mathrm R}(u,v)=\exp(-\|u-v\|_2^2/d)+1$.
+The classifiers minimize weighted squared error with a kernel penalty of .01,
+using equal total training weight for original and generated labels and the
+reference content proportions within each. Training and evaluation memberships
+are fixed. Sparse reference classes mean not every test fold contains all three
+classes; pooled balanced accuracy uses the complete held-out set. For cross-service evaluation, AUC is computed within each fold and then
+averaged across six folds, rather than pooling margins from differently trained
+classifiers. Complete kernels, memberships and scores are included with the
+analysis code and numeric tables.
+
+Reference coverage assigns each original a ball whose radius is the distance
+to its $k$th nearest distinct original, and measures the reference mass with at
+least one generated neighbor inside that ball. We examine $k=1,3,5$ and both
+uniform and reference-class-matched generated subsamples, without replacement.
+For each setting, 100 draws use either $N_p$ or $\lfloor N_p/2\rfloor$ generated
+images; half-size class counts use largest-remainder allocation.
+The operating point matters: FLUX/C\'ezanne/named coverage is .438, .750 and
+.969 at these three neighborhood sizes with all generated images available.
+For OAuth/Monet, the named-minus-free direction at $k=3$ changes from negative
+with all generated images to positive for median class-matched subsample coverage.
+Thus coverage is not an invariant measure of how much of a painter's style has
+been reproduced.
+
+Disjoint reference subsets provide a finite-panel real/real control. Each draw
+allocates $\lfloor N_{pc}/2\rfloor$ works per class to each subset, giving 18
+Monet or 15 C\'ezanne works per side; these draws reuse the same panel. At $k=3$,
+median coverage of reduced reference anchors is .944 and .933 for held-out real
+queries, compared with .833 and .800 for FLUX named queries at matched sizes.
+At $k=5$, both real controls and the C\'ezanne FLUX named control reach median
+coverage one. Such saturation does not establish distributional equivalence,
+and repeated subsets do not supply independent reference replications.
+
+\begingroup
+\small
+\setlength{\bibsep}{4pt}
 \bibliographystyle{plainnat}
-{\interlinepenalty=10000
-\bibliography{references}}
+\bibliography{references}
+\endgroup
 \end{document}

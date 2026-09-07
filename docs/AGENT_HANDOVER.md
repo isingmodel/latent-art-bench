@@ -1,6 +1,15 @@
-# Agent handover: completed computational methodology revision
+# Agent handover: completed research-paper rewrite
 
-**Latest goal — 2026-09-07:** the user authorized implementing the skeptical
+**Latest goal — 2026-09-07:** the user requested a complete research-paper rewrite,
+then skeptical subagent review and revision. This is complete in
+`papers/painter_distribution_revision_v1/`: one end-to-end TeX source, an 11-page
+PDF and three manuscript vector figures. Three maintainer-run LLM reviewers
+assessed the draft; findings and responses are in its `REVIEW.md`. The coordinator
+checked every final page. No scientific evidence changed. Removed TeX includes
+are preserved in Git history; do not restore the old operational narration into
+the manuscript. Start with [STATUS.md](STATUS.md), then [ARTIFACTS.md](ARTIFACTS.md).
+
+**Previous goal — 2026-09-07:** the user authorized implementing the skeptical
 revision and adding OpenRouter data only if scientifically needed. The computational
 revision is complete in `painter_distribution_revision_v1`; final verification is
 recorded in [STATUS.md](STATUS.md). Start with that file, then [ARTIFACTS.md](ARTIFACTS.md).

@@ -18,8 +18,9 @@ identities.
 ## Current methodological revision
 
 - [Revision report, six figures and complete numeric tables](../reports/painter_distribution_revision_v1/pdrv1-numeric-20260907/REPORT.md)
-- [Revised English paper prototype](../papers/painter_distribution_revision_v1/paper.pdf)
-- [Revision disposition, reproduction and PDF build](../papers/painter_distribution_revision_v1/README.md)
+- [Rewritten English research manuscript](../papers/painter_distribution_revision_v1/paper.pdf)
+- [Manuscript scope, reproduction and PDF build](../papers/painter_distribution_revision_v1/README.md)
+- [Manuscript-quality review and responses](../papers/painter_distribution_revision_v1/REVIEW.md): internal LLM review of the new draft.
 - [Skeptical methodology review and revision plan](reviews/20260907_methodology/REVIEW_AND_REVISION_PLAN.md): three maintainer-run LLM reviews and coordinator adjudication.
 - [Fixed post-result revision protocol](../studies/painter_distribution_revision_v1/PROTOCOL.md)
 - [Reference feasibility and human-validation plan](../studies/painter_distribution_revision_v1/VALIDATION_PLAN.md): metadata audit and unperformed validation; no new generation recommended.

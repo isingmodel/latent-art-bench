@@ -1,5 +1,25 @@
 # Current status and research boundary — 2026-09-07
 
+## Completed goal: research-paper rewrite and skeptical manuscript review
+
+The [English manuscript](../papers/painter_distribution_revision_v1/paper.pdf)
+has been rewritten end-to-end as a single TeX source: **11 pages**, three compact
+vector figures and two tables. The paper centers the painter-name intervention,
+reference proximity, and variation within versus between scene descriptions.
+Operational history, budget details and recruitment planning are outside the paper.
+Three maintainer-run LLM subagents reviewed the new draft's paper quality,
+statistical claims and visual/detection interpretation; the coordinator revised
+it and checked every final page. The [review responses](../papers/painter_distribution_revision_v1/REVIEW.md)
+record the findings. This is internal LLM review, not independent peer review.
+
+The figure builder reuses hash-checked saved results and PCA coordinates without
+new statistics or projection fitting. All three figure PDFs reproduce exactly.
+Tectonic and Ruff pass, **886 offline tests** pass (88.64 seconds), and the
+historical audit passes **2,902 checks, zero failures**. Underlying scientific
+protocols, results, report bundles and ignored image evidence remain unchanged.
+The [manuscript guide](../papers/painter_distribution_revision_v1/README.md)
+contains build and replay commands. No new images or spending were needed.
+
 ## Completed goal: computational revision and revised English paper
 
 The authorized computational revision is implemented in
@@ -7,8 +27,8 @@ The authorized computational revision is implemented in
 freeze commit `c505512`. Its 103 bound inputs remain unchanged. The new full
 calculation and numeric replay pass. The [report](../reports/painter_distribution_revision_v1/pdrv1-numeric-20260907/REPORT.md)
 has six scientific figures and 31 tables; all 44 files reproduce byte-for-byte.
-The [23-page English paper](../papers/painter_distribution_revision_v1/paper.pdf)
-builds cleanly, and every final page was visually checked. Renderer commit
+The [current English paper](../papers/painter_distribution_revision_v1/paper.pdf)
+was subsequently rewritten as described above. Renderer commit
 `1d635a5` precedes report publication. See the
 [revision disposition and reproduction guide](../papers/painter_distribution_revision_v1/README.md).
 All new diagnostics are explicitly post-result and descriptive. Original primary
