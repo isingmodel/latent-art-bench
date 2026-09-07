@@ -1,176 +1,82 @@
 # Current status and research boundary — 2026-09-07
 
-## Active goal: implement the controlled study and paper prototype
+## Active goal: finish controlled analysis and the English paper prototype
 
-The user supplied `OPENROUTER_API_KEY` locally and requested implementation plus an English
-paper prototype, then explicitly delegated the outstanding choices to the recommendations.
-The adopted scope is multi-day collection, a computational paper with human evaluation prepared
-for follow-up, and prospective reference-panel adaptation when availability requires it.
+The user authorized the [research proposal](RESEARCH_PROPOSAL_20260906.md), delegated
+implementation choices, approved a $75 ceiling and bounded technical retries, and
+requested staggered parallel calls. The latest instruction requested immediate
+completion without the remaining night waits. Collection is now **complete**.
 
-Implementation is in the new `painter_distribution_study_v1` namespace. Its
-[staged protocol](../studies/painter_distribution_study_v1/PROTOCOL.md) preserves closed historical
-studies. The operating cap is **$75**, including the pilot, and the generation cap is 1,026 initial
-attempts, including at most 588 paid initial attempts. The user's subsequent
-[retry instruction](../studies/painter_distribution_study_v1/RETRY_AMENDMENT.md) adds at most 24
-bounded transient-error retries: 1,050 total / 612 paid attempts, with the same $75 ceiling.
-The user reaffirmed $75 after the authenticated
-preflight showed about $50 available and stated that replenishment is configured. This supersedes
-the interim $45 planning limit. The technical pilot spent **$0.8304855**. The first parallel collector is terminal after a diagnosed refusal.
-Its closing study charges were $3.3797815, with no unresolved intents or charges;
-the remaining-slot continuation later stopped on a complete FLUX 502 with missing cost.
-It retains 51 more images and that failure. The bounded recovery later closed at the user's request after four batches.
-Its FLUX retry succeeded; the remaining 504 slots are moving to immediate dispatch.
+The new `painter_distribution_study_v1` namespace compares Nano Banana 2, FLUX.2 Max
+and the OAuth GPT Image 2 service on Monet and Cézanne. The fixed design has 24
+shared content briefs, three repetitions, named/artist-free controls and an additional
+OAuth generic-named condition: **1,008 original research slots**.
 
-Stage A is complete. The [diagnostic report](../reports/painter_distribution_study_v1/pdsv1-diagnostics-20260906/REPORT.md)
-and all 18 output files reproduce byte-for-byte. Content-equal spread ratios are 0.211–0.372 for
-named conditions and 0.378–0.728 for artist-free conditions. Artist-free separability is also high;
-coarse title-derived content labels do not rule out content differences. Disjoint original splits
-give substantially smaller energy discrepancies than the generated/original comparisons.
-These remain descriptive diagnostics, not calibrated painter-style conclusions.
+- **1,006 selected research images**, two preserved OAuth moderation refusals
+  (`slot0036`, `slot0615`), and one successful exact-payload FLUX technical retry
+  (`slot0108-retry1`). No further generation is required or authorized by this grid.
+- **1,027 physical attempts**, including the separate 18-image technical pilot and
+  the one technical retry; 589 paid attempts.
+- Provider-reported charges: **$40.6819185**, including pilot and retry. The complete
+  FLUX 502 omitted cost; its raw null cost and **$5 contingency** remain. Conservative
+  accounting is **$45.6819185** against the $75 cap. No unresolved request or unclassified
+  cost remains. A published billing waiver is not an individual billing receipt.
+- All four scientific collection components are terminal. The first two preserve
+  47 images/one refusal and 51 images/one FLUX failure. Recovery preserves 404 further
+  initial images and the successful bound retry. The immediate successor preserves
+  503 further images and the second refusal. Their combined view covers every
+  original slot exactly once, with the sole bound retry linkage retained.
+- Immediate batches 4–7 ran consecutively from **2026-09-07 00:29:19 to 02:01:37 UTC**.
+  Recorded peak concurrency was three, peak per-route concurrency one, and minimum
+  start gap 5.043739 seconds. The original 33-hour schedule was not executed in full;
+  assigned batch IDs and actual timestamps remain evidence, without independent-day
+  or independent-backend-session claims.
 
-GET-only reference and endpoint discovery is complete under `pdsv1-metadata-20260906`: 81 requests,
-172,175,160 received bytes, all retained and hashed. The key
-authenticated successfully; both proposed image models and pinned providers are listed.
-The [technical pilot contract](../studies/painter_distribution_study_v1/PILOT.md) completed all 18
-requests successfully, without retries. Google returned six 1024×1024 JPEGs; BFL returned six
-1024×1024 PNGs. OAuth returned six nonsquare PNGs and reported low rather than requested medium
-quality. Paid routes share geometry but not encoding; OAuth requires a separate service comparison.
-The pilot source was committed at `2bd2fb9` and its freeze at `f202082`, before the first POST.
-The [pilot qualification report](../reports/painter_distribution_study_v1/pdsv1-pilot-20260906/REPORT.md)
-verifies raw hashes, costs and container metadata. The projected research charge, plus 25% headroom
-and pilot cost, is $50.6952. All three routes meet the prospective technical criterion.
+The active coordinator `25215` has exited successfully. **Do not restart any collector.**
+The combined receipt is complete and verified. The measurement/replay process `55874`
+is extracting the three fixed feature pipelines from all selected images, then
+recomputing them from retained raw bytes. Final numeric analysis, report publication
+and actual controlled results in the paper remain to be completed. Use the
+[workflow commands](DISTRIBUTION_STUDY_WORKFLOW.md); analysis is not a new generation run.
 
-The [new reference contract](../studies/painter_distribution_study_v1/REFERENCES.md) selects 64 Monet
-and 48 Cézanne candidates using recorded identity/exposure checks, a 512-native-pixel minimum and
-an explicit outdoor-title screen. Its original-delivery run is now permanently terminal: 97 attempts,
-five acquired files, 92 HTTP 429 responses, 15 unattempted. The operator stopped it between requests
-after observing rate limits. Its first collector lacked a rate-limit stop guard; preserve the record.
+### Scientific inputs and validation
 
-Wikimedia explicitly recommends supported thumbnail sizes. The prospective
-[R2 delivery amendment](../studies/painter_distribution_study_v1/REFERENCE_DELIVERY_R2.md) uses a
-ten-minute cooldown and stops on the first new rate limit. Its fixed standard-thumbnail inventory
-has 38 Monet and 33 Cézanne works; 41 candidates cannot meet both standard delivery and nonupsampling
-512-pixel geometry. Four fresh imageinfo responses confirm unchanged parent SHA-1s. R2 requires its
-own committed freeze and disjoint paths. R2 completed all **71/71** deliveries; every retained
-raw file and the event hash verified. Single-maintainer LLM visual coding admits **70 works**:
-38 Monet (21 water / 4 built / 13 land) and 32 Cézanne (3 water / 11 built / 18 land).
-One figure-led Cézanne is excluded. Mixed content and visible thin borders are recorded.
-This is not expert or independent human annotation. Conditional prompt-inference qualification
-passed both fixed-seed phases. The implemented main collector, three measurement pipelines and
-analysis pass **813 offline tests** (77.64 seconds); Ruff and the 2,902-check historical evidence
-audit pass. Main method source was committed at `d06cb95`; its four-file freeze/inventory
-was committed at `a03503b`. Development remeasurement completed all 442 sensitivity vectors
-from the same 221 works, and both new scalers are available. Fresh reference measurement now has 210 successful vectors (70 works × three
-pipelines), with no failed vectors or duplicate raw hashes. Generated fidelity
-vectors remain pending terminal collection.
+The fresh reference panel has **70 distinct works**: 38 Monet (21 water / 4 built /
+13 land) and 32 Cézanne (3 water / 11 built / 18 land). Standard-thumbnail delivery
+completed 71 files; single-maintainer LLM coding excluded one figure-led Cézanne.
+This is not expert or institutionally independent annotation. Earlier original
+image delivery is permanently closed after five acquired files and 92 HTTP 429s;
+its bytes are preserved separately, not added as independent works.
 
-Before the first research POST, the user requested staggered parallel calls. The sequential
-collector was stopped while waiting for its first window and permanently closed with status
-`superseded_before_dispatch`: **zero research attempts**. A prospective parallel successor is
-implemented with at most three in-flight requests, at least five seconds between starts,
-and one active request per model route. It retains the frozen content/analysis design and
-the $75/1,050-attempt caps, with new execution paths and predecessor-bound evidence.
-Parallel source was committed at `1751557`, its execution freeze at `7ead740`.
-The first coordinator was started with eight windows beginning September 6 at
-14:30 UTC (23:30 KST), ending with the September 7 23:30 UTC window. It is now
-closed after the diagnosed refusal below; the continuation keeps those window times.
-All 819 pre-execution offline tests, Ruff and the historical evidence audit pass.
-The first live inspection observed nine started requests, six successful completed
-images, no failed outcomes, peak concurrency three, peak per-route concurrency one,
-and a minimum recorded start gap of 5.0043 seconds. These are an early operational
-snapshot, not a partial fidelity analysis. Full report rendering is implemented
-and its synthetic fixtures reproduce all 22 output files byte-for-byte. Final
-generated measurement, numeric analysis, report and paper results await collection.
+All **210 reference vectors** and **442 development sensitivity vectors** succeeded.
+The same 221 historical development works supply all three fixed scalers. Generated
+features were first accessed only after the complete generation receipt. The primary
+analysis uses 31 interpretable features and reference-matched content masses, with
+processing, content, availability, grouped detection, coverage, painter specificity,
+finite-reference baselines and eight fixed paired prompt contrasts.
 
-The English LaTeX/PDF paper prototype is drafted and visually checked; it distinguishes
-completed diagnostics and pilot outcomes from pending new-model comparisons. Human construct
-validation is prepared as a follow-up. The user-authorized retry amendment is prospective for
-the new collection and preserves all terminal historical evidence.
+Scientific source/freeze commits are `d06cb95`/`a03503b`; immediate execution
+source/freeze commits are `6697108`/`d0f8170`. The executed scientific and transport
+sources, protocols, ledgers and frozen inputs must remain unchanged. The
+[immediate amendment](../studies/painter_distribution_study_v1/IMMEDIATE_COLLECTION.md)
+binds the closed recovery and the user-requested timing change before generated
+measurement. Earlier refusal and transient-error amendments preserve their own
+terminal evidence. All **843 offline tests**, Ruff and the **2,902-check historical
+evidence audit** pass for the current implementation. Final measurement and analysis
+have their own raw and numerical replay checks in addition to that historical audit.
 
-`.env` is ignored and untracked. Tectonic, Pandoc and Poppler are available. Free storage was
-18.7 GiB at preflight; every collection stage preserves the 5 GiB reserve. Stage A validation:
-Ruff passed; the earlier pilot-stage suite passed 779 tests before the main implementation.
-The parallel and reporting implementations added nine offline tests; that pre-correction
-suite passed 822 tests. Reference raw-to-feature replay verifies all 210 vectors. The historical v1 evidence audit passes 2,902 checks. No subagent or
-institutionally independent review was used.
+The [completed Stage A diagnostic report](../reports/painter_distribution_study_v1/pdsv1-diagnostics-20260906/REPORT.md)
+reproduces all 18 files byte-for-byte. Its content-equal spread ratios are
+0.211–0.372 for named conditions and 0.378–0.728 for artist-free conditions.
+Artist-free separability is also high; coarse title-derived classes do not isolate
+painter style. These historical observations remain descriptive development evidence.
 
-### Refusal diagnosis and continuation
-
-The parallel collector stopped at 14:35 UTC with 48 terminal slots: **47 images
-and one OAuth HTTP 400 moderation refusal** (`slot0036`). Its generic HTTP 400
-rule classified the explicit `moderation_blocked` error as a contract problem.
-All 48 retained raw responses verified. Preserve the closed census and its
-[diagnosis and continuation contract](../studies/painter_distribution_study_v1/REFUSAL_CONTINUATION.md).
-
-The implemented continuation executes only the 960 unattempted original slots,
-with the original window origin, three staggered route workers and unchanged caps.
-The refused slot is neither retried nor rewritten. Recognized explicit refusals
-remain failed observations; unknown/bad requests still stop, and predecessor
-failures continue to count toward the route failure-cluster rule. Combined results
-will retain all original slot identities, the 47 prior images and the missing refusal.
-Continuation source/terminal evidence was committed at `29027dd`, its freeze
-at `ec4ef09`, before resumed dispatch. That coordinator later closed as described
-below. The first nine
-continuation outcomes were successful, across all three routes; recorded study charges
-were $3.8616185 at that early check, with no stop event or uncertain charge. All **828 offline
-tests**, Ruff and the 2,902-check historical evidence audit pass.
-No generated fidelity vector has been measured. The 11-page paper now specifies
-the controlled statistics and their assumptions; final data/results remain pending.
-
-### Complete transient failure and reserved-cost recovery
-
-The remaining-slot collector is now also terminal: 52 attempts, 51 images and one
-complete FLUX HTTP 502 submission error (`slot0108`), with no image, generation ID
-or reported charge. All 52 raw responses verified. Across both censuses there are
-100 original attempted slots and 98 images. Provider-reported study charges are
-$5.601998; raw conservative accounting retains another $5 for the missing cost.
-There is no unresolved request, but the frozen accounting marks the cost unknown.
-
-OpenRouter's published Image API billing policy waives failed-image requests. The
-[new recovery contract](../studies/painter_distribution_study_v1/TRANSIENT_RECOVERY.md)
-does not invent a zero-cost receipt: it retains the full $5 reserve while allowing
-one technical retry of this narrowly identified complete error. Incomplete or
-unclassified responses still stop; the refusal rule and failure-cluster guard remain.
-The recovery implements 908 untouched original slots plus one bound retry of
-`slot0108`, with the unchanged study design, schedule and caps. The earlier OAuth
-refusal stays missing. No generated features have been measured. All 838 offline tests,
-Ruff and the 2,902-check historical evidence audit pass. The updated 11-page PDF has
-been rendered and visually checked. Recovery source was committed at `94c602e`,
-its execution freeze at `fb21593`, before dispatch. The sole coordinator is
-`recovery run --watch`; its retry of `slot0108` returned a verified image.
-Original window times remain unchanged. Neither closed collector may be resumed.
-
-Windows 0–3 are complete across the three components: **504 original slots,
-503 selected images and one retained OAuth refusal**, with one extra FLUX retry.
-Windows 1–3 each returned all 126 images on initial attempts. All 405 recovery responses
-and image-container metadata verified; the execution freeze and 2,902-check
-historical evidence audit pass. Live recovery timestamps showed a peak of three
-concurrent calls, one per route, and a minimum start gap of 5.0213 seconds.
-Including the 18-request pilot, 523 attempts have completed; reported charges
-total $20.7569045 plus the unchanged $5 contingency, with no unresolved request
-or unclassified cost. The coordinator had been waiting for window 4,
-September 7 at 14:30 UTC (September 7, 23:30 KST). This longer scheduled interval
-preserves the prospectively declared separation across days. Four windows / 504
-initial slots remain. No generated fidelity feature has been measured.
-
-### User-requested immediate completion
-
-The user explicitly requested the remaining generation now, without waiting for
-night. The waiting recovery process was stopped between requests and permanently
-closed as `superseded_by_user_schedule_change`, with no unresolved or uncertain
-request. Its 405 selected outcomes and all three components' 503 images remain.
-The prospective [immediate amendment](../studies/painter_distribution_study_v1/IMMEDIATE_COLLECTION.md)
-schedules the 504 untouched slots in batches 4–7 consecutively, preserving their
-order, prompts, three staggered workers, references, scalers, analysis and $75 cap.
-Original assignment/timing records remain; the paper must disclose that the full
-33-hour schedule was not executed. No generated fidelity feature has been measured.
-All 843 offline tests, Ruff and the 2,902-check historical evidence audit pass.
-Source was committed at `6697108` and the new execution freeze at `d0f8170`, before
-dispatch. The sole live coordinator is `immediate run`, execution session `25215`.
-Its first 14 completed calls across all three routes returned verified images.
-The four remaining batches now run consecutively without scheduled night waits.
-The updated 11-page paper records the timing change and has been rendered and
-visually checked. The old recovery session `68624` is terminal and must not be restarted.
+The [English paper prototype](../papers/painter_distribution_study_v1/README.md)
+currently reports completed historical evidence, pilot and reference measurement,
+with controlled results pending. Human construct validation is prepared for later;
+no human recruitment, learned-feature computation, venue or collaborator involvement
+is claimed. Reasoning and documents remain English. `.env` and raw image bytes are
+ignored valuable local evidence; never expose credentials or delete research bytes.
 
 ## Original proposal snapshot, before execution authorization
 

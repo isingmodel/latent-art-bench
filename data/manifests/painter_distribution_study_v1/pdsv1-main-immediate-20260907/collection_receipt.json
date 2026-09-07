@@ -1,0 +1,127 @@
+{
+  "budget": {
+    "accounted_usd": 45.68191850000009,
+    "attempts": 1027,
+    "contingency_reserve_usd": 5.0,
+    "missing_cost_failures": 1,
+    "paid_attempts": 589,
+    "provider_reported_usd": 40.681918500000066,
+    "reserved_failure_records": [
+      {
+        "request_id": "slot0108",
+        "reservation_usd": 5.0,
+        "run_id": "pdsv1-main-continuation-20260906",
+        "terminal_sha256": "e11ddda9f223ba1a87f1eab8191e24cfb37b2b08eb743e0e31c35d122b579763"
+      }
+    ],
+    "uncertain": 0,
+    "unresolved": 0
+  },
+  "component_runs": [
+    {
+      "run_id": "pdsv1-main-parallel-20260906",
+      "status": "stopped_for_diagnosis",
+      "terminal_slots": 48
+    },
+    {
+      "run_id": "pdsv1-main-continuation-20260906",
+      "status": "stopped_for_diagnosis",
+      "terminal_slots": 52
+    },
+    {
+      "run_id": "pdsv1-main-recovery-20260907",
+      "status": "superseded_by_user_schedule_change",
+      "terminal_slots": 405
+    },
+    {
+      "run_id": "pdsv1-main-immediate-20260907",
+      "status": "completed",
+      "terminal_slots": 504
+    }
+  ],
+  "dispositions": {
+    "http_error": 2,
+    "image_returned": 1006
+  },
+  "execution_freeze_sha256": "47bf085668a18b4d90db418c0310797c2627eeee64710f89cb7a0773b24c4819",
+  "outputs": [
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-continuation-20260906/generation_events.jsonl",
+      "sha256": "1d5c819d4c2ee721601e307f2e159dc142d8c688eed3d8118901f6b468695401"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-continuation-20260906/generation_receipt.json",
+      "sha256": "8611cbb592cc07475d7c91fb1359d6df428a9f864d00bb2da1f0a7f2c409f52d"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-continuation-20260906/operator_events.jsonl",
+      "sha256": "fd8683f78d8f1e87f59a7fb3979af3887d3cd6fb0439b4bcf7f7e67689c9e6ba"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-continuation-20260906/slot_events.jsonl",
+      "sha256": "559ee1368a709dbf2d7a902414dd959d4bd5a81a643234539adadd8385d78e45"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-immediate-20260907/generation_events.jsonl",
+      "sha256": "203e793dd53b4a8585e2985a0dbbcdd68db43b20650e5afbd4f5bdf66f0c24c4"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-immediate-20260907/generation_receipt.json",
+      "sha256": "83a5cafcc2607194cd0889fbdd48567891f419cbbc0d66b1c23779bceb22f3cb"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-immediate-20260907/slot_events.jsonl",
+      "sha256": "4643d1997d80227883ada86512977eca3f5bc5594d1e186dca5053401f233423"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-parallel-20260906/generation_events.jsonl",
+      "sha256": "bb7fc6cdf184e9bc117b160465f7d78a8c46873da638c615efb6e44cbc15f214"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-parallel-20260906/generation_receipt.json",
+      "sha256": "407926a20629426332c063f1f83c86c4a8a5e7c33117b92757b19ffccc052448"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-parallel-20260906/operator_events.jsonl",
+      "sha256": "e8ca2edc6242c59357b1620963c87874d39c6155586d8cd23e421f5c95f832b8"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-parallel-20260906/slot_events.jsonl",
+      "sha256": "a20934aef1cfdfc8e4681f049b3d5909f602852d7e44115e9402c04ed292ad75"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-recovery-20260907/generation_events.jsonl",
+      "sha256": "52cf1d73621039c52f5321b062961233cfc6e3b0e800c01bf7c94c73d2e9c911"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-recovery-20260907/generation_receipt.json",
+      "sha256": "a45d7cf573035358d39442a62e685f37c75d81f744228f30ae0f8013a09579f6"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-recovery-20260907/operator_events.jsonl",
+      "sha256": "b0a09e5f178514ed70cae05d5badc5fda6a70520460ece0f025ad62143586c78"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-recovery-20260907/slot_events.jsonl",
+      "sha256": "183898227eb77691cb6104c2279aa8a7389b4871188470ec56f74f4b49fcb5d9"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-recovery-20260907-retry-slot0108/generation_events.jsonl",
+      "sha256": "9e629a3b769f2b84978c9297a968d0a900c013aeff4aa20f960e65a5a10e818b"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-recovery-20260907-retry-slot0108/generation_receipt.json",
+      "sha256": "02642088c3a9a01e34cc8facce50397df2a5155e97b29654770340a44e81ea02"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-recovery-20260907-retry-slot0108/retry_authority.json",
+      "sha256": "9b051d6aef1b3f4a50ff9d3c9965803e3949302088b27bdc4aaf9757d2a5c5bb"
+    }
+  ],
+  "run_id": "pdsv1-main-immediate-20260907",
+  "schedule_change": "Remaining batches 4-7 collected immediately at user request.",
+  "scope": "derived fixed-slot view; all three predecessor censuses remain closed",
+  "slots": 1008,
+  "status": "completed",
+  "terminal_slots": 1008
+}

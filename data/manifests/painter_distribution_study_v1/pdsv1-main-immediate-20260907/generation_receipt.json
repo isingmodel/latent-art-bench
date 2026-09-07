@@ -1,0 +1,42 @@
+{
+  "budget": {
+    "accounted_usd": 45.68191850000009,
+    "attempts": 1027,
+    "contingency_reserve_usd": 5.0,
+    "missing_cost_failures": 1,
+    "paid_attempts": 589,
+    "provider_reported_usd": 40.681918500000066,
+    "reserved_failure_records": [
+      {
+        "request_id": "slot0108",
+        "reservation_usd": 5.0,
+        "run_id": "pdsv1-main-continuation-20260906",
+        "terminal_sha256": "e11ddda9f223ba1a87f1eab8191e24cfb37b2b08eb743e0e31c35d122b579763"
+      }
+    ],
+    "uncertain": 0,
+    "unresolved": 0
+  },
+  "dispositions": {
+    "http_error": 1,
+    "image_returned": 503
+  },
+  "execution_freeze_sha256": "47bf085668a18b4d90db418c0310797c2627eeee64710f89cb7a0773b24c4819",
+  "outputs": [
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-immediate-20260907/generation_events.jsonl",
+      "sha256": "203e793dd53b4a8585e2985a0dbbcdd68db43b20650e5afbd4f5bdf66f0c24c4"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-immediate-20260907/slot_events.jsonl",
+      "sha256": "4643d1997d80227883ada86512977eca3f5bc5594d1e186dca5053401f233423"
+    }
+  ],
+  "reason": null,
+  "run_id": "pdsv1-main-immediate-20260907",
+  "slots": 504,
+  "status": "completed",
+  "terminal_slots": 504,
+  "unattempted_slot_ids": [],
+  "unresolved_slot_ids": []
+}
