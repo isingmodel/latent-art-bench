@@ -1,5 +1,17 @@
 # Current status and research boundary — 2026-09-07
 
+## Active goal: methodological revision and revised English paper
+
+The user authorized implementing the revision and conditional OpenRouter acquisition.
+The [new revision protocol](../studies/painter_distribution_revision_v1/PROTOCOL.md)
+fixes a post-result numeric package in a separate namespace. Synthetic qualification
+and source review are underway before its committed freeze and full calculation.
+The [validation design](../studies/painter_distribution_revision_v1/VALIDATION_PLAN.md)
+recommends no new generation: retained outputs support these diagnostics, whereas
+missing capture provenance and human judgments require different evidence. Additional
+generation spending is $0; the conservative study accounting remains $45.6819185.
+No collector is active. Previous protocols, results and paper remain unchanged.
+
 ## Completed goal: controlled distribution analysis and English paper prototype
 
 The authorized research proposal is implemented, collected, measured, analyzed and
@@ -7,6 +19,29 @@ reported. Read the [controlled comparison report](../reports/painter_distributio
 and [14-page English paper prototype](../papers/painter_distribution_study_v1/paper.pdf).
 The paper reports actual controlled results and preserves the historical evidence
 as development context. There is no live collector or unfinished analysis process.
+
+### Methodology review and proposed revision
+
+A [skeptical methodology review and revision plan](reviews/20260907_methodology/REVIEW_AND_REVISION_PLAN.md)
+is complete. Three maintainer-run LLM subagents reviewed statistics, data/design,
+and measurement/claims; the coordinator checked key findings. This is not
+independent human or institutional peer review. The recommendation is **major
+scientific revision before submission**, while preserving the valid finite-feature
+results and conditional paid-route prompt comparisons. No confirmed arithmetic
+bug was identified in the reviewed energy, randomization or classifier primitives.
+
+The review establishes a geometry confound (all 70 originals nonsquare, all 576
+paid outputs square), incomplete source/content controls, repeated weighting of
+derived feature summaries, and missing perceptual validation. A separately labeled
+numeric review diagnostic shows that aggregate contraction need not mean reduced
+within-brief variation. The native-1024 filter uses parent-surrogate metadata,
+not delivered thumbnail dimensions; its four Monet works contain no built scenes.
+
+The authorized next step is one bounded diagnostic package on existing numeric
+evidence, with reference/common-support and human-validation design.
+Additional reference counts require an explicit target and precision/power basis;
+no new generation is recommended initially. Implementation is in progress in the
+new namespace above. Frozen evidence and the previous manuscript are unchanged.
 
 ### Main findings
 

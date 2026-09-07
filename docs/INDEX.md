@@ -17,6 +17,10 @@ identities.
 
 ## Completed controlled-distribution research round
 
+- [Skeptical methodology review and revision plan](reviews/20260907_methodology/REVIEW_AND_REVISION_PLAN.md): three maintainer-run LLM subagent reviews and coordinator adjudication.
+- [Authorized methodological revision protocol](../studies/painter_distribution_revision_v1/PROTOCOL.md): separately versioned post-result diagnostics; implementation in progress.
+- [Reference feasibility and human-validation plan](../studies/painter_distribution_revision_v1/VALIDATION_PLAN.md): metadata audit and unperformed validation design; no new generation recommended.
+- [Contribution and literature matrix](../studies/painter_distribution_revision_v1/LITERATURE_MATRIX.md)
 - [Completed controlled comparison report and figures](../reports/painter_distribution_study_v1/pdsv1-analysis-20260907/REPORT.md)
 - [Completed English paper prototype](../papers/painter_distribution_study_v1/paper.pdf)
 - [Expansion decision, controlled study design and $100 budget](RESEARCH_PROPOSAL_20260906.md)
