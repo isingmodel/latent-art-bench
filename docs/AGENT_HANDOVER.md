@@ -1,46 +1,48 @@
-# Agent handover: completed controlled painter-distribution study
+# Agent handover: completed computational methodology revision
 
-**Latest completed goal — 2026-09-07:** the authorized proposal, controlled data
-collection, analysis and English paper prototype are complete. Start with
-[STATUS.md](STATUS.md), then [ARTIFACTS.md](ARTIFACTS.md), as required by the agent guide.
+**Latest goal — 2026-09-07:** the user authorized implementing the skeptical
+revision and adding OpenRouter data only if scientifically needed. The computational
+revision is complete in `painter_distribution_revision_v1`; final verification is
+recorded in [STATUS.md](STATUS.md). Start with that file, then [ARTIFACTS.md](ARTIFACTS.md).
 
-The [controlled report](../reports/painter_distribution_study_v1/pdsv1-analysis-20260907/REPORT.md)
-and [14-page paper](../papers/painter_distribution_study_v1/paper.pdf) contain actual
-results from 1,006 generated images and 70 fresh reference works, using the fixed
-31 interpretable features. Nano Banana 2 and FLUX.2 Max supplement the OAuth GPT
-Image 2 service on Monet and Cézanne. Painter naming improves primary energy on
-both paid routes while contracting aggregate feature spread; generated and original
-collections remain readily distinguishable. The reference and processing exceptions,
-OAuth quality variation and conditional inference assumptions are reported explicitly.
-These results do not validate perceptual style equivalence or an intrinsic universal
-collapse claim.
+Read the [new report](../reports/painter_distribution_revision_v1/pdrv1-numeric-20260907/REPORT.md),
+[revised English paper](../papers/painter_distribution_revision_v1/paper.pdf), and
+[revision disposition/reproduction commands](../papers/painter_distribution_revision_v1/README.md).
+The report has six figures and 31 tables. The original controlled paper remains
+historical; its statistical results are unchanged.
 
-Every collector is permanently terminal. The user requested immediate completion,
-so batches 4–7 ran consecutively rather than waiting for the original night schedule.
-Do not restore that schedule or restart any generator. All 1,008 scientific slots
-are terminal, with two preserved OAuth generic-named Cézanne refusals and one
-successful bounded FLUX technical retry. There were 1,027 physical attempts including
-18 pilot attempts; reported charges $40.6819185 and retained contingency $5 give
-$45.6819185 against the $75 ceiling. There is no unresolved request or uncertain cost.
+The new analysis retains 1,006 generated images, 70 references and 221 development
+works. It adds four metric views, within/between-brief trace, reference/scaler
+influence, painter interactions and identical-payload controls, coverage controls,
+metadata and cross-route detection, and five timing views. These are explicitly
+post-result descriptive diagnostics. No new p-value family or perception claim
+was introduced. Numeric source/input commit `f7666ae` and freeze `c505512` precede
+calculation; renderer commit `1d635a5` precedes report publication. Preserve these
+bound files and all published outputs; corrections require a successor scope.
 
-All 3,018 generated vectors replay from retained raw bytes. All reference and
-development measurements are complete. The original JSON publication failed on
-four NumPy Boolean flags before creating an output; its scientific source remains
-unchanged. The new `analysis_publication` adapter converts only those flags with
-exact value equality and publishes in `pdsv1-analysis-20260907`. Source/measurement
-commit `200b21b`, publication freeze `4e70d29`, and report-input commit `383228c`
-record the correction and completed analysis. Its numerical replay and every one
-of the 22 report output files verify. All 846 offline tests, Ruff and the historical
-2,902-check evidence audit pass. Read the
-[workflow](DISTRIBUTION_STUDY_WORKFLOW.md) for the current read-only replay commands;
-do not use the superseded `immediate_results analysis` publisher.
+The paid primary prompt findings survive, but robustness is bounded. OAuth
+Cézanne's within-brief trace rises despite aggregate contraction. NB2 Monet's
+no-texture named/reference ratio exceeds one, and its 256/no-texture energy
+contrast reverses. Cross-route fixed-threshold balanced accuracy falls under naming
+in every direction, while mean fold AUC can increase. Geometry confounding and
+unresolved captures prevent interpreting absolute detection as painter style.
 
-The user asked for English reasoning and documents, infrequent progress updates,
-bounded retries for isolated technical failures, and diagnosis of clustered failures.
-No human evaluation or learned-feature expansion has been executed; both remain
-possible follow-ups. Venue and Kim's participation/authorship are undecided. No
-institutionally independent review is claimed. Future research needs a new scope;
-no current result requires additional generation or a continuation process.
+No new image, acquisition or feature extraction was needed. Generation spending
+is **$0 additional**, leaving conservative study accounting **$45.6819185 of $75**.
+The metadata-only feasibility audit and concrete human design are complete as
+planning artifacts. New-reference replication, independent content coding, human
+judgments and optional learned representations remain unperformed. The selected
+paper direction is a finite-feature computational case study. More generated
+images would not repair the current source/capture or construct limitations.
+
+There is no live collector or scheduled continuation. Every original collection
+is terminal: 1,008 scientific slots, 1,006 images, two preserved OAuth refusals,
+one successful exact FLUX retry; 1,027 attempts including 18 pilot calls. Do not
+retry or top up any closed run. Raw evidence and the unrelated Korean source were
+preserved. User preferences are English reasoning/docs, infrequent updates,
+staggered parallel transport when justified, bounded technical retries and
+stopping to diagnose clustered failures. All reviews were maintainer-run LLM
+reviews with coordinator checks, not institutionally independent peer review.
 
 The following sections preserve earlier completed studies and their historical
 handover context. They do not supersede the current status above.

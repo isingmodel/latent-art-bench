@@ -1,0 +1,2 @@
+section,reason,status
+capture_workflow_holdout,"No independently verified capture-workflow labels or crossed workflow support; collection identifiers are source proxies, not capture workflows.",unavailable

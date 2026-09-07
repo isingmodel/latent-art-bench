@@ -4,21 +4,27 @@ LatentArtBench compares **the feature distributions of generated images and digi
 reproductions of artists' paintings**, using 31 interpretable color, spatial and
 texture features. Historical studies cover Monet, Sisley, Pissarro and Cézanne.
 
-The completed [controlled distribution report](reports/painter_distribution_study_v1/pdsv1-analysis-20260907/REPORT.md)
-adds Nano Banana 2 and FLUX.2 Max alongside an OAuth GPT Image 2 service, with
-**1,006 research images and 70 fresh reference paintings** for Monet and Cézanne.
-The remaining batches ran immediately as requested, with staggered parallel calls.
-Reported charges were **$40.68**; accounting including a retained $5 contingency
-was **$45.68**, within the $75 ceiling. Collection and analysis are complete.
+The current [methodological revision report](reports/painter_distribution_revision_v1/pdrv1-numeric-20260907/REPORT.md)
+and [revised English paper prototype](papers/painter_distribution_revision_v1/paper.pdf)
+use the completed **1,006 generated images, 70 reference paintings and 221 development
+works**. This separately frozen post-result revision adds four metric views,
+within/between-brief variation, reference influence, painter-label placebos,
+coverage controls and cross-route detection. The original eight prompt tests remain
+unchanged; all new diagnostics are descriptive.
 
-The [14-page English paper prototype](papers/painter_distribution_study_v1/paper.pdf)
-reports the actual results: painter naming improves measured proximity on both
-paid routes while contracting aggregate spread. Named variance ratios are
-0.306–0.756, and held-out RBF balanced accuracy is 0.893–0.987. Artist-free controls,
-spatial features, a small reference subset and variable OAuth rendering qualify
-the interpretation. These are finite-panel feature results, not validated judgments
-of perceptual style. See [current status](docs/STATUS.md) and the
-[reproduction workflow](docs/DISTRIBUTION_STUDY_WORKFLOW.md).
+Painter naming reduces primary feature discrepancy on both paid routes and reduces
+aggregate spread relative to artist-free controls. The revision narrows that result:
+within-brief variation can increase, removing texture reverses one paid proximity
+comparison, and cross-route fixed-threshold balanced accuracy falls under naming.
+These are finite-feature findings, without completed human style validation.
+All paid outputs are square while all references are nonsquare; capture provenance
+remains unresolved. See the [revision disposition and reproduction commands](papers/painter_distribution_revision_v1/README.md).
+
+The revision adds **zero images and $0 generation spending**. Conservative study
+accounting remains **$45.6819185 within the $75 ceiling**. The next useful evidence
+is reference and human construct validation, rather than another generation sweep.
+The [original controlled report](reports/painter_distribution_study_v1/pdsv1-analysis-20260907/REPORT.md)
+and earlier paper remain preserved. See [current status](docs/STATUS.md) for verification.
 
 The new [distribution scatter and separability report](reports/painter_distribution_exploration_v1/REPORT.md)
 compares original and generated point clouds in common PCA views and evaluates their separability
@@ -96,15 +102,16 @@ paper-prototype link above.
 
 ## Run and reproduce
 
-Reproduce the latest controlled numerical analysis and all 22 report files:
+Reproduce the current revision without provider calls or image access:
 
 ```bash
-uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.analysis_publication check
-uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.main_report check
+uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_revision_v1.analysis check
+uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_revision_v1.report_publication check
 ```
 
-All 846 offline tests pass. The scientific calculation is unchanged; the disclosed
-publication adapter only converts NumPy Boolean decision flags for JSON storage.
+The [paper README](papers/painter_distribution_revision_v1/README.md) covers the
+locked environment, PDF build and artifact boundaries. Historical reproduction
+commands are preserved in the [controlled-study workflow](docs/DISTRIBUTION_STUDY_WORKFLOW.md).
 No completed collector should be restarted.
 
 Use the locked environment with both extras to preserve the shared environment's dependencies.

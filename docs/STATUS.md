@@ -1,16 +1,68 @@
 # Current status and research boundary — 2026-09-07
 
-## Active goal: methodological revision and revised English paper
+## Completed goal: computational revision and revised English paper
 
-The user authorized implementing the revision and conditional OpenRouter acquisition.
-The [new revision protocol](../studies/painter_distribution_revision_v1/PROTOCOL.md)
-fixes a post-result numeric package in a separate namespace. Synthetic qualification
-and source review are underway before its committed freeze and full calculation.
-The [validation design](../studies/painter_distribution_revision_v1/VALIDATION_PLAN.md)
-recommends no new generation: retained outputs support these diagnostics, whereas
-missing capture provenance and human judgments require different evidence. Additional
-generation spending is $0; the conservative study accounting remains $45.6819185.
-No collector is active. Previous protocols, results and paper remain unchanged.
+The authorized computational revision is implemented in
+`painter_distribution_revision_v1`, with source commit `f7666ae` and numeric
+freeze commit `c505512`. Its 103 bound inputs remain unchanged. The new full
+calculation and numeric replay pass. The [report](../reports/painter_distribution_revision_v1/pdrv1-numeric-20260907/REPORT.md)
+has six scientific figures and 31 tables; all 44 files reproduce byte-for-byte.
+The [23-page English paper](../papers/painter_distribution_revision_v1/paper.pdf)
+builds cleanly, and every final page was visually checked. Renderer commit
+`1d635a5` precedes report publication. See the
+[revision disposition and reproduction guide](../papers/painter_distribution_revision_v1/README.md).
+All new diagnostics are explicitly post-result and descriptive. Original primary
+cells and all eight original prompt estimates reproduce; no new test family is added.
+
+The revision contains 168 metric cells, 72 named/free contrasts, 396 reference
+influence rows, 108 specificity records, four development-scaler omissions,
+coverage controls and memberships, metadata associations, 48 cross-route kernel
+summaries and 40 timing contrasts. Three maintainer-run LLM subagents implemented
+or reviewed metrics, detection, validation design and manuscript claims, with
+coordinator checks. This is not independent human or institutional peer review.
+
+All **886 offline tests** pass (89.91 seconds), Ruff passes, and both revision
+replay commands pass. The historical audit passes **2,902 checks, zero failures**;
+it retains the two acknowledged historical inputs and informational drift, and
+is distinct from this revision's own verification. The detection subagent also
+reconstructed 16,800 coverage values, 4,200 real/generated controls and 48 pooled
+balanced accuracies, checking 144 case-fold instances for work/brief leakage.
+These implementation checks do not establish human or source/capture validity.
+
+### Findings that narrow the original interpretation
+
+- All 72 fixed-view named/free total-trace ratios remain below one. Within-brief
+  variation does not uniformly contract: primary OAuth Cézanne has ratio **1.139**
+  despite total ratio **0.651**.
+- Removing texture raises Nano Banana 2 Monet's primary named/original trace
+  ratio to **1.101**. Its 256-pixel/no-texture energy contrast reverses to **+0.4159**.
+  FLUX and Nano Banana 2 Cézanne retain negative energy directions in every fixed
+  view/pipeline combination. The original four paid primary tests are unchanged.
+- All three primary named painter interactions favor own-painter alignment more
+  than their artist-free collection-label controls. Identical artist-free payloads
+  still produce nonzero empirical V-energy, which is not an equivalence threshold.
+- Cross-route fixed-threshold balanced accuracy decreases under naming in all
+  12 directed route/painter comparisons for both kernels. Named ranges are
+  **0.410–0.874 linear / 0.447–0.704 RBF**. Mean within-fold AUC can increase,
+  so calibration/threshold shifts must not be called a uniform loss of discrimination.
+- Coverage depends on class sampling and neighborhood size. Disjoint real controls
+  can saturate alongside generated coverage at k=5; this does not prove equivalence.
+  A square metadata rule has perfect accuracy on every paid cell, while all 70
+  reference capture workflows remain unresolved.
+- Work, source-group and class deletions preserve the paid primary directions;
+  some OAuth effects cross zero. Timing/retry sensitivities preserve the original
+  directions but do not repair the no-interference assumption.
+
+The [validation plan](../studies/painter_distribution_revision_v1/VALIDATION_PLAN.md)
+finds no scientific need for extra generations in this scope. All 112 retained
+candidate paintings are nonsquare; more outputs cannot supply capture provenance
+or human judgments. **Zero new images and $0 additional spending** leave conservative
+accounting at **$45.6819185 of $75**. No collector is active.
+
+Human/reference replication and optional learned-feature branches remain unperformed.
+The paper retains the finite-feature computational claim. The human design is
+operational planning, not completed validation or a recruitment authorization.
+Previous protocols, results and manuscript remain preserved.
 
 ## Completed goal: controlled distribution analysis and English paper prototype
 
@@ -40,8 +92,8 @@ not delivered thumbnail dimensions; its four Monet works contain no built scenes
 The authorized next step is one bounded diagnostic package on existing numeric
 evidence, with reference/common-support and human-validation design.
 Additional reference counts require an explicit target and precision/power basis;
-no new generation is recommended initially. Implementation is in progress in the
-new namespace above. Frozen evidence and the previous manuscript are unchanged.
+no new generation is recommended initially. The numeric package is published in the
+new namespace above, and the revised report and manuscript are complete. Frozen evidence and the previous manuscript are unchanged.
 
 ### Main findings
 

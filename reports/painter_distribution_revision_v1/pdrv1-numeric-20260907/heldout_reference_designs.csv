@@ -1,0 +1,3 @@
+class_counts_per_group.built,class_counts_per_group.land,class_counts_per_group.water,group_size,memberships.n,painter_id,reference_image_ids.n,status
+2,6,10,18,100,claude_monet,38,available
+5,9,1,15,100,paul_cezanne,32,available

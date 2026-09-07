@@ -6,6 +6,17 @@ tracked as evidence and which exist nowhere else.
 
 ## Canonical tracked material
 
+The `painter_distribution_revision_v1` namespace retains separately frozen
+post-result numeric diagnostics, report source, exact inputs, results and output
+receipts. It reads existing measured vectors and metadata, has no new raw-image
+workspace, and authorizes no generation or extraction. Preserve its 103-input
+numeric freeze and published report as terminal evidence; corrections need a
+successor scope. The revised English manuscript lives in
+`papers/painter_distribution_revision_v1/`; the previous paper remains historical.
+The validation and literature documents bound into the numeric freeze are also
+immutable. Record future validation execution in a new scope, not by revising
+their unperformed-study statements in place.
+
 The completed `painter_distribution_study_v1` namespace retains the diagnostic and controlled reports,
 prospective stage contracts, source/tests, freezes and append-only metadata/generation events.
 Preserve all terminal files. Its ignored `research_workspace/painter_distribution_study_v1/`
