@@ -1,0 +1,53 @@
+{
+  "correction": "Convert only endpoints[*].reject_at_05 from NumPy to native bool.",
+  "inputs": [
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-analysis-20260907/serialization_diagnosis.json",
+      "sha256": "d59d0dfa3c9cb89038f0a295243b337fb37f39e4c35f1a04566456409ecc8487"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-20260906/scalers.json",
+      "sha256": "d886f0726715a228d7dd06cc57003616c06386b0321ca5611bcb4315a2a564b6"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-immediate-20260907/collection_receipt.json",
+      "sha256": "da080144473caaf314630257a8268eba8d48e930050a2c60829303260fe2e046"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-immediate-20260907/execution_freeze.json",
+      "sha256": "47bf085668a18b4d90db418c0310797c2627eeee64710f89cb7a0773b24c4819"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-immediate-20260907/generated_features.jsonl",
+      "sha256": "2bdbfaf5b44ba5d882aeb4a3359d64e5a0fc2914929eb2c0ce0e870bcabae0b6"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-immediate-20260907/generated_measurement_receipt.json",
+      "sha256": "355aed19d3f2bda622825aeadb6708457d620964a8e7750db535a8de03d85ea3"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-immediate-20260907/slot_events.jsonl",
+      "sha256": "4643d1997d80227883ada86512977eca3f5bc5594d1e186dca5053401f233423"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-parallel-20260906/reference_features.jsonl",
+      "sha256": "22b1b57bc4ee468e4e21fe171330f397acc70c625a86df18786a0d73a660a39e"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/analysis_publication.py",
+      "sha256": "fa97e510c515bb8c9e0f66c3e76f300625477a14d4fbd1922b8cdde08dcc8a04"
+    },
+    {
+      "path": "studies/painter_distribution_study_v1/ANALYSIS_PUBLICATION.md",
+      "sha256": "2708e03e18f9601963c738ccedf5384c97658f153be4e208cebbcef462891f8f"
+    },
+    {
+      "path": "tests/painter_distribution_study_v1/test_analysis_publication.py",
+      "sha256": "d222b82edc02f302ae08e647e29cf7ee9bebb8afd2e0641f862825a0373eb352"
+    }
+  ],
+  "recorded_git_commit": "200b21b90be671ebeb56bcb677c32779bb84982c",
+  "run_id": "pdsv1-analysis-20260907",
+  "scientific_calculation": "unchanged immediate_results.analyze / analysis.compute",
+  "timing": "Publication correction after measurement; no scientific endpoint amendment."
+}
