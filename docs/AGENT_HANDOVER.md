@@ -83,6 +83,19 @@ with no unresolved request or unclassified cost. This is operational accounting,
 not partial fidelity analysis. Do not re-run tests or other completed stages merely
 to fill scheduled waiting time; monitor the existing live session coarsely.
 
+**Latest timing instruction — 2026-09-07:** the user requested all remaining
+generation now, without the scheduled night wait. Recovery process `68624` was
+stopped between requests and permanently closed, retaining its 405 successful
+logical outcomes. The new `immediate.py` / `immediate_results.py` census covers
+only the untouched 504 slots in batches 4–7 and combines all four components for
+final analysis. See `IMMEDIATE_COLLECTION.md`. The new implementation is being
+validated (843 offline tests, Ruff and the evidence audit pass) and must be
+committed/frozen before dispatch. The original 33-hour
+schedule is superseded for remaining starts; preserve assigned batch IDs, exact
+within-route order and actual timestamps. All scientific primitives, references,
+scalers, costs, failure history and the $5 reserve remain. No generated-feature
+measurement has occurred. Earlier running/waiting snapshots above are historical.
+
 **Latest exploration — 2026-09-06:** the user requested scatter plots of original versus
 painter-conditioned generated feature distributions. The new
 [distribution report](../reports/painter_distribution_exploration_v1/REPORT.md) contains common

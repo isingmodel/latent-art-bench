@@ -18,8 +18,8 @@ preflight showed about $50 available and stated that replenishment is configured
 the interim $45 planning limit. The technical pilot spent **$0.8304855**. The first parallel collector is terminal after a diagnosed refusal.
 Its closing study charges were $3.3797815, with no unresolved intents or charges;
 the remaining-slot continuation later stopped on a complete FLUX 502 with missing cost.
-It retains 51 more images and that failure. The bounded recovery is now running;
-its single FLUX retry succeeded, with the failed-call reserve retained.
+It retains 51 more images and that failure. The bounded recovery later closed at the user's request after four batches.
+Its FLUX retry succeeded; the remaining 504 slots are moving to immediate dispatch.
 
 Stage A is complete. The [diagnostic report](../reports/painter_distribution_study_v1/pdsv1-diagnostics-20260906/REPORT.md)
 and all 18 output files reproduce byte-for-byte. Content-equal spread ratios are 0.211–0.372 for
@@ -148,10 +148,25 @@ historical evidence audit pass. Live recovery timestamps showed a peak of three
 concurrent calls, one per route, and a minimum start gap of 5.0213 seconds.
 Including the 18-request pilot, 523 attempts have completed; reported charges
 total $20.7569045 plus the unchanged $5 contingency, with no unresolved request
-or unclassified cost. The same live coordinator is waiting normally for window 4,
+or unclassified cost. The coordinator had been waiting for window 4,
 September 7 at 14:30 UTC (September 7, 23:30 KST). This longer scheduled interval
 preserves the prospectively declared separation across days. Four windows / 504
 initial slots remain. No generated fidelity feature has been measured.
+
+### User-requested immediate completion
+
+The user explicitly requested the remaining generation now, without waiting for
+night. The waiting recovery process was stopped between requests and permanently
+closed as `superseded_by_user_schedule_change`, with no unresolved or uncertain
+request. Its 405 selected outcomes and all three components' 503 images remain.
+The prospective [immediate amendment](../studies/painter_distribution_study_v1/IMMEDIATE_COLLECTION.md)
+schedules the 504 untouched slots in batches 4–7 consecutively, preserving their
+order, prompts, three staggered workers, references, scalers, analysis and $75 cap.
+Original assignment/timing records remain; the paper must disclose that the full
+33-hour schedule was not executed. No generated fidelity feature has been measured.
+All 843 offline tests, Ruff and the 2,902-check historical evidence audit pass.
+The new implementation is ready for its committed execution freeze.
+The old recovery session `68624` is terminal and must not be restarted.
 
 ## Original proposal snapshot, before execution authorization
 

@@ -1,0 +1,6 @@
+{
+  "authority_sha256": "9b051d6aef1b3f4a50ff9d3c9965803e3949302088b27bdc4aaf9757d2a5c5bb",
+  "events_sha256": "9e629a3b769f2b84978c9297a968d0a900c013aeff4aa20f960e65a5a10e818b",
+  "run_id": "pdsv1-main-recovery-20260907-retry-slot0108",
+  "status": "image_returned"
+}

@@ -1,0 +1,60 @@
+{
+  "execution_freeze_sha256": "4ce08e9dde355f2c3c3a1855b6c892527790686b41c2d6eae536609ba2b8e5ac",
+  "not_before_unix": 1788708612.8669388,
+  "parent_run_id": "pdsv1-main-continuation-20260906",
+  "predecessor_terminal": {
+    "at_utc": "2026-09-06T14:58:51.987604+00:00",
+    "complete": true,
+    "cost_usd": null,
+    "error": null,
+    "event_sha256": "e11ddda9f223ba1a87f1eab8191e24cfb37b2b08eb743e0e31c35d122b579763",
+    "kind": "terminal",
+    "latency_seconds": 0.15617012500297278,
+    "observed": null,
+    "previous_sha256": "094bdafcc0db0565291bf07bf914e96a81d6fc64d4041a9f8a8a03aee42dc750",
+    "received_bytes": 138,
+    "request_id": "slot0108",
+    "response_headers": {
+      "content-type": "application/json",
+      "date": "Sun, 06 Sep 2026 14:58:51 GMT"
+    },
+    "response_path": "research_workspace/painter_distribution_study_v1/pdsv1-main-continuation-20260906/responses/slot0108.json.gz",
+    "response_sha256": "9f859ccbfe4785dcb85cfa04da93c6c3d7c79e384e81ff5a2f9fe27b02f310ce",
+    "retained_bytes": 124,
+    "retained_sha256": "44b788384b394e74dee0641b7794bc8351656ba90153ccd83d1907580fdc87bc",
+    "route": "flux_2_max",
+    "sequence": 102,
+    "status": "http_error",
+    "status_code": 502
+  },
+  "predecessor_terminal_sha256": "e11ddda9f223ba1a87f1eab8191e24cfb37b2b08eb743e0e31c35d122b579763",
+  "request": {
+    "brief_id": "land06",
+    "brief_index": 21,
+    "condition": "artist_free",
+    "condition_position": 1,
+    "content_class": "land",
+    "group_position": 45,
+    "painter_id": "paul_cezanne",
+    "payload": {
+      "aspect_ratio": "1:1",
+      "model": "black-forest-labs/flux.2-max",
+      "n": 1,
+      "output_format": "png",
+      "prompt": "Create an oil painting on canvas. Scene: Cultivated fields spread across a valley toward distant hills. A few small houses and scattered trees sit in the middle distance, remaining secondary to the open ground and the broad shape of the landscape. Render only the painting area, without a surrounding frame, signature, letters or watermark.",
+      "provider": {
+        "allow_fallbacks": false,
+        "only": [
+          "black-forest-labs/us-3"
+        ]
+      }
+    },
+    "predecessor_request_id": "slot0108",
+    "repetition": 1,
+    "request_id": "slot0108-retry1",
+    "route": "flux_2_max",
+    "sequence": 108,
+    "window": 0
+  },
+  "run_id": "pdsv1-main-recovery-20260907-retry-slot0108"
+}

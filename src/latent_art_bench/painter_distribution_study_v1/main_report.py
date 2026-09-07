@@ -23,7 +23,7 @@ from latent_art_bench.painter_feature_generation_v2.artifacts import (
 )
 from latent_art_bench.painter_prompt_study_v1.common import committed
 
-from . import recovery as p
+from . import immediate as p
 from . import study as s
 
 DIRECTORY = Path("reports") / "painter_distribution_study_v1" / p.RUN_ID
@@ -202,7 +202,7 @@ def endpoint_plot(data, output):
     ax.set_xlabel("After-minus-before energy discrepancy (negative means closer)")
     ax.set_title(
         "Paired prompt contrasts\n"
-        "Dots: complete-pair estimates; lines: leave-one-window range, NOT confidence intervals"
+        "Dots: complete-pair estimates; lines: leave-one-batch range, NOT confidence intervals"
     )
     save(fig, output, "prompt_contrasts")
 
@@ -269,14 +269,19 @@ def markdown(data):
         "recorded starts at least five seconds apart. Actual timing and availability remain "
         "part of the evidence. GPT Image 2 is a local service alias, not an attested snapshot.",
         "",
-        "This derived view retains two stopped predecessors: 48 initial outcomes "
-        "(47 images and one OAuth moderation refusal), then 52 outcomes "
-        "(51 images and one FLUX 502 submission failure). Recovery executes the "
-        "908 unattempted original slots and one bound technical retry of the FLUX "
-        "failure. The OAuth refusal was not retried, rewritten or rerouted. "
-        "Both predecessors remain terminal. Missing reported costs retain $5 "
-        "contingencies despite OpenRouter's documented failed-image billing waiver; "
-        "the report does not substitute that policy for a per-request invoice.",
+        "The derived view retains three closed predecessors: 48 initial outcomes "
+        "(47 images and one OAuth refusal), 52 initial outcomes (51 images and one "
+        "FLUX 502), and 405 recovery outcomes (404 new images and the successful "
+        "bound FLUX retry). A fourth census collects the remaining 504 untouched "
+        "slots. No prior success or OAuth-refused slot was generated again.",
+        "",
+        "At the user's request, batches 4–7 run consecutively rather than waiting "
+        "for the original night schedule. This change preceded all generated-feature "
+        "measurement. Original assignment IDs and actual timestamps are retained; "
+        "the original 33-hour schedule was not executed in full. Assigned batches "
+        "do not establish independent backend sessions. The complete FLUX failure "
+        "retains its missing reported cost and $5 contingency; the documented billing "
+        "waiver is not substituted for an individual invoice.",
         "",
         "The primary comparison uses all 31 features, the fixed historical development "
         "scaler, and generated content masses matched to each finite reference panel. "
@@ -315,7 +320,7 @@ def markdown(data):
         "Every image is retained. PCA is fitted once per painter with half the weight on "
         "originals and half shared across seven generated cells; the original-only basis "
         "is a projection sensitivity. The classifiers operate on full features and hold "
-        "out entire briefs or windows and disjoint original works. `classifiers.csv` "
+        "out entire briefs or assigned batches and disjoint original works. `classifiers.csv` "
         "retains scores, predictions and split membership. "
         "Separability alone does not isolate style.",
         "",
@@ -346,7 +351,7 @@ def markdown(data):
         "adjustment. The conditional sharp null concerns availability and features under "
         "the fixed slot/retry policy, with no interference. Shared service state and concurrent "
         "gateway traffic can violate that assumption. Unavailable endpoints remain in the "
-        "family with p=1. Leave-window and leave-brief ranges are descriptive, "
+        "family with p=1. Leave-batch and leave-brief ranges are descriptive, "
         "not confidence intervals.",
         "",
         "## Scope and reproduction",
@@ -363,7 +368,7 @@ def markdown(data):
         "",
         "```bash",
         "uv run --locked --extra analysis python -m "
-        "latent_art_bench.painter_distribution_study_v1.recovery_results analysis --check",
+        "latent_art_bench.painter_distribution_study_v1.immediate_results analysis --check",
         "uv run --locked --extra analysis python -m "
         "latent_art_bench.painter_distribution_study_v1.main_report check",
         "```",
