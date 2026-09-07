@@ -23,13 +23,15 @@ from latent_art_bench.painter_feature_generation_v2.artifacts import (
 )
 from latent_art_bench.painter_prompt_study_v1.common import committed
 
+from . import analysis_publication as publication
 from . import immediate as p
 from . import study as s
 
-DIRECTORY = Path("reports") / "painter_distribution_study_v1" / p.RUN_ID
+DIRECTORY = Path("reports") / "painter_distribution_study_v1" / publication.RUN_ID
 PAINTERS = dict(zip(s.PAINTERS, ("Monet", "Cézanne")))
 ROUTES = dict(zip(s.ROUTES, ("Nano Banana 2", "FLUX.2 Max", "GPT Image 2 service")))
-SHORT_ROUTES = dict(zip(s.ROUTES, ("Nano Banana 2", "FLUX.2 Max", "GPT Image 2*")))
+SHORT_ROUTES = dict(zip(s.ROUTES, ("NB2", "FLUX", "GPT*")))
+TICK_CONDITIONS = dict(artist_free="Free", named="Named", generic_named="Generic")
 CONDITIONS = dict(
     artist_free="Artist-free", named="Named, detailed", generic_named="Named, generic"
 )
@@ -87,7 +89,7 @@ def metric_plot(data, output):
         ("population_variance_ratio", "Generated/original variance"),
         ("squared_iqr_sum_ratio", "Generated/original squared IQR sum"),
     ]
-    fig, axes = plt.subplots(3, 2, figsize=(13, 10), layout="constrained")
+    fig, axes = plt.subplots(3, 2, figsize=(10, 10), layout="constrained")
     for j, painter in enumerate(s.PAINTERS):
         for i, (metric, title) in enumerate(metrics):
             ax = axes[i, j]
@@ -113,22 +115,23 @@ def metric_plot(data, output):
             ax.set_title(f"{PAINTERS[painter]} · {title}")
             ax.set_xticks(
                 range(len(CELLS)),
-                [f"{SHORT_ROUTES[r]}\n{CONDITIONS[c]}" for r, c in CELLS],
+                [f"{SHORT_ROUTES[r]}\n{TICK_CONDITIONS[c]}" for r, c in CELLS],
                 rotation=0,
                 ha="center",
-                fontsize=7,
+                fontsize=12,
             )
             ax.grid(axis="y", alpha=0.2)
-    axes[0, 0].legend(fontsize=8)
+    axes[0, 0].legend(fontsize=11)
     fig.suptitle(
         "Content-standardized distributions · all 31 features\n"
-        "Descriptive estimates; development scaling per pipeline; *local service alias"
+        "Descriptive estimates; development scaling per pipeline\n"
+        "NB2: Nano Banana 2; FLUX: FLUX.2 Max; GPT*: local service alias"
     )
     save(fig, output, "distribution_metrics")
 
 
 def scatter_plot(data, output, basis):
-    fig, axes = plt.subplots(2, 3, figsize=(13, 8), layout="constrained")
+    fig, axes = plt.subplots(2, 3, figsize=(9.5, 7), layout="constrained")
     for i, painter in enumerate(s.PAINTERS):
         projection = data["projections"].get(painter, {})
         if projection.get("status") != "available":
@@ -163,19 +166,20 @@ def scatter_plot(data, output, basis):
                 ylim=(yy.min() - margins[1], yy.max() + margins[1]),
                 xlabel=f"PC1 ({explained[0]:.1%})",
                 ylabel=f"PC2 ({explained[1]:.1%})",
-                title=f"{PAINTERS[painter]} · {ROUTES[route]}",
+                title=f"{PAINTERS[painter]}\n{ROUTES[route]}",
             )
-            ax.legend(fontsize=7)
+    handles, labels = axes[-1, -1].get_legend_handles_labels()
+    fig.legend(handles, labels, loc="outside lower center", ncol=4, fontsize=10.5, frameon=False)
     fig.suptitle(
         f"Original and generated distributions · {basis.replace('_', ' ')} PCA\n"
-        "Every point retained; common basis and limits within painter; "
-        "no inference from visual overlap"
+        "Every point retained; common basis and limits within painter\n"
+        "Descriptive projection; full-space statistics reported separately"
     )
     save(fig, output, "pca_" + basis)
 
 
 def endpoint_plot(data, output):
-    fig, ax = plt.subplots(figsize=(11, 6), layout="constrained")
+    fig, ax = plt.subplots(figsize=(9, 6.5), layout="constrained")
     labels = []
     for i, row in enumerate(data["endpoints"]):
         labels.append(
@@ -197,22 +201,23 @@ def endpoint_plot(data, output):
             ax.hlines(i, min(reduced), max(reduced), color="#187f91", linewidth=3)
         ax.plot(estimate, i, "o", color="#222222")
     ax.axvline(0, color="gray", linestyle="--", linewidth=0.8)
-    ax.set_yticks(range(len(labels)), labels, fontsize=8)
+    ax.set_yticks(range(len(labels)), labels, fontsize=11)
     ax.set_ylim(len(labels) - 0.5, -0.5)
-    ax.set_xlabel("After-minus-before energy discrepancy (negative means closer)")
-    ax.set_title(
+    ax.set_xlabel("Energy change (after minus before; negative means closer)")
+    fig.suptitle(
         "Paired prompt contrasts\n"
-        "Dots: complete-pair estimates; lines: leave-one-batch range, NOT confidence intervals"
+        "Dots: complete-pair estimates\n"
+        "Lines: leave-one-batch ranges (not confidence intervals)"
     )
     save(fig, output, "prompt_contrasts")
 
 
 def baseline_plot(data, output):
-    fig, axes = plt.subplots(1, 2, figsize=(13, 6), layout="constrained")
+    fig, axes = plt.subplots(1, 2, figsize=(10, 6), layout="constrained")
     for ax, painter in zip(axes, s.PAINTERS):
         labels = []
         for i, (route, condition) in enumerate(CELLS):
-            labels.append(f"{SHORT_ROUTES[route]}\n{CONDITIONS[condition]}")
+            labels.append(f"{SHORT_ROUTES[route]}\n{TICK_CONDITIONS[condition]}")
             row = next(
                 (
                     r
@@ -232,12 +237,13 @@ def baseline_plot(data, output):
                 q = np.quantile(row[key], [0.05, 0.5, 0.95])
                 ax.vlines(i + offset, q[0], q[2], color=color, linewidth=2)
                 ax.plot(i + offset, q[1], "o", color=color, markersize=4)
-        ax.set_xticks(range(len(CELLS)), labels, rotation=0, ha="center", fontsize=8)
+        ax.set_xticks(range(len(CELLS)), labels, rotation=0, ha="center", fontsize=12)
         ax.set(title=PAINTERS[painter], ylabel="Energy discrepancy")
     fig.suptitle(
         "Matched finite-reference subsamples\n"
         "Gray: original/original; teal: original/generated\n"
-        "Median and 5th–95th percentiles, NOT confidence intervals"
+        "Median and 5th–95th percentiles, NOT confidence intervals\n"
+        "NB2: Nano Banana 2; FLUX: FLUX.2 Max; GPT*: local service alias"
     )
     save(fig, output, "matched_baselines")
 
@@ -264,6 +270,10 @@ def markdown(data):
         f"for {budget.get('missing_cost_failures', 0)} cost-omitting failed calls. "
         f"Unresolved intents: {budget['unresolved']}; "
         f"unclassified uncertainty: {budget['uncertain']}.",
+        "",
+        "Analysis publication `pdsv1-analysis-20260907` converts only NumPy rejection flags "
+        "to native JSON Booleans, with exact value equality. The frozen statistical "
+        "calculation and every endpoint remain unchanged.",
         "",
         "Three concurrent route workers use at most one call per route, with globally "
         "recorded starts at least five seconds apart. Actual timing and availability remain "
@@ -368,7 +378,7 @@ def markdown(data):
         "",
         "```bash",
         "uv run --locked --extra analysis python -m "
-        "latent_art_bench.painter_distribution_study_v1.immediate_results analysis --check",
+        "latent_art_bench.painter_distribution_study_v1.analysis_publication check",
         "uv run --locked --extra analysis python -m "
         "latent_art_bench.painter_distribution_study_v1.main_report check",
         "```",
@@ -382,7 +392,7 @@ def render(data, output):
     with plt.rc_context(
         {
             "font.family": "DejaVu Sans",
-            "font.size": 9,
+            "font.size": 11,
             "svg.hashsalt": "pdsv1-controlled-report",
             "axes.spines.top": False,
             "axes.spines.right": False,
@@ -406,9 +416,9 @@ def render(data, output):
 
 
 def run(root, *, check=False):
-    p.verify(root)
-    analysis_path = p.DIRECTORY / "analysis.json"
-    source_receipt = read_json(root / p.DIRECTORY / "analysis_receipt.json")
+    publication.verify(root)
+    analysis_path = publication.DIRECTORY / "analysis.json"
+    source_receipt = read_json(root / publication.DIRECTORY / "analysis_receipt.json")
     verify_bindings(root, source_receipt["inputs"])
     if hash_file(root / analysis_path) != source_receipt["analysis_sha256"]:
         raise ValueError("analysis differs from its receipt")
@@ -438,7 +448,7 @@ def run(root, *, check=False):
         s.PACKAGE / "main_report.py",
         Path("tests") / "painter_distribution_study_v1" / "test_main_report.py",
         analysis_path,
-        p.DIRECTORY / "analysis_receipt.json",
+        publication.DIRECTORY / "analysis_receipt.json",
     ]
     commit = committed(root, paths)
     render(data, output)

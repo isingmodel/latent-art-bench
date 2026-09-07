@@ -1,0 +1,12 @@
+{
+  "analysis_sha256": "34b1c929f02599fb1223a0bd171fde26574efffe413a2ce23763636229cf0cbe",
+  "correction": "Convert only endpoints[*].reject_at_05 from NumPy to native bool.",
+  "inputs": [
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-analysis-20260907/publication_freeze.json",
+      "sha256": "570021ba09e055145eb3ee43b0f2ac12985ed419bf59ff5d99b3d5e65187bc69"
+    }
+  ],
+  "publication_source_commit": "200b21b90be671ebeb56bcb677c32779bb84982c",
+  "scientific_execution_freeze_sha256": "47bf085668a18b4d90db418c0310797c2627eeee64710f89cb7a0773b24c4819"
+}
