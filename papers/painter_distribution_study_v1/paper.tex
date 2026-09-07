@@ -368,7 +368,8 @@ reference works, with no tuning or PCA input. Reference folds are assigned by
 content-stratified identity hashes, so sparse classes are distributed across
 folds. Training assigns equal total mass to original and generated labels and
 matches content masses within each label; held-out balanced accuracy and AUC use
-the same target masses. Eight whole-window folds provide a timing sensitivity.
+the same target masses. Eight folds over assigned collection batches provide a
+timing sensitivity; the batches do not identify independent service sessions.
 Every split and prediction is retained. For visualization, each painter has one
 common PCA fit with half the mass on originals and half shared equally across
 seven generated cells, using the primary content weights. Original-only PCA is
@@ -378,9 +379,9 @@ same one-third-per-class mixture, separately from its absolute discrepancy.
 
 \subsection{Prospective inference and missingness boundary}
 Research generation requires a committed reference, prompt, endpoint, schedule
-and analysis freeze before evaluation features are extracted. At least eight
-collection windows span multiple days; repetitions of a brief occupy different
-windows. An execution amendment closed the unused sequential
+and analysis freeze before evaluation features are extracted. The original design
+assigned repetitions of each brief to distinct batches among eight planned windows
+with offsets 0, 3, 6, 9, 24, 27, 30 and 33 hours. An execution amendment closed the unused sequential
 collector before its first research request and specified three route workers, at most
 one active request per route, with globally staggered starts at least five seconds
 apart. Within-route randomized condition order is preserved. Actual timestamps,
@@ -402,12 +403,24 @@ The continuation subsequently returned 51 further images and one complete FLUX
 502 submission error without image data, a generation ID or reported cost.
 OpenRouter documents a billing waiver for failed image calls
 \citep{openrouter2026imageapi}. Because that policy is not an individual billing
-receipt, the next recovery keeps the missing cost unchanged and reserves its full
+receipt, the recovery keeps the missing cost unchanged and reserves its full
 \$5 against the study ceiling. Only a hash-verified, complete error-only response
 meeting the declared transient-error contract receives a single delayed retry.
-Incomplete or unclassified outcomes still stop collection. The recovery retains
-all 98 existing images and both initial failures, executes 908 untouched slots,
-and retries only the FLUX failure. It does not retry the OAuth moderation refusal.
+Incomplete or unclassified outcomes still stop collection. The recovery returned
+404 further initial images and one successful, identical-payload retry of the FLUX
+failure. It retained all 98 prior images and both initial failures, without retrying
+the OAuth moderation refusal.
+
+After the first four assigned batches, the user requested immediate completion
+without the remaining night waits. This change preceded all generated-feature
+measurement. The waiting recovery was closed with no unresolved request, and a
+fourth census retains the 503 available images while collecting the 504 untouched
+slots in consecutive batches. Within-route order, prompt assignments, rate limits,
+references, scalers and statistical endpoints are unchanged; a five-second pause
+separates drained batches. Original planned times and batch IDs remain in the
+record alongside actual timestamps. The original 33-hour schedule was therefore
+not executed in full, and the last four batches do not establish independent days
+or backend sessions.
 
 
 Prospective synthetic qualification passes for the eight paired all-31 prompt
@@ -419,7 +432,7 @@ availability and features under the randomized slot policy, conditional on the
 finite reference, with no interference. Service carryover and retry-induced timing
 remain limitations. This qualification does not validate absolute-distribution
 p-values, oeuvre-sampling intervals or actual image-space power. Absolute gaps and
-leave-window/brief ranges remain descriptive. Ordinary image-level bootstrap
+leave-batch/brief ranges remain descriptive. Ordinary image-level bootstrap
 intervals are not justified by the number of files alone.
 No significance-based sampling extension, silent replacement of missing outputs
 or retrospective change to a sealed endpoint is allowed. No new-model fidelity
@@ -440,12 +453,12 @@ OAuth groups, each pairwise comparison conditions on the third condition's
 position in the uniformly randomized order.
 
 A contrast uses complete measured pairs sharing a brief, repetition and assigned
-window. If fewer than 24 pairs or 12 distinct briefs survive, or a required
+batch. If fewer than 24 pairs or 12 distinct briefs survive, or a required
 content class is absent, its endpoint is unavailable and retains $p=1$ in the
 fixed eight-test family. This is distinct from the all-available descriptive
 comparison. Two-sided Monte Carlo p-values use $(1+e)/(1+99999)$, where $e$ counts
 sign-draw statistics at least as extreme in absolute value, including numerical
-ties. Leave-one-window and leave-one-brief estimates assess sensitivity without
+ties. Leave-one-batch and leave-one-brief estimates assess sensitivity without
 being labeled confidence intervals. The sharp assignment null covers both
 availability and measured features for the full fixed slot policy, including its
 bounded technical retry rule; it is stronger than equality of expected distances.

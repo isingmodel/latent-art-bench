@@ -89,8 +89,11 @@ stopped between requests and permanently closed, retaining its 405 successful
 logical outcomes. The new `immediate.py` / `immediate_results.py` census covers
 only the untouched 504 slots in batches 4–7 and combines all four components for
 final analysis. See `IMMEDIATE_COLLECTION.md`. The new implementation is being
-validated (843 offline tests, Ruff and the evidence audit pass) and must be
-committed/frozen before dispatch. The original 33-hour
+validated (843 offline tests, Ruff and the evidence audit pass). Source `6697108`
+and execution freeze `d0f8170` were committed before dispatch. The sole live
+coordinator is `immediate run`, execution session `25215`; its first 14 completed
+calls across all three routes returned verified images. The updated 11-page paper
+records the timing change and passes visual QA. The original 33-hour
 schedule is superseded for remaining starts; preserve assigned batch IDs, exact
 within-route order and actual timestamps. All scientific primitives, references,
 scalers, costs, failure history and the $5 reserve remain. No generated-feature

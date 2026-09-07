@@ -24,6 +24,9 @@ The $75 cap and qualified retry, uncertainty and failure-cluster rules remain.
 Commit the new source, tests, contract and closed predecessor evidence before the
 create-once preparation step, then commit its execution freeze before dispatch:
 
+This preparation is complete: source `6697108`, execution freeze `d0f8170`.
+Do not repeat `prepare` or start a second coordinator while the existing run is live.
+
 ```bash
 uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.immediate prepare
 # Commit execution_freeze.json before running check or dispatching.

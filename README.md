@@ -9,7 +9,7 @@ The active [controlled distribution study](docs/DISTRIBUTION_STUDY_WORKFLOW.md)
 adds Google Nano Banana 2 and FLUX.2 Max, alongside the OAuth GPT Image 2 service,
 with 1,008 planned images, matched content controls and a $75 ceiling. Collection
 uses three concurrent route workers with starts staggered by at least five seconds.
-At the user's request, the remaining four batches will run consecutively without
+At the user's request, the remaining four batches now run consecutively without
 waiting for the originally scheduled night windows.
 The [English paper prototype](papers/painter_distribution_study_v1/README.md)
 separates completed historical results from the pending controlled comparison.

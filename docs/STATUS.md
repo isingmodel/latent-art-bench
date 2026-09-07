@@ -165,8 +165,12 @@ order, prompts, three staggered workers, references, scalers, analysis and $75 c
 Original assignment/timing records remain; the paper must disclose that the full
 33-hour schedule was not executed. No generated fidelity feature has been measured.
 All 843 offline tests, Ruff and the 2,902-check historical evidence audit pass.
-The new implementation is ready for its committed execution freeze.
-The old recovery session `68624` is terminal and must not be restarted.
+Source was committed at `6697108` and the new execution freeze at `d0f8170`, before
+dispatch. The sole live coordinator is `immediate run`, execution session `25215`.
+Its first 14 completed calls across all three routes returned verified images.
+The four remaining batches now run consecutively without scheduled night waits.
+The updated 11-page paper records the timing change and has been rendered and
+visually checked. The old recovery session `68624` is terminal and must not be restarted.
 
 ## Original proposal snapshot, before execution authorization
 
