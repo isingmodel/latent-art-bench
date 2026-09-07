@@ -1,0 +1,149 @@
+{
+  "budget": {
+    "accounted_usd": 25.756904500000026,
+    "attempts": 523,
+    "contingency_reserve_usd": 5.0,
+    "missing_cost_failures": 1,
+    "paid_attempts": 301,
+    "provider_reported_usd": 20.756904500000026,
+    "reserved_failure_records": [
+      {
+        "request_id": "slot0108",
+        "reservation_usd": 5.0,
+        "run_id": "pdsv1-main-continuation-20260906",
+        "terminal_sha256": "e11ddda9f223ba1a87f1eab8191e24cfb37b2b08eb743e0e31c35d122b579763"
+      }
+    ],
+    "uncertain": 0,
+    "unresolved": 0
+  },
+  "content_weights": {
+    "claude_monet": {
+      "built": 0.10526315789473684,
+      "land": 0.34210526315789475,
+      "water": 0.5526315789473685
+    },
+    "paul_cezanne": {
+      "built": 0.34375,
+      "land": 0.5625,
+      "water": 0.09375
+    }
+  },
+  "dispatch_policy": "remaining_batches_immediately_in_original_order",
+  "inputs": [
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-recovery-20260907/execution_freeze.json",
+      "sha256": "4ce08e9dde355f2c3c3a1855b6c892527790686b41c2d6eae536609ba2b8e5ac"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-recovery-20260907/generation_events.jsonl",
+      "sha256": "52cf1d73621039c52f5321b062961233cfc6e3b0e800c01bf7c94c73d2e9c911"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-recovery-20260907/generation_receipt.json",
+      "sha256": "a45d7cf573035358d39442a62e685f37c75d81f744228f30ae0f8013a09579f6"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-recovery-20260907/operator_events.jsonl",
+      "sha256": "b0a09e5f178514ed70cae05d5badc5fda6a70520460ece0f025ad62143586c78"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-recovery-20260907/slot_events.jsonl",
+      "sha256": "183898227eb77691cb6104c2279aa8a7389b4871188470ec56f74f4b49fcb5d9"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-recovery-20260907-retry-slot0108/generation_events.jsonl",
+      "sha256": "9e629a3b769f2b84978c9297a968d0a900c013aeff4aa20f960e65a5a10e818b"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-recovery-20260907-retry-slot0108/generation_receipt.json",
+      "sha256": "02642088c3a9a01e34cc8facce50397df2a5155e97b29654770340a44e81ea02"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-recovery-20260907-retry-slot0108/retry_authority.json",
+      "sha256": "9b051d6aef1b3f4a50ff9d3c9965803e3949302088b27bdc4aaf9757d2a5c5bb"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/immediate.py",
+      "sha256": "258e8dcf903f1bb304bd504d3bd8e855858b5d2c92fd9e1f24e2639305ace5a9"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/immediate_results.py",
+      "sha256": "445eccb3498735fe229bca02dd08d18d739149e81779ee18d2287af93af30b6c"
+    },
+    {
+      "path": "studies/painter_distribution_study_v1/IMMEDIATE_COLLECTION.md",
+      "sha256": "ae28f99049841e87333b868a63d2106563863d707dcbe4e25f083739f1f55798"
+    },
+    {
+      "path": "tests/painter_distribution_study_v1/test_immediate.py",
+      "sha256": "f37f11b736de2d079a93ca7b282b49e7fcef96bac3cfbe6405fd5c19b099ce38"
+    },
+    {
+      "path": "tests/painter_distribution_study_v1/test_immediate_results.py",
+      "sha256": "9ddca59c6177e540baab57cd65683e27343807fac4e8c8acdda109ec24c08bdb"
+    }
+  ],
+  "inter_batch_pause_seconds": 5,
+  "maximum_in_flight": 3,
+  "maximum_per_route": 1,
+  "minimum_start_interval_seconds": 5,
+  "predecessor_id": "pdsv1-main-recovery-20260907",
+  "proxy_source": {
+    "address": "127.0.0.1",
+    "executable": "bun",
+    "files": [
+      {
+        "path": "README.md",
+        "sha256": "936776962658061102d4485e970016f230fac822ff298d991aee6cccf8b05b3e"
+      },
+      {
+        "path": "packages/openai-oauth/src/images.ts",
+        "sha256": "25ee6fe00dc96edecc3483415177071635dc9d3d51e8a55de38a608fbfa16aa4"
+      },
+      {
+        "path": "packages/openai-oauth/src/server.ts",
+        "sha256": "15d0d5fb65a2ed6040d32cf49868012d746b90cf8224389a6488aa5a526d1ea2"
+      },
+      {
+        "path": "packages/openai-oauth/src/shared.ts",
+        "sha256": "09bbd833287916cf5cad7c74e687531ba0779b630b0d3458e34ec7df417d36aa"
+      },
+      {
+        "path": "packages/openai-oauth-core/src/auth.ts",
+        "sha256": "5fd0f44eba9e17153d726407797a2c5b9402b36cefca7d382105c5391c4c699f"
+      },
+      {
+        "path": "packages/openai-oauth-core/src/image-models.ts",
+        "sha256": "ab0507b1768cfd051e1f82d73946d5582163fd4dd7591b371463957c6c59c66b"
+      },
+      {
+        "path": "packages/openai-oauth-core/src/transport.ts",
+        "sha256": "c2470c60bea8c0eb98a7eb247e6d3e8e11cebf726e65c3ff3443c9d9b0be09f4"
+      }
+    ],
+    "pid": 93760,
+    "port": 10532,
+    "recorded_git_commit": "0a664bcc8e09649fcdd558e0bfbdd6447b85bca2",
+    "source_directory": "packages/openai-oauth",
+    "started_utc": "Sat Sep  5 01:05:53 2026"
+  },
+  "recorded_git_commit": "6697108f173daf5c64edf158f2a5e119ddd182ee",
+  "request_inventory_sha256": "9068859690a88fa244b2c9317d8cb02232fa0a945ab42647a574d5cd9312613b",
+  "run_id": "pdsv1-main-immediate-20260907",
+  "schedule_change": "User requested immediate collection before generated-feature measurement.",
+  "scientific_freeze_sha256": "71a02ecb92c03245a5576ab521d95cf888dec89e4e630af79df80dafe2e8a483",
+  "scientific_total_slots": 1008,
+  "total_slots": 504,
+  "window_offsets_hours": [
+    0,
+    3,
+    6,
+    9,
+    24,
+    27,
+    30,
+    33
+  ],
+  "window_origin_unix": 1788705000
+}
