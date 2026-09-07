@@ -1,0 +1,111 @@
+{
+  "inputs": [
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-analysis-20260907/analysis.json",
+      "sha256": "34b1c929f02599fb1223a0bd171fde26574efffe413a2ce23763636229cf0cbe"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-analysis-20260907/analysis_receipt.json",
+      "sha256": "6494ab6f5a05abbddffa47c7b9773b7abe0a7e6e2613feef8c4890be3afb7291"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/main_report.py",
+      "sha256": "7eb5e67527d6a55c34f47ea2bcf0fdbb264b1df3f02ace79b6fe4dee7c52ed06"
+    },
+    {
+      "path": "tests/painter_distribution_study_v1/test_main_report.py",
+      "sha256": "065ba1d66dd252ba2be033ff17b702ec3b1de5e8379250c71d9d735480c3642a"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "reports/painter_distribution_study_v1/pdsv1-analysis-20260907/REPORT.md",
+      "sha256": "24032d54210e5b68f24d1b0745a9f829f983fdaf31a06e9916ecb88fbfb6d44a"
+    },
+    {
+      "path": "reports/painter_distribution_study_v1/pdsv1-analysis-20260907/actual_slot_times.csv",
+      "sha256": "59b514a9b195d3fca8f9ec0fbf7ab47942fe3f89b49917a616edd14bc653644b"
+    },
+    {
+      "path": "reports/painter_distribution_study_v1/pdsv1-analysis-20260907/availability.csv",
+      "sha256": "b1341459e703139791bcde42ff4e0fe7ecf806bf499f9d18aa43ff7f2613a274"
+    },
+    {
+      "path": "reports/painter_distribution_study_v1/pdsv1-analysis-20260907/baselines.csv",
+      "sha256": "ac1cdacc749d2cf61b36d1eae7f915812c6b40da664230dc3df6c06e6ccb046e"
+    },
+    {
+      "path": "reports/painter_distribution_study_v1/pdsv1-analysis-20260907/cells.csv",
+      "sha256": "acb864e1598fa2e8dd9d1db64c1f535aaea7e7049189c12b77e12560f2f22372"
+    },
+    {
+      "path": "reports/painter_distribution_study_v1/pdsv1-analysis-20260907/classifiers.csv",
+      "sha256": "f610b5ec0216ada497b194b1dddd09e4cb5a7e4b44d2ef0c4261519c72d2fad6"
+    },
+    {
+      "path": "reports/painter_distribution_study_v1/pdsv1-analysis-20260907/coverage.csv",
+      "sha256": "f470e10268cfab4978446be8215a62e75491de12bd5cf0bc47d25345fb94c35e"
+    },
+    {
+      "path": "reports/painter_distribution_study_v1/pdsv1-analysis-20260907/distribution_metrics.png",
+      "sha256": "eb51c0b264cc270b07f21cf67a0fc078654e62144db61ef6b558e9e11385c7c9"
+    },
+    {
+      "path": "reports/painter_distribution_study_v1/pdsv1-analysis-20260907/distribution_metrics.svg",
+      "sha256": "c6449e5514918176d4d039fcd3d0df97f89600623024750fc27dadcf8a70b9f9"
+    },
+    {
+      "path": "reports/painter_distribution_study_v1/pdsv1-analysis-20260907/endpoints.csv",
+      "sha256": "b84a15c449fdef6b885739e5e7284c7ef5569407edd02c5e3d90a031bea8ac2c"
+    },
+    {
+      "path": "reports/painter_distribution_study_v1/pdsv1-analysis-20260907/matched_baselines.png",
+      "sha256": "a252d190c2ebc43b8733e0bf8694a28b0d585788cb53dc27d5e22501d6cf28f4"
+    },
+    {
+      "path": "reports/painter_distribution_study_v1/pdsv1-analysis-20260907/matched_baselines.svg",
+      "sha256": "6458d43ba94cd6a6a4414013ea7ad8cfae34b4a136c0b6632e002775ed28543e"
+    },
+    {
+      "path": "reports/painter_distribution_study_v1/pdsv1-analysis-20260907/pca_balanced_joint.png",
+      "sha256": "91ac7eb31c6dd816774e35d7856c7fc45a400ddea6ee72367adf78c8d1a07a14"
+    },
+    {
+      "path": "reports/painter_distribution_study_v1/pdsv1-analysis-20260907/pca_balanced_joint.svg",
+      "sha256": "7b13a6cd9ce0fe2771c1f254520b628644cc29332a0392df1bfaad1fc3e0464a"
+    },
+    {
+      "path": "reports/painter_distribution_study_v1/pdsv1-analysis-20260907/pca_original_only.png",
+      "sha256": "f4f5cf838db3e3c6b6aac422d76272bb632df30fb07e4e806cb1be962bde5a3f"
+    },
+    {
+      "path": "reports/painter_distribution_study_v1/pdsv1-analysis-20260907/pca_original_only.svg",
+      "sha256": "95e51f7b8a7119a5ca289563d7934128fac27662dbd675bcd13506005a0c932b"
+    },
+    {
+      "path": "reports/painter_distribution_study_v1/pdsv1-analysis-20260907/projection_points.csv",
+      "sha256": "22c983e36decd4031549124bc2114512a1c0e23a7875909c2526d861913481cf"
+    },
+    {
+      "path": "reports/painter_distribution_study_v1/pdsv1-analysis-20260907/prompt_contrasts.png",
+      "sha256": "3001948fed6d9ced23a604277e3ed752a91ada2202570ad50d842c86a1d0cac3"
+    },
+    {
+      "path": "reports/painter_distribution_study_v1/pdsv1-analysis-20260907/prompt_contrasts.svg",
+      "sha256": "18d61d4d065600c43a96151582715e3ff5bb8cdff72347f4bc2d368c9d9add68"
+    },
+    {
+      "path": "reports/painter_distribution_study_v1/pdsv1-analysis-20260907/sensitivity_contrasts.csv",
+      "sha256": "9b7b2eeb1752c1eb27d278f35bb703e851e278d56f42977a7be0bc980955db7f"
+    },
+    {
+      "path": "reports/painter_distribution_study_v1/pdsv1-analysis-20260907/specificity.csv",
+      "sha256": "98bb17c1eb3becae7f1b807e5ccdf53f2b90c8a80dc469989c1ae774412d3e6b"
+    },
+    {
+      "path": "reports/painter_distribution_study_v1/pdsv1-analysis-20260907/transport_events.csv",
+      "sha256": "c26a62fc73aee80412e40c84cec2a9b767590258863df0290716149d7dec3fc4"
+    }
+  ],
+  "recorded_git_commit": "383228cfd412c491d7a487c34a252d07803faf2d"
+}

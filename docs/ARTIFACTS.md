@@ -6,12 +6,19 @@ tracked as evidence and which exist nowhere else.
 
 ## Canonical tracked material
 
-The active `painter_distribution_study_v1` namespace retains the completed diagnostic report,
+The completed `painter_distribution_study_v1` namespace retains the diagnostic and controlled reports,
 prospective stage contracts, source/tests, freezes and append-only metadata/generation events.
 Preserve all terminal files. Its ignored `research_workspace/painter_distribution_study_v1/`
 stores content-addressed metadata responses and subsequently raw compressed image responses;
 these bytes are evidence, including failed requests. Pilot images are technical evidence and
 must not enter research fidelity endpoints.
+The four main generation components, combined collection receipt, 3,018 generated
+vectors and `pdsv1-analysis-20260907` analysis/report are terminal. Preserve the two
+refusal bodies, failed FLUX response, successful retry, publication-only Boolean
+diagnosis/freeze and every original slot identity. The failed original analysis
+publisher created no result file; use the separate publication adapter for replay.
+Raw images are not recreated by a Git checkout. The manuscript is editable writing;
+its cited numerical evidence and published figures are immutable bundles.
 
 The separate `reports/painter_distribution_exploration_v1/` bundle retains numeric-only scatter
 plots, PCA loadings/coordinates, out-of-fold classifier predictions, spread tables and commit-bound

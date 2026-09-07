@@ -1,87 +1,101 @@
 # Current status and research boundary — 2026-09-07
 
-## Active goal: finish controlled analysis and the English paper prototype
+## Completed goal: controlled distribution analysis and English paper prototype
 
-The user authorized the [research proposal](RESEARCH_PROPOSAL_20260906.md), delegated
-implementation choices, approved a $75 ceiling and bounded technical retries, and
-requested staggered parallel calls. The latest instruction requested immediate
-completion without the remaining night waits. Collection is now **complete**.
+The authorized research proposal is implemented, collected, measured, analyzed and
+reported. Read the [controlled comparison report](../reports/painter_distribution_study_v1/pdsv1-analysis-20260907/REPORT.md)
+and [14-page English paper prototype](../papers/painter_distribution_study_v1/paper.pdf).
+The paper reports actual controlled results and preserves the historical evidence
+as development context. There is no live collector or unfinished analysis process.
+
+### Main findings
+
+- The eight named collections have primary generated/original total-variance ratios
+  **0.306–0.756**. Detailed named ratios are 0.354–0.756; generic named ratios are
+  0.306 and 0.395. Paid artist-free ratios are **1.069–1.535**, so concentration is
+  specific to the tested conditions, not universal to generated images.
+- Painter naming lowers primary energy in all six route/painter point estimates.
+  The four paid-route contrasts reject the fixed conditional null after Holm
+  adjustment: Nano Banana 2 Monet **−0.8462, p=0.0031**; Cézanne **−1.8176,
+  p=0.00008**; FLUX Monet **−0.6246, p=0.00008**; Cézanne **−0.8956, p=0.00008**.
+  All their leave-one-brief/batch estimates remain negative. These are conditional
+  randomization results with a no-interference assumption, not oeuvre-sampling inference.
+- OAuth naming contrasts do not reject (Holm p=0.19308 and 1). Its generic-to-detailed
+  contrasts do not reject either (p=1 and 0.0928). Detailed prompts increase observed
+  spread relative to generic ones, but the intervention changes content specificity.
+- All 14 primary cells remain readily distinguishable under whole-brief/work-disjoint
+  RBF detection: **balanced accuracy 0.893–0.987**. Common PCA clouds overlap; two
+  balanced joint PCs retain 48.4% of weighted variance for Monet and 46.0% for Cézanne.
+  A visible gap alone is not the finding or a perceptual style criterion.
+- FLUX named outputs have the smallest observed primary energy (1.365 Monet,
+  0.804 Cézanne), with neighborhood coverage 0.789/0.750, while retaining much less
+  aggregate spread. Five of six named cells are closer to their own painter under
+  equal content weights; Nano Banana 2 Monet is the exception. Proximity, spread,
+  coverage and painter specificity are distinct properties.
+- Aggregate named spread remains lower under both processing sensitivities, but
+  spatial-family variance can exceed one. The native-1024 reference restriction
+  leaves only four Monet and 19 Cézanne files and reverses Nano Banana 2 Monet's
+  variance result (1.107 primary). Some reweighted IQR ratios also exceed one.
+  These exceptions and OAuth rendering variation are disclosed in the paper.
+
+### Completed collection and measurement
 
 The new `painter_distribution_study_v1` namespace compares Nano Banana 2, FLUX.2 Max
-and the OAuth GPT Image 2 service on Monet and Cézanne. The fixed design has 24
-shared content briefs, three repetitions, named/artist-free controls and an additional
-OAuth generic-named condition: **1,008 original research slots**.
+and the OAuth GPT Image 2 service on Monet and Cézanne, using 24 shared content
+briefs, three repetitions, named/artist-free controls and an extra OAuth generic
+named condition. All **1,008 original research slots** are terminal:
 
-- **1,006 selected research images**, two preserved OAuth moderation refusals
-  (`slot0036`, `slot0615`), and one successful exact-payload FLUX technical retry
-  (`slot0108-retry1`). No further generation is required or authorized by this grid.
-- **1,027 physical attempts**, including the separate 18-image technical pilot and
-  the one technical retry; 589 paid attempts.
-- Provider-reported charges: **$40.6819185**, including pilot and retry. The complete
-  FLUX 502 omitted cost; its raw null cost and **$5 contingency** remain. Conservative
-  accounting is **$45.6819185** against the $75 cap. No unresolved request or unclassified
-  cost remains. A published billing waiver is not an individual billing receipt.
-- All four scientific collection components are terminal. The first two preserve
-  47 images/one refusal and 51 images/one FLUX failure. Recovery preserves 404 further
-  initial images and the successful bound retry. The immediate successor preserves
-  503 further images and the second refusal. Their combined view covers every
-  original slot exactly once, with the sole bound retry linkage retained.
-- Immediate batches 4–7 ran consecutively from **2026-09-07 00:29:19 to 02:01:37 UTC**.
-  Recorded peak concurrency was three, peak per-route concurrency one, and minimum
-  start gap 5.043739 seconds. The original 33-hour schedule was not executed in full;
-  assigned batch IDs and actual timestamps remain evidence, without independent-day
-  or independent-backend-session claims.
+- **1,006 selected images**: 288 Google, 288 FLUX and 430 OAuth. Two OAuth generic
+  named Cézanne moderation refusals (`slot0036`, `slot0615`) remain missing. One
+  complete FLUX 502 received one successful exact-payload technical retry (`slot0108-retry1`).
+- **1,027 physical attempts**, including 18 separate technical pilot attempts and
+  the technical retry; 589 paid. Provider-reported charges are **$40.6819185**.
+  The failed FLUX call retains its raw missing cost and full **$5 contingency**:
+  conservative accounting **$45.6819185**, within $75. No unresolved request or
+  unclassified cost remains. A published billing waiver is not an individual invoice.
+- All four generation components are permanently closed. The immediate successor
+  ran batches 4–7 consecutively at the user's request, from **2026-09-07 00:29:19
+  to 02:01:37 UTC**, with peak concurrency three, peak per-route concurrency one
+  and minimum start gap 5.043739 seconds. The original 33-hour schedule was not
+  executed in full. Original assignments and actual timestamps remain evidence.
+- All paid research images are 1024-square (Google JPEG, FLUX PNG). OAuth returns
+  PNGs with short sides 1087–1254 pixels: eight square; 424 report low quality and
+  six medium. All six medium images are artist-free. Requested medium quality and
+  geometry were not uniformly honored; OAuth is a separate service comparison.
+- The reference panel has **70 works**: 38 Monet (21 water / 4 built / 13 land)
+  and 32 Cézanne (3 water / 11 built / 18 land). Single-maintainer LLM visual coding
+  excludes one figure-led Cézanne from 71 acquired thumbnails. It is not expert or
+  institutionally independent annotation. Earlier failed acquisition bytes remain.
+- All **210 reference vectors**, **442 development sensitivity vectors** and
+  **3,018 generated vectors** succeeded. Generated raw-to-feature replay passes,
+  with no duplicate raw hashes. The same 221 historical development works supply
+  all three fixed scalers. Generated evaluation features were first accessed only
+  after terminal collection. No learned encoder or new human evaluation was run.
 
-The active coordinator `25215` has exited successfully. **Do not restart any collector.**
-The combined receipt is complete and verified. The measurement/replay process `55874`
-has extracted all **3,018 generated vectors** successfully and is recomputing them
-from retained raw bytes. The unchanged statistical calculation completed but its
-JSON writer rejected four NumPy Boolean decision flags. No analysis artifact was
-written by the failed publisher. A narrowly scoped
+### Publication, validation and preservation
+
+The unchanged calculation initially failed at JSON publication on four NumPy Boolean
+rejection flags; it created no analysis artifact. The disclosed
 [publication adapter](../studies/painter_distribution_study_v1/ANALYSIS_PUBLICATION.md)
-uses a new derived namespace, preserves the frozen computation and requires exact
-value equality after converting only those flags to native Booleans. Publication,
-report and actual controlled results in the paper remain to be completed. No
-additional image generation or feature extraction is required by this correction.
+converts only those flags to native Booleans and requires exact value equality.
+The scientific calculation, endpoints and results are unchanged. Its source/inputs
+were committed at `200b21b`, publication freeze at `4e70d29`, before writing analysis
+in `pdsv1-analysis-20260907`. Numeric replay passes. The report binds analysis and
+renderer commit `383228c`; all **22 output files** reproduce byte-for-byte.
 
-### Scientific inputs and validation
+All **846 offline tests** pass (80.57 seconds), Ruff passes, and the historical
+evidence audit passes **2,902 checks**. The new publication freeze, generated raw
+replay, numerical replay and report-byte replay verify this study in addition to
+that historical audit. All five report figure types and all 14 paper pages were
+visually reviewed. Checks and preserved writing boundaries are in the
+[workflow](DISTRIBUTION_STUDY_WORKFLOW.md).
 
-The fresh reference panel has **70 distinct works**: 38 Monet (21 water / 4 built /
-13 land) and 32 Cézanne (3 water / 11 built / 18 land). Standard-thumbnail delivery
-completed 71 files; single-maintainer LLM coding excluded one figure-led Cézanne.
-This is not expert or institutionally independent annotation. Earlier original
-image delivery is permanently closed after five acquired files and 92 HTTP 429s;
-its bytes are preserved separately, not added as independent works.
-
-All **210 reference vectors** and **442 development sensitivity vectors** succeeded.
-The same 221 historical development works supply all three fixed scalers. Generated
-features were first accessed only after the complete generation receipt. The primary
-analysis uses 31 interpretable features and reference-matched content masses, with
-processing, content, availability, grouped detection, coverage, painter specificity,
-finite-reference baselines and eight fixed paired prompt contrasts.
-
-Scientific source/freeze commits are `d06cb95`/`a03503b`; immediate execution
-source/freeze commits are `6697108`/`d0f8170`. The executed scientific and transport
-sources, protocols, ledgers and frozen inputs must remain unchanged. The
-[immediate amendment](../studies/painter_distribution_study_v1/IMMEDIATE_COLLECTION.md)
-binds the closed recovery and the user-requested timing change before generated
-measurement. Earlier refusal and transient-error amendments preserve their own
-terminal evidence. All **843 offline tests**, Ruff and the **2,902-check historical
-evidence audit** pass for the current implementation. Final measurement and analysis
-have their own raw and numerical replay checks in addition to that historical audit.
-
-The [completed Stage A diagnostic report](../reports/painter_distribution_study_v1/pdsv1-diagnostics-20260906/REPORT.md)
-reproduces all 18 files byte-for-byte. Its content-equal spread ratios are
-0.211–0.372 for named conditions and 0.378–0.728 for artist-free conditions.
-Artist-free separability is also high; coarse title-derived classes do not isolate
-painter style. These historical observations remain descriptive development evidence.
-
-The [English paper prototype](../papers/painter_distribution_study_v1/README.md)
-currently reports completed historical evidence, pilot and reference measurement,
-with controlled results pending. Human construct validation is prepared for later;
-no human recruitment, learned-feature computation, venue or collaborator involvement
-is claimed. Reasoning and documents remain English. `.env` and raw image bytes are
-ignored valuable local evidence; never expose credentials or delete research bytes.
+No collector or completed writing stage may be restarted. Frozen source, protocols,
+ledgers, measurements and report bundles remain unchanged; new scientific work
+requires a distinct scope. `.env` and raw image bytes are ignored valuable local
+evidence. Human construct validation is prepared as a follow-up; venue, Kim's
+involvement and learned-feature expansion remain undecided and are not claimed
+as completed work. All reasoning and new documents are English.
 
 ## Original proposal snapshot, before execution authorization
 

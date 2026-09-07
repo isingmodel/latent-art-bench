@@ -38,7 +38,8 @@ unchanged. The [publication correction](../studies/painter_distribution_study_v1
 binds a new adapter and completed inputs, converts only those flags with exact
 value equality, and writes analysis in `pdsv1-analysis-20260907`.
 
-One-time analysis publication requires the adapter's committed publication freeze:
+Analysis publication is complete (source/inputs `200b21b`, freeze `4e70d29`).
+The following was its create-once publication command; use `check` below for reproduction:
 
 ```bash
 uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.analysis_publication build
@@ -63,8 +64,8 @@ evidence and must be archived separately from Git; see [ARTIFACTS.md](ARTIFACTS.
 
 ## Final comparison report
 
-After terminal generation and verified numeric analysis, commit the measurement,
-analysis and renderer inputs, then publish the report once:
+The completed report binds renderer and numeric inputs at `383228c`. All 22 output
+files reproduce byte-for-byte. Publication was create-once; do not run `build` again:
 
 ```bash
 uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.main_report build
@@ -86,4 +87,4 @@ uv run --locked latent-art-bench verify-evidence
 
 The [paper prototype](../papers/painter_distribution_study_v1/README.md) has separate
 build instructions. Figures use measured numerical evidence, and the manuscript
-must label pending collection/results rather than inventing a complete study.
+reports the actual completed study and explicitly retains all interpretation limits.

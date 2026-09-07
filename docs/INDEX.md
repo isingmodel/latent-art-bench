@@ -15,8 +15,10 @@ identities.
 - [Config index](../configs/README.md)
 - [Contributing](../CONTRIBUTING.md)
 
-## Active controlled-distribution research round
+## Completed controlled-distribution research round
 
+- [Completed controlled comparison report and figures](../reports/painter_distribution_study_v1/pdsv1-analysis-20260907/REPORT.md)
+- [Completed English paper prototype](../papers/painter_distribution_study_v1/paper.pdf)
 - [Expansion decision, controlled study design and $100 budget](RESEARCH_PROPOSAL_20260906.md)
 - [Authorized staged execution protocol](../studies/painter_distribution_study_v1/PROTOCOL.md)
 - [Fixed existing-data diagnostic methods](../studies/painter_distribution_study_v1/DIAGNOSTICS.md)
@@ -37,8 +39,9 @@ identities.
 - [Prepared human construct-validation follow-up](../studies/painter_distribution_study_v1/HUMAN_FOLLOWUP.md)
 - [English paper prototype and build instructions](../papers/painter_distribution_study_v1/README.md)
 
-Implementation authorized: two additional model families, two existing painter cases,
-content/capture controls and a focused prompt intervention. See current status for stage progress.
+Implementation complete: two additional model families, two painter cases, content and
+processing sensitivities, fixed prompt contrasts and an English manuscript prototype.
+All collection stages are terminal. See current status for results and interpretation limits.
 
 ## Distribution scatter and separability exploration
 

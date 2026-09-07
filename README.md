@@ -1,18 +1,24 @@
 # LatentArtBench
 
-LatentArtBench analyzes **feature distances between image-generation outputs and original artists'
-reference paintings**. The current analysis uses Monet, Sisley, Pissarro, and Cézanne; 31
-interpretable color, spatial/orientation, and digital-texture features; and the existing SD-Turbo,
-`gpt-image-1`, and `gpt-image-2` service outputs.
+LatentArtBench compares **the feature distributions of generated images and digital
+reproductions of artists' paintings**, using 31 interpretable color, spatial and
+texture features. Historical studies cover Monet, Sisley, Pissarro and Cézanne.
 
-The active [controlled distribution study](docs/DISTRIBUTION_STUDY_WORKFLOW.md)
-adds Google Nano Banana 2 and FLUX.2 Max, alongside the OAuth GPT Image 2 service,
-with 1,008 planned images, matched content controls and a $75 ceiling. Collection
-uses three concurrent route workers with starts staggered by at least five seconds.
-At the user's request, the remaining four batches now run consecutively without
-waiting for the originally scheduled night windows.
-The [English paper prototype](papers/painter_distribution_study_v1/README.md)
-separates completed historical results from the pending controlled comparison.
+The completed [controlled distribution report](reports/painter_distribution_study_v1/pdsv1-analysis-20260907/REPORT.md)
+adds Nano Banana 2 and FLUX.2 Max alongside an OAuth GPT Image 2 service, with
+**1,006 research images and 70 fresh reference paintings** for Monet and Cézanne.
+The remaining batches ran immediately as requested, with staggered parallel calls.
+Reported charges were **$40.68**; accounting including a retained $5 contingency
+was **$45.68**, within the $75 ceiling. Collection and analysis are complete.
+
+The [14-page English paper prototype](papers/painter_distribution_study_v1/paper.pdf)
+reports the actual results: painter naming improves measured proximity on both
+paid routes while contracting aggregate spread. Named variance ratios are
+0.306–0.756, and held-out RBF balanced accuracy is 0.893–0.987. Artist-free controls,
+spatial features, a small reference subset and variable OAuth rendering qualify
+the interpretation. These are finite-panel feature results, not validated judgments
+of perceptual style. See [current status](docs/STATUS.md) and the
+[reproduction workflow](docs/DISTRIBUTION_STUDY_WORKFLOW.md).
 
 The new [distribution scatter and separability report](reports/painter_distribution_exploration_v1/REPORT.md)
 compares original and generated point clouds in common PCA views and evaluates their separability
@@ -26,7 +32,7 @@ retains its original 1,918-image data and inference. The earlier
 [existing-data distance report](reports/painter_feature_distance_v1/REPORT.md) also covers
 SD-Turbo, artist-free comparisons and painter specificity.
 
-## Current status — 2026-09-06
+## Earlier GPT prompt study — 2026-09-06
 
 **Both subsequently authorized retries succeeded.** The complete derived grid contains 1,920
 measured images, 64 per alias/method/condition. Across the original run and two retries there
@@ -90,6 +96,17 @@ paper-prototype link above.
 
 ## Run and reproduce
 
+Reproduce the latest controlled numerical analysis and all 22 report files:
+
+```bash
+uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.analysis_publication check
+uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.main_report check
+```
+
+All 846 offline tests pass. The scientific calculation is unchanged; the disclosed
+publication adapter only converts NumPy Boolean decision flags for JSON storage.
+No completed collector should be restarted.
+
 Use the locked environment with both extras to preserve the shared environment's dependencies.
 Verify the latest completed-grid report and corrected figure with:
 
@@ -128,6 +145,10 @@ validation, formulas, output schemas and interpretation limits.
 
 | Path | Role |
 | --- | --- |
+| `src/latent_art_bench/painter_distribution_study_v1/` | Completed controlled collection, fixed measurement, statistics and reproducible reporting |
+| `studies/painter_distribution_study_v1/` | Controlled scientific protocol, execution amendments and publication correction |
+| `reports/painter_distribution_study_v1/pdsv1-analysis-20260907/` | Latest controlled tables, scatter plots, prompt contrasts and provenance |
+| `papers/painter_distribution_study_v1/` | English LaTeX/PDF manuscript prototype and bibliography |
 | `src/latent_art_bench/painter_prompt_supplement_v1/` | Separate post-registration numeric supplement, qualification and module CLI |
 | `studies/painter_prompt_supplement_v1/` | Missingness weighting, exploratory joint-null tests and preservation contract |
 | `reports/painter_prompt_supplement_v1/ppss1-missingness-20260905/` | Completed prompt comparison report, full-precision tables and PNG/SVG plots |

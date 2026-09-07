@@ -1,103 +1,49 @@
-# Agent handover: completed painter-feature analysis and research continuation
+# Agent handover: completed controlled painter-distribution study
 
-**Active implementation goal — 2026-09-06:** the user authorized execution of the
-[proposal](RESEARCH_PROPOSAL_20260906.md) and an English paper prototype, delegating the remaining
-choices to the recommendations. Use multi-day collection, a computational paper now and human
-evaluation prepared for follow-up, with prospective reference-panel adaptation where needed.
-The new namespace is `painter_distribution_study_v1`; never reopen a historical terminal study.
-The user reaffirmed a $75 spending ceiling, including pilot calls, after the key authenticated
-and reported about $50 then available; the user says replenishment is configured. The interim
-$45 planning limit is superseded. The user additionally authorized retries for isolated failures
-and diagnosis/fixes for widespread failures. The prospective retry amendment permits at most
-24 extra attempts: 1,050 total / 612 paid attempts, within the unchanged $75 ceiling.
+**Latest completed goal — 2026-09-07:** the authorized proposal, controlled data
+collection, analysis and English paper prototype are complete. Start with
+[STATUS.md](STATUS.md), then [ARTIFACTS.md](ARTIFACTS.md), as required by the agent guide.
 
-Existing-data diagnostics are complete and all 18 report files replay byte-for-byte. GET-only
-reference and endpoint discovery completed 81 GETs. The 18-request technical pilot completed with
-18 decodable images and $0.8304855 paid cost; its evidence and qualification report are retained.
-Original-reference delivery stopped permanently after 97 attempts (five acquired, 92 rate-limited).
-The standard-thumbnail successor completed all 71 deliveries under its committed freeze.
-Visual content review admits 38 Monet and 32 Cézanne works, excluding one figure-led painting;
-the 71 annotations retain ambiguity and border notes. Conditional prompt-inference qualification
-passed both fixed-seed phases. The main 1,008-slot collector, bounded retry handling, three feature
-pipelines and fixed analysis are implemented. Main source/freeze commits are `d06cb95`/`a03503b`;
-all 442 development sensitivity vectors succeeded. Before the first research POST, the user
-requested staggered parallel generation. The waiting sequential collector was stopped and
-permanently closed with zero research attempts. The implemented disjoint parallel successor uses
-at most three in flight, five seconds between starts, and one active request per model route;
-it reuses the frozen scientific primitives and completed development scalers. Do not edit the
-executed source or reopen the closed sequential census. Read
-[current status](STATUS.md), the [staged protocol](../studies/painter_distribution_study_v1/PROTOCOL.md)
-and [main contract](../studies/painter_distribution_study_v1/MAIN.md). Research generation,
-measurement and final paper results remain active work. The English LaTeX/PDF prototype is drafted
-with completed prior findings and prospective extension clearly separated. Seventy-six new artwork
-files are retained (five original-delivery files plus 71 successor thumbnails; these are not 76
-independent works). The first parallel coordinator ran against its committed 14:30 UTC September 6
-origin (`1751557` source / `7ead740` freeze); all 210 reference vectors succeeded.
-Generated measurement waits for terminal collection. The first live sample verified three
-concurrent requests, one per route, ≥5.0043-second starts and six successful returns.
-The `main_report` renderer is implemented (22 reproducible outputs); commit final
-analysis inputs before building its report. Pre-correction full-suite validation passed 822 tests. No human participants have
-been recruited; venue and Kim's involvement remain undecided. Reasoning and documents stay English.
+The [controlled report](../reports/painter_distribution_study_v1/pdsv1-analysis-20260907/REPORT.md)
+and [14-page paper](../papers/painter_distribution_study_v1/paper.pdf) contain actual
+results from 1,006 generated images and 70 fresh reference works, using the fixed
+31 interpretable features. Nano Banana 2 and FLUX.2 Max supplement the OAuth GPT
+Image 2 service on Monet and Cézanne. Painter naming improves primary energy on
+both paid routes while contracting aggregate feature spread; generated and original
+collections remain readily distinguishable. The reference and processing exceptions,
+OAuth quality variation and conditional inference assumptions are reported explicitly.
+These results do not validate perceptual style equivalence or an intrinsic universal
+collapse claim.
 
-**Latest operational correction:** the first parallel collector is permanently
-terminal at 48 attempts, 47 images and one OAuth `moderation_blocked` HTTP 400.
-The generic HTTP 400 rule overclassified this as a contract failure. All 48 raw
-responses verified; recorded total study charge is $3.3797815, with no uncertain
-charge or unresolved request. `continuation.py` executes only the 960 unattempted
-slots at disjoint paths, retaining the original schedule and limits. The refusal
-is not retried or rewritten. Its planned `continuation_results.py` is now superseded
-by the three-component recovery below; do not run that closed census's analysis.
-The 47 prior images are retained; the same missing-pair rules handle the refusal.
-Continuation source/terminal evidence was committed at `29027dd` and the new
-execution freeze at `ec4ef09`; its coordinator subsequently closed on the failure below.
-Both old collector sessions are terminal. All 828 pre-recovery offline tests, Ruff and the historical
-evidence audit pass. Read the new refusal continuation contract and current status.
+Every collector is permanently terminal. The user requested immediate completion,
+so batches 4–7 ran consecutively rather than waiting for the original night schedule.
+Do not restore that schedule or restart any generator. All 1,008 scientific slots
+are terminal, with two preserved OAuth generic-named Cézanne refusals and one
+successful bounded FLUX technical retry. There were 1,027 physical attempts including
+18 pilot attempts; reported charges $40.6819185 and retained contingency $5 give
+$45.6819185 against the $75 ceiling. There is no unresolved request or uncertain cost.
 
-**Newest operational correction:** `pdsv1-main-continuation-20260906` is now
-permanently terminal at 52 attempts (51 images, one complete FLUX 502 at `slot0108`).
-Its missing `usage.cost` triggered the frozen uncertainty guard. All raw responses
-verified. The original two components now total 100 attempted slots / 98 images.
-Provider-reported study charges are $5.601998 plus a retained $5 contingency.
-OpenRouter documents failed-image billing waivers, but the raw cost stays null;
-`TRANSIENT_RECOVERY.md` defines a narrow complete-error exception with the reserve
-kept intact. New `recovery.py` and `recovery_results.py` passed qualification for
-908 untouched initial slots and one exact-payload FLUX retry. The final view binds
-three components and validates the sole cross-census retry update; the OAuth refusal
-is not retried. Neither older process is live. Source `94c602e` and execution freeze
-`fb21593` were committed before recovery dispatch. The sole live coordinator is
-`recovery run --watch` (current execution session `68624`); the FLUX retry succeeded
-and its raw response/container metadata verified. Keep the original $5 reserve,
-all existing outcomes and scientific inputs unchanged. The worker will wait between
-the eight original windows; the last opens September 7 at 23:30 UTC (September 8,
-08:30 KST). Do not start another worker or measure generated features early.
-All 838 offline tests, Ruff and the 2,902-check historical evidence audit pass.
-The updated 11-page paper PDF has been rendered and visually checked.
-Windows 0–3 are complete: 504 original slots / 503 selected images / one
-retained refusal, with the extra FLUX retry successful. Windows 1–3 each have
-126 initial successes. All 405 recovery response bodies and container metadata verified;
-the execution freeze and historical evidence audit pass. The same live coordinator
-is waiting for window 4 at September 7 14:30 UTC (23:30 KST); 504 initial slots remain.
-The longer interval is scheduled by the frozen multi-day design, not a failed collector.
-Reported pilot-plus-study charges are $20.7569045 plus the retained $5 contingency,
-with no unresolved request or unclassified cost. This is operational accounting,
-not partial fidelity analysis. Do not re-run tests or other completed stages merely
-to fill scheduled waiting time; monitor the existing live session coarsely.
+All 3,018 generated vectors replay from retained raw bytes. All reference and
+development measurements are complete. The original JSON publication failed on
+four NumPy Boolean flags before creating an output; its scientific source remains
+unchanged. The new `analysis_publication` adapter converts only those flags with
+exact value equality and publishes in `pdsv1-analysis-20260907`. Source/measurement
+commit `200b21b`, publication freeze `4e70d29`, and report-input commit `383228c`
+record the correction and completed analysis. Its numerical replay and every one
+of the 22 report output files verify. All 846 offline tests, Ruff and the historical
+2,902-check evidence audit pass. Read the
+[workflow](DISTRIBUTION_STUDY_WORKFLOW.md) for the current read-only replay commands;
+do not use the superseded `immediate_results analysis` publisher.
 
-**Latest timing instruction — 2026-09-07:** the user requested all remaining
-generation now, without the scheduled night wait. Recovery process `68624` was
-stopped between requests and permanently closed, retaining its 405 successful
-logical outcomes. The new `immediate.py` / `immediate_results.py` census covers
-only the untouched 504 slots in batches 4–7 and combines all four components for
-final analysis. See `IMMEDIATE_COLLECTION.md`. The new implementation is being
-validated (843 offline tests, Ruff and the evidence audit pass). Source `6697108`
-and execution freeze `d0f8170` were committed before dispatch. The sole live
-coordinator is `immediate run`, execution session `25215`; its first 14 completed
-calls across all three routes returned verified images. The updated 11-page paper
-records the timing change and passes visual QA. The original 33-hour
-schedule is superseded for remaining starts; preserve assigned batch IDs, exact
-within-route order and actual timestamps. All scientific primitives, references,
-scalers, costs, failure history and the $5 reserve remain. No generated-feature
-measurement has occurred. Earlier running/waiting snapshots above are historical.
+The user asked for English reasoning and documents, infrequent progress updates,
+bounded retries for isolated technical failures, and diagnosis of clustered failures.
+No human evaluation or learned-feature expansion has been executed; both remain
+possible follow-ups. Venue and Kim's participation/authorship are undecided. No
+institutionally independent review is claimed. Future research needs a new scope;
+no current result requires additional generation or a continuation process.
+
+The following sections preserve earlier completed studies and their historical
+handover context. They do not supersede the current status above.
 
 **Latest exploration — 2026-09-06:** the user requested scatter plots of original versus
 painter-conditioned generated feature distributions. The new
@@ -129,6 +75,8 @@ extension using the existing images and 31 features, with reproducible commands 
 plots. See the [current analysis guide](FEATURE_DISTANCE_ANALYSIS.md) and
 [distance report](../reports/painter_feature_distance_v1/REPORT.md). The snapshot and continuation
 options below describe the earlier handover; source study evidence remains sealed and unchanged.
+
+## Historical v2 handover snapshot
 
 Prepared in English on 2026-09-05 at the user's request to hand the project to another agent.
 This is a mutable orientation document, not a protocol, execution authorization, new analysis,

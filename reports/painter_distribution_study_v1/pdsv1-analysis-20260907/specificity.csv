@@ -1,0 +1,13 @@
+condition,energy_distance,painter_id,pipeline,route,status,target_painter
+named,3.687165950608536,claude_monet,primary512,nano_banana_2,available,claude_monet
+named,3.488393252856767,claude_monet,primary512,nano_banana_2,available,paul_cezanne
+named,1.5109566621613517,claude_monet,primary512,flux_2_max,available,claude_monet
+named,2.229533890276544,claude_monet,primary512,flux_2_max,available,paul_cezanne
+named,2.8390211081517416,claude_monet,primary512,oauth_gpt_image_2,available,claude_monet
+named,3.6196997334649064,claude_monet,primary512,oauth_gpt_image_2,available,paul_cezanne
+named,3.6140048417137205,paul_cezanne,primary512,nano_banana_2,available,claude_monet
+named,2.5600994256402174,paul_cezanne,primary512,nano_banana_2,available,paul_cezanne
+named,2.152156375565327,paul_cezanne,primary512,flux_2_max,available,claude_monet
+named,1.1161722483683851,paul_cezanne,primary512,flux_2_max,available,paul_cezanne
+named,3.2730450357657874,paul_cezanne,primary512,oauth_gpt_image_2,available,claude_monet
+named,2.2515413128874178,paul_cezanne,primary512,oauth_gpt_image_2,available,paul_cezanne
