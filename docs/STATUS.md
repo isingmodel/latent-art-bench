@@ -140,17 +140,18 @@ its execution freeze at `fb21593`, before dispatch. The sole coordinator is
 `recovery run --watch`; its retry of `slot0108` returned a verified image.
 Original window times remain unchanged. Neither closed collector may be resumed.
 
-Windows 0–2 are complete across the three components: **378 original slots,
-377 selected images and one retained OAuth refusal**, with one extra FLUX retry.
-Windows 1 and 2 each returned all 126 images on initial attempts. All 279 recovery responses
+Windows 0–3 are complete across the three components: **504 original slots,
+503 selected images and one retained OAuth refusal**, with one extra FLUX retry.
+Windows 1–3 each returned all 126 images on initial attempts. All 405 recovery responses
 and image-container metadata verified; the execution freeze and 2,902-check
 historical evidence audit pass. Live recovery timestamps showed a peak of three
 concurrent calls, one per route, and a minimum start gap of 5.0213 seconds.
-Including the 18-request pilot, 397 attempts have completed; reported charges
-total $15.774803 plus the unchanged $5 contingency, with no unresolved request
-or unclassified cost. The same live coordinator is waiting normally for window 3,
-September 6 at 23:30 UTC (September 7, 08:30 KST). Five windows / 630 initial slots
-remain. No generated fidelity feature has been measured.
+Including the 18-request pilot, 523 attempts have completed; reported charges
+total $20.7569045 plus the unchanged $5 contingency, with no unresolved request
+or unclassified cost. The same live coordinator is waiting normally for window 4,
+September 7 at 14:30 UTC (September 7, 23:30 KST). This longer scheduled interval
+preserves the prospectively declared separation across days. Four windows / 504
+initial slots remain. No generated fidelity feature has been measured.
 
 ## Original proposal snapshot, before execution authorization
 
