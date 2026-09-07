@@ -48,6 +48,9 @@ data/manifests/*
 !data/manifests/painter_distribution_study_v1/**/
 !data/manifests/painter_distribution_study_v1/**/*.json
 !data/manifests/painter_distribution_study_v1/**/*.jsonl
+!data/manifests/painter_distribution_revision_v1/
+!data/manifests/painter_distribution_revision_v1/**/
+!data/manifests/painter_distribution_revision_v1/**/*.json
 
 !artifacts/
 artifacts/*
@@ -81,6 +84,8 @@ research_workspace/
 !reports/painter_distribution_exploration_v1/plots/*.png
 !reports/painter_distribution_study_v1/*/plots/*.png
 !papers/painter_distribution_study_v1/paper.pdf
+!reports/painter_distribution_revision_v1/*/plots/*.png
+!papers/painter_distribution_revision_v1/paper.pdf
 
 # Python
 __pycache__/
