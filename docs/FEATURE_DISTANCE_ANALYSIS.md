@@ -1,14 +1,11 @@
 # Feature-distance analysis
 
-The main deliverable measures how generated-image feature distributions differ from the recorded
-paintings of Monet, Sisley, Pissarro, and Cézanne. It uses the existing v2 images' **already measured
-31 interpretable coordinates**. The user selected this scope on 2026-09-05: existing data, existing
-features, reproducible analysis commands, and a report with comparison plots.
-
-This is a new versioned **descriptive analysis of exposed numeric evidence**, implemented under
-`src/latent_art_bench/painter_feature_distance_v1/`. It is not an acquisition census, a new
-generation experiment, a prospective confirmation test, or a rerun of a terminal v2 stage.
-The source v1/v2 evidence and their reports remain unchanged.
+This completed historical analysis measures generated-image differences from
+Monet, Sisley, Pissarro and Cézanne using v2's already measured 31 interpretable
+coordinates. It is descriptive analysis of exposed numeric evidence, implemented
+under `src/latent_art_bench/painter_feature_distance_v1/`. The current paper's
+controlled comparison and subsequent diagnostics are separate studies; use the
+[analysis catalog](ANALYSES.md) to navigate between them.
 
 ## Inputs and measures
 
@@ -55,33 +52,20 @@ random subsampling, bootstrap, new seed, or image generation. Ranges are not con
 or bias corrections. They reflect both sample-count dependence and variation across observed
 generator blocks. Matching counts/template mix does not match output geometry or service settings.
 
-## Commands
+## Reproduce
 
-Run from the repository root with the locked environment. Keep both extras so environment
-synchronization preserves existing generation dependencies, even though these commands do not
-generate images.
+From the repository root, verify and reproduce the terminal report without
+changing it:
 
 ```bash
-# Create a fresh report bundle; the directory must not already exist.
-uv run --locked --extra analysis --extra learned latent-art-bench feature-distances build \
-  --output reports/painter_feature_distance_v1
-
-# Verify and reproduce the delivered bundle without changing it.
 uv run --locked --extra analysis --extra learned latent-art-bench feature-distances check \
   --output reports/painter_feature_distance_v1
-
-# Independently create the same numeric results, tables, prose and plots in a new location.
-uv run --locked --extra analysis --extra learned latent-art-bench feature-distances build \
-  --output tmp/feature-distance-reproduction
-
-uv run --locked --extra analysis --extra learned latent-art-bench feature-distances -- --help
 ```
 
-`--root` is a global option and precedes `build` or `check`; `--method-id` is a build option and
-defaults to `pfg2-method-20260905`. The source adapter supports the sealed v2 four-painter,
-31-coordinate, complete-template-grid contract. An arbitrary folder of images or new feature
-representation requires a separately specified adapter/design; this command never silently
-reinterprets those inputs. Output directories must be beneath the repository's `reports/` or `tmp/`.
+Do not rerun `build` against the published directory. The source adapter supports
+the sealed v2 four-painter, 31-coordinate, complete-template-grid contract; an
+arbitrary image folder or new representation needs a separately specified design.
+The [analysis catalog](ANALYSES.md) links computation and plotting source.
 
 ## Outputs and verification
 

@@ -1,205 +1,84 @@
-# Architecture map
+# Architecture
 
-LatentArtBench is a small Python package built around one active study,
-`painter_feature_generation_v1`. The package implements the R0 metadata-census stage only: it can
-freeze, validate, execute, and publish source censuses, and it cannot download images, extract
-features, or generate. This page describes the code as it exists; it is not authorization to run
-the active study before its freezes.
+LatentArtBench is a Python package with versioned research namespaces. The current
+paper combines a completed controlled study with a separately frozen computational
+revision. Both replay measured vectors and metadata offline. Historical acquisition
+and generation implementations remain as reproducibility dependencies.
 
-Earlier exploratory namespaces were removed rather than kept as inactive code. What remains is
-either hash-bound by a census freeze or directly supports one.
+## Current analysis path
 
-## Entry points
+```text
+retained development, reference and generated feature records
+    -> painter_distribution_study_v1: original controlled analysis
+    -> painter_distribution_revision_v1: descriptive diagnostics
+    -> sealed numerical results in data/manifests/
+    -> complete report tables and plots in reports/
+    -> paper/make_figures.py: three selected manuscript figures
+    -> paper/paper.tex -> paper/paper.pdf
+```
 
-- The installed command is `latent-art-bench = latent_art_bench.cli:app`.
-- `cli.py` is a thin Typer application that registers each census collector and each evidence or
-  R0 artifact tool as a pass-through subcommand. It adds no behaviour of its own; every argument
-  is parsed by the target module.
-- `scripts/collect_pfg_v1_*.py` are the equivalent standalone adapters. These scripts are
-  hash-bound frozen inputs of the freezes that authorized their censuses, so they are evidence
-  and must not be edited. `scripts/verify_pfg_v1_evidence.py`,
-  `scripts/render_pfg_v1_prompt_library.py`, `scripts/render_pfg_v1_content_lexicon.py`,
-  `scripts/build_pfg_v1_exposure_denylist.py`, and `scripts/prescreen_pfg_v1_scene_support.py`
-  are the adapters for the tools below; `scripts/collect_pfg_v1_cleveland_metadata.py` is the
-  adapter for the Cleveland route.
+The revision checks consistency with the original primary endpoints. Its report
+renderer is separately bound and verified. The manuscript figure builder reads
+hash-checked published values and saved PCA coordinates; it does not fit a new
+projection or produce new statistical estimates.
 
-## Shared package layers
+## Modules to read
 
-Module paths in this table are relative to `src/latent_art_bench/`.
+All package paths below are under `src/latent_art_bench/`.
 
-| Area | Main modules | Responsibility |
-|---|---|---|
-| Deterministic I/O | `io.py` | Canonical JSON/JSONL, hashing, and atomic writes |
-| Evidence audit | `evidence.py` | Commit-bound verification of freezes, ledgers, and receipts; all git reads go through one `git cat-file --batch` per step |
-| Retired contracts | `config.py`, `schemas.py` | Pilot-era pydantic contracts with no runtime consumer; retained only because the R0 freezes bind them |
-| Census collectors | `painter_feature_generation_v1/` | Fail-closed source-route censuses |
-| R0 collection (2.2) | `painter_feature_generation_v1/collect.py` | One module for every JSON route: replay the committed request list, store each raw body, keep every returned record whole, judge nothing |
-| R0 artifact tools | `painter_feature_generation_v1/prompt_library.py`, `content_lexicon.py`, `exposure_denylist.py`, `scene_prescreen.py` | Deterministic, offline renderers of the §11.1 prompt library, the §7.4 content lexicon, the §8 exposure denylist, and the non-binding corpus pre-screen |
+| Module or package | Responsibility |
+| --- | --- |
+| `painter_distribution_revision_v1/common.py` | Load, join and validate sealed vectors, requests and provenance attributes |
+| `painter_distribution_revision_v1/analysis.py` | Verify inputs, orchestrate calculation and compare numerical replay |
+| `painter_distribution_revision_v1/metrics.py` | Feature views, weighted energy, variance decomposition, reference/scaler influence and painter interactions |
+| `painter_distribution_revision_v1/diagnostics.py` | Coverage controls, metadata associations and grouped cross-route classification |
+| `painter_distribution_revision_v1/timing.py` | Request-group timing, attrition and retry sensitivities |
+| `painter_distribution_revision_v1/report.py` | Full diagnostic report tables and plots |
+| `painter_distribution_revision_v1/report_publication.py` | Bound report rendering and byte-replay verification |
+| `painter_distribution_study_v1/analysis.py`, `statistics.py`, `inference.py` | Original controlled estimates, numerical primitives and conditional randomization design |
+| `painter_distribution_study_v1/analysis_publication.py`, `main_report.py` | Original numerical and report replay entry points |
+| `painter_feature_generation_v2/features.py`, `statistics.py` | The 31-feature representation and frozen development-based transformations |
+| `painter_distribution_exploration_v1/statistics.py` | Shared fixed-kernel classification primitives |
+| `io.py`, `evidence.py` | Structured records/hashes and historical commit-bound evidence verification |
 
-`panel.py` is the single source of the four-painter roster; `artifact_cli.py` is the shared
-`--root/--check` command line of the R0 artifact renderers.
-
-`io.py`, `config.py`, `schemas.py`, `pyproject.toml`, `uv.lock`, `.gitignore`,
-`src/latent_art_bench/__init__.py`, and `tests/conftest.py` are bound by every census freeze.
-Verification is commit-bound, so editing one of them no longer invalidates earlier evidence; the
-terminal collectors and their frozen inputs are still left unmodified as policy.
-`tests/conftest.py` carries an unused pilot-era fixture that points at a config which no longer
-exists; it is kept only because the freezes bind it.
-
-The collectors import `canonical_json` and `hash_file` from `io.py`. The AIC and broad-media
-collectors additionally reuse private primitives from `federated_census.py` (event ledger, atomic
-writes, response store, metadata parsing), and `broad_wikidata_retry.py` reuses
-`broad_wikidata.py`. Route isolation is therefore a policy of separate configs, freezes, IDs, and
-paths, not of zero shared code.
-
-## The active study
-
-The canonical plan is `PROTOCOL_2.2.md` read with `PROTOCOL_2.1.md`: 2.2 replaces the R0
-collection rules and 2.1 supplies everything else. `PROTOCOL.md` (2.0) and `PROTOCOL_2.1.md` are
-the frozen texts that authorized the completed censuses. The workflow is deliberately small and
-sequential:
-
-1. `R0` exhausts the frozen metadata source registry and records candidates without image download
-   or admission.
-2. `R1` resolves authority, rights, physical-work identity, capture ancestry, and image quality and
-   acquires lawful raw bytes under a separate authorization.
-3. `R2` applies the frozen content lexicon to authority metadata (no human coding, no pixels),
-   reserves independent-capture works, applies the exposure denylist, and assigns every new
-   eligible work to development, qualification, or confirmation by the frozen hash rule.
-4. `M0` qualifies color, spatial/orientation, and digital-texture measurements on development and
-   auxiliary data only, then freezes scaling, margins, and whole-decision simulations.
-5. `G0` freezes one exact model, the 16-template prompt census, paired seeds, request order,
-   repetition count, the adherence classifier, and analysis.
-6. `G1` records every generation attempt and output while confirmation feature data remain unopened.
-7. `C0` opens the confirmation reference once and runs the frozen analysis.
-
-The earlier equal 360-work quota, three-way real split, 24-template frame, entropy-projection
-machinery, and (since 2.1) scene-group stratification and human coding are retired. R0 forms an
-exhaustive authority/discovery/media union, reconciles it to physical works, and keeps actual
-unequal painter counts. The real target is uniform over metadata-declared outdoor-place works.
-Generation remains NO-GO unless each painter clears the screening floors (10 development, 10
-qualification, and 100 confirmation works; the 60/12 auxiliary panel; workflow crossing) and the
-actual design passes registered whole-decision simulation; these are not target-count stopping
-rules.
-
-## Census collectors
-
-`src/latent_art_bench/painter_feature_generation_v1/` implements the R0 census stage. Each route
-is a separate fail-closed collector with its own config, freeze, neutral review, authorization,
-one-shot lock, hash-chained event ledger, content-addressed raw-response store, and atomic
-publication. A route that fails terminates the census; the retry is always a new module and census
-ID bound to the predecessor's terminal evidence, never an in-place repair.
-
-| Module | Route | State |
-|---|---|---|
-| `federated_census.py` | fixed-seed Wikidata/Commons attrition audit, plus the shared census primitives the other collectors reuse | complete (165/165 requests) |
-| `broad_wikidata.py` | broad exact-creator no-`P186` discovery census | terminal on provider HTTP 502 |
-| `broad_wikidata_retry.py` | same census under a new ID after that terminal run | complete (4/4 requests) |
-| `broad_media_followup.py` | entity/media metadata follow-up over the broad frame | terminal on an unrecognized plural `errors:[maxlag]` envelope |
-| `broad_media_followup_r2.py` | same follow-up under a new ID | complete (182/182 requests) |
-| `aic_metadata.py` | Art Institute of Chicago route census | terminal on a string `classification_id` |
-| `aic_metadata_r2.py` | same route under a new ID | complete (4/4 requests) |
-| `census_engine.py` + `cleveland_metadata.py` | Cleveland Museum of Art route on the shared engine | config written; not prepared, reviewed, frozen, or executed |
-
-Each module has a thin `scripts/collect_pfg_v1_*.py` CLI adapter with `prepare` and `execute`
-subcommands and a matching test module under `tests/painter_feature_generation_v1/`. Every collector
-writes exact request intents, raw response hashes, terminal receipts, and a non-admission candidate
-manifest. None can download images, decide authority/content, create a physical-work population,
-extract features, or run generation. The remaining named routes — Europeana, NGA, Cleveland, Yale,
-Getty, Minneapolis, Paris Musées, and POP/Joconde — have no collector yet.
-
-The terminal collectors are kept, not deleted. Each is a frozen input of the freeze that authorized
-its run and of the successor freeze that binds its terminal evidence; removing one would make its
-census unverifiable.
-
-Three of the four routes terminated on their first run because the frozen parser rejected a valid
-provider representation (a `languagefallback` term, a plural `errors` envelope, a string
-`classification_id`), and each retry cost a ~1,300-line module copy. A future route should validate
-only the fields its screen actually uses and retain everything else raw, so that an unfamiliar
-representation is recorded rather than fatal.
-
-## Evidence and R0 artifact tools
-
-| Module | Command | Output |
-|---|---|---|
-| `evidence.py` | `latent-art-bench verify-evidence` | commit-bound audit of every freeze, event ledger, and execution receipt; exit 1 on any unacknowledged mismatch |
-| `prompt_library.py` | `latent-art-bench prompt-library [--check]` | `data/manifests/painter_feature_generation_v1/prompt_library.json`, the exact §11.1 artifact |
-| `content_lexicon.py` | `latent-art-bench content-lexicon [--check]` | `content_lexicon.json`, the §7.4 eligibility lexicon, plus the `classify` rule R2 will apply |
-| `exposure_denylist.py` | `latent-art-bench exposure-denylist [--check]` | `exposure_denylist.jsonl` and its receipt, rebuilt from pinned git blobs |
-| `scene_prescreen.py` | `latent-art-bench scene-prescreen` | non-binding corpus pre-screen JSON and Korean summary against the 2.1 floors |
-
-None of these tools makes a network request or opens an image.
-
-## Data flow and gates
-
-Within R0 a single route runs:
-
-1. `prepare` reads the versioned config, emits exact request intents, and writes a freeze binding
-   every frozen input by path and sha256;
-2. an independent reviewer inspects the sealed freeze and records a decision with empty blocking
-   findings;
-3. an authorization seal binds the freeze and the review by path and sha256;
-4. `execute --seal <path> --seal-sha256 <hash>` takes the one-shot lock, issues the frozen requests,
-   stores every raw response in the content-addressed store, and appends a hash-chained event per
-   step;
-5. publication is atomic — the candidate manifest and execution receipt appear together or not at
-   all.
-
-Any transport failure, non-200, redirect, URL drift, `Retry-After`, schema/pagination/identity
-violation, oversize response, or content-address drift terminates the census. There is no
-within-census retry. Every later stage depends on an explicit earlier closure: a transport success
-is not protocol eligibility, and a completed census is not an admitted corpus.
+The `latent-art-bench` Typer CLI exposes historical study commands and
+`verify-evidence`. Current analysis modules also provide direct `python -m`
+entry points. [ANALYSES.md](ANALYSES.md) maps each supported replay command to its
+inputs and outputs; the root Makefile groups these commands by task.
 
 ## Storage boundaries
 
-- `configs/` — tracked study inputs; every file is a frozen input of some freeze.
-- `data/manifests/` — tracked compact request intents, event ledgers, freezes, reviews,
-  authorizations, candidate manifests, and execution receipts.
-- `research_workspace/` — ignored raw responses, one-shot locks, and future image bytes, all under
-  one boundary.
-- `reports/` — tracked compact findings and evidence.
-- `artifacts/` — ignored local research bytes retained outside git.
+| Path | Role |
+| --- | --- |
+| `paper/` | Editable current manuscript, bibliography, selected figures and builder |
+| `studies/` | Versioned protocols and study plans; many are immutable freeze inputs |
+| `configs/` | Design and request configuration; terminal study configs remain preserved |
+| `data/manifests/` | Compact tracked vectors, request identities, events, freezes and receipts |
+| `reports/` | Terminal numerical tables, report text, plots and provenance |
+| `research_workspace/` | Ignored content-addressed artwork, generation response bodies and runtime evidence |
+| `artifacts/` | Ignored model/source material and other retained research bytes |
+| `docs/` | Current guidance, analysis methods and retained research proposals/reviews |
+| `tests/` | Offline numerical, contract, provenance and replay tests |
 
-Large runtime state lives beneath one ignored workspace root; tracked study definitions and compact
-evidence stay together in one versioned namespace.
+Large image bytes are not in Git. Numeric replay does not require API credentials
+or model weights; image re-extraction requires the retained raw evidence. See
+[ARTIFACTS.md](ARTIFACTS.md) before deleting anything in an ignored directory.
 
-## Shared census engine
+## Why older namespaces remain
 
-`painter_feature_generation_v1/census_engine.py` holds the machinery every collector copied:
-config validation, exact intents, a commit-bound freeze, review and authorization seals, the
-one-shot lock, the hash-chained ledger, the content-addressed response store, and atomic
-publication. A route supplies a `RouteContract` with its endpoint, config validation, intent
-builder, response parser/screen, duplicate key, sort key, and receipt summary;
-`cleveland_metadata.py` is the reference consumer at about 300 lines.
+The controlled study imports measurement, scaling, randomization, hashing and
+classification primitives developed in earlier namespaces. Source paths and
+versions also appear in scientific freezes. Removing or moving a historical
+package merely because its collection has ended would break replay or obscure
+what ran. New scientific work should use a new namespace while reusing stable,
+tested primitives where their contracts still apply.
 
-The engine differs from the copied collectors in three deliberate ways: `prepare` writes the
-freeze itself, records `recorded_git_commit`, and refuses to run when a tracked frozen input is
-dirty against HEAD; the review seal must state `reviewer_kind` (`human` or `llm_subagent`); and a
-route parser is expected to validate only the fields its screen uses and to retain everything
-else raw, so an unfamiliar provider representation is recorded rather than fatal.
+Acquisition and transport code is separate from numeric replay. The completed
+collection modules encode terminal attempts, refusals, continuations and exact
+technical retries; they are records of execution, not reusable commands for
+silently extending a dataset. No current Makefile replay target opens collection.
 
-The seven existing collectors are not migrated. They are hash-bound evidence of what ran.
-
-## Adding a source route under Protocol 2.2
-
-Write one config. There is no route module, no parser, no freeze, no review, and no seal.
-
-1. Name the route's `census_id` and `source_id`, and set `protocol_id` to
-   `painter-feature-generation-v1/2.2`.
-2. List every request literally: `request_id`, `painter_id`, `method`, `url`, and either the query
-   `params` spelled out or nothing.
-3. Set `records_at` to the dotted path where the provider's record list sits (`data`,
-   `results.bindings`), or omit it to keep the whole payload as one record.
-4. Give the manifest, receipt, and workspace disjoint paths under a census-specific name.
-5. Commit the config, then run
-   `latent-art-bench collect --config <path> --authorized-by "<who>"`.
-6. Commit the manifest and receipt.
-
-Do not filter in the query. The recorded Getty exploratory query filtered on the AAT codes for
-painting, oil paint, and canvas; that is the same mistake as the Cleveland `canvas` token screen,
-moved server-side where it is invisible. Ask for everything the painter made and decide at R1.
-
-Never reuse a census ID. A re-run is a new ID whose receipt names its predecessor.
-
-The seven Protocol 2.0 collectors and the 2.1 engine are kept, not migrated: each is hash-bound
-evidence of what actually ran.
+The evidence audit verifies commit-bound records, while each study's replay check
+verifies its own numerical or report outputs. Run both when relevant; success in
+one does not replace the other. [AGENTS.md](../AGENTS.md) and
+[CONTRIBUTING.md](../CONTRIBUTING.md) specify change and test requirements.

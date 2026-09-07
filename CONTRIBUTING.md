@@ -1,62 +1,53 @@
 # Contributing
 
-LatentArtBench's only study is Painter Feature Generation v1 under Protocol 2.1. Contributions
-are welcome when they simplify the reusable implementation, improve methodological clarity,
-reproducibility, corpus governance, or implementation fidelity. Read the [current status](docs/STATUS.md) before proposing work.
+LatentArtBench compares generated-image feature distributions with digital
+reproductions of paintings. Start with the [current status](docs/STATUS.md),
+[analysis map](docs/ANALYSES.md) and [architecture](docs/ARCHITECTURE.md).
 
-## Before contributing
+## Where changes belong
 
-Please open an issue describing:
+- `paper/` contains the single current manuscript, bibliography and presentation
+  figures. Older manuscripts are available in Git history.
+- Each analysis has its own package under `src/latent_art_bench/`, corresponding
+  tests, study methods, compact manifests and published reports. The analysis
+  map identifies computation and plotting entry points separately.
+- Mutable documentation explains current use. Completed protocols, source
+  implementations and evidence bundles remain at their recorded paths.
 
-- the research or engineering problem;
-- the source paper, dataset, or benchmark module affected;
-- whether the proposal changes a confirmed decision;
-- expected effects on reproducibility, rights, or comparability.
+Use English for documentation, comments and review discussions. Keep changes
+focused and explain the problem, resulting behavior and relevant validation.
+No issue or approval is needed for routine reversible documentation improvements.
 
-## Contribution principles
+## Scientific changes
 
-- Write documentation, code comments, issue titles, and pull-request descriptions in English.
-- Do not add artwork files unless their redistribution rights have been verified and documented.
-- Do not commit API keys, credentials, cookies, proprietary model outputs that cannot be redistributed, or private dataset URLs.
-- Preserve source metadata and provenance; do not overwrite historical labels silently.
-- Add tests for feature implementations and preprocessing changes.
-- Report failed replications and negative results.
-- Keep source-faithful and harmonized methods distinct.
-- Avoid benchmark changes made after observing final model rankings unless they are released as a new benchmark version.
-- Keep work within the scope frozen in Protocol 2.1. Optional feature or extension work must not become an undeclared prerequisite for a stage gate. Protocol 2.0 stays at its path as frozen evidence.
+A change to features, preprocessing, prompts, reference selection, weighting or
+inference needs a stated scientific rationale and validation appropriate to the
+claim. Start a new versioned analysis when the existing one contains sealed
+results. Do not edit terminal collectors, frozen methods or published outputs to
+make old evidence match a new result. Shared primitives can change only when
+contracts remain clear and their historical versions remain verifiable.
 
-## Research-method changes
+Retain failures and negative results. Distinguish prospective tests from
+post-result diagnostics and finite-image findings from perceptual or population
+claims. Internal LLM reviews are not independent human peer review.
 
-A change to a metric, prompt distribution, corpus split, target ontology, evaluator, or score must include:
-
-1. a rationale;
-2. affected source methods;
-3. validation evidence;
-4. backward-compatibility implications;
-5. a versioning proposal.
-
-## Pull requests
-
-Pull requests should be focused and include a concise validation summary. Documentation-only contributions should verify internal links and references. Code contributions should include tests and a reproducible command or notebook.
-
-The standard offline checks are:
+## Checks and data
 
 ```bash
-uv run --locked ruff check .
-uv run --locked pytest -q -m "not live"
+make check       # Ruff and the full offline test suite
+make evidence    # Commit-bound historical evidence audit
+make analysis    # Replay the paper's two numerical analyses
+make plots       # Replay their report figures/tables and check paper figures
+make paper       # Render manuscript figures and build the PDF
 ```
 
-The standard test suite must not make live museum, browser, proxy, or image-generation
-requests. Any intentionally maintained live transport test must use the `live` marker and run
-only with explicit user authorization. Evidence verification is commit-bound
-(`uv run --locked latent-art-bench verify-evidence`); the two acknowledged unrecoverable inputs
-are recorded in [the status page](docs/STATUS.md). Never refresh an evidence hash to silence a
-mismatch.
+Run the checks relevant to the change. Python changes require Ruff and the full
+offline suite. Paper changes require compilation and visual page inspection;
+documentation changes require working links. Keep live tests explicitly marked
+`live` and run them only with user authorization.
 
-Frozen protocols, sealed reviews, and append-only ledgers should stay at their existing paths.
-New scientific work must use a new versioned study namespace rather than altering sealed
-evidence.
-
-## Conduct
-
-Contributors should discuss disagreements in terms of evidence, scope, and reproducibility. Art-historical labels and canons are contested constructs; their use should remain attributed, transparent, and open to revision.
+Never commit secrets or unlicensed artwork. Preserve ignored image responses,
+model weights, source checkouts and bound temporary files. Git history does not
+back up those bytes. See [artifact retention](docs/ARTIFACTS.md) before deleting
+or moving research files. Never refresh evidence hashes or expand the two
+historical acknowledgements to conceal a new mismatch.

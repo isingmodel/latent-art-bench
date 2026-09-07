@@ -1,202 +1,65 @@
 # LatentArtBench
 
-LatentArtBench compares **the feature distributions of generated images and digital
-reproductions of artists' paintings**, using 31 interpretable color, spatial and
-texture features. Historical studies cover Monet, Sisley, Pissarro and Cézanne.
+LatentArtBench compares the feature distributions of generated images with digital
+reproductions of artists' paintings. It measures color, spatial structure and
+texture with **31 interpretable features**. The current research asks how adding a
+painter's name changes proximity to the reference distribution and variation
+among generated images.
 
-The current [methodological revision report](reports/painter_distribution_revision_v1/pdrv1-numeric-20260907/REPORT.md)
-and [rewritten English research manuscript](papers/painter_distribution_revision_v1/paper.pdf)
-use the completed **1,006 generated images, 70 reference paintings and 221 development
-works**. This separately frozen post-result revision adds four metric views,
-within/between-brief variation, reference influence, painter-label placebos,
-coverage controls and cross-route detection. The original eight prompt tests remain
-unchanged; all new diagnostics are descriptive.
+Read the [English paper](paper/paper.pdf), its [source and build guide](paper/README.md),
+and the [complete revision report](reports/painter_distribution_revision_v1/pdrv1-numeric-20260907/REPORT.md).
+The current case study uses **1,006 generated images, 70 Monet and Cézanne
+references, and 221 separate development works**, across three generation routes.
 
-Painter naming reduces primary feature discrepancy on both paid routes and reduces
-aggregate spread relative to artist-free controls. The revision narrows that result:
-within-brief variation can increase, removing texture reverses one paid proximity
-comparison, and cross-route fixed-threshold balanced accuracy falls under naming.
-These are finite-feature findings, without completed human style validation.
-All paid outputs are square while all references are nonsquare; capture provenance
-remains unresolved. See the [revision disposition and reproduction commands](papers/painter_distribution_revision_v1/README.md).
+Painter naming reduces the primary feature discrepancy on both paid routes and
+reduces aggregate variation relative to artist-free controls. Variation within a
+scene description does not always decrease, and one proximity comparison reverses
+when texture is removed at a different measurement resolution. These are bounded
+computational findings: human style validation is unperformed, reference capture
+provenance is unresolved, and image geometry differs between domains.
 
-The revision adds **zero images and $0 generation spending**. Conservative study
-accounting remains **$45.6819185 within the $75 ceiling**. The next useful evidence
-is reference and human construct validation, rather than another generation sweep.
-The [original controlled report](reports/painter_distribution_study_v1/pdsv1-analysis-20260907/REPORT.md)
-and earlier paper remain preserved. See [current status](docs/STATUS.md) for verification.
+## Reproduce
 
-The new [distribution scatter and separability report](reports/painter_distribution_exploration_v1/REPORT.md)
-compares original and generated point clouds in common PCA views and evaluates their separability
-in the full feature space. This post-hoc exploration uses existing measurements and adds no images.
-
-The [main distance report after two authorized retries](reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906-r2/REPORT.md)
-contains: **1,920 measured generated images**, three prompt methods, comparison
-plots and full-precision tables. The
-[pre-retry exploratory statistical report](reports/painter_prompt_supplement_v1/ppss1-missingness-20260905/REPORT.md)
-retains its original 1,918-image data and inference. The earlier
-[existing-data distance report](reports/painter_feature_distance_v1/REPORT.md) also covers
-SD-Turbo, artist-free comparisons and painter specificity.
-
-## Earlier GPT prompt study — 2026-09-06
-
-**Both subsequently authorized retries succeeded.** The complete derived grid contains 1,920
-measured images, 64 per alias/method/condition. Across the original run and two retries there
-were 1,922 requests, with both original refusals preserved. By-name prompts are closest among
-the three methods in 19/24 painter × alias × family cells; style plus aspects is closest in
-the other five. Explicit style instruction has larger distance than by-name prompting in all
-24 comparisons. The completed view is descriptive because the two later outputs were outside
-the original randomized request sequence. See [current status](docs/STATUS.md) for exact retry
-provenance, results and verification.
-
-The following accounting describes the preserved pre-retry experiment:
-
-The [repeated GPT Image study](docs/PROMPT_STUDY_WORKFLOW.md) is complete. All **1,920 approved
-requests** were attempted once: **1,918 images generated and measured, two service refusals**.
-The grid covers two requested aliases, three methods (by name, style instruction, style plus
-aspects), four painters plus matched artist-free controls, 16 scenes and four repetitions.
-There are 958 measured outputs under `gpt-image-1` and 960 under `gpt-image-2`.
-
-A separate [post-registration supplement](docs/PROMPT_SUPPLEMENT_WORKFLOW.md) was specified after
-the first refusal and before new feature measurement. Its [completed report](reports/painter_prompt_supplement_v1/ppss1-missingness-20260905/REPORT.md)
-reports equal-scene-weighted available-output
-distances and 48 exploratory matched-pair tests of a joint availability-and-feature sharp null,
-with Holm adjustment and no confidence intervals. Its qualification passed and its design freeze
-was committed before source measurement. The original complete-grid primary remains
-[unavailable](reports/painter_prompt_study_v1/pps1-gpt-prompts-20260905/REPORT.md); neither refused
-slot was retried or replaced. Numerical and report-byte replay passed.
-
-On the observed matched supports, explicit style instruction increased distance relative to
-by-name prompting in all 24 artist × alias × feature-family comparisons. Three of these reject
-the exploratory joint null after Holm adjustment: Monet color under each alias and Pissarro
-texture under `gpt-image-2`. Added aspects had mixed directions, with no Holm rejection. These
-are finite-sample observations, not evidence of verified model superiority or aesthetic quality.
-See [the workflow](docs/PROMPT_SUPPLEMENT_WORKFLOW.md) for estimates and interpretation limits.
-
-The new bundle includes 360 distance cells, 744 coordinate diagnostics, all 48 exploratory tests,
-10 CSV tables and three plots in PNG/SVG. It retains the same 649-painting reference, 221-painting
-development scaler and 31 features. Reviews are maintainer-run LLM subagent reviews, not
-institutionally independent. [Current status](docs/STATUS.md) records the terminal evidence.
-
-The separately preserved existing-data report contains:
-
-- **Reference:** 649 measured confirmation paintings, from the existing 1,193-work frame.
-- **Generated images:** 2,000 SD-Turbo outputs and 160 GPT Image service outputs.
-- **Representation:** all 31 existing features, with the original normalization and frozen
-  development-only scaler; no learned embeddings or new image extraction.
-- **Distance analysis:** 180 complete matrix cells, 36 control/specificity summaries,
-  372 coordinate diagnostics, 48 reference-to-reference distances, and 324 block-level comparisons.
-- **Deliverable:** reproducible offline commands, a Markdown report, nine comparison plots in PNG
-  and SVG, six CSV tables, numeric JSON, and source/code/output hash provenance.
-
-Lower energy distance means closer measured feature distributions within the same feature family.
-The analysis describes the observed data; it provides no combined model ranking or calibrated
-reproduction threshold. GPT labels are requested service aliases with unverified underlying model
-snapshots. Sample size, output geometry, subject matter and capture differences affect interpretation.
-
-The original [v2 empirical report](reports/painter_feature_generation_v2/EMPIRICAL_ANALYSIS.md),
-[its Korean translation](reports/painter_feature_generation_v2/EMPIRICAL_ANALYSIS_KO.md), and all
-terminal study evidence are preserved. The original full paired crop analysis covered 3,340
-measured images. The active distribution-study manuscript is available through the
-paper-prototype link above.
-
-## Run and reproduce
-
-Reproduce the current revision without provider calls or image access:
+Python 3.9+ and `uv` are required. From the repository root:
 
 ```bash
-uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_revision_v1.analysis check
-uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_revision_v1.report_publication check
+uv sync --locked --extra analysis --extra dev --inexact
+make analysis
+make plots
+make check
+make evidence
 ```
 
-The [paper README](papers/painter_distribution_revision_v1/README.md) covers the
-locked environment, PDF build and artifact boundaries. Historical reproduction
-commands are preserved in the [controlled-study workflow](docs/DISTRIBUTION_STUDY_WORKFLOW.md).
-No completed collector should be restarted.
+These targets replay retained numerical evidence and report outputs or run offline
+checks. They make no generation requests. `make figures` rebuilds the three
+manuscript figures; `make paper` builds the PDF with Tectonic. See
+[the analysis catalog](docs/ANALYSES.md) for individual commands, inputs and outputs,
+and [the paper guide](paper/README.md) for rendering and visual checks.
 
-Use the locked environment with both extras to preserve the shared environment's dependencies.
-Verify the latest completed-grid report and corrected figure with:
+No API key or learned-model weights are needed for current analysis replay.
+Re-extracting features would require retained raw image bytes; a Git checkout does
+not include those images.
 
-```bash
-uv run --locked --extra analysis --extra learned python -m latent_art_bench.painter_prompt_retry_report_v2 check
-```
+## Repository map
 
-Verify the pre-retry prompt supplement with:
-
-```bash
-uv run --locked --extra analysis --extra learned python -m latent_art_bench.painter_prompt_supplement_v1.cli check ppss1-missingness-20260905
-uv run --locked --extra analysis --extra learned python -m latent_art_bench.painter_prompt_supplement_v1.cli audit
-```
-
-Verify the earlier existing-data bundle with:
-
-```bash
-uv run --locked --extra analysis --extra learned latent-art-bench feature-distances check \
-  --output reports/painter_feature_distance_v1
-```
-
-To independently rebuild it at a new location:
-
-```bash
-uv run --locked --extra analysis --extra learned latent-art-bench feature-distances build \
-  --output tmp/feature-distance-reproduction
-```
-
-The commands read existing numeric feature records and never request images or append to the
-old study ledgers. Existing output directories are not overwritten. `check` verifies hashes and
-reproduces numeric results, CSV tables, prose and plots byte-for-byte in temporary storage.
-See [the analysis contract and command guide](docs/FEATURE_DISTANCE_ANALYSIS.md) for input
-validation, formulas, output schemas and interpretation limits.
-
-## Project map
-
-| Path | Role |
+| Location | Purpose |
 | --- | --- |
-| `src/latent_art_bench/painter_distribution_study_v1/` | Completed controlled collection, fixed measurement, statistics and reproducible reporting |
-| `studies/painter_distribution_study_v1/` | Controlled scientific protocol, execution amendments and publication correction |
-| `reports/painter_distribution_study_v1/pdsv1-analysis-20260907/` | Latest controlled tables, scatter plots, prompt contrasts and provenance |
-| `papers/painter_distribution_study_v1/` | English LaTeX/PDF manuscript prototype and bibliography |
-| `src/latent_art_bench/painter_prompt_supplement_v1/` | Separate post-registration numeric supplement, qualification and module CLI |
-| `studies/painter_prompt_supplement_v1/` | Missingness weighting, exploratory joint-null tests and preservation contract |
-| `reports/painter_prompt_supplement_v1/ppss1-missingness-20260905/` | Completed prompt comparison report, full-precision tables and PNG/SVG plots |
-| `reports/painter_prompt_study_v1/pps1-gpt-prompts-20260905/` | Original unavailable-primary report and complete request accounting |
-| `src/latent_art_bench/painter_prompt_study_v1/` | Prospective repeated-prompt generation, calibrated analysis and separate module CLI |
-| `studies/painter_prompt_study_v1/` | New prompt design and resource contract |
-| `src/latent_art_bench/painter_feature_distance_v1/` | Current descriptive distance analysis, plotting and CLI |
-| `reports/painter_feature_distance_v1/` | Distance report, plots, exports and provenance |
-| `src/latent_art_bench/painter_feature_generation_v2/` | Preserved collection, generation, measurement and analysis pipeline |
-| `studies/painter_feature_generation_v2/` | Source study protocol and prospective amendments |
-| `data/manifests/painter_feature_generation_v2/` | Compact sealed numeric inputs and study evidence |
-| `research_workspace/painter_feature_generation_v2/` | Ignored source images, generated images, weights and runtime evidence |
-| `studies/painter_feature_generation_v1/` | Historical protocols; v1 code and evidence remain in their existing paths |
-| `literature_reviews/` | Literature evidence and method rationale |
-| `tests/` | Offline verification; live tests require separate authorization |
-| `docs/` | Operational status, handover, analysis guide and evidence retention rules |
+| [paper/](paper/README.md) | The current manuscript, bibliography, figures and figure builder |
+| [src/latent_art_bench/](src/latent_art_bench/) | Versioned analysis code and shared measurement primitives |
+| [tests/](tests/) | Offline contract and numerical tests |
+| [reports/](reports/) | Published numerical results, complete tables and report plots |
+| [studies/](studies/) | Protocols, fixed study plans and methodological boundaries |
+| [data/manifests/](data/manifests/) | Compact measured vectors, request records, hashes and receipts |
+| [docs/](docs/INDEX.md) | Current guidance and navigation to retained historical evidence |
 
-The `paper-study` CLI remains the stage interface for the completed v2 study. Its terminal
-collection, generation, measurement and report commands must not be rerun in place. A distance
-report build is a separate analysis of already exposed numeric evidence, not a restart of those
-stages or a newly blinded experiment.
+Only the current manuscript is kept in `paper/`; earlier manuscript versions are
+available in Git history. Historical scientific protocols, source, results and raw
+local evidence remain necessary for reproducibility. Read the
+[artifact policy](docs/ARTIFACTS.md) before deleting research files.
 
-## Development and evidence
-
-```bash
-uv run --locked --extra analysis --extra learned ruff check .
-uv run --locked --extra analysis --extra learned pytest -q -m "not live"
-uv run --locked --extra analysis --extra learned latent-art-bench verify-evidence
-uv run --locked --extra analysis --extra learned latent-art-bench paper-study audit
-```
-
-Read [current status](docs/STATUS.md), [artifact retention rules](docs/ARTIFACTS.md), and
-[the agent handover](docs/AGENT_HANDOVER.md) before making changes. The [documentation
-index](docs/INDEX.md) distinguishes current guidance from historical protocols.
-
-Frozen protocols, receipts and ledgers are immutable; historical hashes resolve against their
-recording commits. Ignored artwork, model weights and response bytes may be unique evidence.
-A git clone alone does not preserve them. Never use `git clean -xfd` or broad deletion under
-`artifacts/`, `data/`, or `research_workspace/`.
-
-## License
-
-Code and documentation use the [MIT License](LICENSE). Artwork, model weights, generated outputs,
-museum metadata, and third-party sources retain their own rights.
+For the current state, read [STATUS.md](docs/STATUS.md). For implementation work,
+read [AGENTS.md](AGENTS.md), [the handover](docs/AGENT_HANDOVER.md),
+[architecture](docs/ARCHITECTURE.md) and [contributing guidance](CONTRIBUTING.md).
+The [documentation index](docs/INDEX.md) links earlier studies without duplicating
+their history here. Code is distributed under [the repository license](LICENSE);
+raw artwork is not redistributed by this repository.

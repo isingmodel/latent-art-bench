@@ -1,8 +1,8 @@
 """Render manuscript figures from three hash-checked, sealed presentation tables.
 
 Run from the repository root with ``uv run --locked --extra analysis python
-papers/painter_distribution_revision_v1/make_figures.py``. Add ``--check`` for
-byte replay or ``--preview-dir tmp/pdfs/paper-rewrite-20260907`` for temporary PNGs.
+paper/make_figures.py``. Add ``--check`` for
+byte replay or ``--preview-dir tmp/paper/preview`` for temporary PNGs.
 No images/features are opened, no PCA is fitted, and no statistic is recomputed:
 all plotted endpoints, component ratios and coordinates are extracted as saved.
 The source hashes below deliberately reject changes to the underlying evidence.
@@ -22,7 +22,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 from matplotlib.lines import Line2D  # noqa: E402
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = Path(__file__).resolve().parent / "figures"
 REVISION = "reports/painter_distribution_revision_v1/pdrv1-numeric-20260907/"
 CONTROLLED = "reports/painter_distribution_study_v1/pdsv1-analysis-20260907/"
