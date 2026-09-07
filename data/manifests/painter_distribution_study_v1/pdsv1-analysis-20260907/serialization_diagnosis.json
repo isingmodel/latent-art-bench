@@ -1,0 +1,18 @@
+{
+  "affected_paths": [
+    "$.endpoints[4].reject_at_05",
+    "$.endpoints[5].reject_at_05",
+    "$.endpoints[6].reject_at_05",
+    "$.endpoints[7].reject_at_05"
+  ],
+  "error": "TypeError: Object of type bool is not JSON serializable",
+  "failed_publisher": "immediate_results.analysis",
+  "frozen_calculation_sha256": "1bceedc888cabd93a82cf77616cfc41173b0f6345362704e2c605edbc307f36c",
+  "frozen_publisher_sha256": "445eccb3498735fe229bca02dd08d18d739149e81779ee18d2287af93af30b6c",
+  "original_analysis_file_created": false,
+  "original_analysis_receipt_created": false,
+  "recorded_at_utc": "2026-09-07T02:22:34.091981+00:00",
+  "scope": "Serialization diagnosis only; no statistical endpoint or value amendment.",
+  "unsupported_scalar_type": "numpy.bool",
+  "value_equal_after_native_boolean_round_trip": true
+}

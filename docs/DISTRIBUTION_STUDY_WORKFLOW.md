@@ -5,53 +5,43 @@ Consult [STATUS.md](STATUS.md) before executing any stage. A published terminal
 receipt closes its stage permanently; validation commands read evidence without
 replacing it. The $75 ceiling includes pilot charges, failures and bounded retries.
 
-## Preparation and collection
+## Completed collection
 
-Metadata, pilot, reference delivery, scientific design and all reference/development
-measurement are complete. The unused sequential collector and three subsequent
-collection censuses are permanently closed. The three components retain 504 original
-slot identities: 503 selected images and one OAuth refusal, including one successful
-technical retry whose original complete FLUX failure retains a $5 contingency.
+All collection censuses are permanently terminal. The fixed 1,008-slot inventory
+contains 1,006 selected images, two OAuth moderation refusals and one successful
+bounded FLUX technical retry. Including the 18-image pilot, there were 1,027
+physical attempts (589 paid). Reported charges are $40.6819185; a retained $5
+failed-call contingency gives conservative accounting of $45.6819185.
 
-The user requested the remaining generation immediately. The
-[immediate collection amendment](../studies/painter_distribution_study_v1/IMMEDIATE_COLLECTION.md)
-executes exactly the 504 untouched original slots in batches 4–7, consecutively.
-Keep three workers, one active call per route, globally staggered starts at least
-five seconds apart and a five-second pause between completed batches. Original
-window IDs and planned times remain evidence; actual times define the executed span.
-The $75 cap and qualified retry, uncertainty and failure-cluster rules remain.
+The user-requested immediate successor completed untouched batches 4–7 on
+September 7, 00:29:19–02:01:37 UTC, with peak concurrency three, one active call
+per route and starts at least 5.043739 seconds apart. The original 33-hour schedule
+was not executed in full. All four components retain their ledgers and terminal
+receipts. Their combined fixed-slot view preserves the original failures and sole
+bound retry; never restart a collector or regenerate an existing slot.
 
-Commit the new source, tests, contract and closed predecessor evidence before the
-create-once preparation step, then commit its execution freeze before dispatch:
-
-This preparation is complete: source `6697108`, execution freeze `d0f8170`.
-Do not repeat `prepare` or start a second coordinator while the existing run is live.
+The scientific contract, execution amendments and immutable input freezes remain
+in the study namespace. Current status is readable without making provider calls:
 
 ```bash
-uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.immediate prepare
-# Commit execution_freeze.json before running check or dispatching.
-uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.immediate check
-uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.immediate run
 uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.immediate status
 ```
 
-Run only one coordinator. It completes all remaining batches without scheduled
-night waits. A completed initial attempt is never sent again on resumption; a
-conditional technical retry has its own child identity and source-linked evidence.
-An unclassified outcome/charge or failure cluster stops dispatch for diagnosis.
-Never restart any census that already has a terminal generation receipt.
-
 ## Measurement and analysis
 
-The 70-work reference panel and all development scalers are already measured
-and verified; never rerun them. Once the remaining-slot collection is complete,
-bind all four terminal components into the combined collection receipt, then measure
-the selected successful images. Each writing command is create-once:
+The 70-work reference panel, all development scalers and 1,006 selected generated
+images are measured. Generated measurement contains 3,018 successful vectors and
+no duplicate raw hashes. Measurement writing commands are permanently terminal.
+The original analysis publisher failed before creating a file because NumPy
+Boolean decision flags are not native JSON values. Its scientific calculation is
+unchanged. The [publication correction](../studies/painter_distribution_study_v1/ANALYSIS_PUBLICATION.md)
+binds a new adapter and completed inputs, converts only those flags with exact
+value equality, and writes analysis in `pdsv1-analysis-20260907`.
+
+One-time analysis publication requires the adapter's committed publication freeze:
 
 ```bash
-uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.immediate_results combine
-uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.immediate_results generated
-uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.immediate_results analysis
+uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.analysis_publication build
 ```
 
 The primary scaler is unchanged. The 256-pixel and JPEG sensitivities each fit
@@ -61,7 +51,7 @@ or generated measurement. No model weights or learned encoders are needed.
 Nonmutating reproducibility checks:
 
 ```bash
-uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.immediate_results analysis --check
+uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.analysis_publication check
 uv run --locked --extra analysis python -m latent_art_bench.painter_distribution_study_v1.immediate_results generated --check
 ```
 

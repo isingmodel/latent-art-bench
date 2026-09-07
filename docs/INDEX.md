@@ -31,6 +31,7 @@ identities.
 - [Explicit refusal classification and remaining-slot continuation](../studies/painter_distribution_study_v1/REFUSAL_CONTINUATION.md)
 - [Bounded transient recovery with retained billing contingencies](../studies/painter_distribution_study_v1/TRANSIENT_RECOVERY.md)
 - [Immediate remaining collection](../studies/painter_distribution_study_v1/IMMEDIATE_COLLECTION.md): user-requested timing change for the remaining four batches.
+- [Publication-only Boolean serialization correction](../studies/painter_distribution_study_v1/ANALYSIS_PUBLICATION.md)
 - [Main-study execution and reproduction commands](DISTRIBUTION_STUDY_WORKFLOW.md)
 - [User-authorized bounded retry policy](../studies/painter_distribution_study_v1/RETRY_AMENDMENT.md)
 - [Prepared human construct-validation follow-up](../studies/painter_distribution_study_v1/HUMAN_FOLLOWUP.md)

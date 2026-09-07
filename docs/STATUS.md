@@ -34,10 +34,15 @@ OAuth generic-named condition: **1,008 original research slots**.
 
 The active coordinator `25215` has exited successfully. **Do not restart any collector.**
 The combined receipt is complete and verified. The measurement/replay process `55874`
-is extracting the three fixed feature pipelines from all selected images, then
-recomputing them from retained raw bytes. Final numeric analysis, report publication
-and actual controlled results in the paper remain to be completed. Use the
-[workflow commands](DISTRIBUTION_STUDY_WORKFLOW.md); analysis is not a new generation run.
+has extracted all **3,018 generated vectors** successfully and is recomputing them
+from retained raw bytes. The unchanged statistical calculation completed but its
+JSON writer rejected four NumPy Boolean decision flags. No analysis artifact was
+written by the failed publisher. A narrowly scoped
+[publication adapter](../studies/painter_distribution_study_v1/ANALYSIS_PUBLICATION.md)
+uses a new derived namespace, preserves the frozen computation and requires exact
+value equality after converting only those flags to native Booleans. Publication,
+report and actual controlled results in the paper remain to be completed. No
+additional image generation or feature extraction is required by this correction.
 
 ### Scientific inputs and validation
 
