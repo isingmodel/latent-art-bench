@@ -23,6 +23,7 @@
 | Computational revision | [Full report](../reports/painter_distribution_revision_v1/pdrv1-numeric-20260907/REPORT.md), [fixed diagnostic protocol](../studies/painter_distribution_revision_v1/PROTOCOL.md) |
 | Methodology assessment | [Skeptical review and revision plan](reviews/20260907_methodology/REVIEW_AND_REVISION_PLAN.md) |
 | Further validation | [Reference/human study plan](../studies/painter_distribution_revision_v1/VALIDATION_PLAN.md), [literature comparison](../studies/painter_distribution_revision_v1/LITERATURE_MATRIX.md) |
+| New research direction | [Why generated paintings differ: mechanism report and proposal](RESEARCH_IDEA_20260908.md), with primary-paper readings and eight numerical/metadata case studies |
 
 The validation documents are frozen planning artifacts; those studies remain
 unperformed. Reviews are maintainer-run LLM reviews. The current paper is the only

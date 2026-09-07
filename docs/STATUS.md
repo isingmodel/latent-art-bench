@@ -43,6 +43,12 @@ perceived resemblance, perceived variation, or general model superiority.
 
 ## Remaining research
 
+The [mechanism-focused research report](RESEARCH_IDEA_20260908.md) combines 12
+primary-paper readings with eight numerical and metadata case studies. It proposes
+testing visual responsiveness under painter naming, with capture and reference
+validation, before adding model breadth. Its optional 192-image shared-control
+design is a planning cap, not an executed study or a justified power target.
+
 Human judgments, independent reference/capture replication, independent content
 coding and learned-feature validation remain **unperformed**. The frozen
 [validation plan](../studies/painter_distribution_revision_v1/VALIDATION_PLAN.md)
