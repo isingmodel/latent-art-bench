@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'; form-action 'none'">
+<title>Visual judgments</title>
+<style>
+body{font:17px/1.5 system-ui,sans-serif;max-width:1000px;margin:24px auto;padding:0 20px;color:#17212b;background:#f4f5f6}
+h1{font-size:27px}h2{font-size:21px}button,input,select,textarea{font:inherit}button{padding:9px 18px;margin:5px;border:1px solid #718096;border-radius:5px;cursor:pointer;background:white}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #2275a5}button.primary{background:#175578;color:white}
+.panel{background:white;border:1px solid #ccd3d8;border-radius:8px;padding:20px;margin:15px 0}.muted{color:#4a5963}.warning{background:#fff3d5;padding:12px}.error{color:#a02222}
+.main-image{width:100%;max-height:520px;object-fit:contain;background:#ddd}.anchors{display:flex;gap:10px}.anchors img{width:31%;max-height:220px;object-fit:contain;background:#ddd}.scale{display:flex;flex-wrap:wrap;gap:14px;margin:16px 0}.scale label{border:1px solid #b5c0c8;padding:9px 13px;border-radius:5px}.labels{display:flex;justify-content:space-between}label.field{display:block;margin:12px 0}select{display:block;min-width:240px}textarea{display:block;width:95%;min-height:65px}#consentText{white-space:pre-wrap}#message{min-height:1.5em}a{color:#175578}[hidden]{display:none!important}
+</style>
+<h1>Visual judgments</h1><p id="phase" class="warning"></p>
+<section id="setup" class="panel">
+<p>This page stores progress in this browser and exports a local JSON file. It does not upload data. Use the same device and display settings throughout; do not include your name or email in responses.</p>
+<p id="consentText"></p>
+<label class="field">Assigned participant code <input id="rater" autocomplete="off" maxlength="100"></label>
+<label><input id="consent" type="checkbox"> I am an adult human participant, have read the supplied information, and voluntarily agree to this session.</label>
+<p class="muted">Technical previews are not research responses. Use only the investigator-provided code for a human session.</p>
+<button id="begin" class="primary">Begin or resume</button>
+</section>
+<section id="work" hidden>
+<p id="progress"></p><article class="panel"><h2 id="question"></h2><p id="instruction"></p>
+<div id="referencePanel" hidden><p id="painter"></p><div id="anchors" class="anchors"></div></div>
+<p id="loadError" class="error" hidden>An image could not load. This trial will be recorded as a display failure, without a judgment.</p>
+<img id="mainImage" class="main-image" alt="Image to judge"><p><a id="zoom" target="_blank" rel="noopener">Open the same image at full display size</a></p>
+<div id="rating"><div id="scale" class="scale"></div><div id="labels" class="labels"></div></div>
+<div id="annotation" hidden></div>
+<label class="field">Optional notes (no identifying information)<textarea id="notes" maxlength="1000"></textarea></label>
+<button id="save" class="primary">Save and continue</button><button id="uncertain">Cannot judge</button>
+</article><button id="export">Export current responses</button><p class="muted">Partial exports retain missing trials. Keep only one final export per participant for import; this page can resume locally before exporting again.</p>
+</section><p id="message" role="status"></p>
+<script>
+"use strict";
+const config=__TASK_CONFIGURATION__;
+const el=id=>document.getElementById(id);
+const pkg=config.public;
+let rater="",assigned=[],answers=[],cursor=0,failed=false,pending=0,storage="",renderId=0;
+el("phase").textContent=config.phase==="technical_preview"?"Technical preview: assets may be absent. Exports cannot be imported as human validation.":config.phase==="usability_pilot"?"Usability pilot: these responses are separate from final validation.":"Human validation session";
+el("consentText").textContent=config.consent_text||"No human-study consent material has been supplied; this is a technical preview.";
+if(config.phase==="technical_preview")el("rater").value="preview";
+function message(text){el("message").textContent=text;}
+function persist(){try{localStorage.setItem(storage,JSON.stringify({package_id:pkg.package_id,answers}));}catch(e){message("Browser storage unavailable. Export before closing this page.");}}
+function watch(img,src){const id=renderId;pending++;img.onload=()=>{if(id===renderId)pending--;};img.onerror=()=>{if(id===renderId){pending--;failed=true;el("loadError").hidden=false;}};img.src=src;}
+function image(parent,src,alt){const img=document.createElement("img");img.alt=alt;watch(img,src);parent.appendChild(img);}
+function render(){
+  renderId++;
+  if(cursor>=assigned.length){el("work").querySelector("article").hidden=true;el("progress").textContent="All assigned trials have a recorded disposition. Export your responses.";return;}
+  const task=assigned[cursor];failed=false;pending=0;el("loadError").hidden=true;
+  el("progress").textContent=`Trial ${cursor+1} of ${assigned.length}. ${answers.length} recorded.`;
+  el("question").textContent=task.question;el("instruction").textContent=task.scene_text||"";
+  el("painter").textContent=task.reference_painter?`Reference examples: ${task.reference_painter}. Judge these displayed examples; this is not an authenticity test.`:"";
+  el("referencePanel").hidden=!task.references;el("anchors").replaceChildren();
+  (task.references||[]).forEach(src=>image(el("anchors"),src,"Reference example"));
+  const main=document.createElement("img");main.id="mainImage";main.className="main-image";main.alt="Image to judge";el("mainImage").replaceWith(main);watch(main,task.image);el("zoom").href=task.image;
+  const annotation=task.kind==="reference_annotation";el("annotation").hidden=!annotation;el("rating").hidden=annotation;
+  el("annotation").replaceChildren();el("scale").replaceChildren();el("labels").replaceChildren();el("notes").value="";
+  if(annotation){Object.entries(task.annotation_options).forEach(([key,options])=>{const label=document.createElement("label");label.className="field";label.textContent=key.replaceAll("_"," ");const select=document.createElement("select");select.dataset.field=key;const blank=document.createElement("option");blank.value="";blank.textContent="Choose a label";select.appendChild(blank);options.forEach(value=>{const option=document.createElement("option");option.value=value;option.textContent=value.replaceAll("_"," ");select.appendChild(option);});label.appendChild(select);el("annotation").appendChild(label);});}
+  else{for(let n=task.scale.min;n<=task.scale.max;n++){const label=document.createElement("label");const input=document.createElement("input");input.type="radio";input.name="rating";input.value=n;label.append(input,document.createTextNode(` ${n}`));el("scale").appendChild(label);}task.scale.labels.forEach(text=>{const span=document.createElement("span");span.textContent=text;el("labels").appendChild(span);});}
+}
+function record(uncertain){
+  if(cursor>=assigned.length)return;
+  if(pending>0&&!failed){message("Wait for all images to load before recording a judgment.");return;}
+  const task=assigned[cursor];let rating=null,annotations=null,status=failed?"display_failure":uncertain?"cannot_judge":"rated";
+  if(status==="rated"&&task.kind==="reference_annotation"){annotations={};for(const select of el("annotation").querySelectorAll("select")){if(!select.value){message("Complete each field, retaining uncertainty where appropriate.");return;}annotations[select.dataset.field]=select.value;}}
+  else if(status==="rated"){const selected=document.querySelector('input[name="rating"]:checked');if(!selected){message("Choose a rating or Cannot judge.");return;}rating=Number(selected.value);}
+  answers.push({task_id:task.task_id,status,rating,annotations,notes:el("notes").value});cursor++;persist();message("");render();
+}
+el("begin").onclick=()=>{
+  rater=el("rater").value.trim();if(!rater){message("Enter your assigned code.");return;}
+  if(config.phase!=="technical_preview"&&(!Object.hasOwn(config.assignments,rater)||!el("consent").checked)){message("A registered code and consent are required for a human session.");return;}
+  const ids=config.assignments[rater]||(config.phase==="technical_preview"?pkg.tasks.map(t=>t.task_id):[]);
+  const byId=new Map(pkg.tasks.map(t=>[t.task_id,t]));assigned=ids.map(id=>byId.get(id));
+  storage=`responsiveness:${pkg.package_id}:${config.phase}:${rater}`;
+  try{const saved=JSON.parse(localStorage.getItem(storage)||"null");if(saved&&saved.package_id===pkg.package_id&&Array.isArray(saved.answers)){answers=saved.answers;}}catch(e){message("Saved progress could not be read; starting a new local session.");}
+  const done=new Set(answers.map(a=>a.task_id));assigned=assigned.filter(t=>!done.has(t.task_id));cursor=0;
+  el("setup").hidden=true;el("work").hidden=false;render();
+};
+el("save").onclick=()=>record(false);el("uncertain").onclick=()=>record(true);
+el("export").onclick=()=>{
+  const data={schema_version:1,package_id:pkg.package_id,rater_id:rater,phase:config.phase,respondent_kind:config.phase==="technical_preview"?"technical":"human",consent:config.phase!=="technical_preview"&&el("consent").checked,answers,exported_at:new Date().toISOString(),display:{viewport_width:innerWidth,viewport_height:innerHeight,device_pixel_ratio:devicePixelRatio}};
+  const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:"application/json"}));const a=document.createElement("a");a.href=url;a.download=`responses-${pkg.package_id.slice(0,12)}-${rater.replace(/[^a-zA-Z0-9_-]/g,"_")}.json`;a.click();URL.revokeObjectURL(url);message("Exported locally. No responses were uploaded.");
+};
+</script></html>

@@ -14,6 +14,7 @@ The [Makefile](../Makefile) provides the common entry points:
 | `make evidence` | Historical evidence bindings, dispositions and retained-byte integrity |
 | `make analysis` | Recompute the controlled and revision numeric results |
 | `make plots` | Reproduce both current report bundles and check the three manuscript figures |
+| `make responsiveness` | Replay the new responsiveness diagnostic JSON and all report bytes |
 | `make figures` | Rebuild editable manuscript figures from saved tables and coordinates |
 | `make paper` | Rebuild figures and compile the manuscript; see [paper/README.md](../paper/README.md) |
 
@@ -57,6 +58,29 @@ uv run --locked python -m latent_art_bench.painter_distribution_study_v1.main_re
 uv run --locked python -m latent_art_bench.painter_distribution_revision_v1.report_publication check
 uv run --locked python paper/make_figures.py --check
 ```
+
+## Mechanism follow-up: painter responsiveness
+
+The new `painter_responsiveness_v1` namespace implements the
+[mechanism proposal](RESEARCH_IDEA_20260908.md). Its
+[protocol and continuation guide](../studies/painter_responsiveness_v1/README.md)
+separate completed retained-data diagnostics from prospective generation and
+actual human validation. The existing manuscript has not acquired a new causal
+or perceptual conclusion.
+
+| Component | Code | Evidence / output |
+| --- | --- | --- |
+| Equal-brief empirical and cross-repeat diagnosis; reference chroma support | [analysis.py](../src/latent_art_bench/painter_responsiveness_v1/analysis.py) | Original 31-feature vectors and metadata, unchanged; all six named/free cells and all 70 retained references |
+| Factorial order, shared-control inference and simulation | [design.py](../src/latent_art_bench/painter_responsiveness_v1/design.py), [inference.py](../src/latent_art_bench/painter_responsiveness_v1/inference.py) | Fixed six-template × four-arm × two-polarity × four-repeat, 192-slot design; 18 noise/effect settings |
+| Diagnostic publication and plotting | [workflow.py](../src/latent_art_bench/painter_responsiveness_v1/workflow.py), [report.py](../src/latent_art_bench/painter_responsiveness_v1/report.py) | [Diagnostic report](../reports/painter_responsiveness_v1/prv1-diagnostic-20260908/REPORT.md), full numeric JSON, tables and three plot pairs |
+| Human reference qualification | [human_package.py](../src/latent_art_bench/painter_responsiveness_v1/human_package.py), [reference_validation.py](../src/latent_art_bench/painter_responsiveness_v1/reference_validation.py) | Blinded reference preview and actual-response import; pilot and validation remain distinct |
+| Gated generation and measurement | [generation_prepare.py](../src/latent_art_bench/painter_responsiveness_v1/generation_prepare.py), [collection.py](../src/latent_art_bench/painter_responsiveness_v1/collection.py), [measurement.py](../src/latent_art_bench/painter_responsiveness_v1/measurement.py) | Prospective implementation only; no live generation until actual reference/human/precision/provider evidence passes |
+
+`make responsiveness` recomputes diagnostic numbers and compares every rendered
+report byte. It is offline and does not open artwork pixels. New-study checks are
+separate from the historical `make evidence` audit. The human H0 preview normalizes
+only already exposed reference bytes under an exact-source freeze; it is not a
+new scientific measurement or human judgment.
 
 ## Earlier generated-versus-original analyses
 
