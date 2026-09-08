@@ -1,4 +1,4 @@
-# Current status — 2026-09-08
+# Current status — 2026-09-09
 
 **Computational painter responsiveness v2 is complete**, following the user's
 instruction to continue without human reference ratings. The sole primary run
@@ -101,13 +101,27 @@ diagnostic bridge. It does not pool cohorts or alter the earlier tests.
 
 ## Verification
 
-The integrated manuscript is rebuilt as a **16-page PDF with five vector figures**.
-Three maintainer-run LLM subagents reviewed the full content, and all 16 final
-pages were visually inspected across the coordinator and a reviewer. The last
-build has no TeX warnings, all citations and references resolve, and the five
-manuscript figures reproduce byte for byte. The [manuscript review record](reviews/20260908_manuscript.md)
-documents corrected interpretation, notation and presentation issues. No scientific
-source, frozen result or acquisition record changed during manuscript revision.
+The three-reviewer scored manuscript revision is complete. The equal-weight
+average increased from **7.8125 to 8.5417/10**, exceeding the requested 8.5
+threshold. Final reviewer means are **8.625, 8.500 and 8.500** under the same eight-aspect
+rubric, with no unresolved blocking manuscript finding. These are maintainer-run
+LLM assessments, not external peer-review scores. The
+[scored review record](reviews/20260909_scored_review/REVIEW.md) preserves both full
+review rounds, all aspect scores, concrete responses and final artifact checks.
+
+The **19-page PDF with five vector figures** gives each study its own methods and
+results, promotes existing painter alignment and matched-real coverage controls,
+corrects the prespecification map, and exposes scene-level color interactions and
+the prospective proxy calibration. Literature positioning and actual
+release/access status are explicit. All 19 delivered pages were visually checked;
+final table-placement defects were corrected. Public archival release of the
+local scientific snapshot remains pending.
+
+The current build has no TeX warnings. All five figures reproduce byte for byte.
+Ruff passes and the full offline suite passes **1,135 tests in 115.43 seconds**.
+No scientific source, frozen result, protocol or acquisition record changed;
+no new images or charges were incurred. The earlier
+[integration review](reviews/20260908_manuscript.md) remains historical.
 
 The complete offline suite, including transport and quantile corrections, passes
 **1,135 tests** (115.42 s), including deterministic byte replay and

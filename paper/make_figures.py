@@ -254,18 +254,31 @@ def color_responsiveness(tables):
     ax.grid(axis="y", color="#ececec", linewidth=0.6)
     ax.set_axisbelow(True)
     ax = axes[1]
+    scene_offsets = (-0.24, -0.16, -0.08, 0.08, 0.16, 0.24)
     for y, arm in zip((1, 0), ("monet", "cezanne")):
         row = primary[arm + "_minus_generic"]
         interval = json.loads(row["family_interval"])
+        scenes = json.loads(row["template_estimates"])
         if len(interval) != 2 or not interval[0] <= float(row["estimate"]) <= interval[1]:
             raise ValueError("primary interaction interval must bracket its saved estimate")
+        if len(scenes) != len(scene_offsets):
+            raise ValueError("primary interaction must retain all six saved scene estimates")
+        ax.scatter(scenes, [y + offset for offset in scene_offsets], facecolors="white",
+                   edgecolors="#7a7a7a", linewidths=0.8, s=16, zorder=2)
         ax.plot(interval, [y, y], color=BLUE, linewidth=1.3, zorder=2)
         ax.scatter(float(row["estimate"]), y, color=BLUE, s=27, zorder=3)
     ax.axvline(0, color="#777777", linewidth=0.8, linestyle=(0, (2, 2)), zorder=1)
     ax.set(yticks=(1, 0), yticklabels=("Monet", "Cézanne"), ylim=(-0.55, 1.55),
-           xlim=(-0.65, 0.35), xticks=(-0.6, -0.3, 0, 0.3),
+           xlim=(-0.85, 0.45), xticks=(-0.8, -0.4, 0, 0.4),
            xlabel="Named - generic response κ\n(development IQR units)")
-    ax.set_title("(b) Simultaneous 95% family CIs", loc="left", pad=8)
+    ax.set_title("(b) Scene estimates and mean", loc="left", pad=8)
+    ax.legend(handles=[
+        Line2D([], [], color="#7a7a7a", marker="o", markerfacecolor="white", linestyle="",
+               label="Scene estimate", markersize=3.5),
+        Line2D([], [], color=BLUE, marker="o", linewidth=1.3, markersize=4,
+               label="Mean + 95% family CI"),
+    ], loc="upper left", bbox_to_anchor=(-0.03, 1.4), frameon=False, fontsize=7.3,
+              handletextpad=0.5, labelspacing=0.4)
     ax.grid(axis="x", color="#ececec", linewidth=0.6)
     ax.set_axisbelow(True)
     fig.subplots_adjust(left=0.10, right=0.985, bottom=0.23, top=0.78, wspace=0.47)
