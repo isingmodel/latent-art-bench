@@ -59,6 +59,12 @@ that list must not be extended to conceal new damage.
   `tmp/`: a temporary-looking path does not make evidence disposable.
 - Untracked user work and local configuration, including `.env`.
 
+The new responsiveness workspace also retains hash-bound normalized reference
+displays. Future human plans, exact submitted exports and free-text responses must
+remain private under that ignored boundary; public scientific receipts contain
+only deidentified summaries and hashes. Technical previews are not human results.
+Do not overwrite pilot or validation session paths to change their interpretation.
+
 Before machine migration or deletion of unique local material, create a separate
 checksum inventory and archive. No broad recursive deletion under `artifacts/`,
 `data/`, `research_workspace/` or `tmp/pdfs/`; never use `git clean -xfd`.

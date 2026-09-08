@@ -1,0 +1,294 @@
+{
+  "display_limit": "Browser/display color is not calibrated by this package.",
+  "freeze_sha256": "4528a06cd3316a1e9f59d5efbb8066900e24a65b9bdce77c952579ef78cbcb2e",
+  "human_ratings": 0,
+  "images": 70,
+  "new_measurements": 0,
+  "outputs": [
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/078fee3c876c961eae23ad0142d22d25.png",
+      "sha256": "780ff9aa1ce08935fa362623a1a17ba1b63d6f4a0f4b42b920bd6f5d5acbbc14"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/09022a9934fd502cafc0f786530c2deb.png",
+      "sha256": "e1a95803294dbc30b2106dcce88824c630542320136e44fed028083e309f10ce"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/0ebdf4d3a91b32b96c85463f9fc1f391.png",
+      "sha256": "324d97718aed887d171348e1ecbbd191f4abb590a18f00dc8ebac2e91405eae2"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/0f2bdcb2480904b89d3eafc3c39b7534.png",
+      "sha256": "c15f4742c5fea1eb84ac0e85c03a2cf1d5f364944e00f0f3e9c54df74c68b355"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/1306b98f93bb9fab5038fc0ada50b2ff.png",
+      "sha256": "5869b9400b6a4f70bb60524671b448d906979df7474ab9a394634deac2425f0d"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/1366dbd1ff2a8068eb9b6e06590ff572.png",
+      "sha256": "e958c49374d23c9dbae633e0f3966467cd004f95ca0d24bac2f7eba9681fad20"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/1a55db89050e4490499774026c29bd9e.png",
+      "sha256": "650fe169f6c21cd7baf75263129f4b954e40646c7e09cef3377effcb90cd5bf9"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/1dab126257719e033d58d3cdc19c249e.png",
+      "sha256": "01226d01fb4ef76416e831aebd4a29eef6913d6c13abc43dc94b321b9f303979"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/2460a27cf48869f8fa870ec433a0e995.png",
+      "sha256": "4561bcb57b19fc51a87575a918345c8bffdb08cc12918b5084217188489630e4"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/250e1e52a8916f432892b93f29aea06d.png",
+      "sha256": "5ff82844a945791d61f6ba0923a2fcb09f212d568268bbb4382fbab676f3cd71"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/26626397c2f7c92534af24a432163f00.png",
+      "sha256": "b42ac7e5a24fd132f8cacb2f69b427e4e7202c404246e176c64714d9256fdaf5"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/28f504bbbe73857005bc7b0704f9ce2e.png",
+      "sha256": "eff8518523fae74cf97e1736305f9752d09d0cc5d0c8e56e6519b77d3ef8f28d"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/30c736cdda59c82974cb3f7fc9bc4c2a.png",
+      "sha256": "c07908cd0aca0f7843663bf293f5fcc81e0c29b2115253bbed8162933ef37af4"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/37cbf1bd5053d4f21c9b6d47e0776806.png",
+      "sha256": "9b7277156eacf9ce652ace5558a71a07c519ca9adb89a322a53434605473148c"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/3930792c11596f3bfa5269871a71f87d.png",
+      "sha256": "15cdced7ce90edbb73b5ab5f39b8c91ee21a51b39ab1552de30253281bfa2f03"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/3b00dc74a9a24489a3d709c48ca66b17.png",
+      "sha256": "b07fa708e48b2fd3fdde8c4c807cca885dfe1fe81ace3bbeaa31daca13a318f1"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/3bd361ca48daf5feb3a5d02f4762ef0b.png",
+      "sha256": "6a3c6f1ca7a9a2a48ac272be246483f88ef46586a12ee0b32b00313b9984a8eb"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/3d81f0ff7a8c11c75aac87ad2b98593e.png",
+      "sha256": "063ab13523697bf46f863185072bc037bf49aba8c6102df882df9369599f4729"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/469919e321968e53a4b00e97cc372c36.png",
+      "sha256": "e26c5e4278ebceb1a10954bd5b411fad6b95d57a41ec62900efa8eed85c71c67"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/47039e6a684de36d0b5be7bcc0382c9c.png",
+      "sha256": "79019a9d659f37c4399a3f3b54f4bca20b3103679b514d581ca0312340268833"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/482c2937619f991e7f48645df5d23645.png",
+      "sha256": "c1909505fea8f228cc0c961cdd86d82097018851ae8a453a2d3d51b90631648a"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/4e52fa81c33be05ab5d00dc77e5583f3.png",
+      "sha256": "eb6c41e6ff4cf77d24121992c476a884fe376c1640cd15bf6d83e8da3c26a342"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/53ccca2730edcf63ce907e59ee989cff.png",
+      "sha256": "53f1bb0818a9bd5d1abe2bcf8d10d402bb5af564a26d789b5d418884f15477ee"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/5789818ede8823e6914e2976732f2063.png",
+      "sha256": "242aba4b193b4f5e331c1374766db6689b0ff5b2a2433245d969f19ab3a3f682"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/57c8f14023cc3eebffb0740458b383e6.png",
+      "sha256": "113b0bd10f6ec85715a4503f3b7d03988496d2451e40f0b32450b88cabdf1742"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/5f5892483b959bd9810b03fb22566267.png",
+      "sha256": "3c067982270af0605519586f70a6c4c7e0bf3374cb778d0e0f2e6512aeef8253"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/61ef21fa5cd761dc97b2b12290ed39d7.png",
+      "sha256": "e46b7ece4e1b613d90ba67a17ae458e5cfb297f4849b16e5dcf791d87bf5daf3"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/624a41f7e50dffd6f7432a23e1fde1a9.png",
+      "sha256": "801ee6ea2c5f2f6315d6773aba12f8c4a2067b05aade1056aa52269274e45fa9"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/663241d7187ac863f6a47bef75d957d5.png",
+      "sha256": "48aeac8b34b2ef26752a6670076838a27fef74e375772ecc41593ba49b97c6e8"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/673d963e8868b23b80ef1e459ecbf947.png",
+      "sha256": "589c2ff46b814bd004afbc529292b945c64820b68f3114b4304382b0cd09b980"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/69d7eb0ccfcb71ed3d42db2cc54e9b20.png",
+      "sha256": "5781fc5b4973f15dcab46a0dc736d9f65a199a0c7aaf2fc4cba0dbcdb0bf29d1"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/6cd79e96fa0b9555cc053f63dec6f797.png",
+      "sha256": "a804bc3f2981d7016c07f3de6e98d73d3c514742fb234524d383371fd4791003"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/6ff0d997f3335f90d04b7f25daf6aed7.png",
+      "sha256": "37851ea874d67df9e22a00980d42fcca6d3e109ba20f8c04314f375a43f6b1a1"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/7868a0fafe7f2811c8d8c9285d3a87ff.png",
+      "sha256": "025b8694de47ed2af1ac25c782373782ba2b47242ca29829d23866125b8f2116"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/7aa5b8262a60797679a38c2d357aef05.png",
+      "sha256": "76c788323b7900edc8ab7c34804cb2da9e2aa993b5f4e4a20ef17b5e152229fa"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/7cfa9f27eea07f0336c7a91d26cf6ee1.png",
+      "sha256": "efe0b3ad6970ca3253e0b4a64c86d53da2edebfe2ba7a86464efa16142a8cf64"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/818c5af48c5f10bfe4236712af8250e3.png",
+      "sha256": "f0eacccb354c5d75791b98b31f1ad113f522da24128ef4b84ea3c76c37ec4a56"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/84d8fa54e452bf61616f8a6e674f4841.png",
+      "sha256": "6449912d1fd7fc0da76580ff38665abf264ebe5ec04192a4748a9c5273caa2db"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/8537b8825903ea0a30d13b9d4e36fb50.png",
+      "sha256": "0b87878f1c7f92110f391d2ce742a4f31f7a507898c951c64892b481277cdf55"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/88316c56c881317dd176a5b007d4022d.png",
+      "sha256": "8d3f5472975262c1d68a55ce163af0ddf1d29db11ba61f711c126352dd154fa9"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/8c126fb7b60516edd8d862a741f817d1.png",
+      "sha256": "a62d7f8f2013cb77592473e7b882555bcc5906cbb68a3dbe0e718a898e360874"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/8d58eb432b2d9a18eea4720491450f23.png",
+      "sha256": "9c1c6a9aa9c52387a1f62bbb452dc0918c5cf90c060432ac22537f7f523d6099"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/9a198ba201a92021b2c6008391cf2ef7.png",
+      "sha256": "e5c5e3706db955cc632b9cf17292be703f08c69d7781430e0659780a1f61f57f"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/9dc2ba571a3b32a119cc7c184d8fc261.png",
+      "sha256": "676df921b619111d51fb0b31ddddf5c491fded70c4259011b3fae1192ee12f71"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/a7731e1cf175163d638434c4ab0ba0b3.png",
+      "sha256": "c9657c73c37448de16d3b6bfb8d7e68fd3a7dfd751ce90517cf2b2b2622aef74"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/ab1ae763310d37eb786f1fd83e87812e.png",
+      "sha256": "0c43ebd5d4315b1ec2e72f21fb33095c1a247358d1022f381d3c7b9c3fe8d71b"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/ac2f6a741d8eab1d2e816bbd67ff71b1.png",
+      "sha256": "b8ae468e345d6c8ff485d00fe9ce07d180e058ace595d5591db0df3a5a219fd2"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/aeb359069a58a659aa83091b34590218.png",
+      "sha256": "72ddc2a4926a4849f472c39dc5971b921b5c2c3868fe29da3cea5cb0c20cd5a2"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/b0fb2d8c4513a7f66bd0166087292421.png",
+      "sha256": "b79e5f78a3686b324316a363e57c6a5d8af5bf8d1ec77316c331cabde89246cb"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/b4d9443edc1258e0cf1673a7954954e3.png",
+      "sha256": "3db91b61ff806f6b8557ee1c57b30971273e66bd98e928830ec3075398a63318"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/b9719e6e688df20fded85d077a564c66.png",
+      "sha256": "e861cf762ac520277636b3562d1e7f235668e46ec7114649e446195eddf2502c"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/ba0372b7af3f45461713cbed5c1bc9f3.png",
+      "sha256": "4972e88c12a709c5f531cd65c6075e331f56832e6357c1c709cdb713f6b2566c"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/c1947af33a58bb86c2c4639f63e42620.png",
+      "sha256": "e1b908971ce2942642724bee4d5735ccdaee93fd69e03527cdbd110338c0f4cc"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/c423c335eb88236f49bdf63350525b57.png",
+      "sha256": "dffd3d6bb7376c253b21183d7c481f1266847c894d85f654d0c9f8ed7179d51f"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/c45d319948d9c1975a53057ed3664077.png",
+      "sha256": "38454ddfdcc5cf33581c82308bf64a5c0f97636a77121be1c32246206ddc7291"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/c5238089bb2fa9ee9752e5c82ab81382.png",
+      "sha256": "5998fc833ffdefeefb39eda25b6d888d1cf59aaa47efa23e37409f86e215a4ae"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/c657a06403373ba44be2c9296c4e612b.png",
+      "sha256": "8bcc385ca6f91f160ff0b7b32cfbaf5db84d852593fd492894ff0b702874ca49"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/c95d312666fa0883498e84d01cf971e2.png",
+      "sha256": "b11899aba881a256d7e8bb20475a90658035760501c00528e8d0fde559ffa74a"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/ce0389878b0f31d48b0626e33d8d95e7.png",
+      "sha256": "2ca97efc4e4d003b560840654e7b02e99cfc6ad8c651466a944953257882d4bd"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/d1689af0dfc040bd17e8e0a7aee5179c.png",
+      "sha256": "cb3bd555bae4263890126e8463e5bdf171dd5d789ed1c5f9e317975243c12787"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/d3337778790b14e01bca84e63e95a53c.png",
+      "sha256": "cca1656ece0da29fc0b4a5f24a1e2e7fe0773b63432821cc48a39048882248d1"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/d65dc5f134b58c651596fdcdc76b03e9.png",
+      "sha256": "b9ccfefbe4fdffaefef66ba4a2181abe6e30b9ee056338df70f01a6e18844e34"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/d9a2cef6b0b1f2afc28f71a4fb1ccff8.png",
+      "sha256": "f7d01a763616c3212d244c68fb89bd05a2a3ce745084c9d1e8f158d5223ad545"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/da6c85c200dd3abcaa4bef4bd14ef82d.png",
+      "sha256": "e2a97c224e5ce4859c9eea84b6a7475647b63e6f99b30a8409881342e0313c4f"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/eceff6b9fea03cc87fe901a08422b12b.png",
+      "sha256": "db4d3278368d166ec025c7c55b44663286cfc3c9f6528f492885b4234f37ab57"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/eeb7b272e8583338ad002ebf07f784ff.png",
+      "sha256": "c923a957101ae5a41c0e133a0a1560defc1589a8ad4b062983d0e3374db90c6e"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/f535e4199e499d24dddac27753cc0024.png",
+      "sha256": "83971c9649603543419d92f8f8413ea74b5540d6ff0fac7f003038483d628aa8"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/fa6c1cba0ac0093ea661a5af11319d0e.png",
+      "sha256": "ae83ee3df5cf8600fa8006b29366a3ed387e7af006744c75de2581f57d1208f0"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/fb5f37e3824c3151d617549d1d4dec9a.png",
+      "sha256": "452c26e2b1a7d4e66f6209cbe7f0dde8d28010fabc1d68a647b8682103a527bb"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/assets/fe4a705f3fd56de1f6a983db89c0932a.png",
+      "sha256": "23c9ea446de144be2c469f189fc0b6421e69dd594ba0351a7255e8f0af7d8b4c"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v1/prv1-diagnostic-20260908/human_reference_preview/index.html",
+      "sha256": "a396249bf9996196bf97bf4db9269e8bf85b7da7e35788a1c56d99c989abccd1"
+    }
+  ],
+  "phase": "technical_preview"
+}

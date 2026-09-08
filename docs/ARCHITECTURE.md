@@ -22,6 +22,14 @@ renderer is separately bound and verified. The manuscript figure builder reads
 hash-checked published values and saved PCA coordinates; it does not fit a new
 projection or produce new statistical estimates.
 
+The successor `painter_responsiveness_v1` reuses the retained loader, 31-feature
+extractor and original development scalers. It adds equal-brief diagnostics,
+prospective factorial inference/simulation, and a separate frozen reference-display
+workflow. Generation/measurement entry points require actual stage evidence and
+have no implicit live calls. Its complete component map and replay command are in
+[ANALYSES.md](ANALYSES.md#mechanism-follow-up-painter-responsiveness). The old paper
+pipeline is unchanged; D0 does not add a causal endpoint to the manuscript.
+
 ## Modules to read
 
 All package paths below are under `src/latent_art_bench/`.

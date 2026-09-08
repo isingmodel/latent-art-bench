@@ -18,6 +18,14 @@ when texture is removed at a different measurement resolution. These are bounded
 computational findings: human style validation is unperformed, reference capture
 provenance is unresolved, and image geometry differs between domains.
 
+The new [responsiveness study](studies/painter_responsiveness_v1/README.md) implements
+and runs the first diagnostic phase of the mechanism proposal. Its
+[report](reports/painter_responsiveness_v1/prv1-diagnostic-20260908/REPORT.md) finds
+between-brief contraction across all six route/painter cells. The proposed
+192-image intervention and human validation remain unperformed; this pattern
+alone does not prove the mechanism. Run `make responsiveness` for its offline
+numerical and report replay, and read [current status](docs/STATUS.md) for prerequisites.
+
 ## Reproduce
 
 Python 3.9+ and `uv` are required. From the repository root:

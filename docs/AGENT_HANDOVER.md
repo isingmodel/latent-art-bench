@@ -19,6 +19,22 @@ Use [ANALYSES.md](ANALYSES.md) to locate analysis, full-report plotting and manu
 figure commands. Use [ARCHITECTURE.md](ARCHITECTURE.md) to trace code dependencies.
 There is no unfinished collector or analysis job to resume.
 
+The active research continuation is now
+[painter responsiveness](../studies/painter_responsiveness_v1/README.md).
+D0 diagnostics and H0 reference displays are complete; human ratings and the
+192-image experiment are not. `make responsiveness` reproduces D0 numbers and
+all 21 report files. Preserve source commit `79f3573`, the committed D0/H0
+freezes and all derived reports. Actual human plans/exports belong in the ignored
+workspace; commit only deidentified scientific receipts. The pending human-rater
+question must be answered by a real responsible person, not an LLM.
+
+The closed R0 preflight reports $9.31 current credit and FLUX megapixel pricing.
+The current gate requires a supported size/billing contract; it must not interpret
+$0.07/megapixel as $0.07/image or invent a successful provider preflight. A successor
+contract, fresh budget check and actual reference/precision qualification are
+necessary before generation. See STATUS for the exact evidence and remaining
+implementation boundaries; the earlier $75 ceiling is authorization, not credit.
+
 ## Research constraints
 
 - Preserve the original eight conditional randomization tests. Subsequent fixed

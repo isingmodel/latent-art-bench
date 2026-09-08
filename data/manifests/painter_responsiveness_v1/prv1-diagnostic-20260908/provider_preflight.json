@@ -1,0 +1,180 @@
+{
+  "account_available_credit_usd": 9.312644300000002,
+  "account_projection": {
+    "http_status": 200,
+    "status": "available",
+    "value": {
+      "total_credits": 50,
+      "total_usage": 40.6873557
+    }
+  },
+  "available_credit_usd": 9.312644300000002,
+  "budget_available": false,
+  "checked_at_utc": "2026-09-08T02:21:25.320198+00:00",
+  "contract_available": false,
+  "endpoint": {
+    "allowed_passthrough_parameters": [
+      "steps",
+      "guidance",
+      "safety_tolerance"
+    ],
+    "pricing": [
+      {
+        "billable": "output_image",
+        "cost_usd": 0.07,
+        "unit": "megapixel"
+      }
+    ],
+    "provider_name": "Black Forest Labs",
+    "provider_slug": "black-forest-labs/us-3",
+    "provider_tag": "black-forest-labs/us-3",
+    "supported_parameters": {
+      "aspect_ratio": {
+        "type": "enum",
+        "values": [
+          "1:1",
+          "4:3",
+          "3:4",
+          "3:2",
+          "2:3",
+          "16:9",
+          "9:16",
+          "21:9",
+          "auto"
+        ]
+      },
+      "input_references": {
+        "max": 8,
+        "min": 0,
+        "type": "range"
+      },
+      "n": {
+        "max": 1,
+        "min": 1,
+        "type": "range"
+      },
+      "output_format": {
+        "type": "enum",
+        "values": [
+          "png",
+          "jpeg"
+        ]
+      },
+      "seed": {
+        "type": "boolean"
+      }
+    },
+    "supports_streaming": false
+  },
+  "existing_conservative_spend_usd": 45.68191850000009,
+  "expected_images_and_retry_cost_usd": null,
+  "expected_plus_one_reservation_usd": null,
+  "explanation": "Fresh account numbers; estimates are not a bill guarantee.",
+  "freeze_sha256": "6fb300ddffb1cb4dbff56b78ea70b899ff091cb1abd4c31ed57e2f32ac7a96dc",
+  "generation_calls": 0,
+  "key_limit_status": "finite",
+  "key_projection": {
+    "http_status": 200,
+    "status": "available",
+    "value": {
+      "is_free_tier": false,
+      "limit": 100,
+      "limit_remaining": 59.3180815,
+      "usage": 40.6819185,
+      "usage_daily": 0,
+      "usage_monthly": 40.6819185,
+      "usage_weekly": 19.925014
+    }
+  },
+  "model": "black-forest-labs/flux.2-max",
+  "model_response": {
+    "http_status": 200,
+    "status": "available",
+    "value": {
+      "endpoints": [
+        {
+          "allowed_passthrough_parameters": [
+            "steps",
+            "guidance",
+            "safety_tolerance"
+          ],
+          "pricing": [
+            {
+              "billable": "output_image",
+              "cost_usd": 0.07,
+              "unit": "megapixel"
+            }
+          ],
+          "provider_name": "Black Forest Labs",
+          "provider_slug": "black-forest-labs/us-3",
+          "provider_tag": "black-forest-labs/us-3",
+          "supported_parameters": {
+            "aspect_ratio": {
+              "type": "enum",
+              "values": [
+                "1:1",
+                "4:3",
+                "3:4",
+                "3:2",
+                "2:3",
+                "16:9",
+                "9:16",
+                "21:9",
+                "auto"
+              ]
+            },
+            "input_references": {
+              "max": 8,
+              "min": 0,
+              "type": "range"
+            },
+            "n": {
+              "max": 1,
+              "min": 1,
+              "type": "range"
+            },
+            "output_format": {
+              "type": "enum",
+              "values": [
+                "png",
+                "jpeg"
+              ]
+            },
+            "seed": {
+              "type": "boolean"
+            }
+          },
+          "supports_streaming": false
+        }
+      ],
+      "id": "black-forest-labs/flux.2-max"
+    }
+  },
+  "new_spend_cap_usd": 20.0,
+  "price_per_image_usd": null,
+  "prior_accounting": {
+    "accounted_usd": 45.68191850000009,
+    "attempts": 1027,
+    "contingency_reserve_usd": 5.0,
+    "missing_cost_failures": 1,
+    "paid_attempts": 589,
+    "provider_reported_usd": 40.681918500000066,
+    "reserved_failure_records": [
+      {
+        "request_id": "slot0108",
+        "reservation_usd": 5.0,
+        "run_id": "pdsv1-main-continuation-20260906",
+        "terminal_sha256": "e11ddda9f223ba1a87f1eab8191e24cfb37b2b08eb743e0e31c35d122b579763"
+      }
+    ],
+    "uncertain": 0,
+    "unresolved": 0
+  },
+  "provider": "black-forest-labs/us-3",
+  "reason": "pricing_requires_explicit_contract_review",
+  "source_urls": [
+    "https://openrouter.ai/api/v1/images/models/black-forest-labs/flux.2-max/endpoints",
+    "https://openrouter.ai/api/v1/credits",
+    "https://openrouter.ai/api/v1/key"
+  ]
+}
