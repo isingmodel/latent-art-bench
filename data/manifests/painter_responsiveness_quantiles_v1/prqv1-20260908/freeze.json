@@ -1,0 +1,109 @@
+{
+  "environment": {
+    "Pillow": "11.3.0",
+    "PyWavelets": "1.9.0",
+    "matplotlib": "3.11.1",
+    "numpy": "2.5.2",
+    "pydantic": "2.13.5",
+    "python": "3.13.11",
+    "scikit-image": "0.26.0",
+    "scipy": "1.18.1"
+  },
+  "inputs": [
+    {
+      "path": "data/manifests/painter_responsiveness_v2/prv2-oauth-20260908/analysis.json",
+      "sha256": "b9cc869f2c704e9686df73ae833e21ea854a0b2ebae0acb55765bc3bae217c91"
+    },
+    {
+      "path": "data/manifests/painter_responsiveness_v2/prv2-oauth-20260908/analysis_receipt.json",
+      "sha256": "f7364b8072cef4a1aa38bc62f2418d5cc842a9311d492ffac7c51b392149dbb3"
+    },
+    {
+      "path": "data/manifests/painter_responsiveness_v2/prv2-oauth-20260908/collection_receipt.json",
+      "sha256": "b7eb11f800aae852604d4c09a003f3cb26f0dfdfdad0d76e6c1bb88397d52ce1"
+    },
+    {
+      "path": "data/manifests/painter_responsiveness_v2/prv2-oauth-20260908/freeze.json",
+      "sha256": "fa016e0e0e3670d324b673ad179e5ec3f017d30f0c31cc0b3a01a31ffa12346b"
+    },
+    {
+      "path": "data/manifests/painter_responsiveness_v2/prv2-oauth-recovery-20260908/analysis.json",
+      "sha256": "251e0e07daa779088903b7382da4ae5e2fb2fad27a40331f96a8ecd84f0b9079"
+    },
+    {
+      "path": "data/manifests/painter_responsiveness_v2/prv2-oauth-recovery-20260908/analysis_receipt.json",
+      "sha256": "70fd5cce8c90f82539f04306c6d3ba1ac2b363f8f15a93a332050c1c04a4697d"
+    },
+    {
+      "path": "data/manifests/painter_responsiveness_v2/prv2-oauth-recovery-20260908/collection_receipt.json",
+      "sha256": "7202a3ab4bd8ab0bc8c91fb4f950a17d07d7c55d551fb61fb8fc423febeefcd5"
+    },
+    {
+      "path": "data/manifests/painter_responsiveness_v2/prv2-oauth-recovery-20260908/freeze.json",
+      "sha256": "7e0db470c577a143cbc703ee114eddcc152c26e5ab3e51c0fd16b09b595ed557"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8"
+    },
+    {
+      "path": "src/latent_art_bench/io.py",
+      "sha256": "13e6372aa9814495a45700eb9e65d099c56bb1bb3032d72f7f9e00e6ba91a9b8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/study.py",
+      "sha256": "2e00d657c937ae231838077ecedbfb2063ae5deed532dfe8d8b7d17e98b4ae9e"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/artifacts.py",
+      "sha256": "8b48f0cfb433ac1769786aba366501b69ba1bec540a1a2f9e35e93ce45e9b0d7"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/features.py",
+      "sha256": "b295c2de1a8501e8ab335d88ed56ab8f2dc8b3ca704141b92e02ef586d48d172"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/common.py",
+      "sha256": "8f399eb26069a283209437de51885ce38ca28a21759b359afc506d263107ec4f"
+    },
+    {
+      "path": "src/latent_art_bench/painter_responsiveness_quantiles_v1.py",
+      "sha256": "2e378a244564dcb57c12e671db4ad38b89af2c33026adb26f24105af48e31d70"
+    },
+    {
+      "path": "src/latent_art_bench/painter_responsiveness_v1/design.py",
+      "sha256": "c42a140ba7b1aeec300b998647ce26dd9bc4d20ab4d4d16ecf2e468ac4b192ae"
+    },
+    {
+      "path": "src/latent_art_bench/painter_responsiveness_v1/inference.py",
+      "sha256": "2a03e8b148519a39c87df86f56bcbb3c009f69f0378579a350d6565290684e1b"
+    },
+    {
+      "path": "src/latent_art_bench/painter_responsiveness_v2/analysis.py",
+      "sha256": "28bb1a57ecf62f0d0b2168266fa8eeb756212861ab95fd8983bb827e977c89c2"
+    },
+    {
+      "path": "src/latent_art_bench/painter_responsiveness_v2/report.py",
+      "sha256": "67a757b9496a5b35688bf4cde235b6d40942df146b4a21d45a4fe9d5fab76678"
+    },
+    {
+      "path": "studies/painter_responsiveness_quantiles_v1/PROTOCOL.md",
+      "sha256": "a1ac31bfff035a687119976450f4f100b9a614f79c29cdad7c70562a37d90aa6"
+    },
+    {
+      "path": "tests/test_painter_responsiveness_quantiles_v1.py",
+      "sha256": "68aa5307cc2781b155e891c52eec658a978f083f75d5b07c9b1d78747a9cf959"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+    }
+  ],
+  "recorded_git_commit": "2062eab23dd9002708ea62cbe32618c6da171398",
+  "run_id": "prqv1-20260908",
+  "runs": [
+    "prv2-oauth-recovery-20260908",
+    "prv2-oauth-20260908"
+  ],
+  "schema": "painter-responsiveness-quantile-correction/1"
+}
