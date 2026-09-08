@@ -65,6 +65,12 @@ remain private under that ignored boundary; public scientific receipts contain
 only deidentified summaries and hashes. Technical previews are not human results.
 Do not overwrite pilot or validation session paths to change their interpretation.
 
+The computational v2 workspace retains compressed response bodies for every attempt,
+including technical errors, and its one-shot collection/measurement markers. Tracked
+v2 manifests bind these raw responses and all 192 planned slots. Diagnostic JSON
+also preserves normalized query, split and prediction identities; its size does not
+make it a disposable report cache.
+
 Before machine migration or deletion of unique local material, create a separate
 checksum inventory and archive. No broad recursive deletion under `artifacts/`,
 `data/`, `research_workspace/` or `tmp/pdfs/`; never use `git clean -xfd`.

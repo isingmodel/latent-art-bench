@@ -17,23 +17,27 @@ The numerical evidence comes from the completed
 and [computational revision](../reports/painter_distribution_revision_v1/pdrv1-numeric-20260907/REPORT.md).
 Use [ANALYSES.md](ANALYSES.md) to locate analysis, full-report plotting and manuscript
 figure commands. Use [ARCHITECTURE.md](ARCHITECTURE.md) to trace code dependencies.
-There is no unfinished collector or analysis job to resume.
+See STATUS before interacting with any active collector or measurement process.
 
-The active research continuation is now
-[painter responsiveness](../studies/painter_responsiveness_v1/README.md).
-D0 diagnostics and H0 reference displays are complete; human ratings and the
-192-image experiment are not. `make responsiveness` reproduces D0 numbers and
-all 21 report files. Preserve source commit `79f3573`, the committed D0/H0
-freezes and all derived reports. Actual human plans/exports belong in the ignored
-workspace; commit only deidentified scientific receipts. The pending human-rater
-question must be answered by a real responsible person, not an LLM.
+The active continuation is [computational painter responsiveness v2](../studies/painter_responsiveness_v2/README.md).
+The user explicitly removed human reference ratings as a prerequisite for this
+narrower service-response study. It uses a fixed 192-slot OAuth inventory, two
+shared controls, two color instructions, six scenes and four repeats. It also tests
+held-repetition scene retrieval on the exposed controlled dataset. No OpenRouter
+charges, new original paintings or human/LLM ratings are part of this scope.
+`make computational-responsiveness` replays published v2 numbers and report bytes.
 
-The closed R0 preflight reports $9.31 current credit and FLUX megapixel pricing.
-The current gate requires a supported size/billing contract; it must not interpret
-$0.07/megapixel as $0.07/image or invent a successful provider preflight. A successor
-contract, fresh budget check and actual reference/precision qualification are
-necessary before generation. See STATUS for the exact evidence and remaining
-implementation boundaries; the earlier $75 ceiling is authorization, not credit.
+The earlier [v1 study](../studies/painter_responsiveness_v1/README.md) retains its
+original human/reference qualification requirements. Preserve source commit
+`79f3573`, its D0/H0 freezes, closed R0 preflight and derived reports. The human
+question no longer blocks v2; it has not been answered or waived retrospectively
+for v1. The old FLUX price/credit limitation concerns that unperformed paid-route
+scope. Do not describe it as a current block on the authorized OAuth experiment.
+
+All new stages remain create-once and commit bound. A completed or stopped
+collection cannot resume or refill missing slots. Preserve returned quality and
+geometry deviations, failure bodies and the complete allocation. If a new
+scientific or implementation correction is required, use a successor scope.
 
 ## Research constraints
 

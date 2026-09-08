@@ -23,12 +23,13 @@
 | Computational revision | [Full report](../reports/painter_distribution_revision_v1/pdrv1-numeric-20260907/REPORT.md), [fixed diagnostic protocol](../studies/painter_distribution_revision_v1/PROTOCOL.md) |
 | Methodology assessment | [Skeptical review and revision plan](reviews/20260907_methodology/REVIEW_AND_REVISION_PLAN.md) |
 | Further validation | [Reference/human study plan](../studies/painter_distribution_revision_v1/VALIDATION_PLAN.md), [literature comparison](../studies/painter_distribution_revision_v1/LITERATURE_MATRIX.md) |
-| Responsiveness implementation | [Protocol and continuation guide](../studies/painter_responsiveness_v1/README.md), [capture feasibility](../studies/painter_responsiveness_v1/CAPTURE_FEASIBILITY.md) |
+| Computational responsiveness v2 | [Protocol and implementation](../studies/painter_responsiveness_v2/README.md): 192-slot OAuth experiment and retained-scene retrieval, without human ratings; [implementation review](reviews/20260908_computational_responsiveness/REVIEW.md) |
+| Responsiveness implementation v1 | [Protocol and continuation guide](../studies/painter_responsiveness_v1/README.md), [capture feasibility](../studies/painter_responsiveness_v1/CAPTURE_FEASIBILITY.md) |
 | New research direction | [Why generated paintings differ: mechanism report and proposal](RESEARCH_IDEA_20260908.md), with primary-paper readings and eight numerical/metadata case studies |
 
-The earlier validation documents are frozen planning artifacts. The new
-responsiveness namespace implements diagnostics and prospective controls; actual
-human validation and the 192-image experiment remain unperformed. Reviews are maintainer-run LLM reviews. The current paper is the only
+The earlier validation documents are frozen planning artifacts. The computational v2 successor removes human ratings as a prerequisite for its
+narrower service-response claim. The earlier v1 human-validation scope remains
+unchanged. See current status for executed stages. Reviews are maintainer-run LLM reviews. The current paper is the only
 manuscript directory; earlier writing is retained in Git history.
 
 ## Earlier evidence

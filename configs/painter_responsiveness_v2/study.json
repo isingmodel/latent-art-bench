@@ -1,0 +1,87 @@
+{
+  "schema": "painter-responsiveness-computational/2",
+  "seed": 2026090821,
+  "simulation_seed": 2026090822,
+  "simulation_trials": 5000,
+  "repetitions": 4,
+  "route": "oauth_gpt_image_2",
+  "model": "gpt-image-2",
+  "feature_index": 2,
+  "feature_name": "chroma_median",
+  "primary_pipeline": "primary512",
+  "alpha": 0.05,
+  "maximum_images": 192,
+  "overall_spending_ceiling_usd": 75.0,
+  "maximum_in_flight": 2,
+  "minimum_start_interval_seconds": 5,
+  "maximum_attempts_per_slot": 2,
+  "maximum_technical_retries": 6,
+  "failure_stop_count": 3,
+  "failure_stop_window": 8,
+  "base_prompt": "Create an oil painting on canvas.",
+  "style_clauses": {
+    "free": "",
+    "generic": "In a traditional landscape-painting style.",
+    "monet": "In the style of Claude Monet.",
+    "cezanne": "In the style of Paul Cézanne."
+  },
+  "polarity_clauses": {
+    "muted": "Use a muted, low-chroma palette throughout the painting.",
+    "vivid": "Use a vivid, high-chroma palette throughout the painting."
+  },
+  "closing_prompt": "Preserve the described scene layout. Render only the painting area, without a surrounding frame, signature, letters or watermark.",
+  "templates": [
+    {
+      "template_id": "water_river",
+      "content_class": "water",
+      "fine_subject": "river_stream",
+      "scene_text": "A quiet river crosses an outdoor landscape. Tree-lined banks flank an open stretch of water, with the far bank visible behind it."
+    },
+    {
+      "template_id": "water_bend",
+      "content_class": "water",
+      "fine_subject": "river_stream",
+      "scene_text": "A river bends past a low grassy bank. A few trees stand behind the near bank, while the water and distant bank remain clearly visible."
+    },
+    {
+      "template_id": "built_village",
+      "content_class": "built",
+      "fine_subject": "buildings_street",
+      "scene_text": "Several houses stand on a village slope. A path passes between the buildings, with a few trees and open countryside beyond them."
+    },
+    {
+      "template_id": "built_houses",
+      "content_class": "built",
+      "fine_subject": "buildings_street",
+      "scene_text": "A small group of houses borders an outdoor lane. The lane recedes between the buildings toward trees in the distance."
+    },
+    {
+      "template_id": "land_fields",
+      "content_class": "land",
+      "fine_subject": "fields_garden",
+      "scene_text": "Open fields extend across a rural landscape. A narrow path crosses the foreground, with a line of trees along the distant edge of the fields."
+    },
+    {
+      "template_id": "land_garden",
+      "content_class": "land",
+      "fine_subject": "fields_garden",
+      "scene_text": "An outdoor garden occupies a gently sloping field. A footpath separates low vegetation, with several trees beyond the planted area."
+    }
+  ],
+  "primary_chroma_center": 11.242530892395822,
+  "primary_chroma_scale": 7.347639648056402,
+  "hypothetical_effect_grid": [
+    0.25,
+    0.5,
+    1.0
+  ],
+  "maximum_new_openrouter_spend_usd": 0,
+  "requested_rendering": {
+    "size": "1024x1024",
+    "quality": "medium",
+    "output_format": "png",
+    "background": "opaque"
+  },
+  "scientific_claim": "Finite-template computational response to painter clauses; no human/perceptual claim.",
+  "minimum_delivered_short_side": 512
+}

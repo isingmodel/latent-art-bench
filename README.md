@@ -18,13 +18,14 @@ when texture is removed at a different measurement resolution. These are bounded
 computational findings: human style validation is unperformed, reference capture
 provenance is unresolved, and image geometry differs between domains.
 
-The new [responsiveness study](studies/painter_responsiveness_v1/README.md) implements
-and runs the first diagnostic phase of the mechanism proposal. Its
-[report](reports/painter_responsiveness_v1/prv1-diagnostic-20260908/REPORT.md) finds
-between-brief contraction across all six route/painter cells. The proposed
-192-image intervention and human validation remain unperformed; this pattern
-alone does not prove the mechanism. Run `make responsiveness` for its offline
-numerical and report replay, and read [current status](docs/STATUS.md) for prerequisites.
+The [computational responsiveness follow-up](studies/painter_responsiveness_v2/README.md)
+implements a 192-image intervention without human ratings. Shared artist-free and
+generic-painting controls test how Monet and Cézanne clauses change the response to
+muted/vivid color instructions. A retained-data retrieval analysis tests whether
+lower variation also means less distinguishable scenes. Read [current status](docs/STATUS.md)
+for execution and results; `make computational-responsiveness` replays the published
+v2 results offline. The earlier [v1 diagnostic](reports/painter_responsiveness_v1/prv1-diagnostic-20260908/REPORT.md)
+and its unperformed human-validation scope remain preserved.
 
 ## Reproduce
 

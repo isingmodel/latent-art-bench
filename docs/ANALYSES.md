@@ -4,7 +4,7 @@ This is the navigation map for computation, plotting and reproduction. Run comma
 from the repository root. **Current** identifies the evidence used by `paper/`;
 **terminal** means a completed scientific bundle that must remain unchanged.
 Historical development analyses remain useful context, but are not new confirmation
-evidence. No collection or generation is active.
+evidence. See [STATUS.md](STATUS.md) for active execution.
 
 The [Makefile](../Makefile) provides the common entry points:
 
@@ -14,7 +14,8 @@ The [Makefile](../Makefile) provides the common entry points:
 | `make evidence` | Historical evidence bindings, dispositions and retained-byte integrity |
 | `make analysis` | Recompute the controlled and revision numeric results |
 | `make plots` | Reproduce both current report bundles and check the three manuscript figures |
-| `make responsiveness` | Replay the new responsiveness diagnostic JSON and all report bytes |
+| `make responsiveness` | Replay the earlier v1 responsiveness diagnostic JSON and all report bytes |
+| `make computational-responsiveness` | Replay v2 scene retrieval, the prospective experiment and all report bytes after publication |
 | `make figures` | Rebuild editable manuscript figures from saved tables and coordinates |
 | `make paper` | Rebuild figures and compile the manuscript; see [paper/README.md](../paper/README.md) |
 
@@ -58,6 +59,27 @@ uv run --locked python -m latent_art_bench.painter_distribution_study_v1.main_re
 uv run --locked python -m latent_art_bench.painter_distribution_revision_v1.report_publication check
 uv run --locked python paper/make_figures.py --check
 ```
+
+## Computational intervention without human ratings
+
+The [v2 protocol](../studies/painter_responsiveness_v2/PROTOCOL.md) defines a new
+192-image, four-arm, two-polarity OAuth experiment. It estimates two named-minus-generic
+chroma-response interactions with shared controls. It does not identify human style
+fidelity or an internal training mechanism. The retained-data diagnostic additionally
+tests whether contraction reduces held-repetition scene retrieval.
+
+| Component | Computation / plotting | Inputs and output |
+| --- | --- | --- |
+| Scene retrieval | [diagnostics.py](../src/latent_art_bench/painter_responsiveness_v2/diagnostics.py) | Exposed controlled-study vectors; 24-scene and within-class retrieval, all three pipelines and five feature views |
+| Prospective intervention | [analysis.py](../src/latent_art_bench/painter_responsiveness_v2/analysis.py) | 192 planned outputs, old fixed scalers and already measured 70-reference panel; two primary interactions, descriptive processing/coordinate/reference comparisons |
+| Collection, measurement and replay | [workflow.py](../src/latent_art_bench/painter_responsiveness_v2/workflow.py), [collection.py](../src/latent_art_bench/painter_responsiveness_v2/collection.py) | Exact committed request inventory, source/proxy freeze, all-slot ledger, raw-response and measurement bindings |
+| Scientific reports and plots | [report.py](../src/latent_art_bench/painter_responsiveness_v2/report.py) | Saved numerical results → `reports/painter_responsiveness_v2/prv2-oauth-20260908/{diagnostics,experiment}/REPORT.md` |
+
+After publication, `make computational-responsiveness` recomputes saved-vector
+analyses and compares report bytes offline. It never sends generation requests or
+extracts image features. The [implementation guide](../studies/painter_responsiveness_v2/README.md)
+separates explicit live collection from replay. The earlier human-reference v1
+scope below remains preserved and has not been retrospectively qualified.
 
 ## Mechanism follow-up: painter responsiveness
 

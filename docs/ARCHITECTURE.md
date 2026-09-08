@@ -30,6 +30,16 @@ have no implicit live calls. Its complete component map and replay command are i
 [ANALYSES.md](ANALYSES.md#mechanism-follow-up-painter-responsiveness). The old paper
 pipeline is unchanged; D0 does not add a causal endpoint to the manuscript.
 
+The new `painter_responsiveness_v2` reuses the same stable measurement and
+factorial primitives for a computational-only, shared-control intervention.
+`collection.py` binds a local OAuth source/process and stores every attempt;
+`workflow.py` seals all slots, measures available images and reproduces analyses.
+`diagnostics.py` tests held-repetition scene retrieval, `analysis.py` estimates
+instruction interactions and exposed-reference chroma overlap, and `report.py`
+renders only saved results. Human-rating prerequisites apply to the preserved v1
+scope, not this explicitly narrower successor. All live calls require an explicit
+CLI action, and all Makefile targets remain offline.
+
 ## Modules to read
 
 All package paths below are under `src/latent_art_bench/`.
