@@ -1,0 +1,24 @@
+{
+  "accounting_basis": "OAuth service; zero incremental API charge, not a subscription valuation",
+  "attempt_intents": 192,
+  "freeze_sha256": "7e0db470c577a143cbc703ee114eddcc152c26e5ab3e51c0fd16b09b595ed557",
+  "generation_events_sha256": "d56c47a56ea1f3b2a367924bac4b2d44b7102e7785df9bf63c2c5935d28eb85e",
+  "incremental_api_spend_usd": 0.0,
+  "new_feature_measurements": 0,
+  "paid_requests": 0,
+  "recorded_git_commit": "c020c3e1c77754dc8a303d7758a8c2b40ab10e9d",
+  "requests_sha256": "8d47daa68f74a72fc812c5b54b47bc9b54cc5c08f0ae7ff37c7fa8b573cfff7a",
+  "run_id": "prv2-oauth-recovery-20260908",
+  "schema": "painter-responsiveness-collection/2",
+  "slot_outcomes_sha256": "424cb18c1dfe795f737782242d8a7609619be60585194244e18e57b86f94e55e",
+  "status": "completed",
+  "status_counts": {
+    "image_returned": 192
+  },
+  "stop_reason": null,
+  "technical_retries_dispatched": 0,
+  "terminal": true,
+  "terminal_attempts": 192,
+  "total_planned": 192,
+  "unresolved_intents": []
+}
