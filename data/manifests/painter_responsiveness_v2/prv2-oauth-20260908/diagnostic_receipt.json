@@ -1,0 +1,42 @@
+{
+  "freeze_sha256": "fa016e0e0e3670d324b673ad179e5ec3f017d30f0c31cc0b3a01a31ffa12346b",
+  "numeric_sha256": "37b7c2d2baf0d31b17803672a49e4943ecb7870b85dd07c319d5576557f7dd3a",
+  "reports": [
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/diagnostics/REPORT.md",
+      "sha256": "4d43aa3c57e95bce5238b11448e1a396589dff0e34f16afca08c6cc5d8959be0"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/diagnostics/noise_groups.csv",
+      "sha256": "3ad359f42574cdc369333acf253e3f36f6f18607a46277e8fb91664a5fe372f2"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/diagnostics/noise_marginal_variances.csv",
+      "sha256": "89a93beb82c0bd7eba4e4d7f2c41a9cbea284c8e85d0d15272f027251f64e41d"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/diagnostics/plots/retrieval_accuracy.png",
+      "sha256": "e31f61828a7a9d81be1c023f147c167cafe1187842a27ec640fa90e7a27508dd"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/diagnostics/plots/retrieval_accuracy.svg",
+      "sha256": "92b61fad614245efeea65817114205fe013fdea786aa92c48113450a41187d3b"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/diagnostics/plots/retrieval_sensitivity.png",
+      "sha256": "c1832ea37559f07d0d3019a472cb2f95ccb8cf9928224cb2b5017ae9d6439798"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/diagnostics/plots/retrieval_sensitivity.svg",
+      "sha256": "7e3a305cfdbc218f129056e2cf3518acf88190fe146dc1349545262c618ceab8"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/diagnostics/retrieval_comparisons.csv",
+      "sha256": "8c5b8d25f20e8b48864ebc35f498d4227f3eec3e9a26b31274c3d6520065f0af"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/diagnostics/simulation.csv",
+      "sha256": "bebcebf2b86efb169fa43aaf5988230154c5f048c575a6ae4f41885524232072"
+    }
+  ]
+}

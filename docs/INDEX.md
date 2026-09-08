@@ -23,7 +23,7 @@
 | Computational revision | [Full report](../reports/painter_distribution_revision_v1/pdrv1-numeric-20260907/REPORT.md), [fixed diagnostic protocol](../studies/painter_distribution_revision_v1/PROTOCOL.md) |
 | Methodology assessment | [Skeptical review and revision plan](reviews/20260907_methodology/REVIEW_AND_REVISION_PLAN.md) |
 | Further validation | [Reference/human study plan](../studies/painter_distribution_revision_v1/VALIDATION_PLAN.md), [literature comparison](../studies/painter_distribution_revision_v1/LITERATURE_MATRIX.md) |
-| Computational responsiveness v2 | [Protocol and implementation](../studies/painter_responsiveness_v2/README.md): 192-slot OAuth experiment and retained-scene retrieval, without human ratings; [implementation review](reviews/20260908_computational_responsiveness/REVIEW.md) |
+| Computational responsiveness v2 | [Protocol and implementation](../studies/painter_responsiveness_v2/README.md): 192-slot OAuth experiment without human ratings; [retrieval results](../reports/painter_responsiveness_v2/prv2-oauth-20260908/diagnostics/REPORT.md); [implementation review](reviews/20260908_computational_responsiveness/REVIEW.md) |
 | Responsiveness implementation v1 | [Protocol and continuation guide](../studies/painter_responsiveness_v1/README.md), [capture feasibility](../studies/painter_responsiveness_v1/CAPTURE_FEASIBILITY.md) |
 | New research direction | [Why generated paintings differ: mechanism report and proposal](RESEARCH_IDEA_20260908.md), with primary-paper readings and eight numerical/metadata case studies |
 
