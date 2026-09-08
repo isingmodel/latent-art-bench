@@ -1,0 +1,651 @@
+{
+  "config": {
+    "alpha": 0.05,
+    "base_prompt": "Create an oil painting on canvas.",
+    "closing_prompt": "Preserve the described scene layout. Render only the painting area, without a surrounding frame, signature, letters or watermark.",
+    "failure_stop_count": 3,
+    "failure_stop_window": 8,
+    "feature_index": 2,
+    "feature_name": "chroma_median",
+    "margin_status": "sensitivity_grid_only_pending_reference_and_human_validation",
+    "maximum_attempts_per_slot": 2,
+    "maximum_images": 192,
+    "maximum_in_flight": 2,
+    "maximum_new_spend_usd": 20.0,
+    "maximum_technical_retries": 6,
+    "meaningful_effect_grid": [
+      0.25,
+      0.5,
+      1.0
+    ],
+    "minimum_start_interval_seconds": 5,
+    "model": "black-forest-labs/flux.2-max",
+    "overall_spending_ceiling_usd": 75.0,
+    "polarity_clauses": {
+      "muted": "Use a muted, low-chroma palette throughout the painting.",
+      "vivid": "Use a vivid, high-chroma palette throughout the painting."
+    },
+    "primary_pipeline": "primary512",
+    "provider": "black-forest-labs/us-3",
+    "repetitions": 4,
+    "request_reservation_usd": 5.0,
+    "route": "flux_2_max",
+    "schema": "painter-responsiveness-design/1",
+    "seed": 2026090811,
+    "simulation_seed": 2026090812,
+    "simulation_trials": 2000,
+    "style_clauses": {
+      "cezanne": "In the style of Paul Cézanne.",
+      "free": "",
+      "generic": "In a traditional landscape-painting style.",
+      "monet": "In the style of Claude Monet."
+    },
+    "templates": [
+      {
+        "content_class": "water",
+        "fine_subject": "river_stream",
+        "scene_text": "A quiet river crosses an outdoor landscape. Tree-lined banks flank an open stretch of water, with the far bank visible behind it.",
+        "template_id": "water_river"
+      },
+      {
+        "content_class": "water",
+        "fine_subject": "river_stream",
+        "scene_text": "A river bends past a low grassy bank. A few trees stand behind the near bank, while the water and distant bank remain clearly visible.",
+        "template_id": "water_bend"
+      },
+      {
+        "content_class": "built",
+        "fine_subject": "buildings_street",
+        "scene_text": "Several houses stand on a village slope. A path passes between the buildings, with a few trees and open countryside beyond them.",
+        "template_id": "built_village"
+      },
+      {
+        "content_class": "built",
+        "fine_subject": "buildings_street",
+        "scene_text": "A small group of houses borders an outdoor lane. The lane recedes between the buildings toward trees in the distance.",
+        "template_id": "built_houses"
+      },
+      {
+        "content_class": "land",
+        "fine_subject": "fields_garden",
+        "scene_text": "Open fields extend across a rural landscape. A narrow path crosses the foreground, with a line of trees along the distant edge of the fields.",
+        "template_id": "land_fields"
+      },
+      {
+        "content_class": "land",
+        "fine_subject": "fields_garden",
+        "scene_text": "An outdoor garden occupies a gently sloping field. A footpath separates low vegetation, with several trees beyond the planted area.",
+        "template_id": "land_garden"
+      }
+    ]
+  },
+  "environment": {
+    "Pillow": "11.3.0",
+    "PyWavelets": "1.9.0",
+    "httpx": "0.28.1",
+    "matplotlib": "3.11.1",
+    "numpy": "2.5.2",
+    "python": "3.13.11",
+    "scikit-image": "0.26.0",
+    "scipy": "1.18.1"
+  },
+  "generation_authorized_by_freeze": false,
+  "inputs": [
+    {
+      "path": "configs/painter_distribution_study_v1/research.json",
+      "sha256": "c596dae008ba7469701a3d7d17d9e8492397ca60d8416f5557dd72b1ef07f1dc"
+    },
+    {
+      "path": "configs/painter_responsiveness_v1/study.json",
+      "sha256": "ad80c9bcfc708c7680c2dd3b4c93896d4aea23289ed2e6522c38006d7bf52d4b"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-analysis-20260907/analysis.json",
+      "sha256": "34b1c929f02599fb1223a0bd171fde26574efffe413a2ce23763636229cf0cbe"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-analysis-20260907/analysis_receipt.json",
+      "sha256": "6494ab6f5a05abbddffa47c7b9773b7abe0a7e6e2613feef8c4890be3afb7291"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-20260906/development.jsonl",
+      "sha256": "5509abea2b815e1f8dc2fd1e434c523105ec5723308c58fc4d7b1bc4e9d72ae8"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-20260906/development_features.jsonl",
+      "sha256": "2050b9f10471473935afee5cbe2e0996499232f3b9fe6774667a2671bea3338b"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-20260906/main_freeze.json",
+      "sha256": "71a02ecb92c03245a5576ab521d95cf888dec89e4e630af79df80dafe2e8a483"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-20260906/reference_panel.jsonl",
+      "sha256": "760ec4d5b4f5d7ea48a2a7ec23cdab3ca20d7994e0e92d7dec820ad453dca191"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-20260906/requests.jsonl",
+      "sha256": "802830b9f8b9bcfa5654ebb4002f3e2517c020f7cd9e9c33a22759fd43685767"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-20260906/scalers.json",
+      "sha256": "d886f0726715a228d7dd06cc57003616c06386b0321ca5611bcb4315a2a564b6"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-continuation-20260906/generation_events.jsonl",
+      "sha256": "1d5c819d4c2ee721601e307f2e159dc142d8c688eed3d8118901f6b468695401"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-immediate-20260907/collection_receipt.json",
+      "sha256": "da080144473caaf314630257a8268eba8d48e930050a2c60829303260fe2e046"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-immediate-20260907/generated_features.jsonl",
+      "sha256": "2bdbfaf5b44ba5d882aeb4a3359d64e5a0fc2914929eb2c0ce0e870bcabae0b6"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-immediate-20260907/generation_events.jsonl",
+      "sha256": "203e793dd53b4a8585e2985a0dbbcdd68db43b20650e5afbd4f5bdf66f0c24c4"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-parallel-20260906/generation_events.jsonl",
+      "sha256": "bb7fc6cdf184e9bc117b160465f7d78a8c46873da638c615efb6e44cbc15f214"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-parallel-20260906/reference_features.jsonl",
+      "sha256": "22b1b57bc4ee468e4e21fe171330f397acc70c625a86df18786a0d73a660a39e"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-recovery-20260907/generation_events.jsonl",
+      "sha256": "52cf1d73621039c52f5321b062961233cfc6e3b0e800c01bf7c94c73d2e9c911"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-recovery-20260907-retry-slot0108/generation_events.jsonl",
+      "sha256": "9e629a3b769f2b84978c9297a968d0a900c013aeff4aa20f960e65a5a10e818b"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-reference-candidates-20260906/candidates.jsonl",
+      "sha256": "df1506377faa3ead68150b2906aebc927ef82affd5f86113f1abed721c17104e"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-reference-candidates-20260906/screening.jsonl",
+      "sha256": "d7d8bb858f092a74c43a838aa95df0855f7a49331e00821a3a56daaf63e49b7e"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-reference-coding-20260906/annotations.jsonl",
+      "sha256": "d12c6120c44a234c80639fcdf1718871421d3eafdfe82b12139c437c5b26dea0"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/deliveries.jsonl",
+      "sha256": "4d21c424a73e8e191b781b4dc4425e6c4a8b73aae41ed24edbe81c85d33aff1d"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/development_features.jsonl",
+      "sha256": "6001964b6f6d0a4958f4f546d48d81120b43c6587d55e248fd48b99dee3c821b"
+    },
+    {
+      "path": "docs/RESEARCH_IDEA_20260908.md",
+      "sha256": "1ea680cb206886c7ed6ee25d281d397f56780fbfa2dba086e3fb6c8a8ab157bf"
+    },
+    {
+      "path": "docs/reviews/20260907_methodology/REVIEW_AND_REVISION_PLAN.md",
+      "sha256": "6fdaa629a783fcd4247b4fd50a0052a00e6534fa579e04925676bf7eaa5086fa"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8"
+    },
+    {
+      "path": "src/latent_art_bench/io.py",
+      "sha256": "13e6372aa9814495a45700eb9e65d099c56bb1bb3032d72f7f9e00e6ba91a9b8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_exploration_v1/__init__.py",
+      "sha256": "d4e2662af04338131f3cf8433dec142060de43e4ea3ad02acc2ebf95392f8984"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_exploration_v1/analysis.py",
+      "sha256": "4e5c37ba52f9ff9e8993e74301f3305362ac5eb2ddad34470f36309386bf1b4f"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_exploration_v1/report.py",
+      "sha256": "cdce74cd1d49c9904c6f88a17188366bce967fb03b52184445bc09f1a721c58c"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_exploration_v1/statistics.py",
+      "sha256": "ea87fe5a72050eb85b28f81dd0e32e1d5e355ab0980b83f46ae58bf0f0e316fc"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_revision_v1/__init__.py",
+      "sha256": "c856a4499e82583e9066d76a48efab6a0fe35e238110cc5ac33dc08466ee6718"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_revision_v1/analysis.py",
+      "sha256": "52b8fa6d569791bc65386558d37b58156183df2c4b4eba24e2989c2c133279d2"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_revision_v1/common.py",
+      "sha256": "6f150de38ef7dce1eedde03918dd14b2232809dabe74f1a8482f6d7e199be15d"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_revision_v1/diagnostics.py",
+      "sha256": "64e070f3810192b17b383034cc1b0961cefd29117c033c80497da7b215d23caf"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_revision_v1/metrics.py",
+      "sha256": "927b37eeab9a059e99da38107c0907d67b2cbdceae28e369c96dc6ff0220c45c"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_revision_v1/report.py",
+      "sha256": "54f2e6a0d12108970e8496bc0c338ef4ac9331f1f6418b62f3768c6f8184b783"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_revision_v1/report_publication.py",
+      "sha256": "64a1a1f51a88a657dd0cf4b72818665eb85d4c9cbf895bc5bd573dd4758d8793"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_revision_v1/timing.py",
+      "sha256": "2c1461734e66826694472cc71b0c1fc550f5d978f2b81ad63ded5b518432c4e2"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/__init__.py",
+      "sha256": "8f3b5db80cd2b3e8a7ed507c400dcacde713c0aa860b5083bd8161e17125f180"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/analysis.py",
+      "sha256": "1bceedc888cabd93a82cf77616cfc41173b0f6345362704e2c605edbc307f36c"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/analysis_publication.py",
+      "sha256": "fa97e510c515bb8c9e0f66c3e76f300625477a14d4fbd1922b8cdde08dcc8a04"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/collection.py",
+      "sha256": "4e99a43f36946f3c23916e3284ebfaf1dc474cbf17d3ed7a2ef16a3f41cd5c85"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/continuation.py",
+      "sha256": "3aec67eefe8a80a2338c3a7f4fe45a9c1736ccf8b1c05ae5256972fbae5e8658"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/continuation_results.py",
+      "sha256": "c07e86ae9d86cf02a75db54efb853b7c22058f4d6a973d40bb555c09f71d027c"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/diagnostics.py",
+      "sha256": "1745be65fadbcd959eb47c7e6d3ee09e89ebdd6dfa0357227eff1956843656c4"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/discovery.py",
+      "sha256": "211fe3d93077aec9861915b58fa57b2e8954dd17cdc291fdc1e5d33072d1d0eb"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/immediate.py",
+      "sha256": "258e8dcf903f1bb304bd504d3bd8e855858b5d2c92fd9e1f24e2639305ace5a9"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/immediate_results.py",
+      "sha256": "445eccb3498735fe229bca02dd08d18d739149e81779ee18d2287af93af30b6c"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/inference.py",
+      "sha256": "a038dfa9f042c85314ad9760e3c50a1c99dbd576a1a9a5a7fb00c20777ec5509"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/main_report.py",
+      "sha256": "7eb5e67527d6a55c34f47ea2bcf0fdbb264b1df3f02ace79b6fe4dee7c52ed06"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/measurement.py",
+      "sha256": "30508b79aac37aa78b0875027dd6bef92ad5c14af968361649d7fe472bd9a387"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/parallel_collection.py",
+      "sha256": "928d9d7ac2b0b9024b7ce1f036daad8bf4b525511bbb6be8e79a3f19beb5fd30"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/parallel_results.py",
+      "sha256": "eeb4353bcd62a70a66dca26323c36850363cf19199ce5a30337d8bbad4b9a375"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/pilot.py",
+      "sha256": "4e4dd17539994098ea5a74a275d633eb7c753c759402043a7553be1cb8fd6f52"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/pilot_summary.py",
+      "sha256": "c78080510337a83687feee41b76c323876b3b2a8a7f3e885009cbf2aff26d453"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/recovery.py",
+      "sha256": "810a1ddc74713fcbc2f4e5a4870cb1ef211c9d111932d90ef66633aa1e89e724"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/recovery_results.py",
+      "sha256": "84f9ba7b1c5172c3b50049b370b0658e9373b5390473caadd0e7225678d2fec4"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/reference_delivery.py",
+      "sha256": "1a120b116a88803187e172d550524091b47429c9206a3977f445b25efcc93e99"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/references.py",
+      "sha256": "414c228aa1ea3628fe34ef3ee91d7bbc1904d2af52552f01d53e55965c7cbcd1"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/statistics.py",
+      "sha256": "2744febc02a00b3f24a49bfafacd9f7a178c271178df96768e67088ea6473a62"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/study.py",
+      "sha256": "2e00d657c937ae231838077ecedbfb2063ae5deed532dfe8d8b7d17e98b4ae9e"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/transport.py",
+      "sha256": "aa45db0e9b4b72dba62ec3d69c8d7ac1baf2473de86db625756823e83b281ffc"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v1/panel.py",
+      "sha256": "b878fe3438c1006767c1d8ca608c1d57b64ed2bb2dff418864fd25c8c2d216b8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/__init__.py",
+      "sha256": "5c35fc3d97950af1fe5bc23954c3463d244c5d48763ed92e06f278072f9c99bd"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/acquire.py",
+      "sha256": "1f7a9010bf55cc8dd7f5001a9e4fbd9a87c5cd0e2fb9e6fcd7a77391eb37017f"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/artifacts.py",
+      "sha256": "8b48f0cfb433ac1769786aba366501b69ba1bec540a1a2f9e35e93ce45e9b0d7"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/assessment_diagnostics.py",
+      "sha256": "2af8656c50c1a92f5daf9ef6b1fe445843aeee21a6906c99d0f2365f905a0083"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/audit.py",
+      "sha256": "fc00909d8c83c3f437d9c8960d3a019fe38ae03ee0fa3b3e465aecdeea97e66c"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/calibration.py",
+      "sha256": "929fa0552a374539e25976bb9fcca7190602be06a0b5e53e8fca80ceb8ea6bf5"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/cli.py",
+      "sha256": "17b2809fc53a59c34a59576be18c7a07bf140517aa892aebf94d7a2ed5d71a99"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/corpus.py",
+      "sha256": "90031958bfd212ef856fc87a24b47cde701e6f609e1eb7a8f8dd11a389c34a50"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/empirical.py",
+      "sha256": "c5ed9f4f7f390de7087222d6b780744bb33eaf279ccedfbbeb706510336655a9"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/features.py",
+      "sha256": "b295c2de1a8501e8ab335d88ed56ab8f2dc8b3ca704141b92e02ef586d48d172"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/generate.py",
+      "sha256": "3436153be32a03033ef6af46a71fb46dc34bfac38f89be27fd19acc3183566d4"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/model_assessment.py",
+      "sha256": "bd460259a4282df10e9e57d65c54e0ff1cf89a3a72ffb68a29fa0bb9086888ed"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/oauth_generate.py",
+      "sha256": "ac5957ebbc9d7a0b7e6361671b58bb021e88fae200b1260538db499376e2b32f"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/pipeline.py",
+      "sha256": "f2edadc329b2b0a5490c5e1d8f542d5b3bc0bff7fb83ac82fe90d6389f7db37b"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/renderings.py",
+      "sha256": "de4de89556cbb25c3bc8c4b726d5136a48519920c83fd93cccceafaa897bf06e"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/renderings_r2.py",
+      "sha256": "c267900276759af4af05fe2436aeabeaa010dbeb003f2ade102699b0123ccea5"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/report.py",
+      "sha256": "6a7977b2c61b66447a666c9c00d4d784835eb312ed57822833357e1c1a2b73ff"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/robustness.py",
+      "sha256": "87d68cf290f41ac5023881775ca87042e5de897d6626e3ce57807f6118a5d932"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/statistics.py",
+      "sha256": "20830e7a90bc49666f0937ef7bc2ae3f11206f986c72eb8f80ad30cc24fcdaa8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/__init__.py",
+      "sha256": "db507448d5134974ca1b407fd4396413b2b4a9b1bd8d8011b74dee30f8128683"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/analysis.py",
+      "sha256": "c78239d3c331fb99f6f33e2f171cf3794373a033b6438a251102b8ff6962b60a"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/audit.py",
+      "sha256": "3aeeb3a4a73aebb73723a21af44afa0a8601dfd66ca081be67b8c41965e96603"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/calibration.py",
+      "sha256": "7624c44d3de1eda939e761e055e04b5066013758c379e758cb42dcfec0076567"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/calibration_record.py",
+      "sha256": "e83406887a6e9657953a4f99055acd051e94d504f98db20d3b553453cf585167"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/cli.py",
+      "sha256": "9adeac0b6530a25050ce7025ee47a86ab89b1e832bb0c8cffd4ea7b135a3fb86"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/common.py",
+      "sha256": "8f399eb26069a283209437de51885ce38ca28a21759b359afc506d263107ec4f"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/design.py",
+      "sha256": "e744bb0792ab59e7f8196bafc5ba47f9643872769d6dad887410aa1a60b2c961"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/generation.py",
+      "sha256": "8bc7db4904d3bbbf6048767125002b9c07047a2be9b63168eb536eaccc30bc8b"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/measurement.py",
+      "sha256": "5a85a5e983d021f1006be9363c660b7167989918c55e5f140c2aba34dfcfa1af"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/prompts.py",
+      "sha256": "cff027af709ab49c4442e929f0cbcc63931f6ff0468908c39d3367df39fd4c10"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/randomization.py",
+      "sha256": "fec27f7a55ef75d2b7cbf66b6086696f83e051a3dd59f67faae596df1d043e5e"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/randomization_record.py",
+      "sha256": "b27eb93a4c4a456f1ef77bf906a4689144afe09c3856de76b69a2de5039443a0"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/report.py",
+      "sha256": "c549aa0a49aaba4f964143cb902a4c398befe8f2fd89245b84e414bc2547210c"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/reproduction.py",
+      "sha256": "2c334d9db83e7a65e42ed2d1d49ad2f16a895bb75ccf074fc00a5a2dd94855b4"
+    },
+    {
+      "path": "src/latent_art_bench/painter_prompt_study_v1/statistics.py",
+      "sha256": "ea1f00990bfb647dea61b69418ac0f88c18a06814a9801c0f5a1d41020344654"
+    },
+    {
+      "path": "src/latent_art_bench/painter_responsiveness_v1/__init__.py",
+      "sha256": "6a8efb679de795a89da98c1fd9879858bec7b0402f10dc48921e1ce21e72f222"
+    },
+    {
+      "path": "src/latent_art_bench/painter_responsiveness_v1/__main__.py",
+      "sha256": "f575587d250c1d3b2a5acc0440d07aa316a550012f2142cfcc82a28fe562794b"
+    },
+    {
+      "path": "src/latent_art_bench/painter_responsiveness_v1/analysis.py",
+      "sha256": "5ca71480ce58592847785202c9d66f6f9f164bfd4b17396a48a7a5cb3afd4bfb"
+    },
+    {
+      "path": "src/latent_art_bench/painter_responsiveness_v1/collection.py",
+      "sha256": "228640fea51622e7242e6c15d16ec8d1334541ac17ae8e903cb86e250e73a109"
+    },
+    {
+      "path": "src/latent_art_bench/painter_responsiveness_v1/common.py",
+      "sha256": "80488f585538bec0eb3b020aadc94cac436dbc41859e8e2c12a9492ee0c5caca"
+    },
+    {
+      "path": "src/latent_art_bench/painter_responsiveness_v1/design.py",
+      "sha256": "c42a140ba7b1aeec300b998647ce26dd9bc4d20ab4d4d16ecf2e468ac4b192ae"
+    },
+    {
+      "path": "src/latent_art_bench/painter_responsiveness_v1/generation_prepare.py",
+      "sha256": "dfcc231c41d902052b393740b7eae159b1125094670fb3825e5ca57e0602afa1"
+    },
+    {
+      "path": "src/latent_art_bench/painter_responsiveness_v1/human.html",
+      "sha256": "90d99bc4ab284cd959e25541a80417ead1ae1c22b0bb6a09747554b6a01a9c00"
+    },
+    {
+      "path": "src/latent_art_bench/painter_responsiveness_v1/human.py",
+      "sha256": "f17f776401168f8b109bc138ae150cad2c42fc6663353beb7a2adee8357b994c"
+    },
+    {
+      "path": "src/latent_art_bench/painter_responsiveness_v1/human_package.py",
+      "sha256": "5608472f3397fde444530c65d4ae8056d5178a467d86bef433c7da2f22ac2a9d"
+    },
+    {
+      "path": "src/latent_art_bench/painter_responsiveness_v1/inference.py",
+      "sha256": "2a03e8b148519a39c87df86f56bcbb3c009f69f0378579a350d6565290684e1b"
+    },
+    {
+      "path": "src/latent_art_bench/painter_responsiveness_v1/measurement.py",
+      "sha256": "915f2f5fbc0283262e56d52c46dd5d4ccb0d4bba4160f47cf881ba2c4452d3c2"
+    },
+    {
+      "path": "src/latent_art_bench/painter_responsiveness_v1/preflight.py",
+      "sha256": "c1c2061829aa5624fc7050ecaa0d22a59e45cd8794f556fb165d24201e9561af"
+    },
+    {
+      "path": "src/latent_art_bench/painter_responsiveness_v1/reference_validation.py",
+      "sha256": "ad61230a0b74bbd306ef10a8db70318852996115efb68a5d461c68bb95543fc5"
+    },
+    {
+      "path": "src/latent_art_bench/painter_responsiveness_v1/report.py",
+      "sha256": "f9cacff7fa28640b84922313ce55e6667d48a755038ebaae133ef3c4aed3abc1"
+    },
+    {
+      "path": "src/latent_art_bench/painter_responsiveness_v1/workflow.py",
+      "sha256": "bafac61e4c636cc59afda35cf8bb33a171dc69575e647cf78849cfca040530f4"
+    },
+    {
+      "path": "studies/painter_distribution_revision_v1/LITERATURE_MATRIX.md",
+      "sha256": "4cd8292a48fc7b2abdfb6ca3f16c41edd81141b868bb7005b0aa7c58da355d58"
+    },
+    {
+      "path": "studies/painter_distribution_revision_v1/PROTOCOL.md",
+      "sha256": "92d3dabf04081ef9b76d032cc5a776fb51a5a7d95c4d48cc720c0393d6728e3e"
+    },
+    {
+      "path": "studies/painter_distribution_revision_v1/VALIDATION_PLAN.md",
+      "sha256": "f42ca075e04a77461ad077a1c689c036d9f684ca2923e04fa3d11aefc9a07a4e"
+    },
+    {
+      "path": "studies/painter_responsiveness_v1/CAPTURE_FEASIBILITY.md",
+      "sha256": "c403f7d91198a14cd98eb8e473b92bba1729810393c28042cac495af3188eb82"
+    },
+    {
+      "path": "studies/painter_responsiveness_v1/HUMAN_CODEBOOK.md",
+      "sha256": "a9b330e19d5f873b0825f193d7cf57fa71a52f1a73db9f17ffce60c75ad86a66"
+    },
+    {
+      "path": "studies/painter_responsiveness_v1/PROTOCOL.md",
+      "sha256": "73316011e4339f490bd043eb32d80b66cf19972f25475fa6a69e5ed0512f0278"
+    },
+    {
+      "path": "studies/painter_responsiveness_v1/README.md",
+      "sha256": "667da9df9dae56d257c5bec884ebc692ed9f1023e8517603a1a0c972941694a3"
+    },
+    {
+      "path": "tests/painter_distribution_revision_v1/test_common_timing.py",
+      "sha256": "b47507b91363122c3109b91ebee40c8dc509de13e79bd50b63e527e830458ec7"
+    },
+    {
+      "path": "tests/painter_distribution_revision_v1/test_metrics.py",
+      "sha256": "18b686c8c9d17469f73b9a72173e71391ffe2edcd8248ac0c22161d7cf887e4a"
+    },
+    {
+      "path": "tests/painter_distribution_revision_v1/test_publication.py",
+      "sha256": "deb52245b85578d3a7069a1b851250ecd639505a0059ff15c4733daf06d5abf6"
+    },
+    {
+      "path": "tests/painter_distribution_revision_v1/test_report_publication.py",
+      "sha256": "c627c2d2a7f0f26d1f8804cebef0f352598ff6c76be8fcd38b4bcce75c96da57"
+    },
+    {
+      "path": "tests/painter_distribution_revision_v1/test_revision_diagnostics.py",
+      "sha256": "28286b48da46522ac67091ffebd0bd03bb8ffee245f3ce239615defdc80bf64c"
+    },
+    {
+      "path": "tests/painter_responsiveness_v1/test_design_inference.py",
+      "sha256": "dd80ab35162956f7590751aedf89815150439fd478466ad50cd0a714cdc22d6f"
+    },
+    {
+      "path": "tests/painter_responsiveness_v1/test_responsiveness_collection.py",
+      "sha256": "f2550828eeb745bdd6ca3d2e8c28112dc132b238ae944457e69d42ad111aa4ad"
+    },
+    {
+      "path": "tests/test_painter_responsiveness_analysis.py",
+      "sha256": "a308227b9311075a7dd06ce2664949c419c0fde2a2d5593c05bf834df5616671"
+    },
+    {
+      "path": "tests/test_painter_responsiveness_generation_prepare.py",
+      "sha256": "5da3fc057176a185fb37a499138ac1159375a57377c59880ab2612ecac215e24"
+    },
+    {
+      "path": "tests/test_painter_responsiveness_human.py",
+      "sha256": "a9dfc29fdc1fcaddf384ccfc61d83bca9e408401c8168b1fa6f8fd9d47b34684"
+    },
+    {
+      "path": "tests/test_painter_responsiveness_human_package.py",
+      "sha256": "c1babfcbe4c049019c518e8705e8914e95a0b1a4492c22bf89c16b9980113f19"
+    },
+    {
+      "path": "tests/test_painter_responsiveness_measurement.py",
+      "sha256": "09acda76f270d161d71964a541ba79d2a6d2a5624837133d21ef0bf10cbc3fbc"
+    },
+    {
+      "path": "tests/test_painter_responsiveness_reference_validation.py",
+      "sha256": "4d82b2ad1d0dead153a5ac2dcccc86079da00e27dba3af4b22fb51e4aa44a322"
+    },
+    {
+      "path": "tests/test_painter_responsiveness_report.py",
+      "sha256": "3ab87f7c55542d2a1284709b9c19348971393a3817b3502389d57a89cb2417bd"
+    },
+    {
+      "path": "tests/test_painter_responsiveness_workflow.py",
+      "sha256": "dbe92a8e14b6d67288e99dc13cab2ee7f17c5fae1c36632da06420660c558c2a"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+    }
+  ],
+  "recorded_git_commit": "79f35731651e9676e460200b516896ec9d8ebbaa",
+  "run_id": "prv1-diagnostic-20260908",
+  "schema": "painter-responsiveness-freeze/1",
+  "scope": "Post-result diagnostics; prospective design/simulation; human/collection gates."
+}
