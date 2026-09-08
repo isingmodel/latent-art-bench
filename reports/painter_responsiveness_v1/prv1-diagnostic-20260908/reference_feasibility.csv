@@ -1,0 +1,2 @@
+holdout_reason,independently_validated,reason,reference_holdout_available,status
+These reference vectors have already been exposed to analysis.,False,"Reference subject labels are recorded free text, without a shared validated ontology or independent generated-content coding. Broad classes and exact string matches do not establish fine-content support or reference reachability.",False,unavailable

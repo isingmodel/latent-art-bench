@@ -1,0 +1,93 @@
+{
+  "analysis_sha256": "e232adf6341f5b4cbc83adf1d208a9636f9f7520ecf892d175fcd0696cf83e5b",
+  "freeze_sha256": "6fb300ddffb1cb4dbff56b78ea70b899ff091cb1abd4c31ed57e2f32ac7a96dc",
+  "new_generated_images": 0,
+  "new_human_ratings": 0,
+  "recorded_git_commit": "79f35731651e9676e460200b516896ec9d8ebbaa",
+  "reports": [
+    {
+      "path": "reports/painter_responsiveness_v1/prv1-diagnostic-20260908/REPORT.md",
+      "sha256": "7ad4432c1b1d9bde6cdfe9bbaca44b9775438ff7e47ee5593c6c3dd01b684750"
+    },
+    {
+      "path": "reports/painter_responsiveness_v1/prv1-diagnostic-20260908/brief_coordinates.csv",
+      "sha256": "6abd8819982e1f0c4e8038de20aa3f0947a4941d838743d36e48ea753ce13ec6"
+    },
+    {
+      "path": "reports/painter_responsiveness_v1/prv1-diagnostic-20260908/brief_memberships.csv",
+      "sha256": "f12324ac8ac5d310db3a15c232d94bfeeab8b9b928991bac58e2338e44fcbbb4"
+    },
+    {
+      "path": "reports/painter_responsiveness_v1/prv1-diagnostic-20260908/brief_summaries.csv",
+      "sha256": "41c19427ef2490781d39fe3a1ae2cad277cfc0338911228cabc26e36187bb83b"
+    },
+    {
+      "path": "reports/painter_responsiveness_v1/prv1-diagnostic-20260908/cross_repeat_pairs.csv",
+      "sha256": "fc8c0d1791b374ea7341de568ba0d2b8bb6d6b2155b294d3b8c810a2c4944a2d"
+    },
+    {
+      "path": "reports/painter_responsiveness_v1/prv1-diagnostic-20260908/gate_checks.csv",
+      "sha256": "db25d740490ee525dbc3bd1a63e517536e8b182b04dd059b8057c5a244b4aaf1"
+    },
+    {
+      "path": "reports/painter_responsiveness_v1/prv1-diagnostic-20260908/plots/brief_variation.png",
+      "sha256": "63c7fd915c13c29558e3dbb625ff243124dfb811603341deb4c203bf35fb86b2"
+    },
+    {
+      "path": "reports/painter_responsiveness_v1/prv1-diagnostic-20260908/plots/brief_variation.svg",
+      "sha256": "67d673a043c77923c71cae9321d0dc7e45fd42b72586f4c45dacf48f0f50244c"
+    },
+    {
+      "path": "reports/painter_responsiveness_v1/prv1-diagnostic-20260908/plots/coordinate_displacements.png",
+      "sha256": "264efe44df8d7b781a3d578db44308496093ecbcc6dc4300e8d58481671f608e"
+    },
+    {
+      "path": "reports/painter_responsiveness_v1/prv1-diagnostic-20260908/plots/coordinate_displacements.svg",
+      "sha256": "dd3f1fb23211a6a80199978be938ee896ab5d192764bdd58ef276d99b78d1d19"
+    },
+    {
+      "path": "reports/painter_responsiveness_v1/prv1-diagnostic-20260908/plots/reference_chroma.png",
+      "sha256": "103173d2af6f29a7379c2478d555739cb0408f87bb85147b8d300fb07c051aa8"
+    },
+    {
+      "path": "reports/painter_responsiveness_v1/prv1-diagnostic-20260908/plots/reference_chroma.svg",
+      "sha256": "0b9afcabf7cca7792efdad9f712a0898af16aef1657ca80cb1c7b8076c968f32"
+    },
+    {
+      "path": "reports/painter_responsiveness_v1/prv1-diagnostic-20260908/quality_groups.csv",
+      "sha256": "b2c5401d9e380e740845b69c959ca70936aba776c31b9b8b920e52a2cc866545"
+    },
+    {
+      "path": "reports/painter_responsiveness_v1/prv1-diagnostic-20260908/reference_chroma_groups.csv",
+      "sha256": "c8c17bbbc433ea06dfa392fe93103166563c4d56510dbb51b4542ea43f74ed9d"
+    },
+    {
+      "path": "reports/painter_responsiveness_v1/prv1-diagnostic-20260908/reference_chroma_works.csv",
+      "sha256": "d413b871dbd036e25abfa2ab0bb71b776332e54d6e69d84e06d916e2265c9c6e"
+    },
+    {
+      "path": "reports/painter_responsiveness_v1/prv1-diagnostic-20260908/reference_feasibility.csv",
+      "sha256": "8951a326944d199790ddcf534100538d2ed7464d1492f86d724aa01bd790bda4"
+    },
+    {
+      "path": "reports/painter_responsiveness_v1/prv1-diagnostic-20260908/scope_coordinates.csv",
+      "sha256": "05730a6007e2a6c816d11a3c575fb6bd4cd0d26341216fb4d33382af36804929"
+    },
+    {
+      "path": "reports/painter_responsiveness_v1/prv1-diagnostic-20260908/scope_families.csv",
+      "sha256": "3f38bc48fe1a74c90e0bdbe642c87642bbf02d1dd67cecd4d8d06be250965cc7"
+    },
+    {
+      "path": "reports/painter_responsiveness_v1/prv1-diagnostic-20260908/scope_summaries.csv",
+      "sha256": "14ebdf70d84f796a4148caf8805cf6103dd257c45feb2b601e7b1af3a3b270a0"
+    },
+    {
+      "path": "reports/painter_responsiveness_v1/prv1-diagnostic-20260908/simulation.csv",
+      "sha256": "4bb9c57ef7b069e54d86eea090e52055622cdcde587a18c34f8fb00f69232271"
+    },
+    {
+      "path": "reports/painter_responsiveness_v1/prv1-diagnostic-20260908/subject_label_inventory.csv",
+      "sha256": "86f56ce22d9556f1af481b6742a3a73dfdbe622853bff0fc5e3ecfba40f98873"
+    }
+  ]
+}
