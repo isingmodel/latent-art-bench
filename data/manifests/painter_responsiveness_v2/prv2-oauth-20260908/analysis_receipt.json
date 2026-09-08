@@ -1,0 +1,341 @@
+{
+  "analysis_sha256": "b9cc869f2c704e9686df73ae833e21ea854a0b2ebae0acb55765bc3bae217c91",
+  "features_sha256": "d022f09848af74115d8a400e964c49bb6cf3cde7f7471cbc26c8dc9b06294ea1",
+  "inputs": [
+    {
+      "path": "data/manifests/painter_responsiveness_v2/prv2-oauth-20260908/collection_receipt.json",
+      "sha256": "b7eb11f800aae852604d4c09a003f3cb26f0dfdfdad0d76e6c1bb88397d52ce1"
+    },
+    {
+      "path": "data/manifests/painter_responsiveness_v2/prv2-oauth-20260908/freeze.json",
+      "sha256": "fa016e0e0e3670d324b673ad179e5ec3f017d30f0c31cc0b3a01a31ffa12346b"
+    },
+    {
+      "path": "data/manifests/painter_responsiveness_v2/prv2-oauth-20260908/generation_events.jsonl",
+      "sha256": "d0b65b0f0f3eedbbd6eee0c1ee4fb5d062f1e3f545143c8d18b367144f7da15b"
+    },
+    {
+      "path": "data/manifests/painter_responsiveness_v2/prv2-oauth-20260908/planned_requests.jsonl",
+      "sha256": "8d47daa68f74a72fc812c5b54b47bc9b54cc5c08f0ae7ff37c7fa8b573cfff7a"
+    },
+    {
+      "path": "data/manifests/painter_responsiveness_v2/prv2-oauth-20260908/slot_outcomes.jsonl",
+      "sha256": "dcc46b4cc18fbd0d7c32a21c0e4cb306f4df887063a6408702360cec03cbe0b5"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0000-a1.json.gz",
+      "sha256": "0bdea53fc324230fa8e74cf488da95e89a2ab3133e30834fa37930c844ba5fd4"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0001-a1.json.gz",
+      "sha256": "97ed977f3f1cc94a39ea17824386687133f915a3d47d55ebbf7beed42c05023b"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0002-a1.json.gz",
+      "sha256": "557a2ef006f966972b5c03d9f3960df541a4d2a9533839effbfe0330e5ac6275"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0003-a1.json.gz",
+      "sha256": "a330902ab8f4f6f9556418d13a0b8fe1f4fc9b4969ffa9bf089a11249e2f6b90"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0004-a1.json.gz",
+      "sha256": "0f4af99e2d17017d751eab1e2a144df4995a91f26309ea1ddfac9e5d465b4ebd"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0005-a1.json.gz",
+      "sha256": "61e407985d408a42d993d4229f22998d8aa216d81c3a6ef135cc0b3a422be470"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0006-a1.json.gz",
+      "sha256": "970ee8097bbd6af2b8b44bd0765aec9dbb4ff4d66455df838d9b8fe146927fb7"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0007-a1.json.gz",
+      "sha256": "3cb117b2dad406d1041fa55e2915871142e32a4699ffd66ce1528240fdde29f7"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0008-a1.json.gz",
+      "sha256": "5e29440d1a2dd80ca62345ad90683d559ab0637591d279712e24009c3838284d"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0009-a1.json.gz",
+      "sha256": "300682cd8224bc8613dd90700a007349c08f1235de87c2765c5fcbb0f8279c01"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0010-a1.json.gz",
+      "sha256": "beee29978ff8119aeac84643e4f401a6eb2ce20c80fba35e7a36d7a2fb8b18a8"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0011-a1.json.gz",
+      "sha256": "a74b17258e88ce5eca34b4d5cc2365a9fa2abfa2dfa04fc95a8984f26037c338"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0012-a1.json.gz",
+      "sha256": "17b61104329b420e49e8283aba9932a443ef90b89594222678739973c2ad07cb"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0013-a1.json.gz",
+      "sha256": "f6d3ba322372eaaebd95ace77d4998c7b21ee79a065d83c94ec6ab7464bd8eeb"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0014-a1.json.gz",
+      "sha256": "593e0f1ecaff2def3b4c212dc5f3ffe15f439554a5b02ab77cc6103d647466a7"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0015-a1.json.gz",
+      "sha256": "2b0af1d0da0116d62ffaca327fedc92b7e91d00df6bbe99a62d2a39cc92bcc56"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0016-a1.json.gz",
+      "sha256": "db414b9a027da59390ff90267988f9beeff25d26d08f5c270245b9f6eeb6c37c"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0017-a1.json.gz",
+      "sha256": "0c9dadd810bc1e19e46130d6db821f78b272be697979caba4d732b00e27c3beb"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0018-a1.json.gz",
+      "sha256": "d2ada159ee7b6858b0321d0b1f33d20e934f78e0343cf1c7a851597dfd821df6"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0019-a1.json.gz",
+      "sha256": "0a3706208696ee92c31e10ce16f425689ecc8333969c924761f962301bfdb96b"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0020-a1.json.gz",
+      "sha256": "b76018439fc8cfab5987fccc12cb9ebec58061267e737152baf8c0d066e4bd32"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0021-a1.json.gz",
+      "sha256": "a0d3b705f88aafd8c64eaf74b7eecdc0046119d7be18b9630b8f663fcca4ab09"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0022-a1.json.gz",
+      "sha256": "da1a6b5ace9b39be03542bab116c8d37fa84b62ea9116690015bddd45f7d081e"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0023-a1.json.gz",
+      "sha256": "9b71cd4e44a596ef90a04e017386b54f4523f127813ebf5f6fcf6d661383f3af"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0024-a1.json.gz",
+      "sha256": "34144fe99fece004ec644c8435e60fddbdcb632b95059046b49e873380380639"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0025-a1.json.gz",
+      "sha256": "cff7fd719f130a8121d046dc3689bc597aa0847124161803604475120d43a085"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0026-a1.json.gz",
+      "sha256": "e20359f5d9c2ad2db7af9f65b3662af5424359c5112f6b25184aeb41130616e8"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0027-a1.json.gz",
+      "sha256": "e8896b001dbe77238be3be77b0720c60805771a9a00c0cc7a00fedcc00cdce0e"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0028-a1.json.gz",
+      "sha256": "97cdd9bef9d98e167ccfc247b6032b8c1b42536f175055222b4c4d14bc066c31"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0029-a1.json.gz",
+      "sha256": "ed025c160ae2734a2b88054b9117fa96a7d4b923df7eb0186eb9624140cf59dc"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0030-a1.json.gz",
+      "sha256": "e4d916702d9591d0f314f11d6b253dd38783fda855c2aaae95b7c2d70ad538b7"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0031-a1.json.gz",
+      "sha256": "c4fbe310419b6d4ddc206cb6fdd06c10e472d391dc962db0a4990713972c8d49"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0032-a1.json.gz",
+      "sha256": "d43b75d8788a4de70e7407c807effc427c628b83a8131c37a8bbb03a70c8cbc0"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0033-a1.json.gz",
+      "sha256": "b55f9fcc2162bca5b8a6cd5966ac109bd571db7d3183193bfef385d27e041226"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0034-a1.json.gz",
+      "sha256": "f46bd25052a54da5bb142d515922fa3e1b53587999b2a201962ad5c9ca48f797"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0035-a1.json.gz",
+      "sha256": "777075cd8b4f0089fe9894d0d51cc9dffe4b0414609f9d57d6f39e7394af86f8"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0036-a1.json.gz",
+      "sha256": "f2943f2c839ec8cfd28977fddf98d52809c3e93489abbf41b6d2025dc6471cbe"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0037-a1.json.gz",
+      "sha256": "bc57e8be5b46a3d576385b04ffa6330c49c131e3b0ae188d3169b9d20f19bd93"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0038-a1.json.gz",
+      "sha256": "535fd5d2d8b4ec66d58b135545cf03faa98dfa79702bf36f937b789e8c17363a"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0039-a1.json.gz",
+      "sha256": "93e49ae67cf10bd06c8be4d0ee5d80e699257e0e24b824a08344ef6490712b32"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0040-a1.json.gz",
+      "sha256": "12b2b8e50e886da2fc192ac770c8ed7eafa09744d5e44585f052fdc5640a664e"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0041-a1.json.gz",
+      "sha256": "518312529e3d18a0024bed902c0674e0d997cf9a96eff1a6aa2fd4a8fcb1a050"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0042-a1.json.gz",
+      "sha256": "98ff6ea24d9d9ad8ec4e74148a72899cfe06c79a5a581719e140790f2cf26734"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0043-a1.json.gz",
+      "sha256": "1be211668dc0440959bde3c6c306c74682cf4e712aa9b2c522b6ea4868980781"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0044-a1.json.gz",
+      "sha256": "1fd651ff57fc4b4c37ec9653d76795e996cd85ac36971e6c2ba29d5f81b4f1da"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0045-a1.json.gz",
+      "sha256": "a54ee46135a2c3cbf7826b79546a63e722188b6dfc49cff1f2f7335557f8fe5e"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0046-a1.json.gz",
+      "sha256": "64dae2a2ae5e8706d52b2534b6acca56f2df566b4e5784886e8c0d3e79f893bf"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0047-a1.json.gz",
+      "sha256": "bb27da5fe8b5ec1a393806e4059659e6db1c15a18912bb01685beebce3b7add3"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0048-a1.json.gz",
+      "sha256": "59646858126f7e04cecc02bfe3540793b41937e6207747d1827d8c04f2778768"
+    },
+    {
+      "path": "research_workspace/painter_responsiveness_v2/prv2-oauth-20260908/responses/0049-a1.json.gz",
+      "sha256": "03b6905370e99124a9f3dc327a376ba01c7364238c2560f3c1247a2d5d0e25d2"
+    }
+  ],
+  "recorded_git_commit": "d3bbe65728fc74ad23dc771a7cd2014c62b13036",
+  "reports": [
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/experiment/REPORT.md",
+      "sha256": "cde8e0503dee87ce83d6ef3ce489730e643a0bb12680e720f2fa2ea54603608b"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/experiment/arm_means.csv",
+      "sha256": "f2ee2c45a1aae1136e1d4a63be22f16de4e7a940b86b51271e61ebe91a1695ec"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/experiment/availability.csv",
+      "sha256": "24cf88bee8409a145c70f1484b4ad65ded666a5c9dcd9078a81c4e5eeedaf4e6"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/experiment/cell_means.csv",
+      "sha256": "432d5d253d7fd1bf1ed5b8b5a8026513b1075b4c5d1f78a8fe5ced80eb6eb20c"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/experiment/collection_slots.csv",
+      "sha256": "7ddc128163fb535d09f6ce874a17d1f28852f0a211768b23bb1adb8524930dab"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/experiment/complete_block_survivors.csv",
+      "sha256": "92a22351650b7432b4961c1b74cfbdc51a8ed8fc881493ab1c2e794adf657278"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/experiment/computational_interpretation.csv",
+      "sha256": "7703741f562b3f2c276fc35a9aba6f2de114df21e80f56ebf257cdb5ea03115c"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/experiment/coordinate_responses.csv",
+      "sha256": "7703741f562b3f2c276fc35a9aba6f2de114df21e80f56ebf257cdb5ea03115c"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/experiment/generated_chroma.csv",
+      "sha256": "8f74dd6fb7fc227d281b4ff990d1fa01d73185ef3b4178d823425839b16e8d12"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/experiment/generic_minus_free.csv",
+      "sha256": "7703741f562b3f2c276fc35a9aba6f2de114df21e80f56ebf257cdb5ea03115c"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/experiment/plots/arm_chroma.png",
+      "sha256": "edfe7f8a9bb306cfef14f4c0e57763f08f0b9fcac1d085e8707c1d92ef9867d8"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/experiment/plots/arm_chroma.svg",
+      "sha256": "543fbbac21592702769939629ce50fd9fc06e2bc00038d756b4571ecf4714126"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/experiment/plots/coordinate_interactions.png",
+      "sha256": "b4945a1ba7b2bdbde5e5eeeeee8d96f612374a234d6d28e891652871bc03b0df"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/experiment/plots/coordinate_interactions.svg",
+      "sha256": "36d5c363d5d65ebb84139fb3b657d74ef44a2e3ff35f24d80ccc2a31b3375505"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/experiment/plots/original_chroma_context.png",
+      "sha256": "6c8193750173d8a177adda3304d62d84851c01c7c63b4dc7bdc0d9e3a821096b"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/experiment/plots/original_chroma_context.svg",
+      "sha256": "2f8b5f2317df445bdc1c24fdec1ce6d14d196e6c2e7d6585181e350940b83de8"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/experiment/plots/primary_interactions.png",
+      "sha256": "82f1eeaf31632f6f4274252afef1141e10e59c0b26d5d462713928f88fe4e6f0"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/experiment/plots/primary_interactions.svg",
+      "sha256": "411f60a9615625e751be96ee737dd648139a4380fb60e00b85ef88587c0a6f0e"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/experiment/primary.csv",
+      "sha256": "7703741f562b3f2c276fc35a9aba6f2de114df21e80f56ebf257cdb5ea03115c"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/experiment/primary_covariance.csv",
+      "sha256": "7703741f562b3f2c276fc35a9aba6f2de114df21e80f56ebf257cdb5ea03115c"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/experiment/processing_primary.csv",
+      "sha256": "7703741f562b3f2c276fc35a9aba6f2de114df21e80f56ebf257cdb5ea03115c"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/experiment/reference_chroma.csv",
+      "sha256": "f392b5144e8c97855e147040cb1f150f6bd0209ae49960effe54d47983fd0359"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/experiment/reference_comparisons.csv",
+      "sha256": "06cd91e0ba52da32657988e18fdb5d1018472219c6a83dfc626d24e5b544d00f"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/experiment/reference_envelopes.csv",
+      "sha256": "ec1a70df279b86dddd9816b6e01348243b27afc624dbd7f0c8bbcdd5e8d802df"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/experiment/responses.csv",
+      "sha256": "7703741f562b3f2c276fc35a9aba6f2de114df21e80f56ebf257cdb5ea03115c"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/experiment/secondary_named_minus_free.csv",
+      "sha256": "7703741f562b3f2c276fc35a9aba6f2de114df21e80f56ebf257cdb5ea03115c"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/experiment/transport_attempts.csv",
+      "sha256": "9cfa2a2960e76685e455e068c4a0125617a25ba3581a434428630a44c8648fc7"
+    },
+    {
+      "path": "reports/painter_responsiveness_v2/prv2-oauth-20260908/experiment/transport_summary.csv",
+      "sha256": "84edf2a13d88545bc3e339b77ece6e46d89011c62c9065c139ec3db6ff6b3b08"
+    }
+  ]
+}
