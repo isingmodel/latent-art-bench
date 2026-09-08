@@ -2,17 +2,25 @@
 
 The active follow-up is **computational painter responsiveness v2**, authorized by
 the user's instruction to continue without human reference ratings. Its source and
-192-slot design are committed and frozen, and the OAuth collector is running now.
+192-slot design are committed and frozen. The first OAuth allocation is closed
+after an unrecognized plain-text 503; a narrowly corrected replacement is being
+prepared now.
 The new experiment tests a measured service response; it does not claim human
 perceptual resemblance or an identified internal model mechanism.
 
 ## Current execution
 
-- Run: `prv2-oauth-20260908`; 192 planned images, six fixed scenes, four style arms,
+- Replacement: `prv2-oauth-recovery-20260908`; 192 fresh planned images, six fixed
+  scenes, four style arms,
   two color instructions and four repeats. Free and generic controls are shared.
 - Transport: source/process-verified local OAuth `gpt-image-2`, at most two calls
   in flight, starts at least five seconds apart, bounded technical retries.
-- Source commit: `d3bbe65`; design freeze commit: `491cc10`; 131 bound inputs.
+- Original source commit: `d3bbe65`; design freeze commit: `491cc10`; 131 bound inputs.
+  Its terminal run retained 49 images, one complete HTTP 503 and 142 never-started
+  slots. A [prospective correction](../studies/painter_responsiveness_recovery_v1/PROTOCOL.md)
+  qualifies only that exact error form for existing bounded retries. Prior outputs
+  remain ancillary; successful images were not visually reviewed and scientific
+  features were not extracted before the replacement decision.
 - No OpenRouter requests or charges in this experiment. The prior conservative
   accounting remains $45.6819185 within the $75 ceiling; OAuth subscription usage
   is not assigned a monetary value.
@@ -60,8 +68,8 @@ with an unmeasured prospective result.
 
 ## Verification
 
-The full offline suite passed **1,108 tests**; the four subsequently added renderer
-tests also pass, including deterministic byte replay and unavailable-primary output.
+The full v2 offline suite passed **1,112 tests**, including deterministic byte
+replay and unavailable-primary output. The isolated recovery tests are additional.
 Ruff passes. The retained-data analysis and all nine diagnostic report files
 reproduce byte for byte. Both actual diagnostic plots and all six synthetic plot
 types were visually checked. Three

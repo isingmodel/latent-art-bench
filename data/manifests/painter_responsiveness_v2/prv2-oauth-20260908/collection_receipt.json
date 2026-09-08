@@ -1,0 +1,26 @@
+{
+  "accounting_basis": "OAuth service; zero incremental API charge, not a subscription valuation",
+  "attempt_intents": 50,
+  "freeze_sha256": "fa016e0e0e3670d324b673ad179e5ec3f017d30f0c31cc0b3a01a31ffa12346b",
+  "generation_events_sha256": "d0b65b0f0f3eedbbd6eee0c1ee4fb5d062f1e3f545143c8d18b367144f7da15b",
+  "incremental_api_spend_usd": 0.0,
+  "new_feature_measurements": 0,
+  "paid_requests": 0,
+  "recorded_git_commit": "d3bbe65728fc74ad23dc771a7cd2014c62b13036",
+  "requests_sha256": "8d47daa68f74a72fc812c5b54b47bc9b54cc5c08f0ae7ff37c7fa8b573cfff7a",
+  "run_id": "prv2-oauth-20260908",
+  "schema": "painter-responsiveness-collection/2",
+  "slot_outcomes_sha256": "dcc46b4cc18fbd0d7c32a21c0e4cb306f4df887063a6408702360cec03cbe0b5",
+  "status": "stopped",
+  "status_counts": {
+    "http_error": 1,
+    "image_returned": 49,
+    "never_started": 142
+  },
+  "stop_reason": "coordinator_interrupted_KeyboardInterrupt",
+  "technical_retries_dispatched": 0,
+  "terminal": true,
+  "terminal_attempts": 50,
+  "total_planned": 192,
+  "unresolved_intents": []
+}

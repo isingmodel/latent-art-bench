@@ -1,0 +1,1 @@
+{"at_utc":"2026-09-08T06:17:15.098685+00:00","event_sha256":"d90abf53da9d5ddc3133881e789cc4ff24d5442ce74fc6e9aa022f821817d10f","kind":"dispatch_halted","previous_sha256":null,"reason":"coordinator_interrupted_KeyboardInterrupt","sequence":0}
