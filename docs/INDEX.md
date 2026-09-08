@@ -17,7 +17,7 @@
 
 | Material | Link |
 | --- | --- |
-| English manuscript | [PDF](../paper/paper.pdf), [source/build guide](../paper/README.md), [review responses](reviews/20260907_manuscript.md) |
+| English manuscript | [PDF](../paper/paper.pdf), [source/build guide](../paper/README.md), [current review responses](reviews/20260908_manuscript.md) |
 | Controlled results | [Full report](../reports/painter_distribution_study_v1/pdsv1-analysis-20260907/REPORT.md) |
 | Controlled design | [Protocol](../studies/painter_distribution_study_v1/PROTOCOL.md), [main design](../studies/painter_distribution_study_v1/MAIN.md), [inference](../studies/painter_distribution_study_v1/INFERENCE.md) |
 | Computational revision | [Full report](../reports/painter_distribution_revision_v1/pdrv1-numeric-20260907/REPORT.md), [fixed diagnostic protocol](../studies/painter_distribution_revision_v1/PROTOCOL.md) |

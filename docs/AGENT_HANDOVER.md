@@ -6,10 +6,11 @@ This handover is mutable orientation, not a protocol or execution authorization.
 
 ## Where to work
 
-The latest deliverable is the [computational follow-up report](../reports/painter_responsiveness_v2/REPORT.md),
-with a complete 192-image experiment and retained-data retrieval analysis. The
-English manuscript in [paper/](../paper/README.md) covers the earlier controlled
-study. It has been rewritten from a blank TeX source around the scientific question,
+The latest deliverable is the integrated English manuscript in
+[paper/](../paper/README.md), covering the controlled distribution study,
+scene-retrieval diagnostics and completed 192-image color experiment. The
+[computational follow-up report](../reports/painter_responsiveness_v2/REPORT.md)
+retains the full additional results. The manuscript is organized around the scientific question,
 design, results and interpretation. Keep operational histories, budgets and
 recruitment planning outside its scientific prose. Earlier manuscripts are in Git
 history; do not restore duplicate manuscript folders.

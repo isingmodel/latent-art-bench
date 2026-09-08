@@ -15,7 +15,7 @@ help:
 	@echo 'make plots     Replay both report bundles and check manuscript figures'
 	@echo 'make responsiveness  Replay the v1 mechanism diagnostics and plots'
 	@echo 'make computational-responsiveness  Replay v2 computational results and plots'
-	@echo 'make figures   Render the three manuscript figures from saved tables'
+	@echo 'make figures   Render the five manuscript figures from saved tables'
 	@echo 'make paper     Render manuscript figures and compile paper/paper.pdf'
 	@echo 'Other studies: docs/ANALYSES.md'
 

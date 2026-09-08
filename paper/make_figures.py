@@ -1,4 +1,4 @@
-"""Render manuscript figures from three hash-checked, sealed presentation tables.
+"""Render manuscript figures from hash-checked, sealed presentation tables.
 
 Run from the repository root with ``uv run --locked --extra analysis python
 paper/make_figures.py``. Add ``--check`` for
@@ -14,6 +14,7 @@ import argparse
 import csv
 import hashlib
 import io
+import json
 from pathlib import Path
 
 import matplotlib
@@ -26,6 +27,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = Path(__file__).resolve().parent / "figures"
 REVISION = "reports/painter_distribution_revision_v1/pdrv1-numeric-20260907/"
 CONTROLLED = "reports/painter_distribution_study_v1/pdsv1-analysis-20260907/"
+RESPONSIVENESS = "reports/painter_responsiveness_v2/"
 SOURCES = {
     REVISION + "metric_cells.csv":
         "2cef4ce86a8201691963329e46c6e0a014c5c9c1d215e3c5c73bcfd2bdf05a06",
@@ -33,6 +35,12 @@ SOURCES = {
         "a045602d1192f0fc13df7eb61774e9ebcd6562ffcd955d5dcd58eab25b9ffc5a",
     CONTROLLED + "projection_points.csv":
         "22c983e36decd4031549124bc2114512a1c0e23a7875909c2526d861913481cf",
+    RESPONSIVENESS + "prv2-oauth-20260908/diagnostics/retrieval_comparisons.csv":
+        "8c5b8d25f20e8b48864ebc35f498d4227f3eec3e9a26b31274c3d6520065f0af",
+    RESPONSIVENESS + "prv2-oauth-recovery-20260908/experiment/arm_means.csv":
+        "e88efd4d1266650db11632d7b9e5f779a34bda624787eb6f8711d39af5cc00b0",
+    RESPONSIVENESS + "prv2-oauth-recovery-20260908/experiment/primary.csv":
+        "6476d8f24e36eae1b5357811a8971a5510ad9f620acd577ce49565b0c7db1d80",
 }
 PAINTERS = {"claude_monet": "Monet", "paul_cezanne": "Cézanne"}
 ROUTES = {"nano_banana_2": "NB2", "flux_2_max": "FLUX", "oauth_gpt_image_2": "OAuth"}
@@ -136,7 +144,7 @@ def common_pca(tables):
     groups = (
         ("artist_free", "Artist-free", BLUE, "o", 11, 0.50),
         ("named", "Named", ORANGE, "s", 11, 0.58),
-        ("generic_named", "Generic named", PURPLE, "^", 14, 0.58),
+        ("generic_named", "Short-scene named", PURPLE, "^", 14, 0.58),
         ("original", "Originals", INK, "x", 18, 0.95),
     )
     for ri, painter in enumerate(PAINTERS):
@@ -172,6 +180,98 @@ def common_pca(tables):
     return fig
 
 
+def scene_retrieval(tables):
+    selected = [r for r in tables["retrieval_comparisons.csv"]
+                if r["pipeline"] == "primary512" and r["view"] == "original31"
+                and r["candidate_scope"] in ("all_briefs", "same_content")]
+    cells = {(r["painter_id"], r["route"], r["candidate_scope"]): r for r in selected}
+    if len(selected) != 12 or len(cells) != 12:
+        raise ValueError("retrieval figure requires twelve primary named/free comparisons")
+    fig, axes = plt.subplots(1, 2, figsize=(160 / 25.4, 3.1))
+    for panel, (ax, scope, title) in enumerate(zip(
+        axes, ("all_briefs", "same_content"),
+        ("(a) All 24 scenes", "(b) Eight within-class scenes"),
+    )):
+        row_axis(ax, labels=panel == 0)
+        chances = set()
+        for y, (painter, route) in zip(Y, GROUPS):
+            row = cells[painter, route, scope]
+            if (row["before.queries"] != "72" or row["after.queries"] != "72"
+                    or row["before.condition"] != "artist_free"
+                    or row["after.condition"] != "named"
+                    or row["before.chance_top1"] != row["after.chance_top1"]):
+                raise ValueError("retrieval panel has inconsistent query or condition metadata")
+            chances.add(float(row["before.chance_top1"]) * 100)
+            free, named = [float(row[side + ".top1_accuracy"]) * 100
+                           for side in ("before", "after")]
+            ax.plot([free, named], [y, y], color="#a0a0a0", linewidth=1.1, zorder=2)
+            ax.scatter(free, y, edgecolors=BLUE, facecolors="white", marker="o", s=31,
+                       linewidths=1.0, zorder=3)
+            ax.scatter(named, y, color=ORANGE, marker="D", s=18, zorder=4)
+        if len(chances) != 1:
+            raise ValueError("retrieval panel must share a single chance probability")
+        ax.axvline(chances.pop(), color="#777777", linewidth=0.8, linestyle=(0, (2, 2)))
+        ax.set(xlim=(-2, 102), xticks=(0, 25, 50, 75, 100), xlabel="Top-1 accuracy (%)")
+        ax.set_title(title, loc="left", pad=8)
+    fig.legend(handles=[
+        Line2D([], [], color=BLUE, marker="o", markerfacecolor="white", linestyle="",
+               label="Artist-free", markersize=5),
+        Line2D([], [], color=ORANGE, marker="D", linestyle="", label="Named", markersize=4),
+        Line2D([], [], color="#777777", linestyle=(0, (2, 2)), label="Chance", linewidth=0.8),
+    ], loc="upper center", bbox_to_anchor=(0.60, 1), ncol=3, frameon=False,
+               columnspacing=1.4, handletextpad=0.5)
+    fig.subplots_adjust(left=0.215, right=0.985, bottom=0.17, top=0.81, wspace=0.17)
+    return fig
+
+
+def color_responsiveness(tables):
+    arms = ("free", "generic", "monet", "cezanne")
+    means = {(r["arm"], r["polarity"]): float(r["mean"]) for r in tables["arm_means.csv"]}
+    primary = {r["contrast"]: r for r in tables["primary.csv"]}
+    if (len(tables["arm_means.csv"]) != 8 or len(means) != 8
+            or set(means) != {(a, p) for a in arms for p in ("muted", "vivid")}
+            or len(tables["primary.csv"]) != 2
+            or set(primary) != {"monet_minus_generic", "cezanne_minus_generic"}):
+        raise ValueError("color figure requires eight arm means and two primary contrasts")
+    fig, axes = plt.subplots(1, 2, figsize=(160 / 25.4, 2.9),
+                             gridspec_kw={"width_ratios": (1.1, 1)})
+    ax = axes[0]
+    for i, arm in enumerate(arms):
+        ax.plot([i - 0.12, i + 0.12], [means[arm, "muted"], means[arm, "vivid"]],
+                color="#a0a0a0", linewidth=1.1, zorder=2)
+    for polarity, color, marker, offset in (
+        ("muted", BLUE, "o", -0.12), ("vivid", ORANGE, "D", 0.12),
+    ):
+        ax.scatter([i + offset for i in range(4)], [means[a, polarity] for a in arms],
+                   color=color, marker=marker, s=28, label=polarity.capitalize(), zorder=3)
+    ax.set(xticks=range(4), xticklabels=("Artist-\nfree", "Generic", "Monet", "Cézanne"),
+           xlim=(-0.45, 3.45), ylim=(-1, 3.7), yticks=(-1, 0, 1, 2, 3),
+           ylabel="Arm mean of median chroma\n(development IQR units)")
+    ax.tick_params(axis="x", labelsize=7.3)
+    ax.set_title("(a) Muted and vivid arm means", loc="left", pad=8)
+    ax.legend(loc="upper left", bbox_to_anchor=(-0.12, 1.29), ncol=2, frameon=False,
+              columnspacing=0.8, handletextpad=0.25)
+    ax.grid(axis="y", color="#ececec", linewidth=0.6)
+    ax.set_axisbelow(True)
+    ax = axes[1]
+    for y, arm in zip((1, 0), ("monet", "cezanne")):
+        row = primary[arm + "_minus_generic"]
+        interval = json.loads(row["family_interval"])
+        if len(interval) != 2 or not interval[0] <= float(row["estimate"]) <= interval[1]:
+            raise ValueError("primary interaction interval must bracket its saved estimate")
+        ax.plot(interval, [y, y], color=BLUE, linewidth=1.3, zorder=2)
+        ax.scatter(float(row["estimate"]), y, color=BLUE, s=27, zorder=3)
+    ax.axvline(0, color="#777777", linewidth=0.8, linestyle=(0, (2, 2)), zorder=1)
+    ax.set(yticks=(1, 0), yticklabels=("Monet", "Cézanne"), ylim=(-0.55, 1.55),
+           xlim=(-0.65, 0.35), xticks=(-0.6, -0.3, 0, 0.3),
+           xlabel="Named - generic response κ\n(development IQR units)")
+    ax.set_title("(b) Simultaneous 95% family CIs", loc="left", pad=8)
+    ax.grid(axis="x", color="#ececec", linewidth=0.6)
+    ax.set_axisbelow(True)
+    fig.subplots_adjust(left=0.10, right=0.985, bottom=0.23, top=0.78, wspace=0.47)
+    return fig
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output-dir", type=Path, default=OUTPUT)
@@ -180,7 +280,8 @@ def main():
     args = parser.parse_args()
     tables = read_tables()
     style()
-    for maker in (primary_comparison, variation_ratios, common_pca):
+    for maker in (primary_comparison, variation_ratios, common_pca,
+                  scene_retrieval, color_responsiveness):
         fig = maker(tables)
         buffer = io.BytesIO()
         fig.savefig(buffer, format="pdf", metadata=PDF_METADATA)

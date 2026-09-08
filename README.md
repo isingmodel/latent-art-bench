@@ -8,8 +8,9 @@ among generated images.
 
 Read the [English paper](paper/paper.pdf), its [source and build guide](paper/README.md),
 and the [complete revision report](reports/painter_distribution_revision_v1/pdrv1-numeric-20260907/REPORT.md).
-The current case study uses **1,006 generated images, 70 Monet and Cézanne
-references, and 221 separate development works**, across three generation routes.
+The paper integrates **1,006 images from three generation routes** in Study 1
+and a separate **192-image color experiment** in Study 2, using 70 Monet/Cézanne
+references and 221 development works.
 
 Painter naming reduces the primary feature discrepancy on both paid routes and
 reduces aggregate variation relative to artist-free controls. Variation within a
@@ -45,7 +46,7 @@ make evidence
 ```
 
 These targets replay retained numerical evidence and report outputs or run offline
-checks. They make no generation requests. `make figures` rebuilds the three
+checks. They make no generation requests. `make figures` rebuilds the five
 manuscript figures; `make paper` builds the PDF with Tectonic. See
 [the analysis catalog](docs/ANALYSES.md) for individual commands, inputs and outputs,
 and [the paper guide](paper/README.md) for rendering and visual checks.

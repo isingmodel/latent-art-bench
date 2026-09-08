@@ -1,8 +1,8 @@
 # Architecture
 
 LatentArtBench is a Python package with versioned research namespaces. The current
-paper combines a completed controlled study with a separately frozen computational
-revision. Both replay measured vectors and metadata offline. Historical acquisition
+paper combines two completed experiments with descriptive distribution and scene
+retrieval diagnostics. All replay measured vectors and metadata offline. Historical acquisition
 and generation implementations remain as reproducibility dependencies.
 
 ## Current analysis path
@@ -11,9 +11,11 @@ and generation implementations remain as reproducibility dependencies.
 retained development, reference and generated feature records
     -> painter_distribution_study_v1: original controlled analysis
     -> painter_distribution_revision_v1: descriptive diagnostics
+    -> painter_responsiveness_v2: scene retrieval and controlled color response
+    -> painter_responsiveness_quantiles_v1: exact-weight descriptive correction
     -> sealed numerical results in data/manifests/
     -> complete report tables and plots in reports/
-    -> paper/make_figures.py: three selected manuscript figures
+    -> paper/make_figures.py: five selected manuscript figures
     -> paper/paper.tex -> paper/paper.pdf
 ```
 
@@ -27,8 +29,8 @@ extractor and original development scalers. It adds equal-brief diagnostics,
 prospective factorial inference/simulation, and a separate frozen reference-display
 workflow. Generation/measurement entry points require actual stage evidence and
 have no implicit live calls. Its complete component map and replay command are in
-[ANALYSES.md](ANALYSES.md#mechanism-follow-up-painter-responsiveness). The old paper
-pipeline is unchanged; D0 does not add a causal endpoint to the manuscript.
+[ANALYSES.md](ANALYSES.md#mechanism-follow-up-painter-responsiveness). The v1 D0 alone does not provide a new confirmatory endpoint; the manuscript
+uses the completed v2 color experiment for that question.
 
 The new `painter_responsiveness_v2` reuses the same stable measurement and
 factorial primitives for a computational-only, shared-control intervention.

@@ -39,7 +39,7 @@ means, Wasserstein distances and range occupancy are unaffected.
   quality and 18 medium despite a fixed medium request. These post-request fields
   remain unfiltered. Findings concern the complete delivered-service response.
 - Human ratings, new original-painting acquisition and learned features are outside
-  this scope. The earlier manuscript remains unchanged.
+  this scope. The manuscript now integrates both studies and their distinct test families.
 - Quantile correction: source `2062eab`, freeze `7380f80`. Exact rational weights
   correct 51 primary-run and 15 ancillary-run quantile records, all medians. No
   10th/90th percentile endpoints or central-80 inclusion memberships change. The
@@ -89,20 +89,28 @@ cannot identify a response curve or explain the original/generated gap by themse
 | --- | --- |
 | Controlled study | 1,006 generated images, 70 Monet/Cézanne references and 221 development works; [report](../reports/painter_distribution_study_v1/pdsv1-analysis-20260907/REPORT.md) |
 | Computational revision | Four feature views, variance decomposition, reference/scaler sensitivity and cross-route diagnostics; [report](../reports/painter_distribution_revision_v1/pdrv1-numeric-20260907/REPORT.md) |
-| Current manuscript | The earlier study's English paper, one TeX source and 11-page PDF; [guide](../paper/README.md) |
+| Current manuscript | Integrated English research paper, one TeX source, five vector figures and compiled PDF; [guide](../paper/README.md) |
 | Responsiveness v1 D0 | Six equal-brief diagnostics and original-reference chroma summaries; [report](../reports/painter_responsiveness_v1/prv1-diagnostic-20260908/REPORT.md) |
 | Responsiveness v1 H0/R0 | Reference tasks prepared with zero human responses; closed FLUX preflight does not qualify its paid/human scope. This does not block the new computational OAuth scope. |
 
 The original eight conditional randomization tests and all earlier evidence remain
 unchanged. The v1 human/reference prerequisites were not retroactively waived or
 fulfilled. Its source commit `79f3573`, D0/H0 freezes, reports, closed R0 receipt and
-ignored displays remain preserved. New findings are reported in the computational
-follow-up, not retroactively substituted into the earlier manuscript or tests.
+ignored displays remain preserved. The updated manuscript integrates new findings as a second study and descriptive
+diagnostic bridge. It does not pool cohorts or alter the earlier tests.
 
 ## Verification
 
+The integrated manuscript is rebuilt as a **16-page PDF with five vector figures**.
+Three maintainer-run LLM subagents reviewed the full content, and all 16 final
+pages were visually inspected across the coordinator and a reviewer. The last
+build has no TeX warnings, all citations and references resolve, and the five
+manuscript figures reproduce byte for byte. The [manuscript review record](reviews/20260908_manuscript.md)
+documents corrected interpretation, notation and presentation issues. No scientific
+source, frozen result or acquisition record changed during manuscript revision.
+
 The complete offline suite, including transport and quantile corrections, passes
-**1,135 tests** (115.88 s), including deterministic byte replay and
+**1,135 tests** (115.42 s), including deterministic byte replay and
 unavailable-primary output.
 Ruff passes. The retained-data analysis and both experiment analyses reproduce;
 all **65 published report files** match byte for byte. Both actual diagnostic plots,
