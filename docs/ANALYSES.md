@@ -15,7 +15,7 @@ The [Makefile](../Makefile) provides the common entry points:
 | `make analysis` | Recompute the controlled and revision numeric results |
 | `make plots` | Reproduce both current report bundles and check the three manuscript figures |
 | `make responsiveness` | Replay the earlier v1 responsiveness diagnostic JSON and all report bytes |
-| `make computational-responsiveness` | Replay v2 scene retrieval, the prospective experiment and all report bytes after publication |
+| `make computational-responsiveness` | Replay v2 scene retrieval, both completed experiment bundles, the quantile correction and their report bytes |
 | `make figures` | Rebuild editable manuscript figures from saved tables and coordinates |
 | `make paper` | Rebuild figures and compile the manuscript; see [paper/README.md](../paper/README.md) |
 
@@ -63,7 +63,9 @@ uv run --locked python paper/make_figures.py --check
 ## Computational intervention without human ratings
 
 The [v2 protocol](../studies/painter_responsiveness_v2/PROTOCOL.md) defines a new
-192-image, four-arm, two-polarity OAuth experiment. It estimates two named-minus-generic
+192-image, four-arm, two-polarity OAuth experiment, now complete. The
+[scientific synthesis](../reports/painter_responsiveness_v2/REPORT.md) connects its
+results to the original paintings and scene-retrieval findings. It estimates two named-minus-generic
 chroma-response interactions with shared controls. It does not identify human style
 fidelity or an internal training mechanism. The retained-data diagnostic additionally
 tests whether contraction reduces held-repetition scene retrieval.
@@ -73,13 +75,25 @@ tests whether contraction reduces held-repetition scene retrieval.
 | Scene retrieval | [diagnostics.py](../src/latent_art_bench/painter_responsiveness_v2/diagnostics.py) | Exposed controlled-study vectors; 24-scene and within-class retrieval, all three pipelines and five feature views |
 | Prospective intervention | [analysis.py](../src/latent_art_bench/painter_responsiveness_v2/analysis.py) | 192 planned outputs, old fixed scalers and already measured 70-reference panel; two primary interactions, descriptive processing/coordinate/reference comparisons |
 | Collection, measurement and replay | [workflow.py](../src/latent_art_bench/painter_responsiveness_v2/workflow.py), [collection.py](../src/latent_art_bench/painter_responsiveness_v2/collection.py) | Exact committed request inventory, source/proxy freeze, all-slot ledger, raw-response and measurement bindings |
-| Scientific reports and plots | [report.py](../src/latent_art_bench/painter_responsiveness_v2/report.py) | Saved numerical results → `reports/painter_responsiveness_v2/prv2-oauth-20260908/{diagnostics,experiment}/REPORT.md` |
+| Scientific reports and plots | [report.py](../src/latent_art_bench/painter_responsiveness_v2/report.py) | Saved numerical results → [retrieval](../reports/painter_responsiveness_v2/prv2-oauth-20260908/diagnostics/REPORT.md), [primary experiment](../reports/painter_responsiveness_v2/prv2-oauth-recovery-20260908/experiment/REPORT.md) and [ancillary predecessor](../reports/painter_responsiveness_v2/prv2-oauth-20260908/experiment/REPORT.md) |
+| Exact-weight quantile correction | [painter_responsiveness_quantiles_v1.py](../src/latent_art_bench/painter_responsiveness_quantiles_v1.py), [protocol](../studies/painter_responsiveness_quantiles_v1/PROTOCOL.md) | Both sealed experiment JSONs → [corrected medians and reference-context plots](../reports/painter_responsiveness_quantiles_v1/prqv1-20260908/REPORT.md); primary inference, means, Wasserstein distances and range occupancy are unchanged |
 
-After publication, `make computational-responsiveness` recomputes saved-vector
-analyses and compares report bytes offline. It never sends generation requests or
-extracts image features. The [implementation guide](../studies/painter_responsiveness_v2/README.md)
+`make computational-responsiveness` recomputes saved-vector
+analyses and compares report bytes offline. The primary intervention is the
+[prospectively designated replacement](../studies/painter_responsiveness_recovery_v1/PROTOCOL.md),
+`prv2-oauth-recovery-20260908`; the original partial run is ancillary. The recovery
+package changes only qualification of one exact plain-text 503 response. It
+reuses the unchanged v2 analysis and renderer. Replay verifies raw-response hashes
+and therefore needs the retained local response archive. It never sends generation
+requests or extracts image features. The [implementation guide](../studies/painter_responsiveness_v2/README.md)
 separates explicit live collection from replay. The earlier human-reference v1
 scope below remains preserved and has not been retrospectively qualified.
+
+The final target also runs
+`uv run --locked python -m latent_art_bench.painter_responsiveness_quantiles_v1 check`.
+This replays the versioned descriptive quantile correction from committed numeric
+inputs. It verifies exact rational CDF boundaries and all nine correction report
+files without duplicating or modifying the earlier 65-file publication.
 
 ## Mechanism follow-up: painter responsiveness
 

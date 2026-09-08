@@ -18,18 +18,23 @@ when texture is removed at a different measurement resolution. These are bounded
 computational findings: human style validation is unperformed, reference capture
 provenance is unresolved, and image geometry differs between domains.
 
-The [computational responsiveness follow-up](studies/painter_responsiveness_v2/README.md)
-implements a 192-image intervention without human ratings. Shared artist-free and
-generic-painting controls test how Monet and Cézanne clauses change the response to
-muted/vivid color instructions. A retained-data retrieval analysis tests whether
-lower variation also means less distinguishable scenes. Read [current status](docs/STATUS.md)
-for execution and results; `make computational-responsiveness` replays the published
-v2 results offline. The earlier [v1 diagnostic](reports/painter_responsiveness_v1/prv1-diagnostic-20260908/REPORT.md)
+The [computational follow-up report](reports/painter_responsiveness_v2/REPORT.md)
+adds a completed **192-image intervention without human ratings**. Generic painting
+language reduces response to muted/vivid color instructions; additional
+Monet/Cézanne effects remain unresolved in the two primary comparisons. Retained-data
+scene retrieval improves for FLUX/Monet despite strong feature contraction, showing
+that contraction does not necessarily imply lost scene distinguishability.
+The report links the new distributions to the original digital paintings and
+documents the limits of these explanations. See [implementation](studies/painter_responsiveness_v2/README.md)
+and [current status](docs/STATUS.md); `make computational-responsiveness` replays the
+published results offline. The earlier [v1 diagnostic](reports/painter_responsiveness_v1/prv1-diagnostic-20260908/REPORT.md)
 and its unperformed human-validation scope remain preserved.
 
 ## Reproduce
 
-Python 3.9+ and `uv` are required. From the repository root:
+Use the recorded **Python 3.13.11** runtime and `uv` for current evidence replay.
+The package metadata's broader Python floor does not qualify every frozen study
+on older interpreters. From the repository root:
 
 ```bash
 uv sync --locked --extra analysis --extra dev --inexact
@@ -47,7 +52,8 @@ and [the paper guide](paper/README.md) for rendering and visual checks.
 
 No API key or learned-model weights are needed for current analysis replay.
 Re-extracting features would require retained raw image bytes; a Git checkout does
-not include those images.
+not include those images. The intervention replay also verifies retained raw-response
+hashes, so it requires the local response archive without re-extracting features.
 
 ## Repository map
 

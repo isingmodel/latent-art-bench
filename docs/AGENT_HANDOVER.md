@@ -6,8 +6,10 @@ This handover is mutable orientation, not a protocol or execution authorization.
 
 ## Where to work
 
-The current deliverable is the English manuscript in [paper/](../paper/README.md).
-It has been rewritten from a blank TeX source around the scientific question,
+The latest deliverable is the [computational follow-up report](../reports/painter_responsiveness_v2/REPORT.md),
+with a complete 192-image experiment and retained-data retrieval analysis. The
+English manuscript in [paper/](../paper/README.md) covers the earlier controlled
+study. It has been rewritten from a blank TeX source around the scientific question,
 design, results and interpretation. Keep operational histories, budgets and
 recruitment planning outside its scientific prose. Earlier manuscripts are in Git
 history; do not restore duplicate manuscript folders.
@@ -19,9 +21,9 @@ Use [ANALYSES.md](ANALYSES.md) to locate analysis, full-report plotting and manu
 figure commands. Use [ARCHITECTURE.md](ARCHITECTURE.md) to trace code dependencies.
 See STATUS before interacting with any active collector or measurement process.
 
-The active continuation is [computational painter responsiveness v2](../studies/painter_responsiveness_v2/README.md).
+The completed continuation is [computational painter responsiveness v2](../studies/painter_responsiveness_v2/README.md).
 The user explicitly removed human reference ratings as a prerequisite for this
-narrower service-response study. It uses a fixed 192-slot OAuth inventory, two
+narrower service-response study. It completed a fixed 192-slot OAuth inventory, two
 shared controls, two color instructions, six scenes and four repeats. It also tests
 held-repetition scene retrieval on the exposed controlled dataset. No OpenRouter
 charges, new original paintings or human/LLM ratings are part of this scope.
@@ -33,6 +35,24 @@ original human/reference qualification requirements. Preserve source commit
 question no longer blocks v2; it has not been answered or waived retrospectively
 for v1. The old FLUX price/credit limitation concerns that unperformed paid-route
 scope. Do not describe it as a current block on the authorized OAuth experiment.
+
+The [exact-503 transport correction](../studies/painter_responsiveness_recovery_v1/PROTOCOL.md)
+designates `prv2-oauth-recovery-20260908` as the sole primary intervention run.
+The replacement completed 192/192 images and all three feature pipelines.
+Both primary named-minus-generic interactions remain unresolved; a substantial
+secondary generic-minus-free decrease makes the generic control scientifically
+important. Scene contraction did not universally reduce retrieval. No collector
+or image measurement process remains active.
+Its predecessor has 49 images, one technical failure and 142 never-started slots;
+keep it ancillary and never fill it from replacement outputs. The correction was
+chosen before successful images were visually reviewed or features extracted.
+
+Review found floating-point CDF boundary errors in descriptive weighted medians.
+The `painter_responsiveness_quantiles_v1` correction reconstructs exact rational
+design weights without editing the original bundles. Use the correction for
+reference-context medians and displays; preserve original report bytes and replay.
+This correction does not change primary inference, means, Wasserstein distances,
+or the actual 10th–90th percentile ranges and range-occupancy results.
 
 All new stages remain create-once and commit bound. A completed or stopped
 collection cannot resume or refill missing slots. Preserve returned quality and

@@ -1,20 +1,27 @@
 # Current status — 2026-09-08
 
-The active follow-up is **computational painter responsiveness v2**, authorized by
-the user's instruction to continue without human reference ratings. Its source and
-192-slot design are committed and frozen. The first OAuth allocation is closed
-after an unrecognized plain-text 503; a narrowly corrected replacement is being
-prepared now.
-The new experiment tests a measured service response; it does not claim human
-perceptual resemblance or an identified internal model mechanism.
+**Computational painter responsiveness v2 is complete**, following the user's
+instruction to continue without human reference ratings. The sole primary run
+completed all 192 images and all three measurement pipelines. Its two primary
+named-minus-generic color-response interactions remain unresolved. The
+[scientific report](../reports/painter_responsiveness_v2/REPORT.md) combines these
+results with a retained-data scene-retrieval counterexample to interpreting
+contraction as lost scene distinguishability. No collector or image measurement
+process is active. The [exact-weight quantile corrigendum](../reports/painter_responsiveness_quantiles_v1/prqv1-20260908/REPORT.md)
+corrects a descriptive median defect found during review. Primary inference,
+means, Wasserstein distances and range occupancy are unaffected.
 
-## Current execution
+## Completed collection and analysis
 
-- Replacement: `prv2-oauth-recovery-20260908`; 192 fresh planned images, six fixed
+- Replacement: `prv2-oauth-recovery-20260908`; 192 measured images, six fixed
   scenes, four style arms,
   two color instructions and four repeats. Free and generic controls are shared.
 - Transport: source/process-verified local OAuth `gpt-image-2`, at most two calls
   in flight, starts at least five seconds apart, bounded technical retries.
+- Replacement source commit: `c020c3e`; freeze commit: `9574c35`; 145 bound inputs.
+- Terminal collection commit: `8a14c93`; primary and ancillary analysis commit:
+  `9741309`. The [primary bundle](../reports/painter_responsiveness_v2/prv2-oauth-recovery-20260908/experiment/REPORT.md)
+  contains 19 tables and four plot pairs. No primary data are missing.
 - Original source commit: `d3bbe65`; design freeze commit: `491cc10`; 131 bound inputs.
   Its terminal run retained 49 images, one complete HTTP 503 and 142 never-started
   slots. A [prospective correction](../studies/painter_responsiveness_recovery_v1/PROTOCOL.md)
@@ -24,11 +31,22 @@ perceptual resemblance or an identified internal model mechanism.
 - No OpenRouter requests or charges in this experiment. The prior conservative
   accounting remains $45.6819185 within the $75 ceiling; OAuth subscription usage
   is not assigned a monetary value.
-- Generated feature measurement begins after terminal collection. Human ratings,
-  new original-painting acquisition and learned features are outside this scope.
+- The ancillary predecessor was measured only after replacement collection ended;
+  its 49 images are not pooled into primary inference. Across both collections:
+  242 actual attempts, 241 unique images, one HTTP 503, zero retries. Both terminal
+  ledgers and all raw-response/image hashes verify.
+- All 192 primary outputs were nonsquare despite a square request; 174 reported low
+  quality and 18 medium despite a fixed medium request. These post-request fields
+  remain unfiltered. Findings concern the complete delivered-service response.
+- Human ratings, new original-painting acquisition and learned features are outside
+  this scope. The earlier manuscript remains unchanged.
+- Quantile correction: source `2062eab`, freeze `7380f80`. Exact rational weights
+  correct 51 primary-run and 15 ancillary-run quantile records, all medians. No
+  10th/90th percentile endpoints or central-80 inclusion memberships change. The
+  original bundles remain preserved; nine corrected report files replay exactly.
 
-Do not edit frozen v2 source, tests, configuration or protocol while collection is
-running. Do not launch a second collector. A stopped or completed allocation is
+Do not edit frozen v2 or recovery sources, tests, configuration or protocol.
+Collection is terminal; do not launch another collector. A stopped or completed allocation is
 closed and cannot be resumed or refilled. See the
 [implementation guide](../studies/painter_responsiveness_v2/README.md) and
 [protocol](../studies/painter_responsiveness_v2/PROTOCOL.md).
@@ -50,6 +68,21 @@ query/split identities and 25,920 predictions. A separate 5,000-trial-per-scenar
 precision sensitivity uses historical OAuth residual proxies and hypothetical
 interactions; it is not a human margin or a guarantee of future power.
 
+## New intervention finding
+
+Median-chroma vivid-minus-muted responses are 3.489, 2.636, 2.351 and 2.618 fixed
+development-IQR units for artist-free, generic, Monet and Cézanne. The secondary
+generic-minus-free contrast is −0.853 (nominal 95% interval [−1.136, −0.570]).
+Additional painter-minus-generic effects are Monet −0.284 (simultaneous family
+interval [−0.585, 0.016], Holm p=0.0649) and Cézanne −0.018 ([−0.343, 0.308],
+p=0.8886). Neither primary direction is resolved. The JPEG sensitivity's marginal
+Monet threshold crossing does not replace the prespecified primary result.
+
+The report compares empirical original/generated chroma distributions, including
+Wasserstein distance and directional range occupancy. Close means or wide range
+overlap do not establish matching distributions. Two extreme color instructions
+cannot identify a response curve or explain the original/generated gap by themselves.
+
 ## Preserved earlier work
 
 | Item | State |
@@ -63,22 +96,29 @@ interactions; it is not a human margin or a guarantee of future power.
 The original eight conditional randomization tests and all earlier evidence remain
 unchanged. The v1 human/reference prerequisites were not retroactively waived or
 fulfilled. Its source commit `79f3573`, D0/H0 freezes, reports, closed R0 receipt and
-ignored displays remain preserved. Current manuscript claims have not been upgraded
-with an unmeasured prospective result.
+ignored displays remain preserved. New findings are reported in the computational
+follow-up, not retroactively substituted into the earlier manuscript or tests.
 
 ## Verification
 
-The full v2 offline suite passed **1,112 tests**, including deterministic byte
-replay and unavailable-primary output. The isolated recovery tests are additional.
-Ruff passes. The retained-data analysis and all nine diagnostic report files
-reproduce byte for byte. Both actual diagnostic plots and all six synthetic plot
-types were visually checked. Three
+The complete offline suite, including transport and quantile corrections, passes
+**1,135 tests** (115.88 s), including deterministic byte replay and
+unavailable-primary output.
+Ruff passes. The retained-data analysis and both experiment analyses reproduce;
+all **65 published report files** match byte for byte. Both actual diagnostic plots,
+all four actual primary plots, and synthetic unavailable-result plots were visually
+checked. Both corrected reference-context displays were also visually verified,
+and all 66 median correction records matched a separate exact-weight reconstruction.
+Three
 maintainer-run LLM subagents reviewed methods, transport and rendering, with
 coordinator checks; these are not independent human or institutional reviews.
 See the [review record](reviews/20260908_computational_responsiveness/REVIEW.md).
 
 The historical evidence audit passes **2,902 checks with zero failures**, retaining
 only its two existing acknowledgements. This historical audit does not register v2;
-its own offline numerical/report replay commands are separate. After terminal
-publication, `make computational-responsiveness` verifies both new report bundles.
+its own offline numerical/report replay commands are separate.
+`make computational-responsiveness` verifies the diagnostic, primary replacement
+and ancillary predecessor report bundles using the retained response archive,
+then the numerical quantile correction. Together these checks cover **74 report
+files**, in addition to their saved-vector calculations and input/output hashes.
 Current guidance is mutable; [ARTIFACTS.md](ARTIFACTS.md) governs retained evidence.

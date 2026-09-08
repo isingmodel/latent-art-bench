@@ -1,0 +1,50 @@
+{
+  "freeze_sha256": "c2eb58500657b34972fb70dc4d23841230680cebe314d4144f9d226a7e4d5d5a",
+  "new_feature_extractions": 0,
+  "new_images": 0,
+  "outputs": [
+    {
+      "path": "data/manifests/painter_responsiveness_quantiles_v1/prqv1-20260908/corrections.json",
+      "sha256": "59192814310c86aab7306991e6bd7df83e318a8c7f0522965306109c81149a3e"
+    },
+    {
+      "path": "reports/painter_responsiveness_quantiles_v1/prqv1-20260908/REPORT.md",
+      "sha256": "f9cda6032a6875945a6cf2d9add154e7e7ebf96acd836ee5f0807582be7b7eaa"
+    },
+    {
+      "path": "reports/painter_responsiveness_quantiles_v1/prqv1-20260908/prv2-oauth-20260908/coverage_corrections.csv",
+      "sha256": "7703741f562b3f2c276fc35a9aba6f2de114df21e80f56ebf257cdb5ea03115c"
+    },
+    {
+      "path": "reports/painter_responsiveness_quantiles_v1/prqv1-20260908/prv2-oauth-20260908/plots/original_chroma_context.png",
+      "sha256": "61de16d9a17e0b9a00b7b7a16cffe57d60c8f6317f96bba293da1e8c569bd19a"
+    },
+    {
+      "path": "reports/painter_responsiveness_quantiles_v1/prqv1-20260908/prv2-oauth-20260908/plots/original_chroma_context.svg",
+      "sha256": "feddce7cb7f110d1a57e701317a2d53d4b9dc6d85a0821da48199b357238508b"
+    },
+    {
+      "path": "reports/painter_responsiveness_quantiles_v1/prqv1-20260908/prv2-oauth-20260908/quantile_corrections.csv",
+      "sha256": "b3e5528dd28c13ee955d8379a4be9eb38a35fa802c6273bd4277474b5a70e669"
+    },
+    {
+      "path": "reports/painter_responsiveness_quantiles_v1/prqv1-20260908/prv2-oauth-recovery-20260908/coverage_corrections.csv",
+      "sha256": "7703741f562b3f2c276fc35a9aba6f2de114df21e80f56ebf257cdb5ea03115c"
+    },
+    {
+      "path": "reports/painter_responsiveness_quantiles_v1/prqv1-20260908/prv2-oauth-recovery-20260908/plots/original_chroma_context.png",
+      "sha256": "48bb646dfeb7501ebf31112c8194ce99e076fb13fe5e2d40a64aaae54ee1c726"
+    },
+    {
+      "path": "reports/painter_responsiveness_quantiles_v1/prqv1-20260908/prv2-oauth-recovery-20260908/plots/original_chroma_context.svg",
+      "sha256": "27ff19c69259a4a4dda512cf57958951091e656852649c1ff3f27d16e1747e81"
+    },
+    {
+      "path": "reports/painter_responsiveness_quantiles_v1/prqv1-20260908/prv2-oauth-recovery-20260908/quantile_corrections.csv",
+      "sha256": "ecb89f0474169e5bf8146fba8db48e87865b90c08aa0bffe24540912bb2c0153"
+    }
+  ],
+  "recorded_git_commit": "2062eab23dd9002708ea62cbe32618c6da171398",
+  "run_id": "prqv1-20260908",
+  "terminal": true
+}

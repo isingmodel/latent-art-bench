@@ -16,6 +16,11 @@ to the earlier paper can be resolved with:
 git show 52fa1d6:papers/painter_distribution_study_v1/paper.tex
 ```
 
+`reports/painter_responsiveness_v2/REPORT.md` is the current editorial synthesis
+of the computational follow-up. Its linked per-run numerical/report bundles and
+the versioned quantile corrigendum are immutable evidence. Editing the synthesis
+does not authorize overwriting those published inputs or their displays.
+
 The [analysis map](ANALYSES.md) connects every study to its computation, plotting,
 inputs, methods and replay command. Scientific packages remain versioned at
 recorded paths. Rearranging a frozen package merely to shorten its name would

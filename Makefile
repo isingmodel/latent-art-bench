@@ -40,7 +40,9 @@ responsiveness:
 
 computational-responsiveness:
 	$(PYTHON) -m latent_art_bench.painter_responsiveness_v2 check-diagnostic
+	$(PYTHON) -m latent_art_bench.painter_responsiveness_recovery_v1 check
 	$(PYTHON) -m latent_art_bench.painter_responsiveness_v2 check
+	$(PYTHON) -m latent_art_bench.painter_responsiveness_quantiles_v1 check
 
 figures:
 	$(PYTHON) paper/make_figures.py
