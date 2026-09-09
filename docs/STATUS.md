@@ -1,9 +1,9 @@
 # Current status — 2026-09-09
 
-The project is in the **paper-correction phase**. The current correction restores
-Sisley and Pissarro alongside Monet and Cézanne in a substantive four-painter
-analysis, using retained data. Collection and measurement remain complete; no
-collector is active. Work is on `codex/restore-four-artist-analysis`.
+The project is in the **paper-correction phase**. The latest correction revises
+the entire English manuscript for prose, terminology and structure, preserving
+the restored four-painter analysis and every scientific result. Collection and
+measurement remain complete; no collector is active. Work is on `codex/restore-four-artist-analysis`.
 
 Before this correction, local `main` was fast-forwarded
 from `bdd57e9` to `ecc2c2b`, incorporating `research/pfg-v2-paper` and preserving
@@ -18,16 +18,19 @@ The prior integration cleanup clarified Study 1 versus Study 2 replay commands, 
 `make figures-check`, consolidated current status and rewrote the handover.
 Frozen code, protocols and evidence retain their recorded paths; the approved
 English manuscript and both user-owned Korean files were byte-unchanged during
-that integration. The English paper now changes to restore four-artist coverage;
-the Korean files remain untouched.
+that integration. The English paper has since restored four-artist coverage and
+received a full editorial revision; the Korean files remain untouched.
 
 ## Manuscript and correction baseline
 
 The canonical English manuscript is [paper/paper.tex](../paper/paper.tex):
 **Painter Naming and the Distributional Gap Between Generated Images and
-Original Paintings**, with a [24-page PDF](../paper/paper.pdf) and six vector
-figures. The restoration adds main-text four-painter methods/results, all-method
-scatter plots, matched-size reference baselines and all 24 distribution cells.
+Original Paintings**, with a [23-page PDF](../paper/paper.pdf) and six vector
+figures. The current revision shortens the abstract and repeated study previews,
+defines comparison terms consistently, keeps variance and retrieval results
+adjacent, presents Study 2 primary results before secondary contrasts, and aligns
+the appendices with the study sequence. All four painters, all 24 exploratory
+cells, and the separate controlled cohorts remain included.
 The [restoration review](reviews/20260909_four_painter_restoration.md) records
 the omission history, source checks and two skeptical maintainer-run LLM reviews.
 
@@ -94,7 +97,20 @@ unperformed. Paper correction does not reopen image acquisition or extraction.
 
 ## Verification
 
-Four-painter restoration checks passed:
+The latest editorial correction passed:
+
+- Two maintainer-run LLM subagents reviewed clarity/structure and scientific
+  wording, followed by a review of the revision. No blocking claim drift remained.
+- Every table body, displayed equation, figure inclusion and citation key is
+  unchanged from restoration commit `328102a`, allowing for reordering.
+- The smallest relevant offline suite passed: **19 tests**. Python behavior and
+  frozen scientific inputs were not changed, so the full suite and evidence
+  audit were not rerun for this text-only correction.
+- All six manuscript figures reproduce byte for byte. The **23-page PDF** builds
+  without warnings; all pages were visually checked and awkward float/paragraph
+  breaks corrected. Whitespace checks pass and both Korean files are unchanged.
+
+The earlier four-painter restoration checks passed:
 
 - Ruff and **1,135 offline tests** (113.56 seconds), following 19 targeted tests.
 - Exploration, Stage A and retry-presentation replay: **35 + 18 + 9 = 62 report
@@ -107,7 +123,8 @@ Four-painter restoration checks passed:
   Both user-owned Korean manuscript files remain byte-unchanged.
 
 The [restoration review](reviews/20260909_four_painter_restoration.md) records
-manuscript verification and visual QA. No new images or charges were incurred.
+verification and visual QA of the preceding 24-page revision. No new images or
+charges were incurred.
 
 Prior integration checks are recorded in commit `e989cfb`; the earlier
 [computational review](reviews/20260908_computational_responsiveness/REVIEW.md)

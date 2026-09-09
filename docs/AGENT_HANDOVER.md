@@ -4,8 +4,8 @@ Read [STATUS.md](STATUS.md), then [ARTIFACTS.md](ARTIFACTS.md), inspect
 `git status --short --branch`, and follow [AGENTS.md](../AGENTS.md). This is mutable
 orientation, not a protocol or authorization to reopen research stages.
 
-The current phase is **paper correction**, with four-artist coverage restored on
-`codex/restore-four-artist-analysis`. Before this correction, local `main` was fast-forwarded from
+The current phase is **paper correction**, with four-artist coverage restored
+and a full editorial revision completed on `codex/restore-four-artist-analysis`. Before this correction, local `main` was fast-forwarded from
 `bdd57e9` to `ecc2c2b`, incorporating `research/pfg-v2-paper` without rewriting
 history. No remote push was performed. No image collection or measurement process
 is active, and there is no pending acquisition task.
@@ -24,12 +24,12 @@ checks and [paper/README.md](../paper/README.md) for the canonical editing workf
 The sole maintained English manuscript is
 [paper/paper.tex](../paper/paper.tex), titled **Painter Naming and the
 Distributional Gap Between Generated Images and Original Paintings**, with a
-[24-page PDF](../paper/paper.pdf) and six vector figures. See the
+[23-page PDF](../paper/paper.pdf) and six vector figures. See the
 [paper guide](../paper/README.md) for its bibliography, scientific inputs, build
 instructions and access status. Earlier drafts remain in Git history.
 
-The current correction restores Sisley and Pissarro to a main-text four-painter
-analysis, including all-method scatter panels, classifier/spread summaries,
+The preceding correction (`328102a`) restored Sisley and Pissarro to a main-text
+four-painter analysis, including all-method scatter panels, classifier/spread summaries,
 matched-size reference baselines and all 24 alias/method cells. It uses only
 retained numeric evidence. See the
 [restoration review](reviews/20260909_four_painter_restoration.md) for why coverage
@@ -37,6 +37,16 @@ was lost, the two skeptical reviews and validation. New collection had focused
 on Monet/Cézanne for service breadth and reference curation within the budget;
 the plan explicitly retained all four painters in earlier diagnostics. The
 omission occurred in later writing, not because Sisley/Pissarro lacked data.
+
+The latest correction reads and revises the complete English TeX for text quality
+and structure. It removes repeated study previews and administrative phrasing,
+standardizes proximity/spread/contraction terminology, places sensitivity analyses
+after variance and retrieval, leads Study 2 with its unresolved primary tests,
+and reorders appendices to follow the studies. All table and equation bodies,
+figure inclusions and citation keys are unchanged. Two maintainer-run LLM
+subagents reviewed the initial manuscript and the revision; layout issues were
+then corrected through page-by-page inspection. This correction adds no new
+measurements, statistical claims or review scores.
 
 The prior substantive manuscript revision is commit `dd314ee`. It gives each controlled study its
 own methods and results, clarifies the contribution and evidence hierarchy,
@@ -144,8 +154,10 @@ revision had all 19 PDF pages visually checked. See [STATUS.md](STATUS.md) for
 the precise check record. These checks do not automatically validate later
 edits. The restoration reran Ruff, all 1,135 offline tests and the historical
 audit; its three dedicated replay commands reproduced all 62 report files.
-Current manuscript/figure checks are in the restoration review. Tests marked
-`live` require explicit authorization.
+The restoration review describes that prior artifact; the latest text-only
+correction and its 19 targeted tests, figure checks and complete PDF QA are
+recorded in [STATUS.md](STATUS.md). Tests marked `live` require explicit
+authorization.
 
 ## Limits and next-agent priorities
 

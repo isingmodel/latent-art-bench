@@ -4,8 +4,14 @@ The canonical English manuscript is [paper.tex](paper.tex), compiled to
 [paper.pdf](paper.pdf), with [references.bib](references.bib). It restores the
 four-painter distributional analysis to the main text, followed by the separate
 two-painter controlled distribution study, scene-retrieval diagnostics and
-controlled color-response experiment. The current draft is 24 pages with six
+controlled color-response experiment. The current draft is 23 pages with six
 vector figures.
+The latest editorial pass revises the whole manuscript for clarity and structure:
+it condenses the abstract and Introduction, uses consistent comparison terms,
+keeps variation and scene retrieval together, leads Study 2 with its primary
+interactions, and orders appendices by study. All numerical tables, equations,
+figures and citation keys remain unchanged. Two maintainer-run LLM subagents
+reviewed the prose and scientific wording; the PDF received complete visual QA.
 Earlier drafts and the superseded paper are retained only in Git history.
 The [four-painter restoration record](../docs/reviews/20260909_four_painter_restoration.md)
 documents the omission history, restored evidence, two maintainer-run LLM reviews,
