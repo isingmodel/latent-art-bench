@@ -1,0 +1,5 @@
+family,fraction_increasing,high,low,mean_high_minus_low,painter_id
+color,1.0,chroma60,chroma80,0.28409180544579354,claude_monet
+color,1.0,chroma60,chroma80,0.2566969913727932,paul_cezanne
+texture,1.0,blur2,blur1,4.286237463011539,claude_monet
+texture,1.0,blur2,blur1,4.4098165548609085,paul_cezanne

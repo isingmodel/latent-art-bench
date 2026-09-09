@@ -6,7 +6,7 @@ CONTROLLED := latent_art_bench.painter_distribution_study_v1
 REVISION := latent_art_bench.painter_distribution_revision_v1
 PAPER_BUILD := tmp/paper/build
 
-.PHONY: help check evidence analysis four-painter-analysis plots responsiveness computational-responsiveness palette-check figures figures-check paper
+.PHONY: help check evidence analysis four-painter-analysis plots responsiveness computational-responsiveness palette-check validation-check replication-check figures figures-check paper
 
 help:
 	@echo 'Paper correction: paper/README.md and docs/AGENT_HANDOVER.md'
@@ -20,7 +20,9 @@ help:
 	@echo 'make responsiveness  Replay the v1 mechanism diagnostics and plots'
 	@echo 'make computational-responsiveness  Replay v2 computational results and plots'
 	@echo 'make palette-check  Replay Study 2 primary inference from compact numeric inputs'
-	@echo 'make figures   Render the seven manuscript figures from retained numeric inputs'
+	@echo 'make validation-check  Replay computational challenges and geometry sensitivity'
+	@echo 'make replication-check  Replay the terminal temporal replication from retained measurements'
+	@echo 'make figures   Render the eight manuscript figures from retained numeric inputs'
 	@echo 'Other studies: docs/ANALYSES.md'
 
 check:
@@ -56,13 +58,21 @@ computational-responsiveness:
 palette-check:
 	$(PYTHON) paper/replay_palette.py
 
+validation-check:
+	$(PYTHON) -m latent_art_bench.painter_measurement_validation_v1 check
+
+replication-check:
+	$(PYTHON) -m latent_art_bench.painter_naming_replication_v1 check
+
 figures:
 	$(PYTHON) paper/make_figures.py
 	$(PYTHON) paper/replay_palette.py --figure paper/figures/palette_blocks.pdf
+	$(PYTHON) paper/make_validation_figure.py
 
 figures-check:
 	$(PYTHON) paper/make_figures.py --check
 	$(PYTHON) paper/replay_palette.py --check-figure paper/figures/palette_blocks.pdf
+	$(PYTHON) paper/make_validation_figure.py --check
 
 paper: figures
 	mkdir -p $(PAPER_BUILD)

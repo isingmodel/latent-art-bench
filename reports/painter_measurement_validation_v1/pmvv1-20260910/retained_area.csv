@@ -1,0 +1,9 @@
+group,images,max_retained_area_fraction,mean_retained_area_fraction,median_retained_area_fraction,min_retained_area_fraction,painter_id
+flux_2_max,144,1.0,1.0,1.0,1.0,claude_monet
+flux_2_max,144,1.0,1.0,1.0,1.0,paul_cezanne
+nano_banana_2,144,1.0,1.0,1.0,1.0,claude_monet
+nano_banana_2,144,1.0,1.0,1.0,1.0,paul_cezanne
+oauth_gpt_image_2,216,1.0,0.8103661344072498,0.8,0.7518355359765051,claude_monet
+oauth_gpt_image_2,214,1.0,0.8164147009587384,0.8,0.7925696594427245,paul_cezanne
+reference,38,0.9570093457943926,0.7343293657956508,0.7496403957254788,0.49468599033816424,claude_monet
+reference,32,0.8677966101694915,0.7649552714640049,0.7883028958297775,0.5251282051282051,paul_cezanne

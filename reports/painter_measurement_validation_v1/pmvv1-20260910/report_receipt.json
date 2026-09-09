@@ -1,0 +1,42 @@
+{
+  "analysis_sha256": "71d911bc5344fc5ab532e9ef4625f5eadd5e86284266b054fb01bfe5e4393f88",
+  "outputs": [
+    {
+      "path": "reports/painter_measurement_validation_v1/pmvv1-20260910/REPORT.md",
+      "sha256": "32ca3a8465610cd95634a032d6560a88eea99f1a20718f37d90a5b542e7dc6bd"
+    },
+    {
+      "path": "reports/painter_measurement_validation_v1/pmvv1-20260910/challenge_matrix.pdf",
+      "sha256": "b6ff250f20fc3d278ff5d491b6d35513e7d5542b1e8169f96a780a0e567d3ae1"
+    },
+    {
+      "path": "reports/painter_measurement_validation_v1/pmvv1-20260910/challenge_matrix.png",
+      "sha256": "9f1708c3a88f52cd7602d8c18a2df0ee5bcc76375681d2186882f1d5271a72d3"
+    },
+    {
+      "path": "reports/painter_measurement_validation_v1/pmvv1-20260910/dose_responses.csv",
+      "sha256": "743c6c01501cdd122f60a4a94d3335fe755010d398f31e1d3b0ca876a778562e"
+    },
+    {
+      "path": "reports/painter_measurement_validation_v1/pmvv1-20260910/family_matrix.csv",
+      "sha256": "405bebe4a7527a4a1d3b31210c2c45aaf0734ee779e1f37cc4446b4ae6aff0e8"
+    },
+    {
+      "path": "reports/painter_measurement_validation_v1/pmvv1-20260910/geometry_contrasts.csv",
+      "sha256": "1d8fb4188a41423565991b1e57748eb56518ef84fcc22cc5a402bdedcab382ef"
+    },
+    {
+      "path": "reports/painter_measurement_validation_v1/pmvv1-20260910/geometry_contrasts.pdf",
+      "sha256": "8563226c2f4d1de2e24a3a95c39664560cd42301773473a65bac8034238f8d74"
+    },
+    {
+      "path": "reports/painter_measurement_validation_v1/pmvv1-20260910/geometry_contrasts.png",
+      "sha256": "5bb7ec459cb37dad0d517260ade3f8a8eb2181f4a3b779b0cec70e988fb5d509"
+    },
+    {
+      "path": "reports/painter_measurement_validation_v1/pmvv1-20260910/retained_area.csv",
+      "sha256": "c61f6231b6fe7b219af91bd6c94062f207fd768f90ed11e1e1d07d13a5304ce3"
+    }
+  ],
+  "run_id": "pmvv1-20260910"
+}
