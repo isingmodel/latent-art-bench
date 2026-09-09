@@ -12,6 +12,20 @@ paths, ledger fields and duplicate scaled coordinates are omitted. Payload hashe
 retain the existing cross-painter control matching. The transformation and every
 source hash are recorded in the export manifest.
 
+Exact prompt sources included in the final release are:
+
+- Four-painter 16-scene library:
+  `data/manifests/painter_feature_generation_v1/prompt_library.json`.
+- Study 1's 24 detailed/short scene briefs:
+  `configs/painter_distribution_study_v1/research.json`.
+- Study 2's six scenes and exact style/palette clauses:
+  `configs/painter_responsiveness_v2/study.json`.
+
+The unchanged exploratory prompt builder reconstructs all 240 literal method,
+painter and control strings from the first source. The temporal follow-up reuses
+the two controlled-study scene inventories. These files pass the same screening,
+manifest hashing and final-source-commit check as other allowlisted inputs.
+
 From the retained maintainer checkout:
 
 ```sh
@@ -55,6 +69,10 @@ create-once 1706-vector extension, its expected result and original source hashe
 after the measurement run's complete receipt exists. It calls the frozen
 `pipeline.compute(rows, bundle)` and restores each old row's reference/generated
 stage from its containing collection. No frozen measurement code is modified.
+The checker separately recomputes the post-result LBP8 share of mean squared
+texture displacement under one-pixel blur, averaging work means equally across
+the two painters. Its recorded share and original IQR do not alter the frozen
+analysis or become prespecified validation endpoints.
 
 `export-replication` similarly adds the terminal fresh generation cohort's assigned
 requests, all slot/pipeline outcomes, configuration, historical comparison rows and
@@ -67,6 +85,12 @@ delivery. It contains no response body, header or local path and does not establ
 independent authentication of service transport.
 Neither extension can be exported before its bound output receipt exists; pending
 studies are absent from completed replay coverage.
+
+If present at export, the post-result `integrity_audit.json` and its source script
+are included with hashes as recorded metadata. Full duplicate, delivery, spacing
+and concurrency auditing requires retained maintainer metadata. The public numeric
+checker does not claim to recompute those summaries; the primary scientific
+inference still receives full numerical replay.
 
 Final `build` verifies that every copied original source/data/design/manuscript file
 matches the final local Git commit. The manifest distinguishes that build commit

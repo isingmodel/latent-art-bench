@@ -39,6 +39,14 @@ STUDY1 = Path("data/manifests/painter_distribution_study_v1")
 REVISION = Path("data/manifests/painter_distribution_revision_v1/pdrv1-numeric-20260907")
 PALETTE = Path("data/manifests/painter_responsiveness_v2")
 PALETTE_RUNS = ("prv2-oauth-recovery-20260908", "prv2-oauth-20260908")
+PROMPT_SOURCES = {
+    "Four-painter exploratory scenes": Path(
+        "data/manifests/painter_feature_generation_v1/prompt_library.json"),
+    "Study 1 detailed and short scenes": Path(
+        "configs/painter_distribution_study_v1/research.json"),
+    "Study 2 scenes and style/palette clauses": Path(
+        "configs/painter_responsiveness_v2/study.json"),
+}
 PURE_KEYS = (
     "cells", "endpoints", "sensitivity_contrasts", "baselines", "coverage",
     "classifiers", "projections", "specificity", "availability",
@@ -477,6 +485,13 @@ def export_replication(root, release_id):
     expected = read(root / report)
     screen_numerical(payload)
     screen_numerical(expected)
+    audit_path = common.REPORTS / common.RUN_ID / "integrity_audit.json"
+    audit_files = []
+    if (root / audit_path).exists():
+        screen_numerical(read(root / audit_path))
+        audit_files = [audit_path, Path("tools/audit_naming_replication.py")]
+        if not all((root / p).is_file() for p in audit_files):
+            raise ValueError("recorded integrity audit requires its source script")
     input_path = DATA / release_id / "replication_inputs.json"
     expected_path = REPORTS / release_id / "replication_expected.json.gz"
     descriptor_path = DATA / release_id / "replication_extension.json"
@@ -490,7 +505,7 @@ def export_replication(root, release_id):
                                          "freeze.json", "slot_outcomes.jsonl",
                                          "generation_events.jsonl")]
     sources += [report, common.CONFIG, common.STUDIES / "PROTOCOL.md",
-                common.OLD_NAMING, common.OLD_PALETTE]
+                common.OLD_NAMING, common.OLD_PALETTE, *audit_files]
     descriptor = dict(
         component="replication", input_path=input_path.as_posix(),
         input_sha256=sha((root / input_path).read_bytes()),
@@ -501,7 +516,8 @@ def export_replication(root, release_id):
         public_design_files=[common.CONFIG.as_posix(), (common.STUDIES / "PROTOCOL.md").as_posix(),
                              (source / "freeze.json").as_posix(),
                              (source / "collection_receipt.json").as_posix(),
-                             (source / "measurement_receipt.json").as_posix()],
+                             (source / "measurement_receipt.json").as_posix(),
+                             *(p.as_posix() for p in audit_files)],
         coverage=dict(id="replication", scope="painter_naming_replication_v1: primary; "
                       "distributions; palette; naming_contributions",
                       mode="recomputed_from_new_collection_measurements",
@@ -515,6 +531,14 @@ def export_replication(root, release_id):
                       "A maintainer-run new generation cohort is not an independent investigator "
                       "or an independent image-capture replication."),
     )
+    if audit_files:
+        descriptor["coverage"]["recorded_integrity_audit"] = dict(
+            path=audit_path.as_posix(), mode="recorded_post_result_integrity_audit",
+            details="Recorded post-result integrity audit; requires retained maintainer "
+            "metadata for the full audit. Its JSON and source script are hash-bound here, "
+            "but the public numerical check does not recompute its duplicate, delivery, "
+            "spacing or concurrency summaries. Main scientific inference is replayed in full.",
+        )
     write_new(root / descriptor_path, descriptor)
     return dict(status="replication_extension_exported", requests=len(requests), rows=len(measured))
 
@@ -549,6 +573,12 @@ def delivery_metadata(requests, slots, events):
 def current_coverage(entries, *, challenge_figure=False):
     """Describe added displays without rewriting the create-once core export."""
     result = copy.deepcopy(entries)
+    for item in result:
+        if item["id"] == "measurement":
+            item["post_result_diagnostic"] = (
+                "Recomputed equal-painter mean-squared texture response share of lbp_entropy_8 "
+                "under blur1 from paired reference vectors and the original primary scaler; "
+                "a post-result description, not a prespecified validation endpoint.")
     if challenge_figure:
         item = next(row for row in result if row["id"] == "figures")
         item.update(scope="All eight manuscript figures", details="Six figures use hash-checked "
@@ -557,6 +587,32 @@ def current_coverage(entries, *, challenge_figure=False):
                     "replayed by the measurement extension. Numeric bridges and PDF bytes "
                     "are checked separately.")
     return result
+
+
+def blur_texture_share(measured, scaler):
+    """Post-result coordinate share; preserve work pairing and equal painter mass."""
+    import numpy as np
+
+    from latent_art_bench.painter_feature_generation_v2.features import FAMILIES, NAMES
+
+    baseline = {r["image_id"]: r for r in measured
+                if r["stage"] == "reference" and r["condition"] == "baseline"}
+    blurred = {r["image_id"]: r for r in measured
+               if r["stage"] == "reference" and r["condition"] == "blur1"}
+    if baseline.keys() != blurred.keys():
+        raise ValueError("post-result blur diagnostic requires complete work pairs")
+    means = []
+    for painter in sorted({r["painter_id"] for r in baseline.values()}):
+        delta = np.asarray([np.asarray(blurred[key]["values"]) - np.asarray(row["values"])
+                            for key, row in baseline.items() if row["painter_id"] == painter])
+        means.append(np.mean((delta / np.asarray(scaler["scale"])) ** 2, axis=0))
+    if len(means) != 2:
+        raise ValueError("post-result blur diagnostic requires two reference painters")
+    squared = np.mean(means, axis=0)
+    index = NAMES.index("lbp_entropy_8")
+    return dict(lbp8_texture_squared_response_share=float(squared[index] /
+                                                        squared[FAMILIES["texture"]].sum()),
+                lbp8_original_development_iqr=scaler["scale"][index])
 
 
 def assert_digest(value, expected, label, *, reference=None, portable_numeric=False):
@@ -697,10 +753,19 @@ def check_numeric(root, release_id, *, components=None, output=None, portable_nu
         if (sha(raw) != extension["input_sha256"]
                 or sha(expected_raw) != extension["expected_file_sha256"]):
             raise ValueError("measurement extension checksum differs")
-        result = native(compute(json.loads(raw), bundle))
+        measured = json.loads(raw)
+        result = native(compute(measured, bundle))
         checks.append(assert_digest(result, extension["expected_numeric_sha256"], "measurement",
                                     reference=json.loads(gzip.decompress(expected_raw)),
                                     portable_numeric=portable_numeric))
+        share = blur_texture_share(measured, bundle["scalers"]["primary512"]["scaler"])
+        share_reference = dict(lbp8_texture_squared_response_share=.838534929880718,
+                               lbp8_original_development_iqr=.008854580480121665)
+        checks.append({**assert_digest(share, digest(share_reference),
+                                       "measurement/post_result_blur_lbp8_share",
+                                       reference=share_reference,
+                                       portable_numeric=portable_numeric),
+                       "value": share, "scope": "post_result_descriptive_diagnostic"})
         if output:
             write_new(output / "measurement.json", result)
         manifest["coverage"] = [*manifest["coverage"], extension["coverage"]]
@@ -912,8 +977,7 @@ def build(root, release_id, destination, *, draft=False):
         "painter_feature_generation_v2/PROTOCOL.md",
         "painter_feature_generation_v2/PROTOCOL_1.3.md",
     )}
-    allowlist |= {Path("configs/painter_distribution_study_v1/research.json"),
-                  Path("configs/painter_responsiveness_v2/study.json")}
+    allowlist |= set(PROMPT_SOURCES.values())
     # The coverage table is not a plotting dependency, but must be directly accessible.
     allowlist.add(Path("reports/painter_distribution_revision_v1/"
                        "pdrv1-numeric-20260907/heldout_real_controls.csv"))
@@ -1091,6 +1155,14 @@ procedures; they are not registrations in an independent preregistration registr
 `data/manifests/paper_reproducibility_v1/{release_id}/source_catalog.json` supplies
 recorded source URLs, work IDs, file identities and license metadata. These links
 are not guarantees of current image access or permission to redistribute pixels.
+
+The exact prompt sources are:
+
+{chr(10).join(f'- {label}: `{path.as_posix()}`' for label, path in PROMPT_SOURCES.items())}
+
+The unchanged `painter_prompt_study_v1.prompts.build_library` reconstructs all 240
+exploratory method/painter/control strings from the 16-scene library. The two
+controlled inventories also supply the scene text reused by the temporal follow-up.
 
 Publication and anonymous-download verification are recorded separately on the
 [versioned release](https://github.com/isingmodel/latent-art-bench/releases/tag/{release_id}).

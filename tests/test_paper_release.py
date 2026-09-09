@@ -3,6 +3,7 @@
 import hashlib
 import importlib.util
 import json
+import shutil
 from pathlib import Path
 
 import pytest
@@ -150,3 +151,42 @@ def test_isolation_blocks_socket_creation_and_datagram_paths(monkeypatch, tmp_pa
         with pytest.raises(PermissionError, match="network access is prohibited"):
             hooks[0](event, (None, ("127.0.0.1", 9)))
     assert counters["network_attempts"] == 5
+
+
+def test_released_prompt_sources_reconstruct_complete_exploratory_library(tmp_path):
+    from latent_art_bench.painter_prompt_study_v1.prompts import build_library
+
+    source_root = Path(__file__).resolve().parents[1]
+    for relative in release.PROMPT_SOURCES.values():
+        target = tmp_path / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(source_root / relative, target)
+    # This unchanged scientific function validates the retained literal-string hashes;
+    # the temporary input root contains only the three explicitly released inventories.
+    library = build_library(tmp_path)
+    assert len(library["prompts"]) == 240
+    assert len({row["template_id"] for row in library["prompts"]}) == 16
+    assert {row["condition"] for row in library["prompts"]} == {
+        "artist_free", "claude_monet", "alfred_sisley", "camille_pissarro", "paul_cezanne"}
+
+
+def test_blur_share_uses_paired_scaled_deltas_and_equal_painter_means():
+    from latent_art_bench.painter_feature_generation_v2.features import FAMILIES, NAMES
+
+    rows = []
+    index = NAMES.index("lbp_entropy_8")
+    scale = [1.0] * 31
+    scale[index] = 2.0
+    for identity, painter, lbp, other in (("a0", "monet", 4, 1), ("a1", "monet", 4, 1),
+                                         ("b0", "cezanne", 0, 3)):
+        for condition in ("baseline", "blur1"):
+            values = [0.0] * 31
+            if condition == "blur1":
+                values[index] = lbp
+                values[FAMILIES["texture"].start] = other
+                values[0] = 100.0  # Color displacement must not enter the denominator.
+            rows.append(dict(image_id=identity, painter_id=painter, stage="reference",
+                             condition=condition, values=values))
+    value = release.blur_texture_share(rows, {"scale": scale})
+    assert value["lbp8_texture_squared_response_share"] == pytest.approx(2 / 7)
+    assert value["lbp8_original_development_iqr"] == 2.0
