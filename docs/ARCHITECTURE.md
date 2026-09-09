@@ -1,8 +1,9 @@
 # Architecture
 
 LatentArtBench is a Python package with versioned research namespaces. The current
-paper combines two completed experiments with descriptive distribution and scene
-retrieval diagnostics. All replay measured vectors and metadata offline. Historical acquisition
+paper combines the original four-painter distributional exploration with two
+later controlled experiments and scene-retrieval diagnostics. All replay measured
+vectors and metadata offline. Historical acquisition
 and generation implementations remain as reproducibility dependencies.
 
 For the current paper-correction phase, start in `paper/paper.tex`,
@@ -13,6 +14,11 @@ For the current paper-correction phase, start in `paper/paper.tex`,
 ## Current analysis path
 
 ```text
+Four-painter exploration: 649 references + 1,536 named + 384 artist-free outputs
+    -> painter_distribution_exploration_v1: distributions and held-scene detection
+    -> painter_distribution_study_v1/diagnostics.py: Stage A controls
+    -> painter_prompt_retry_report_v2: saved retry-contrast presentation
+
 Study 1: 1,006 generated records + 70 references + 221 development works
     -> painter_distribution_study_v1: controlled analysis
     -> painter_distribution_revision_v1: descriptive diagnostics
@@ -25,7 +31,7 @@ Study 2: separate 192-image primary run + shared references/development scalers
 
 Each analysis -> sealed numerical results in data/manifests/
               -> complete report tables and plots in reports/
-Selected saved tables -> paper/make_figures.py: five manuscript figures
+Selected saved tables -> paper/make_figures.py: six manuscript figures
                       -> paper/paper.tex -> paper/paper.pdf
 ```
 
@@ -33,6 +39,13 @@ The revision checks consistency with the original primary endpoints. Its report
 renderer is separately bound and verified. The manuscript figure builder reads
 hash-checked published values and saved PCA coordinates; it does not fit a new
 projection or produce new statistical estimates.
+The four-painter plot reads `points.csv` and `projections.json` from the saved
+exploration, retaining all 649 originals and 1,536 named outputs across Monet,
+Sisley, Pissarro and Cézanne. Its PCA basis and limits are shared across prompt
+methods within each painter. The completed retry grid is descriptive: the two
+later successes remain flagged, requested aliases do not establish model
+identity, and the unavailable original complete-grid primary stays unavailable.
+These inputs are not pooled with either later controlled experiment.
 
 The preserved `painter_responsiveness_v1` reuses the retained loader, 31-feature
 extractor and original development scalers. It adds equal-brief diagnostics,
@@ -71,7 +84,9 @@ All package paths below are under `src/latent_art_bench/`.
 | `painter_distribution_study_v1/analysis.py`, `statistics.py`, `inference.py` | Original controlled estimates, numerical primitives and conditional randomization design |
 | `painter_distribution_study_v1/analysis_publication.py`, `main_report.py` | Original numerical and report replay entry points |
 | `painter_feature_generation_v2/features.py`, `statistics.py` | The 31-feature representation and frozen development-based transformations |
-| `painter_distribution_exploration_v1/statistics.py` | Shared fixed-kernel classification primitives |
+| `painter_distribution_exploration_v1/analysis.py`, `statistics.py`, `report.py` | Four-painter projection, spread and grouped-detection analysis; frozen primitives, reports and offline replay |
+| `painter_distribution_study_v1/diagnostics.py` | Four-painter Stage A reference, content and transfer controls |
+| `painter_prompt_retry_report_v2.py` | Presentation and byte replay of the saved four-painter retry contrasts |
 | `io.py`, `evidence.py` | Structured records/hashes and historical commit-bound evidence verification |
 
 The `latent-art-bench` Typer CLI exposes historical study commands and

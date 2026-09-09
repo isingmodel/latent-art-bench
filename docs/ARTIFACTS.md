@@ -6,8 +6,8 @@ that a file can be deleted.
 
 ## Current writing and code organization
 
-`paper/` contains the sole current manuscript, bibliography, plotting script and
-five manuscript figures. These are editable presentation artifacts. Superseded
+`paper/` contains the canonical English manuscript, bibliography, plotting script and
+six manuscript figures. These are editable presentation artifacts. Superseded
 manuscripts and documentation snapshots live in Git history rather than duplicate
 working-tree directories. For example, historical methodology-review citations
 to the earlier paper can be resolved with:
@@ -20,6 +20,12 @@ git show 52fa1d6:papers/painter_distribution_study_v1/paper.tex
 of the computational follow-up. Its linked per-run numerical/report bundles and
 the versioned quantile corrigendum are immutable evidence. Editing the synthesis
 does not authorize overwriting those published inputs or their displays.
+
+The restored four-painter paper section uses the existing distribution exploration,
+Stage A diagnostic and retry-presentation bundles. These are current descriptive
+paper inputs and remain terminal evidence at their original paths. The new
+manuscript scatter figure reads saved coordinates and variance ratios; it does
+not replace their original reports, fits or recorded retry dispositions.
 
 The [analysis map](ANALYSES.md) connects every study to its computation, plotting,
 inputs, methods and replay command. Scientific packages remain versioned at

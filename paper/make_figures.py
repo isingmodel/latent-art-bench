@@ -15,6 +15,7 @@ import csv
 import hashlib
 import io
 import json
+import math
 from pathlib import Path
 
 import matplotlib
@@ -28,7 +29,12 @@ OUTPUT = Path(__file__).resolve().parent / "figures"
 REVISION = "reports/painter_distribution_revision_v1/pdrv1-numeric-20260907/"
 CONTROLLED = "reports/painter_distribution_study_v1/pdsv1-analysis-20260907/"
 RESPONSIVENESS = "reports/painter_responsiveness_v2/"
+EXPLORATION = "reports/painter_distribution_exploration_v1/"
 SOURCES = {
+    EXPLORATION + "points.csv":
+        "7f8d8fa6e758920f1b384a0ec1c29ca3e3254a6c61a23c85bab17f0cb5370c96",
+    EXPLORATION + "projections.json":
+        "09b680de79d005ccad89b3dbdee88185f1dcbfb8ca60f663903d2eb6aee070a2",
     REVISION + "metric_cells.csv":
         "2cef4ce86a8201691963329e46c6e0a014c5c9c1d215e3c5c73bcfd2bdf05a06",
     REVISION + "prompt_contrasts.csv":
@@ -58,7 +64,11 @@ def read_tables():
         raw = (ROOT / relative).read_bytes()
         if hashlib.sha256(raw).hexdigest() != expected:
             raise ValueError(f"sealed figure input changed: {relative}")
-        tables[Path(relative).name] = list(csv.DictReader(io.StringIO(raw.decode("utf-8"))))
+        decoded = raw.decode("utf-8")
+        tables[Path(relative).name] = (
+            json.loads(decoded) if Path(relative).suffix == ".json"
+            else list(csv.DictReader(io.StringIO(decoded)))
+        )
     return tables
 
 
@@ -285,6 +295,109 @@ def color_responsiveness(tables):
     return fig
 
 
+def four_painter_distributions(tables):
+    """Display the saved four-painter exploration without refitting its projections."""
+    painters = {
+        "claude_monet": ("Monet", 297),
+        "alfred_sisley": ("Sisley", 106),
+        "camille_pissarro": ("Pissarro", 141),
+        "paul_cezanne": ("Cézanne", 105),
+    }
+    methods = {
+        "by_name": "Artist name",
+        "style_instruction": "Style instruction",
+        "style_aspects": "Style + aspects",
+    }
+    aliases = {"gpt-image-1": (BLUE, "^"), "gpt-image-2": (ORANGE, "s")}
+    rows = [r for r in tables["points.csv"]
+            if r["basis"] == "balanced_joint" and r["family"] == "all31"]
+    projected = [r for r in tables["projections.json"]
+                 if r["basis"] == "balanced_joint" and r["family"] == "all31"]
+    projections = {r["painter_id"]: r for r in projected}
+    if (len(rows) != 2185 or len({r["image_id"] for r in rows}) != 2185
+            or {r["painter_id"] for r in rows} != set(painters)
+            or len(projected) != 4 or set(projections) != set(painters)):
+        raise ValueError("four-painter figure requires all 649 originals and 1536 outputs")
+    retry_ids = {
+        "b0000-L3-camille_pissarro-by_name-gpt-image-1",
+        "b0003-B2-paul_cezanne-by_name-gpt-image-1",
+    }
+    if ({r["image_id"] for r in rows if r["retried"] == "True"} != retry_ids
+            or any(r["retried"] not in ("True", "False") for r in rows)):
+        raise ValueError("four-painter figure must identify exactly the two saved retries")
+    templates = {f"{family}{number}" for family in "LWRB" for number in range(1, 5)}
+    for painter, (_, count) in painters.items():
+        chosen = [r for r in rows if r["painter_id"] == painter]
+        originals = [r for r in chosen if r["domain"] == "original"]
+        outputs = [r for r in chosen if r["domain"] == "generated"]
+        projection = projections[painter]
+        ratios = projection["explained_variance_ratio"]
+        if (len(chosen) != count + 384 or len(originals) != count or len(outputs) != 384
+                or len(projection["feature_names"]) != 31 or len(ratios) != 2
+                or any(not math.isfinite(v) or not 0 < v < 1 for v in ratios)
+                or any(r["projection_id"] != f"{painter}/all31/balanced_joint"
+                       for r in [projection, *chosen])
+                or any(not math.isfinite(float(r[c])) for r in chosen for c in ("pc1", "pc2"))
+                or any(r["alias"] != "original" or r["method_id"] != "original"
+                       or r["retried"] != "False" for r in originals)):
+            raise ValueError(f"inconsistent four-painter reference/projection: {painter}")
+        for method in methods:
+            for alias in aliases:
+                cell = [r for r in outputs if r["method_id"] == method and r["alias"] == alias]
+                expected = {f"b{block:04d}-{template}-{painter}-{method}-{alias}"
+                            for block in range(4) for template in templates}
+                if len(cell) != 64 or {r["image_id"] for r in cell} != expected:
+                    raise ValueError(
+                        f"four-painter figure requires 64 identities: {painter}/{method}/{alias}"
+                    )
+
+    fig, axes = plt.subplots(4, 3, figsize=(160 / 25.4, 7.3), sharex="row", sharey="row")
+    grey = "#777777"
+    for ri, (painter, (label, _)) in enumerate(painters.items()):
+        chosen = [r for r in rows if r["painter_id"] == painter]
+        ratios = projections[painter]["explained_variance_ratio"]
+        for ci, method in enumerate(methods):
+            ax = axes[ri, ci]
+            originals = [r for r in chosen if r["domain"] == "original"]
+            ax.scatter([float(r["pc1"]) for r in originals],
+                       [float(r["pc2"]) for r in originals], color=grey, s=7,
+                       alpha=0.47, linewidths=0, zorder=1)
+            for alias, (color, marker) in aliases.items():
+                cell = [r for r in chosen if r["method_id"] == method and r["alias"] == alias]
+                ax.scatter([float(r["pc1"]) for r in cell],
+                           [float(r["pc2"]) for r in cell], color=color, marker=marker,
+                           s=10, alpha=0.66, linewidths=0, zorder=2)
+            retries = [r for r in chosen if r["method_id"] == method and r["retried"] == "True"]
+            ax.scatter([float(r["pc1"]) for r in retries],
+                       [float(r["pc2"]) for r in retries], facecolors="none",
+                       edgecolors=INK, marker="o", s=38, linewidths=0.8, zorder=3)
+            ax.axhline(0, color="#e7e7e7", linewidth=0.5, zorder=0)
+            ax.axvline(0, color="#e7e7e7", linewidth=0.5, zorder=0)
+            ax.set_aspect("equal", adjustable="box")
+            ax.set_xlabel(f"PC1 ({100 * ratios[0]:.1f}%)", fontsize=7, labelpad=2)
+            if ci == 0:
+                ax.set_ylabel(f"{label}\nPC2 ({100 * ratios[1]:.1f}%)", fontsize=7.5, labelpad=3)
+            if ri == 0:
+                ax.set_title(methods[method], fontsize=8, pad=7)
+            ax.tick_params(axis="both", labelsize=6.5, pad=2)
+        for coordinate, setter in (("pc1", "set_xlim"), ("pc2", "set_ylim")):
+            values = [float(r[coordinate]) for r in chosen]
+            low, high = min(values), max(values)
+            padding = 0.06 * (high - low)
+            getattr(axes[ri, 0], setter)(low - padding, high + padding)
+    fig.legend(handles=[
+        Line2D([], [], color=grey, marker="o", linestyle="", markersize=3.5, label="Originals"),
+        *[Line2D([], [], color=color, marker=marker, linestyle="", markersize=4,
+                 label=alias) for alias, (color, marker) in aliases.items()],
+        Line2D([], [], color=INK, marker="o", markerfacecolor="none", linestyle="",
+               markersize=4.5, label="Later retry"),
+    ], loc="upper center", bbox_to_anchor=(0.54, 0.995), ncol=4, frameon=False,
+               fontsize=7.2, columnspacing=1.3, handletextpad=0.35)
+    fig.subplots_adjust(left=0.11, right=0.99, top=0.915, bottom=0.055,
+                        wspace=0.22, hspace=0.40)
+    return fig
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output-dir", type=Path, default=OUTPUT)
@@ -294,7 +407,7 @@ def main():
     tables = read_tables()
     style()
     for maker in (primary_comparison, variation_ratios, common_pca,
-                  scene_retrieval, color_responsiveness):
+                  scene_retrieval, color_responsiveness, four_painter_distributions):
         fig = maker(tables)
         buffer = io.BytesIO()
         fig.savefig(buffer, format="pdf", metadata=PDF_METADATA)

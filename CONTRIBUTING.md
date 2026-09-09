@@ -34,14 +34,19 @@ contracts remain clear and their historical versions remain verifiable.
 Retain failures and negative results. Distinguish prospective tests from
 post-result diagnostics and finite-image findings from perceptual or population
 claims. Internal LLM reviews are not independent human peer review.
+The restored four-painter analysis is current descriptive paper evidence, separate
+from the later two-painter controlled experiments. Preserve its post-result,
+two-retry and requested-alias qualifications; do not pool these cohorts or revive
+the original incomplete prompt study's unavailable primary inference.
 
 ## Checks and data
 
 ```bash
 make paper           # Render manuscript figures and build the PDF
-make figures-check   # Check the five manuscript figures without rewriting them
+make figures-check   # Check the six manuscript figures without rewriting them
 make check           # Ruff and the full offline test suite
 make evidence        # Commit-bound historical evidence audit
+make four-painter-analysis  # Replay exploration, Stage A controls and retry presentation
 make analysis        # Replay Study 1 controlled and revision numeric results
 make plots           # Replay Study 1 report bundles and check manuscript figures
 make computational-responsiveness  # Replay Study 2, retrieval and quantile correction

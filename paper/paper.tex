@@ -24,9 +24,14 @@
 \maketitle
 \begin{abstract}
 Does naming a painter improve resemblance to that painter's image distribution,
-and what changes accompany that improvement? We compare 31 interpretable features
-of generated images with 70 digital reproductions by Monet and C\'ezanne. Study~1
-uses 1,006 outputs from three services with randomized prompt order and repeated
+and what changes accompany that improvement? We first compare 1,536
+painter-conditioned outputs with 649 digital reproductions by Monet, Sisley,
+Pissarro and C\'ezanne in 31 interpretable features. Across this exploratory
+corpus's 24 alias--painter--prompt cells, generated/reference variance ratios
+are 0.206--0.376 and held-scene RBF balanced accuracies are 0.940--0.983:
+the collections overlap in projection but remain distinguishable.
+Study~1 then uses a separate 70-work Monet/C\'ezanne panel and 1,006 outputs
+from three services with randomized prompt order and repeated
 common scene descriptions. Naming lowers primary energy discrepancy in all six
 service--painter comparisons; four reject the prespecified conditional null.
 Descriptive controls show stronger joint own-painter alignment, reduced aggregate
@@ -39,7 +44,8 @@ The tested generic painting clause reduces the chroma response relative to the
 artist-free control by 0.853 development-IQR units in a secondary comparison.
 Additional Monet and C\'ezanne interactions are $-0.284$ and $-0.018$, with
 approximate simultaneous 95\% intervals $[-0.585,0.016]$ and $[-0.343,0.308]$; neither
-primary comparison resolves the direction. The empirical contribution is a
+primary comparison resolves the direction. The contribution joins four-painter
+distributional evidence with a
 controlled account of improved relative painter alignment coexisting with
 contraction and incomplete distribution matching. The results concern finite
 digital panels and delivered services, and do not identify perceptual fidelity
@@ -55,7 +61,13 @@ far from the intended reference collection. The relevant comparison therefore
 involves the location, spread and organization of image distributions, rather
 than distance to an average feature vector alone.
 
-We study a concrete intervention: adding a painter's name while holding the
+We begin with an exploratory comparison across Monet, Sisley, Pissarro and
+C\'ezanne. This broader corpus characterizes the observed distributional differences
+and how they vary across three prompt formulations. It also motivates a more
+controlled question: whether changing the painter instruction improves proximity
+under common scene descriptions.
+
+We then study a concrete intervention: adding a painter's name while holding the
 written scene description fixed. This design asks how the delivered image
 service changes its outputs in response to the instruction. It does not assume
 that the name affects style alone; depicted content and rendering can change too.
@@ -79,7 +91,8 @@ and 192 outputs from one service to measure a two-level chroma response. It test
 an additional observable implication of reduced responsiveness; it is not a
 mediation analysis of Study~1's covariance change.
 
-Our contribution is the controlled empirical conjunction of these comparisons.
+Our contribution combines a four-painter characterization of the distribution
+gap with controlled tests of painter naming and palette responsiveness.
 Naming often improves measured proximity and joint painter alignment, while
 leaving lower reference-neighborhood occupancy and heterogeneous effects on
 scene distinguishability. The palette experiment further separates an effect
@@ -133,12 +146,43 @@ is global median chroma, not assignment of a requested color to an object.
 Together, the literature motivates a design that distinguishes reference
 proximity, relative painter alignment and observable instruction responses.
 
+\section{Feature representation and study design}\label{sec:features}
+Each image is measured in 31 interpretable coordinates: 11 color, eight spatial
+and 12 digital-texture features (Appendix~\ref{app:features}). The primary
+pipeline applies orientation metadata, converts valid embedded color profiles
+to sRGB, assumes sRGB for compatible unprofiled files and preserves aspect ratio
+at a 512-pixel short side. Images are opaque and resized with Lanczos filtering,
+without upsampling or discretionary cropping. Each coordinate is standardized
+by its median and interquartile range (IQR) in a separate development collection
+of 221 works from four painters, with equal total weight per development painter.
+Neither reference panel nor generated images fit this transformation.
+
+For reference vectors $X=\{x_i\}$ and generated vectors $Y=\{y_j\}$, let
+$a_i,b_j$ be nonnegative weights summing to one within each set. We use the
+empirical V-statistic energy discrepancy
+\begin{align}
+\E(X,Y)={}&2\sum_{i,j}a_i b_j\|x_i-y_j\|_2
+-\sum_{i,k}a_i a_k\|x_i-x_k\|_2 \nonumber\\
+&-\sum_{j,l}b_j b_l\|y_j-y_l\|_2.
+\label{eq:energy}
+\end{align}
+This statistic incorporates distances within and between the two collections.
+Its finite-sample baseline need not be zero for independent samples from the
+same population. We interpret lower values as closer empirical distributions
+in the specified feature geometry, not as a calibrated degree of artistic
+similarity.
+
+
 \begin{table}[tbp]
 \centering\small
 \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{.18\linewidth} >{\raggedright\arraybackslash}p{.30\linewidth} >{\raggedright\arraybackslash}X}
 \toprule
 Analysis & Data and comparison & Evidential role\\
 \midrule
+Four-painter exploration & 649 references; 1,536 painter-conditioned and 384
+artist-free outputs from 2 requested aliases, 3 prompt methods and 16 repeated scenes &
+Post-hoc distribution, spread, grouped discrimination and matched-size reference
+comparisons; separate from the two controlled cohorts.\\[3pt]
 Study 1 primary & 864 detailed outputs: 3 services $\times$ 2 painters $\times$
 24 scenes $\times$ 3 repeats $\times$ 2 conditions; 142 additional short-scene outputs &
 Eight prespecified paired energy tests: six named/free and two detailed/short-scene named contrasts.\\[3pt]
@@ -152,19 +196,163 @@ Two prespecified named-minus-generic chroma-response interactions;
 shared free/generic controls and secondary nominal contrasts.\\
 \bottomrule
 \end{tabularx}
-\caption{Design and evidence hierarchy. Study~1 collection: 6--7 September 2026
+\caption{Design and evidence hierarchy. Exploratory collection: 5--6 September
+2026 UTC, including two later retries. Study~1 collection: 6--7 September 2026
 UTC; Study~2: 8 September 2026 UTC. Painter selection followed earlier exploration,
 while both studies' primary contrasts were fixed before their generation.
 Sensitivity views reuse images; they are not independent replications.}
 \label{tab:design}
 \end{table}
 
+\section{Four-painter exploratory distribution comparison}
+\label{sec:four-painter}
+\subsection{Corpus and descriptive methods}
+The exploratory corpus comprises 297 Monet, 106 Sisley, 141 Pissarro and 105
+C\'ezanne digital reproductions, selected through recorded outdoor-place metadata.
+The same fixed feature representation in Section~\ref{sec:features} is used.
+Two requested OAuth aliases, \texttt{gpt-image-1} and \texttt{gpt-image-2},
+each supply 64 images per painter and prompt method: 16 scene templates repeated
+four times. The aliases are request labels, not independently attested model
+snapshots. Three formulations name the painter: the original by-name prompt;
+an explicit style instruction appended to the artist-free scene; and that
+instruction plus attention to color relationships, organization of forms and
+painted marks. This gives 1,536 painter-conditioned outputs. A further 384
+artist-free outputs provide method-specific controls shared across painter
+comparisons. No original painting is supplied to generation.
+
+Two initial refusals were replaced by later outputs, one for Pissarro and one for
+C\'ezanne. The completed 1,920-image grid is descriptive: those retries did not
+occupy their original randomized request positions and do not restore the
+original complete-grid inference. All analyses in this section are post-hoc,
+using already exposed references; they are not confirmation on four new panels.
+
+For visualization, each painter has one balanced PCA basis fitted to its
+originals and all six alias/method groups. Originals carry half the total mass,
+and each generated group carries one twelfth. Every prompt panel for a painter
+shares that basis and its limits. We additionally measure the ratio of separately
+centered sample covariance traces, using denominator $n-1$ within each group.
+This descriptive ratio differs from the content-weighted population-form trace
+used in Study~1.
+
+Fixed linear and RBF kernel-ridge classifiers distinguish generated images from
+originals in all 31 coordinates, without using PCA scores or selecting
+hyperparameters. Class weights are balanced and regularization is 0.01.
+The kernels are $K_{\rm lin}(x,z)=x^\top z/31+1$ and
+$K_{\rm RBF}(x,z)=\exp(-\|x-z\|^2/31)+1$; the constant is a regularized intercept.
+Sixteen folds hold out one complete generated scene, including its four repeats,
+and a disjoint set of original work identities. Balanced accuracy averages
+original specificity and generated recall; 0.5 is the chance reference.
+These splits do not hold out independent capture sources or service sessions.
+
+To contextualize finite-sample energy, 128 deterministic splits divide each
+painter's originals into disjoint groups of size
+$n=\min(64,\lfloor N_p/2\rfloor)$. Generated/reference comparisons use the same
+reference subsets and feature-independent generated subsets of size $n$.
+Reported generated medians pool 128 distance estimates from each of six
+alias/method cells, not images into one distribution. These repeated subsamples
+are descriptive sensitivities, not independent experiments or confidence
+intervals.
+
+\subsection{Distribution differences across all four painters}
+Figure~\ref{fig:four-painter} shows overlapping clouds with different locations
+and concentrations across all three formulations. The displayed PCs retain
+44.1\%, 44.4\%, 47.8\% and 42.9\% of balanced variation for Monet, Sisley,
+Pissarro and C\'ezanne, respectively. More than half the variation lies outside
+these planes. The full-space results in Table~\ref{tab:four-painter} therefore
+complement, rather than validate separation in, the scatter plots.
+
+\begin{table}[tbp]
+\centering\small
+\begin{tabular}{lrrrr}
+\toprule
+Painter & References & Trace ratio & Linear BA & RBF BA\\
+\midrule
+Monet & 297 & .206--.304 & .946--.973 & .947--.982\\
+Sisley & 106 & .219--.353 & .947--.976 & .970--.983\\
+Pissarro & 141 & .240--.376 & .934--.950 & .940--.979\\
+C\'ezanne & 105 & .249--.309 & .913--.964 & .942--.978\\
+\bottomrule
+\end{tabular}
+\caption{Four-painter distribution summaries in all 31 features. Ranges cover
+all six alias/method cells per painter, each with 64 generated images; they are
+not uncertainty intervals. Trace ratios compare generated with original
+sample variance. Both fixed classifiers use held-scene/disjoint-work validation.
+Appendix~\ref{app:four-painter} reports every cell.}
+\label{tab:four-painter}
+\end{table}
+
+Sisley has trace ratios .219--.353 and RBF balanced accuracy .970--.983;
+Pissarro has ratios .240--.376 and accuracy .940--.979. Thus both
+painters exhibit the same broad combination of concentrated generated features
+and detectable domain differences as Monet and C\'ezanne. The strength varies
+by formulation and painter, and does not rank artistic quality.
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=\linewidth]{four_painter_distributions.pdf}
+\caption{Original and generated distributions for all four painters and all
+three prompt methods. Gray points are originals; blue triangles and orange
+squares are the two requested service aliases. Each cell contains 64 outputs
+per alias. Black rings identify the two later retries. Originals are repeated
+across columns for comparison. All points and outliers are retained, with equal
+geometric aspect and common limits within each painter. Each row uses its own
+PCA basis; directions and coordinates cannot be compared across painters.
+The projection is descriptive and is not used by the classifiers.}
+\label{fig:four-painter}
+\end{figure}
+
+\begin{table}[!htbp]
+\centering\small
+\begin{tabular}{lrrrr}
+\toprule
+Painter & Matched $n$ & Original/original & Named/original & Free/original\\
+\midrule
+Monet & 64 & .1932 & 2.0683 & 1.7319\\
+Sisley & 53 & .2149 & 1.6776 & 1.8779\\
+Pissarro & 64 & .1635 & 1.9745 & 1.8537\\
+C\'ezanne & 52 & .1989 & 2.1419 & 1.6570\\
+\bottomrule
+\end{tabular}
+\caption{Median all-feature energy discrepancy in matched-size subsets.
+Original/original medians summarize 128 disjoint-within-draw splits;
+each generated median summarizes $6\times128$ distance estimates.
+The same works recur across draws. These are finite-panel baselines, not
+equivalence margins, independent capture comparisons or estimates of painter
+difficulty.}
+\label{tab:four-baseline}
+\end{table}
+
+Matched-size generated/reference energy exceeds the original/original baseline
+for every painter (Table~\ref{tab:four-baseline}), so unequal group sizes alone
+do not explain the discrepancy. Named conditions do not uniformly have lower
+pooled medians than their artist-free comparisons: named energy is lower only
+for Sisley. In the separate feature-family prompt comparisons, by-name prompts
+have lower energy than explicit style instructions in all 24
+alias--painter--family comparisons; adding aspect instructions reduces it in
+13 of 24. Those correlated directional counts are descriptive, not new tests.
+Artist-free outputs also have high RBF balanced accuracy (.915--.990) and
+generated/reference trace ratios .369--.750, so discrimination does not isolate
+painter-specific mismatch.
+
+The measured gap is compatible with content and capture differences as well as
+generation behavior. Equalizing four coarse content categories leaves named
+population-trace ratios at .211--.372, but categories describe recorded works
+and requested scenes, not independently verified content matches. The four-painter
+analysis establishes finite-corpus feature differences; the following experiments
+address more controlled prompt questions on separately selected panels.
+\FloatBarrier
+
 \section{Study 1: painter naming and distributional proximity}
+\label{sec:controlled}
 \subsection{Design and measurements}
 \paragraph{Reference panels and Study 1 prompts.}
 We compare 38 Monet and 32 C\'ezanne works represented by Wikimedia-delivered
-digital reproductions. The painters were selected after exploratory work on four
-painters; those exploratory outputs are not pooled here. Reference identities
+digital reproductions. Monet and C\'ezanne were selected after the four-painter
+exploration to prioritize contrasting observed patterns, additional service
+families and reference curation within a fixed collection budget.
+Their exploratory results remain part of the preceding analysis; neither its
+references nor its generated outputs are pooled with this controlled cohort.
+Reference identities
 were screened against prior project exposure. Availability and landscape
 eligibility determine this selected panel, rather than probability sampling of
 an oeuvre. Three coarse classes have water/built/land counts of 21/4/13 for Monet
@@ -190,32 +378,7 @@ by condition. Appendix~\ref{app:prompt} gives prompts, delivery details and
 missingness accounting. Generated classes denote requested content, not verified
 adherence.
 
-\paragraph{Feature representation and distribution measures.}
-Each image is measured in 31 interpretable coordinates: 11 color, eight spatial
-and 12 digital-texture features (Appendix~\ref{app:features}). The primary
-pipeline applies orientation metadata, converts valid embedded color profiles
-to sRGB, assumes sRGB for compatible unprofiled files and preserves aspect ratio
-at a 512-pixel short side. Images are opaque and resized with Lanczos filtering,
-without upsampling or discretionary cropping. Each coordinate is standardized
-by its median and interquartile range (IQR) in a separate development collection
-of 221 works from four painters, with equal total weight per development painter.
-Neither current references nor generated images fit this transformation.
-
-For reference vectors $X=\{x_i\}$ and generated vectors $Y=\{y_j\}$, let
-$a_i,b_j$ be nonnegative weights summing to one within each set. We use the
-empirical V-statistic energy discrepancy
-\begin{align}
-\E(X,Y)={}&2\sum_{i,j}a_i b_j\|x_i-y_j\|_2
--\sum_{i,k}a_i a_k\|x_i-x_k\|_2 \nonumber\\
-&-\sum_{j,l}b_j b_l\|y_j-y_l\|_2.
-\label{eq:energy}
-\end{align}
-This statistic incorporates distances within and between the two collections.
-Its finite-sample baseline need not be zero for independent samples from the
-same population. We interpret lower values as closer empirical distributions
-in the specified feature geometry, not as a calibrated degree of artistic
-similarity.
-
+\paragraph{Reference weighting and variation.}
 References have equal weight, $a_i=1/N_p$. If painter $p$ has $N_{pc}$ reference
 works in class $c$ and a generated cell has $n_{pc}$ available images in that
 class, a generated image receives $b_j=N_{pc}/(N_p n_{pc})$. Thus both distributions
@@ -493,7 +656,7 @@ Monet, the OAuth decline is smaller within class (84.7\% to 83.3\%) than across
 all 24 scenes (79.2\% to 70.8\%). The NB2 difference is one correct query out of
 72. Changes in separability therefore vary across services and painters.
 
-\begin{figure}[tbp]
+\begin{figure}[!htbp]
 \centering\includegraphics[width=\linewidth]{scene_retrieval.pdf}
 \caption{Held-repetition scene retrieval in Study~1. Each condition has 72 queries;
 centroids use only the other two repetitions. Panels compare 24 scene candidates
@@ -634,9 +797,15 @@ for both painters, but central-range overlap does not imply equal mass allocatio
 constructed, it is an illustration of distribution comparison rather than an
 explanation of the gap under Study~1's ordinary prompts.
 
-\FloatBarrier
 \section{Discussion}
-The main empirical result is improved relative painter alignment together with
+The four-painter analysis shows that the measured generated/reference gap
+extends to Sisley and Pissarro. Their generated collections have lower total
+feature spread and high held-scene discrimination, while the scatter plots retain
+substantial overlap. These findings support a detectable finite-dataset difference,
+not disjoint artistic populations. The matched-size reference splits further show
+that unequal counts alone do not explain the observed energy gaps.
+
+The later controlled result is improved relative painter alignment together with
 incomplete distribution matching. In Study~1, naming moves the measured output
 distributions toward the selected painter panels and strengthens joint own-painter
 pairing. The latter comparison describes differential alignment with the two
@@ -644,6 +813,15 @@ panels, rather than proximity to either panel alone. It does not reject a
 stochastic common-response model, and still allows individual cross-painter
 preferences, as NB2/Monet shows. Lower neighborhood occupancy relative to matched real queries further
 shows why proximity alone is an incomplete account of the resulting collections.
+
+In the exploratory matched-size summaries, named conditions do not uniformly
+have lower pooled energy medians than their artist-free comparisons; this
+ordering holds only for Sisley.
+That comparison differs from Study~1 in references, prompt construction, weighting
+and service conditions. The later Monet/C\'ezanne findings therefore neither
+replace the earlier four-painter results nor establish the same naming effect
+for Sisley and Pissarro. Selection of the two follow-up painters after exploration
+also limits generalization across artists.
 
 Repeated scenes locate another part of the change. Aggregate contraction is
 consistent in the tested representations, but its within- and between-scene
@@ -700,7 +878,11 @@ repetitions to the present cells would improve precision without resolving those
 construct and control limitations.
 
 \section{Conclusion}
-In these controlled painter cases, naming improves primary feature proximity and
+Generated collections differ from the digital reference distributions of all
+four painters in the exploratory corpus, including Sisley and Pissarro.
+They have lower measured spread and remain distinguishable despite overlap in
+two-dimensional projections. In the separate controlled Monet/C\'ezanne cases,
+naming improves primary feature proximity and
 joint relative panel alignment while contracting generated distributions.
 Reference-neighborhood occupancy and repeated-scene behavior show what those
 summaries leave unresolved: distributional matching remains incomplete, and
@@ -713,7 +895,8 @@ without establishing a perceptual or internal-model explanation.
 \section*{Data and code availability}
 The project repository is \url{https://github.com/isingmodel/latent-art-bench}.
 This draft accompanies the local scientific snapshot \texttt{28a9eb6}, which
-contains both completed studies and the descriptive quantile correction; public
+contains the four-painter exploration, both controlled studies and the descriptive
+quantile correction; public
 archival release of that snapshot is pending. The manuscript's
 \texttt{paper/README.md} identifies exact per-run tables and offline commands.
 The package contains prompts, reference identities and annotations, standardized
@@ -768,9 +951,10 @@ high-chroma palette throughout the painting.'' Each of the 48 scene/style/palett
 combinations has four outputs. The exact six scene texts and complete request
 inventory accompany the analysis.
 
+\noindent\begin{minipage}{\linewidth}
 \subsection{Feature inventory}
 \label{app:features}
-\begin{table}[htbp]
+\captionsetup{type=table}
 \centering\small
 \begin{tabularx}{\linewidth}{l r X}
 \toprule
@@ -787,7 +971,7 @@ three local-binary-pattern entropies; local coefficients of variation at three s
 \caption{The fixed interpretable representation. Coordinates describe digital
 image statistics, not physical paint relief. The 28-coordinate view removes
 chromatic-difference slope, wavelet slope and wavelet curvature.}
-\end{table}
+\end{minipage}
 
 \section{Paired randomization statistic}
 \label{app:inference}
@@ -1041,13 +1225,68 @@ makes the original chroma distribution harder to approach. Nor do the two
 extreme instructions establish continuous coverage of the intervening range.
 
 
+\section{Complete four-painter distribution summaries}
+\label{app:four-painter}
+Table~\ref{tab:four-cells} retains all 24 cells underlying the main-text
+ranges. Aliases 1/2 denote the requested \texttt{gpt-image-1}/\texttt{gpt-image-2}
+routes; each cell has 64 generated images.
+
+\begin{table}[!htbp]
+\centering\small
+\begin{tabular}{ll l rrr}
+\toprule
+Painter & Alias & Prompt & Trace ratio & Linear BA & RBF BA\\
+\midrule
+Monet & 1 & By name & 0.249 & 0.946 & 0.953\\
+Monet & 1 & Style & 0.230 & 0.970 & 0.961\\
+Monet & 1 & Style + aspects & 0.227 & 0.973 & 0.980\\
+Monet & 2 & By name & 0.304 & 0.954 & 0.947\\
+Monet & 2 & Style & 0.206 & 0.955 & 0.982\\
+Monet & 2 & Style + aspects & 0.209 & 0.973 & 0.979\\
+Sisley & 1 & By name & 0.353 & 0.969 & 0.983\\
+Sisley & 1 & Style & 0.223 & 0.976 & 0.983\\
+Sisley & 1 & Style + aspects & 0.242 & 0.956 & 0.983\\
+Sisley & 2 & By name & 0.314 & 0.961 & 0.970\\
+Sisley & 2 & Style & 0.227 & 0.964 & 0.983\\
+Sisley & 2 & Style + aspects & 0.219 & 0.947 & 0.983\\
+Pissarro & 1 & By name & 0.342 & 0.934 & 0.940\\
+Pissarro & 1 & Style & 0.240 & 0.950 & 0.979\\
+Pissarro & 1 & Style + aspects & 0.240 & 0.946 & 0.967\\
+Pissarro & 2 & By name & 0.376 & 0.945 & 0.944\\
+Pissarro & 2 & Style & 0.267 & 0.946 & 0.963\\
+Pissarro & 2 & Style + aspects & 0.256 & 0.939 & 0.955\\
+C\'ezanne & 1 & By name & 0.309 & 0.951 & 0.978\\
+C\'ezanne & 1 & Style & 0.255 & 0.942 & 0.965\\
+C\'ezanne & 1 & Style + aspects & 0.262 & 0.942 & 0.948\\
+C\'ezanne & 2 & By name & 0.294 & 0.964 & 0.973\\
+C\'ezanne & 2 & Style & 0.254 & 0.913 & 0.942\\
+C\'ezanne & 2 & Style + aspects & 0.249 & 0.942 & 0.968\\
+\bottomrule
+\end{tabular}
+\caption{All 24 four-painter cells in the full 31-feature space. Ratios use
+separately centered sample traces; both classifier scores pool out-of-fold
+predictions under the fixed 16-scene split. No confidence intervals,
+significance tests or equivalence decisions are attached.}
+\label{tab:four-cells}
+\end{table}
+
+The four-fold nominal-generation-block sensitivity gives by-name RBF balanced
+accuracies .986/.983 for Sisley and .960/.967 for Pissarro under aliases 1/2.
+These descriptive checks use the original block labels; the later retry images
+were not generated at those block times. Neither the scene split nor the block
+sensitivity tests transfer to independent generation sessions or capture sources.
 \FloatBarrier
+
 \section{Computational artifact locations}
 \label{app:release}
 The scientific snapshot \texttt{28a9eb6} is a local Git version identifier, not
 an assertion that its commit is presently retrievable from the remote repository.
 Within that snapshot, the primary entry points are:
 \begin{itemize}
+\item Four-painter exploration and retained-data controls:\newline
+  \path{reports/painter_distribution_exploration_v1/};\newline
+  \path{reports/painter_distribution_study_v1/pdsv1-diagnostics-20260906/};\newline
+  \path{reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906-r2/}.
 \item Study~1:\newline
   \path{reports/painter_distribution_study_v1/}\newline
   \path{studies/painter_distribution_study_v1/MAIN.md}.
@@ -1062,6 +1301,7 @@ Within that snapshot, the primary entry points are:
 Scientific source and fixed memberships are versioned alongside these reports.
 The current manuscript and figure builder are mutable presentation artifacts.
 The command \texttt{make figures} uses saved numeric tables;
+\texttt{make four-painter-analysis} replays the exploratory four-painter reports;
 \texttt{make analysis} replays Study~1 and its revision. The computational follow-up
 and quantile correction use \texttt{make} with the target
 \path{computational-responsiveness}. That target verifies raw-response hashes

@@ -6,7 +6,7 @@ CONTROLLED := latent_art_bench.painter_distribution_study_v1
 REVISION := latent_art_bench.painter_distribution_revision_v1
 PAPER_BUILD := tmp/paper/build
 
-.PHONY: help check evidence analysis plots responsiveness computational-responsiveness figures figures-check paper
+.PHONY: help check evidence analysis four-painter-analysis plots responsiveness computational-responsiveness figures figures-check paper
 
 help:
 	@echo 'Paper correction: paper/README.md and docs/AGENT_HANDOVER.md'
@@ -15,10 +15,11 @@ help:
 	@echo 'make check     Ruff and the complete offline test suite'
 	@echo 'make evidence  Verify historical evidence bindings and ledgers'
 	@echo 'make analysis  Replay Study 1 controlled and revision numeric results'
+	@echo 'make four-painter-analysis  Replay four-painter distributions and controls'
 	@echo 'make plots     Replay Study 1 report bundles and check manuscript figures'
 	@echo 'make responsiveness  Replay the v1 mechanism diagnostics and plots'
 	@echo 'make computational-responsiveness  Replay v2 computational results and plots'
-	@echo 'make figures   Render the five manuscript figures from saved tables'
+	@echo 'make figures   Render the six manuscript figures from saved tables'
 	@echo 'Other studies: docs/ANALYSES.md'
 
 check:
@@ -31,6 +32,11 @@ evidence:
 analysis:
 	$(PYTHON) -m $(CONTROLLED).analysis_publication check
 	$(PYTHON) -m $(REVISION).analysis check
+
+four-painter-analysis:
+	$(PYTHON) -m latent_art_bench.painter_distribution_exploration_v1.report check
+	$(PYTHON) -m $(CONTROLLED).diagnostics check
+	$(PYTHON) -m latent_art_bench.painter_prompt_retry_report_v2 check
 
 plots:
 	$(PYTHON) -m $(CONTROLLED).main_report check

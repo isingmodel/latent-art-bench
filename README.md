@@ -12,9 +12,21 @@ the correction workflow; [STATUS.md](docs/STATUS.md) records integration and che
 
 Read the [English paper](paper/paper.pdf), its [source and build guide](paper/README.md),
 and the [complete revision report](reports/painter_distribution_revision_v1/pdrv1-numeric-20260907/REPORT.md).
-The paper integrates **1,006 images from three generation routes** in Study 1
-and a separate **192-image color experiment** in Study 2, using 70 Monet/Cézanne
-references and 221 development works.
+The paper begins with a **four-painter distributional analysis**: 649 references
+(297 Monet, 106 Sisley, 141 Pissarro and 105 Cézanne), 1,536 painter-conditioned
+outputs across three prompt methods, and 384 artist-free controls. This descriptive
+evidence is separate from Study 1's **1,006 images from three generation routes**
+and 70 Monet/Cézanne references, and Study 2's **192-image color experiment**.
+The development panel contains 221 works.
+
+The [four-painter exploration](reports/painter_distribution_exploration_v1/REPORT.md)
+shows overlap in two-dimensional projections alongside reduced generated spread
+and strong held-scene discrimination in all four painters. It is a post-result
+analysis of the completed retry grid: two later successes are identified, and
+the requested `gpt-image-1` / `gpt-image-2` aliases do not establish distinct
+underlying model identities. The original incomplete study's primary inference
+remains unavailable. Restoring these results does not turn them into new
+confirmatory evidence.
 
 Painter naming reduces the primary feature discrepancy on both paid routes and
 reduces aggregate variation relative to artist-free controls. Variation within a
@@ -44,6 +56,7 @@ on older interpreters. From the repository root:
 
 ```bash
 uv sync --locked --extra analysis --extra dev --inexact
+make four-painter-analysis
 make analysis
 make plots
 make computational-responsiveness
@@ -51,11 +64,13 @@ make check
 make evidence
 ```
 
-`make analysis` and `make plots` cover Study 1 and its computational revision;
+`make four-painter-analysis` replays the four-painter exploration, Stage A controls
+and retry presentation. `make analysis` and `make plots` cover Study 1 and its
+computational revision;
 `make computational-responsiveness` covers Study 2, retained-data retrieval and
 the quantile correction. These targets make no generation requests.
-`make figures-check` checks only the five manuscript figures without rewriting
-them. `make figures` rebuilds the five
+`make figures-check` checks only the six manuscript figures without rewriting
+them. `make figures` rebuilds the six
 manuscript figures; `make paper` builds the PDF with Tectonic. See
 [the analysis catalog](docs/ANALYSES.md) for individual commands, inputs and outputs,
 and [the paper guide](paper/README.md) for rendering and visual checks.

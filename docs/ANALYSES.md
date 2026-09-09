@@ -12,12 +12,13 @@ The [Makefile](../Makefile) provides the common entry points:
 | --- | --- |
 | `make check` | Ruff and the complete offline test suite |
 | `make evidence` | Historical evidence bindings, dispositions and retained-byte integrity |
+| `make four-painter-analysis` | Replay four-painter exploration, Stage A controls and retry presentation (35 + 18 + 9 files) |
 | `make analysis` | Replay Study 1 controlled and revision numeric results |
 | `make plots` | Replay Study 1 controlled and revision report bundles and check manuscript figures |
 | `make responsiveness` | Replay the earlier v1 responsiveness diagnostic JSON and all report bytes |
 | `make computational-responsiveness` | Replay v2 scene retrieval, both completed experiment bundles, the quantile correction and their report bytes |
 | `make figures` | Rebuild editable manuscript figures from saved tables and coordinates |
-| `make figures-check` | Check the five manuscript figures without rewriting them or replaying full reports |
+| `make figures-check` | Check the six manuscript figures without rewriting them or replaying full reports |
 | `make paper` | Rebuild figures and compile the manuscript; see [paper/README.md](../paper/README.md) |
 
 Numeric and report checks use temporary output and preserve the published bundles.
@@ -34,9 +35,22 @@ the principal data described here. Source paths are relative to
 
 | Analysis and status | Methods | Computation | Plotting | Numeric inputs and published result |
 | --- | --- | --- | --- | --- |
+| **Distribution exploration** — current descriptive evidence, terminal / `painter_distribution_exploration_v1` | [Methods](../studies/painter_distribution_exploration_v1/METHODS.md) | [analysis.py](../src/latent_art_bench/painter_distribution_exploration_v1/analysis.py), [statistics.py](../src/latent_art_bench/painter_distribution_exploration_v1/statistics.py) | [report.py](../src/latent_art_bench/painter_distribution_exploration_v1/report.py) | Completed retry grid and 649 references: [provenance](../reports/painter_distribution_exploration_v1/provenance.json) → [PCA, grouped detection and spread report](../reports/painter_distribution_exploration_v1/REPORT.md). Scatter plots use the 1,536 named outputs. |
+| **Controlled-study Stage A diagnostics** — current descriptive evidence, terminal / `pdsv1-diagnostics-20260906` | [Diagnostic scope](../studies/painter_distribution_study_v1/DIAGNOSTICS.md) | [diagnostics.py](../src/latent_art_bench/painter_distribution_study_v1/diagnostics.py) | Same module; saved Stage A reports | Historical 649 references and completed 1,920-output grid, plus coarse scene mappings: [freeze](../data/manifests/painter_distribution_study_v1/pdsv1-diagnostics-20260906/freeze.json) → [content, reference-baseline, PCA and transfer diagnostics](../reports/painter_distribution_study_v1/pdsv1-diagnostics-20260906/REPORT.md). These precede and remain separate from the later 70-reference controlled panel. |
+| **Retry presentation revision** — current descriptive evidence, terminal / `ppr1-two-refusals-20260906-r2` | [Retry protocol](../studies/painter_prompt_retry_v1/PROTOCOL.md); presentation only | No new analysis | [painter_prompt_retry_report_v2.py](../src/latent_art_bench/painter_prompt_retry_report_v2.py) | Sealed retry `analysis.json`: [revision receipt](../data/manifests/painter_prompt_retry_v1/ppr1-two-refusals-20260906/report_revision_2.json) → [revised plot presentation](../reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906-r2/REPORT.md). Both report versions are retained. |
 | **Computational revision** — current, terminal; `pdrv1-numeric-20260907` | [Protocol](../studies/painter_distribution_revision_v1/PROTOCOL.md) | [analysis.py](../src/latent_art_bench/painter_distribution_revision_v1/analysis.py), [metrics.py](../src/latent_art_bench/painter_distribution_revision_v1/metrics.py), [diagnostics.py](../src/latent_art_bench/painter_distribution_revision_v1/diagnostics.py), [timing.py](../src/latent_art_bench/painter_distribution_revision_v1/timing.py) | [report.py](../src/latent_art_bench/painter_distribution_revision_v1/report.py); [publication/check](../src/latent_art_bench/painter_distribution_revision_v1/report_publication.py) | Controlled reference/generated/development vectors, metadata and ledgers: [103-input freeze](../data/manifests/painter_distribution_revision_v1/pdrv1-numeric-20260907/freeze.json). [Sealed numeric JSON](../data/manifests/painter_distribution_revision_v1/pdrv1-numeric-20260907/analysis.json) → [report, 31 CSVs and six figure pairs](../reports/painter_distribution_revision_v1/pdrv1-numeric-20260907/REPORT.md). |
 | **Controlled distribution study** — current source evidence, terminal; `pdsv1-analysis-20260907` | [Protocol](../studies/painter_distribution_study_v1/PROTOCOL.md), [main design](../studies/painter_distribution_study_v1/MAIN.md), [inference](../studies/painter_distribution_study_v1/INFERENCE.md), [publication adapter](../studies/painter_distribution_study_v1/ANALYSIS_PUBLICATION.md) | [analysis.py](../src/latent_art_bench/painter_distribution_study_v1/analysis.py), [statistics.py](../src/latent_art_bench/painter_distribution_study_v1/statistics.py); [numeric publication/check](../src/latent_art_bench/painter_distribution_study_v1/analysis_publication.py) | [main_report.py](../src/latent_art_bench/painter_distribution_study_v1/main_report.py) | 70 references, 1,006 generated images and 221 development works, measured under three pipelines: [publication freeze](../data/manifests/painter_distribution_study_v1/pdsv1-analysis-20260907/publication_freeze.json). [Numeric receipt](../data/manifests/painter_distribution_study_v1/pdsv1-analysis-20260907/analysis_receipt.json) → [report, tables and PCA coordinates](../reports/painter_distribution_study_v1/pdsv1-analysis-20260907/REPORT.md). |
-| **Manuscript figures** — current, editable presentation | [Manuscript/build guide](../paper/README.md) | No new statistics or PCA fit | [make_figures.py](../paper/make_figures.py) | Six hash-checked CSVs: revision `metric_cells.csv` / `prompt_contrasts.csv`, controlled `projection_points.csv`, and responsiveness `retrieval_comparisons.csv` / `arm_means.csv` / `primary.csv` → [five vector PDFs](../paper/figures/). |
+| **Manuscript figures** — current, editable presentation | [Manuscript/build guide](../paper/README.md) | No new statistics or PCA fit | [make_figures.py](../paper/make_figures.py) | Eight hash-checked inputs: exploration `points.csv` / `projections.json`, revision `metric_cells.csv` / `prompt_contrasts.csv`, controlled `projection_points.csv`, and responsiveness `retrieval_comparisons.csv` / `arm_means.csv` / `primary.csv` (seven CSVs and one JSON) → [six vector PDFs](../paper/figures/). |
+
+The four-painter section restores 649 references (297 Monet, 106 Sisley, 141
+Pissarro and 105 Cézanne) and 1,536 painter-conditioned outputs. The underlying
+completed retry grid also contains 384 artist-free controls. Exploration, Stage A
+controls and retry contrasts are post-result descriptive evidence; they do not
+restore the incomplete original study's primary inference. The requested
+`gpt-image-1` / `gpt-image-2` aliases are service labels, not verified distinct
+model identities. The two later retry outcomes remain identified. This cohort
+is separate from the 70-reference, 1,006-output controlled study and the later
+192-image color experiment.
 
 The revision's [metrics module](../src/latent_art_bench/painter_distribution_revision_v1/metrics.py)
 owns feature-view comparisons, within/between-description variation, reference
@@ -54,6 +68,9 @@ recompute those scientific analyses.
 Direct equivalents of the current Makefile replay targets:
 
 ```bash
+uv run --locked python -m latent_art_bench.painter_distribution_exploration_v1.report check
+uv run --locked python -m latent_art_bench.painter_distribution_study_v1.diagnostics check
+uv run --locked python -m latent_art_bench.painter_prompt_retry_report_v2 check
 uv run --locked python -m latent_art_bench.painter_distribution_study_v1.analysis_publication check
 uv run --locked python -m latent_art_bench.painter_distribution_revision_v1.analysis check
 uv run --locked python -m latent_art_bench.painter_distribution_study_v1.main_report check
@@ -122,8 +139,8 @@ new scientific measurement or human judgment.
 
 ## Earlier generated-versus-original analyses
 
-All rows are **terminal historical evidence or development context**. Replay
-commands below follow the same order. The original 1,920-slot prompt study had
+These rows are **terminal upstream evidence or development context** for the
+current analyses above. Replay commands below follow the same order. The original 1,920-slot prompt study had
 1,918 measured successes. Its complete-grid primary remains unavailable; the
 available-output supplement and later two-image retry are distinct analyses.
 
@@ -133,9 +150,6 @@ available-output supplement and later two-image retry are distinct analyses.
 | **Initial prompt study** / `pps1-gpt-prompts-20260905` | [Protocol](../studies/painter_prompt_study_v1/PROTOCOL.md) | [analysis.py](../src/latent_art_bench/painter_prompt_study_v1/analysis.py), [statistics.py](../src/latent_art_bench/painter_prompt_study_v1/statistics.py); [report.py](../src/latent_art_bench/painter_prompt_study_v1/report.py), [reproduction.py](../src/latent_art_bench/painter_prompt_study_v1/reproduction.py) | [Generation freeze](../data/manifests/painter_prompt_study_v1/pps1-gpt-prompts-20260905/generation_freeze.json), measured vectors and fixed v2 references/scaler → [availability report](../reports/painter_prompt_study_v1/pps1-gpt-prompts-20260905/REPORT.md). No primary fidelity plots were published for the incomplete grid. |
 | **Available-output supplement** / `ppss1-missingness-20260905` | [Protocol](../studies/painter_prompt_supplement_v1/PROTOCOL.md) | [statistics.py](../src/latent_art_bench/painter_prompt_supplement_v1/statistics.py), [artifacts.py](../src/latent_art_bench/painter_prompt_supplement_v1/artifacts.py); plots in [report.py](../src/latent_art_bench/painter_prompt_supplement_v1/report.py) | The same 1,918 outputs under fixed missingness rules: [design freeze](../data/manifests/painter_prompt_supplement_v1/ppss1-missingness-20260905/design_freeze.json) → [report and plots](../reports/painter_prompt_supplement_v1/ppss1-missingness-20260905/REPORT.md). |
 | **Two-refusal retry** / `ppr1-two-refusals-20260906` | [Protocol](../studies/painter_prompt_retry_v1/PROTOCOL.md) | Computation, plotting and replay in [painter_prompt_retry_v1.py](../src/latent_art_bench/painter_prompt_retry_v1.py) | Original 1,918 vectors plus two later successes: [retry freeze](../data/manifests/painter_prompt_retry_v1/ppr1-two-refusals-20260906/retry_freeze.json) → [descriptive completed-grid report](../reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906/REPORT.md), without new randomization inference. |
-| **Retry presentation revision** / `ppr1-two-refusals-20260906-r2` | Same retry protocol; presentation only | No new analysis; [painter_prompt_retry_report_v2.py](../src/latent_art_bench/painter_prompt_retry_report_v2.py) | Sealed retry `analysis.json`: [revision receipt](../data/manifests/painter_prompt_retry_v1/ppr1-two-refusals-20260906/report_revision_2.json) → [revised plot presentation](../reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906-r2/REPORT.md). Both report versions are retained. |
-| **Distribution exploration** / `painter_distribution_exploration_v1` | [Methods](../studies/painter_distribution_exploration_v1/METHODS.md) | [analysis.py](../src/latent_art_bench/painter_distribution_exploration_v1/analysis.py), [statistics.py](../src/latent_art_bench/painter_distribution_exploration_v1/statistics.py); plots/check in [report.py](../src/latent_art_bench/painter_distribution_exploration_v1/report.py) | Completed retry grid and 649 references: [provenance](../reports/painter_distribution_exploration_v1/provenance.json) → [PCA, grouped detection and spread report](../reports/painter_distribution_exploration_v1/REPORT.md). Scatter plots use the 1,536 named outputs. |
-| **Controlled-study Stage A diagnostics** / `pdsv1-diagnostics-20260906` | [Diagnostic scope](../studies/painter_distribution_study_v1/DIAGNOSTICS.md) | Computation, plots and check in [diagnostics.py](../src/latent_art_bench/painter_distribution_study_v1/diagnostics.py) | Historical 649 references and completed 1,920-output grid, plus coarse scene mappings: [freeze](../data/manifests/painter_distribution_study_v1/pdsv1-diagnostics-20260906/freeze.json) → [content, reference-baseline, PCA and transfer diagnostics](../reports/painter_distribution_study_v1/pdsv1-diagnostics-20260906/REPORT.md). These precede the new 70-reference controlled panel. |
 
 These checks reconstruct numerical summaries and their published presentation
 from retained vectors, without re-extracting features:
@@ -145,9 +159,6 @@ uv run --locked --extra analysis --extra learned latent-art-bench feature-distan
 uv run --locked --extra analysis --extra learned python -m latent_art_bench.painter_prompt_study_v1.cli check-run pps1-gpt-prompts-20260905
 uv run --locked --extra analysis --extra learned python -m latent_art_bench.painter_prompt_supplement_v1.cli check ppss1-missingness-20260905
 uv run --locked --extra analysis --extra learned python -m latent_art_bench.painter_prompt_retry_v1 check
-uv run --locked --extra analysis --extra learned python -m latent_art_bench.painter_prompt_retry_report_v2 check
-uv run --locked --extra analysis --extra learned python -m latent_art_bench.painter_distribution_exploration_v1.report check
-uv run --locked --extra analysis --extra learned python -m latent_art_bench.painter_distribution_study_v1.diagnostics check
 ```
 
 ## Foundational and technical stages

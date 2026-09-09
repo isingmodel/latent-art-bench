@@ -1,7 +1,11 @@
 # Current status — 2026-09-09
 
-The project is in the **paper-correction phase**. Research collection, measurement
-and analysis are complete; no collector is active. Local `main` was fast-forwarded
+The project is in the **paper-correction phase**. The current correction restores
+Sisley and Pissarro alongside Monet and Cézanne in a substantive four-painter
+analysis, using retained data. Collection and measurement remain complete; no
+collector is active. Work is on `codex/restore-four-artist-analysis`.
+
+Before this correction, local `main` was fast-forwarded
 from `bdd57e9` to `ecc2c2b`, incorporating `research/pfg-v2-paper` and preserving
 every commit referenced by scientific evidence. No remote push was performed.
 
@@ -10,26 +14,33 @@ the [paper guide](../paper/README.md) for editing/building, and the
 [analysis catalog](ANALYSES.md) for computation and plotting entry points.
 Current guidance is mutable; [ARTIFACTS.md](ARTIFACTS.md) governs retained evidence.
 
-Integration cleanup clarified Study 1 versus Study 2 replay commands, added
+The prior integration cleanup clarified Study 1 versus Study 2 replay commands, added
 `make figures-check`, consolidated current status and rewrote the handover.
 Frozen code, protocols and evidence retain their recorded paths; the approved
-English manuscript and both user-owned Korean files are byte-unchanged.
+English manuscript and both user-owned Korean files were byte-unchanged during
+that integration. The English paper now changes to restore four-artist coverage;
+the Korean files remain untouched.
 
 ## Manuscript and correction baseline
 
 The canonical English manuscript is [paper/paper.tex](../paper/paper.tex):
 **Painter Naming and the Distributional Gap Between Generated Images and
-Original Paintings**, with a [19-page PDF](../paper/paper.pdf) and five vector
-figures. Substantive revision `dd314ee` gives each study its own methods and
+Original Paintings**, with a [24-page PDF](../paper/paper.pdf) and six vector
+figures. The restoration adds main-text four-painter methods/results, all-method
+scatter plots, matched-size reference baselines and all 24 distribution cells.
+The [restoration review](reviews/20260909_four_painter_restoration.md) records
+the omission history, source checks and two skeptical maintainer-run LLM reviews.
+
+The earlier substantive revision `dd314ee` gives each controlled study its own methods and
 results, promotes painter alignment and matched-reference coverage, clarifies the
 evidence hierarchy, and shows all six scene-specific color interactions.
 
 The [scored review record](reviews/20260909_scored_review/REVIEW.md) preserves the
-three reviewers' findings and responses. Its equal-weight mean increased from
+three reviewers' findings and responses for the prior 19-page version. Its equal-weight mean increased from
 **7.8125 to 8.5417/10**; final reviewer means are 8.625, 8.500 and 8.500, with no
-unresolved blocking manuscript finding. These are maintainer-run LLM assessments,
+unresolved blocking manuscript finding at that revision. These are maintainer-run LLM assessments,
 not external peer-review scores. They describe that revision, rather than serving
-as a gate for subsequent corrections.
+as a gate for subsequent corrections or a score for the restored manuscript.
 
 The local Korean manuscript source and PDF are user-owned work and remain
 outside this cleanup. Public archival release of the scientific snapshot
@@ -40,6 +51,8 @@ establish either.
 
 | Component | State and interpretation |
 | --- | --- |
+| [Four-painter exploration](../reports/painter_distribution_exploration_v1/REPORT.md) | 649 Monet/Sisley/Pissarro/Cézanne references, 1,536 painter-conditioned outputs and 384 artist-free controls. Main-text distribution analysis restored; all 24 full-feature trace ratios .206–.376, RBF balanced accuracy .940–.983. Post-hoc and separate from the controlled cohorts. |
+| [Four-painter reference controls](../reports/painter_distribution_study_v1/pdsv1-diagnostics-20260906/REPORT.md) | Matched-size generated/reference energy exceeds original/original medians for all four painters. Named medians are lower than artist-free medians only for Sisley; these pooled descriptive comparisons do not estimate the later controlled naming effect. |
 | [Study 1 controlled analysis](../reports/painter_distribution_study_v1/pdsv1-analysis-20260907/REPORT.md) | 1,006 generated images across three services, 70 Monet/Cézanne references and 221 development works. Preserve the original eight conditional randomization tests. Naming lowers primary energy discrepancy in all six service/painter cells; four reject after adjustment. |
 | [Study 1 computational revision](../reports/painter_distribution_revision_v1/pdrv1-numeric-20260907/REPORT.md) | Feature-view, variance, reference/scaler, painter-alignment, coverage and cross-service diagnostics. Aggregate contraction does not establish perceptual similarity or a causal mechanism. |
 | [Retained-data retrieval](../reports/painter_responsiveness_v2/prv2-oauth-20260908/diagnostics/REPORT.md) | Retrieval improves in two cells and declines in four despite between-scene contraction. FLUX/Monet improves from 44.4% to 59.7%. These fixed-feature descriptions are not new significance tests or human scene-adherence scores. |
@@ -81,21 +94,24 @@ unperformed. Paper correction does not reopen image acquisition or extraction.
 
 ## Verification
 
-Integration validation passed on local `main` at `ecc2c2b`:
+Four-painter restoration checks passed:
 
-- Ruff and **1,135 offline tests** (117.82 seconds).
-- Historical evidence audit: **2,902 checks, zero failures**, retaining only the
-  two existing acknowledgements.
-- All five manuscript figures reproduce byte for byte with `make figures-check`.
-- All 293 local documentation links and both checked anchors resolve;
-  `git diff --check` passes.
-- Hashes confirm that the English TeX/PDF and both user-owned Korean files are
-  unchanged from the start of integration.
+- Ruff and **1,135 offline tests** (113.56 seconds), following 19 targeted tests.
+- Exploration, Stage A and retry-presentation replay: **35 + 18 + 9 = 62 report
+  files**, with unchanged numerical results.
+- Historical evidence audit: **2,902 checks, zero failures**, with the same two
+  existing acknowledgements.
+- All six figure PDFs reproduce; the previous five are byte-unchanged. The
+  24-page manuscript compiles without warnings and passes complete visual QA.
+- All 316 checked local documentation links resolve; whitespace checks pass.
+  Both user-owned Korean manuscript files remain byte-unchanged.
 
-The manuscript was not rebuilt during cleanup. Its last substantive revision
-had all 19 pages visually inspected and no TeX warnings. The
+The [restoration review](reviews/20260909_four_painter_restoration.md) records
+manuscript verification and visual QA. No new images or charges were incurred.
+
+Prior integration checks are recorded in commit `e989cfb`; the earlier
 [computational review](reviews/20260908_computational_responsiveness/REVIEW.md)
-records numerical/report replay and visual checks of the experiment displays.
+records numerical/report replay and visual checks of the color experiment.
 
 The historical evidence audit does not register responsiveness v2.
 `make computational-responsiveness` separately
@@ -104,7 +120,8 @@ correction: **74 report files** plus numerical calculations and input/output
 hashes, using the retained response archive. That full replay passed before the
 manuscript revision; no scientific inputs or implementations changed in cleanup.
 
-`make analysis` and `make plots` cover Study 1 and its revision.
-`make figures-check` checks only the five editable manuscript figures.
+`make four-painter-analysis` covers the restored exploratory distributions and
+controls. `make analysis` and `make plots` cover Study 1 and its revision.
+`make figures-check` checks only the six editable manuscript figures.
 All replay targets are offline; the [paper guide](../paper/README.md) specifies
 the build and page-inspection workflow for the next correction.

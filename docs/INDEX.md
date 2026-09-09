@@ -17,7 +17,9 @@
 
 | Material | Link |
 | --- | --- |
-| English manuscript | [PDF](../paper/paper.pdf), [source/build guide](../paper/README.md), [current scored reviews and responses](reviews/20260909_scored_review/REVIEW.md), [earlier integration review](reviews/20260908_manuscript.md) |
+| English manuscript | [PDF](../paper/paper.pdf), [source/build guide](../paper/README.md), [four-painter restoration and review](reviews/20260909_four_painter_restoration.md); [scored reviews of the prior 19-page revision](reviews/20260909_scored_review/REVIEW.md), [earlier integration review](reviews/20260908_manuscript.md) |
+| Four-painter descriptive distributions | [Exploration report](../reports/painter_distribution_exploration_v1/REPORT.md), [methods](../studies/painter_distribution_exploration_v1/METHODS.md); 649 references and 1,536 painter-conditioned outputs across Monet, Sisley, Pissarro and Cézanne |
+| Four-painter descriptive controls | [Stage A report](../reports/painter_distribution_study_v1/pdsv1-diagnostics-20260906/REPORT.md), [diagnostic scope](../studies/painter_distribution_study_v1/DIAGNOSTICS.md), [retry-contrast presentation](../reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906-r2/REPORT.md); completed grid additionally includes 384 artist-free controls |
 | Controlled results | [Full report](../reports/painter_distribution_study_v1/pdsv1-analysis-20260907/REPORT.md) |
 | Controlled design | [Protocol](../studies/painter_distribution_study_v1/PROTOCOL.md), [main design](../studies/painter_distribution_study_v1/MAIN.md), [inference](../studies/painter_distribution_study_v1/INFERENCE.md) |
 | Computational revision | [Full report](../reports/painter_distribution_revision_v1/pdrv1-numeric-20260907/REPORT.md), [fixed diagnostic protocol](../studies/painter_distribution_revision_v1/PROTOCOL.md) |
@@ -33,6 +35,11 @@ The earlier validation documents are frozen planning artifacts. The computationa
 narrower service-response claim. The earlier v1 human-validation scope remains
 unchanged. See current status for executed stages. Reviews are maintainer-run LLM reviews. The current paper is the only
 manuscript directory; earlier writing is retained in Git history.
+The scored review's 8.5417 average applies to the prior 19-page manuscript, not
+the restored four-painter draft. The restored analyses are post-result descriptive
+evidence: two later retries and unresolved requested-alias identities retain their
+original qualifications, and the incomplete prompt study's primary inference is
+not reinstated. Their source bundles remain terminal.
 
 ## Earlier evidence
 
@@ -41,8 +48,7 @@ full ledgers, protocols and committed dependencies remain at their existing path
 
 | Study | Entry points |
 | --- | --- |
-| Distribution scatter exploration | [Report](../reports/painter_distribution_exploration_v1/REPORT.md), [methods](../studies/painter_distribution_exploration_v1/METHODS.md) |
-| Two-refusal retry follow-up | [Derived report](../reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906-r2/REPORT.md), [protocol](../studies/painter_prompt_retry_v1/PROTOCOL.md) |
+| Two-refusal retry follow-up | [Original descriptive report](../reports/painter_prompt_retry_v1/ppr1-two-refusals-20260906/REPORT.md), [protocol](../studies/painter_prompt_retry_v1/PROTOCOL.md); the current presentation is linked above |
 | Prompt-study missingness supplement | [Report](../reports/painter_prompt_supplement_v1/ppss1-missingness-20260905/REPORT.md), [protocol](../studies/painter_prompt_supplement_v1/PROTOCOL.md) |
 | Original repeated prompt study | [Report](../reports/painter_prompt_study_v1/pps1-gpt-prompts-20260905/REPORT.md), [protocol](../studies/painter_prompt_study_v1/PROTOCOL.md) |
 | Existing-data feature distances | [Report](../reports/painter_feature_distance_v1/REPORT.md) |
