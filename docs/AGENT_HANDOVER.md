@@ -4,10 +4,17 @@ Read [STATUS.md](STATUS.md), then [ARTIFACTS.md](ARTIFACTS.md), inspect
 `git status --short --branch`, and follow [AGENTS.md](../AGENTS.md). This is mutable
 orientation, not a protocol or authorization to reopen research stages.
 
-The current phase is **paper correction**, with `main` as the integration branch.
-Check the actual branch and integration state before working; do not infer a
-completed merge or public release from this handover. No image collection or
-measurement process is active, and there is no pending acquisition task.
+The current phase is **paper correction**. Local `main` was fast-forwarded from
+`bdd57e9` to `ecc2c2b`, incorporating `research/pfg-v2-paper` without rewriting
+history. No remote push was performed. No image collection or measurement process
+is active, and there is no pending acquisition task.
+
+The integration cleanup (`ecc2c2b`) clarified the code/plotting map and the distinct
+Study 1 and Study 2 replay commands, added `make figures-check`, consolidated
+current status and made this document the correction handover. Scientific packages
+and evidence remain at their recorded paths. The English TeX/PDF and user-owned
+Korean files were not changed. See [STATUS.md](STATUS.md) for final integration
+checks and [paper/README.md](../paper/README.md) for the canonical editing workflow.
 
 ## Current deliverable
 
@@ -113,12 +120,13 @@ make computational-responsiveness
 evidence audit does not register responsiveness v2; its separate
 replay is required for that scope. Full integrity-checked replay needs the retained
 raw-response archive, while image-level remeasurement additionally needs retained
-pixels and is outside paper correction. The pre-integration checks passed Ruff,
-1,135 offline tests, 2,902 historical audit checks and all 74 computational-follow-up
-report files. All five manuscript figures reproduce byte for byte, and all 19 PDF
-pages were visually checked. These are prior verification results, not checks
-automatically performed by reading this handover. Tests marked `live` require
-explicit authorization.
+pixels and is outside paper correction. Fresh integration validation on local
+`main` at `ecc2c2b` passed Ruff, 1,135 offline tests and 2,902 historical audit
+checks; all five manuscript figures reproduce byte for byte. The earlier
+computational replay passed all 74 report files, and the last substantive paper
+revision had all 19 PDF pages visually checked. See [STATUS.md](STATUS.md) for
+the precise check record. These checks do not automatically validate later
+edits. Tests marked `live` require explicit authorization.
 
 ## Limits and next-agent priorities
 

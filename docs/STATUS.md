@@ -1,14 +1,19 @@
 # Current status — 2026-09-09
 
 The project is in the **paper-correction phase**. Research collection, measurement
-and analysis are complete; no collector is active. Integration of
-`research/pfg-v2-paper` into local `main` is being prepared as a fast-forward so
-every commit referenced by scientific evidence remains available.
+and analysis are complete; no collector is active. Local `main` was fast-forwarded
+from `bdd57e9` to `ecc2c2b`, incorporating `research/pfg-v2-paper` and preserving
+every commit referenced by scientific evidence. No remote push was performed.
 
 Use the [handover](AGENT_HANDOVER.md) for completed work and correction boundaries,
 the [paper guide](../paper/README.md) for editing/building, and the
 [analysis catalog](ANALYSES.md) for computation and plotting entry points.
 Current guidance is mutable; [ARTIFACTS.md](ARTIFACTS.md) governs retained evidence.
+
+Integration cleanup clarified Study 1 versus Study 2 replay commands, added
+`make figures-check`, consolidated current status and rewrote the handover.
+Frozen code, protocols and evidence retain their recorded paths; the approved
+English manuscript and both user-owned Korean files are byte-unchanged.
 
 ## Manuscript and correction baseline
 
@@ -76,18 +81,28 @@ unperformed. Paper correction does not reopen image acquisition or extraction.
 
 ## Verification
 
-Integration checks are pending. The pre-integration manuscript revision passed
-Ruff, **1,135 offline tests**, and byte checks of all five figures. Its 19 pages
-were visually inspected and the build had no TeX warnings. The
+Integration validation passed on local `main` at `ecc2c2b`:
+
+- Ruff and **1,135 offline tests** (117.82 seconds).
+- Historical evidence audit: **2,902 checks, zero failures**, retaining only the
+  two existing acknowledgements.
+- All five manuscript figures reproduce byte for byte with `make figures-check`.
+- All 293 local documentation links and both checked anchors resolve;
+  `git diff --check` passes.
+- Hashes confirm that the English TeX/PDF and both user-owned Korean files are
+  unchanged from the start of integration.
+
+The manuscript was not rebuilt during cleanup. Its last substantive revision
+had all 19 pages visually inspected and no TeX warnings. The
 [computational review](reviews/20260908_computational_responsiveness/REVIEW.md)
 records numerical/report replay and visual checks of the experiment displays.
 
-The historical evidence audit previously passed **2,902 checks with zero
-failures**, retaining only its two existing acknowledgements. It does not
-register responsiveness v2. `make computational-responsiveness` separately
+The historical evidence audit does not register responsiveness v2.
+`make computational-responsiveness` separately
 verifies the retrieval, primary replacement, ancillary predecessor and quantile
 correction: **74 report files** plus numerical calculations and input/output
-hashes, using the retained response archive.
+hashes, using the retained response archive. That full replay passed before the
+manuscript revision; no scientific inputs or implementations changed in cleanup.
 
 `make analysis` and `make plots` cover Study 1 and its revision.
 `make figures-check` checks only the five editable manuscript figures.
