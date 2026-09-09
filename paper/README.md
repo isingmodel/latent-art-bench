@@ -4,14 +4,17 @@ The canonical English manuscript is [paper.tex](paper.tex), compiled to
 [paper.pdf](paper.pdf), with [references.bib](references.bib). It restores the
 four-painter distributional analysis to the main text, followed by the separate
 two-painter controlled distribution study, scene-retrieval diagnostics and
-controlled color-response experiment. The current draft is 23 pages with six
+controlled color-response experiment. The current draft is 25 pages with seven
 vector figures.
-The latest editorial pass revises the whole manuscript for clarity and structure:
-it condenses the abstract and Introduction, uses consistent comparison terms,
-keeps variation and scene retrieval together, leads Study 2 with its primary
-interactions, and orders appendices by study. All numerical tables, equations,
-figures and citation keys remain unchanged. Two maintainer-run LLM subagents
-reviewed the prose and scientific wording; the PDF received complete visual QA.
+The latest correction adds the complete artist-free/named/real coverage comparison,
+corrects the nearest-literature description, expands feature and prompt definitions,
+and displays all 24 palette-interaction blocks for each painter. A compact-data
+replay reproduces both primary palette estimates and intervals. The original
+equations, ten table bodies and six figure PDFs remain unchanged.
+The [academic review record](../docs/reviews/20260909_academic_review/REVIEW.md)
+preserves three maintainer-run LLM reviews, the fixed three-aspect rubric,
+revisions and subsequent assessments. These are not external peer reviews;
+their scores are not evidence of measurement validity or publication acceptance.
 Earlier drafts and the superseded paper are retained only in Git history.
 The [four-painter restoration record](../docs/reviews/20260909_four_painter_restoration.md)
 documents the omission history, restored evidence, two maintainer-run LLM reviews,
@@ -39,6 +42,7 @@ From the repository root, after `uv sync --locked --extra analysis --extra dev`:
 ```bash
 make paper          # Render figures and compile paper/paper.pdf with Tectonic
 make figures-check  # Check manuscript figures without rewriting them
+make palette-check  # Replay Study 2 primary inference using compact inputs only
 ```
 
 `make_figures.py` verifies the hashes of eight published inputs: seven CSVs and
@@ -51,7 +55,27 @@ shares a basis and axis limits across its three prompt methods; equal aspect and
 all outliers are retained, with the two later retry points marked. The color-response figure
 extracts the six saved scene estimates for each painter as well as the pooled
 estimates and intervals; it does not calculate new interactions.
-For temporary PNG previews:
+
+`replay_palette.py` supplies the seventh figure, `palette_blocks.pdf`, and the
+numeric-only `make palette-check` command. It reads exactly three SHA-256-pinned
+files from the sole primary Study 2 run, `prv2-oauth-recovery-20260908`:
+
+- `data/manifests/painter_responsiveness_v2/<run>/planned_requests.jsonl`
+- `reports/painter_responsiveness_v2/<run>/experiment/generated_chroma.csv`
+- `reports/painter_responsiveness_v2/<run>/experiment/primary.csv`
+
+The command verifies all 576 pipeline outcomes against the 192 planned identities,
+passes the primary-512 values to the unchanged factorial inference implementation,
+and requires exact agreement with both saved primary rows. It derives the 24 block
+interactions, their signs and scene variance shares as post-result descriptive
+summaries. The figure shows every block in dispatch order, which was separately
+checked against recorded collection slots and transport timing during review.
+These checks do not verify raw responses, source pixels, feature extraction,
+service independence or public availability. The full archive checks are unchanged.
+The command was also tested with only these three data files in a temporary input
+root. Its code dependencies and locked Python environment are still required.
+
+For temporary PNG previews of the six summary figures:
 
 ```bash
 uv run --locked python paper/make_figures.py --preview-dir tmp/paper/preview
@@ -107,17 +131,20 @@ replays the later controlled study and revision.
 `make computational-responsiveness` replays the subsequent computational studies
 and quantile correction. These commands use retained
 vectors and metadata; full integrity-checked computational replay also requires
-the separately retained raw response archive. Figure rebuilding uses only the
-committed numeric tables. None of these commands regenerates images or restarts
+the separately retained raw response archive. Figure rebuilding uses only
+committed compact inputs. None of these commands regenerates images or restarts
 terminal studies.
 
 ## Release and access status
 
 The project remote is <https://github.com/isingmodel/latent-art-bench>. The
 scientific snapshot cited by this draft is local commit `28a9eb6`; its public
-archival release is pending. The current manuscript revision does not publish
-or push that snapshot. Figure rebuilding requires the redistributed numeric
-tables, while full computational-follow-up replay verifies separately retained
+archival release is pending. The current manuscript source, Makefile and figure/
+numeric replay scripts postdate that snapshot and are supplied with this revision.
+The earlier scientific snapshot alone does not contain the current presentation
+targets. This correction does not publish or push either revision.
+Figure rebuilding and `make palette-check` require compact inputs; full
+computational-follow-up replay verifies separately retained
 raw-response bytes. Image-level remeasurement additionally needs retained image
 pixels. Those media are not publicly redistributed, and external access has
 not been arranged. The paper distinguishes these access boundaries explicitly.

@@ -1,8 +1,9 @@
-# Current status — 2026-09-09
+# Current status — 2026-09-10
 
-The project is in the **paper-correction phase**. The latest correction revises
-the entire English manuscript for prose, terminology and structure, preserving
-the restored four-painter analysis and every scientific result. Collection and
+The project is in the **paper-correction phase**. The latest correction addresses
+three academic reviews under a fixed three-aspect rubric, preserving all four
+painters and the original primary analyses. It adds a missing coverage comparison,
+fuller methods and a compact-data palette replay with a descriptive block display. Collection and
 measurement remain complete; no collector is active. Work is on `codex/restore-four-artist-analysis`.
 
 Before this correction, local `main` was fast-forwarded
@@ -25,12 +26,19 @@ received a full editorial revision; the Korean files remain untouched.
 
 The canonical English manuscript is [paper/paper.tex](../paper/paper.tex):
 **Painter Naming and the Distributional Gap Between Generated Images and
-Original Paintings**, with a [23-page PDF](../paper/paper.pdf) and six vector
-figures. The current revision shortens the abstract and repeated study previews,
-defines comparison terms consistently, keeps variance and retrieval results
-adjacent, presents Study 2 primary results before secondary contrasts, and aligns
-the appendices with the study sequence. All four painters, all 24 exploratory
+Original Paintings**, with a [25-page PDF](../paper/paper.pdf) and seven vector
+figures. The current revision corrects the Deliège comparison, expands the
+feature/scaler and exploratory-prompt specifications, compares artist-free/named/
+real coverage in the main results, and displays all 24 Study 2 block interactions
+per painter. All four painters, all 24 exploratory
 cells, and the separate controlled cohorts remain included.
+The [academic review record](reviews/20260909_academic_review/REVIEW.md) contains
+the fixed rubric, all reviews, responses, version hashes and remaining scientific
+requirements. Three maintainer-run LLM reviewers assessed rigor, contribution and
+clarity/reproducibility; these are not external peer-review scores.
+The aggregate increased from **7.7222 to 7.8889/10**. The user's **>9 target remains
+unmet**: validation, independent replication and public access are substantive
+research/release requirements, not defects that wording alone can resolve.
 The [restoration review](reviews/20260909_four_painter_restoration.md) records
 the omission history, source checks and two skeptical maintainer-run LLM reviews.
 
@@ -97,18 +105,21 @@ unperformed. Paper correction does not reopen image acquisition or extraction.
 
 ## Verification
 
-The latest editorial correction passed:
+The latest academic-review correction passed:
 
-- Two maintainer-run LLM subagents reviewed clarity/structure and scientific
-  wording, followed by a review of the revision. No blocking claim drift remained.
-- Every table body, displayed equation, figure inclusion and citation key is
-  unchanged from restoration commit `328102a`, allowing for reordering.
-- The smallest relevant offline suite passed: **19 tests**. Python behavior and
-  frozen scientific inputs were not changed, so the full suite and evidence
-  audit were not rerun for this text-only correction.
-- All six manuscript figures reproduce byte for byte. The **23-page PDF** builds
-  without warnings; all pages were visually checked and awkward float/paragraph
-  breaks corrected. Whitespace checks pass and both Korean files are unchanged.
+- **1,149 offline tests** (114.10 seconds) and Ruff, including 14 new compact-replay
+  tests. The two initial targeted runs passed 19 and 31 tests.
+- Both Study 2 primary rows replay exactly from three compact numeric inputs
+  with the unchanged inference implementation. An isolated input-root test
+  requires no raw archive. An additional reviewer independently checked all 48
+  block interactions and the recorded collection order.
+- All eight displayed equation bodies and ten prior table bodies are preserved
+  from `1fcbcc5`; the coverage table is added. The citation-key set and six prior
+  figure PDFs are unchanged. All seven current figures reproduce byte for byte.
+- Historical evidence audit: **2,902 checks, zero failures**, retaining the same
+  two prior acknowledgements. No frozen scientific input or source changed.
+- The **25-page PDF** builds without warnings. The review record records final
+  page inspection, layout corrections and preservation checks.
 
 The earlier four-painter restoration checks passed:
 
@@ -139,6 +150,9 @@ manuscript revision; no scientific inputs or implementations changed in cleanup.
 
 `make four-painter-analysis` covers the restored exploratory distributions and
 controls. `make analysis` and `make plots` cover Study 1 and its revision.
-`make figures-check` checks only the six editable manuscript figures.
+`make palette-check` replays the two Study 2 primary results from compact data;
+its block signs and scene variance shares are new post-result descriptive summaries.
+It does not verify raw responses or feature extraction. `make figures-check`
+checks the seven editable manuscript figures.
 All replay targets are offline; the [paper guide](../paper/README.md) specifies
 the build and page-inspection workflow for the next correction.

@@ -5,7 +5,7 @@ Read [STATUS.md](STATUS.md), then [ARTIFACTS.md](ARTIFACTS.md), inspect
 orientation, not a protocol or authorization to reopen research stages.
 
 The current phase is **paper correction**, with four-artist coverage restored
-and a full editorial revision completed on `codex/restore-four-artist-analysis`. Before this correction, local `main` was fast-forwarded from
+and an academic-review revision on `codex/restore-four-artist-analysis`. Before this correction, local `main` was fast-forwarded from
 `bdd57e9` to `ecc2c2b`, incorporating `research/pfg-v2-paper` without rewriting
 history. No remote push was performed. No image collection or measurement process
 is active, and there is no pending acquisition task.
@@ -24,7 +24,7 @@ checks and [paper/README.md](../paper/README.md) for the canonical editing workf
 The sole maintained English manuscript is
 [paper/paper.tex](../paper/paper.tex), titled **Painter Naming and the
 Distributional Gap Between Generated Images and Original Paintings**, with a
-[23-page PDF](../paper/paper.pdf) and six vector figures. See the
+[25-page PDF](../paper/paper.pdf) and seven vector figures. See the
 [paper guide](../paper/README.md) for its bibliography, scientific inputs, build
 instructions and access status. Earlier drafts remain in Git history.
 
@@ -38,15 +38,37 @@ on Monet/Cézanne for service breadth and reference curation within the budget;
 the plan explicitly retained all four painters in earlier diagnostics. The
 omission occurred in later writing, not because Sisley/Pissarro lacked data.
 
-The latest correction reads and revises the complete English TeX for text quality
+The preceding correction (`1fcbcc5`) read and revised the complete English TeX for text quality
 and structure. It removes repeated study previews and administrative phrasing,
 standardizes proximity/spread/contraction terminology, places sensitivity analyses
 after variance and retrieval, leads Study 2 with its unresolved primary tests,
 and reorders appendices to follow the studies. All table and equation bodies,
 figure inclusions and citation keys are unchanged. Two maintainer-run LLM
 subagents reviewed the initial manuscript and the revision; layout issues were
-then corrected through page-by-page inspection. This correction adds no new
+then corrected through page-by-page inspection. That correction added no new
 measurements, statistical claims or review scores.
+
+The current correction follows three maintainer-run LLM academic reviews using
+the user-specified DeerFlow skill and a fixed three-aspect 1–10 rubric. See the
+[complete review record](reviews/20260909_academic_review/REVIEW.md) for scores,
+version hashes, responses and remaining research requirements. It corrects the
+Deliège reference description, expands feature and prompt specifications, adds
+the artist-free/named/real coverage table and an appendix figure showing every
+Study 2 block. These changes preserve all primary results and four-artist coverage.
+The fixed-rubric mean increased from **7.7222 to 7.8889**, below the requested >9.
+Do not describe that target as achieved or use the older 8.5417 score for this
+revision. Further substantial gains require validation, replication and actual
+external access; the completed manuscript corrections do not provide those.
+
+`paper/replay_palette.py` and `make palette-check` recompute the two primary
+Study 2 rows from exactly three pinned compact files with the unchanged inference
+primitive. New post-result summaries show block signs and scene variance shares;
+the original inference and frozen reports are unchanged. The new script also
+renders/checks `paper/figures/palette_blocks.pdf`; the other six figures remain
+byte-unchanged. Fourteen new tests include input corruption, identity failures,
+independent scalar interval calculations and replay without the response archive.
+Ruff, all 1,149 offline tests and the 2,902-check historical evidence audit passed.
+The script does not establish public access, pixel validity or service independence.
 
 The prior substantive manuscript revision is commit `dd314ee`. It gives each controlled study its
 own methods and results, clarifies the contribution and evidence hierarchy,
@@ -119,6 +141,7 @@ the build and page-rendering instructions in [paper/README.md](../paper/README.m
 ```bash
 make paper
 make figures-check
+make palette-check
 git diff --check
 ```
 
