@@ -4,9 +4,13 @@ LatentArtBench compares generated-image feature distributions with digital
 reproductions of paintings. Start with the [current status](docs/STATUS.md),
 [analysis map](docs/ANALYSES.md) and [architecture](docs/ARCHITECTURE.md).
 
+The current phase is paper correction. Use the [handover](docs/AGENT_HANDOVER.md)
+for completed work and boundaries, and [paper/README.md](paper/README.md) as the
+canonical build and visual-check guide.
+
 ## Where changes belong
 
-- `paper/` contains the single current manuscript, bibliography and presentation
+- `paper/` contains the canonical English manuscript, bibliography and presentation
   figures. Older manuscripts are available in Git history.
 - Each analysis has its own package under `src/latent_art_bench/`, corresponding
   tests, study methods, compact manifests and published reports. The analysis
@@ -34,11 +38,13 @@ claims. Internal LLM reviews are not independent human peer review.
 ## Checks and data
 
 ```bash
-make check       # Ruff and the full offline test suite
-make evidence    # Commit-bound historical evidence audit
-make analysis    # Replay the paper's two numerical analyses
-make plots       # Replay their report figures/tables and check paper figures
-make paper       # Render manuscript figures and build the PDF
+make paper           # Render manuscript figures and build the PDF
+make figures-check   # Check the five manuscript figures without rewriting them
+make check           # Ruff and the full offline test suite
+make evidence        # Commit-bound historical evidence audit
+make analysis        # Replay Study 1 controlled and revision numeric results
+make plots           # Replay Study 1 report bundles and check manuscript figures
+make computational-responsiveness  # Replay Study 2, retrieval and quantile correction
 ```
 
 Run the checks relevant to the change. Python changes require Ruff and the full

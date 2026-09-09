@@ -6,6 +6,10 @@ texture with **31 interpretable features**. The current research asks how adding
 painter's name changes proximity to the reference distribution and variation
 among generated images.
 
+The project is in the **paper-correction phase**. The
+[handover](docs/AGENT_HANDOVER.md) records completed work, current boundaries and
+the correction workflow; [STATUS.md](docs/STATUS.md) records integration and checks.
+
 Read the [English paper](paper/paper.pdf), its [source and build guide](paper/README.md),
 and the [complete revision report](reports/painter_distribution_revision_v1/pdrv1-numeric-20260907/REPORT.md).
 The paper integrates **1,006 images from three generation routes** in Study 1
@@ -20,8 +24,9 @@ computational findings: human style validation is unperformed, reference capture
 provenance is unresolved, and image geometry differs between domains.
 
 The [computational follow-up report](reports/painter_responsiveness_v2/REPORT.md)
-adds a completed **192-image intervention without human ratings**. Generic painting
-language reduces response to muted/vivid color instructions; additional
+adds a completed **192-image intervention without human ratings**. The tested
+generic painting clause reduces response to muted/vivid color instructions in a
+secondary comparison; additional
 Monet/Cézanne effects remain unresolved in the two primary comparisons. Retained-data
 scene retrieval improves for FLUX/Monet despite strong feature contraction, showing
 that contraction does not necessarily imply lost scene distinguishability.
@@ -41,12 +46,16 @@ on older interpreters. From the repository root:
 uv sync --locked --extra analysis --extra dev --inexact
 make analysis
 make plots
+make computational-responsiveness
 make check
 make evidence
 ```
 
-These targets replay retained numerical evidence and report outputs or run offline
-checks. They make no generation requests. `make figures` rebuilds the five
+`make analysis` and `make plots` cover Study 1 and its computational revision;
+`make computational-responsiveness` covers Study 2, retained-data retrieval and
+the quantile correction. These targets make no generation requests.
+`make figures-check` checks only the five manuscript figures without rewriting
+them. `make figures` rebuilds the five
 manuscript figures; `make paper` builds the PDF with Tectonic. See
 [the analysis catalog](docs/ANALYSES.md) for individual commands, inputs and outputs,
 and [the paper guide](paper/README.md) for rendering and visual checks.
@@ -68,8 +77,8 @@ hashes, so it requires the local response archive without re-extracting features
 | [data/manifests/](data/manifests/) | Compact measured vectors, request records, hashes and receipts |
 | [docs/](docs/INDEX.md) | Current guidance and navigation to retained historical evidence |
 
-Only the current manuscript is kept in `paper/`; earlier manuscript versions are
-available in Git history. Historical scientific protocols, source, results and raw
+`paper/paper.tex` is the canonical English manuscript; earlier manuscript versions
+are available in Git history. Historical scientific protocols, source, results and raw
 local evidence remain necessary for reproducibility. Read the
 [artifact policy](docs/ARTIFACTS.md) before deleting research files.
 

@@ -4,7 +4,7 @@ This is the navigation map for computation, plotting and reproduction. Run comma
 from the repository root. **Current** identifies the evidence used by `paper/`;
 **terminal** means a completed scientific bundle that must remain unchanged.
 Historical development analyses remain useful context, but are not new confirmation
-evidence. See [STATUS.md](STATUS.md) for active execution.
+evidence. See [STATUS.md](STATUS.md) for the current paper-correction phase.
 
 The [Makefile](../Makefile) provides the common entry points:
 
@@ -12,11 +12,12 @@ The [Makefile](../Makefile) provides the common entry points:
 | --- | --- |
 | `make check` | Ruff and the complete offline test suite |
 | `make evidence` | Historical evidence bindings, dispositions and retained-byte integrity |
-| `make analysis` | Recompute the controlled and revision numeric results |
-| `make plots` | Reproduce both current report bundles and check the five manuscript figures |
+| `make analysis` | Replay Study 1 controlled and revision numeric results |
+| `make plots` | Replay Study 1 controlled and revision report bundles and check manuscript figures |
 | `make responsiveness` | Replay the earlier v1 responsiveness diagnostic JSON and all report bytes |
 | `make computational-responsiveness` | Replay v2 scene retrieval, both completed experiment bundles, the quantile correction and their report bytes |
 | `make figures` | Rebuild editable manuscript figures from saved tables and coordinates |
+| `make figures-check` | Check the five manuscript figures without rewriting them or replaying full reports |
 | `make paper` | Rebuild figures and compile the manuscript; see [paper/README.md](../paper/README.md) |
 
 Numeric and report checks use temporary output and preserve the published bundles.
@@ -62,8 +63,8 @@ uv run --locked python paper/make_figures.py --check
 
 ## Computational intervention without human ratings
 
-The [v2 protocol](../studies/painter_responsiveness_v2/PROTOCOL.md) defines a new
-192-image, four-arm, two-polarity OAuth experiment, now complete. The
+The [v2 protocol](../studies/painter_responsiveness_v2/PROTOCOL.md) defines the completed
+192-image, four-arm, two-polarity OAuth experiment. The
 [scientific synthesis](../reports/painter_responsiveness_v2/REPORT.md) connects its
 results to the original paintings and scene-retrieval findings. It estimates two named-minus-generic
 chroma-response interactions with shared controls. It does not identify human style
@@ -95,14 +96,15 @@ This replays the versioned descriptive quantile correction from committed numeri
 inputs. It verifies exact rational CDF boundaries and all nine correction report
 files without duplicating or modifying the earlier 65-file publication.
 
-## Mechanism follow-up: painter responsiveness
+## Preserved responsiveness v1 scope
 
-The new `painter_responsiveness_v1` namespace implements the
+The earlier `painter_responsiveness_v1` namespace implements the
 [mechanism proposal](RESEARCH_IDEA_20260908.md). Its
 [protocol and continuation guide](../studies/painter_responsiveness_v1/README.md)
 separate completed retained-data diagnostics from prospective generation and
-actual human validation. The existing manuscript has not acquired a new causal
-or perceptual conclusion.
+actual human validation. Its diagnostic is complete; human validation is
+unperformed and its preflight is closed. No stage is active. The manuscript does
+not establish a causal mechanism or perceptual conclusion.
 
 | Component | Code | Evidence / output |
 | --- | --- | --- |

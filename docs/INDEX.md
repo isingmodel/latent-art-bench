@@ -6,7 +6,7 @@
 | --- | --- |
 | [Project README](../README.md) | Research question, current result and quickstart |
 | [Current status](STATUS.md) | Completed work, limitations and latest verification |
-| [Agent handover](AGENT_HANDOVER.md) | Working constraints and continuation guidance |
+| [Agent handover](AGENT_HANDOVER.md) | Completed work, paper-correction workflow and working constraints |
 | [Analysis catalog](ANALYSES.md) | Numerical, report-plot and manuscript-figure commands |
 | [Architecture](ARCHITECTURE.md) | Code and data dependencies |
 | [Artifact policy](ARTIFACTS.md) | What must be retained and what is disposable |
@@ -27,7 +27,7 @@
 | Computational responsiveness v2 | [Scientific synthesis](../reports/painter_responsiveness_v2/REPORT.md), [192-image primary experiment](../reports/painter_responsiveness_v2/prv2-oauth-recovery-20260908/experiment/REPORT.md), [retrieval results](../reports/painter_responsiveness_v2/prv2-oauth-20260908/diagnostics/REPORT.md), [protocol and implementation](../studies/painter_responsiveness_v2/README.md), [review record](reviews/20260908_computational_responsiveness/REVIEW.md) |
 | Descriptive quantile corrigendum | [Corrected displays and affected-record tables](../reports/painter_responsiveness_quantiles_v1/prqv1-20260908/REPORT.md), [exact-weight protocol](../studies/painter_responsiveness_quantiles_v1/PROTOCOL.md); medians corrected, primary inference and range occupancy unchanged |
 | Responsiveness implementation v1 | [Protocol and continuation guide](../studies/painter_responsiveness_v1/README.md), [capture feasibility](../studies/painter_responsiveness_v1/CAPTURE_FEASIBILITY.md) |
-| New research direction | [Why generated paintings differ: mechanism report and proposal](RESEARCH_IDEA_20260908.md), with primary-paper readings and eight numerical/metadata case studies |
+| Historical research proposal | [Why generated paintings differ: mechanism report and proposal](RESEARCH_IDEA_20260908.md), with primary-paper readings and eight numerical/metadata case studies; later execution is recorded in current status |
 
 The earlier validation documents are frozen planning artifacts. The computational v2 successor removes human ratings as a prerequisite for its
 narrower service-response claim. The earlier v1 human-validation scope remains

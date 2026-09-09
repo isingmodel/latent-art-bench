@@ -1,114 +1,143 @@
-# Agent handover
+# Agent handover — paper-correction phase
 
-Read [STATUS.md](STATUS.md), then [ARTIFACTS.md](ARTIFACTS.md), and inspect
-`git status --short --branch` before acting. Follow [AGENTS.md](../AGENTS.md).
-This handover is mutable orientation, not a protocol or execution authorization.
+Read [STATUS.md](STATUS.md), then [ARTIFACTS.md](ARTIFACTS.md), inspect
+`git status --short --branch`, and follow [AGENTS.md](../AGENTS.md). This is mutable
+orientation, not a protocol or authorization to reopen research stages.
 
-## Where to work
+The current phase is **paper correction**, with `main` as the integration branch.
+Check the actual branch and integration state before working; do not infer a
+completed merge or public release from this handover. No image collection or
+measurement process is active, and there is no pending acquisition task.
 
-The latest deliverable is the integrated English manuscript in
-[paper/](../paper/README.md), covering the controlled distribution study,
-scene-retrieval diagnostics and completed 192-image color experiment. The
-[computational follow-up report](../reports/painter_responsiveness_v2/REPORT.md)
-retains the full additional results. The manuscript is organized around the scientific question,
-design, results and interpretation. Keep operational histories, budgets and
-recruitment planning outside its scientific prose. Earlier manuscripts are in Git
-history; do not restore duplicate manuscript folders.
+## Current deliverable
 
-The numerical evidence comes from the completed
-[controlled study](../reports/painter_distribution_study_v1/pdsv1-analysis-20260907/REPORT.md)
-and [computational revision](../reports/painter_distribution_revision_v1/pdrv1-numeric-20260907/REPORT.md).
-Use [ANALYSES.md](ANALYSES.md) to locate analysis, full-report plotting and manuscript
-figure commands. Use [ARCHITECTURE.md](ARCHITECTURE.md) to trace code dependencies.
-See STATUS before interacting with any active collector or measurement process.
+The sole maintained English manuscript is
+[paper/paper.tex](../paper/paper.tex), titled **Painter Naming and the
+Distributional Gap Between Generated Images and Original Paintings**, with a
+[19-page PDF](../paper/paper.pdf) and five vector figures. See the
+[paper guide](../paper/README.md) for its bibliography, scientific inputs, build
+instructions and access status. Earlier drafts remain in Git history.
 
-The completed continuation is [computational painter responsiveness v2](../studies/painter_responsiveness_v2/README.md).
-The user explicitly removed human reference ratings as a prerequisite for this
-narrower service-response study. It completed a fixed 192-slot OAuth inventory, two
-shared controls, two color instructions, six scenes and four repeats. It also tests
-held-repetition scene retrieval on the exposed controlled dataset. No OpenRouter
-charges, new original paintings or human/LLM ratings are part of this scope.
-`make computational-responsiveness` replays published v2 numbers and report bytes.
+The substantive manuscript revision is commit `dd314ee`. It gives each study its
+own methods and results, clarifies the contribution and evidence hierarchy,
+promotes existing painter-alignment and matched-reference controls, and shows the
+six scene-specific color interactions. It did not change scientific results.
+The [three-reviewer record](reviews/20260909_scored_review/REVIEW.md) preserves the
+fixed rubric, findings and responses: the equal-weight mean rose from **7.8125 to
+8.5417/10**, with final reviewer means of 8.625, 8.500 and 8.500 and no unresolved
+blocking manuscript finding. These are maintainer-run LLM subagent assessments,
+not independent human peer review or a prediction of publication acceptance.
 
-The earlier [v1 study](../studies/painter_responsiveness_v1/README.md) retains its
-original human/reference qualification requirements. Preserve source commit
-`79f3573`, its D0/H0 freezes, closed R0 preflight and derived reports. The human
-question no longer blocks v2; it has not been answered or waived retrospectively
-for v1. The old FLUX price/credit limitation concerns that unperformed paid-route
-scope. Do not describe it as a current block on the authorized OAuth experiment.
+`paper/paper_ko.tex` and the ignored `paper/paper_ko.pdf` are user-owned work.
+Preserve them during integration and English-paper correction; do not stage or
+modify them as part of repository cleanup.
 
-The [exact-503 transport correction](../studies/painter_responsiveness_recovery_v1/PROTOCOL.md)
-designates `prv2-oauth-recovery-20260908` as the sole primary intervention run.
-The replacement completed 192/192 images and all three feature pipelines.
-Both primary named-minus-generic interactions remain unresolved; a substantial
-secondary generic-minus-free decrease makes the generic control scientifically
-important. Scene contraction did not universally reduce retrieval. No collector
-or image measurement process remains active.
-Its predecessor has 49 images, one technical failure and 142 never-started slots;
-keep it ancillary and never fill it from replacement outputs. The correction was
-chosen before successful images were visually reviewed or features extracted.
+## Completed scientific work
 
-Review found floating-point CDF boundary errors in descriptive weighted medians.
-The `painter_responsiveness_quantiles_v1` correction reconstructs exact rational
-design weights without editing the original bundles. Use the correction for
-reference-context medians and displays; preserve original report bytes and replay.
-This correction does not change primary inference, means, Wasserstein distances,
-or the actual 10th–90th percentile ranges and range-occupancy results.
+| Evidence | Completed scope and interpretation |
+| --- | --- |
+| [Controlled distribution study](../reports/painter_distribution_study_v1/pdsv1-analysis-20260907/REPORT.md) | 1,006 generated images across three services, 70 Monet/Cézanne references and a scaler fixed on 221 development works. Naming lowers primary energy discrepancy in all six service/painter comparisons; four reject after adjustment. Preserve the original eight-test family. |
+| [Computational revision](../reports/painter_distribution_revision_v1/pdrv1-numeric-20260907/REPORT.md) | Feature-view, variance, reference/scaler, painter-alignment, coverage and cross-service diagnostics. The manuscript uses these saved results without introducing new tests. |
+| [Scene retrieval and color responsiveness](../reports/painter_responsiveness_v2/REPORT.md) | Retained-data retrieval improves in two service/painter cells and declines in four despite contraction. The separate prospective experiment completed 192 images across six scenes, four style arms, two palettes and four repeats. Both primary named-minus-generic interactions remain unresolved; the secondary generic-minus-free color response decreases. |
+| [Exact-weight quantile correction](../reports/painter_responsiveness_quantiles_v1/prqv1-20260908/REPORT.md) | Corrects descriptive weighted medians and their displays in a successor namespace. Primary inference, means, Wasserstein distances and range occupancy are unchanged. Use the corrected displays while preserving the original bundles. |
 
-All new stages remain create-once and commit bound. A completed or stopped
-collection cannot resume or refill missing slots. Preserve returned quality and
-geometry deviations, failure bodies and the complete allocation. If a new
-scientific or implementation correction is required, use a successor scope.
+The sole primary color run is `prv2-oauth-recovery-20260908` (192/192 images).
+Its 49-image predecessor remains ancillary and is never pooled into primary
+inference. The [prospective recovery protocol](../studies/painter_responsiveness_recovery_v1/PROTOCOL.md)
+and [v2 implementation guide](../studies/painter_responsiveness_v2/README.md) retain
+the transport correction, allocation and provenance. No OpenRouter charges were
+incurred in this follow-up. [STATUS.md](STATUS.md) summarizes accounting and links
+the detailed collection record.
 
-## Research constraints
+The user removed human ratings as a prerequisite for the computational v2 scope.
+This did not retrospectively satisfy or waive the earlier
+[v1 human/reference qualification](../studies/painter_responsiveness_v1/README.md).
+Its human validation remains unperformed; the completed diagnostic and closed
+preflight records remain preserved.
 
-- Preserve the original eight conditional randomization tests. Subsequent fixed
-  diagnostics are post-result and descriptive; a new analysis needs an explicitly
-  versioned scope, not changes to published numbers.
-- Keep proximity, aggregate variation, within-brief variation and perceptual
-  interpretation distinct. All paid outputs are square, all references nonsquare,
-  and capture provenance is unresolved. Classifier separability is not established
-  as painter-style distance.
-- Human/reference validation and learned-feature analysis have not been performed.
-  The frozen [validation plan](../studies/painter_distribution_revision_v1/VALIDATION_PLAN.md)
-  is planning evidence, not completed validation or recruitment authorization.
-- Reviews so far are maintainer-run LLM subagent reviews with coordinator checks.
-  Do not describe them as independent human or institutional peer review.
+## Correction workflow and scientific boundary
 
-## Evidence boundaries
+Edit manuscript prose, bibliography, presentation figures and current navigation
+documents as needed. Use [ANALYSES.md](ANALYSES.md) to find the exact saved numerical
+source for a claim and [ARCHITECTURE.md](ARCHITECTURE.md) to trace implementation.
+The [follow-up synthesis](../reports/painter_responsiveness_v2/REPORT.md) is editable
+writing; its linked per-run reports and numerical bundles are immutable evidence.
+Keep revisions substantive and keep one canonical document for each purpose.
 
-The controlled and revision namespaces are terminal. Never retry, top up, reorder
-or rewrite a closed run. Preserve failed requests and refusal bodies alongside
-successful outputs. Corrections require a successor namespace with explicit input
-bindings. Existing stage gates still govern image access and generation; cleanup
-or manuscript edits do not open them.
+Do not move or rewrite frozen protocols, configurations, sources, tests, manifests,
+reports, append-only ledgers or bound review records. A scientific or implementation
+correction requires a successor scope with explicit input bindings. A terminal
+collection cannot be resumed, refilled or combined with later successes to alter
+its disposition. Paper correction does not reopen image access, generation or
+feature extraction. Preserve the separate test families and distinguish prospective
+analyses from post-result diagnostics.
 
-Verification is commit-bound. The revision records source/input commit `f7666ae`,
-numeric freeze `c505512`, and report-renderer commit `1d635a5`. Preserve all bound
-protocols, review documents, validation/literature plans, source, inputs and report
-receipts. Do not refresh evidence hashes or extend acknowledgement files to hide
-a mismatch. Mutable orientation documents and editable manuscript prose have a
-different role from sealed scientific evidence.
+Verification resolves the recorded Git commits and local research bytes. Never
+refresh a hash or extend the two historical evidence acknowledgements to conceal
+a mismatch. Ignored artwork, response archives, weights and source checkouts can
+be unique evidence. Follow [ARTIFACTS.md](ARTIFACTS.md); never use `git clean -xfd`
+or broad recursive deletion of research directories.
 
-Ignored files can be unique evidence. Do not use `git clean -xfd` or recursively
-delete `data/`, `research_workspace/` or `artifacts/`. Check exact paths against
-[ARTIFACTS.md](ARTIFACTS.md); Git history does not preserve ignored raw bytes.
+## Verification and reproduction
 
-## Working preferences and checks
+Run commands from the repository root, with the locked environment installed using
+`uv sync --locked --extra analysis --extra dev`. For a manuscript correction, use
+the build and page-rendering instructions in [paper/README.md](../paper/README.md):
 
-The user wants English reasoning and documents, substantive skeptical review,
-and infrequent progress updates. The paid study ceiling was $75; recorded
-conservative spending is in [STATUS.md](STATUS.md). Further generation must address
-a specific research uncertainty. If transport is separately authorized, use
-staggered parallel calls, bounded technical retries, and stop to diagnose clustered
-failures. Never expose `.env` or API keys in output.
+```bash
+make paper
+make figures-check
+git diff --check
+```
 
-After changes, run the smallest relevant offline checks. Python behavior changes
-also require `make check`; evidence-bound changes require `make evidence` and the
-appropriate replay checks. Use `make analysis` and `make plots` for the current
-numerical/report evidence, and the [paper guide](../paper/README.md) for PDF builds
-and visual inspection. Tests marked `live` require explicit authorization.
+Inspect every rendered PDF page and resolve compilation or layout defects. Figure
+rebuilding reads committed numeric tables; it does not compute new scientific
+results. After Python behavior changes, run Ruff and the full offline suite:
 
-Update [STATUS.md](STATUS.md) when operational state changes and [INDEX.md](INDEX.md)
-when canonical documents change. Keep each guide focused; link historical reports
-and protocols instead of appending another copy of their timeline.
+```bash
+uv run --locked ruff check .
+uv run --locked pytest -q -m "not live"
+```
+
+For scientific integrity and retained-data replay, use the distinct checks below.
+They are offline and do not acquire images or extract features:
+
+```bash
+uv run --locked latent-art-bench verify-evidence
+make analysis
+make plots
+make computational-responsiveness
+```
+
+`make analysis` and `make plots` cover Study 1 and its revision. The historical
+evidence audit does not register responsiveness v2; its separate
+replay is required for that scope. Full integrity-checked replay needs the retained
+raw-response archive, while image-level remeasurement additionally needs retained
+pixels and is outside paper correction. The pre-integration checks passed Ruff,
+1,135 offline tests, 2,902 historical audit checks and all 74 computational-follow-up
+report files. All five manuscript figures reproduce byte for byte, and all 19 PDF
+pages were visually checked. These are prior verification results, not checks
+automatically performed by reading this handover. Tests marked `live` require
+explicit authorization.
+
+## Limits and next-agent priorities
+
+Keep conclusions within the 31-feature representation, selected references and
+delivered services. Capture provenance and perceptual validity remain unresolved;
+human ratings, independent capture replication and learned-feature validation have
+not been performed. Retrieval is distinguishability, not semantic adherence.
+Study 2 uses one service, six fixed scenes and one generic clause; its unresolved
+interactions do not establish equivalence. Returned geometry and quality differ
+from requested settings, so the estimates do not isolate a backend mechanism or
+style effect at matched rendering settings.
+
+Public archival release and external raw-media access remain pending; see the
+[paper access statement](../paper/README.md#release-and-access-status). A merge
+into `main` does not establish either. Do not promise public reproducibility beyond
+the artifacts actually redistributed.
+
+The user prefers English reasoning and documents, skeptical review and infrequent
+progress updates. Address requested paper corrections against existing evidence;
+do not launch more experiments simply to improve the manuscript. Update
+[STATUS.md](STATUS.md) for operational changes and [INDEX.md](INDEX.md) for changed
+canonical documents. Preserve user work and never expose `.env` or API keys.

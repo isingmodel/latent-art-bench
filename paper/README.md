@@ -1,6 +1,6 @@
 # Research paper
 
-The single current manuscript is [paper.tex](paper.tex), compiled to
+The canonical English manuscript is [paper.tex](paper.tex), compiled to
 [paper.pdf](paper.pdf), with [references.bib](references.bib). It integrates the original distribution study, scene-retrieval diagnostics and
 the completed controlled color-response experiment into one research paper.
 Earlier drafts and the superseded paper are retained only in Git history.
@@ -14,14 +14,19 @@ historical. The current paper gives each study its own methods and results,
 promotes joint painter alignment and matched-reference occupancy, and shows all
 six scene-specific color interactions alongside the pooled intervals.
 
+This is the build guide for the current paper-correction phase. Edit the English
+source, bibliography and presentation figures here; trace claims to the saved
+evidence listed below. The [handover](../docs/AGENT_HANDOVER.md) records completed
+work and scientific boundaries. The dated reviews describe the delivered revision;
+their scores are not a gate for routine corrections. Preserve untracked user drafts.
+
 ## Build and check
 
 From the repository root, after `uv sync --locked --extra analysis --extra dev`:
 
 ```bash
-make figures   # Render five vector figures from saved numeric tables
-make paper     # Render figures and compile paper/paper.pdf with Tectonic
-make plots     # Byte-check both report bundles and the manuscript figures
+make paper          # Render figures and compile paper/paper.pdf with Tectonic
+make figures-check  # Check manuscript figures without rewriting them
 ```
 
 `make_figures.py` verifies the hashes of six published CSV inputs. It
@@ -64,6 +69,7 @@ replication and learned-feature validation are unperformed.
 - [Analysis and plotting source map](../docs/ANALYSES.md)
 
 `make analysis` replays the original controlled study and revision.
+`make plots` byte-checks those two Study 1 report bundles and the manuscript figures.
 `make computational-responsiveness` replays the subsequent computational studies
 and quantile correction. These commands use retained
 vectors and metadata; full integrity-checked computational replay also requires

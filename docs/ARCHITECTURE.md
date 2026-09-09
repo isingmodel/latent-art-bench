@@ -5,18 +5,28 @@ paper combines two completed experiments with descriptive distribution and scene
 retrieval diagnostics. All replay measured vectors and metadata offline. Historical acquisition
 and generation implementations remain as reproducibility dependencies.
 
+For the current paper-correction phase, start in `paper/paper.tex`,
+`paper/references.bib` and `paper/make_figures.py`. The
+[paper guide](../paper/README.md) owns the build workflow; the
+[analysis catalog](ANALYSES.md) maps every result to computation and plotting code.
+
 ## Current analysis path
 
 ```text
-retained development, reference and generated feature records
-    -> painter_distribution_study_v1: original controlled analysis
+Study 1: 1,006 generated records + 70 references + 221 development works
+    -> painter_distribution_study_v1: controlled analysis
     -> painter_distribution_revision_v1: descriptive diagnostics
-    -> painter_responsiveness_v2: scene retrieval and controlled color response
-    -> painter_responsiveness_quantiles_v1: exact-weight descriptive correction
-    -> sealed numerical results in data/manifests/
-    -> complete report tables and plots in reports/
-    -> paper/make_figures.py: five selected manuscript figures
-    -> paper/paper.tex -> paper/paper.pdf
+    -> painter_responsiveness_v2/diagnostics.py: retained-data scene retrieval
+
+Study 2: separate 192-image primary run + shared references/development scalers
+    -> painter_responsiveness_v2/analysis.py: color-response experiment
+    -> painter_responsiveness_quantiles_v1: descriptive quantile correction
+       (also corrects the separate 49-image ancillary predecessor)
+
+Each analysis -> sealed numerical results in data/manifests/
+              -> complete report tables and plots in reports/
+Selected saved tables -> paper/make_figures.py: five manuscript figures
+                      -> paper/paper.tex -> paper/paper.pdf
 ```
 
 The revision checks consistency with the original primary endpoints. Its report
@@ -24,23 +34,26 @@ renderer is separately bound and verified. The manuscript figure builder reads
 hash-checked published values and saved PCA coordinates; it does not fit a new
 projection or produce new statistical estimates.
 
-The successor `painter_responsiveness_v1` reuses the retained loader, 31-feature
+The preserved `painter_responsiveness_v1` reuses the retained loader, 31-feature
 extractor and original development scalers. It adds equal-brief diagnostics,
 prospective factorial inference/simulation, and a separate frozen reference-display
 workflow. Generation/measurement entry points require actual stage evidence and
 have no implicit live calls. Its complete component map and replay command are in
-[ANALYSES.md](ANALYSES.md#mechanism-follow-up-painter-responsiveness). The v1 D0 alone does not provide a new confirmatory endpoint; the manuscript
+[ANALYSES.md](ANALYSES.md#preserved-responsiveness-v1-scope). Its diagnostic is
+complete, human validation is unperformed and its preflight is closed. The v1 D0
+alone does not provide a new confirmatory endpoint; the manuscript
 uses the completed v2 color experiment for that question.
 
-The new `painter_responsiveness_v2` reuses the same stable measurement and
+The completed `painter_responsiveness_v2` reuses the same stable measurement and
 factorial primitives for a computational-only, shared-control intervention.
 `collection.py` binds a local OAuth source/process and stores every attempt;
 `workflow.py` seals all slots, measures available images and reproduces analyses.
 `diagnostics.py` tests held-repetition scene retrieval, `analysis.py` estimates
 instruction interactions and exposed-reference chroma overlap, and `report.py`
 renders only saved results. Human-rating prerequisites apply to the preserved v1
-scope, not this explicitly narrower successor. All live calls require an explicit
-CLI action, and all Makefile targets remain offline.
+scope, not this explicitly narrower successor. Collection and measurement are
+terminal; these implementation entry points are retained for provenance. All
+Makefile targets remain offline.
 
 ## Modules to read
 
@@ -80,8 +93,10 @@ inputs and outputs; the root Makefile groups these commands by task.
 | `docs/` | Current guidance, analysis methods and retained research proposals/reviews |
 | `tests/` | Offline numerical, contract, provenance and replay tests |
 
-Large image bytes are not in Git. Numeric replay does not require API credentials
-or model weights; image re-extraction requires the retained raw evidence. See
+Large image bytes are not in Git. Replay does not require API credentials or model
+weights. Study 2 replay verifies raw-response hashes and therefore needs the
+retained local response archive. Image re-extraction additionally requires retained
+pixels and is outside the paper-correction phase. See
 [ARTIFACTS.md](ARTIFACTS.md) before deleting anything in an ignored directory.
 
 ## Why older namespaces remain
