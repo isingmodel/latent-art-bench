@@ -15,6 +15,9 @@ The [academic review record](../docs/reviews/20260909_academic_review/REVIEW.md)
 preserves three maintainer-run LLM reviews, the fixed three-aspect rubric,
 revisions and subsequent assessments. These are not external peer reviews;
 their scores are not evidence of measurement validity or publication acceptance.
+The current aggregate is **7.8889/10** (initially 7.7222), below the requested >9.
+The review record identifies the validation, replication and access work still
+required; further wording changes do not supply that evidence.
 Earlier drafts and the superseded paper are retained only in Git history.
 The [four-painter restoration record](../docs/reviews/20260909_four_painter_restoration.md)
 documents the omission history, restored evidence, two maintainer-run LLM reviews,

@@ -118,8 +118,11 @@ The latest academic-review correction passed:
   figure PDFs are unchanged. All seven current figures reproduce byte for byte.
 - Historical evidence audit: **2,902 checks, zero failures**, retaining the same
   two prior acknowledgements. No frozen scientific input or source changed.
-- The **25-page PDF** builds without warnings. The review record records final
-  page inspection, layout corrections and preservation checks.
+- The **25-page PDF** builds without warnings and all pages received visual QA.
+  The final layout pass changes only paragraph grouping and bibliography
+  presentation. All 284 checked local links resolve; whitespace checks pass and
+  both Korean files retain their starting hashes. The review record preserves
+  the scored and final manuscript hashes and the remaining minor flow note.
 
 The earlier four-painter restoration checks passed:
 

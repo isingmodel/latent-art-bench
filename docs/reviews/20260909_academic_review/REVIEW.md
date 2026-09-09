@@ -32,7 +32,8 @@ Round 1 reviewed the 23-page manuscript at commit `1fcbcc5`:
 | [Reviewer 3](round1_reviewer3.md) — reporting and reproducibility | 8.0 | 7.4 | 7.8 | 7.7333 |
 | **Aggregate** | **7.9333** | **7.3000** | **7.9333** | **7.7222** |
 
-Round 2 reviewed the substantive revision, with 25 pages and seven figures:
+Round 2 reviewed the substantive revision, retained at commit `3a46d42`, with
+25 pages and seven figures:
 
 - TeX SHA-256: `83deb0b17af76c82d6a9899edaee9359a128ef0c31832746771fd87acda5539d`.
 - PDF SHA-256: `d4f731b6487a932543b943f93b5cbb95b47126cff581f3bd5f8785c0f9f2ac4c`.
@@ -49,8 +50,8 @@ not achieved**. No reviewer identified a remaining major numerical or
 claim-reporting defect. Their remaining substantive concerns require actual
 validation, replication or public access. The coordinator has not overridden
 scores, changed the rubric or requested repeated ratings of unchanged evidence.
-Minor layout corrections follow this scored revision and do not constitute a
-new scientific review round.
+The final layout corrections below do not constitute a new scientific review
+round and do not change these scores.
 
 ## Responses to the reviews
 
@@ -112,8 +113,38 @@ The substantive revision passed:
   existing acknowledgements. This audit does not register responsiveness v2;
   the new compact replay does not replace that study's full archive checks.
 - Warning-free 25-page PDF build and inspection of every page by the review
-  team. Remaining paragraph/float interruptions are recorded in round 2 and
-  addressed in the final layout pass.
+  team. Paragraph/float interruptions reported in round 2 were addressed in the
+  final layout pass.
+
+### Final presentation and handoff
+
+Final manuscript hashes after layout correction:
+
+- TeX: `24b97d60d6079a78e328c2b2c427e95e7c9b7e148cc79cfb1420dd2ce46713aa`.
+- PDF: `f12de5faea9d2907f819931aa1275169b641da52689f21467821f875b54a70c2`.
+
+Compared with scored commit `3a46d42`, the TeX differs only in paragraph/page
+grouping and bibliography presentation. A normalized-source comparison confirms
+that all other content is identical. The palette-sensitivity and collection-history
+paragraphs are kept together; Appendix E's opening definitions stay with the
+covariance equation; the limitations opening and Appendix C's final paragraph
+are also kept together. The bibliography uses readable 9-point ragged-right text
+with compact spacing, retaining all 13 entries without a nearly empty extra page.
+
+The final PDF has **25 pages** and builds without warnings. Pages 1–13 remain
+pixel-identical to the scored PDF. Reviewers 2 and 3 inspected the affected later
+pages, including a final check after the Appendix C correction; the coordinator
+also inspected the new table, block figure and changed pages. No clipping, missing
+text or material legibility defect remains. A long calibration paragraph still
+continues across a figure; reviewer 3 judged this a minor flow issue, without
+requesting another correction or changing a score. The completed scored reports
+remain unchanged by this layout pass.
+
+All **284 checked local links** in current guidance and the new review directory
+resolve; whitespace checks pass. The user-owned Korean source/PDF retain their
+starting SHA-256s (`5fe49bca…` and `1cc97870…`). The current guide, status, handover,
+analysis catalog and index identify the new paper/replay and the unmet score
+target. No remote push or public archival release was performed.
 
 No image collection, transport request, feature extraction or paid API call is
 part of this revision. Frozen scientific code, protocols, ledgers and numerical

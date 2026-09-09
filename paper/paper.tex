@@ -801,6 +801,7 @@ unit but display different estimands. The two interactions share generic draws.}
 \label{fig:response}
 \end{figure}
 
+\begin{samepage}
 The Monet estimate is similar at 256 pixels ($-.301$) and after JPEG90
 processing ($-.308$). The JPEG interval narrowly excludes zero, with upper
 endpoint $-.004$, whereas the primary and 256-pixel intervals have upper
@@ -811,6 +812,8 @@ relative to generic language, C\'ezanne lowers the muted and vivid levels by
 .319 and .337 IQR units, respectively, while leaving their average contrast
 nearly unchanged. Two levels cannot identify whether such patterns arise from
 a shifted operating range, response gain or saturation.
+
+\end{samepage}
 
 The palette manipulation also creates an equal mixture of muted and vivid outputs.
 Its named/reference Wasserstein distances are lower than those of the generic mixture
@@ -861,6 +864,7 @@ Together, the studies support complementary reporting of reference proximity,
 relative painter alignment, coverage and instruction response, extending
 corpus-level style comparisons \citep{deliege2025} to repeated prompt designs.
 
+\begin{samepage}
 \subsection{Limitations and further research}
 The feature representation, reference selection and image delivery constrain
 interpretation. The selected reference panels have unknown capture workflows;
@@ -874,6 +878,8 @@ changes, rather than estimating effects at fixed rendering settings. Human
 style judgments, independent reference validation and learned-feature
 comparisons remain unperformed, so the measured gap has no established
 perceptual interpretation.
+
+\end{samepage}
 
 Study~2's precision and transfer are limited by six fixed scenes, four repetitions
 and one collection lasting 49.5 minutes. Its intervals assume stable, independent
@@ -1076,6 +1082,7 @@ $T(v)=\sum_i b_i(\|v-A_i\|_2+\|v-B_i\|_2)$. Then
  c_i=b_i\{2[C(B_i)-C(A_i)]-[T(B_i)-T(A_i)]\},\qquad
  \sum_i c_i=\E(X,B)-\E(X,A).
 \end{equation}
+\begin{samepage}
 Complementary pair swaps produce $\sum_i s_i c_i$, $s_i\in\{-1,1\}$, exactly,
 including the within-generated distances. Independent randomized condition
 positions justify the sign assignments under the stated sharp null. Repeated
@@ -1084,6 +1091,8 @@ population inference. With $e$ sign draws at least as extreme in absolute value
 as the observed statistic, including ties, $p=(1+e)/100{,}000$. All contrasts
 retain 24 distinct descriptions; the two missing short-scene outputs reduce only
 the C\'ezanne detailed/short-scene comparison to 70 pairs.
+
+\end{samepage}
 
 \section{Supporting Study 1 distribution diagnostics}
 \label{app:diagnostics}
@@ -1212,6 +1221,7 @@ within each fold and averaged across six folds; margins from differently trained
 classifiers are not pooled. Complete kernels, memberships and scores are included with the
 analysis code and numeric tables.
 
+\begin{samepage}
 \section{Color experiment: estimation and acquisition}
 \label{app:response}
 For fixed scene $j=1,\ldots,J$, repetition $r=1,\ldots,R$ and arm $a$, let
@@ -1223,6 +1233,7 @@ sample covariance, the estimates and covariance are
  \hat\kappa=\frac1J\sum_j\bar K_j,\qquad
  \widehat{\operatorname{Cov}}(\hat\kappa)=\sum_j\frac{S_j}{J^2R}.
 \end{equation}
+\end{samepage}
 This retains the off-diagonal covariance from shared generic controls. For
 endpoint $p$, let $v_{jp}=S_{j,pp}/(J^2R)$. The approximate degrees of freedom are
 \begin{equation}
@@ -1294,6 +1305,7 @@ repeat errors and complete availability.}
 \label{tab:calibration}
 \end{table}
 
+\begin{samepage}
 An earlier allocation was stopped after 49 images and one complete HTTP 503
 response, leaving 142 assigned slots unstarted. A transport correction and a replacement collection using the same fixed
 prompts and order were specified before visual inspection or feature measurement
@@ -1302,6 +1314,8 @@ inferential cohort. The 49 earlier images were measured after replacement
 collection ended and remain ancillary, without pooling or filling missing slots.
 All 192
 replacement requests succeeded, with no failures, retries or missing measurements.
+
+\end{samepage}
 
 \section{Designed chroma mixtures and the reference panels}\label{app:mixture}
 The named arms' equal-polarity mixtures differ from the reference panels in both
@@ -1377,8 +1391,9 @@ verifies response hashes against the separately retained archive. Neither
 command regenerates images.
 
 \begingroup
-\small
-\setlength{\bibsep}{4pt}
+\footnotesize
+\raggedright
+\setlength{\bibsep}{1pt}
 \bibliographystyle{plainnat}
 \bibliography{references}
 \endgroup
