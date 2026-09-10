@@ -1,0 +1,233 @@
+{
+  "archive": {
+    "bytes": 3059166,
+    "checksum_sha256": "32b25e0954eb7e28d22b598ac0d41f40eafc0c1305b52d16430daceef978089f",
+    "regular_files": 74,
+    "sha256": "8688085fe001e6b45ca34f6d39a5979e3e762a2678cd5ecb8169a698defb4eb6",
+    "url": "https://github.com/isingmodel/latent-art-bench/releases/download/pmv2r-20260910/pmv2r-20260910.tar.gz"
+  },
+  "commands": [
+    {
+      "argv": [
+        "<python>",
+        "-I",
+        "-S",
+        "tools/paper_map_validation_release.py",
+        "verify",
+        "--root",
+        "."
+      ],
+      "exit_code": 0,
+      "name": "preinstall-verify",
+      "seconds": 1.1953909169999974,
+      "stderr": {
+        "file": "preinstall-verify.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "file": "preinstall-verify.stdout.log",
+        "sha256": "950f86f21892138f73145f0c04c7654d148f1777f73eee785d62b9dbe9099a2a"
+      }
+    },
+    {
+      "argv": [
+        "<python>",
+        "-m",
+        "pip",
+        "install",
+        "uv==0.9.28"
+      ],
+      "exit_code": 0,
+      "name": "install-uv",
+      "seconds": 1.4931968580000046,
+      "stderr": {
+        "file": "install-uv.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "file": "install-uv.stdout.log",
+        "sha256": "f6fe3ec134913e7d0eeceb14e44818c06768782c99426c29a0e217ac7269123e"
+      }
+    },
+    {
+      "argv": [
+        "uv",
+        "--version"
+      ],
+      "exit_code": 0,
+      "name": "uv-version",
+      "seconds": 0.003910774000004835,
+      "stderr": {
+        "file": "uv-version.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "file": "uv-version.stdout.log",
+        "sha256": "00a05502c5045dd4c7ca74afb819192c04cb2cc0b10a4878feb333648e1bb5b7"
+      }
+    },
+    {
+      "argv": [
+        "uv",
+        "sync",
+        "--locked",
+        "--python",
+        "3.13.11",
+        "--extra",
+        "analysis",
+        "--extra",
+        "dev"
+      ],
+      "exit_code": 0,
+      "name": "locked-install",
+      "seconds": 1.2565407310000012,
+      "stderr": {
+        "file": "locked-install.stderr.log",
+        "sha256": "9c390226c6a506222eb894093c6279e26792d3ac099f8903060d0f72736aa4cf"
+      },
+      "stdout": {
+        "file": "locked-install.stdout.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-I",
+        "-c",
+        "import json,platform,numpy,scipy; print(json.dumps({'python':platform.python_version(),'platform':platform.platform(),'numpy':numpy.__version__,'scipy':scipy.__version__},sort_keys=True)); numpy.show_config()"
+      ],
+      "exit_code": 0,
+      "name": "numerical-runtime",
+      "seconds": 0.3158817829999947,
+      "stderr": {
+        "file": "numerical-runtime.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "file": "numerical-runtime.stdout.log",
+        "sha256": "12f49cec96bc14d6572b9a83c4ab6ed027afbf2f5436d9907dc1708a547b431c"
+      }
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-I",
+        "-B",
+        "<stage>/paper_map_portability_diagnostic.py",
+        "--root",
+        "<stage>/pmv2r-20260910",
+        "--output",
+        "<logs>/diagnostic"
+      ],
+      "exit_code": 0,
+      "name": "diagnostic",
+      "seconds": 21.024544024999997,
+      "stderr": {
+        "file": "diagnostic.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "file": "diagnostic.stdout.log",
+        "sha256": "eccf4507cdfacbb17c67f40cfb2ce41bcc92255ec990effd37ff67375012e3c2"
+      }
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-I",
+        "-S",
+        "-B",
+        "-c",
+        "import importlib.util,json,pathlib; p=pathlib.Path('tools/paper_map_validation_release.py'); s=importlib.util.spec_from_file_location('public_release',p); m=importlib.util.module_from_spec(s); s.loader.exec_module(m); print(json.dumps(m.verify(pathlib.Path('.'),runtime=True),sort_keys=True))"
+      ],
+      "exit_code": 0,
+      "name": "post-diagnostic-inventory",
+      "seconds": 1.1575262409999993,
+      "stderr": {
+        "file": "post-diagnostic-inventory.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "file": "post-diagnostic-inventory.stdout.log",
+        "sha256": "950f86f21892138f73145f0c04c7654d148f1777f73eee785d62b9dbe9099a2a"
+      }
+    }
+  ],
+  "completed_utc": "2026-09-10T12:53:46.072408+00:00",
+  "diagnostic_execution": "completed",
+  "diagnostic_id": "pmpdv1-20260910",
+  "diagnostic_receipt": {
+    "file": "diagnostic/RECEIPT.json",
+    "phases": {
+      "observed": {
+        "exact_json": false,
+        "exact_report": false,
+        "scope": "supplemental comparison cannot satisfy a failed exact observed contract",
+        "status": "compared_independently",
+        "supplemental_tolerance": {
+          "comparator_equal": true,
+          "exact_equal": false,
+          "mismatch_count": 0,
+          "tolerated_exact_difference_count": 156
+        }
+      },
+      "postverify": {
+        "files": 74,
+        "status": "verified"
+      },
+      "preverify": {
+        "files": 74,
+        "status": "verified"
+      },
+      "qualification": {
+        "comparator_equal": false,
+        "exact_equal": false,
+        "mismatch_count": 27,
+        "status": "compared",
+        "stored_report_exact": true,
+        "tolerated_exact_difference_count": 211
+      }
+    },
+    "sha256": "3ddabed2614bb70c97cedf8c5657b532997fde52fb369e480904b397179804b5",
+    "status": "diagnostic_complete"
+  },
+  "diagnostic_source": {
+    "sha256": "827820d1039aa42376053a8b598d11a697df28f7f97f0e98c9e2e4a1b1f43042",
+    "url": "https://raw.githubusercontent.com/isingmodel/latent-art-bench/0cc7b64816cf59285ccfb740e639a5a07406a95b/tools/paper_map_portability_diagnostic.py"
+  },
+  "interpretation": "Diagnostic completion does not assert qualification or observed parity. Inspect every comparison field in the retained diagnostic receipt. The original strict Ubuntu attempt remains failed and unreached observed replay receives no retrospective credit.",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "post_diagnostic_inventory": "passed",
+  "predecessor_run_id": "34474649751",
+  "predecessor_status": "failed_unchanged",
+  "preinstall_inventory_verified": true,
+  "public_manifest_sha256": {
+    "MAP_VALIDATION_RELEASE_MANIFEST.json": "186f1efd018420a2cbad1c2cd8e9ba0e9ebf7792703ea88373adfd3e93357d84",
+    "SHA256SUMS": "4d0a102c0c70c555431483375b6c64a77d2f18b6825adf104b80287259fb0f26"
+  },
+  "python": "3.13.11",
+  "release_id": "pmv2r-20260910",
+  "run_attempt": "1",
+  "run_url": "https://github.com/isingmodel/latent-art-bench/actions/runs/34479252271",
+  "runner": {
+    "ImageOS": "ubuntu24",
+    "ImageVersion": "20260907.300.1",
+    "RUNNER_ARCH": "X64",
+    "RUNNER_OS": "Linux"
+  },
+  "schema": "paper-map-portability-hosted-diagnostic/1",
+  "scope": "Maintainer-operated separate diagnostic; completion is not strict replay success; no private acquisition authentication or service validation.",
+  "started_utc": "2026-09-10T12:53:18.579921+00:00",
+  "status": "diagnostic_complete",
+  "workflow_commit": "0cc7b64816cf59285ccfb740e639a5a07406a95b"
+}

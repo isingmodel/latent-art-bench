@@ -22,6 +22,15 @@ before the honest mean exceeds the threshold. All reviewers are operated by the
 maintainer and have disclosed subsequent design/implementation involvement.
 They are not independent human or institutional reviewers.
 
+The distinct portability diagnostic is complete; its [authenticated result](../reports/paper_map_portability_diagnostic_v1/pmpdv1-20260910/REPORT.md)
+finds 27 qualification support-hash failures and floating differences below 4e-15.
+The displayed scientific table is unchanged. The original exact route remains
+failed. The separate [portable replay contract](../studies/paper_map_portability_v1/DECISION.md)
+uses support bytes that must match every pre-data hash and applies the existing
+1e-10 finite-float comparison to the observed object as a declared new contract.
+Implementation is in progress; do not claim successful portable replay yet or
+alter the frozen exporters/diagnostic/scientific results.
+
 The current local English draft is 39 pages and unpublished. The latest published
 manuscript is the 36-page clause-release version; earlier assets remain immutable.
 The fixed-map collection and measurement are terminal complete, using paid FLUX

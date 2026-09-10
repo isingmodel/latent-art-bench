@@ -48,7 +48,10 @@ The [public numerical archive](reports/paper_map_validation_reproducibility_v2/p
 passes exact fresh local and anonymous replay with 75 tests each. A single
 [Ubuntu attempt](reports/paper_map_validation_reproducibility_v2/pmv2r-20260910/HOSTED_REPORT.md)
 fails the qualification comparison before observed replay; its tests and
-inventory checks pass. Cross-platform replay remains unestablished. The fixed
+inventory checks pass. A [separate diagnostic](reports/paper_map_portability_diagnostic_v1/pmpdv1-20260910/REPORT.md)
+localizes its own failure to support hashes and records floating differences below
+4e-15, with the displayed results unchanged. An additive portable route is in
+development; cross-platform replay under that route remains unverified. The fixed
 round-4 score mean is **8.9333** after three full reviews of the 39-page
 version under the unchanged rubric. The target remains unmet. See
 [STATUS.md](docs/STATUS.md) for current manuscript integration and verification.

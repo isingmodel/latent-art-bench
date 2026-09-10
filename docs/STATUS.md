@@ -16,8 +16,12 @@ round 2 averaged **8.6889**; round 3 averaged **8.9000**; round 4 averaged
 **8.9333**. The target remains unmet. Three reviewers completed the committed
 [39-page Round 4 snapshot](reviews/20260910_substantive_revision/ROUND4_SNAPSHOT.json).
 All assigned scores are preserved in the linked review record. Current work
-clarifies interpretation and diagnoses the Ubuntu failure in a distinct software
-boundary, without reopening its closed strict attempt or changing scientific evidence.
+clarifies interpretation and supplies an additive numerical-portability route,
+without reopening the closed strict attempt or changing scientific evidence.
+The separate diagnostic is complete: all 27 qualification failures are support
+hashes; other qualification and observed floating differences are below 4e-15.
+The fixed-support portable route is being implemented under a separate contract;
+its success is not yet claimed.
 Reviewers are maintainer-run LLM subagents with disclosed subsequent design,
 implementation or writing involvement, not independent human/institutional reviewers.
 
@@ -95,8 +99,15 @@ also passes all 29 scoped synthetic tests, with a separate
 Actual export and complete fresh local/anonymous replay now pass all 27
 qualification cells, exact observed analysis/report and 75 public tests each.
 The single strict Ubuntu attempt fails the qualification comparison before
-observed replay; all 75 tests and both inventory checks pass there. Its differing
-numerical field is unknown. No rerun or tolerance/source change was made.
+observed replay; all 75 tests and both inventory checks pass there. Its original
+log did not identify the differing field. A distinct [diagnostic](../reports/paper_map_portability_diagnostic_v1/pmpdv1-20260910/REPORT.md)
+now records 27 failing support hashes, 211 tolerated qualification floats and
+156 differing observed floats. All numeric differences are below 4e-15; the
+published scientific table is unchanged, while exact observed JSON/report checks
+still fail. The original attempt, scientific source and comparison contract are
+unchanged. A separate [fixed-support route](../studies/paper_map_portability_v1/DECISION.md)
+will preserve exact support/discrete identities and explicitly extend the existing
+1e-10 floating comparison to observed objects; it has not yet completed replay.
 The earlier exact replay of all nine active manuscript figures is
 unchanged. Historical evidence audit at `bd3c9ca`: **2,902 checks, zero failures**, with the same two old
 acknowledgements. Both geometry namespaces replay exactly. The historical audit
