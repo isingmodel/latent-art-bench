@@ -1,0 +1,117 @@
+{
+  "baseline_usd": 68.50735,
+  "created_at": "2026-09-10T15:34:19.942590+00:00",
+  "inputs": [
+    {
+      "path": "studies/painter_specificity_v2/PROTOCOL.md",
+      "sha256": "ce374c9d56e4d5bc5bf1cbbc44abd931516820321839b9768260741528ca69b2"
+    },
+    {
+      "path": "studies/painter_specificity_v1/PROTOCOL.md",
+      "sha256": "292514599bd88f06c011b7fc8f1354a4c274335c5dc79b4a68b35ab51c63c5dc"
+    },
+    {
+      "path": "studies/painter_specificity_v2/DECISION.md",
+      "sha256": "88b865f3e674a018640e7cb307ffd287549917f5ba27d197daa545ae589838a5"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/confirmation_features.jsonl",
+      "sha256": "01cc5167c09b88eab6a86885b72040f76fc8a7ca8a62acd56d85a8b16b2f7717"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/scaler.json",
+      "sha256": "71f511235081dfc1e9846976320c69477bcbd04dd43fc9a2e271f7b0375497b9"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-renderings-r2-20260905/acquisitions.jsonl",
+      "sha256": "3933e1627a0e7182baf899917cf651530f86c04b8e92b0312f7ada15dae98f5e"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v2/pilot.jsonl",
+      "sha256": "26fbb3e920e02453c4e6c9748130637bd09fa301b7595cce41af03c0d14a7280"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v2/medium_cost_pilots.jsonl",
+      "sha256": "ddb78ef482917f1f31564ead9d447e81406d01a4d58bd00f9aa1d6ee93191adb"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v1/provider_quotes.json",
+      "sha256": "ba4473c151a89bed18f04831bff9c376d4ae467489d598930a93a2386d5605f7"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v1/openai_provider_quotes.json",
+      "sha256": "afc7da39c3890858484a5ee152e550cb2fd907d77c7e982038b354e4a62fef92"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v1/psv1-20260910/collection.json",
+      "sha256": "5e105c1f1ccb8af9a43c29a9121dc392297d45228470a7329cba3696aaccfca9"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v2/__init__.py",
+      "sha256": "43e1d704341f2a29df5930bae839ffb4870e9b399e9be8fb7c268dea1f4024f5"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v2/analysis.py",
+      "sha256": "bdfe4691d4b956bceab2b3a286b415df60a762c5a12fdbafcdc3d85818279b7e"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v2/study.py",
+      "sha256": "cfd1c0ea94951db592945745137a609400f31d2c1b12a56da5bc1b9feb19e46b"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v2/workflow.py",
+      "sha256": "d7a2cf481115e95bf99fe950f05b8a0dc421c180882494fa1b3cfa6733c6358e"
+    },
+    {
+      "path": "tests/painter_specificity_v2/test_routes.py",
+      "sha256": "fce946d3fc1cb01d7d4cff0ec47434eaf6218eafb75d22b901878102e7f3dd20"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v1/__init__.py",
+      "sha256": "5b6b6fdec0b62d962c14323a847c3d76b40b02232745296bd469bc4bd3810fc9"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v1/analysis.py",
+      "sha256": "ac5df333a8768dc66b84be0d2c1403f9dba3b229f101de8d65ad6cdb27bce06c"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v1/study.py",
+      "sha256": "e2da0d39e65f7f069c3b05cc959b0ee7dfd771944cabf7966baad573d6d84688"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v1/workflow.py",
+      "sha256": "504c87bf7d4161d537d0cdf59f2015a42e2a63224ebab83e3a1db1c9927fc018"
+    },
+    {
+      "path": "tests/painter_specificity_v1/test_analysis.py",
+      "sha256": "8577989bcf88574832d8fadf1e76e889f234cbb4a47870481eb7560393bad43e"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/features.py",
+      "sha256": "b295c2de1a8501e8ab335d88ed56ab8f2dc8b3ca704141b92e02ef586d48d172"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/statistics.py",
+      "sha256": "20830e7a90bc49666f0937ef7bc2ae3f11206f986c72eb8f80ad30cc24fcdaa8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/discovery.py",
+      "sha256": "211fe3d93077aec9861915b58fa57b2e8954dd17cdc291fdc1e5d33072d1d0eb"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v2/psv2-20260911/requests.jsonl",
+      "sha256": "0aa60f491be08dbd48f1f018e225b22bcae2aacd724abf3371a6312d59acc679"
+    }
+  ],
+  "predecessor_sha256": "5e105c1f1ccb8af9a43c29a9121dc392297d45228470a7329cba3696aaccfca9",
+  "recorded_git_commit": "d223402c73f4dfa70fcc24c260e0e1dc0a743595",
+  "run_id": "psv2-20260911"
+}
