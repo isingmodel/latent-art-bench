@@ -79,6 +79,9 @@ an older stage description.
   bounded synthetic qualification and remaining real-release checks.
 
 - [Single Cezanne/generic successor](../studies/painter_clause_successor_v1/PROTOCOL.md):
-  96-output comparison with a .025 primary threshold, pending qualification.
+  96-output comparison with a .025 primary threshold, collecting from a qualified freeze.
 - [Availability-triggered decision](../studies/painter_clause_successor_v1/DESIGN_DECISION.md):
   fixed before predecessor feature extraction; no pooling or further replacement.
+
+- [Stopped clause transport audit](reviews/20260910_substantive_revision/CLAUSE_TERMINAL_AUDIT_2.md):
+  exact terminal accounting and unavailable inference for the original 288-slot run.

@@ -288,17 +288,22 @@ replay are required in addition to the historical evidence audit. They neither
 reopen prior collections nor replace the public predecessor release.
 
 
-## Prospective actual-clause validation (collection active)
+## Actual-clause validation and final successor
 
-`painter_clause_validation_v1` is a disjoint prospective namespace for 288 OAuth
-outputs on 24 new fixed scenes, with free/generic/Monet/Cezanne clauses and three
-repeats. [Protocol](../studies/painter_clause_validation_v1/PROTOCOL.md),
-[allocation/qualification](../studies/painter_clause_validation_v1/PRECISION.md),
-[analysis source](../src/latent_art_bench/painter_clause_validation_v1/analysis.py).
-The two primary tests compare actual named with actual generic output energy.
-Three-pipeline arm summaries, corrected variation, retrieval and unchanged
-historical OAuth maps are secondary. Source `dff2804`, qualification `90a993f`
-and assignment/freeze `79f28c1` passed all required gates before collection. No
-scientific result exists yet. After terminal measurement, `make clause-check`
-replays the full numerical report and checks retained evidence; it needs the
-local response archive. No `make` target launches generation.
+| Scope | Design / source | Replay and boundary |
+| --- | --- | --- |
+| `painter_clause_validation_v1/pcvv1-20260910` | [Protocol](../studies/painter_clause_validation_v1/PROTOCOL.md), [precision assessment](../studies/painter_clause_validation_v1/PRECISION.md); `src/latent_art_bench/painter_clause_validation_v1/` | `make clause-check` after its terminal measurement receipt. 288 allocated outputs, 211 returned; both primary tests and complete-grid secondary summaries unavailable. |
+| `painter_clause_successor_v1/pcsv1-20260910` | [Protocol](../studies/painter_clause_successor_v1/PROTOCOL.md), [fixed availability-triggered decision](../studies/painter_clause_successor_v1/DESIGN_DECISION.md); `src/latent_art_bench/painter_clause_successor_v1/` | `python -m latent_art_bench.painter_clause_successor_v1 check` after terminal measurement. Exactly 96 fresh Cezanne/generic outputs, all 24 unchanged scenes, two repeats, one primary at alpha .025. Currently collecting. |
+
+Both scopes preserve all 31 features and three fixed pipelines. Their `analysis.py`
+files compute statistics and render numerical reports; no new scatter basis or
+figure is fitted. The manuscript will summarize the actual terminal outcomes in
+a compact table. The successor has no free arm, maps/Q or conditional-variance
+endpoints. Original results cannot be repaired by pooling or complete cases.
+There is no further replacement if the single successor fails or is unresolved.
+
+The [clause public adapter](../studies/paper_clause_reproducibility_v1/README.md)
+is a separate numerical addendum under implementation. It will replay both
+cohorts separately from compact measurements; publication and actual anonymous
+replay must precede public-access claims. Local `verify-responses` additionally
+checks private retained response hashes without decoding/re-extracting images.

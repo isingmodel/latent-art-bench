@@ -1,0 +1,23 @@
+{
+  "collection_receipt_sha256": "5df074e6c90df761385e61e5118d181244671bd3eebc263d4d9e900ac0e6fdd1",
+  "outputs": [
+    {
+      "path": "data/manifests/painter_clause_validation_v1/pcvv1-20260910/measurements.jsonl",
+      "sha256": "a431951f9d7cf7020d39dc67dc9b2e2da9f23b523cbb6f8c9be4e162c5ac5e9f"
+    },
+    {
+      "path": "reports/painter_clause_validation_v1/pcvv1-20260910/REPORT.md",
+      "sha256": "8b5cfbe9d60582ffa50907c8b661d790c13bcf514d681a700712ed8e80504986"
+    },
+    {
+      "path": "reports/painter_clause_validation_v1/pcvv1-20260910/analysis.json",
+      "sha256": "5580d9699ce15b69a47556bf80d0fd0e986810cfd18f4f0da013c9b23a52a2b2"
+    },
+    {
+      "path": "research_workspace/painter_clause_validation_v1/pcvv1-20260910/measurement_started.json",
+      "sha256": "d9508718c8335defa323ff83d7c8796801a1dc4e1a581dc84384f7d813f3b3ba"
+    }
+  ],
+  "run_id": "pcvv1-20260910",
+  "schema": "painter-clause-validation-measurement/1"
+}

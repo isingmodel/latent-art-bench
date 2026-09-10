@@ -7,7 +7,9 @@ scene-retrieval diagnostics, computational measurement challenges and temporal
 follow-up. There are nine vector figures. The current substantive revision adds generated-only
 whole-scene moment maps, unchanged-map temporal transfer, finite-repeat correction
 and a separately specified evaluation-centering diagnostic. These use retained
-vectors only; no images were generated for this revision. Current collection/release status and
+vectors only. The separate clause validation generated 211 images before stopping;
+its original endpoints are unavailable, and one final 96-output Cezanne/generic
+successor is collecting. Current collection/release status and
 final verification are recorded in [STATUS.md](../docs/STATUS.md).
 
 The new measurement section reports all ten transformations, their cross-family
@@ -15,8 +17,9 @@ responses and all eight common-square contrast sensitivities. All four temporal 
 The preceding r1 reviews and public-access verification remain recorded. A fresh
 three-reviewer revision cycle is active; its baseline mean is 8.2333/10 and its
 round-2 mean is 8.6889/10. The 34-page manuscript implements that round's
-reporting/access corrections; a new fixed-scene clause experiment is under
-qualification and has no result in this published paper. Earlier drafts remain in Git history. The
+reporting/access corrections. The new clause cohorts will be integrated after
+terminal analysis and separate public replay; the published geometry paper
+contains neither cohort. Earlier drafts remain in Git history. The
 [review index](../docs/INDEX.md) links preceding reviews; their scores describe
 those manuscript versions and are not external peer-review decisions.
 

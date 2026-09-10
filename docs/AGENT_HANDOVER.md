@@ -1,229 +1,145 @@
-# Agent handover — substantive geometry and paper revision
+# Agent handover — paper revision and clause validation
 
 Read [STATUS.md](STATUS.md), then [ARTIFACTS.md](ARTIFACTS.md), inspect
-`git status --short --branch`, and follow [AGENTS.md](../AGENTS.md). This document
-is mutable orientation, not permission to reopen a terminal research stage.
-The canonical English source is [paper/paper.tex](../paper/paper.tex); the
-[paper guide](../paper/README.md) owns building and visual inspection.
+`git status --short --branch`, and follow [AGENTS.md](../AGENTS.md).
+This document is mutable orientation; immutable scientific records stay at their
+original paths. The canonical English manuscript is [paper/paper.tex](../paper/paper.tex).
+The [paper guide](../paper/README.md) covers compilation and visual inspection;
+[ANALYSES.md](ANALYSES.md) maps computation and plotting for each study.
 
-## Current scope
+## Active goal and current boundary
 
-The active user goal requests three skeptical reviews using the linked academic
-review skill, substantive paper/analysis revisions and an unchanged nine-score
-average above 9. Fresh baseline is 8.2333/10. Round 2 reviews currently assess
-the 34-page, nine-figure manuscript (TeX `8973d78c…`, PDF `ca291f0e…`).
-Do not alter recorded reviewer scores or claim completion before the actual
-mean exceeds the target. All reviewers are maintainer-run LLMs; Reviewers 1/2
-helped implement the new statistical primitives after their baseline reviews,
-and Reviewer 3 supplied literature/structure advice.
+The user requests three skeptical LLM reviews using the DeerFlow academic-paper-
+review skill, substantive paper/analysis revisions and a nine-score mean above 9.
+The fixed aspects are rigor, contribution and clarity/reproducibility, each 1–10.
+Round 1 averaged 8.2333; round 2 averaged 8.6889. See the [review record](reviews/20260910_substantive_revision/REVIEW.md)
+for exact snapshots and scores. Do not inflate scores or claim the goal achieved
+before the honest mean exceeds the threshold. All reviewers are operated by the
+maintainer and have disclosed subsequent design/implementation involvement.
+They are not independent human or institutional reviewers.
 
-Two new terminal retained-vector analyses now supplement the preceding work:
+The current expansion uses no human ratings, learned features or paid calls.
+Cumulative conservative OpenRouter accounting is $50.7219185 against the $75
+ceiling, including the retained historical $5 reserve. Do not assign a monetary
+value to OAuth subscription use.
 
-| Namespace / run | Source / freeze | Main result and boundary |
+| New scope | Source / qualification / freeze | State |
 | --- | --- | --- |
-| `painter_naming_geometry_v1` / `pngv1-20260910` | `459c6a8` / `8facfa3` | Four-fold whole-scene maps, fixed original-map temporal transfer, noise-corrected variance and conditional-mean residuals. Actual naming beats shift/scale in all six primary fold means, but not all folds; pure shift beats actual in both later primary FLUX comparisons, with documented sensitivity exceptions. |
-| `painter_naming_centering_v1` / `pncv1-20260910` | `c390eef` / `45e3ce9` | Evaluation-free centering isolates the old scalar at the same weighted mean. It worsens energy in all 60 original fold means and 18 later views. It is a post-result cohort adaptation, not unchanged pointwise transfer. |
+| `painter_clause_validation_v1/pcvv1-20260910` | `dff2804` / `90a993f` / `79f28c1` | Permanently stopped: 211 images from 288 slots; one refusal, one unqualified server error, one cancellation before posting and 74 unattempted. Both primary comparisons and complete-grid secondary summaries are unavailable. |
+| `painter_clause_successor_v1/pcsv1-20260910` | `07f8231` / `d5887f8` / `6effea1` | One final 96-output Cezanne/generic collection, running from a verified 167-input freeze. All 24 unchanged scenes, two repeats and fresh controls; alpha .025. |
 
-Both use the existing 31 coordinates/subsets and generated vectors. No new
-images, feature extraction, API requests or spending occurred. Both have exact
-numerical replay; the centering runner also verifies the full predecessor result.
-Do not apply the independent-repeat conditional correction to the new centered
-map: its evaluation-free mean induces dependence across residual repetitions.
-All original/replication primary tests and the four-painter analysis remain
-unchanged. Use `make geometry-check` for these two new namespaces.
+The successor decision was committed at `f0ab2d4` after the initial Cezanne
+refusal, before the later stop and before feature extraction. Its allocation
+and threshold remain unchanged after Monet became unavailable. No observations
+are pooled and no further cohort is planned if this successor fails or remains
+unresolved. The HTTP 500 had a null error code and is outside the unchanged
+numeric-code-match retry rule; never reclassify or retry it retrospectively.
+The [terminal audit](reviews/20260910_substantive_revision/CLAUSE_TERMINAL_AUDIT_2.md)
+records timing, accounting, response hashes and the inference restrictions.
 
-The preceding user request covered implementation of the measurement-validation, replication and
-public-reproducibility requirements identified by the previous three LLM reviews,
-followed by a substantive paper update. The no-human-rating preference and $75
-cumulative OpenRouter ceiling remain in effect. The work uses three new namespaces
-and does not alter earlier studies or qualify canonical Protocol 2.1's broader
-reproduction gates. Current operational state is in [STATUS.md](STATUS.md).
+Both live collectors are one-shot. Do not invoke collect again, resume, refill,
+change bound source or replace failed slots. At most two requests are active,
+recorded starts are five seconds apart, and blocks drain before the next.
+The successor must become terminal before its feature extraction. Its three
+pipelines and C/G energy/trace scope are fixed; it has no free arm, map/Q,
+retrieval or secondary hypothesis tests. The stopped predecessor may be measured
+after the successor freeze, preserving all 864 measurement-status rows and
+unavailable endpoints. Each namespace provides `measure`, `check` and
+`verify-responses`; the last checks private retained response hashes.
 
-| Namespace | Purpose and boundary |
-| --- | --- |
-| `painter_measurement_validation_v1` | Ten controlled transformations of all 70 Study 1 references plus common-square extraction for all 1,006 generated images. Same extractor/scaler. Computational response characterization, not perceptual or independent-capture validation. |
-| `painter_naming_replication_v1` | A separate 264-slot collection: 72 FLUX naming and 192 OAuth palette outputs. Original templates and exposed references; new four-endpoint inference. Same maintainer, without independent investigators or verified backend-state independence. |
-| `paper_reproducibility_v1` | Compact core/extension exports, unchanged scientific computation, direct report bridges and a history-free public archive. Numeric replay is separate from absent raw-media verification. |
+## Completed scientific additions
 
-The measurement source/freeze/results commits are `f3bc9b6`, `f2ab8de` and
-`994d247`. The replication source/freeze commits are `88cd185` and `2de6bc4`.
-All source/input bindings were committed before the corresponding new measurement or
-generation stage. Completed run outputs are create-once and cannot be refreshed.
+The four-painter exploration remains in the paper: 649 references, 1,536 named
+images and 384 artist-free controls. Study 1 separately uses 1,006 images,
+38 Monet/32 Cezanne references and the unchanged 221-work development scaler.
+Study 2 has one 192-image primary palette run; its 49-image predecessor remains
+ancillary. Two late exploratory retries do not restore its original full-grid
+inference. Never pool cohorts to change denominators or eligibility.
 
-The original paper retains all four painters: Monet, Sisley, Pissarro and Cézanne.
-The exploration uses 649 references, 1,536 named images and 384 artist-free controls.
-Study 1 separately uses 1,006 generated images and 70 Monet/Cézanne references;
-Study 2 uses a separate 192-image primary palette run. The 221-work development
-scaler is unchanged. The 49-image earlier palette cohort remains ancillary; two
-late exploratory retries do not restore the original incomplete-grid primary.
-Never pool these cohorts to change an inferential result or denominator.
+| Completed namespace / run | Source / freeze | Main contribution |
+| --- | --- | --- |
+| `painter_measurement_validation_v1/pmvv1-20260910` | `f3bc9b6` / `f2ab8de` | Ten reference-image challenges and common-square measurements for all Study 1 outputs. Processing sensitivities are characterized, not perceptual or independent-capture validity. |
+| `painter_naming_replication_v1/pnrv1-20260910` | `88cd185` / `2de6bc4` | 72 FLUX naming and 192 OAuth palette outputs; both naming directions recur, both palette interactions remain unresolved in the separate four-test family. |
+| `painter_naming_geometry_v1/pngv1-20260910` | `459c6a8` / `8facfa3` | Whole-scene moment-map evaluation, unchanged-map transfer to later FLUX, repeat-corrected variance and conditional-mean mismatch. |
+| `painter_naming_centering_v1/pncv1-20260910` | `c390eef` / `45e3ce9` | Evaluation-centering isolates the fitted scalar at a common mean; reference energy worsens in all 60 original and 18 later views. |
 
-## Active prospective clause collection
+Adding scale improves corrected prediction of named scene means in all six
+primary cells while worsening reference proximity in five. Translation alone
+beats actual naming in both later primary FLUX comparisons, with recorded
+representation exceptions. These post-result diagnostic observations do not
+identify an internal generative mechanism. The evaluation-centered map induces
+repeat dependence, so do not apply the independent-repeat Q correction to it.
+The failed prospective clause cohort supplies no new-scene map validation.
 
-Run `pcvv1-20260910` is collecting 288 OAuth-only requests after source `dff2804`,
-qualification `90a993f` and assignment/freeze `79f28c1`. All 1,521 offline tests,
-Ruff, the 2,902-check historical audit and both geometry replays passed. The live
-command is `python -m latent_art_bench.painter_clause_validation_v1 collect --live
---proxy-root ../openai-oauth`; it is one-shot and must never be rerun on this run.
-At most two requests are active, starts are five seconds apart, and blocks drain
-before later admission. New paid calls are prohibited. Generation source, tests,
-protocol, reviews, inputs, qualification and freeze are now immutable.
+## Reproduction and public access
 
-After terminal collection, the same module provides `measure`, `check` and
-`verify-responses`. Both primary comparisons are named-minus-generic energy on
-24 new fixed scenes with three repeats; maps trained on old OAuth observations
-are unchanged prospective secondary predictions. Terminal gates and missingness
-must be preserved. The current paper contains no result from this new run yet.
+Use Python 3.13.11 with the lockfile. These commands do not generate images:
 
-## Analysis and paper entry points
-
-[ANALYSES.md](ANALYSES.md) maps every study's inputs, numerical computation and
-plotting code. [ARCHITECTURE.md](ARCHITECTURE.md) describes shared primitives and
-storage. Main offline commands:
-
-```bash
+```sh
 make four-painter-analysis
 make analysis
 make palette-check
 make validation-check
 make replication-check
 make geometry-check
+make clause-check
 make figures-check
 make paper
 ```
 
-`make replication-check` requires its terminal measurement receipt. These targets
-do not generate images. The complete older response-bound replay is
-`make computational-responsiveness`; it needs retained private responses.
-Eight preceding manuscript figures come from `paper/make_figures.py` (six),
-`paper/replay_palette.py` (one) and `paper/make_validation_figure.py` (one).
-The last uses the frozen measurement renderer. The ninth figure is generated by
-`painter_naming_geometry_v1/report.py` and copied from its immutable report by
-`make figures`; `make figures-check` compares the manuscript copy. The original frozen geometry
-report calls its last two comparisons “named − generic”; their scientific
-meaning is detailed minus short-scene **named** prompts. The current manuscript
-and review table label them correctly without overwriting the retained figure.
+Terminal clause checks require their measurement receipts. Original local
+workflow checks can require the retained private response archive; public
+adapters have explicitly narrower numerical contracts. Do not repeat extraction
+merely to verify a manuscript edit.
 
-The [measurement review](reviews/20260910_validation_followup/RESULTS_REVIEW.md)
-records the full matrix and its limits: large texture sensitivity to resampling,
-overlap among feature-family responses, and different crop fractions across
-references and services. Square sensitivities preserve the eight signs/four
-rejections, but no square-domain classifier was recomputed. Derivative vectors
-are repeated measurements of the same works, not additional independent samples.
+Six figures come from `paper/make_figures.py`, one from `paper/replay_palette.py`,
+one from `paper/make_validation_figure.py`, and the ninth is copied from the
+immutable geometry report. The older geometry-sensitivity figure uses “generic”
+for short-scene named prompts; the manuscript labels that contrast correctly
+without overwriting frozen evidence. New clause findings use a compact table.
 
-Temporal naming uses 24 outputs per arm and shared free controls, whereas the
-original FLUX comparison used 72 per painter/arm. Changed counts and dependence
-preclude treating old/new V-energy magnitude differences as an isolated time
-effect. Preserve the new four-test Holm family and 98.75% marginal palette
-intervals. Negative unresolved and significant directional replication are
-separate conclusions. Missing measurements or a duration violation withhold
-specified primary inference; later outputs cannot repair that grid.
+The [original numerical release](https://github.com/isingmodel/latent-art-bench/releases/tag/pprv1-20260910)
+(source `b2884c3`, public commit `2592dfb`) has 98 local/anonymous exact checks
+and 98 hosted Ubuntu checks under its documented floating-point contract.
+The [geometry addendum](https://github.com/isingmodel/latent-art-bench/releases/tag/ppgv1-20260910)
+(source `5485e36`, public commit `7923049`) has exact fresh local/anonymous replay
+of both namespaces and 95 tests. Preserve both archives, paper assets and the
+original release's explicit erratum. Their sealed packagers must not be edited.
 
-## Public release
+`tools/paper_clause_release.py` is the separate, currently unexported adapter
+for both clause cohorts. It is being extended and requires its own final review,
+real export, archive verification and anonymous replay before access is claimed.
+See its [guide](../studies/paper_clause_reproducibility_v1/README.md).
 
-The project remote is <https://github.com/isingmodel/latent-art-bench>.
-The published tag is `pprv1-20260910` on sanitized branch
-`codex/paper-reproducibility-v1` (commit `2592dfb`), with `pprv1-20260910.tar.gz`.
-The [release verification report](../reports/paper_reproducibility_v1/pprv1-20260910/REPORT.md)
-records 98 exact local/anonymous checks and 98 portable hosted checks. The source
-builder is `tools/paper_release.py`; its
-[guide](../studies/paper_reproducibility_v1/README.md) specifies export/build/check.
-
-The builder copies an explicit allowlist and requires copied original inputs to
-match the final local source commit. Do not push the full local history as a
-shortcut. The manifest distinguishes original input-export provenance, final
-local build commit and the different public history-free commit. A build-time
-prepared status does not prove publication. The actual archive hash, anonymous-download replay and hosted CI are recorded
-separately in `PUBLICATION_VERIFICATION.json` beside the report.
-
-The preceding paper remains in additive `paper-r1.pdf` / `paper-r1.tex`
-assets; the current substantive manuscript differs from those published files. An explicit erratum corrects the blanket exact-p-value statement after
-the portable Welch comparison amendment, plus one verb agreement. Preserve the
-original released archive and paper asset; do not silently replace either.
-The standalone palette replay remains exact; the portable release adapter passes
-its reviewed comparison callback and records that check with the palette figure.
-
-Exports contain fixed vectors, scalers, memberships, seeds, request identities,
-recorded source URLs/licenses and numeric reports. They exclude raw pixels,
-responses, local credentials, model weights, literature full text and user drafts.
-Code/numerical licensing grants no rights to absent artwork. Python audit-hook
-guards record observed network/process/file attempts during replay; they are not
-an operating-system security sandbox. The actual reproduced scope is recorded
-in `COVERAGE.json`, rather than inferred from the presence of report files.
-
-## New addendum packaging
-
-`tools/paper_geometry_release.py` builds a local history-free addendum containing
-only both new namespaces, their transitive frozen numerical inputs, and the
-English paper with nine approved figure PDFs. It never publishes. Final mode
-requires every copied file to be clean at HEAD and bound inputs to agree with
-their recorded source commits. `--draft` skips only Git checks for local QA.
-Never replace the old public archive or push the full local history.
-
-The first draft was extracted into a clean directory and both analyses replayed
-exactly with a fresh Python 3.13.11 environment. Its optional combined pytest
-command initially collided on duplicate `test_analysis.py` basenames; the
-packager README now specifies `--import-mode=importlib`, and all 95 scientific
-tests pass with that flag. Use a new create-once output directory after changes.
-Package inventory verification runs before dependency installation, because a
-new `.venv` is intentionally outside the sealed payload inventory. Final public
-publication and current review outcome belong in STATUS and the release receipt.
+Publication uses an explicit allowlist and sanitized history-free branch. Never
+push the full local Git history. Exports exclude pixels, response bodies, proxy
+snapshots, credentials, literature full text, weights and Korean drafts. Released
+vectors permit numerical replay, not authentication or re-extraction of absent
+pixels. Source URLs/license metadata do not grant image redistribution rights.
 
 ## Verification and preservation
 
-Before handoff after Python changes, run:
+Latest source qualification: Ruff passes, all 1,705 offline tests pass in 201.71
+seconds, and the historical audit passes 2,902 checks. These checks precede the
+current adapter extension; final checks must reflect its actual completed source.
+The historical audit does not register the new namespaces, so run their own
+replays as well. Before handoff after Python changes:
 
-```bash
+```sh
 uv run --locked ruff check .
-uv run --locked pytest -q -m "not live"
+uv run --locked pytest -q -m 'not live'
 uv run --locked latent-art-bench verify-evidence
-make validation-check
-make replication-check
 make geometry-check
 make figures-check
 git diff --check
 ```
 
-`pytest.ini` uses importlib collection plus two legacy helper-import paths so
-versioned studies can reuse test filenames. The old `pyproject.toml` is a frozen
-input and remains unchanged. Historical evidence verification does not cover all
-new namespaces, so their own numerical/response checks are also necessary.
-Do not repeat extraction merely to verify a paper edit. Build the PDF and render
-all pages for final visual QA, following the paper guide.
+Build the final PDF and inspect all pages and figures. Update STATUS, the review
+aggregate, analysis catalog and release verification with actual outcomes.
+Canonical Protocol 2.1's broader reproduction gates remain unqualified.
 
-Never rewrite, move or delete frozen protocols, sources, tests, reports, ledgers
-or hash-bound inputs. Never refresh hashes or extend the two historical evidence
-acknowledgements. Ignored `research_workspace/`, `artifacts/` and `tmp/pdfs/` may
-contain unique evidence. No broad recursive cleanup or `git clean -xfd`.
-A terminal census or collector remains permanently closed.
-
-`paper/paper_ko.tex` and ignored `paper/paper_ko.pdf` are user-owned. Do not modify,
-stage or publish either. Historical integration and reviews are linked in
-[INDEX.md](INDEX.md); their scores describe their own manuscript hashes.
-The [preceding review record](reviews/20260910_validation_followup/REVIEW.md) gives
-a nine-score mean of 8.4111/10 for r1. The active substantive cycle has separate
-reports under `docs/reviews/20260910_substantive_revision/`; its baseline is
-8.2333/10 and its latest completed round must be read before reporting a score. Every
-review here is maintainer-run LLM work, not independent human peer review
-or a prediction of publication acceptance. Current paper claims must follow the
-actual results, including unresolved or contrary findings.
-
-
-## Active prospective clause validation
-
-Current user goal remains active: honest unchanged nine-score mean >9. Latest
-complete round is **8.6889**; no later score is assigned. Geometry/centering are
-sealed and publicly reproduced at `ppgv1-20260910`, source `5485e36`, public
-commit `7923049`, SHA256 `4a26b9c3…ce5a9b30`. Their 34-page paper is published;
-never replace the archived manuscript or numerical bytes.
-
-`painter_clause_validation_v1` is a newly versioned study under qualification.
-It specifies 288 OAuth outputs, 24 new fixed scenes x3 repeats x4 clauses, no
-paid calls. R1 wrote precision/source/tests (committed `6dd1e80`, qualified
-synthetic results), R2 wrote collection/workflow/tests, R3 wrote protocol/scenes
-and reviews root analysis. Root owns common/analysis/CLI/tests. Reviews disclose
-these roles. Identity failure after a non-identity stop is being checked for
-terminal replay; all must-fix findings must close before source/qualification
-commit, preparation, freeze commit and explicit live collection. No new scene
-images have been generated or measured. Preserve the fixed historical OAuth
-maps and the pair-specific primary completeness rules.
+Never rewrite or refresh frozen evidence, ledgers, protocols, sources or hashes.
+The two historical evidence acknowledgements must not be extended to hide drift.
+Ignored `research_workspace/`, `artifacts/` and `tmp/pdfs/` may contain unique
+bytes. No broad cleanup or `git clean -xfd`. User-owned `paper/paper_ko.tex` and
+ignored `paper/paper_ko.pdf` must remain untouched, unstaged and unpublished.

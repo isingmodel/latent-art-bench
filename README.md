@@ -8,8 +8,9 @@ among generated images.
 
 The paper now includes **held-scene moment maps, temporal transfer and a
 center-controlled comparison**, with [public numerical replay](https://github.com/isingmodel/latent-art-bench/releases/tag/ppgv1-20260910).
-A prospective 288-image OAuth clause experiment is collecting from a reviewed,
-committed assignment freeze. Its analysis begins only after collection closes. The
+The 288-slot prospective clause validation stopped after 211 images; both
+primary comparisons are unavailable. One separately frozen, final 96-output
+Cezanne/generic comparison is running, with no pooling or new paid calls. The
 [handover](docs/AGENT_HANDOVER.md) records completed work, current boundaries and
 the correction workflow; [STATUS.md](docs/STATUS.md) records integration and checks.
 

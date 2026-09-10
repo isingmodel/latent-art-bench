@@ -53,13 +53,16 @@ unavailable. No complete-case estimates, refilling or pooling are permitted.
 The final local source/proxy checks pass; the error contains no authentication
 or quota diagnosis, and local health alone does not prove backend recovery.
 
-No new feature values have been extracted or inspected. A single 96-output
+No new feature values were extracted or inspected before successor freeze. A single 96-output
 Cezanne/generic successor was fixed in design commit `f0ab2d4` after the initial
 refusal, before the later stop. It keeps all 24 scenes, two repetitions, fresh
 controls and alpha .025 even though Monet also became unavailable. Three
-implementation reviews and 144 focused tests pass. Whole-suite checks,
-source qualification and the new committed freeze remain required before live
-collection. No further successor is planned if this one fails or is unresolved.
+implementation reviews, all 1,705 offline tests and all 2,902 historical audit
+checks pass. Source `07f8231`, qualification `d5887f8` and assignment/freeze
+`6effea1` are committed. All 167 bindings and local source/process identity
+verified before explicit live dispatch; the 96-output successor is running.
+The stopped predecessor is now being measured after that new freeze. No further
+successor is planned if this one fails or is unresolved.
 
 ## Current follow-up
 
