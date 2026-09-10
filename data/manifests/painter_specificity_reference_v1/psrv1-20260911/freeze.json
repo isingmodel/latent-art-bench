@@ -1,0 +1,33 @@
+{
+  "inputs": [
+    {
+      "path": "studies/painter_specificity_reference_v1/PROTOCOL.md",
+      "sha256": "b8f74092a7fa5566b3b777344e097b1cb1e2ee63e3c94d2a78c2ce6b565b9090"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-frame-20260905/frame.jsonl",
+      "sha256": "43c71972635421645b276051feaefc62ee6845d3807fcad352aaa72926e9bed2"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/confirmation_features.jsonl",
+      "sha256": "01cc5167c09b88eab6a86885b72040f76fc8a7ca8a62acd56d85a8b16b2f7717"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/scaler.json",
+      "sha256": "71f511235081dfc1e9846976320c69477bcbd04dd43fc9a2e271f7b0375497b9"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v2/psv2-20260911/freeze.json",
+      "sha256": "2f32de5182357e960eb4520b45e90f23e6fe812168679cba9072a435675cdf27"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_reference_v1/analysis.py",
+      "sha256": "505cee3dc82907b6b543d974ccd10c0e71f64237a577d948e7c2db6f563c4e53"
+    },
+    {
+      "path": "tests/painter_specificity_reference_v1/test_reference.py",
+      "sha256": "f495215aadbdf4f21cae250dae1ba5362c5e6848bfc6e13152dd4c18c017442c"
+    }
+  ],
+  "recorded_git_commit": "fdb646a4f3327033d2990a9089cbb695295c5db3"
+}
