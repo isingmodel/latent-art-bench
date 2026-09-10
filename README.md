@@ -13,18 +13,37 @@ primary comparisons are unavailable. One separately frozen, final 96-output
 Cezanne/generic comparison is complete: energy falls from 2.166 to .970
 (paired randomization p=.00001), with named/generic trace ratio .552.
 The result uses 24 new fixed scenes; it supplies no new-scene map validation.
-There is no pooling or new paid cost. The
+Neither clause cohort is pooled with another, and both added zero paid cost. The
 [handover](docs/AGENT_HANDOVER.md) records completed work, current boundaries and
 the correction workflow; [STATUS.md](docs/STATUS.md) records integration and checks.
 
-Read the [English paper](paper/paper.pdf), its [source and build guide](paper/README.md),
-and the [analysis catalog](docs/ANALYSES.md).
+The [local English draft](paper/paper.pdf) is now 37 pages and remains unpublished.
+The latest [published paper](https://github.com/isingmodel/latent-art-bench/releases/tag/pcrv1-20260910)
+is the 36-page clause-release version. See the [source and build guide](paper/README.md)
+and [analysis catalog](docs/ANALYSES.md).
 The paper begins with a **four-painter distributional analysis**: 649 references
 (297 Monet, 106 Sisley, 141 Pissarro and 105 Cézanne), 1,536 painter-conditioned
 outputs across three prompt methods, and 384 artist-free controls. This descriptive
 evidence is separate from Study 1's **1,006 images from three generation routes**
 and 70 Monet/Cézanne references, and Study 2's **192-image color experiment**.
 The development panel contains 221 works.
+
+The separate fixed-map v1 proposal stopped before collection: all 81 proxy coverage
+checks passed, but each allocation failed the conditional-residual precision gate.
+Its [public planning release](https://github.com/isingmodel/latent-art-bench/releases/tag/pmrv1-20260910)
+replays all 81 cells and contains no new images. One prospective R10 redesign
+passed its separate qualification; a [one-shot 240-output FLUX/Cezanne collection](studies/painter_map_validation_v2/PROTOCOL.md)
+is now active on twelve new scenes. Its source/qualification/freeze commits are
+`765c5f7` / `aaf431a` / `c68c235`. At most two requests overlap, with five-second
+recorded start spacing. Do not restart it; feature extraction waits for terminal closure.
+
+The precollection accounting baseline is $50.7219185 against the $75 ceiling;
+there is no final new cost yet. The [live ledger](data/manifests/painter_map_validation_v2/pmv2-20260910/generation_events.jsonl)
+records new charges and reservations. The reviewed numerical adapter at `916f5c5`
+passes 29 synthetic tests, but actual export and complete fresh replay remain
+pending. The fixed round-3 score mean remains **8.9**; collection alone supplies
+no new scientific result or score. See [STATUS.md](docs/STATUS.md) for current
+verification, including the full-suite rerun.
 
 The [four-painter exploration](reports/painter_distribution_exploration_v1/REPORT.md)
 shows overlap in two-dimensional projections alongside reduced generated spread
@@ -69,9 +88,9 @@ interactions remain unresolved. All outputs returned without retries, at a new
 reported OpenRouter cost of $5.04. The same maintainer collected this cohort; it
 is not independent-investigator replication. The [public numerical release](https://github.com/isingmodel/latent-art-bench/releases/tag/pprv1-20260910)
 passes 98 exact checks after anonymous download and 98 checks under its documented
-Ubuntu portability contract. That preceding paper remains in its corrected `paper-r1.pdf` asset; the current
-geometry manuscript is in the additive geometry release. Both earlier archives
-and the explicit erratum are preserved. See the
+Ubuntu portability contract. Its corrected `paper-r1.pdf`, the earlier geometry
+paper, both numerical archives and the explicit erratum remain preserved; the
+latest published manuscript is in the separate clause release. See the
 [verification report](reports/paper_reproducibility_v1/pprv1-20260910/REPORT.md) and
 [STATUS.md](docs/STATUS.md) for access, scope and accounting.
 

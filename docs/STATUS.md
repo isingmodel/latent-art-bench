@@ -81,10 +81,14 @@ No scene-population, perceptual or internal-mechanism claim follows.
 The earlier complete Python verification passed **1,800 tests in 272.96 seconds**.
 The new map-validation namespace separately passes **110 offline tests in 28.12 seconds**,
 including independent numerical-oracle and complete artificial transport checks.
-Whole-tree Ruff is clean. A full run while the separate public adapter was being
-implemented finished with **1,929 passes and four provisional adapter-test failures
-in 516.03 seconds**; those failures are outside the frozen collection source and
-require a final clean rerun before handoff. The earlier exact replay of all nine active manuscript figures is
+Whole-tree Ruff is clean. After the separate public adapter was finalized, the
+full offline suite passed **1,939 tests in 478.30 seconds**. This resolves the four
+provisional adapter-test failures in the earlier 1,929-pass run; those failures
+were outside the frozen collection source. The reviewed adapter at `916f5c5`
+also passes all 29 scoped synthetic tests, with a separate
+[packaging audit](reviews/20260910_substantive_revision/MAP_VALIDATION_RELEASE_AUDIT_2.md).
+Actual terminal export and complete fresh numerical/public replay remain pending.
+The earlier exact replay of all nine active manuscript figures is
 unchanged. Historical evidence audit at `dabc2f8`: **2,902 checks, zero failures**, with the same two old
 acknowledgements. Both geometry namespaces replay exactly. The historical audit
 does not register the new namespaces; each requires its own numerical check.

@@ -1,4 +1,4 @@
-# Agent handover — paper revision and clause validation
+# Agent handover — paper revision and fixed-map validation
 
 Read [STATUS.md](STATUS.md), then [ARTIFACTS.md](ARTIFACTS.md), inspect
 `git status --short --branch`, and follow [AGENTS.md](../AGENTS.md).
@@ -21,10 +21,14 @@ before the honest mean exceeds the threshold. All reviewers are operated by the
 maintainer and have disclosed subsequent design/implementation involvement.
 They are not independent human or institutional reviewers.
 
-The current expansion uses no human ratings, learned features or paid calls.
-Cumulative conservative OpenRouter accounting is $50.7219185 against the $75
-ceiling, including the retained historical $5 reserve. Do not assign a monetary
-value to OAuth subscription use.
+The current local English draft is 37 pages and unpublished. The latest published
+manuscript is the 36-page clause-release version; earlier assets remain immutable.
+The active fixed-map collection uses paid FLUX, without human ratings or learned
+features. Its precollection conservative accounting baseline is $50.7219185
+against the $75 ceiling, including the historical $5 reserve. There is no final
+new cost yet; consult the [live ledger](../data/manifests/painter_map_validation_v2/pmv2-20260910/generation_events.jsonl)
+for new charges and pending reservations. Do not assign a monetary value to OAuth
+subscription use.
 
 | New scope | Source / qualification / freeze | State |
 | --- | --- | --- |
@@ -34,13 +38,12 @@ value to OAuth subscription use.
 The successor decision was committed at `f0ab2d4` after the initial Cezanne
 refusal, before the later stop and before feature extraction. Its allocation
 and threshold remain unchanged after Monet became unavailable. No observations
-are pooled and no further cohort is planned if this successor fails or remains
-unresolved. The HTTP 500 had a null error code and is outside the unchanged
-numeric-code-match retry rule; never reclassify or retry it retrospectively.
+are pooled and no further clause replacement is allowed. The HTTP 500 had a null
+error code and is outside the unchanged numeric-code-match retry rule; never reclassify or retry it retrospectively.
 The [terminal audit](reviews/20260910_substantive_revision/CLAUSE_TERMINAL_AUDIT_2.md)
 records timing, accounting, response hashes and the inference restrictions.
 
-Both live collectors are one-shot. Do not invoke collect again, resume, refill,
+Both clause collectors are one-shot. Do not invoke collect again, resume, refill,
 change bound source or replace failed slots. At most two requests are active,
 recorded starts are five seconds apart, and blocks drain before the next.
 Both collections and one-shot measurements are complete. Do not invoke measure again.
@@ -50,6 +53,41 @@ retrieval or secondary hypothesis tests. The stopped predecessor retains all
 864 measurement-status rows and unavailable endpoints. Use each namespace's
 `check` and `verify-responses` commands for verification; the latter checks
 private retained response hashes.
+
+## Active fixed-map collection
+
+The [v1 planning qualification](../studies/painter_map_validation_v1/pmvqv1-20260910/PRECISION.md)
+is terminal: all 81 proxy coverage checks passed, but R4/R6/R8 each failed the
+baseline conditional-residual width gate. No allocation was selected or collected.
+Its [public release](../reports/paper_map_reproducibility_v1/pmrv1-20260910/REPORT.md)
+contains 18 files, with exact fresh local/anonymous replay of all 81 cells and
+73 tests in each recorded environment. It preserves a failed planning decision,
+not new image evidence. V1 remains stopped.
+
+One separately declared [R10 redesign](../studies/painter_map_validation_v2/DECISION.md)
+passed its single 27-cell qualification. The one-shot `pmv2-20260910` collection
+is now active: twelve fixed new scenes, ten repeats and free/named FLUX/Cezanne
+arms, for 240 outputs. Operational source `765c5f7`, qualification `aaf431a` and
+freeze `c68c235` bind the exact source, reviewed protocols and assignments.
+At most two attempts overlap, recorded starts are at least five seconds apart,
+and each pair drains before the next. The fixed historical maps, primary512
+31-feature pipeline, development scaler and references remain unchanged.
+
+Do not invoke collection again, resume, refill, replace failed slots or change
+bound source. Feature extraction must wait for terminal closure. A permanently unavailable
+required slot stops the cohort; there is no replacement. Both points and all
+component scores require the complete eligible 240-vector grid after terminal
+measurement. Qualification does not establish actual service coverage or
+independent stationary repeats. The [technical contract](../studies/painter_map_validation_v2/TECHNICAL_PROTOCOL.md)
+fixes conditional budget forecasts, $5 liabilities, retry limits and stop/drain
+rules; no top-up or reserve reduction is authorized. No new E/Q result exists yet.
+
+The reviewed public adapter, `tools/paper_map_validation_release.py`, is committed
+at `916f5c5`; its 29 synthetic tests passed in 155.56 seconds. The
+[adapter audit](reviews/20260910_substantive_revision/MAP_VALIDATION_RELEASE_AUDIT_2.md)
+records independent synthetic extraction, stdlib verification and observed-vector
+replay. Actual terminal export, complete fresh 27-cell replay and public acceptance
+remain pending. This is separate from the already public failed-v1 package.
 
 ## Completed scientific additions
 
@@ -133,14 +171,14 @@ pixels. Source URLs/license metadata do not grant image redistribution rights.
 
 ## Verification and preservation
 
-Latest source qualification: Ruff passes, all 1,714 offline tests pass in 256.02
-seconds, and the historical audit passes 2,902 checks at `e81ea83`. These checks
-include the separate manuscript geometry renderer. All nine active figures
-replay exactly; the final 36-page PDF passes visual QA. The immutable
+Read [STATUS.md](STATUS.md) for current test and evidence-audit results, including
+the full-suite rerun after the final adapter changes. Do not carry an earlier
+passing count forward as a claim about the current tree. The immutable
 [presentation check](reviews/20260910_substantive_revision/FINAL_PRESENTATION_QA_3.md)
-records its exact TeX/PDF hashes and does not assign new scores.
-The historical audit does not register the new namespaces, so run their own
-replays as well. Before handoff after Python changes:
+records the published 36-page version's TeX/PDF and nine-figure QA, not the current
+37-page draft, and assigns no new scores. The historical evidence audit does not
+register the new namespaces, so their own replays are also required. Before
+handoff after Python changes:
 
 ```sh
 uv run --locked ruff check .
