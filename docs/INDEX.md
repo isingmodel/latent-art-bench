@@ -13,8 +13,12 @@
 | [Contributing](../CONTRIBUTING.md) | Development and verification workflow |
 | [Test scope](../tests/README.md) | Smaller routine suite, retired tests and explicit historical coverage |
 
-## Active research extension
+## Completed artist-specificity extension
 
+- [Six-model results and complete tables](../reports/painter_specificity_v2/psv2-20260911/REPORT.md):
+  all 1,008 outputs measured; four exact numerical views, raw-byte audit and eight figures.
+- [Current manuscript](../paper/paper.pdf) and [source/build guide](../paper/README.md):
+  17 pages centered on aligned responses versus recovery of painter differences.
 - [Specificity transport repair](../studies/painter_specificity_v2/DECISION.md) and
   [closed first attempt](../studies/painter_specificity_v1/TERMINATION.md).
 - [Current painter-specificity protocol](../studies/painter_specificity_v2/PROTOCOL.md):

@@ -15,10 +15,10 @@ See [test scope](../tests/README.md). The original `pytest.ini`, `pyproject.toml
 bound tests and published evidence remain unchanged; routine selection lives in
 `pytest-paper.ini`. Use an explicit `tests` argument for the full retained suite.
 
-## New active goal
+## Completed artist-specificity extension
 
-The user has now authorized a separate painter-specificity extension and full
-manuscript reframing. See the first active-goal section of [STATUS.md](STATUS.md)
+The authorized painter-specificity extension and manuscript reframing are
+complete. See the completed-results section of [STATUS.md](STATUS.md)
 and [the new protocol](../studies/painter_specificity_v2/PROTOCOL.md). The prior
 review stopping condition below applies to that old iteration. Do not resume its
 collectors, portable replay proposal or score optimization. Keep new evidence in
@@ -39,15 +39,23 @@ receipt are under `data/manifests/painter_specificity_v2/psv2-20260911/`;
 raw bytes are under the corresponding ignored workspace. Baseline $68.50735
 includes all eight paid probes and the historical $5 uncertainty reserve.
 New charges total $43.786326; final cumulative accounting is $112.293676.
-Never query remaining balances. The automatic postprocessing worker is now
-measuring the images; do not launch duplicate extraction.
+Never query remaining balances. Measurement is complete: 1,008 generated rows
+and 649 reference-window rows, with full/square vectors and four numerical
+analyses. Do not launch duplicate extraction or collection.
 
-The manuscript has been rewritten around artist-relative recovery. New result
-text, abstract conclusions and figures remain pending terminal measurement;
-`paper/paper.pdf` still represents the preceding completed manuscript. The new
-plotter is `paper/make_specificity_figures.py`. No experimental outcomes have
-been inspected. Use the [corrected reference reader](../studies/painter_specificity_measurement_v1/CORRECTION.md)
-for terminal measurement and all four replay views. The historical manifest has
+The completed 17-page manuscript presents the six-model results, three main
+figures and all four painters. The central contrast is strong aligned response
+without faithful reference geometry: GPT Image 2 has beta .999 but D 1.226;
+FLUX has the smallest point D (.801), with adjusted advantages over both 2.5
+variants and no resolved advantage over the other models. All 24 generated
+clouds have lower total variance than the references. The terminal
+[report](../reports/painter_specificity_v2/psv2-20260911/REPORT.md) contains exact
+numbers and links to all eight new figures. The generic/palette controls and
+contrary map-transfer result remain in the paper; neither establishes internal
+training causation. The new addition has not been archived as a public release.
+
+Use the [corrected reference reader](../studies/painter_specificity_measurement_v1/CORRECTION.md)
+for all four replay views. Measurement itself is permanently closed. The historical manifest has
 649 measured works and four old failures; the frozen original reader mistakenly
 assumed it contained only valid records. The adapter preserves the intended panel
 without editing frozen source or retrying an old failed image. Completed historical findings and their contrary fixed-map
@@ -56,6 +64,36 @@ The new reference-content sensitivity uses the four historical title-lexicon
 classes inherited through the frame. Do not describe these as the later
 controlled panel's separate three-class LLM visual annotations.
 The user's Korean files remain untouched.
+
+### Verification and immutable inputs
+
+- `make specificity-check`: four exact numerical replays pass.
+- `make specificity-audit`: terminal report and all 1,008 response/image hashes pass.
+- `make figures-check`: all retained/new presentation artifacts and generated tables pass.
+- Whole-tree Ruff and all 1,944 retained offline tests pass; routine selection is 823.
+- Historical evidence audit: 2,902 checks, zero failures, the same two old acknowledgements.
+- `make paper`: 17 pages, no TeX warnings; all pages and eight new figures visually checked.
+
+Final layout fixes corrected inline math, placed the complete comparison tables
+together and clarified the common-fraction denominator. Table-generation changes
+only affect LaTeX float placement; numerical replay remains exact. Current-doc
+relative links and `git diff --check` pass. The temporary keep-awake assertion
+has been stopped; no collection or postprocessing process remains.
+
+The terminal collection is committed at `3fe90d7`. Numerical source/freeze
+identities remain `d223402` / `c55fef6`; reference weighting `fdb646a` / `ec63052`;
+reader correction `86e1bd1` / `0017c26`. The create-once report binds its own source,
+so do not edit `painter_specificity_measurement_v1/report.py` or overwrite the
+report to change wording. Corrected membership excludes only the four historical
+failed reference measurements. New primary re-extractions matched all 649 prior
+vectors at 1e-10; development scaling uses 221 works, not all 312 manifest rows.
+
+The local adapter in the separate `openai-oauth` repository adds the requested
+2.5 names (`d0a390f`) and discloses unverified upstream selection (`50be88d`).
+The new scientific comparison uses documented paid model routes. Its responses
+omit model/quality echoes, so requested configurations are not checkpoint
+attestation. No remaining-credit endpoint was queried. No image, feature or
+result from the stopped 31-output attempt enters the successor.
 
 ## Closed iteration and current boundary
 

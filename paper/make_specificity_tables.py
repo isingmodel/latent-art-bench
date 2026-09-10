@@ -59,7 +59,7 @@ def build():
         r"\label{tab:specificity-models}\end{table}",
     ]
     pairs = [
-        r"\begin{table}[tbp]\centering\small",
+        r"\begin{table}[htbp]\centering\small",
         r"\begin{tabular}{llr}\toprule",
         r"Model A & Model B & $D_A-D_B$ [simultaneous interval]\\\midrule",
     ]
@@ -86,7 +86,7 @@ def build():
         r"\label{tab:all-specificity-pairs}\end{table}",
     ]
     artists = [
-        r"\begin{table}[tbp]\centering\small",
+        r"\begin{table}[htbp]\centering\small",
         r"\begin{tabular}{lrrrr}\toprule",
         r"Model & Monet & Sisley & Pissarro & C\'ezanne\\\midrule",
     ]

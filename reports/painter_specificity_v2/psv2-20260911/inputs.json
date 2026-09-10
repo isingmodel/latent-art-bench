@@ -1,0 +1,73 @@
+{
+  "audit": {
+    "attempts": 1008,
+    "baseline_usd": 68.50735,
+    "cumulative_accounted_usd": 112.293676,
+    "identical_normalized_repeat_pairs": 0,
+    "incremental_charges_usd": 43.786326,
+    "minimum_start_spacing_seconds": 5.001076,
+    "peak_active": 3,
+    "planned": 1008,
+    "raw_image_hashes_verified": 1008,
+    "raw_response_hashes_verified": 1008,
+    "retries": 0,
+    "statuses": {
+      "200": 1008
+    },
+    "successful": 1008
+  },
+  "inputs": [
+    {
+      "path": "data/manifests/painter_specificity_v2/psv2-20260911/freeze.json",
+      "sha256": "2f32de5182357e960eb4520b45e90f23e6fe812168679cba9072a435675cdf27"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v2/psv2-20260911/collection.json",
+      "sha256": "3491468b0dc6875d28e530595341d2a5a659a5aec175e5f6f7999f05b5851480"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v2/psv2-20260911/attempts.jsonl",
+      "sha256": "b131798cd2b803d6d60569def72700bb35daacdd2c5602e0dc854b7bd77a3ffd"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v2/psv2-20260911/measurement_receipt.json",
+      "sha256": "e71a1a7c64ba6d443e899f7913d4e97ee5db4e15cda132955fd2b41243d31c06"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v2/psv2-20260911/measurements.jsonl",
+      "sha256": "5db95709f48a25e31ef212b588c2aa3e0f7af4fb5dbaf413cfc16690de60cac1"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v2/psv2-20260911/reference_windows.jsonl",
+      "sha256": "2fa580f51f63c2d15aa9cae058b2c073939f029224cc90fba96243f2efb7c42b"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v2/psv2-20260911/analysis.json",
+      "sha256": "c1d21b16f840a10fd253c1d558743a09671acf3d4e48601ddcc96625a5a90be0"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v2/psv2-20260911/analysis_square.json",
+      "sha256": "1e34cc4fe000f6499c435542e84c03bc95d43e1d0936f203530535349c48c693"
+    },
+    {
+      "path": "data/manifests/painter_specificity_reference_v1/psrv1-20260911/freeze.json",
+      "sha256": "662947f7c0758de6b315fb44752ba5b080cb4c2eee6b79313a37f00c4ee09523"
+    },
+    {
+      "path": "data/manifests/painter_specificity_reference_v1/psrv1-20260911/analysis.json",
+      "sha256": "8b8aad91d726ee28549ea56363d1b5656f8fd4170cbdf85c6cfb4e9607b7f6d5"
+    },
+    {
+      "path": "data/manifests/painter_specificity_reference_v1/psrv1-20260911/analysis_square.json",
+      "sha256": "2496b4de0b74f67b53f994cef1591034711efa0b06a07cd05719dfd92af1cb1b"
+    },
+    {
+      "path": "data/manifests/painter_specificity_measurement_v1/psmv1-20260911/freeze.json",
+      "sha256": "c6c89dd1fdca14bb47a20dfb761c224176b8507acf204772bb11164b689ba571"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_measurement_v1/report.py",
+      "sha256": "fec1aec24092b82ae045ce30f4d26098dc49bcce669597d3c25763f5b2e37dea"
+    }
+  ]
+}

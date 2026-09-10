@@ -1,0 +1,34 @@
+\begin{table}[htbp]\centering\small
+\begin{tabular}{llr}\toprule
+Model A & Model B & $D_A-D_B$ [simultaneous interval]\\\midrule
+GPT Image 1 & GPT Image 2 & $0.346\;[-0.400,1.093]$\\
+GPT Image 1 & 2.5 Flare & $-0.165\;[-1.027,0.697]$\\
+GPT Image 1 & 2.5 Sunburst & $-0.069\;[-1.181,1.043]$\\
+GPT Image 1 & Nano Banana 2 & $0.463\;[-0.602,1.528]$\\
+GPT Image 1 & FLUX.2 Max & $0.771\;[-0.037,1.580]$\\
+GPT Image 2 & 2.5 Flare & $-0.512\;[-1.150,0.126]$\\
+GPT Image 2 & 2.5 Sunburst & $-0.415\;[-1.181,0.350]$\\
+GPT Image 2 & Nano Banana 2 & $0.116\;[-0.922,1.155]$\\
+GPT Image 2 & FLUX.2 Max & $0.425\;[-0.161,1.011]$\\
+2.5 Flare & 2.5 Sunburst & $0.096\;[-0.286,0.478]$\\
+2.5 Flare & Nano Banana 2 & $0.628\;[-0.283,1.540]$\\
+2.5 Flare & FLUX.2 Max & $0.937\;[0.256,1.618]$\\
+2.5 Sunburst & Nano Banana 2 & $0.532\;[-0.436,1.500]$\\
+2.5 Sunburst & FLUX.2 Max & $0.840\;[0.058,1.623]$\\
+Nano Banana 2 & FLUX.2 Max & $0.309\;[-0.847,1.464]$\\
+\bottomrule\end{tabular}
+\caption{All 15 paired model comparisons in the prespecified inferential family. A negative contrast favors model A on the stated feature-geometry target. Flare and Sunburst denote the corresponding GPT Image 2.5 models.}
+\label{tab:all-specificity-pairs}\end{table}
+
+\begin{table}[htbp]\centering\small
+\begin{tabular}{lrrrr}\toprule
+Model & Monet & Sisley & Pissarro & C\'ezanne\\\midrule
+GPT Image 1 & $-2.515\; /\; 0.479$ & $-2.739\; /\; 0.694$ & $-2.628\; /\; 0.603$ & $-1.336\; /\; 0.598$\\
+GPT Image 2 & $-0.602\; /\; 0.283$ & $-1.092\; /\; 0.312$ & $-0.195\; /\; 0.303$ & $-0.373\; /\; 0.303$\\
+2.5 Flare & $0.962\; /\; 0.269$ & $-0.008\; /\; 0.371$ & $0.429\; /\; 0.321$ & $-1.013\; /\; 0.275$\\
+2.5 Sunburst & $0.267\; /\; 0.248$ & $-0.718\; /\; 0.274$ & $-0.091\; /\; 0.273$ & $-1.653\; /\; 0.318$\\
+Nano Banana 2 & $-0.513\; /\; 0.829$ & $-1.381\; /\; 0.708$ & $-0.741\; /\; 0.572$ & $-1.102\; /\; 0.877$\\
+FLUX.2 Max & $-0.707\; /\; 0.340$ & $-0.886\; /\; 0.416$ & $-1.080\; /\; 0.570$ & $-1.431\; /\; 0.622$\\
+\bottomrule\end{tabular}
+\caption{Complementary outcomes for all four painters: each cell gives named-minus-generic reference energy / generated-to-reference total variance. These are descriptive empirical distribution summaries, without additional tests. Lower energy change favors naming over the generic clause; a variance ratio below one indicates a narrower generated feature distribution.}
+\label{tab:artist-distributions}\end{table}

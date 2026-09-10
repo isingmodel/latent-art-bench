@@ -11,17 +11,19 @@ The [Makefile](../Makefile) provides the common entry points:
 | Command | Scope |
 | --- | --- |
 | `make check` | Ruff and the selected current offline tests; `make check-all` includes retained historical tests |
+| `make specificity-check` | Four exact new numerical views, without image generation |
+| `make specificity-audit` | New report binding and retained raw response/image hashes |
 | `make evidence` | Historical evidence bindings, dispositions and retained-byte integrity |
 | `make four-painter-analysis` | Replay four-painter exploration, Stage A controls and retry presentation (35 + 18 + 9 files) |
-| `make analysis` | Replay Study 1 controlled and revision numeric results |
-| `make plots` | Replay Study 1 controlled and revision report bundles and check manuscript figures |
+| `make analysis` | Replay controlled naming and revision numeric results |
+| `make plots` | Replay controlled naming and revision report bundles and check manuscript figures |
 | `make responsiveness` | Replay the earlier v1 responsiveness diagnostic JSON and all report bytes |
 | `make computational-responsiveness` | Replay v2 scene retrieval, both completed experiment bundles, the quantile correction and their report bytes |
-| `make palette-check` | Recompute Study 2 primary inference from committed chroma outcomes and the fixed schedule; no raw-response reads |
+| `make palette-check` | Recompute palette primary inference from committed chroma outcomes and the fixed schedule; no raw-response reads |
 | `make validation-check` | Replay the computational challenge and all eight common-square contrasts |
 | `make replication-check` | Replay the terminal temporal cohort from its retained measurements |
-| `make figures` | Rebuild nine manuscript figures from retained numeric inputs |
-| `make figures-check` | Check all nine manuscript figures without rewriting them or replaying full reports |
+| `make figures` | Rebuild current and supporting figures/tables from retained numeric inputs |
+| `make figures-check` | Check current and supporting figures/tables without rewriting them or replaying full reports |
 | `make paper` | Rebuild figures and compile the manuscript; see [paper/README.md](../paper/README.md) |
 
 Numeric and report checks use temporary output and preserve the published bundles.
@@ -30,21 +32,21 @@ Use the recorded implementation and locked runtime. Investigate a mismatch again
 its recorded commit rather than changing a stored hash. Raw-byte audits may require
 the ignored local research workspace. The commands below do not contact providers.
 
-## Active artist-specificity experiment
+## Completed artist-specificity experiment
 
 The [v2 protocol](../studies/painter_specificity_v2/PROTOCOL.md) fixes 1,008
 medium-quality/common-configuration requests before scientific measurement.
 The predecessor is terminated without analysis; it must not be measured or pooled.
 
-| Component | Source | Command after terminal measurement |
+| Component | Source | Offline replay command |
 | --- | --- | --- |
 | Artist geometry, paired model regressions, references and processing sensitivities | [analysis.py](../src/latent_art_bench/painter_specificity_v2/analysis.py), reusing frozen numerical primitives | `uv run --locked python -m latent_art_bench.painter_specificity_measurement_v1.workflow analyze --check` |
 | Common-square repeat | Same module, separate saved vectors and result | Add `--square --check` |
 | Model intervals, artist contrast projection and error/spread figures | [make_specificity_figures.py](../paper/make_specificity_figures.py) | `uv run --locked python paper/make_specificity_figures.py --check` |
 
 Collection and measurement are explicit operational commands, not replay targets.
-The collector is currently active. Do not start it twice or call measurement
-before the terminal collection receipt. Raw images remain ignored; compact
+Both are permanently complete: 1,008 images, 649 reference works and four
+analysis views. Do not invoke collection or measurement again. Raw images remain ignored; compact
 vectors and results have disjoint paths under `painter_specificity_v2`.
 
 The [reader correction](../studies/painter_specificity_measurement_v1/CORRECTION.md)
@@ -52,7 +54,16 @@ selects exactly the protocol's 649 measured works from a historical manifest
 that also retains four old failures. The old measurement/reader CLIs must not be
 used. Add `--reference` to the corrected analysis command for the separately
 frozen reference-content sensitivity. All corrected data paths remain under the
-active collection; no generation or statistical endpoint changes.
+completed collection; no generation or statistical endpoint changes.
+
+The [terminal report](../reports/painter_specificity_v2/psv2-20260911/REPORT.md)
+binds the four analyses, raw-byte identities and its own source.
+`make specificity-check` replays all four numerical views without raw media;
+`make specificity-audit` additionally needs the local response/image archive.
+`paper/make_specificity_tables.py --check` verifies the two generated table files.
+Eight figures cover model comparisons, centered geometry, spread/error diagnostics
+and reference-only distribution projections for all four painters. The main
+manuscript includes the geometry, diagnostics and prespecified Sunburst panels.
 
 ## Current evidence and presentation
 

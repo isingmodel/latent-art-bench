@@ -13,11 +13,15 @@ style validation or an identified internal model mechanism.
 The [prospective protocol](studies/painter_specificity_v2/PROTOCOL.md) fixes
 **1,008 images**, 14 common scenes, six clauses and two repeated requests per
 cell. Models are GPT Image 1, GPT Image 2, GPT Image 2.5 Flare, GPT Image 2.5
-Sunburst, Nano Banana 2 and FLUX.2 Max. Collection is running; new scientific
-results are pending. The [novelty assessment](studies/painter_specificity_v1/NOVELTY.md)
+Sunburst, Nano Banana 2 and FLUX.2 Max. All 1,008 images were collected and
+measured. The [results](reports/painter_specificity_v2/psv2-20260911/REPORT.md)
+show positive reference-aligned responses in every model, but response strength
+does not track recovery of painter differences. FLUX has the lowest estimated
+geometry error and adjusted advantages over both GPT Image 2.5 variants; the
+other 13 pairwise differences remain unresolved. The [novelty assessment](studies/painter_specificity_v1/NOVELTY.md)
 identifies close prior work and the limited contribution being tested.
 
-- [Current status](docs/STATUS.md): active collection, accounting and boundaries.
+- [Current status](docs/STATUS.md): completed analysis, accounting and boundaries.
 - [Handover](docs/AGENT_HANDOVER.md): source freezes and continuation instructions.
 - [Analysis catalog](docs/ANALYSES.md): computation, plots and replay commands.
 - [Manuscript source](paper/paper.tex) and [build guide](paper/README.md).
@@ -26,8 +30,9 @@ identifies close prior work and the limited contribution being tested.
 Earlier studies retain four-painter distributional differences, controlled
 named/free comparisons, generic-clause and palette interventions, and prospective
 fixed-map transfer. Their [versioned public releases](https://github.com/isingmodel/latent-art-bench/releases)
-remain unchanged. The current manuscript rewrite is in progress; the existing
-PDF is the prior completed 39-page version until the new experiment is analyzed.
+remain unchanged. The [current paper](paper/paper.pdf) integrates the six-model results, all four
+painters, generic/palette controls and the contrary fixed-map transfer result.
+Its new compact experiment has not yet been archived as a public release.
 
 ## Reproduce
 
@@ -37,6 +42,9 @@ on older interpreters. From the repository root:
 
 ```bash
 uv sync --locked --extra analysis --extra dev --inexact
+make specificity-check
+make specificity-audit  # Requires retained local response/image bytes
+make paper
 make four-painter-analysis
 make analysis
 make plots
@@ -49,13 +57,12 @@ make evidence
 ```
 
 `make four-painter-analysis` replays the four-painter exploration, Stage A controls
-and retry presentation. `make analysis` and `make plots` cover Study 1 and its
+and retry presentation. `make analysis` and `make plots` cover the controlled naming panel and its
 computational revision;
-`make computational-responsiveness` covers Study 2, retained-data retrieval and
+`make computational-responsiveness` covers palette responsiveness, retained-data retrieval and
 the quantile correction. These targets make no generation requests.
-`make figures-check` checks the nine manuscript figures without rewriting
-them. `make figures` rebuilds the nine
-manuscript figures; `make paper` builds the PDF with Tectonic. See
+`make figures-check` checks the current and supporting figures/tables without
+rewriting them. `make figures` rebuilds those presentation artifacts; `make paper` builds the PDF with Tectonic. See
 [the analysis catalog](docs/ANALYSES.md) for individual commands, inputs and outputs,
 and [the paper guide](paper/README.md) for rendering and visual checks.
 
@@ -82,7 +89,7 @@ local evidence remain necessary for reproducibility. Read the
 [artifact policy](docs/ARTIFACTS.md) before deleting research files.
 
 For the current state, read [STATUS.md](docs/STATUS.md). For implementation work,
-read [AGENTS.md](AGENTS.md), [the handover](docs/AGENT_HANDOVER.md),
+read [the handover](docs/AGENT_HANDOVER.md),
 [architecture](docs/ARCHITECTURE.md) and [contributing guidance](CONTRIBUTING.md).
 The [documentation index](docs/INDEX.md) links earlier studies without duplicating
 their history here. Code is distributed under [the repository license](LICENSE);

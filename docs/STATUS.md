@@ -6,7 +6,7 @@ Work is on `codex/restore-four-artist-analysis`. The canonical English source is
 [ANALYSES.md](ANALYSES.md) for computation and plotting commands. User-owned Korean
 files and ignored research bytes remain untouched.
 
-## Active: artist specificity across six generators
+## Complete: artist specificity across six generators
 
 The research question is whether painter names recover artist-specific variation
 beyond a shared painting appearance. The user authorized the new experiment,
@@ -21,8 +21,9 @@ are GPT Image 1, GPT Image 2, GPT Image 2.5 Flare, GPT Image 2.5 Sunburst,
 Nano Banana 2 and FLUX.2 Max. The four OpenAI configurations use medium quality.
 Collection is **complete: 1,008/1,008 outputs, no failures or retries**, closed
 at 18:21:04 UTC on 10 September. The collector is permanently closed.
-The postprocessing worker is measuring the images, then will replay four numerical
-views, audit raw bytes and render figures. Do not start duplicate measurement.
+All outputs are measured, with full and square views of the 649 references.
+The four numerical analyses and raw-byte audit are complete. Collection and
+measurement are permanently closed; use replay commands only.
 
 The collection added **$43.786326** to the $68.50735 baseline, giving final
 conservative cumulative accounting of **$112.293676**, including the historical
@@ -46,11 +47,30 @@ was declared before inspecting new outcomes and gives four coarse content classe
 equal weight within each painter. These are historical title-lexicon classes,
 distinct from the later controlled panel's three-class visual annotations.
 
-The manuscript source has been rewritten around this design; its empirical
-results and conclusions remain explicitly pending. **The current `paper/paper.pdf`
-is still the preceding completed manuscript.** The plotting and table templates
-were committed before inspecting experimental feature outcomes. Synthetic layout
-previews under `tmp/paper/` are marked and are not experimental results.
+The completed [17-page manuscript](../paper/paper.pdf) replaces the previous
+working PDF; earlier published assets remain unchanged. The
+[terminal report](../reports/painter_specificity_v2/psv2-20260911/REPORT.md)
+binds all measured vectors, four analyses, raw bytes and report source.
+Eight new figures and two generated table files reproduce the saved outcomes.
+Plot/table templates were committed before new feature outcomes were inspected.
+The Sunburst four-painter illustration was likewise selected in advance.
+
+The central result is **aligned response without faithful artist geometry**.
+All six simultaneous slope intervals exceed zero. GPT Image 2 has slope .999
+but corrected error 1.226, almost entirely in other artist-contrast directions.
+FLUX.2 Max has the lowest estimated error (.801): Flare minus FLUX is
+.937 [.256, 1.618], and Sunburst minus FLUX is .840 [.058, 1.623], after the fixed
+21-comparison adjustment. The other 13 model differences remain unresolved.
+Common-square and reference-class weighting retain those two differences.
+Shared shifts account for 82.5–95.7% of global named/free squared change; generic
+clauses reproduce part of their direction. Full-distribution proximity gives
+other rankings, and all 24 generated/reference trace ratios are below one.
+These are digital feature results, not perceptually validated artist fidelity
+or causal identification of training mechanisms.
+
+All new images decode to 1024 × 1024, with no identical normalized repeat pairs.
+Response bodies omit echoed model/quality fields; model labels identify the
+documented request configurations, without independent checkpoint attestation.
 
 ## Closed predecessor and preserved historical boundaries
 
@@ -96,9 +116,10 @@ The most recent historical evidence audit passes **2,902 checks with zero failur
 and the same two existing acknowledgements. New specificity namespaces require
 separate numerical and raw-byte checks; the historical audit does not cover them.
 
-After terminal collection and automatic postprocessing: inspect the actual results,
-complete the paper, build and inspect every PDF page, run the four exact numerical
-replays and raw-byte/presentation checks, then update this status and the handover.
+The four exact numerical replays and the report/raw-byte audit pass. The final
+paper builds without TeX warnings; its rendered pages and all eight new figures
+are checked visually. Presentation replay and the final working-tree checks are
+recorded in the handover. No collector, measurement job or paid task remains.
 Do not restart a terminal collector or overwrite a measurement receipt.
 No independent-investigator replication, human style validation, independently
 captured reference panel or learned-feature validation has been performed.

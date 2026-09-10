@@ -1,4 +1,103 @@
-The prospective collection is running under its fixed 1,008-image allocation.
-Primary estimates, model contrasts, complementary distributional outcomes and
-prespecified sensitivity results will be reported after terminal measurement.
-No scientific result is inferred from the technical cost probes.
+\subsection{Aligned artist responses coexist with substantial recovery error}
+All 1,008 outputs yield valid measurements, completing the 14-scene panel for
+each model. Every reference-aligned slope has a simultaneous interval above
+zero (Table~\ref{tab:specificity-models}). Painter names therefore produce a
+response beyond a purely shared shift. Yet response amplitude does not track
+recovery error. GPT Image 2 nearly matches the reference amplitude
+($\beta=.999$), while its corrected error is $D=1.226$. The decomposition
+attributes essentially all of that estimate to other artist-contrast directions
+(1.229), with a near-zero amplitude-error term ($-.003$). A strong, correctly
+sized component can coexist with substantial misalignment.
+
+\input{specificity_model_table.tex}
+
+FLUX.2 Max has the smallest estimated error, $.801$, despite a weaker aligned
+response ($\beta=.470$). The paired-scene regression resolves two differences
+after the fixed 21-comparison adjustment: Flare minus FLUX is
+$.937\;[.256,1.618]$, and Sunburst minus FLUX is
+$.840\;[.058,1.623]$. The remaining 13 model differences include zero,
+including FLUX versus GPT Image 2 and Nano Banana 2. Thus the evidence supports
+an advantage over the two GPT Image 2.5 configurations on this endpoint, not
+a uniquely best generator. Even FLUX's nominal absolute-error interval,
+$[.586,1.016]$, includes the purely common-response benchmark of one.
+
+Figure~\ref{fig:specificity-geometry} shows the distinction between producing
+artist contrasts and reproducing their reference arrangement. Its axes are
+fitted to reference contrasts only; all numerical comparisons use 31 coordinates.
+
+\begin{figure}[tbp]
+\centering\includegraphics[width=.92\linewidth]{specificity_geometry.pdf}
+\caption{Painter contrasts after removing each scene's common named response.
+Colors identify painters; faint points are generated contrasts, circles their
+means, and crosses the reference contrasts. All panels share axes fitted to
+the four reference centroids. The projected separation of painter conditions
+does not by itself establish their alignment with the reference arrangement.}
+\label{fig:specificity-geometry}
+\end{figure}
+
+\subsection{Shared appearance and off-axis differences explain different effects}
+The common component accounts for 82.5--95.7\% of the cross-repeat corrected
+global named-versus-free squared feature change. Generic/common direction
+cosines range from .693 to .888, showing a substantial shared direction.
+The generic shifts are nevertheless smaller than the common named shifts in
+every model, with nonzero residuals: a generic clause reproduces part of the
+shared response, not all of it. A large shared fraction is compatible with
+positive artist-specific slopes because these statistics answer different
+questions.
+
+For all four OpenAI configurations, off-axis error dominates the decomposition
+(Figure~\ref{fig:specificity-diagnostics}a). This is not simply greater variation
+between repeated outputs: the repeat correction removes additive sampling-error
+bias under its assumptions, and both GPT Image 2.5 configurations have lower
+within-scene repeat spread than GPT Image 2 for every painter. Scene averaging
+also conceals some error. Nano Banana 2 has lower global error than FLUX
+($.723$ versus $.761$), but higher scene-conditional error ($1.109$ versus $.801$).
+Their point ordering reverses when scenes are pooled; the primary paired
+difference remains unresolved.
+
+\begin{figure}[tbp]
+\centering\includegraphics[width=\linewidth]{specificity_diagnostics.pdf}
+\caption{Complementary explanations of the measured mismatch. (a) Cross-repeat
+error separates reference-aligned amplitude from other artist-contrast directions.
+Small negative terms are retained. (b) Generated/reference covariance-trace ratios
+are below one for every model and painter. These total spreads include variation
+across the fixed briefs and do not identify within-scene mode collapse.}
+\label{fig:specificity-diagnostics}
+\end{figure}
+
+\subsection{Full distributions and sensitivity qualify the model comparison}
+All 24 model--painter collections have lower measured total variance than their
+references, with trace ratios .248--.877
+(Figure~\ref{fig:specificity-diagnostics}b). Naming lowers empirical reference
+energy relative to the generic clause in 21 of 24 cells. The exceptions are
+Flare for Monet and Pissarro, and Sunburst for Monet. These descriptive gains
+are neither uniform nor equivalent to artist-geometry recovery. Sunburst has
+the lowest observed named energy for Sisley and C\'ezanne, while FLUX has the
+lowest for Monet and Pissarro. In particular, Sunburst's C\'ezanne energy falls
+from 2.399 under the generic clause to .745 under naming, despite its larger
+four-painter geometry error than FLUX. Reference-only projections illustrate
+the narrower, displaced clouds without establishing separation in all dimensions
+(Figure~\ref{fig:specificity-distributions}).
+
+\begin{figure}[tbp]
+\centering\includegraphics[width=.92\linewidth]{specificity_sunburst_distributions.pdf}
+\caption{Reference and generated distributions for all four painters, illustrated
+with GPT Image 2.5 Sunburst. This model illustration was selected before new
+feature outcomes were inspected. Each panel uses principal components fitted
+only to that painter's reference images, so axes differ between painters.
+All three generated clauses use the same 14 scenes and two repeats.
+These projections are descriptive; energy and spread use all 31 coordinates.}
+\label{fig:specificity-distributions}
+\end{figure}
+
+FLUX remains the smallest-error point estimate after each of 14 scene omissions.
+Common-square measurement, equal weighting of the four metadata-derived
+reference-content classes, and their combination retain the same two adjusted
+model differences. Class weighting changes the reference target, so absolute
+errors across targets are not directly comparable. Feature-family views also
+qualify the ranking: Nano Banana 2 has slightly lower texture-only error than
+FLUX. Removing texture brings Flare and Sunburst's slopes close to one
+($.945$ and $.995$), but their errors remain $1.580$ and $1.604$.
+The mismatch therefore persists outside texture coordinates. These sensitivity
+analyses neither validate the representation perceptually nor remove
+reference-content and capture differences.
