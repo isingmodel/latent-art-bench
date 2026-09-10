@@ -1,0 +1,217 @@
+# Separate diagnostic on a new sanitized branch; predecessor stays failed.
+# No scientific source, tolerance, hash or allocation changes.
+name: Prospective map Ubuntu mismatch diagnostic v1
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  reproduce:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.11'
+      - name: Diagnose immutable numerical replay and retain all comparison leaves
+        shell: bash
+        env:
+          ARCHIVE_URL: https://github.com/isingmodel/latent-art-bench/releases/download/pmv2r-20260910/pmv2r-20260910.tar.gz
+          CHECKSUM_URL: https://github.com/isingmodel/latent-art-bench/releases/download/pmv2r-20260910/pmv2r-20260910.tar.gz.sha256
+          ARCHIVE_SHA256: 8688085fe001e6b45ca34f6d39a5979e3e762a2678cd5ecb8169a698defb4eb6
+          DIAGNOSTIC_SHA256: 827820d1039aa42376053a8b598d11a697df28f7f97f0e98c9e2e4a1b1f43042
+        run: |
+          python - <<'PY'
+          import datetime
+          import hashlib
+          import json
+          import os
+          import platform
+          import re
+          import subprocess
+          import sys
+          import tarfile
+          import time
+          import traceback
+          import urllib.request
+          from pathlib import Path, PurePosixPath
+
+          release = "pmv2r-20260910"
+          logs = Path(os.environ["RUNNER_TEMP"]) / "pmpdv1-hosted-logs"
+          logs.mkdir(exist_ok=False)
+          stage = Path(os.environ["RUNNER_TEMP"]) / "pmpdv1-hosted-replay"
+          stage.mkdir(exist_ok=False)
+          root = stage / release
+          receipt = {
+              "schema": "paper-map-portability-hosted-diagnostic/1",
+              "release_id": release,
+              "diagnostic_id": "pmpdv1-20260910",
+              "predecessor_run_id": "34474649751",
+              "predecessor_status": "failed_unchanged",
+              "started_utc": datetime.datetime.now(datetime.UTC).isoformat(),
+              "workflow_commit": os.environ.get("GITHUB_SHA"),
+              "run_attempt": os.environ.get("GITHUB_RUN_ATTEMPT"),
+              "run_url": "https://github.com/" + os.environ["GITHUB_REPOSITORY"]
+                  + "/actions/runs/" + os.environ["GITHUB_RUN_ID"],
+              "runner": {key: os.environ.get(key) for key in
+                  ("ImageOS", "ImageVersion", "RUNNER_OS", "RUNNER_ARCH")},
+              "platform": platform.platform(),
+              "python": platform.python_version(),
+              "commands": [],
+              "status": "failed",
+              "diagnostic_execution": "not_run",
+              "scope": "Maintainer-operated separate diagnostic; completion is not strict replay success; "
+                  "no private acquisition authentication or service validation.",
+          }
+
+          def digest(path):
+              return hashlib.sha256(path.read_bytes()).hexdigest()
+
+          def run(name, argv, cwd):
+              started = time.monotonic()
+              out, err = logs / (name + ".stdout.log"), logs / (name + ".stderr.log")
+              with out.open("xb") as stdout, err.open("xb") as stderr:
+                  completed = subprocess.run(argv, cwd=cwd, stdout=stdout, stderr=stderr)
+              receipt["commands"].append({
+                  "name": name, "argv": [str(a).replace(str(stage), "<stage>").replace(str(logs), "<logs>").replace(sys.executable, "<python>") for a in argv], "exit_code": completed.returncode,
+                  "seconds": time.monotonic() - started,
+                  "stdout": {"file": out.name, "sha256": digest(out)},
+                  "stderr": {"file": err.name, "sha256": digest(err)},
+              })
+              return completed.returncode
+
+          def require_ok(name, argv, cwd):
+              if run(name, argv, cwd):
+                  raise RuntimeError(name + " failed; inspect retained command logs")
+
+          def download(url, target, limit):
+              # No credentials, cookie handler or environment proxy configuration.
+              opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+              request = urllib.request.Request(url, headers={"User-Agent": "public-numeric-replay"})
+              with opener.open(request, timeout=120) as response, target.open("xb") as handle:
+                  size = 0
+                  while block := response.read(1024 * 1024):
+                      size += len(block)
+                      if size > limit:
+                          raise ValueError("download size guard exceeded")
+                      handle.write(block)
+
+          try:
+              expected = os.environ["ARCHIVE_SHA256"]
+              if not re.fullmatch(r"[0-9a-f]{64}", os.environ["DIAGNOSTIC_SHA256"]):
+                  raise ValueError("final diagnostic source hash must replace the placeholder")
+              base_url = "https://github.com/isingmodel/latent-art-bench/releases/download/"
+              archive_url = base_url + release + "/" + release + ".tar.gz"
+              if os.environ["ARCHIVE_URL"] != archive_url:
+                  raise ValueError("fixed immutable archive URL must replace the placeholder")
+              if os.environ["CHECKSUM_URL"] != archive_url + ".sha256":
+                  raise ValueError("fixed detached checksum URL must replace the placeholder")
+              if not re.fullmatch(r"[0-9a-f]{64}", expected):
+                  raise ValueError("final actual archive SHA256 must replace the placeholder")
+              archive = stage / (release + ".tar.gz")
+              checksum = logs / (release + ".tar.gz.sha256")
+              download(archive_url, archive, 64 * 1024 * 1024)
+              download(archive_url + ".sha256", checksum, 4096)
+              if checksum.read_text() != expected + "  " + archive.name + "\n":
+                  raise ValueError("detached checksum differs from the pinned actual archive hash")
+              if digest(archive) != expected:
+                  raise ValueError("downloaded archive hash differs")
+              receipt["archive"] = {
+                  "url": archive_url, "bytes": archive.stat().st_size,
+                  "sha256": expected, "checksum_sha256": digest(checksum),
+              }
+              # Validate every member before writing any extracted archive content.
+              with tarfile.open(archive, "r:gz") as tar:
+                  members = tar.getmembers()
+                  names = set()
+                  if len(members) != 74 or sum(item.size for item in members) > 128 * 1024 * 1024:
+                      raise ValueError("exact 74-member archive/size guard differs")
+                  for item in members:
+                      parts = item.name.split("/")
+                      path = PurePosixPath(item.name)
+                      if (not item.isfile() or path.is_absolute() or len(parts) < 2
+                              or parts[0] != release or any(p in ("", ".", "..") for p in parts)
+                              or "\\" in item.name or item.name in names
+                              or item.mode != 0o644 or item.mtime != 0 or item.size < 0):
+                          raise ValueError("unsafe, duplicate or noncanonical archive member")
+                      names.add(item.name)
+                  for item in members:
+                      target = stage.joinpath(*PurePosixPath(item.name).parts)
+                      target.parent.mkdir(parents=True, exist_ok=True)
+                      with tar.extractfile(item) as source, target.open("xb") as handle:
+                          handle.write(source.read())
+                      target.chmod(0o644)
+                      os.utime(target, (0, 0))
+              receipt["archive"]["regular_files"] = 74
+              require_ok("preinstall-verify", [sys.executable, "-I", "-S",
+                  "tools/paper_map_validation_release.py", "verify", "--root", "."], root)
+              receipt["preinstall_inventory_verified"] = True
+              receipt["public_manifest_sha256"] = {
+                  name: digest(root / name) for name in
+                  ("SHA256SUMS", "MAP_VALIDATION_RELEASE_MANIFEST.json")
+              }
+              require_ok("install-uv", [sys.executable, "-m", "pip", "install", "uv==0.9.28"], stage)
+              require_ok("uv-version", ["uv", "--version"], stage)
+              require_ok("locked-install", ["uv", "sync", "--locked", "--python", "3.13.11",
+                  "--extra", "analysis", "--extra", "dev"], root)
+              runtime_code = (
+                  "import json,platform,numpy,scipy; "
+                  "print(json.dumps({'python':platform.python_version(),"
+                  "'platform':platform.platform(),'numpy':numpy.__version__,"
+                  "'scipy':scipy.__version__},sort_keys=True)); numpy.show_config()"
+              )
+              require_ok("numerical-runtime", ["uv", "run", "--locked", "python", "-I", "-c",
+                  runtime_code], root)
+              diagnostic = stage / "paper_map_portability_diagnostic.py"
+              diagnostic_url = "https://raw.githubusercontent.com/" + os.environ["GITHUB_REPOSITORY"] + "/" + os.environ["GITHUB_SHA"] + "/tools/paper_map_portability_diagnostic.py"
+              download(diagnostic_url, diagnostic, 1024 * 1024)
+              if digest(diagnostic) != os.environ["DIAGNOSTIC_SHA256"]:
+                  raise ValueError("diagnostic source differs from pinned hash")
+              receipt["diagnostic_source"] = {"url": diagnostic_url, "sha256": digest(diagnostic)}
+              code = run("diagnostic", ["uv", "run", "--locked", "python", "-I", "-B",
+                  str(diagnostic), "--root", str(root), "--output", str(logs / "diagnostic")], root)
+              receipt["diagnostic_execution"] = "completed" if code == 0 else "failed"
+              diagnostic_receipt = logs / "diagnostic" / "RECEIPT.json"
+              if diagnostic_receipt.is_file():
+                  nested = json.loads(diagnostic_receipt.read_text())
+                  receipt["diagnostic_receipt"] = {
+                      "file": "diagnostic/RECEIPT.json", "sha256": digest(diagnostic_receipt),
+                      "status": nested["status"], "phases": nested["phases"],
+                  }
+              if code == 0 and (not diagnostic_receipt.is_file() or nested["status"] != "diagnostic_complete"):
+                  raise ValueError("diagnostic completion lacks its matching receipt")
+              receipt["interpretation"] = (
+                  "Diagnostic completion does not assert qualification or observed parity. "
+                  "Inspect every comparison field in the retained diagnostic receipt. "
+                  "The original strict Ubuntu attempt remains failed and unreached observed replay receives no retrospective credit."
+              )
+              post_code = (
+                  "import importlib.util,json,pathlib; "
+                  "p=pathlib.Path('tools/paper_map_validation_release.py'); "
+                  "s=importlib.util.spec_from_file_location('public_release',p); "
+                  "m=importlib.util.module_from_spec(s); s.loader.exec_module(m); "
+                  "print(json.dumps(m.verify(pathlib.Path('.'),runtime=True),sort_keys=True))"
+              )
+              inventory = run("post-diagnostic-inventory", ["uv", "run", "--locked", "python",
+                  "-I", "-S", "-B", "-c", post_code], root)
+              receipt["post_diagnostic_inventory"] = "passed" if inventory == 0 else "failed"
+              if code == 0 and inventory == 0:
+                  receipt["status"] = "diagnostic_complete"
+          except Exception:
+              # This contains no credentials, response headers, cookies or environment dump.
+              error = logs / "driver-error.log"
+              error.write_text(traceback.format_exc())
+              receipt["driver_error"] = {"file": error.name, "sha256": digest(error)}
+          finally:
+              receipt["completed_utc"] = datetime.datetime.now(datetime.UTC).isoformat()
+              (logs / "HOSTED.json").write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n")
+              print(json.dumps(receipt, sort_keys=True))
+          sys.exit(0 if receipt["status"] == "diagnostic_complete" else 1)
+          PY
+      - name: Retain complete diagnostic and every failure
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: pmpdv1-20260910-ubuntu-diagnostic
+          path: ${{ runner.temp }}/pmpdv1-hosted-logs/
+          if-no-files-found: error
