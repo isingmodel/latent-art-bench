@@ -1,0 +1,126 @@
+{
+  "schema": "painter-clause-validation-scenes/1",
+  "status": "prospective-fixed",
+  "briefs": [
+    {
+      "brief_id": "pcv_water01",
+      "content_class": "water",
+      "detailed": "A waterfall descends through a cleft in a rock face into a pool below. The falling water and pool occupy the center of the view, with ledges on either side and loose stones at the near edge."
+    },
+    {
+      "brief_id": "pcv_water02",
+      "content_class": "water",
+      "detailed": "Several connected tidal pools lie across a flat rock shelf exposed at low tide. Their water surfaces fill the foreground between raised strips of rock, while a narrow band of open sea remains visible beyond the shelf."
+    },
+    {
+      "brief_id": "pcv_water03",
+      "content_class": "water",
+      "detailed": "A shallow stream divides into several channels across a wide gravel bar. Seen from slightly above, the channels pass around separate banks of stones and rejoin near the far edge of the view, without trees enclosing the water."
+    },
+    {
+      "brief_id": "pcv_water04",
+      "content_class": "water",
+      "detailed": "A partly frozen lake is viewed from its low shore. Open water extends between irregular plates of ice in the foreground, and a continuous strip of ice follows the opposite shore beneath a low ridge."
+    },
+    {
+      "brief_id": "pcv_water05",
+      "content_class": "water",
+      "detailed": "A pool occupies the bottom of a circular hollow in bare limestone. The view looks down from the rim, with water covering most of the enclosed floor and a sloping band of broken rock descending to its edge."
+    },
+    {
+      "brief_id": "pcv_water06",
+      "content_class": "water",
+      "detailed": "Tidal creeks divide a salt marsh into low islands of grass. The view follows several connected strips of water across the foreground and middle distance toward a wider inlet, with no buildings or trees breaking the horizon."
+    },
+    {
+      "brief_id": "pcv_water07",
+      "content_class": "water",
+      "detailed": "A narrow channel of seawater passes between two low rocky islands. The channel opens toward the viewer and widens into the foreground, while the islands extend across the middle distance with patches of grass on their upper surfaces."
+    },
+    {
+      "brief_id": "pcv_water08",
+      "content_class": "water",
+      "detailed": "A spring emerges from an opening at the base of a rock ledge and feeds a shallow basin. Water spreads across the near foreground over submerged stones, with the source opening and ledge visible behind it."
+    },
+    {
+      "brief_id": "pcv_built01",
+      "content_class": "built",
+      "detailed": "A stone arch bridge spans a dry ravine. Its parapet crosses the upper part of the scene, and the arch frames the exposed ground below, with the two bridge supports visible against the sides of the ravine."
+    },
+    {
+      "brief_id": "pcv_built02",
+      "content_class": "built",
+      "detailed": "The roofless walls of a small masonry building stand in open countryside. Seen through a gap in the near wall, the interior contains fallen stones and grass, and two empty window openings reveal the ground outside."
+    },
+    {
+      "brief_id": "pcv_built03",
+      "content_class": "built",
+      "detailed": "A broad outdoor stone stairway connects two terraces. Low retaining walls turn at its upper landing, and the steps occupy most of the foreground, with planted ground visible above the walls and no house as the central subject."
+    },
+    {
+      "brief_id": "pcv_built04",
+      "content_class": "built",
+      "detailed": "A covered well stands in an open paved yard at the edge of a settlement. Two posts support its small roof above a winding drum, while a low boundary wall encloses the far side of the yard."
+    },
+    {
+      "brief_id": "pcv_built05",
+      "content_class": "built",
+      "detailed": "A pair of timber canal lock gates is seen from the adjacent bank. The gates, their crossbeams and the cut stone sides of the chamber fill most of the view, with narrow strips of water visible between the masonry walls."
+    },
+    {
+      "brief_id": "pcv_built06",
+      "content_class": "built",
+      "detailed": "An empty livestock pen is enclosed by low stone walls beside an open-sided wooden shelter. The view looks across the pen toward the shelter's posts and roof, with a gate set into the wall at one side."
+    },
+    {
+      "brief_id": "pcv_built07",
+      "content_class": "built",
+      "detailed": "A disused lime kiln built of stone stands against an earth bank. Its round outer wall and lower arched opening form the main subject, with loose stones at its base and a short cleared approach in front."
+    },
+    {
+      "brief_id": "pcv_built08",
+      "content_class": "built",
+      "detailed": "A large wooden gate hangs between two masonry pillars in a boundary wall. The gate is partly open, revealing an empty enclosure beyond, while the wall extends toward both edges of the view across uneven ground."
+    },
+    {
+      "brief_id": "pcv_land01",
+      "content_class": "land",
+      "detailed": "Several sand dunes overlap when seen from a low hollow between them. The nearest ridge cuts across the foreground, small tufts of grass interrupt its surface, and another ridge rises behind it without a visible sea or settlement."
+    },
+    {
+      "brief_id": "pcv_land02",
+      "content_class": "land",
+      "detailed": "An eroded gully cuts through a bank of clay. The view looks into the gully from its lower end, showing exposed layers along both sides and small heaps of fallen earth across the dry floor."
+    },
+    {
+      "brief_id": "pcv_land03",
+      "content_class": "land",
+      "detailed": "Deep furrows extend from the near edge of a recently ploughed field toward an unploughed strip at its far end. Turned earth fills most of the scene, with the ends of the furrows visible beneath a narrow stretch of sky."
+    },
+    {
+      "brief_id": "pcv_land04",
+      "content_class": "land",
+      "detailed": "Several fallen trees lie across a clearing after being uprooted. Exposed root plates rise beside the shallow pits they left in the ground, and the trunks cross one another above low plants without a standing trunk dominating the view."
+    },
+    {
+      "brief_id": "pcv_land05",
+      "content_class": "land",
+      "detailed": "Rectangular peat cuttings interrupt a stretch of open moor. Their vertical edges and flat floors occupy the foreground, with uncut strips of grass between the excavations and unbroken moorland continuing into the distance."
+    },
+    {
+      "brief_id": "pcv_land06",
+      "content_class": "land",
+      "detailed": "A flat limestone pavement is divided by deep fissures. The view follows the exposed slabs across the near ground, with small plants growing in the cracks and a low grassy edge marking the far side of the rock surface."
+    },
+    {
+      "brief_id": "pcv_land07",
+      "content_class": "land",
+      "detailed": "A narrow grassy ridge is viewed along its crest. The ground drops away on both sides, scattered shrubs follow the crest into the middle distance, and the lower slopes remain visible beyond the edges of the ridge."
+    },
+    {
+      "brief_id": "pcv_land08",
+      "content_class": "land",
+      "detailed": "Snow remains in a shallow hollow while the surrounding ground is exposed. Irregular edges of snow cross the foreground around patches of grass and bare soil, and the far side of the hollow rises without trees or buildings."
+    }
+  ]
+}

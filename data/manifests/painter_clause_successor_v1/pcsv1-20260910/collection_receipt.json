@@ -1,0 +1,46 @@
+{
+  "attempts": 96,
+  "budget": {
+    "accounted_usd": 50.7219185,
+    "attempts": 96,
+    "new_reported_usd": 0.0,
+    "new_reserves_usd": 0.0,
+    "pending": [],
+    "subscription_monetary_value": null
+  },
+  "duration_contract_met": true,
+  "elapsed_seconds": 2732.0909570419462,
+  "ended_at_utc": "2026-09-10T06:39:23.308075+00:00",
+  "freeze_sha256": "9698450d1e0f90a8182b2e80150a17dedfee4a71b901b269c18d1d244d9d2947",
+  "identity_contract_met": true,
+  "outputs": [
+    {
+      "path": "data/manifests/painter_clause_successor_v1/pcsv1-20260910/generation_events.jsonl",
+      "sha256": "e8c4c97c69e4c0495d8e078211ec2f966516924655d5da09167b640ef9cc22ed"
+    },
+    {
+      "path": "data/manifests/painter_clause_successor_v1/pcsv1-20260910/slot_outcomes.jsonl",
+      "sha256": "3cf414bf513b8665702d48eb8cd526dea3c467b32183e67b207b57f8ba22ba75"
+    },
+    {
+      "path": "research_workspace/painter_clause_successor_v1/pcsv1-20260910/collection_started.json",
+      "sha256": "baff14e3f35eb724482c1850d5ed672795358e62fdcc20364c1df43b99f71e38"
+    },
+    {
+      "path": "data/manifests/painter_clause_successor_v1/pcsv1-20260910/operator_events.jsonl",
+      "sha256": "c3f7fad4543ae160ae4cd88f0ded04741bee7298da27ff7588b62749cb9e24ba"
+    }
+  ],
+  "planned": 96,
+  "posted_attempts": 96,
+  "reason": null,
+  "retries": 0,
+  "retry_decisions": 0,
+  "retry_intents": 0,
+  "run_id": "pcsv1-20260910",
+  "schema": "painter-clause-successor-collection/1",
+  "slot_counts": {
+    "image_returned": 96
+  },
+  "status": "complete"
+}

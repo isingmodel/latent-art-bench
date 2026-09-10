@@ -1,0 +1,50 @@
+{
+  "attempts": 214,
+  "budget": {
+    "accounted_usd": 50.7219185,
+    "attempts": 214,
+    "new_reported_usd": 0.0,
+    "new_reserves_usd": 0.0,
+    "pending": [],
+    "subscription_monetary_value": null
+  },
+  "duration_contract_met": true,
+  "elapsed_seconds": 3778.145781334024,
+  "ended_at_utc": "2026-09-10T05:42:32.088282+00:00",
+  "freeze_sha256": "a6cc05efdfa07c59867e987f41748e3a78ca42047c4c0c4938a8e9035140d022",
+  "identity_contract_met": false,
+  "outputs": [
+    {
+      "path": "data/manifests/painter_clause_validation_v1/pcvv1-20260910/generation_events.jsonl",
+      "sha256": "7ef4e600f9c0bef091c2dfe2e882182916cbc603d3f0f5e05028493c9b9f68b0"
+    },
+    {
+      "path": "data/manifests/painter_clause_validation_v1/pcvv1-20260910/slot_outcomes.jsonl",
+      "sha256": "4b72234d4c07a6b1ee9de476943de562d514681218902fcc2f948ea78f85b77a"
+    },
+    {
+      "path": "research_workspace/painter_clause_validation_v1/pcvv1-20260910/collection_started.json",
+      "sha256": "3cd48bcac914fc84ae3b74a14197b90d039636d1979826b1be893eadb263aa34"
+    },
+    {
+      "path": "data/manifests/painter_clause_validation_v1/pcvv1-20260910/operator_events.jsonl",
+      "sha256": "dc0cbd47682697c72fc83ff17811dbcf38292d838ba49a4c8cffd0febf8064d8"
+    }
+  ],
+  "planned": 288,
+  "posted_attempts": 213,
+  "reason": "unrecognized_backend_error",
+  "retries": 0,
+  "retry_decisions": 0,
+  "retry_intents": 0,
+  "run_id": "pcvv1-20260910",
+  "schema": "painter-clause-validation-collection/1",
+  "slot_counts": {
+    "cancelled_before_post": 1,
+    "http_error": 1,
+    "image_returned": 211,
+    "not_attempted_collection_stopped": 74,
+    "refused": 1
+  },
+  "status": "stopped"
+}
