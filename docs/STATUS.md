@@ -77,9 +77,9 @@ No scene-population, perceptual or internal-mechanism claim follows.
 | [Geometry addendum `ppgv1-20260910`](../reports/paper_geometry_reproducibility_v1/ppgv1-20260910/REPORT.md) | Exact fresh local/anonymous replay of both namespaces and 95 tests. Source `5485e36`, public commit `7923049`; immutable 34-page manuscript and nine figures. |
 | [Clause addendum `pcrv1-20260910`](../reports/paper_clause_reproducibility_v1/pcrv1-20260910/REPORT.md) | Public: 85 files, exact fresh local/anonymous replay of both separate cohorts, 152 tests and eight explicit maintainer-only skips in each environment. Archive SHA256 `6038da2d…bf23e40`, public commit `866fc27`. The final 36-page paper and 16-file source bundle are separately published; fresh compilation matches all page text/pixels, and anonymous downloads match all asset hashes. |
 
-Latest complete Python verification includes the new metadata preflight and
-precision implementation: **Ruff clean; 1,769 offline tests passed in 253.95
-seconds**. The earlier exact replay of all nine active manuscript figures is
+Latest complete Python verification includes the new metadata preflight,
+precision implementation and release adapter: **Ruff clean; 1,800 offline tests
+passed in 272.96 seconds**. The earlier exact replay of all nine active manuscript figures is
 unchanged. Historical evidence audit at `467cd85`: **2,902 checks, zero failures**, with the same two old
 acknowledgements. Both geometry namespaces replay exactly. The historical audit
 does not register the new namespaces; each requires its own numerical check.
@@ -119,6 +119,15 @@ analytically checked fixed-center convexity observation and the terminal capture
 audit's limitation, without new vector evaluation or a new score. Its changed
 pages compile cleanly and pass visual inspection; the earlier public assets
 remain unchanged.
+
+One [explicit prospective v2 redesign](../studies/painter_map_validation_v2/DECISION.md)
+is now being assessed: R=10, or 240 outputs, with the same maps, interval,
+historical proxy laws and precision thresholds. V1 remains stopped. The decision
+records that v1's future-proposal clause and Protocol 2.1 section 15 permit a
+separate version before new outcomes; the earlier broader interpretation was
+corrected openly. Its finite-R energy target changes with R. No v2 qualification
+or new generation has run, and no collection gate is open. This is the sole
+additional allocation assessment for the map question in this revision.
 
 A separate [stage R0 capture audit](../reports/painter_capture_audit_v1/pcav1-20260910/REPORT.md)
 is terminal: **zero qualified pairs after 15 metadata requests across five
