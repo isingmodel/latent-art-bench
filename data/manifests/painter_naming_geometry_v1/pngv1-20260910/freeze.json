@@ -1,0 +1,23 @@
+{
+  "bindings": {
+    "data/manifests/painter_naming_geometry_v1/pngv1-20260910/inputs.json": "eeb3890268a85885f372bdb494e29ab558c271749667fb7e264a7e30881733de",
+    "pyproject.toml": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8",
+    "src/latent_art_bench/painter_naming_geometry_v1/__init__.py": "612bbab3fb691596541625bf7e2e0a89c9d98db1d93aaea5215c5685caf4f1ee",
+    "src/latent_art_bench/painter_naming_geometry_v1/__main__.py": "876ca9f9914feafe5b82453ad623ba247bb20b08c493496179f8769457cf6287",
+    "src/latent_art_bench/painter_naming_geometry_v1/analysis.py": "7a1b6c34ef078c32822f2a9a25d06815275d9386412354197fcc04e142b775b0",
+    "src/latent_art_bench/painter_naming_geometry_v1/geometry.py": "69ddb22d6c38ef979079e0743b61b6bf57a007bc366b58648546ceac46547b12",
+    "src/latent_art_bench/painter_naming_geometry_v1/inputs.py": "41a8c52900e7177a0608cc28e0c2c73fdd65fb5a8c4cc538d14fb5ca573f2262",
+    "src/latent_art_bench/painter_naming_geometry_v1/report.py": "1c369f18fb78d436235d8123153768c1dd3adbe7c702ee9cda1e2ff4da2a4704",
+    "src/latent_art_bench/painter_naming_geometry_v1/variance.py": "740c020cd66fe3c0fbb7c0ed2f0e72e8e7129167f8de92f188a4d91f842bb243",
+    "studies/painter_naming_geometry_v1/PROTOCOL.md": "c76bf8615309d89c6ffeacf594983bf4beb5f989f1cc8ed30eb214147345274d",
+    "tests/painter_naming_geometry_v1/test_analysis.py": "d82b4f19d3cc0d27fd2ba82c6187f90b3f7e18431550f2f64c258cb35b0cf1b7",
+    "tests/painter_naming_geometry_v1/test_geometry.py": "5a325ed53ade698685b87e41b4cb5a2764cd958576f43e74ab6ec988b65a0ca3",
+    "tests/painter_naming_geometry_v1/test_variance.py": "925b67490eb80c3db857ff9991781cb691f1300eef9f5f4b8246f7f598f53104",
+    "uv.lock": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+  },
+  "collection_authorized": false,
+  "hypothesis_tests_added": 0,
+  "post_result": true,
+  "recorded_git_commit": "459c6a88a10a209ba22619dc38d616588da8817c",
+  "run_id": "pngv1-20260910"
+}
