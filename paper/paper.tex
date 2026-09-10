@@ -12,21 +12,22 @@
 \setlength{\emergencystretch}{2em}
 \clubpenalty=10000
 \widowpenalty=10000
+\displaywidowpenalty=10000
 \renewcommand{\topfraction}{0.9}
 \renewcommand{\bottomfraction}{0.8}
 \renewcommand{\textfraction}{0.08}
 \renewcommand{\floatpagefraction}{0.75}
 \newcommand{\E}{\widehat{\mathcal E}}
 \newcommand{\V}{\mathcal V}
-\title{Painter Naming and the Distributional Gap\\Between Generated Images and Original Paintings}
+\title{Painter Naming and the Distributional Gap\\Between Generated Images and Painting Reproductions}
 \author{Anonymous authors}
 \date{}
 \begin{document}
 \maketitle
 
 \begin{abstract}
-Painter names can improve the proximity of generated images to paintings without
-recovering their distribution. We study this distinction in 31 interpretable
+Painter names can improve the proximity of generated images to painting
+reproductions without recovering their distribution. We study this distinction in 31 interpretable
 color, spatial and texture coordinates. Exploration covers Monet, Sisley,
 Pissarro and C\'ezanne; controlled comparisons use three image services and a
 separate 70-work Monet/C\'ezanne panel. Against artist-free controls, naming lowers
@@ -132,15 +133,15 @@ also caution against interpreting computational separation as perceptual
 difference. We examine a prompting intervention.
 
 Conditional evaluation already distinguishes variation within conditions from
-the organization of condition means \citep{benny2021conditional}. In text-to-image
-models, increased prompt complexity can reduce conditional diversity while
-improving reference-based distribution measures \citep{zhang2025promptcomplexity}.
+the organization of condition means \citep{benny2021conditional}. More specific,
+reference-grounded prompts can reduce conditional diversity while improving
+reference-based distribution measures \citep{zhang2025promptcomplexity}.
 Our intervention holds scene wording fixed and adds a painter clause; the
 held-scene transformation benchmark tests what predicts its measured effect.
-Neighborhood coverage can also respond asymmetrically to inward and outward
-changes in high-dimensional distributions \citep{khayatkhoei2023asymmetry}.
-That result does not establish a distortion in these 31 coordinates, but motivates
-comparing coverage gains with those produced by the same fitted transformations.
+Nearest-neighbor estimates of precision and recall can respond asymmetrically
+to support displacements in high dimensions \citep{khayatkhoei2023asymmetry}.
+Our coverage statistic and 31-coordinate setting differ from those results;
+fitted-transformation controls characterize its behavior in the present comparisons.
 
 Generative-model evaluation distinguishes fidelity, diversity and coverage
 \citep{naeem2020}, and preprocessing can materially alter feature comparisons
@@ -634,8 +635,8 @@ A separately specified follow-up generated 72 FLUX images: one output for each
 of the 24 scenes under artist-free, Monet and C\'ezanne prompts, with the 24 free
 outputs shared between painter comparisons. A simultaneous 192-image OAuth
 palette collection gives four primary endpoints in a new Holm family.
-Allocation and inference were fixed before generation; all 264 outputs returned
-in 64.3 minutes. Appendix~\ref{app:temporal} details this collection and its tests.
+Allocation and inference were fixed before generation.
+Appendix~\ref{app:temporal} details this collection and its tests.
 
 Both FLUX naming effects recur: energy falls from 2.266 to 1.571 for Monet
 ($\Delta=-.695$, adjusted $p=.00006$) and from 1.772 to .820 for C\'ezanne
@@ -667,7 +668,7 @@ hold conditional on the prior availability-triggered decision. The raw-$p$
 threshold remains .025 despite the unavailable original endpoints; no further
 replacement, effect interval or equivalence claim is supplied.
 
-All 96 images returned in 45.5 minutes without failures or retries. Naming
+All 96 allocated images were collected and measured. Naming
 lowers energy from 2.166 to .970 ($\Delta=-1.195$, raw $p=.00001$), rejecting
 the specified sharp null at $\alpha=.025$. This is the minimum attainable
 Monte Carlo $p$ for 99,999 draws. The named collection also has lower observed
@@ -1127,13 +1128,11 @@ appear in Appendix~\ref{app:mixture}. Neither these comparisons nor more repeats
 at the same two levels identify the cause of Study~1's contraction.
 
 \section{Measurement and processing boundaries}\label{sec:followup}
-Computational challenges apply ten fixed conditions to all 70 reference works:
-a central-square baseline, lossless PNG, two JPEG qualities, resampling, two
-chroma contractions, two blur doses and tile permutation. The protocol fixes
-transformations before extraction; each comparison remains paired within work.
-The family response $D_{iF}$ is root-mean-square displacement in the unchanged
-development-IQR coordinates. Appendix~\ref{app:measurement} gives the complete
-parameters, comparisons and work-resampling procedure.
+A computational challenge, fixed before extraction, applies ten conditions to
+all 70 reference works, comparing processing controls with chroma, blur and
+tile-permutation variants. Family response $D_{iF}$ is root-mean-square
+displacement in development-IQR coordinates. Appendix~\ref{app:measurement}
+gives the parameters and paired work-resampling procedure.
 
 All lossless round trips preserve pixels and features. The three specified
 change-minus-processing contrasts are positive: .158 for color, .305 for spatial
@@ -1213,12 +1212,10 @@ Euclidean weighting is not a validated perceptual scale. Unknown photographic
 workflows, correlated coordinates and the large texture contribution leave the
 origin of the discrepancy unresolved. Common-square and processing probes bound
 specific sensitivities but do not identify capture effects or physical brushwork.
-A bounded metadata audit of five additional reference works found no pair with
+A bounded metadata audit of five selected reference works found no pair with
 documented independent capture ancestry and comparable views; photographer
 credits and archival image identifiers alone did not establish these conditions.
 This does not exclude suitable captures outside the audited routes.
-The numerical release enables replay from measurements, not public feature
-re-extraction from all pixels.
 
 Painter and scene selection also limit inference. Sisley and Pissarro remain in
 the four-painter exploration, where only Sisley's pooled named energy median is
@@ -1228,7 +1225,10 @@ selected after exploration; broad classes are maintainer-LLM annotations and
 requested scene content is not independently verified adherence. The prospective
 C\'ezanne/generic comparison uses new scene briefs, but the map and retrieval
 diagnostics reuse the original templates. Their transfer to new scenes or artists
-remains untested.
+remains untested. A proposed new-scene fixed-map comparison was stopped before
+generation because none of three allocations met its prespecified offline
+precision criteria (Appendix~\ref{app:moment}). This planning result supplies no
+new evidence about map transfer.
 
 The original and temporal primary families were specified before collection;
 the map and variance diagnostics followed observed results. Their fold and
@@ -1239,12 +1239,12 @@ collections and LLM reviews were operated by the same maintainer. No independent
 investigator replication, human style validation or learned-feature comparison
 has been performed.
 
-A next discriminating study would test fixed maps on newly specified scene
-panels and independently captured reproductions of the same works. Intermediate
-palette levels and several generic clauses would distinguish response slopes
-from shifts or saturation. These additions address specific remaining
-explanations; more images from the current templates alone would not resolve
-them.
+Prospective map validation requires a design that supports the precision needed
+for both evaluation targets; capture validation requires documented independent
+photographs of the same works. Intermediate palette levels and several generic
+clauses could distinguish response slopes from shifts or saturation. These are
+distinct unresolved questions; more images from the current templates alone
+would not resolve them.
 
 \section{Conclusion}
 Against artist-free controls, painter naming improves measured proximity in the
@@ -1263,44 +1263,29 @@ characterize prompt-dependent differences from digital painting distributions
 without claiming perceptual equivalence or an identified generative mechanism.
 
 \section*{Data and code availability}
-The preceding versioned numerical reproduction package is provided at
-\url{https://github.com/isingmodel/latent-art-bench/releases/tag/pprv1-20260910}.
-It contains the manuscript, source code, locked dependencies, retained feature
-vectors, scalers, prompts, analysis memberships and numerical reports. A source
-catalog records reference-work identities, source URLs and recorded license
-metadata. The reproduction command recomputes the original statistical functions
-for the four-painter exploration, both original controlled studies, subsequent
-diagnostics, measurement challenges and temporal follow-up, then checks report
-values and all eight figures. Exact file hashes identify the released inputs;
-Appendix~\ref{app:release} specifies the replay scope.
+Four versioned archives provide protocols, source code, locked dependencies,
+compact measurements, scalers, prompts, memberships and reports. The source
+catalog records work identities, URLs and license metadata. The
+\href{https://github.com/isingmodel/latent-art-bench/releases/tag/pprv1-20260910}{original package}
+covers the four-painter exploration, controlled studies, measurement challenges
+and temporal follow-up; the
+\href{https://github.com/isingmodel/latent-art-bench/releases/tag/ppgv1-20260910}{geometry addendum}
+covers moment maps, conditional organization and evaluation centering. The
+\href{https://github.com/isingmodel/latent-art-bench/releases/tag/pcrv1-20260910}{clause addendum}
+preserves the failed original cohort's unavailable endpoints and the successful
+C\'ezanne/generic cohort separately, without pooling. The
+\href{https://github.com/isingmodel/latent-art-bench/releases/tag/pmrv1-20260910}{precision addendum}
+records the failed initial offline qualification: no allocation was selected
+and no images were collected in that proposal.
 
-The additive numerical package at
-\url{https://github.com/isingmodel/latent-art-bench/releases/tag/ppgv1-20260910}
-reproduces the subsequent analyses in Sections~6--7. It contains
-\path{painter_naming_geometry_v1} (run \path{pngv1-20260910}) and
-\path{painter_naming_centering_v1} (run \path{pncv1-20260910}), including their
-protocols, compact measurements, source bindings and complete results. The
-centering successor retains the geometry study's 60 original and 18 transfer
-cells and verifies its results exactly. These analyses use retained vectors and
-generate no new images. They supplement the unchanged preceding archive.
-
-A further addendum at
-\url{https://github.com/isingmodel/latent-art-bench/releases/tag/pcrv1-20260910}
-replays the generic-clause follow-up in Section~\ref{sec:clause}. The original run,
-\path{pcvv1-20260910}, is in \path{painter_clause_validation_v1}; the fresh run,
-\path{pcsv1-20260910}, is in \path{painter_clause_successor_v1}. The archive retains
-the original unavailable endpoints, every allocated measurement status and the
-fresh cohort's complete results. Protocols, exact prompts, source bindings and
-locked dependencies accompany the compact vectors; no observations are pooled.
-
-These releases support computation from retained measurements. Raw artwork,
-generated pixels and provider-response bodies are not redistributed, so the packages
-do not provide public feature re-extraction or independent authentication of the
-image acquisition. Recorded delivery fields and integrity-audit summaries are
-identified separately from recomputed statistical results. Source URLs do not
-guarantee current pixel access or permission to redistribute the underlying
-images. The code and author-produced numerical exports use the repository's
-MIT license, without granting rights to absent artwork.
+Checksums bind each archive; Appendix~\ref{app:release} gives reproduction
+commands and contracts. Replay starts from retained measurements. Raw artwork,
+generated pixels and provider-response bodies are excluded; the archives do not
+support feature re-extraction or independent acquisition authentication.
+Delivery metadata and integrity summaries are distinguished from recomputed
+results. Source links and license metadata guarantee neither continuing pixel
+access nor redistribution permission. Code and author-produced numerical exports
+use the repository's MIT license, which grants no rights to excluded artwork.
 
 \appendix
 \section{Features, prompts and collection details}
@@ -1985,6 +1970,49 @@ image per scene/arm. The complete export includes fitted means/scalars, fold
 membership, energy terms, per-anchor occupancy, corrected per-scene contributions
 and every specified deletion result.
 
+Precision-based sample-size planning \citep{lakens2022samplesize} for a new
+FLUX/C\'ezanne map comparison used 27 discrete historical proxy laws,
+varying noise shape, dependence, scale and named-mean
+position while retaining the original maps and references. Each law had 64
+joint free/named support points, with exact finite-sum truths and 10,000 trials
+per allocation; bounded supports do not model arbitrary service tails. The
+initial design considered 96, 144 and 192 outputs. All 81 coverage checks and
+baseline energy-width criteria passed, but corrected-residual median half-widths
+exceeded the fixed tolerance 1.0 in nine, nine and two baseline cases,
+respectively. The two failures at eight repetitions were 1.019 and 1.040.
+That proposal stopped without generation.
+
+Before new image outcomes, a separately declared redesign fixed only ten
+repetitions per scene, retaining the maps, proxy laws, interval procedure and
+criteria. All 27 coverage checks and nine baseline precision checks passed:
+the smallest one-sided coverage lower bound was .97065, and baseline median
+half-widths ranged from .06652 to .07347 for energy and .64586 to .86259 for
+$Q$. No interval was unavailable in either version. The lower-bound floor .94,
+Monte Carlo tail $.05/81$ and baseline width limits .25/1.0 remained fixed;
+no combined confidence claim is made across the two versions. These tolerances
+are planning criteria informed by historical results, not meaningful-effect
+or equivalence margins. The qualification does not establish service coverage
+or calibrate uncertainty for retrospective estimates.
+
+For either fresh contrast $D\in\{\Delta\E,\Delta Q\}$, we use a prespecified
+within-scene adaptation of the delete-one jackknife \citep{efron1981jackknife}.
+Deleting paired repetition $r$ in scene $j$ keeps its scene mass fixed:
+the nine remaining images receive weight $q_c/36$
+and the residual denominator becomes $9\times8$; other scenes retain $q_c/40$
+and $10\times9$. If $\bar D_{-j}$ averages that scene's ten deletions, use
+\[
+ \widehat V_J(D)=\sum_j\frac9{10}\sum_r(D_{-jr}-\bar D_{-j})^2,
+ \qquad D\pm t_{9,.9875}\sqrt{\widehat V_J(D)}.
+\]
+The $t_9$ calibration is a prespecified approximation; two Bonferroni marginals
+aim at simultaneous 95\% coverage. No scenes are resampled and no map-label
+randomization is used.
+Both contrasts require the complete eligible grid. A nonfinite point or
+nonpositive/nonfinite variance withholds both intervals; finite full-grid
+points remain descriptive. Energy targets the expected empirical V-statistic
+contrast at ten repetitions, whereas $Q$ targets squared conditional-mean
+mismatch. Increasing the repetition count changes the former target.
+
 \subsection{Energy along a fixed-center scalar path}\label{app:scalar-path}
 Let reference points $x_i$ have nonnegative weights $p_i$ summing to one, and let
 free-cloud residuals $z_j=y_j-m$ have nonnegative weights $w_j$ summing to one. Fix the center
@@ -2073,6 +2101,20 @@ last recomputes both clause cohorts with their unchanged eligibility rules,
 assigned weights and seeds. Original unavailable outcomes remain unavailable.
 This separate package neither invokes the generation workflow nor checks the
 other two releases. Its README lists the included numerical and package tests.
+
+The failed precision qualification is independently downloadable as a fourth
+archive. After checking its detached archive checksum, run:
+\begin{verbatim}
+python -I -S tools/paper_map_release.py verify --root .
+uv sync --locked --python 3.13.11 --extra analysis --extra dev
+uv run --locked python tools/paper_map_release.py check --root .
+\end{verbatim}
+This replays all 81 cells in memory, preserving their failure and the original
+create-once records. It contains no new generated observations. Fresh local and
+anonymous-download environments on the maintainer's Mac match every value and
+pass 73 tests. Exact hashes of reconstructed floating-point supports additionally
+constrain portability; this is not a separate-investigator or cross-platform
+replication of the qualification.
 
 \begingroup
 \footnotesize
