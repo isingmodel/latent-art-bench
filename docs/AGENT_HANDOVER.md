@@ -23,12 +23,11 @@ They are not independent human or institutional reviewers.
 
 The current local English draft is 37 pages and unpublished. The latest published
 manuscript is the 36-page clause-release version; earlier assets remain immutable.
-The active fixed-map collection uses paid FLUX, without human ratings or learned
-features. Its precollection conservative accounting baseline is $50.7219185
-against the $75 ceiling, including the historical $5 reserve. There is no final
-new cost yet; consult the [live ledger](../data/manifests/painter_map_validation_v2/pmv2-20260910/generation_events.jsonl)
-for new charges and pending reservations. Do not assign a monetary value to OAuth
-subscription use.
+The fixed-map collection and measurement are terminal complete, using paid FLUX
+without human ratings or learned features. New reported costs total $16.80;
+conservative accounting is $67.5219185 against the $75 ceiling, including the
+retained historical $5 reserve. No new unknown charges or pending attempts remain.
+Do not assign a monetary value to OAuth subscription use.
 
 | New scope | Source / qualification / freeze | State |
 | --- | --- | --- |
@@ -54,7 +53,7 @@ retrieval or secondary hypothesis tests. The stopped predecessor retains all
 `check` and `verify-responses` commands for verification; the latter checks
 private retained response hashes.
 
-## Active fixed-map collection
+## Completed fixed-map comparison
 
 The [v1 planning qualification](../studies/painter_map_validation_v1/pmvqv1-20260910/PRECISION.md)
 is terminal: all 81 proxy coverage checks passed, but R4/R6/R8 each failed the
@@ -66,21 +65,27 @@ not new image evidence. V1 remains stopped.
 
 One separately declared [R10 redesign](../studies/painter_map_validation_v2/DECISION.md)
 passed its single 27-cell qualification. The one-shot `pmv2-20260910` collection
-is now active: twelve fixed new scenes, ten repeats and free/named FLUX/Cezanne
-arms, for 240 outputs. Operational source `765c5f7`, qualification `aaf431a` and
+returned all 240 images: twelve fixed new scenes, ten repeats and free/named
+FLUX/Cezanne arms. All primary512 feature rows are measured. Operational source `765c5f7`, qualification `aaf431a` and
 freeze `c68c235` bind the exact source, reviewed protocols and assignments.
 At most two attempts overlap, recorded starts are at least five seconds apart,
 and each pair drains before the next. The fixed historical maps, primary512
 31-feature pipeline, development scaler and references remain unchanged.
 
 Do not invoke collection again, resume, refill, replace failed slots or change
-bound source. Feature extraction must wait for terminal closure. A permanently unavailable
-required slot stops the cohort; there is no replacement. Both points and all
+bound source. Do not invoke the completed one-shot measurement again. There is
+no replacement or further allocation for this question. Both points and all
 component scores require the complete eligible 240-vector grid after terminal
 measurement. Qualification does not establish actual service coverage or
 independent stationary repeats. The [technical contract](../studies/painter_map_validation_v2/TECHNICAL_PROTOCOL.md)
 fixes conditional budget forecasts, $5 liabilities, retry limits and stop/drain
-rules; no top-up or reserve reduction is authorized. No new E/Q result exists yet.
+rules; no top-up or reserve reduction is authorized. The new E/Q differences
+are −.390186879 and −5.046510453, with both approximate simultaneous intervals
+wholly below zero: both targets favor translation/scaling. The historical
+opposing ordering does not transfer. Observed Q half-width 2.833 exceeds the
+proxy planning threshold 1.0; passed qualification is not achieved precision or
+a coverage guarantee. The [terminal audit](reviews/20260910_substantive_revision/MAP_VALIDATION_TERMINAL_AUDIT_2.md)
+passed all source, response and measurement checks and exact ordinary replay.
 
 The reviewed public adapter, `tools/paper_map_validation_release.py`, is committed
 at `916f5c5`; its 29 synthetic tests passed in 155.56 seconds. The

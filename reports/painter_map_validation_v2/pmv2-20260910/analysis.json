@@ -1,0 +1,1542 @@
+{
+  "allocated_images": 240,
+  "allocated_pairs": 120,
+  "availability": {
+    "measured": 240
+  },
+  "collection_eligible": true,
+  "components": {
+    "Q_T1": 6.949537455161918,
+    "Q_T2": 1.90302700221359,
+    "energy_T1": 1.6706635369007783,
+    "energy_T2": 1.2804766583666742
+  },
+  "critical_value": 2.6850108468164575,
+  "degrees_of_freedom": 9,
+  "deleted_estimates": [
+    [
+      [
+        -0.3908831492517633,
+        -5.053524919283149
+      ],
+      [
+        -0.3885667899317307,
+        -5.028958273340859
+      ],
+      [
+        -0.39061189076466296,
+        -5.039089592220208
+      ],
+      [
+        -0.391275632890355,
+        -5.070981483087251
+      ],
+      [
+        -0.39158641820726137,
+        -5.068047583813468
+      ],
+      [
+        -0.3907644621816887,
+        -5.0468212425863666
+      ],
+      [
+        -0.38908447858817813,
+        -5.04596732782528
+      ],
+      [
+        -0.38923104469631603,
+        -5.03194081335803
+      ],
+      [
+        -0.3897753320208045,
+        -5.052675018651737
+      ],
+      [
+        -0.39016464752005037,
+        -5.027098275316925
+      ]
+    ],
+    [
+      [
+        -0.38956687252776084,
+        -5.035201221859247
+      ],
+      [
+        -0.38972787217436616,
+        -5.034924179336762
+      ],
+      [
+        -0.3896844413852876,
+        -5.032541785261006
+      ],
+      [
+        -0.39005081707760325,
+        -5.021719382482288
+      ],
+      [
+        -0.3910575684426142,
+        -5.03029220752841
+      ],
+      [
+        -0.3902727790762651,
+        -5.067685483433647
+      ],
+      [
+        -0.38938036459117237,
+        -4.999040255758949
+      ],
+      [
+        -0.39152612561724265,
+        -5.097055955762418
+      ],
+      [
+        -0.3911688827743806,
+        -5.117379872995781
+      ],
+      [
+        -0.3894975004156172,
+        -5.029264185064767
+      ]
+    ],
+    [
+      [
+        -0.39300279847620523,
+        -5.08792783887005
+      ],
+      [
+        -0.39189248836992446,
+        -5.081937833030446
+      ],
+      [
+        -0.39184948290354366,
+        -5.06914271625502
+      ],
+      [
+        -0.3884776238646479,
+        -5.0120984555319925
+      ],
+      [
+        -0.39151738794921465,
+        -5.101289228270276
+      ],
+      [
+        -0.3905732864698249,
+        -5.048789403184651
+      ],
+      [
+        -0.38848050768588216,
+        -5.00768421456729
+      ],
+      [
+        -0.3882059201851672,
+        -5.022118863486754
+      ],
+      [
+        -0.38868208966644463,
+        -5.013840628628207
+      ],
+      [
+        -0.3893027073264406,
+        -5.020275347658585
+      ]
+    ],
+    [
+      [
+        -0.39049903936028824,
+        -5.04848986101222
+      ],
+      [
+        -0.3878759926594921,
+        -5.007038260921455
+      ],
+      [
+        -0.3887920732756117,
+        -5.016134034737642
+      ],
+      [
+        -0.3920193703279665,
+        -5.069950735045507
+      ],
+      [
+        -0.3910147442133294,
+        -5.083176494862514
+      ],
+      [
+        -0.3919407110697143,
+        -5.105474817486638
+      ],
+      [
+        -0.38879009953705795,
+        -5.018641354590853
+      ],
+      [
+        -0.3887735539764389,
+        -5.021816213417821
+      ],
+      [
+        -0.3912725768492739,
+        -5.0552374420213875
+      ],
+      [
+        -0.39098274718977355,
+        -5.039145315387237
+      ]
+    ],
+    [
+      [
+        -0.39090459455542265,
+        -5.107956058190519
+      ],
+      [
+        -0.3952711261944493,
+        -5.1480004871231575
+      ],
+      [
+        -0.39203080707397714,
+        -5.075753495716614
+      ],
+      [
+        -0.3833471555562978,
+        -4.87139466937454
+      ],
+      [
+        -0.3886585837532493,
+        -5.054639933322588
+      ],
+      [
+        -0.38338499798607567,
+        -4.925379465913465
+      ],
+      [
+        -0.4048091273715505,
+        -5.286496654967079
+      ],
+      [
+        -0.39334465608737873,
+        -5.110399729932341
+      ],
+      [
+        -0.3913590192690961,
+        -4.995302441288623
+      ],
+      [
+        -0.37994917048075644,
+        -4.8897815936543445
+      ]
+    ],
+    [
+      [
+        -0.38985562557775494,
+        -4.966405798157653
+      ],
+      [
+        -0.3807476759915769,
+        -4.862333474287456
+      ],
+      [
+        -0.3873099984852253,
+        -4.861788741372073
+      ],
+      [
+        -0.3827368413630036,
+        -4.986674235036303
+      ],
+      [
+        -0.40839615108092714,
+        -5.432668364282632
+      ],
+      [
+        -0.38950728664823664,
+        -5.09261436640023
+      ],
+      [
+        -0.3857543297067007,
+        -5.066311308715836
+      ],
+      [
+        -0.3948486413112264,
+        -5.0976102746691945
+      ],
+      [
+        -0.3894472486246635,
+        -4.962774311782583
+      ],
+      [
+        -0.3944983142723815,
+        -5.135923654779312
+      ]
+    ],
+    [
+      [
+        -0.39314364595231277,
+        -5.135121660233377
+      ],
+      [
+        -0.38954622130777705,
+        -5.140431802703156
+      ],
+      [
+        -0.39040261214164795,
+        -4.992695632796174
+      ],
+      [
+        -0.39332651574613237,
+        -5.04774715892353
+      ],
+      [
+        -0.3866073530649659,
+        -4.8770967892126
+      ],
+      [
+        -0.3934141764636233,
+        -5.224368083220258
+      ],
+      [
+        -0.4017794237590009,
+        -5.248436219605368
+      ],
+      [
+        -0.3789112729734322,
+        -4.87006999411832
+      ],
+      [
+        -0.37768028770802325,
+        -4.750901880695212
+      ],
+      [
+        -0.39841045587722107,
+        -5.178235307975279
+      ]
+    ],
+    [
+      [
+        -0.38840792816225495,
+        -4.827761481433936
+      ],
+      [
+        -0.39085813266997715,
+        -5.04756717094302
+      ],
+      [
+        -0.39346550933560154,
+        -5.0038840105125075
+      ],
+      [
+        -0.3886259340641063,
+        -5.1563122743970045
+      ],
+      [
+        -0.38619670032577197,
+        -4.765486532318458
+      ],
+      [
+        -0.38942333355090325,
+        -4.839983073779396
+      ],
+      [
+        -0.3892159656772156,
+        -5.0782910072395016
+      ],
+      [
+        -0.3911684797753828,
+        -5.067453566047642
+      ],
+      [
+        -0.3932134507907397,
+        -5.055042450629531
+      ],
+      [
+        -0.392510734381961,
+        -5.623322962182277
+      ]
+    ],
+    [
+      [
+        -0.38510217247680406,
+        -5.0688998269384244
+      ],
+      [
+        -0.39067343633297663,
+        -5.065790909048556
+      ],
+      [
+        -0.3915744984748981,
+        -5.040800666134308
+      ],
+      [
+        -0.3935756404845248,
+        -5.036145248789544
+      ],
+      [
+        -0.3927198051730528,
+        -5.0584867014719475
+      ],
+      [
+        -0.38727435249913106,
+        -5.086770526822731
+      ],
+      [
+        -0.3898057102943868,
+        -5.0396309699784085
+      ],
+      [
+        -0.39315339908955027,
+        -5.004204251670972
+      ],
+      [
+        -0.39185710681201663,
+        -5.024861448354653
+      ],
+      [
+        -0.3882610047689882,
+        -5.039513980273729
+      ]
+    ],
+    [
+      [
+        -0.39292404657220553,
+        -5.0266898794640715
+      ],
+      [
+        -0.37497317779682293,
+        -5.125963009099992
+      ],
+      [
+        -0.39354928447122184,
+        -5.035687413802096
+      ],
+      [
+        -0.39078919845948246,
+        -5.056025128961924
+      ],
+      [
+        -0.38858426453343947,
+        -5.062255942496102
+      ],
+      [
+        -0.3907741056509535,
+        -4.9989518946466704
+      ],
+      [
+        -0.39402644261022784,
+        -5.047183975805004
+      ],
+      [
+        -0.3950097502662012,
+        -5.0375757677804245
+      ],
+      [
+        -0.3934865951717335,
+        -5.0138613278132365
+      ],
+      [
+        -0.39085784608294527,
+        -5.060910189613752
+      ]
+    ],
+    [
+      [
+        -0.3865791576623191,
+        -4.983702929741221
+      ],
+      [
+        -0.3921658374058389,
+        -5.045411749889411
+      ],
+      [
+        -0.3895430586750617,
+        -5.057742120949398
+      ],
+      [
+        -0.3916037321884785,
+        -5.043215268738235
+      ],
+      [
+        -0.39316963929853244,
+        -5.062420501637582
+      ],
+      [
+        -0.39150579464161583,
+        -5.074289320616123
+      ],
+      [
+        -0.38951012928784745,
+        -5.056803402561991
+      ],
+      [
+        -0.39108891718558925,
+        -5.072858435929161
+      ],
+      [
+        -0.38848895978375425,
+        -5.009314141387838
+      ],
+      [
+        -0.39002275198962727,
+        -5.059346658032314
+      ]
+    ],
+    [
+      [
+        -0.39092232660234216,
+        -5.055370364690741
+      ],
+      [
+        -0.39275621838732755,
+        -5.048692831264286
+      ],
+      [
+        -0.3924519156564577,
+        -5.0247659785493815
+      ],
+      [
+        -0.3824262400555404,
+        -5.031724144530268
+      ],
+      [
+        -0.3914034097808102,
+        -5.040776217340917
+      ],
+      [
+        -0.39397275197972503,
+        -5.058780095521789
+      ],
+      [
+        -0.39252428463137773,
+        -5.00329332283655
+      ],
+      [
+        -0.39397671936930023,
+        -5.1024418591270155
+      ],
+      [
+        -0.3881099704379921,
+        -5.081987000641784
+      ],
+      [
+        -0.38581837675565556,
+        -5.017272714980542
+      ]
+    ]
+  ],
+  "features": [
+    "lightness_median",
+    "lightness_iqr",
+    "chroma_median",
+    "chroma_iqr",
+    "chromatic_fraction",
+    "hue_concentration",
+    "hue_entropy",
+    "deltae_01",
+    "deltae_04",
+    "deltae_16",
+    "deltae_slope",
+    "spectral_slope",
+    "spectral_residual",
+    "spectral_anisotropy",
+    "orientation_entropy",
+    "horizontal_vertical_balance",
+    "gradient_median",
+    "gradient_iqr",
+    "quadrant_jsd",
+    "wavelet_energy_1",
+    "wavelet_energy_2",
+    "wavelet_energy_3",
+    "wavelet_energy_4",
+    "wavelet_slope",
+    "wavelet_curvature",
+    "lbp_entropy_8",
+    "lbp_entropy_16",
+    "lbp_entropy_32",
+    "local_cv_01",
+    "local_cv_04",
+    "local_cv_16"
+  ],
+  "fitted": {
+    "free_mean": [
+      -0.8237376665473678,
+      0.18573938939665574,
+      0.4005220348907633,
+      0.17312374967560007,
+      0.19726387632814874,
+      0.5058425323827982,
+      -1.1308871116885926,
+      0.25811877521022547,
+      0.10702463854583533,
+      -0.04270694407793241,
+      -0.20202240455656834,
+      0.33363852158266794,
+      0.05324407467890317,
+      0.1692903547420217,
+      -1.0628940167507077,
+      -0.43180577116327257,
+      -0.326496233684896,
+      -0.027636041317556877,
+      0.7011192621193117,
+      0.07566600432625185,
+      -0.0455815155173595,
+      -0.16924860947305753,
+      -0.37556684213886415,
+      -0.45840467338922564,
+      0.14313511099262355,
+      -1.0452660954701578,
+      -0.858709821950691,
+      -0.6021983913541671,
+      0.9587263333936793,
+      0.7484267884928386,
+      0.6599479189875085
+    ],
+    "free_trace": 17.839972832855523,
+    "named_mean": [
+      -0.3865849562021248,
+      -0.28756483890248596,
+      0.28090143901365094,
+      0.2936837396849794,
+      0.04169292243129111,
+      0.39251822843620177,
+      -0.650049890454582,
+      0.40166557557045035,
+      0.5548366970807688,
+      0.3442643247716247,
+      0.07350706492914061,
+      -0.012385590465937547,
+      -0.15085460538588935,
+      0.008654532145905546,
+      -0.38290912535504745,
+      -0.04585777472081859,
+      -0.14016096947926796,
+      0.047443967135364765,
+      0.641480984032357,
+      -0.1285241997143818,
+      -0.07811223179469413,
+      0.013293086539824406,
+      -0.02339438932008716,
+      0.14524114711572234,
+      0.03596394987035183,
+      -0.6033971761593387,
+      -0.314686934928406,
+      -0.019421160998326047,
+      0.3697947134465872,
+      0.3698576689824886,
+      0.2409443061397885
+    ],
+    "named_trace": 8.213733909222663,
+    "scale": 0.6785365094757265
+  },
+  "fixed_scenes": 12,
+  "interpretation": "Conditional on the old maps/scaler/references and these authored scenes. Approximate intervals assume independent stationary repeats; proxy qualification does not establish actual service coverage. No perceptual, capture, scene-population or internal-mechanism inference.",
+  "interval_family_size": 2,
+  "joint_direction": "resolved_other_ordering",
+  "memberships": [
+    {
+      "content_class": "water",
+      "pairs": [
+        {
+          "artist_free_id": "pmv2:pmv2_water01:r00:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water01:r00:named",
+          "repetition": 0
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water01:r01:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water01:r01:named",
+          "repetition": 1
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water01:r02:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water01:r02:named",
+          "repetition": 2
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water01:r03:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water01:r03:named",
+          "repetition": 3
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water01:r04:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water01:r04:named",
+          "repetition": 4
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water01:r05:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water01:r05:named",
+          "repetition": 5
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water01:r06:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water01:r06:named",
+          "repetition": 6
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water01:r07:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water01:r07:named",
+          "repetition": 7
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water01:r08:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water01:r08:named",
+          "repetition": 8
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water01:r09:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water01:r09:named",
+          "repetition": 9
+        }
+      ],
+      "scene_id": "pmv2_water01",
+      "weight": 0.0234375
+    },
+    {
+      "content_class": "water",
+      "pairs": [
+        {
+          "artist_free_id": "pmv2:pmv2_water02:r00:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water02:r00:named",
+          "repetition": 0
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water02:r01:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water02:r01:named",
+          "repetition": 1
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water02:r02:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water02:r02:named",
+          "repetition": 2
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water02:r03:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water02:r03:named",
+          "repetition": 3
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water02:r04:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water02:r04:named",
+          "repetition": 4
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water02:r05:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water02:r05:named",
+          "repetition": 5
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water02:r06:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water02:r06:named",
+          "repetition": 6
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water02:r07:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water02:r07:named",
+          "repetition": 7
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water02:r08:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water02:r08:named",
+          "repetition": 8
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water02:r09:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water02:r09:named",
+          "repetition": 9
+        }
+      ],
+      "scene_id": "pmv2_water02",
+      "weight": 0.0234375
+    },
+    {
+      "content_class": "water",
+      "pairs": [
+        {
+          "artist_free_id": "pmv2:pmv2_water03:r00:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water03:r00:named",
+          "repetition": 0
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water03:r01:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water03:r01:named",
+          "repetition": 1
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water03:r02:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water03:r02:named",
+          "repetition": 2
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water03:r03:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water03:r03:named",
+          "repetition": 3
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water03:r04:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water03:r04:named",
+          "repetition": 4
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water03:r05:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water03:r05:named",
+          "repetition": 5
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water03:r06:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water03:r06:named",
+          "repetition": 6
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water03:r07:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water03:r07:named",
+          "repetition": 7
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water03:r08:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water03:r08:named",
+          "repetition": 8
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water03:r09:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water03:r09:named",
+          "repetition": 9
+        }
+      ],
+      "scene_id": "pmv2_water03",
+      "weight": 0.0234375
+    },
+    {
+      "content_class": "water",
+      "pairs": [
+        {
+          "artist_free_id": "pmv2:pmv2_water04:r00:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water04:r00:named",
+          "repetition": 0
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water04:r01:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water04:r01:named",
+          "repetition": 1
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water04:r02:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water04:r02:named",
+          "repetition": 2
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water04:r03:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water04:r03:named",
+          "repetition": 3
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water04:r04:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water04:r04:named",
+          "repetition": 4
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water04:r05:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water04:r05:named",
+          "repetition": 5
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water04:r06:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water04:r06:named",
+          "repetition": 6
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water04:r07:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water04:r07:named",
+          "repetition": 7
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water04:r08:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water04:r08:named",
+          "repetition": 8
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_water04:r09:artist_free",
+          "image_weight": 0.00234375,
+          "named_id": "pmv2:pmv2_water04:r09:named",
+          "repetition": 9
+        }
+      ],
+      "scene_id": "pmv2_water04",
+      "weight": 0.0234375
+    },
+    {
+      "content_class": "built",
+      "pairs": [
+        {
+          "artist_free_id": "pmv2:pmv2_built01:r00:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built01:r00:named",
+          "repetition": 0
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built01:r01:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built01:r01:named",
+          "repetition": 1
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built01:r02:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built01:r02:named",
+          "repetition": 2
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built01:r03:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built01:r03:named",
+          "repetition": 3
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built01:r04:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built01:r04:named",
+          "repetition": 4
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built01:r05:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built01:r05:named",
+          "repetition": 5
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built01:r06:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built01:r06:named",
+          "repetition": 6
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built01:r07:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built01:r07:named",
+          "repetition": 7
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built01:r08:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built01:r08:named",
+          "repetition": 8
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built01:r09:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built01:r09:named",
+          "repetition": 9
+        }
+      ],
+      "scene_id": "pmv2_built01",
+      "weight": 0.0859375
+    },
+    {
+      "content_class": "built",
+      "pairs": [
+        {
+          "artist_free_id": "pmv2:pmv2_built02:r00:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built02:r00:named",
+          "repetition": 0
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built02:r01:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built02:r01:named",
+          "repetition": 1
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built02:r02:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built02:r02:named",
+          "repetition": 2
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built02:r03:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built02:r03:named",
+          "repetition": 3
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built02:r04:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built02:r04:named",
+          "repetition": 4
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built02:r05:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built02:r05:named",
+          "repetition": 5
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built02:r06:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built02:r06:named",
+          "repetition": 6
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built02:r07:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built02:r07:named",
+          "repetition": 7
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built02:r08:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built02:r08:named",
+          "repetition": 8
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built02:r09:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built02:r09:named",
+          "repetition": 9
+        }
+      ],
+      "scene_id": "pmv2_built02",
+      "weight": 0.0859375
+    },
+    {
+      "content_class": "built",
+      "pairs": [
+        {
+          "artist_free_id": "pmv2:pmv2_built03:r00:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built03:r00:named",
+          "repetition": 0
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built03:r01:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built03:r01:named",
+          "repetition": 1
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built03:r02:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built03:r02:named",
+          "repetition": 2
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built03:r03:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built03:r03:named",
+          "repetition": 3
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built03:r04:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built03:r04:named",
+          "repetition": 4
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built03:r05:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built03:r05:named",
+          "repetition": 5
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built03:r06:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built03:r06:named",
+          "repetition": 6
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built03:r07:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built03:r07:named",
+          "repetition": 7
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built03:r08:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built03:r08:named",
+          "repetition": 8
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built03:r09:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built03:r09:named",
+          "repetition": 9
+        }
+      ],
+      "scene_id": "pmv2_built03",
+      "weight": 0.0859375
+    },
+    {
+      "content_class": "built",
+      "pairs": [
+        {
+          "artist_free_id": "pmv2:pmv2_built04:r00:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built04:r00:named",
+          "repetition": 0
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built04:r01:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built04:r01:named",
+          "repetition": 1
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built04:r02:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built04:r02:named",
+          "repetition": 2
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built04:r03:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built04:r03:named",
+          "repetition": 3
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built04:r04:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built04:r04:named",
+          "repetition": 4
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built04:r05:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built04:r05:named",
+          "repetition": 5
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built04:r06:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built04:r06:named",
+          "repetition": 6
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built04:r07:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built04:r07:named",
+          "repetition": 7
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built04:r08:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built04:r08:named",
+          "repetition": 8
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_built04:r09:artist_free",
+          "image_weight": 0.00859375,
+          "named_id": "pmv2:pmv2_built04:r09:named",
+          "repetition": 9
+        }
+      ],
+      "scene_id": "pmv2_built04",
+      "weight": 0.0859375
+    },
+    {
+      "content_class": "land",
+      "pairs": [
+        {
+          "artist_free_id": "pmv2:pmv2_land01:r00:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land01:r00:named",
+          "repetition": 0
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land01:r01:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land01:r01:named",
+          "repetition": 1
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land01:r02:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land01:r02:named",
+          "repetition": 2
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land01:r03:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land01:r03:named",
+          "repetition": 3
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land01:r04:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land01:r04:named",
+          "repetition": 4
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land01:r05:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land01:r05:named",
+          "repetition": 5
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land01:r06:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land01:r06:named",
+          "repetition": 6
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land01:r07:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land01:r07:named",
+          "repetition": 7
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land01:r08:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land01:r08:named",
+          "repetition": 8
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land01:r09:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land01:r09:named",
+          "repetition": 9
+        }
+      ],
+      "scene_id": "pmv2_land01",
+      "weight": 0.140625
+    },
+    {
+      "content_class": "land",
+      "pairs": [
+        {
+          "artist_free_id": "pmv2:pmv2_land02:r00:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land02:r00:named",
+          "repetition": 0
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land02:r01:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land02:r01:named",
+          "repetition": 1
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land02:r02:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land02:r02:named",
+          "repetition": 2
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land02:r03:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land02:r03:named",
+          "repetition": 3
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land02:r04:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land02:r04:named",
+          "repetition": 4
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land02:r05:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land02:r05:named",
+          "repetition": 5
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land02:r06:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land02:r06:named",
+          "repetition": 6
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land02:r07:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land02:r07:named",
+          "repetition": 7
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land02:r08:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land02:r08:named",
+          "repetition": 8
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land02:r09:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land02:r09:named",
+          "repetition": 9
+        }
+      ],
+      "scene_id": "pmv2_land02",
+      "weight": 0.140625
+    },
+    {
+      "content_class": "land",
+      "pairs": [
+        {
+          "artist_free_id": "pmv2:pmv2_land03:r00:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land03:r00:named",
+          "repetition": 0
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land03:r01:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land03:r01:named",
+          "repetition": 1
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land03:r02:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land03:r02:named",
+          "repetition": 2
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land03:r03:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land03:r03:named",
+          "repetition": 3
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land03:r04:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land03:r04:named",
+          "repetition": 4
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land03:r05:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land03:r05:named",
+          "repetition": 5
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land03:r06:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land03:r06:named",
+          "repetition": 6
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land03:r07:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land03:r07:named",
+          "repetition": 7
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land03:r08:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land03:r08:named",
+          "repetition": 8
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land03:r09:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land03:r09:named",
+          "repetition": 9
+        }
+      ],
+      "scene_id": "pmv2_land03",
+      "weight": 0.140625
+    },
+    {
+      "content_class": "land",
+      "pairs": [
+        {
+          "artist_free_id": "pmv2:pmv2_land04:r00:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land04:r00:named",
+          "repetition": 0
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land04:r01:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land04:r01:named",
+          "repetition": 1
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land04:r02:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land04:r02:named",
+          "repetition": 2
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land04:r03:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land04:r03:named",
+          "repetition": 3
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land04:r04:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land04:r04:named",
+          "repetition": 4
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land04:r05:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land04:r05:named",
+          "repetition": 5
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land04:r06:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land04:r06:named",
+          "repetition": 6
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land04:r07:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land04:r07:named",
+          "repetition": 7
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land04:r08:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land04:r08:named",
+          "repetition": 8
+        },
+        {
+          "artist_free_id": "pmv2:pmv2_land04:r09:artist_free",
+          "image_weight": 0.0140625,
+          "named_id": "pmv2:pmv2_land04:r09:named",
+          "repetition": 9
+        }
+      ],
+      "scene_id": "pmv2_land04",
+      "weight": 0.140625
+    }
+  ],
+  "nominal_simultaneous_coverage": 0.95,
+  "painter_id": "paul_cezanne",
+  "pipeline": "primary512",
+  "primary": [
+    {
+      "direction": "negative",
+      "endpoint": "deltaE",
+      "estimate": -0.3901868785341036,
+      "half_width": 0.11884601817516997,
+      "interval": [
+        -0.5090328967092735,
+        -0.2713408603589336
+      ],
+      "jackknife_variance": 0.001959192828350537,
+      "status": "approximate_simultaneous_intervals"
+    },
+    {
+      "direction": "negative",
+      "endpoint": "deltaQ",
+      "estimate": -5.046510452948327,
+      "half_width": 2.8330065188986286,
+      "interval": [
+        -7.8795169718469555,
+        -2.2135039340496987
+      ],
+      "jackknife_variance": 1.1132765436676098,
+      "status": "approximate_simultaneous_intervals"
+    }
+  ],
+  "reference_ids": [
+    "wikidata:Q108187503",
+    "wikidata:Q108479438",
+    "wikidata:Q119122440",
+    "wikidata:Q123469396",
+    "wikidata:Q124156637",
+    "wikidata:Q135088199",
+    "wikidata:Q135208928",
+    "wikidata:Q20190070",
+    "wikidata:Q20198272",
+    "wikidata:Q20879001",
+    "wikidata:Q22337850",
+    "wikidata:Q28039709",
+    "wikidata:Q28126470",
+    "wikidata:Q28126472",
+    "wikidata:Q28126494",
+    "wikidata:Q3821663",
+    "wikidata:Q3984602",
+    "wikidata:Q63670617",
+    "wikidata:Q63870916",
+    "wikidata:Q64212455",
+    "wikidata:Q64244598",
+    "wikidata:Q64319425",
+    "wikidata:Q64355195",
+    "wikidata:Q64364677",
+    "wikidata:Q64366377",
+    "wikidata:Q64370842",
+    "wikidata:Q64374464",
+    "wikidata:Q79161263",
+    "wikidata:Q79889845",
+    "wikidata:Q87842510",
+    "wikidata:Q91932567",
+    "wikidata:Q94637082"
+  ],
+  "reference_weights": [
+    0.03125,
+    0.03125,
+    0.03125,
+    0.03125,
+    0.03125,
+    0.03125,
+    0.03125,
+    0.03125,
+    0.03125,
+    0.03125,
+    0.03125,
+    0.03125,
+    0.03125,
+    0.03125,
+    0.03125,
+    0.03125,
+    0.03125,
+    0.03125,
+    0.03125,
+    0.03125,
+    0.03125,
+    0.03125,
+    0.03125,
+    0.03125,
+    0.03125,
+    0.03125,
+    0.03125,
+    0.03125,
+    0.03125,
+    0.03125,
+    0.03125,
+    0.03125
+  ],
+  "repeats": 10,
+  "run_id": "pmv2-20260910",
+  "schema": "painter-map-validation-analysis/2",
+  "status": "approximate_simultaneous_intervals",
+  "targets": {
+    "deltaE": "expected finite-R10 weighted empirical V-energy contrast",
+    "deltaQ": "fixed-scene squared conditional-mean mismatch contrast"
+  },
+  "unavailability_reasons": []
+}

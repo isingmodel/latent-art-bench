@@ -1,0 +1,61 @@
+{
+  "analysis_eligible": true,
+  "analysis_unavailability_reasons": [],
+  "attempts": 240,
+  "available_at_dispatch_usd": "19.2726443",
+  "budget": {
+    "accounted_usd": 67.5219185,
+    "attempts": 240,
+    "new_reported_usd": 16.8,
+    "new_reserves_usd": 0.0,
+    "pending": [],
+    "pending_paid": 0,
+    "settled_attempts": 240,
+    "terminal_reserves_usd": 0,
+    "unknown": []
+  },
+  "duration_contract_met": true,
+  "elapsed_seconds": 5443.928105042083,
+  "ended_at_utc": "2026-09-10T11:42:35.756589+00:00",
+  "freeze_sha256": "e91fe3adbb41fd7a45e43c532eb680e86634168529ca9150da12f970bb29cb1e",
+  "identity_contract_met": true,
+  "outputs": [
+    {
+      "path": "data/manifests/painter_map_validation_v2/pmv2-20260910/generation_events.jsonl",
+      "sha256": "10b0f8019faf04756a3668f7dd284c39bde3628ae2cb02ca31bb5ccb6e3cdf11"
+    },
+    {
+      "path": "data/manifests/painter_map_validation_v2/pmv2-20260910/slot_outcomes.jsonl",
+      "sha256": "d2f7918f55392958963da6641c246ed9b97bf209ec20c171c90a10842eae3ef9"
+    },
+    {
+      "path": "research_workspace/painter_map_validation_v2/pmv2-20260910/collection_started.json",
+      "sha256": "bd81014ac1a73f2379dc0e04072405685c8197fe65281f46151664b5e4d49bd7"
+    },
+    {
+      "path": "data/manifests/painter_map_validation_v2/metadata/pmv2-dispatch-20260910/receipt.json",
+      "sha256": "7b47dd3b79829b85b59c988eba3d4ed525f62acd3e13fe2bac99dcea1d4cfac2"
+    },
+    {
+      "path": "data/manifests/painter_map_validation_v2/metadata/pmv2-dispatch-20260910/started.json",
+      "sha256": "8261082548acb3b8e3927305085cd605e6cc51c03ac6aa5148b00e426d0406e4"
+    },
+    {
+      "path": "data/manifests/painter_map_validation_v2/pmv2-20260910/operator_events.jsonl",
+      "sha256": "9ecccd3601fd74ab1dfafbbea0c53187b06b7185407d1ee95836ef714d7b5880"
+    }
+  ],
+  "planned": 240,
+  "posted_attempts": 240,
+  "reason": null,
+  "retries": 0,
+  "retry_decisions": 0,
+  "retry_intents": 0,
+  "run_id": "pmv2-20260910",
+  "schema": "painter-map-validation-collection/2",
+  "slot_counts": {
+    "image_returned": 240
+  },
+  "status": "complete",
+  "timing_contract_met": true
+}

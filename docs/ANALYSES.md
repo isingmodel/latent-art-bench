@@ -322,16 +322,20 @@ There is no further allocation assessment if its collection is unavailable or
 its actual uncertainty is unresolved.
 
 The [technical contract](../studies/painter_map_validation_v2/TECHNICAL_PROTOCOL.md)
-is qualified and its sole 240-output collection is in progress. Do not rerun
-`prepare`, `metadata` or `collect`: all have create-once records. After terminal
-collection, the one-shot `measure` stage writes all 240 primary status rows and
-the exact two-endpoint report. `analysis.py` uses fixed maps and the unchanged
-qualified jackknife primitives; it fits no plotting basis or new map. The
-manuscript will use a compact endpoint table, not a new fitted plot.
+is qualified and its sole collection/measurement is complete: 240/240 vectors.
+Do not rerun `prepare`, `metadata`, `collect` or `measure`. The
+[two-endpoint report](../reports/painter_map_validation_v2/pmv2-20260910/REPORT.md)
+gives deltaE −.390187 and deltaQ −5.046510, with both approximate intervals
+below zero. Thus both targets favor translation/scaling on the new panel;
+the historical opposing ordering does not transfer. The observed Q half-width
+2.833 exceeds the proxy planning threshold, illustrating its limited forecast.
+`analysis.py` uses fixed maps and qualified jackknife primitives; it fits no
+plotting basis or new map. The manuscript uses a compact endpoint table.
 The ordinary offline `uv run --locked python -m latent_art_bench.painter_map_validation_v2 check`
-will then authenticate retained private response costs and replay numerical rows
-without extracting features again. It is not a public-pixels check; the separate
-public adapter remains under review until the actual terminal result exists.
+authenticates retained private response costs and replays numerical rows without
+extracting features again; the terminal audit passed this check. It is not a
+public-pixels check. The separate public adapter passed synthetic review; actual
+export and complete fresh numerical/public replay remain pending.
 
 The failed v1 grid has a separately verified [public numerical archive](../reports/paper_map_reproducibility_v1/pmrv1-20260910/REPORT.md).
 From the extracted `pmrv1-20260910/` archive root, first verify with

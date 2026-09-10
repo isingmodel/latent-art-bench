@@ -32,18 +32,21 @@ The separate fixed-map v1 proposal stopped before collection: all 81 proxy cover
 checks passed, but each allocation failed the conditional-residual precision gate.
 Its [public planning release](https://github.com/isingmodel/latent-art-bench/releases/tag/pmrv1-20260910)
 replays all 81 cells and contains no new images. One prospective R10 redesign
-passed its separate qualification; a [one-shot 240-output FLUX/Cezanne collection](studies/painter_map_validation_v2/PROTOCOL.md)
-is now active on twelve new scenes. Its source/qualification/freeze commits are
-`765c5f7` / `aaf431a` / `c68c235`. At most two requests overlap, with five-second
-recorded start spacing. Do not restart it; feature extraction waits for terminal closure.
+passed qualification and completed its [240-output FLUX/Cezanne comparison](reports/painter_map_validation_v2/pmv2-20260910/REPORT.md)
+on twelve new fixed scenes. Translation/scaling improves both reference energy
+(deltaE −.390187) and corrected conditional-mean prediction (deltaQ −5.046510),
+with both approximate simultaneous intervals below zero. The earlier opposing
+ordering does not transfer. The observed Q half-width exceeds the proxy planning
+criterion, so passed qualification should not be read as achieved precision.
+Collection and measurement are permanently complete; do not restart either.
 
-The precollection accounting baseline is $50.7219185 against the $75 ceiling;
-there is no final new cost yet. The [live ledger](data/manifests/painter_map_validation_v2/pmv2-20260910/generation_events.jsonl)
-records new charges and reservations. The reviewed numerical adapter at `916f5c5`
-passes 29 synthetic tests, but actual export and complete fresh replay remain
-pending. The fixed round-3 score mean remains **8.9**; collection alone supplies
-no new scientific result or score. See [STATUS.md](docs/STATUS.md) for current
-verification, including the full-suite rerun.
+New reported charges are $16.80; conservative project accounting is **$67.5219185**
+against the $75 ceiling. All 240 outputs returned without failure/retry. The
+[terminal audit](docs/reviews/20260910_substantive_revision/MAP_VALIDATION_TERMINAL_AUDIT_2.md)
+passes response, source and measured-vector provenance plus exact numerical replay.
+Actual public export and fresh replay remain pending. The fixed round-3 score
+mean remains **8.9**; the new evidence has not yet been scored. See
+[STATUS.md](docs/STATUS.md) for current manuscript integration and verification.
 
 The [four-painter exploration](reports/painter_distribution_exploration_v1/REPORT.md)
 shows overlap in two-dimensional projections alongside reduced generated spread

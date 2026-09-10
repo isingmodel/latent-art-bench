@@ -142,16 +142,26 @@ half-width is .862593. There were no unavailable intervals. Source commit
 proxy calculations, not a service-coverage guarantee. There is no further
 allocation assessment for this question in the revision.
 
-The separately reviewed v2 operational gates are now complete and collection
-started at **10:11 UTC**. Source `765c5f7`, metadata/review source `c82e160`,
+The separately reviewed v2 collection is complete: **240/240 images**, no
+failures or retries, **90.73 minutes**, and all collection eligibility checks
+passed. It started at **10:11 UTC**. Source `765c5f7`, metadata/review source `c82e160`,
 qualification commit `aaf431a` and freeze commit `c68c235` retain 188 bound inputs
 and all 240 exact assignments. Both fresh two-GET metadata gates passed with the
 unchanged endpoint and sufficient actual credits for the conditional $18.60
-allowance. At most two requests overlap, with five-second start spacing and
-automatic financial serialization. A permanent slot loss stops the cohort;
-there is no replacement. Current paid charges and pending reservations are in
-`data/manifests/painter_map_validation_v2/pmv2-20260910/generation_events.jsonl`.
-No scientific vector has been extracted or new E/Q result computed yet.
+allowance. At most two requests overlapped, with five-second start spacing and
+automatic financial serialization. The terminal ledger records **$16.80** in
+new reported charges, **$67.5219185** in conservative project accounting, and no
+new unknown charges, pending attempts or reserves. There is no replacement or
+further collection. All 240 primary vectors are measured. Both fixed-map contrasts favor
+translation/scaling: **deltaE −.390186879 [−.509032897, −.271340860]** and
+**deltaQ −5.046510453 [−7.879516972, −2.213503934]**, using the qualified
+approximate simultaneous interval procedure. The historical opposing ordering
+does not transfer. The observed Q half-width 2.833 exceeds the proxy planning
+criterion 1.0; proxy qualification did not guarantee achieved precision or coverage.
+The [terminal audit](reviews/20260910_substantive_revision/MAP_VALIDATION_TERMINAL_AUDIT_2.md)
+passes all 188 source bindings, 240 response/measurement records and exact
+numerical replay, without feature re-extraction. Do not invoke collection or
+measurement again.
 The precollection [analysis](../studies/painter_map_validation_v2/ANALYSIS_REVIEW.md),
 [operational](../studies/painter_map_validation_v2/OPERATIONAL_REVIEW.md) and
 [coordinator](../studies/painter_map_validation_v2/PRECOLLECTION_REVIEW.md) reviews
@@ -170,9 +180,9 @@ local and unchanged. Capture acquisition and measurement remain closed.
 
 Human style ratings, independently captured reproductions, learned-feature
 validation and replication by separate investigators remain unperformed.
-Service aliases are not independently attested checkpoints. The clause cohort
-adds new scenes for one comparison, but prospective new-scene validation of the
-moment maps remains unavailable. Protocol 2.1's broader reproduction gates are
+Service aliases are not independently attested checkpoints. The clause and fixed-map cohorts add new authored scenes for their separate
+comparisons. Fixed-map transfer is now observed for one selected painter/service;
+the earlier opposing energy/Q ordering does not recur. Protocol 2.1's broader reproduction gates are
 unchanged and unqualified.
 
 Historical review snapshots, prior manuscript corrections and exact verification
