@@ -1,0 +1,61 @@
+{
+  "ended_at_utc": "2026-09-10T10:06:34.335285+00:00",
+  "generation_requests": 0,
+  "paid_image_requests": 0,
+  "receipt_id": "pmv2-prefreeze-20260910",
+  "requests": [
+    {
+      "ended_at_utc": "2026-09-10T10:06:34.319388+00:00",
+      "http_status": 200,
+      "method": "GET",
+      "projection": {
+        "available_usd": "19.2726443"
+      },
+      "response_body_sha256": "599ea98627f8abaf0faf10607e5af0afa5d434c7fa9a910074a1f95c6f552542",
+      "response_bytes": 54,
+      "started_at_utc": "2026-09-10T10:06:34.050677+00:00",
+      "status": "ok",
+      "url": "https://openrouter.ai/api/v1/credits"
+    },
+    {
+      "ended_at_utc": "2026-09-10T10:06:34.335136+00:00",
+      "http_status": 200,
+      "method": "GET",
+      "projection": {
+        "id": "black-forest-labs/flux.2-max",
+        "pricing": [
+          {
+            "billable": "output_image",
+            "cost_usd": "0.07",
+            "unit": "megapixel"
+          }
+        ],
+        "provider_slug": "black-forest-labs/us-3",
+        "provider_tag": "black-forest-labs/us-3"
+      },
+      "response_body_sha256": "765c865e57488f2620f6860c6562b4d4696460e442f596c24bdb89895f7ea99d",
+      "response_bytes": 641,
+      "started_at_utc": "2026-09-10T10:06:34.319401+00:00",
+      "status": "ok",
+      "url": "https://openrouter.ai/api/v1/images/models/black-forest-labs/flux.2-max/endpoints"
+    }
+  ],
+  "schema": "painter-map-validation-metadata-receipt/2",
+  "source_bindings": [
+    {
+      "path": "studies/painter_map_validation_v1/preflight.py",
+      "sha256": "f26aa82991c0b4b9a1ee22c4c9b268ea09beed04a1ab0a740949cfa4168198c4"
+    },
+    {
+      "path": "src/latent_art_bench/painter_map_validation_v2/metadata.py",
+      "sha256": "c43b0311928e8ee21a5b97043378022cbe31d4c2bc737f631ba4d85d27fe0e27"
+    },
+    {
+      "path": "src/latent_art_bench/painter_map_validation_v2/common.py",
+      "sha256": "d5cc5410d00c91c627c78fb2f540b7f1ca027976fb426750a4d3fba329c6b119"
+    }
+  ],
+  "source_commit": "765c5f7a7ad7e240f7792ea814f00ea63e6453ba",
+  "started_sha256": "3eb6e234b5e0a1eb03297e9604b04f658c476a08e904faabe9456426a51ac92b",
+  "status": "complete"
+}

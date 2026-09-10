@@ -1,0 +1,27 @@
+{
+  "allowed_get_urls": [
+    "https://openrouter.ai/api/v1/credits",
+    "https://openrouter.ai/api/v1/images/models/black-forest-labs/flux.2-max/endpoints"
+  ],
+  "automatic_retries": 0,
+  "maximum_gets": 2,
+  "receipt_id": "pmv2-prefreeze-20260910",
+  "redirects": false,
+  "schema": "painter-map-validation-metadata-start/2",
+  "source_bindings": [
+    {
+      "path": "studies/painter_map_validation_v1/preflight.py",
+      "sha256": "f26aa82991c0b4b9a1ee22c4c9b268ea09beed04a1ab0a740949cfa4168198c4"
+    },
+    {
+      "path": "src/latent_art_bench/painter_map_validation_v2/metadata.py",
+      "sha256": "c43b0311928e8ee21a5b97043378022cbe31d4c2bc737f631ba4d85d27fe0e27"
+    },
+    {
+      "path": "src/latent_art_bench/painter_map_validation_v2/common.py",
+      "sha256": "d5cc5410d00c91c627c78fb2f540b7f1ca027976fb426750a4d3fba329c6b119"
+    }
+  ],
+  "source_commit": "765c5f7a7ad7e240f7792ea814f00ea63e6453ba",
+  "started_at_utc": "2026-09-10T10:06:33.915626+00:00"
+}
