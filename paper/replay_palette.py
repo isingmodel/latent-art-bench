@@ -62,8 +62,12 @@ def load_inputs(root=ROOT):
     return schedule, chroma, primary
 
 
-def analyze_inputs(schedule, chroma, saved_primary):
-    """Validate table identities, call frozen inference, and return ordered K blocks."""
+def analyze_inputs(schedule, chroma, saved_primary, *, primary_comparator=None):
+    """Validate identities and frozen inference; default to exact primary parity.
+
+    A release adapter may supply its explicitly recorded platform comparator.
+    Schedule, chroma and ordered-block validation are unaffected.
+    """
     design = validate_schedule(schedule)
     if design["requests"] != 192 or design["repetitions"] != 4:
         raise ValueError("the primary replay requires exactly 192 slots and four repetitions")
@@ -89,7 +93,9 @@ def analyze_inputs(schedule, chroma, saved_primary):
     outcomes = [dict(request_id=rid, status="measured", value=values[rid, "primary512"])
                 for rid in planned]
     result = analyze_factorial(schedule, outcomes, alpha=0.05, manipulation_margin=0)
-    if result["primary"] != saved_primary:
+    primary_matches = (result["primary"] == saved_primary if primary_comparator is None else
+                       primary_comparator(result["primary"], saved_primary))
+    if not primary_matches:
         raise ValueError("primary inference differs from retained results")
     blocks = []
     for start in range(0, len(schedule), 8):

@@ -27,6 +27,10 @@ p-values and their Holm transforms. The diagnostic run showed exactly six final-
 differences, at most 5.551115123125783e-17, with all other leaves passing the original
 rule. Expected values/hashes are unchanged; receipts retain actual/expected differing
 p-values and the maximum error. This exception was not prospectively specified.
+Run 34424383262 then passed the numerical families but exposed an inner exact
+primary guard in the palette figure renderer. Portable figure replay now explicitly
+uses this same comparator and records its primary check alongside that PDF; the
+standalone renderer keeps its exact default and all input/block identity guards.
 Strict local replay still requires exact hashes. Figure byte differences on the portable path
 are reported as platform differences, not falsely called byte-identical reproduction.
 Dependencies may be downloaded during installation. During numerical analysis, a Python

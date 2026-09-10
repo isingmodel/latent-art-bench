@@ -133,3 +133,12 @@ receipts record the actual and retained p-values, total differences and maximum
 absolute error whenever the amendment is used. Subsequent hosted outcomes are
 recorded with the public release; the amendment itself is not evidence that the
 complete run succeeds.
+
+Hosted run `34424383262` subsequently passed all numerical/result families but
+stopped at the palette figure renderer's internal exact primary comparison.
+The presentation function now accepts an optional comparator, with exact equality
+still its standalone default. Only portable release replay supplies the reviewed
+comparator; the figure receipt includes its actual/retained primary hashes and any
+Welch differences. Input hashes, schedule/chroma identities, ordered-block checks,
+frozen inference and PDF byte-comparison policy are unchanged. This integration
+correction does not establish that a later hosted run has completed.
