@@ -1,0 +1,14 @@
+{
+  "baseline_usd": 67.5219185,
+  "permanent_historical_reserve_usd": 5,
+  "ceiling_usd": 120,
+  "remaining_credit_balance_queried": false,
+  "map_ledger_path": "data/manifests/painter_map_validation_v2/pmv2-20260910/generation_events.jsonl",
+  "map_ledger_sha256": "10b0f8019faf04756a3668f7dd284c39bde3628ae2cb02ca31bb5ccb6e3cdf11",
+  "old_accounting": {
+    "accounted_usd": 50.7219185,
+    "permanent_unknown_reserve_usd": 5,
+    "legacy_float_tolerance_usd": 1e-10,
+    "no_new_unresolved_liability": true
+  }
+}

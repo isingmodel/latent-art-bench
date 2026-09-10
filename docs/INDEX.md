@@ -13,6 +13,14 @@
 | [Contributing](../CONTRIBUTING.md) | Development and verification workflow |
 | [Test scope](../tests/README.md) | Smaller routine suite, retired tests and explicit historical coverage |
 
+## Active research extension
+
+- [Painter-specificity protocol](../studies/painter_specificity_v1/PROTOCOL.md):
+  six-model comparison of painter contrast recovery beyond shared painting effects.
+- [Novelty and competing explanations](../studies/painter_specificity_v1/NOVELTY.md).
+- [GPT Image 2.5 transport qualification](../studies/painter_specificity_v1/PILOT.md):
+  model support, request forwarding and pilot evidence boundaries.
+
 ## Current paper and scientific record
 
 | Material | Link |

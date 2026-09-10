@@ -14,6 +14,16 @@ See [test scope](../tests/README.md). The original `pytest.ini`, `pyproject.toml
 bound tests and published evidence remain unchanged; routine selection lives in
 `pytest-paper.ini`. Use an explicit `tests` argument for the full retained suite.
 
+## New active goal
+
+The user has now authorized a separate painter-specificity extension and full
+manuscript reframing. See the first active-goal section of [STATUS.md](STATUS.md)
+and [the new protocol](../studies/painter_specificity_v1/PROTOCOL.md). The prior
+review stopping condition below applies to that old iteration. Do not resume its
+collectors, portable replay proposal or score optimization. Keep new evidence in
+`painter_specificity_v1`, retain all four artists, use English and keep cumulative
+paid accounting below $120 without querying remaining credit balances.
+
 ## Closed iteration and current boundary
 
 The original request used the DeerFlow academic-paper-review skill, three

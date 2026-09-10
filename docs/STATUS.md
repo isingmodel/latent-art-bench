@@ -1,10 +1,35 @@
-# Current status — 2026-09-10
+# Current status — 2026-09-11
 
 Work is on `codex/restore-four-artist-analysis`. The canonical English manuscript
 is [paper/paper.tex](../paper/paper.tex). Read [ARTIFACTS.md](ARTIFACTS.md) for
 retention rules, [AGENT_HANDOVER.md](AGENT_HANDOVER.md) for operational boundaries,
 and [ANALYSES.md](ANALYSES.md) for computation and plotting commands.
 No terminal study is reopened, and both user-owned Korean files remain untouched.
+
+## Active goal: painter specificity and explanatory model comparisons
+
+The user authorized a new research/manuscript goal around whether painter names
+recover artist-specific variation beyond a shared painting appearance. This
+supersedes the old review-cycle stopping instruction for **this new scope only**.
+The new [protocol](../studies/painter_specificity_v1/PROTOCOL.md) retains four
+painters, 31 features and no human ratings. It plans 1,152 outputs from six models
+on 16 common scenes, including generic and artist-free controls, with paired
+regressions and repeat-corrected artist-geometry errors. Existing terminal evidence
+remains closed. No scientific output from this new allocation has been generated yet.
+
+Local support for GPT Image 2.5 Flare/Sunburst is implemented in the separate
+openai-oauth checkout at commit `d0a390f`; both isolated transport probes returned
+an image. Exact IDs are forwarded without fallback. The responses omit a model
+ID and return nonsquare/low-quality metadata despite square/medium requests;
+the experiment retains that limitation and includes common-square measurement.
+The dedicated adapter listens on port 10533; the earlier port 10532 is untouched.
+
+Historical ledger arithmetic has been reconciled at **$67.5219185**, including
+the existing $5 reserve. The newly authorized ceiling is **strictly below $120**;
+remaining credit balances are not queried. The panel contains 384 paid outputs
+and uses reservations for pending or unknown charges. The prospective statistical
+implementation is being checked before its source/assignment freeze. The English
+paper and literature positioning will be revised after the new analysis.
 
 ## Reduced routine test scope
 
