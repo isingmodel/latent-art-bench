@@ -49,8 +49,8 @@ passes exact fresh local and anonymous replay with 75 tests each. A single
 [Ubuntu attempt](reports/paper_map_validation_reproducibility_v2/pmv2r-20260910/HOSTED_REPORT.md)
 fails the qualification comparison before observed replay; its tests and
 inventory checks pass. Cross-platform replay remains unestablished. The fixed
-round-3 score mean is **8.9**; three reviewers are assessing the new 39-page
-version under the unchanged rubric. See
+round-4 score mean is **8.9333** after three full reviews of the 39-page
+version under the unchanged rubric. The target remains unmet. See
 [STATUS.md](docs/STATUS.md) for current manuscript integration and verification.
 
 The [four-painter exploration](reports/painter_distribution_exploration_v1/REPORT.md)

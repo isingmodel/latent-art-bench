@@ -1,6 +1,6 @@
 # Substantive academic revision: review record
 
-**Round 3 is complete: the nine-score mean is 8.9/10 (80.1 ÷ 9). The user's
+**Round 4 is complete: the nine-score mean is 8.9333/10 (80.4 ÷ 9). The user's
 strictly-greater-than-9 target has not been reached.** All scores remain exactly
 as assigned under the unchanged [three-aspect rubric](../20260909_academic_review/RUBRIC.md)
 and requested [DeerFlow academic-paper-review skill](https://github.com/bytedance/deer-flow/blob/main/skills/public/academic-paper-review/SKILL.md).
@@ -23,8 +23,11 @@ meet a target, and unperformed work receives no credit.
 | 3 | [1](REVIEWER_1_ROUND3.md) | 8.8 | 8.6 | 9.0 | 8.8000 |
 | 3 | [2](REVIEWER_2_ROUND3.md) | 8.9 | 8.8 | 9.4 | 9.0333 |
 | 3 | [3](REVIEWER_3_ROUND3.md) | 8.9 | 8.6 | 9.1 | 8.8667 |
+| 4 | [1](REVIEWER_1_ROUND4.md) | 8.9 | 8.7 | 8.9 | 8.8333 |
+| 4 | [2](REVIEWER_2_ROUND4.md) | 9.0 | 8.9 | 9.3 | 9.0667 |
+| 4 | [3](REVIEWER_3_ROUND4.md) | 8.9 | 8.8 | 9.0 | 8.9000 |
 
-Round means: **8.2333333333**, **8.6888888889**, **8.9000000000**.
+Round means: **8.2333333333**, **8.6888888889**, **8.9000000000**, **8.9333333333**.
 All nine aspect scores have equal weight.
 
 ## Reviewed snapshots
@@ -161,7 +164,7 @@ including favorable coverage and failed precision. This is a planning result,
 not a new map-transfer or service-validation result, and receives no automatic
 score increase. The current scored mean remains **8.9000**.
 
-## Completed prospective fixed-map extension, awaiting Round 4
+## Completed prospective fixed-map extension, reviewed in Round 4
 
 After the failed v1 design, one separately declared R10 version passed the
 unchanged 27 historical-proxy coverage/precision criteria before new image
@@ -186,7 +189,24 @@ path. Scene novelty, time and service behavior are not separately identified.
 auditors disclose their implementation/design roles; neither is independent
 human replication. The separate 74-file public numerical archive has passed
 fresh local replay of all 27 qualification cells and the exact observed
-analysis/report, with 75 tests and final inventory checks. Anonymous and strict
-hosted replay outcomes are recorded separately as they complete. These additions
-supply no automatic score change; Round 4 must assess the final complete
-manuscript and actual evidence under the unchanged rubric.
+analysis/report, with 75 tests and final inventory checks. Anonymous-download
+replay also passes exactly on the same Mac. The single strict Ubuntu attempt
+fails qualification comparison before observed replay; its 75 tests and
+inventories pass, but the differing numerical leaf remains unidentified.
+
+All three Round 4 reviewers read the complete 39-page manuscript, all appendices
+and nine figures, checked the 21 snapshot hashes and consulted targeted primary
+literature. Their modest increases credit the prospective observations, including
+the contrary outcome. The actual Ubuntu failure lowers practical reproduction
+scores; the new observations do not validate capture meaning, actual-service
+interval coverage or a general predictor of evaluator agreement.
+
+The next revisions clarify the full historical fits/full-cloud finite-repeat
+target versus the earlier fold evaluation and distinguish the same-template
+temporal FLUX collection from the new-scene panel. A separate read-only software
+diagnostic will identify the Ubuntu comparison failure before any portability
+remedy is proposed. The closed strict attempt, all original comparator thresholds,
+scientific sources and outputs remain unchanged. No additional collection,
+extraction, formal allocation qualification or retained-data sensitivity search
+is part of this revision. Editorial fixes and diagnostic work receive no
+automatic score increase.

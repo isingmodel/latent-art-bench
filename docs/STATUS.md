@@ -12,9 +12,12 @@ The user requests three skeptical reviews and substantive paper/analysis revisio
 until the unchanged nine-score average exceeds 9. Fixed aspects are scientific
 rigor, contribution, and clarity/reproducibility, each scored 1–10.
 [Round 1](reviews/20260910_substantive_revision/REVIEW.md) averaged **8.2333**;
-round 2 averaged **8.6889**; round 3 averaged **8.9000**. The target remains unmet; three reviewers are assessing the committed
+round 2 averaged **8.6889**; round 3 averaged **8.9000**; round 4 averaged
+**8.9333**. The target remains unmet. Three reviewers completed the committed
 [39-page Round 4 snapshot](reviews/20260910_substantive_revision/ROUND4_SNAPSHOT.json).
-All nine round-3 scores are preserved in the linked review record.
+All assigned scores are preserved in the linked review record. Current work
+clarifies interpretation and diagnoses the Ubuntu failure in a distinct software
+boundary, without reopening its closed strict attempt or changing scientific evidence.
 Reviewers are maintainer-run LLM subagents with disclosed subsequent design,
 implementation or writing involvement, not independent human/institutional reviewers.
 
@@ -173,8 +176,8 @@ The precollection [analysis](../studies/painter_map_validation_v2/ANALYSIS_REVIE
 [coordinator](../studies/painter_map_validation_v2/PRECOLLECTION_REVIEW.md) reviews
 remain source-bound. The working 39-page manuscript includes both allocation decisions, the interval
 method and the contrary prospective result. All pages were rendered and inspected;
-all nine figure replays pass. The latest complete suite passed 1,939 tests; a
-final offline rerun with terminal records and public exports is in progress.
+all nine figure replays pass. The final offline rerun with terminal records and public exports passed
+**1,939 tests in 473.41 seconds**. Whole-tree Ruff and `git diff --check` pass.
 
 A separate [stage R0 capture audit](../reports/painter_capture_audit_v1/pcav1-20260910/REPORT.md)
 is terminal: **zero qualified pairs after 15 metadata requests across five

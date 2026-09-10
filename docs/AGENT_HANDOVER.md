@@ -12,12 +12,11 @@ The [paper guide](../paper/README.md) covers compilation and visual inspection;
 The user requests three skeptical LLM reviews using the DeerFlow academic-paper-
 review skill, substantive paper/analysis revisions and a nine-score mean above 9.
 The fixed aspects are rigor, contribution and clarity/reproducibility, each 1–10.
-Round 1 averaged 8.2333; round 2 averaged 8.6889; round 3 averaged 8.9000.
-The requested threshold remains unmet; all three reviewers are assessing the
-[39-page Round 4 snapshot](reviews/20260910_substantive_revision/ROUND4_SNAPSHOT.json).
-All three round-3 reviewers inspected
-the complete 35-page manuscript and nine figures; subsequent presentation fixes
-do not constitute a new scored review. See the [review record](reviews/20260910_substantive_revision/REVIEW.md)
+Round 1 averaged 8.2333; round 2 averaged 8.6889; round 3 averaged 8.9000;
+round 4 averaged 8.9333. The requested threshold remains unmet. All three reviewers
+completed the [39-page Round 4 snapshot](reviews/20260910_substantive_revision/ROUND4_SNAPSHOT.json),
+including all appendices and nine figures. Current wording corrections and a
+separate Ubuntu diagnostic receive no automatic score increase. See the [review record](reviews/20260910_substantive_revision/REVIEW.md)
 for exact snapshots and scores. Do not inflate scores or claim the goal achieved
 before the honest mean exceeds the threshold. All reviewers are operated by the
 maintainer and have disclosed subsequent design/implementation involvement.
