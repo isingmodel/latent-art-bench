@@ -1,0 +1,21 @@
+{
+  "allowed_get_urls": [
+    "https://openrouter.ai/api/v1/credits",
+    "https://openrouter.ai/api/v1/images/models/black-forest-labs/flux.2-max/endpoints"
+  ],
+  "automatic_retries": 0,
+  "maximum_gets": 2,
+  "maximum_response_bytes": 8388608,
+  "receipt_id": "pmv-feasibility-20260910a",
+  "redirects": false,
+  "schema": "painter-map-validation-metadata-start/1",
+  "source": {
+    "git_head": "c262d984bc2272606a58ad218cdc1abd475ac969",
+    "httpx": "0.28.1",
+    "note": "Metadata feasibility only; this is not a scientific source/assignment freeze.",
+    "python": "3.13.11",
+    "script": "studies/painter_map_validation_v1/preflight.py",
+    "script_sha256": "f26aa82991c0b4b9a1ee22c4c9b268ea09beed04a1ab0a740949cfa4168198c4"
+  },
+  "started_at_utc": "2026-09-10T08:16:23.162519+00:00"
+}

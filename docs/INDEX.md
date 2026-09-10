@@ -18,6 +18,7 @@
 | Material | Link |
 | --- | --- |
 | Current substantive reviews | [Three-round aggregate and revision record](reviews/20260910_substantive_revision/REVIEW.md), [fixed round-3 snapshot](reviews/20260910_substantive_revision/ROUND3_SNAPSHOT.json); three maintainer-run LLM reviewers, nine-score mean 8.9000, requested threshold unmet |
+| Prospective evidence feasibility | [Map-validation metadata scope](../studies/painter_map_validation_v1/PREFLIGHT.md) and [capture provenance audit](../studies/painter_capture_audit_v1/PROTOCOL.md); bounded new scopes, no reopening of terminal cohorts |
 | Final presentation checks | [Figure 3 parity](reviews/20260910_substantive_revision/FIGURE3_PRESENTATION_QA_1.md), [all 36 pages and correction verification](reviews/20260910_substantive_revision/FINAL_PRESENTATION_QA_3.md); no additional scientific score |
 | Final paper publication | [Source-build and anonymous-access record](../reports/paper_clause_reproducibility_v1/pcrv1-20260910/REPORT.md#final-english-manuscript-assets); 36-page paper, complete source bundle and unchanged numerical archives |
 | New validation and replication follow-up | [Measurement challenge protocol](../studies/painter_measurement_validation_v1/PROTOCOL.md) tests fixed computational image changes and common-square sensitivity; [naming/palette successor protocol](../studies/painter_naming_replication_v1/PROTOCOL.md) specifies a separate bounded collection. See [current status](STATUS.md) for gates and actual execution. |

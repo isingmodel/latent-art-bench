@@ -1,0 +1,364 @@
+{
+  "schema_version": 1,
+  "study_id": "painter_capture_audit_v1",
+  "run_id": "pcav1-20260910",
+  "stage": "R0_metadata_only",
+  "design_date": "2026-09-10",
+  "status": "prospective_awaiting_review_and_commit",
+  "global_attempt_cap": 15,
+  "per_candidate_attempt_cap": 3,
+  "remaining_panel_count_before_shortlist": 66,
+  "excluded_previously_audited_item_qids": [
+    "Q67609602",
+    "Q50700359",
+    "Q105099583",
+    "Q64366377"
+  ],
+  "ranking_basis": "Retained metadata provenance only; no feature values, scientific effect, omission influence, or pixels used.",
+  "candidate_4_5_activation_rule": "New actionable capture/master evidence from initial three in commons_own_work_rlbberlin or cezanne_catalogue_to_institution; log why it applies before attempting candidate 4. Accessibility, repeated own-work claims, dates, or catalogue entries alone do not qualify. A Flickr-only finding does not activate these candidates.",
+  "url_rule": "Listed metadata URLs or a redirect/directly linked metadata-provenance route for the exact same identity or named capture lineage, within the fixed candidate cap. No image/PDF/media requests or searches.",
+  "retained_inputs": [
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-20260906/reference_panel.jsonl",
+      "sha256": "760ec4d5b4f5d7ea48a2a7ec23cdab3ca20d7994e0e92d7dec820ad453dca191"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/deliveries.jsonl",
+      "sha256": "4d21c424a73e8e191b781b4dc4425e6c4a8b73aae41ed24edbe81c85d33aff1d"
+    },
+    {
+      "path": "studies/painter_responsiveness_v1/CAPTURE_FEASIBILITY.md",
+      "sha256": "c403f7d91198a14cd98eb8e473b92bba1729810393c28042cac495af3188eb82"
+    }
+  ],
+  "candidates": [
+    {
+      "priority": 1,
+      "work_id": "wikidata:Q106925109",
+      "item_qid": "Q106925109",
+      "painter_id": "claude_monet",
+      "retained_title": "The Houses in the Snow, Norway",
+      "accessions": [
+        "39.2017"
+      ],
+      "collection_ids": [
+        "Q1189960"
+      ],
+      "activation": "initial",
+      "attempt_cap": 3,
+      "source_families": [
+        "flickr_ergsap",
+        "denver_institution"
+      ],
+      "commons_filename": "File:Monet houses snow norway 1895.jpg",
+      "commons_page_id": 28108254,
+      "retained_reference_parent_sha1": "bf3b661e014e526373e6921b378e9cfe9255bbdd",
+      "retained_metadata_response_path": "research_workspace/painter_distribution_study_v1/pdsv1-metadata-20260906/responses/fcbd89e395a9a1c0636d44f3a84f18b1b20152751d726c7111705eb77217e765.body.gz",
+      "retained_metadata_body_sha256": "fcbd89e395a9a1c0636d44f3a84f18b1b20152751d726c7111705eb77217e765",
+      "retained_metadata_gzip_sha256": "0cf963251411b8f7e5f90aff2f6b24b024b19a7dff823f6ba00dda2fe553634a",
+      "retained_capture_workflow": "unresolved",
+      "retained_metadata_fields": {
+        "Credit": {
+          "value": "<a href=\"//commons.wikimedia.org/wiki/Flickr\" class=\"mw-redirect\" title=\"Flickr\">Flickr</a>: <a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/78492580@N02/9610751302\">monet_houses_snow_norway_1895</a>",
+          "source": "commons-desc-page"
+        },
+        "Artist": {
+          "value": "<a href=\"//www.flickr.com/people/78492580@N02\" class=\"extiw\" title=\"flickruser:78492580@N02\">ErgSap</a>",
+          "source": "commons-desc-page"
+        },
+        "DateTimeOriginal": {
+          "value": "2013-08-27 12:38:00",
+          "source": "commons-desc-page"
+        },
+        "DateTime": {
+          "value": "2013-09-06 20:43:03",
+          "source": "mediawiki-metadata",
+          "hidden": ""
+        },
+        "LicenseShortName": {
+          "value": "CC BY 2.0",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "LicenseUrl": {
+          "value": "https://creativecommons.org/licenses/by/2.0",
+          "source": "commons-desc-page"
+        }
+      },
+      "allowed_start_metadata_urls": [
+        {
+          "role": "retained_commons_description",
+          "url": "https://commons.wikimedia.org/wiki/File:Monet_houses_snow_norway_1895.jpg"
+        },
+        {
+          "role": "retained_credited_source",
+          "url": "https://www.flickr.com/photos/78492580@N02/9610751302"
+        },
+        {
+          "role": "retained_authority_or_catalogue",
+          "url": "https://www.denverartmuseum.org/en/object/39.2017"
+        }
+      ],
+      "qualification_at_design": "unresolved_no_verified_capture_pair"
+    },
+    {
+      "priority": 2,
+      "work_id": "wikidata:Q2450237",
+      "item_qid": "Q2450237",
+      "painter_id": "claude_monet",
+      "retained_title": "Weeping Willow",
+      "accessions": [
+        "AP 1996.02"
+      ],
+      "collection_ids": [
+        "Q1741629"
+      ],
+      "activation": "initial",
+      "attempt_cap": 3,
+      "source_families": [
+        "commons_own_work_rlbberlin",
+        "kimbell_institution"
+      ],
+      "commons_filename": "File:Claude Monet Weeping Willow.jpg",
+      "commons_page_id": 923779,
+      "retained_reference_parent_sha1": "f1a6887fd50611eb32062435d4f639d522c4044f",
+      "retained_metadata_response_path": "research_workspace/painter_distribution_study_v1/pdsv1-metadata-20260906/responses/efd09d944fd48142531daa4b44701b918f8c04521c4015db1a393a6cd56dff74.body.gz",
+      "retained_metadata_body_sha256": "efd09d944fd48142531daa4b44701b918f8c04521c4015db1a393a6cd56dff74",
+      "retained_metadata_gzip_sha256": "06ea4ea3aae49dfaa6387d2dde0923f5464d5a09323f81af5697535b8e8b362a",
+      "retained_capture_workflow": "unresolved",
+      "retained_metadata_fields": {
+        "Credit": {
+          "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span> <a href=\"//commons.wikimedia.org/wiki/User:Rlbberlin\" title=\"User:Rlbberlin\">user:Rlbberlin</a>",
+          "source": "commons-desc-page"
+        },
+        "Artist": {
+          "value": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Claude_Monet\" class=\"extiw\" title=\"w:en:Claude Monet\"><span title=\"French painter (1840–1926)\">Claude Monet</span></a></bdi>",
+          "source": "commons-desc-page"
+        },
+        "DateTimeOriginal": {
+          "value": "1918 <span class=\"mw-valign-text-top noprint\" typeof=\"mw:File/Frameless\"><a href=\"https://www.wikidata.org/wiki/Q2450237#P571\" title=\"Edit this at Wikidata\"><img alt=\"Edit this at Wikidata\" src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/OOjs_UI_icon_edit-ltr-progressive.svg/20px-OOjs_UI_icon_edit-ltr-progressive.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"10\" height=\"10\" class=\"mw-file-element\" data-file-width=\"20\" data-file-height=\"20\"></a></span>",
+          "source": "commons-desc-page"
+        },
+        "DateTime": {
+          "value": "2019-05-26 08:12:48",
+          "source": "mediawiki-metadata",
+          "hidden": ""
+        },
+        "LicenseShortName": {
+          "value": "Public domain",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "LicenseUrl": null
+      },
+      "allowed_start_metadata_urls": [
+        {
+          "role": "retained_commons_description",
+          "url": "https://commons.wikimedia.org/wiki/File:Claude_Monet_Weeping_Willow.jpg"
+        },
+        {
+          "role": "retained_authority_or_catalogue",
+          "url": "https://www.kimbellart.org/collection-object/weeping-willow"
+        }
+      ],
+      "qualification_at_design": "unresolved_no_verified_capture_pair"
+    },
+    {
+      "priority": 3,
+      "work_id": "wikidata:Q64319425",
+      "item_qid": "Q64319425",
+      "painter_id": "paul_cezanne",
+      "retained_title": "La Mer à l'Estaque",
+      "accessions": [
+        "GR 1.905"
+      ],
+      "collection_ids": [
+        "Q20862230"
+      ],
+      "activation": "initial",
+      "attempt_cap": 3,
+      "source_families": [
+        "flickr_ergsap",
+        "cezanne_catalogue_to_institution"
+      ],
+      "commons_filename": "File:Cezanne landscape study after nature.jpg",
+      "commons_page_id": 29050172,
+      "retained_reference_parent_sha1": "8adec071de66a52f51acc332ffe545139329aa90",
+      "retained_metadata_response_path": "research_workspace/painter_distribution_study_v1/pdsv1-metadata-20260906/responses/fcbd89e395a9a1c0636d44f3a84f18b1b20152751d726c7111705eb77217e765.body.gz",
+      "retained_metadata_body_sha256": "fcbd89e395a9a1c0636d44f3a84f18b1b20152751d726c7111705eb77217e765",
+      "retained_metadata_gzip_sha256": "0cf963251411b8f7e5f90aff2f6b24b024b19a7dff823f6ba00dda2fe553634a",
+      "retained_capture_workflow": "unresolved",
+      "retained_metadata_fields": {
+        "Credit": {
+          "value": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.flickr.com/photos/ergsap/9630298363/\">https://www.flickr.com/photos/ergsap/9630298363/</a>",
+          "source": "commons-desc-page"
+        },
+        "Artist": {
+          "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/78492580@N02\">ErgSap - Android apps !</a>",
+          "source": "commons-desc-page"
+        },
+        "DateTimeOriginal": {
+          "value": "1876",
+          "source": "commons-desc-page"
+        },
+        "DateTime": {
+          "value": "2013-10-17 05:52:27",
+          "source": "mediawiki-metadata",
+          "hidden": ""
+        },
+        "LicenseShortName": {
+          "value": "CC BY 2.0",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "LicenseUrl": {
+          "value": "https://creativecommons.org/licenses/by/2.0",
+          "source": "commons-desc-page"
+        }
+      },
+      "allowed_start_metadata_urls": [
+        {
+          "role": "retained_commons_description",
+          "url": "https://commons.wikimedia.org/wiki/File:Cezanne_landscape_study_after_nature.jpg"
+        },
+        {
+          "role": "retained_credited_source",
+          "url": "https://www.flickr.com/photos/ergsap/9630298363/"
+        },
+        {
+          "role": "retained_authority_or_catalogue",
+          "url": "https://www.cezannecatalogue.com/catalogue/entry.php?id=279"
+        },
+        {
+          "role": "retained_authority_or_catalogue",
+          "url": "http://www.sammlung-rau-fuer-unicef.de/index.php?level=picture&id=667"
+        }
+      ],
+      "qualification_at_design": "unresolved_no_verified_capture_pair"
+    },
+    {
+      "priority": 4,
+      "work_id": "wikidata:Q28126494",
+      "item_qid": "Q28126494",
+      "painter_id": "paul_cezanne",
+      "retained_title": "Millstone and Cistern under Trees (La Meule et citerne en sous-bois)",
+      "accessions": [
+        "BF165"
+      ],
+      "collection_ids": [
+        "Q808462"
+      ],
+      "activation": "conditional_same_source_family_evidence_from_initial_three",
+      "attempt_cap": 3,
+      "source_families": [
+        "commons_own_work_rlbberlin",
+        "cezanne_catalogue_to_institution"
+      ],
+      "commons_filename": "File:Paul Cezanne Meule et citerne en sous bois.jpg",
+      "commons_page_id": 748655,
+      "retained_reference_parent_sha1": "e92df2bdf4fd75aee17f986a2fe1c5eb26f802cb",
+      "retained_metadata_response_path": "research_workspace/painter_distribution_study_v1/pdsv1-metadata-20260906/responses/aadcdc7e4219e5481a2819bd093d7614c4e36edbcc519754d953fa8e16a3a70a.body.gz",
+      "retained_metadata_body_sha256": "aadcdc7e4219e5481a2819bd093d7614c4e36edbcc519754d953fa8e16a3a70a",
+      "retained_metadata_gzip_sha256": "97cbff2ccdf985b8b3a372ea3e2229cb1c4937940315f1bc37fbb5372a451422",
+      "retained_capture_workflow": "unresolved",
+      "retained_metadata_fields": {
+        "Credit": {
+          "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>, <a href=\"//commons.wikimedia.org/wiki/User:Rlbberlin\" title=\"User:Rlbberlin\">user:Rlbberlin</a>",
+          "source": "commons-desc-page"
+        },
+        "Artist": {
+          "value": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Paul_C%C3%A9zanne\" class=\"extiw\" title=\"w:en:Paul Cézanne\"><span title=\"French painter (1839–1906)\">Paul Cézanne</span></a></bdi>",
+          "source": "commons-desc-page"
+        },
+        "DateTimeOriginal": {
+          "value": "1892<div style=\"display: none;\">date QS:P571,+1892-00-00T00:00:00Z/9</div>",
+          "source": "commons-desc-page"
+        },
+        "DateTime": {
+          "value": "2006-05-01 13:13:27",
+          "source": "mediawiki-metadata",
+          "hidden": ""
+        },
+        "LicenseShortName": {
+          "value": "Public domain",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "LicenseUrl": null
+      },
+      "allowed_start_metadata_urls": [
+        {
+          "role": "retained_commons_description",
+          "url": "https://commons.wikimedia.org/wiki/File:Paul_Cezanne_Meule_et_citerne_en_sous_bois.jpg"
+        },
+        {
+          "role": "retained_authority_or_catalogue",
+          "url": "https://www.cezannecatalogue.com/catalogue/entry.php?id=741"
+        }
+      ],
+      "qualification_at_design": "unresolved_no_verified_capture_pair"
+    },
+    {
+      "priority": 5,
+      "work_id": "wikidata:Q28126470",
+      "item_qid": "Q28126470",
+      "painter_id": "paul_cezanne",
+      "retained_title": "House and Trees (Maison et arbres)",
+      "accessions": [
+        "BF89"
+      ],
+      "collection_ids": [
+        "Q808462"
+      ],
+      "activation": "conditional_same_source_family_evidence_from_initial_three",
+      "attempt_cap": 3,
+      "source_families": [
+        "commons_own_work_rlbberlin",
+        "cezanne_catalogue_to_institution"
+      ],
+      "commons_filename": "File:Paul Cezanne Maison et arbes.jpg",
+      "commons_page_id": 748579,
+      "retained_reference_parent_sha1": "47e08903a77ebe10f31421c5b14e0a9956265850",
+      "retained_metadata_response_path": "research_workspace/painter_distribution_study_v1/pdsv1-metadata-20260906/responses/aadcdc7e4219e5481a2819bd093d7614c4e36edbcc519754d953fa8e16a3a70a.body.gz",
+      "retained_metadata_body_sha256": "aadcdc7e4219e5481a2819bd093d7614c4e36edbcc519754d953fa8e16a3a70a",
+      "retained_metadata_gzip_sha256": "97cbff2ccdf985b8b3a372ea3e2229cb1c4937940315f1bc37fbb5372a451422",
+      "retained_capture_workflow": "unresolved",
+      "retained_metadata_fields": {
+        "Credit": {
+          "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>, <a href=\"//commons.wikimedia.org/wiki/User:Rlbberlin\" title=\"User:Rlbberlin\">user:Rlbberlin</a>",
+          "source": "commons-desc-page"
+        },
+        "Artist": {
+          "value": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Paul_C%C3%A9zanne\" class=\"extiw\" title=\"w:en:Paul Cézanne\"><span title=\"French painter (1839–1906)\">Paul Cézanne</span></a></bdi>",
+          "source": "commons-desc-page"
+        },
+        "DateTimeOriginal": {
+          "value": "from 1890 until 1894<div style=\"display: none;\">date QS:P,+1890-00-00T00:00:00Z/8,P580,+1890-00-00T00:00:00Z/9,P582,+1894-00-00T00:00:00Z/9</div> <span class=\"mw-valign-text-top noprint\" typeof=\"mw:File/Frameless\"><a href=\"https://www.wikidata.org/wiki/Q28126470#P571\" title=\"Edit this at Wikidata\"><img alt=\"Edit this at Wikidata\" src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/OOjs_UI_icon_edit-ltr-progressive.svg/20px-OOjs_UI_icon_edit-ltr-progressive.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"10\" height=\"10\" class=\"mw-file-element\" data-file-width=\"20\" data-file-height=\"20\"></a></span>",
+          "source": "commons-desc-page"
+        },
+        "DateTime": {
+          "value": "2006-05-01 12:42:50",
+          "source": "mediawiki-metadata",
+          "hidden": ""
+        },
+        "LicenseShortName": {
+          "value": "Public domain",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "LicenseUrl": null
+      },
+      "allowed_start_metadata_urls": [
+        {
+          "role": "retained_commons_description",
+          "url": "https://commons.wikimedia.org/wiki/File:Paul_Cezanne_Maison_et_arbes.jpg"
+        },
+        {
+          "role": "retained_authority_or_catalogue",
+          "url": "https://www.cezannecatalogue.com/catalogue/entry.php?id=611"
+        }
+      ],
+      "qualification_at_design": "unresolved_no_verified_capture_pair"
+    }
+  ]
+}

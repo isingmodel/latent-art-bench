@@ -95,7 +95,28 @@ credentials, literature full text, weights and Korean drafts are excluded.
 Cumulative conservative OpenRouter accounting is **$50.7219185** against the
 user's **$75** ceiling, including a retained historical $5 reserve. The temporal
 FLUX collection added $5.04; both clause cohorts add zero paid cost. No monetary
-value is assigned to OAuth subscription use. No further generation is planned.
+value is assigned to OAuth subscription use. No further clause generation is planned.
+
+The next review response is assessing a distinct, prospectively fixed
+FLUX/Cezanne map-validation study on 12 new scenes. Candidate allocations are
+96, 144 or 192 outputs; none is selected or authorized for dispatch before its
+offline uncertainty/precision qualification and new collection freeze. It cannot
+restore either unavailable clause endpoint, reuse their slots or pool cohorts.
+A bounded metadata-only preflight at 08:16 UTC on 10 September records
+**$19.2726443 actual OpenRouter credits** and the unchanged `flux.2-max`
+provider quote of **$0.07 per output megapixel**. This is separate from the
+$24.2780815 project ceiling headroom. No new images or paid requests were made.
+The create-once receipt is under
+`data/manifests/painter_map_validation_v1/metadata/pmv-feasibility-20260910a/`;
+source commit `c262d98`. The manuscript also now includes an analytically checked
+fixed-center convexity observation, without new vector evaluation or a new score.
+
+A separate [stage R0 capture audit](../studies/painter_capture_audit_v1/PROTOCOL.md)
+will examine five retained provenance leads, with at most 15 metadata requests
+and no images. Its inventory excludes the four previously audited works;
+the last two candidates require new relevant source-family evidence before
+activation. Capture qualification, image acquisition and measurement remain
+closed until any later applicable gates are satisfied.
 
 Human style ratings, independently captured reproductions, learned-feature
 validation and replication by separate investigators remain unperformed.

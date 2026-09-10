@@ -1,0 +1,54 @@
+{
+  "ended_at_utc": "2026-09-10T08:16:23.721150+00:00",
+  "generation_requests": 0,
+  "paid_image_requests": 0,
+  "receipt_id": "pmv-feasibility-20260910a",
+  "requests": [
+    {
+      "ended_at_utc": "2026-09-10T08:16:23.703684+00:00",
+      "http_status": 200,
+      "method": "GET",
+      "projection": {
+        "available_usd": "19.2726443"
+      },
+      "response_body_sha256": "599ea98627f8abaf0faf10607e5af0afa5d434c7fa9a910074a1f95c6f552542",
+      "response_bytes": 54,
+      "started_at_utc": "2026-09-10T08:16:23.204921+00:00",
+      "status": "ok",
+      "url": "https://openrouter.ai/api/v1/credits"
+    },
+    {
+      "ended_at_utc": "2026-09-10T08:16:23.721008+00:00",
+      "http_status": 200,
+      "method": "GET",
+      "projection": {
+        "id": "black-forest-labs/flux.2-max",
+        "pricing": [
+          {
+            "billable": "output_image",
+            "cost_usd": "0.07",
+            "unit": "megapixel"
+          }
+        ],
+        "provider_slug": "black-forest-labs/us-3",
+        "provider_tag": "black-forest-labs/us-3"
+      },
+      "response_body_sha256": "765c865e57488f2620f6860c6562b4d4696460e442f596c24bdb89895f7ea99d",
+      "response_bytes": 641,
+      "started_at_utc": "2026-09-10T08:16:23.703700+00:00",
+      "status": "ok",
+      "url": "https://openrouter.ai/api/v1/images/models/black-forest-labs/flux.2-max/endpoints"
+    }
+  ],
+  "schema": "painter-map-validation-metadata-receipt/1",
+  "source": {
+    "git_head": "c262d984bc2272606a58ad218cdc1abd475ac969",
+    "httpx": "0.28.1",
+    "note": "Metadata feasibility only; this is not a scientific source/assignment freeze.",
+    "python": "3.13.11",
+    "script": "studies/painter_map_validation_v1/preflight.py",
+    "script_sha256": "f26aa82991c0b4b9a1ee22c4c9b268ea09beed04a1ab0a740949cfa4168198c4"
+  },
+  "started_sha256": "18675fab4045ff3a3a69374a587ed58d4a2de6c71b3e1b4ade31cb09efbc240b",
+  "status": "complete"
+}
