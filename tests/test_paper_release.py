@@ -89,6 +89,37 @@ def test_portable_comparison_preserves_decisions_counts_and_p_values():
         assert not release.close_values(dict(expected, **{field: value}), expected)
 
 
+def test_failed_portable_replay_reports_actual_paths_without_relaxing_p_values(capsys):
+    expected = {"primary": [{"estimate": 0.25, "raw_p": 0.125, "reject": False}]}
+    actual = {"primary": [{"estimate": 0.25 + 1e-12, "raw_p": 0.125 + 1e-12,
+                           "reject": False}]}
+    with pytest.raises(ValueError, match="numerical replay differs"):
+        release.assert_digest(actual, release.digest(expected), "replication",
+                              reference=expected, portable_numeric=True)
+    diagnostic = json.loads(capsys.readouterr().out)
+    assert diagnostic["status"] == "numerical_mismatch_diagnostic"
+    assert diagnostic["comparison"]["total_mismatches"] == 1
+    row = diagnostic["comparison"]["displayed_mismatches"][0]
+    assert row["path"] == ["primary", 0, "raw_p"]
+    assert row["actual"] == actual["primary"][0]["raw_p"]
+    assert row["expected"] == 0.125
+    assert row["absolute_and_relative_tolerance"] == 0
+    assert row["within_1e_10_if_numeric"] is True
+    assert not release.close_values(actual, expected)
+
+
+def test_comparison_diagnostics_bound_output_and_retain_structural_failures():
+    expected = {"rows": [0, 1, 2], "decision": False, "metadata": {"known": 1}}
+    actual = {"rows": [3, 4, 5], "decision": True, "metadata": {"other": 1}}
+    diagnostic = release.comparison_diagnostics(actual, expected, limit=2)
+    assert diagnostic["total_mismatches"] == 5
+    assert len(diagnostic["displayed_mismatches"]) == 2
+    assert diagnostic["truncated"] is True
+    full = release.comparison_diagnostics(actual, expected)
+    assert full["displayed_mismatches"][-1]["path"] == ["metadata"]
+    assert full["displayed_mismatches"][-1]["actual"] == {"type": "dict", "length": 1}
+
+
 def test_restoration_preserves_measurement_stage_and_development_scale():
     source = {name: [{"pipeline": "primary512", "values": [2.0] * 31}]
               for name in ("reference", "generated", "development")}
