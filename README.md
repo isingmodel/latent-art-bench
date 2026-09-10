@@ -10,7 +10,10 @@ The paper now includes **held-scene moment maps, temporal transfer and a
 center-controlled comparison**, with [public numerical replay](https://github.com/isingmodel/latent-art-bench/releases/tag/ppgv1-20260910).
 The 288-slot prospective clause validation stopped after 211 images; both
 primary comparisons are unavailable. One separately frozen, final 96-output
-Cezanne/generic comparison is running, with no pooling or new paid calls. The
+Cezanne/generic comparison is complete: energy falls from 2.166 to .970
+(paired randomization p=.00001), with named/generic trace ratio .552.
+The result uses 24 new fixed scenes; it supplies no new-scene map validation.
+There is no pooling or new paid cost. The
 [handover](docs/AGENT_HANDOVER.md) records completed work, current boundaries and
 the correction workflow; [STATUS.md](docs/STATUS.md) records integration and checks.
 
@@ -67,7 +70,7 @@ reported OpenRouter cost of $5.04. The same maintainer collected this cohort; it
 is not independent-investigator replication. The [public numerical release](https://github.com/isingmodel/latent-art-bench/releases/tag/pprv1-20260910)
 passes 98 exact checks after anonymous download and 98 checks under its documented
 Ubuntu portability contract. That preceding paper remains in its corrected `paper-r1.pdf` asset; the current
-34-page manuscript is in the additive geometry release. Both earlier archives
+geometry manuscript is in the additive geometry release. Both earlier archives
 and the explicit erratum are preserved. See the
 [verification report](reports/paper_reproducibility_v1/pprv1-20260910/REPORT.md) and
 [STATUS.md](docs/STATUS.md) for access, scope and accounting.

@@ -26,7 +26,7 @@ value to OAuth subscription use.
 | New scope | Source / qualification / freeze | State |
 | --- | --- | --- |
 | `painter_clause_validation_v1/pcvv1-20260910` | `dff2804` / `90a993f` / `79f28c1` | Permanently stopped: 211 images from 288 slots; one refusal, one unqualified server error, one cancellation before posting and 74 unattempted. Both primary comparisons and complete-grid secondary summaries are unavailable. |
-| `painter_clause_successor_v1/pcsv1-20260910` | `07f8231` / `d5887f8` / `6effea1` | One final 96-output Cezanne/generic collection, running from a verified 167-input freeze. All 24 unchanged scenes, two repeats and fresh controls; alpha .025. |
+| `painter_clause_successor_v1/pcsv1-20260910` | `07f8231` / `d5887f8` / `6effea1` | Complete: all 96 outputs in 45.5 minutes, no retries. Primary Cezanne−generic energy −1.195419353, raw p=.00001, rejects at .025; observed trace ratio .552327. All 288 measurement rows available. |
 
 The successor decision was committed at `f0ab2d4` after the initial Cezanne
 refusal, before the later stop and before feature extraction. Its allocation
@@ -40,12 +40,13 @@ records timing, accounting, response hashes and the inference restrictions.
 Both live collectors are one-shot. Do not invoke collect again, resume, refill,
 change bound source or replace failed slots. At most two requests are active,
 recorded starts are five seconds apart, and blocks drain before the next.
-The successor must become terminal before its feature extraction. Its three
+Both collections and one-shot measurements are complete. Do not invoke measure again.
+The successor's three
 pipelines and C/G energy/trace scope are fixed; it has no free arm, map/Q,
-retrieval or secondary hypothesis tests. The stopped predecessor may be measured
-after the successor freeze, preserving all 864 measurement-status rows and
-unavailable endpoints. Each namespace provides `measure`, `check` and
-`verify-responses`; the last checks private retained response hashes.
+retrieval or secondary hypothesis tests. The stopped predecessor retains all
+864 measurement-status rows and unavailable endpoints. Use each namespace's
+`check` and `verify-responses` commands for verification; the latter checks
+private retained response hashes.
 
 ## Completed scientific additions
 
@@ -83,6 +84,7 @@ make validation-check
 make replication-check
 make geometry-check
 make clause-check
+make clause-successor-check
 make figures-check
 make paper
 ```
@@ -106,9 +108,13 @@ The [geometry addendum](https://github.com/isingmodel/latent-art-bench/releases/
 of both namespaces and 95 tests. Preserve both archives, paper assets and the
 original release's explicit erratum. Their sealed packagers must not be edited.
 
-`tools/paper_clause_release.py` is the separate, currently unexported adapter
-for both clause cohorts. It is being extended and requires its own final review,
-real export, archive verification and anonymous replay before access is claimed.
+`tools/paper_clause_release.py` is the separately reviewed adapter for both
+clause cohorts. The [published addendum](../reports/paper_clause_reproducibility_v1/pcrv1-20260910/REPORT.md)
+passes exact fresh local and anonymous replay, each with 152 tests and eight
+explicit maintainer-only skips. The archive has 85 files and SHA256
+`6038da2daed74e6ed4b509464dc6f1a4dae386e644d265235de982db4bf23e40`.
+Public root commit is `866fc27`; export/build source is `c73874e`. Preserve the
+create-once export, archive and all earlier releases. Final paper assets follow review.
 See its [guide](../studies/paper_clause_reproducibility_v1/README.md).
 
 Publication uses an explicit allowlist and sanitized history-free branch. Never
@@ -119,9 +125,9 @@ pixels. Source URLs/license metadata do not grant image redistribution rights.
 
 ## Verification and preservation
 
-Latest source qualification: Ruff passes, all 1,705 offline tests pass in 201.71
-seconds, and the historical audit passes 2,902 checks. These checks precede the
-current adapter extension; final checks must reflect its actual completed source.
+Latest source qualification: Ruff passes, all 1,714 offline tests pass in 260.50
+seconds, and the historical audit passes 2,902 checks at `ae71fb3`. These checks
+cover the complete adapter source committed at `4fd4c15`.
 The historical audit does not register the new namespaces, so run their own
 replays as well. Before handoff after Python changes:
 

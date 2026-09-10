@@ -29,9 +29,11 @@ Painter names can improve the proximity of generated images to paintings without
 recovering their distribution. We study this distinction in 31 interpretable
 color, spatial and texture coordinates. Exploration covers Monet, Sisley,
 Pissarro and C\'ezanne; controlled comparisons use three image services and a
-separate 70-work Monet/C\'ezanne panel. Naming reduces energy discrepancy in all
-six controlled comparisons, with four adjusted rejections, and both FLUX effects
-recur in a later collection. A post-result analysis tests global translation and
+separate 70-work Monet/C\'ezanne panel. Against artist-free controls, naming lowers
+energy discrepancy in all six original comparisons, with four adjusted rejections;
+both FLUX effects recur later. A prospective 96-image C\'ezanne comparison also
+lowers discrepancy against a generic painting clause on 24 new scenes.
+A post-result analysis tests global translation and
 isotropic scaling fitted to generated training outputs. Actual naming is closer
 than the translation/scale benchmark in all six held-scene averages, but an
 unchanged translation alone gives lower discrepancy than actual naming for both
@@ -40,9 +42,9 @@ uniquely imply recovery of reference variation. Adding scale better predicts nam
 worsens reference proximity in five. A further benchmark holds the evaluation
 mean fixed and finds that the fitted scalar worsens proximity throughout the
 specified views. Repeat-corrected scene variance contracts,
-while scene retrieval changes in both directions. Two palette
-experiments leave additional painter-name effects beyond a generic clause
-unresolved. Processing challenges and common-square sensitivity delimit the
+while scene retrieval changes in both directions. Both palette collections
+leave named-minus-generic differences in chroma response unresolved.
+Processing challenges and common-square sensitivity delimit the
 measurement interpretation. The findings distinguish reference proximity from
 conditional organization in digital feature space; they do not identify a
 perceptual or internal generative mechanism.
@@ -63,25 +65,20 @@ both cross-collection distances and within-collection variation. A lower value
 indicates improved proximity in that geometry, but leaves an explanatory question:
 which aspects of the generated collection have moved toward the references?
 
-Our central diagnostic compares actual named outputs with simple transformations
-of artist-free outputs. A translation changes only location; a translation with
-positive isotropic scaling also changes overall spread while preserving relative
-scene geometry. Both are fitted from generated training observations, without
-optimizing against paintings, and evaluated on whole held-out scenes. Applying
-the original maps unchanged to a later collection tests their temporal transfer.
-This separates a benchmark for reference proximity from a model of conditional
-organization. The transformed coordinates are diagnostic objects, not proposed
+Our diagnostic compares actual named outputs with generated-only translation
+and translation/scaling benchmarks. Fitting excludes reference objectives;
+evaluation holds out whole scenes or applies original maps unchanged to a later
+collection. The transformed coordinates are diagnostic objects, not proposed
 image edits.
 
-Four-painter exploration provides context for the generated/reference gap.
-Separate controlled collections then examine Monet and C\'ezanne on three services,
-with repeated outputs for 24 fixed scenes. Naming improves primary proximity,
-yet the transformation comparison shows that this improvement does not single out
-one distributional account: named outputs outperform fitted translation/scaling
-in all six primary held-scene averages, whereas translation alone is closer to the references in the
-later FLUX cohort. Repeat-corrected variance and held-repetition retrieval further
-separate contraction from loss of scene distinguishability. Palette and processing
-experiments constrain interpretations of these effects.
+Four-painter exploration provides context for the gap. Controlled collections
+then compare Monet and C\'ezanne on three services using 24 repeated scenes.
+Actual naming beats translation/scaling in all six primary held-scene averages,
+but translation alone is closer to the references in the later FLUX cohort.
+Corrected variance, held-repetition retrieval, palette interventions and
+processing challenges test distinct interpretations of these proximity gains.
+A prospective C\'ezanne comparison extends the proximity result to a generic
+painting clause on 24 newly specified scene briefs.
 
 The contribution is an empirical test of what a painter-name proximity gain can
 and cannot establish in a repeated-prompt design. Conditional evaluation and
@@ -127,12 +124,11 @@ organization, testing the behavior of generated-only moment maps against both
 targets.
 
 \citet{asperti2026} reports human/generated separation in CLIP space and probes
-it using interpretable descriptors, multiscale representations and image
-inversion. Their crop, resolution and encoding probes motivate attention to the
-measurement pipeline. The preprint also presents inversion examples with visually
-small image changes despite embedding displacement. Such examples motivate
-distinguishing computational separation from perceptual judgment. Here, the
-focus is how prompt assignment changes the generated distribution.
+it with interpretable descriptors, multiscale representations and image
+inversion. Their crop, resolution and encoding probes motivate our processing
+sensitivities; visually small inversion changes despite embedding displacement
+also caution against interpreting computational separation as perceptual
+difference. We examine a prompting intervention.
 
 Conditional evaluation already distinguishes variation within conditions from
 the organization of condition means \citep{benny2021conditional}. In text-to-image
@@ -218,13 +214,17 @@ Separate prospective collection; four primary endpoints with a new Holm family;
 fixed templates and previously exposed references.\\[3pt]
 Moment-map diagnostic & Retained 864 detailed Study~1 and 72 later FLUX outputs &
 Post-result whole-scene prediction, fixed-map temporal transfer, subsequent
-evaluation centering and finite-repeat correction; no additional hypothesis-test family.\\
+evaluation centering and finite-repeat correction; no additional hypothesis-test family.\\[3pt]
+Generic-clause follow-up & 211 of 288 original outputs retained; separate 96-output
+C\'ezanne/generic cohort on 24 new scenes &
+Original comparisons unavailable; one prospectively fixed 48-pair successor
+test at $\alpha=.025$, without pooling or map evaluation.\\
 \bottomrule
 \end{tabularx}
 \caption{Design and evidence hierarchy. Exploratory collection: 5--6 September
 2026 UTC, including two later retries. Study~1 collection: 6--7 September 2026
 UTC; Study~2: 8 September 2026 UTC; temporal follow-up: 9--10 September 2026
-UTC. Painter selection followed earlier exploration,
+UTC; generic-clause follow-up: 10 September 2026 UTC. Painter selection followed earlier exploration,
 while both studies' primary contrasts were fixed before their generation.
 Sensitivity views reuse images; they are not independent replications.}
 \label{tab:design}
@@ -372,7 +372,7 @@ Study~1 tests a narrower prompt intervention with a separate reference panel and
 common scene descriptions.
 \FloatBarrier
 
-\section{Study 1: painter naming and distributional proximity}
+\section{Controlled naming and distributional proximity}
 \label{sec:controlled}
 \subsection{Design and reference panels}
 We compare 38 Monet and 32 C\'ezanne works represented by Wikimedia-delivered
@@ -455,12 +455,10 @@ on. Inference is conditional on the assigned prompts and reference panel; it doe
 not estimate an average effect over a painter's oeuvre or over new scenes. Treatment-dependent call duration or service
 carryover could violate no interference.
 
-Study~1's prompt inventory, primary metrics and eight-test family were specified
-before its generation. Its original spread, coverage, grouped detection, PCA and
-own/cross-painter distance summaries were also prospectively specified, as
-descriptive analyses. Later feature-view and reference sensitivities, the alignment
-double contrast, matched-real coverage, variance decomposition, retrieval and
-cross-service detection are post-result diagnostics. They introduce no additional confirmatory tests.
+Study~1's primary tests and original descriptive analyses were fixed before
+generation. Table~\ref{tab:design} distinguishes them from post-result
+sensitivities, alignment, matched-real coverage, decomposition, retrieval and
+cross-service detection, which add no confirmatory tests.
 
 \paragraph{Alignment and distribution diagnostics.}
 A relative alignment contrast compares both painter-conditioned collections
@@ -476,14 +474,11 @@ artist-free payloads under the two painter allocation labels provide a control
 for collection variation. This joint statistic does not require each named
 collection to be individually nearest its own panel.
 
-We use the coverage construction of \citet{naeem2020}: the fraction of reference
-neighborhoods containing at least one query image. Matched generated queries and
-disjoint real queries are evaluated against the same reference anchors. Each of 100 fixed draws
-matches query counts within content class; neighborhood radii use the first,
-third or fifth nearest other anchor. The resulting summaries describe the fixed panel (Appendix~\ref{app:coverage}). Processing and representation
-checks cross three pipelines with four feature views; reference deletions and
-four development-painter omissions assess influence
-(Appendix~\ref{app:sensitivity}).
+Coverage is the fraction of reference neighborhoods containing a query
+\citep{naeem2020}. In 100 fixed draws, generated and disjoint real queries share
+reference anchors and matched class counts, with neighborhood orders $k=1,3,5$
+(Appendix~\ref{app:coverage}). Appendix~\ref{app:sensitivity} specifies processing,
+feature-view, reference-deletion and development-painter-omission checks.
 
 \subsection{Painter naming improves primary feature proximity}
 Painter naming lowers primary energy discrepancy in all six service--painter
@@ -531,14 +526,12 @@ conditions in the final two rows name the painter.}
 \end{table}
 
 \begin{samepage}
-The same primary feature space also shows that the named collections have less
-aggregate spread than the references. Generated/reference trace ratios for the
-six detailed named cells range from .354 to .756, whereas the four NB2 and FLUX
-artist-free cells range from 1.069 to 1.535. Thus, reduced spread is not a general
-property of all generated images in this experiment. It is associated with the
-tested painter-naming conditions. The two short-scene named OAuth cells have still
-lower reference-relative ratios, .306 for Monet and .395 for C\'ezanne, although
-their energy contrasts do not establish an advantage of detailed prompting.
+The six detailed named cells have generated/reference trace ratios .354--.756,
+compared with 1.069--1.535 for the four NB2/FLUX artist-free cells
+(Figure~\ref{fig:primary}). Below-reference spread is therefore not shared by all
+generated conditions. Short-scene named OAuth ratios are lower than their
+detailed counterparts (.306 for Monet, .395 for C\'ezanne), although the
+detailed/short energy contrasts establish no advantage for detailed prompting.
 
 \end{samepage}
 
@@ -579,14 +572,11 @@ significance test or equivalence threshold is assigned to this diagnostic.}
 \label{tab:alignment}
 \end{table}
 
-Naming also changes coverage of the reference neighborhoods
-(Table~\ref{tab:coverage-main}). At $k=3$, median coverage increases in five
-service--painter comparisons and ties in OAuth/Monet. It nevertheless remains
-below the matched real-query median in every named condition. Thus contraction
-can accompany greater occupation of reference neighborhoods, even while
-coverage remains incomplete. These are descriptive comparisons using the same
-reference anchors and class-matched query counts; they introduce no additional
-significance tests.
+At $k=3$, naming increases median coverage in five service--painter cells and
+ties for OAuth/Monet, but every named median remains below the matched-real
+median (Table~\ref{tab:coverage-main}). Contraction can therefore accompany
+greater reference-neighborhood coverage. These fixed-panel comparisons remain
+descriptive.
 
 \begin{table}[!htbp]
 \centering\small
@@ -656,10 +646,68 @@ share templates, reference panels and investigators; changed sample counts and
 shared controls preclude interpreting magnitude differences as an isolated time
 effect. The later FLUX design has no within-scene repeat-noise estimate.
 
+\subsection{Prospective comparison with a generic clause}\label{sec:clause}
+We compared ``In the style of Paul Cezanne.'' with ``In a traditional
+landscape-painting style.'' on 24 new fixed scene briefs, eight per content
+class. Scene wording and the common opening/closing sentences are otherwise
+identical, without palette instructions. OAuth supplies two fresh outputs per
+scene and clause. This 96-output comparison was fixed after an availability
+failure in a four-arm allocation, before extracting features from that
+collection; its 211 returned images remain separate, with both original primary
+comparisons unavailable (Appendix~\ref{app:clause-collection}).
+
+Each two-request block randomized clause positions and completed before the next.
+The comparison uses
+48 pairs, the original 32 C\'ezanne references, reference weight $1/32$ and
+query weight $q_c/16$. We test C\'ezanne-minus-generic energy using the
+99,999-draw paired randomization procedure in Appendix~\ref{app:inference}.
+Its sharp joint availability/feature null and no-interference assumptions must
+hold conditional on the prior availability-triggered decision. The raw-$p$
+threshold remains .025 despite the unavailable original endpoints; no further
+replacement, effect interval or equivalence claim is supplied.
+
+All 96 images returned in 45.5 minutes without failures or retries. Naming
+lowers energy from 2.166 to .970 ($\Delta=-1.195$, raw $p=.00001$), rejecting
+the specified sharp null at $\alpha=.025$. This is the minimum attainable
+Monte Carlo $p$ for 99,999 draws. The named collection also has lower observed
+spread: its trace is .552 times the generic trace and .362 times the reference
+trace. Both directions persist at 256 pixels and after JPEG~90 encoding
+(Table~\ref{tab:clause}); these are descriptive views of the same images.
+
+\begin{table}[!htbp]
+\centering\small
+\begin{tabular}{lrrrr}
+\toprule
+Pipeline & Generic energy & C\'ezanne energy & Difference & C\'ezanne/generic trace\\
+\midrule
+Primary 512 & 2.166 & .970 & $-1.195$ & .552\\
+256 pixels & 2.097 & .632 & $-1.465$ & .719\\
+JPEG 90, 512 & 2.161 & .938 & $-1.223$ & .542\\
+\bottomrule
+\end{tabular}
+\caption{Fresh generic-clause comparison: 48 images per arm, 24 new fixed
+scenes and 32 retained C\'ezanne references. All rows use 31 coordinates and
+unchanged content weights. Only the first row has a primary test; lower energy
+and trace do not establish perceptual similarity or distribution equality.}
+\label{tab:clause}
+\end{table}
+
+This tests two specific clauses on an authored panel, not a population of scenes
+or generic phrasings. All outputs are nonsquare PNGs;
+reported quality is medium for 16 generic and six C\'ezanne outputs and low
+otherwise, despite identical square/medium requests. The contrast includes
+these delivery differences. Changing scenes, controls, time and repeat count
+also prevents attributing its larger magnitude than the original OAuth contrast
+to the generic clause alone. The successor has no free arm and does not evaluate
+global feature maps or conditional predictions; prospective map validation
+therefore remains unavailable. The following diagnostics address the separate question
+of what reference proximity establishes about generated variation.
+
 \section{Can global feature transformations predict naming?}
 \label{sec:moment}
 \subsection{Generated-only fitting and whole-scene evaluation}
-We specified this diagnostic after observing the preceding results. It uses
+We specified this diagnostic after observing Study~1 and the temporal FLUX
+results, before the prospective generic-clause follow-up. It uses
 all 864 detailed Study~1 outputs and the later 72 FLUX outputs, without new
 images or feature extraction. For generated training clouds F and N, let
 $\mu_F,\mu_N$ be their weighted means and $V_F,V_N$ their population-form traces.
@@ -673,22 +721,19 @@ The maps use the original content weights and no reference objective. The scalar
 matches total observed traces; it is not a noise-corrected latent response gain.
 Neither map rotates features or alters the relative geometry of scene centroids.
 
-Four fixed folds hold out six whole scenes each, two per content class. Each map
-uses the other 18 scenes and their three repeats. Energy is computed separately
-for each 18-image held-out cloud and averaged across folds. Pooling clouds from
-different maps would introduce map-estimation variation. This fold score also
-has a different finite-sample baseline from the original 72-image energy because
-it excludes between-fold generated self-distances. Actual and transformed outputs
-are compared on the same fold scale.
+Each of four folds holds out six scenes, two per class; maps use the other
+18 scenes and their three repeats. We score each 18-image held-out cloud
+separately and average across folds. Pooling different maps would add
+map-estimation variation. The fold score excludes between-fold generated
+distances, so its finite-sample baseline differs from the original 72-image
+energy; actual and transformed outputs share the fold scale.
 
-The residual $\E(X,N_{test})-\E(X,T_k(F_{test}))$ is negative when actual named
-outputs are closer than benchmark $k$. Near-zero residuals are not equivalence
-results. We report all folds and, in the primary representation, recompute the
-procedure after deleting each scene, retaining fixed folds and restoring content
-masses within each fold.
-These overlapping fits and deletion summaries are descriptive; they are not
-independent observations, confidence intervals or tests of a composite map model.
-Appendix~\ref{app:moment} gives the complete specification and primary values.
+The residual $\E(X,N_{test})-\E(X,T_k(F_{test}))$ favors actual naming when
+negative. We report every fold and rerun the primary procedure after deleting
+each scene, preserving fold IDs and restoring content masses within each fold
+(Appendix~\ref{app:moment}). These overlapping diagnostics provide neither
+independent replications, equivalence conclusions, uncertainty intervals nor
+tests of a composite map model.
 
 \subsection{Held-scene performance}
 Actual naming has lower energy than translation/scaling in all six primary
@@ -731,12 +776,10 @@ The translation advantage persists in 23 of 24 Monet scene deletions and all
 24 C\'ezanne deletions. It holds in 15 of 18 processing/feature views; all three
 256-pixel Monet views reverse the ordering.
 
-The contrasting maps distinguish predictive accounts of proximity. They do not
-isolate a cause inside FLUX. In particular, an old-center scale transformation
-changes both the center and spread of a later free cloud whose mean has moved.
-If its mean is $m$, then the difference between the transformed means is
-$(a-1)(m-\mu_F)$. Consequently, worse transfer of $T_2$ alone does not establish
-that its contraction factor is responsible.
+These outcomes do not isolate a cause inside FLUX. If the later free-cloud mean
+is $m$, the $T_2$ and $T_1$ output means differ by $(a-1)(m-\mu_F)$.
+Worse $T_2$ transfer therefore combines changes in center and spread; it does
+not identify the scalar's contribution.
 
 \subsection{Separating center choice from scalar contraction}
 To resolve this ambiguity, a separately specified post-result diagnostic adds
@@ -751,14 +794,13 @@ named or reference features set the new center. Unlike unchanged pointwise
 transfer, this map adapts to the observed free cohort; it supplies a controlled
 geometric comparison, not another prospective replication.
 
-Scaling at this common mean increases energy in all 60 original and 18 later
-metric/processing cells. In the later primary view, the increases over translation
-are .591 for Monet and .254 for C\'ezanne (Table~\ref{tab:centering}). The old
-center offsets .161 of the Monet increase and changes C\'ezanne energy by only
-.002 along this comparison path. Thus old-center anchoring does not explain away
-the penalty of applying the fitted scalar here. This does not identify an optimal
-scalar or a generation mechanism: the scalar was selected to match original
-observed traces, and no scalar was optimized against the painting panel.
+At this common mean, scaling increases energy in all 60 original and 18 later
+metric/processing cells. Later primary penalties are .591 for Monet and .254 for
+C\'ezanne (Table~\ref{tab:centering}); the old center offsets .161 for Monet and
+changes C\'ezanne energy by only .002 along this path. Old-center anchoring
+therefore does not explain away the scalar penalty. The scalar matches original
+observed traces, without reference optimization; no optimal scalar or generation
+mechanism follows.
 
 The energy terms explain this penalty. At the common mean, scaling reduces
 twice the mean reference/generated distance by 1.781 for Monet and 1.209 for
@@ -809,27 +851,6 @@ scene structure. The result supports interpreting these counts alongside the
 underlying transformation, as motivated by \citet{khayatkhoei2023asymmetry}.
 
 \section{Conditional organization after naming}\label{sec:conditional}
-\paragraph{Scene distinguishability under contraction.}
-Using the Study~1 detailed named and artist-free conditions, we classify each
-held-out repetition by its nearest scene centroid in the fixed feature space.
-For each service, painter and condition, centroids use the other two repetitions
-of each scene; the held-out image never enters its own or any competing centroid.
-Cycling through the three repetitions yields 72 queries per condition. We evaluate
-both all 24 scenes and the eight scenes in the query's broad content class.
-The latter comparison removes discrimination attributable solely to broad class.
-The scaler remains fixed on development paintings.
-
-Retrieval uses Euclidean distances in all 31 coordinates, color alone, spatial
-features alone, texture alone and the 19 non-texture coordinates, under each
-processing pipeline. Every scene has equal weight. For this diagnostic, variance
-components are also recomputed with equal scene weights; these differ from the
-reference-class-weighted components in Equation~\ref{eq:decomposition}. The
-comparisons are descriptive: queries have overlapping centroid-training sets
-and are not 72 independent Bernoulli trials. Under a uniform transformation
-$y' = a y+t$, $a>0$, within- and between-scene traces both scale by $a^2$, while
-all retrieval assignments are unchanged. Retrieval measures relative scene
-distinguishability, not absolute response gain or the presence of requested objects.
-
 \subsection{Variation within and between scenes}
 \begin{figure}[!htbp]
 \centering\includegraphics[width=\linewidth]{variation_ratios.pdf}
@@ -842,19 +863,15 @@ variation. These finite-set decompositions are descriptive.}
 \label{fig:variation}
 \end{figure}
 
-The named/artist-free total-trace ratios range from .331 to .697 in the primary
-representation. Decomposition reveals different sources of this contraction
-(Figure~\ref{fig:variation}). FLUX reduces both within-description and
-between-description variation strongly: the respective ratios are .309 and .337
-for Monet, and .489 and .451 for C\'ezanne. For NB2/C\'ezanne, within-description
-variation decreases to .786 while between-description variation decreases to
-.378. Its aggregate reduction therefore conceals a much larger relative change
-between descriptions than between repetitions of a description.
+Primary named/artist-free total-trace ratios are .331--.697
+(Figure~\ref{fig:variation}). FLUX within-/between-description ratios are
+.309/.337 for Monet and .489/.451 for C\'ezanne. NB2/C\'ezanne's .786/.378 ratios
+show a larger relative change between descriptions than between repetitions.
 
-The OAuth/C\'ezanne case shows why the distinction is necessary. Total trace
-falls to .651 of its artist-free value even though within-description trace
-rises to 1.139; between-description trace falls to .583. A tighter overall cloud
-can therefore coexist with more variable repetitions. The decomposition thus locates changes that an aggregate spread measure conceals.
+OAuth/C\'ezanne illustrates a different pattern: total trace falls to .651
+while within-description trace rises to 1.139 and between-description trace
+falls to .583. A tighter overall cloud can therefore coexist with more variable
+repetitions; aggregate spread alone conceals these distinct changes.
 
 
 
@@ -876,8 +893,8 @@ corrected estimates are retained, and no population interval is introduced.
 Both weightings preserve contraction of corrected scene variance
 (Table~\ref{tab:corrected}). Reference-content and equal-scene summaries differ:
 FLUX/Monet's named/free ratio of $B^*/N^*$ is 1.107 under the former and .937
-under the latter. Retrieval assigns equal weight to every scene, so the latter
-is the relevant scalar comparison. Even after correction, its retrieval gain
+under the latter. The retrieval analysis below weights scenes equally, so the latter
+is its relevant scalar comparison. Even after correction, its retrieval gain
 cannot be attributed to an increased aggregate between-scene/repeat-noise ratio.
 Scalar traces leave the orientation and local arrangement of scenes unspecified.
 
@@ -904,15 +921,13 @@ stated error assumptions, not tests or universal contraction coefficients.}
 \label{tab:corrected}
 \end{table}
 
-A related diagnostic asks whether held-out conditional means agree with the
-fitted translation/scale map. For residual $e_{br}=N_{br}-T_2(F_{br})$, averaging
+For held-out residuals $e_{br}=N_{br}-T_2(F_{br})$, averaging
 $e_{br}^{\mathsf T}e_{bs}$ over distinct repeats removes the expected diagonal
-noise contribution. The resulting weighted squared-mean-mismatch estimates are
-2.545/2.794 for NB2, 3.286/2.063 for FLUX and 2.546/6.224 for OAuth, in squared
-standardized-feature units. These positive averages do not constitute significance
-or equivalence tests; one NB2/Monet fold is negative after correction. They locate
-conditional-mean disagreement that the marginal energy residual alone does not
-measure. Appendix~\ref{app:moment} states the assumptions and derivation.
+noise contribution (Appendix~\ref{app:moment}). All six averages over folds are
+positive (Table~\ref{tab:targets}), although one NB2/Monet fold is negative.
+Measured in squared standardized coordinates, these residuals locate
+conditional-mean mismatch not measured by marginal energy; they are neither
+significance nor equivalence tests.
 
 A direct comparison of the two prediction targets is more revealing than the
 residual magnitude alone. Adding scale reduces the corrected conditional-mean
@@ -923,7 +938,7 @@ concerns two specified fitted predictors; the correction removes held-out
 repeat noise, not training-parameter estimation error or all possible model
 misspecification.
 
-\begin{table}[tbp]
+\begin{table}[!htbp]
 \centering\small
 \begin{tabular}{llrrrr}
 \toprule
@@ -942,11 +957,26 @@ OAuth & Monet & 5.254 & 2.546 & 2.794 & 2.868\\
 favor different maps. Both scores are lower-is-better, but have different units
 and targets. Entries average four held-scene folds in the primary metric.
 $Q_T$ subtracts the repeat-noise contribution under its stated assumptions.
-All comparisons are descriptive.}
+The joint ordering occurs in 15 of 24 folds: adding scale lowers $Q_T$
+in 22 and raises energy in 16. All comparisons are descriptive.}
 \label{tab:targets}
 \end{table}
 
 \subsection{Contraction need not reduce scene distinguishability}
+We classify each held-out Study~1 detailed named or artist-free repetition by
+the nearest scene centroid in Euclidean distance, computed from the other two repetitions. Cycling
+through all three repetitions gives 72 queries per service/painter/condition,
+using all 24 candidate scenes or the eight in the query's class. The latter
+removes discrimination solely from broad class. Development scaling remains fixed.
+
+We cross three pipelines with five views: all 31 features, color, spatial,
+texture and the 19 nontexture coordinates. Queries and variance comparisons use
+equal scene weights, unlike Equation~\ref{eq:decomposition}. Overlapping centroid
+fits make accuracies descriptive, not 72 independent Bernoulli trials. Under
+$y'=ay+t$, $a>0$, both variance components scale by $a^2$ and retrieval assignments
+stay fixed. Retrieval measures relative scene distinguishability rather than
+absolute response gain or requested-object presence.
+
 In the primary 31-feature retrieval diagnostic, naming improves accuracy in two
 of six service--painter cells and lowers it in four (Figure~\ref{fig:retrieval}).
 FLUX/Monet improves from 44.4\% to 59.7\%, although its equal-scene
@@ -1103,6 +1133,12 @@ scalar signal/noise does not explain FLUX/Monet's retrieval improvement. These
 observed disagreements apply established conditional-evaluation principles
 \citep{benny2021conditional} to the painting comparisons.
 
+The new-scene C\'ezanne result shows lower discrepancy and spread relative to
+an actual generic painting clause, extending the artist-free comparison to one
+specified alternative. It does not establish that painter naming outperforms
+generic instructions in general, or that its effect is invariant across scene
+panels and service runs.
+
 Neither palette collection resolves additional named-clause attenuation beyond
 the generic clause, although both secondary generic-minus-free responses are
 negative. This control dependence limits interpretation: chroma response under
@@ -1122,8 +1158,10 @@ the four-painter exploration, where only Sisley's pooled named energy median is
 below its free control. The later Monet/C\'ezanne contrasts use different panels,
 prompts and services and do not supersede that ordering. The two painters were
 selected after exploration; broad classes are maintainer-LLM annotations and
-requested scene content is not independently verified adherence. Repeated or
-later observations of these templates are not validation on new scenes or artists.
+requested scene content is not independently verified adherence. The prospective
+C\'ezanne/generic comparison uses new scene briefs, but the map and retrieval
+diagnostics reuse the original templates. Their transfer to new scenes or artists
+remains untested.
 
 The original and temporal primary families were specified before collection;
 the map and variance diagnostics followed observed results. Their fold and
@@ -1142,13 +1180,15 @@ explanations; more images from the current templates alone would not resolve
 them.
 
 \section{Conclusion}
-Painter naming improves measured proximity in the controlled Monet/C\'ezanne
-comparisons, with both FLUX effects recurring in a later cohort. Held-scene and
+Against artist-free controls, painter naming improves measured proximity in the
+original controlled Monet/C\'ezanne comparisons, with both FLUX effects recurring
+later. A new-scene C\'ezanne comparison also improves proximity against a generic
+painting clause while reducing spread. Held-scene and
 temporal transformation comparisons qualify its interpretation: actual naming
 outperforms global translation/scaling in all six primary held-scene averages, but a fixed
 translation alone is closer to both painting panels in the later primary view.
 Matching the evaluation means leaves a proximity penalty for the fitted scalar
-throughout the specified metric and processing comparisons.
+throughout the specified feature and processing views.
 Repeat-corrected contraction, heterogeneous retrieval and evaluator disagreements
 show that proximity is not a substitute for conditional organization. Together
 with the retained Monet, Sisley, Pissarro and C\'ezanne exploration, these results
@@ -1177,9 +1217,18 @@ centering successor retains the geometry study's 60 original and 18 transfer
 cells and verifies its results exactly. These analyses use retained vectors and
 generate no new images. They supplement the unchanged preceding archive.
 
-This release supports computation from retained measurements. Raw artwork,
-generated pixels and provider-response bodies are not redistributed, so it does
-not provide public feature re-extraction or independent authentication of the
+A further addendum at
+\url{https://github.com/isingmodel/latent-art-bench/releases/tag/pcrv1-20260910}
+replays the generic-clause follow-up in Section~\ref{sec:clause}. The original run,
+\path{pcvv1-20260910}, is in \path{painter_clause_validation_v1}; the fresh run,
+\path{pcsv1-20260910}, is in \path{painter_clause_successor_v1}. The archive retains
+the original unavailable endpoints, every allocated measurement status and the
+fresh cohort's complete results. Protocols, exact prompts, source bindings and
+locked dependencies accompany the compact vectors; no observations are pooled.
+
+These releases support computation from retained measurements. Raw artwork,
+generated pixels and provider-response bodies are not redistributed, so the packages
+do not provide public feature re-extraction or independent authentication of the
 image acquisition. Recorded delivery fields and integrity-audit summaries are
 identified separately from recomputed statistical results. Source URLs do not
 guarantee current pixel access or permission to redistribute the underlying
@@ -1245,6 +1294,28 @@ sessions.
 The service totals are 288 NB2, 288 FLUX and 430 OAuth images. Two
 C\'ezanne/OAuth short-scene requests are refused and remain missing. One transient
 FLUX failure is recovered by an exact-payload technical retry. All successful outputs are retained without selection for stylistic resemblance.
+
+\subsection{Generic-clause collection and availability}\label{app:clause-collection}
+The initial new-scene design allocated 288 OAuth outputs: 24 briefs, three
+repetitions and four arms (artist-free, generic, Monet and C\'ezanne). One
+C\'ezanne request was refused; a later HTTP~500 response fell outside the fixed
+retry contract and stopped the collection. It retained 211 returned images,
+one refusal, one server error, one cancellation before posting and 74 unattempted
+slots. Its global collection restriction withholds both primary tests, and no
+arm has all 72 allocated images. Both primary comparisons and all complete-grid
+feature summaries are unavailable. All 211 returned images are nonsquare PNGs;
+46 report medium quality and 165 low. None is selected for stylistic resemblance.
+
+After the first refusal, before the later stop or feature extraction from this
+collection, we fixed one final 96-output C\'ezanne/generic successor. Its
+allocation, two repetitions and threshold .025 did not change when Monet also
+became unavailable. It retains every brief, including the refused scene, with
+both arms generated afresh. Original observations are neither pooled nor used
+to fill successor slots. Sources, allocation and request order were frozen before
+generation; at most two requests were active, recorded starts were at least five
+seconds apart and blocks drained before the next. All 96 outputs returned in
+45.5 minutes and yielded measurements in all three pipelines. The successor
+provides the sole new-clause primary result reported in Section~\ref{sec:clause}.
 
 \subsection{Exploratory prompt construction}\label{app:exploratory-prompts}
 Let $S$ be the unchanged artist-free scene sentence, beginning ``An oil painting
@@ -1450,7 +1521,6 @@ only for OAuth. Projections show overlap and concentration while retaining
 less than half of total weighted variation.}
 \label{fig:pca}
 \end{figure}
-\FloatBarrier
 
 In the full feature space, within-service RBF balanced accuracy ranges from
 .893 to .987 across the 14 original/generated comparisons. However, all 576
@@ -1896,6 +1966,18 @@ from the compact numerical inputs and compare against sealed outputs. The
 manifest and accompanying SHA256 list bind every file, including the protocols,
 source, inputs, results and nine figure PDFs. This addendum does not rerun the
 historical studies; those require the preceding archive and its separate command.
+
+The clause archive has its own supported numerical adapter:
+\begin{verbatim}
+python tools/paper_clause_release.py verify --root .
+uv sync --locked --python 3.13.11 --extra analysis --extra dev
+uv run --locked python tools/paper_clause_release.py check --root .
+\end{verbatim}
+The first command checks the inventory using only the standard library; the
+last recomputes both clause cohorts with their unchanged eligibility rules,
+assigned weights and seeds. Original unavailable outcomes remain unavailable.
+This separate package neither invokes the generation workflow nor checks the
+other two releases. Its README lists the included numerical and package tests.
 
 \begingroup
 \footnotesize

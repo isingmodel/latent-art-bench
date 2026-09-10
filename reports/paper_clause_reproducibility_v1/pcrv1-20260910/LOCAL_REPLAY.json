@@ -1,0 +1,210 @@
+{
+  "anonymous_replay": false,
+  "archive": "tmp/paper-clause-release/final-01/pcrv1-20260910.tar.gz",
+  "archive_bytes": 1500356,
+  "archive_sha256": "6038da2daed74e6ed4b509464dc6f1a4dae386e644d265235de982db4bf23e40",
+  "archive_unchanged": true,
+  "build_source_commit": "c73874e7157e61d406d376d05e6cb383ada5d38f",
+  "checksum_file": "tmp/paper-clause-release/final-01/pcrv1-20260910.tar.gz.sha256",
+  "checksum_file_sha256": "dee5519a576901a8914eab29dfca96ecf75187ade944f1bf48117f244b27971f",
+  "cohorts": {
+    "pcsv1-20260910": {
+      "allocated_slots": 96,
+      "duration_contract_met": true,
+      "identity_contract_met": true,
+      "measurement_status_rows": 288,
+      "numerical_sha256": "00ab620f5c3e67b6fcac16cc8e4456504a3001e7a82a2524b8c58fcacfe9deb8",
+      "primary_count": 1,
+      "primary_statuses": [
+        "available"
+      ],
+      "report_sha256": "942d9ea11ae8f1a893b31b9ddcc7cea17fcf6689c02806e6a109a3e1148fd8dd",
+      "secondary_views": 3
+    },
+    "pcvv1-20260910": {
+      "allocated_slots": 288,
+      "duration_contract_met": true,
+      "identity_contract_met": false,
+      "measurement_status_rows": 864,
+      "numerical_sha256": "5580d9699ce15b69a47556bf80d0fd0e986810cfd18f4f0da013c9b23a52a2b2",
+      "primary_count": 2,
+      "primary_statuses": [
+        "withheld_collection_contract",
+        "withheld_collection_contract"
+      ],
+      "report_sha256": "8b5cfbe9d60582ffa50907c8b661d790c13bcf514d681a700712ed8e80504986",
+      "secondary_views": 6
+    }
+  },
+  "commands": [
+    {
+      "command": [
+        "../../../../.venv/bin/python",
+        "-I",
+        "-S",
+        "tools/paper_clause_release.py",
+        "verify",
+        "--root",
+        "."
+      ],
+      "cwd": "tmp/paper-clause-local-replay-20260910/fresh-01/pcrv1-20260910",
+      "elapsed_seconds": 0.284514666069299,
+      "exit_code": 0,
+      "started_at_utc": "2026-09-10T07:01:47.653527+00:00",
+      "stderr": "",
+      "stdout": "{\n  \"status\": \"verified\",\n  \"release_id\": \"pcrv1-20260910\",\n  \"payload_files\": 85,\n  \"runtime_directories_ignored\": false,\n  \"raw_response_authentication\": false\n}\n",
+      "step": "stdlib_verify_before_install"
+    },
+    {
+      "command": [
+        "uv",
+        "sync",
+        "--locked",
+        "--python",
+        "3.13.11",
+        "--extra",
+        "analysis",
+        "--extra",
+        "dev"
+      ],
+      "cwd": "tmp/paper-clause-local-replay-20260910/fresh-01/pcrv1-20260910",
+      "elapsed_seconds": 0.5482824170030653,
+      "exit_code": 0,
+      "started_at_utc": "2026-09-10T07:02:00.050492+00:00",
+      "stderr": "Using CPython 3.13.11\nCreating virtual environment at: .venv\nResolved 147 packages in 0.95ms\n   Building latent-art-bench @ {checkout}/tmp/paper-clause-local-replay-20260910/fresh-01/pcrv1-20260910\n      Built latent-art-bench @ {checkout}/tmp/paper-clause-local-replay-20260910/fresh-01/pcrv1-20260910\nPrepared 1 package in 258ms\nInstalled 44 packages in 198ms\n + annotated-doc==0.0.5\n + annotated-types==0.8.0\n + anyio==4.14.2\n + certifi==2026.7.22\n + contourpy==1.3.3\n + coverage==7.16.0\n + cycler==0.12.1\n + fonttools==4.64.0\n + h11==0.16.0\n + httpcore==1.0.9\n + httpx==0.28.1\n + idna==3.19\n + imageio==2.37.4\n + iniconfig==2.3.0\n + kiwisolver==1.5.1\n + latent-art-bench==0.1.0 (from {checkout}/tmp/paper-clause-local-replay-20260910/fresh-01/pcrv1-20260910)\n + lazy-loader==0.5\n + markdown-it-py==4.2.0\n + matplotlib==3.11.1\n + mdurl==0.1.2\n + networkx==3.6.1\n + numpy==2.5.2\n + packaging==26.3\n + pillow==11.3.0\n + pluggy==1.6.0\n + pydantic==2.13.5\n + pydantic-core==2.46.5\n + pygments==2.21.0\n + pyparsing==3.3.2\n + pytest==8.4.2\n + pytest-cov==6.3.0\n + python-dateutil==2.9.0.post0\n + pywavelets==1.9.0\n + pyyaml==6.0.3\n + rich==15.0.0\n + ruff==0.16.5\n + scikit-image==0.26.0\n + scipy==1.18.1\n + shellingham==1.5.4\n + six==1.17.0\n + tifffile==2026.8.23\n + typer==0.27.2\n + typing-extensions==4.16.0\n + typing-inspection==0.4.4\n",
+      "stdout": "",
+      "step": "locked_fresh_environment_install"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "tools/paper_clause_release.py",
+        "check",
+        "--root",
+        "."
+      ],
+      "cwd": "tmp/paper-clause-local-replay-20260910/fresh-01/pcrv1-20260910",
+      "elapsed_seconds": 23.191738041001372,
+      "exit_code": 0,
+      "started_at_utc": "2026-09-10T07:02:23.757770+00:00",
+      "stderr": "",
+      "stdout": "{\n  \"status\": \"exact_numeric_and_report_replay\",\n  \"release_id\": \"pcrv1-20260910\",\n  \"primary_endpoints\": 2,\n  \"views\": 6,\n  \"planned\": 288,\n  \"numerical_sha256\": \"5580d9699ce15b69a47556bf80d0fd0e986810cfd18f4f0da013c9b23a52a2b2\",\n  \"raw_response_authentication\": false,\n  \"successor\": {\n    \"run_id\": \"pcsv1-20260910\",\n    \"primary_endpoints\": 1,\n    \"views\": 3,\n    \"planned\": 96,\n    \"numerical_sha256\": \"00ab620f5c3e67b6fcac16cc8e4456504a3001e7a82a2524b8c58fcacfe9deb8\"\n  }\n}\n",
+      "step": "unchanged_public_numerical_report_replay"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-q",
+        "--import-mode=importlib",
+        "tests/test_paper_clause_release.py",
+        "tests/painter_clause_validation_v1/test_analysis.py",
+        "tests/painter_clause_validation_v1/test_precision.py",
+        "tests/painter_clause_successor_v1/test_analysis.py"
+      ],
+      "cwd": "tmp/paper-clause-local-replay-20260910/fresh-01/pcrv1-20260910",
+      "elapsed_seconds": 74.4355582499411,
+      "exit_code": 0,
+      "started_at_utc": "2026-09-10T07:03:09.869685+00:00",
+      "stderr": "",
+      "stdout": "..................................sssss...s..s..s....................... [ 45%]\n........................................................................ [ 90%]\n................                                                         [100%]\n=========================== short test summary info ============================\nSKIPPED [1] tests/test_paper_clause_release.py:524: Maintainer-only terminal workflow dependencies are excluded\nSKIPPED [4] tests/test_paper_clause_release.py:531: Maintainer-only terminal workflow dependencies are excluded\nSKIPPED [3] tests/test_paper_clause_release.py:811: Maintainer-only terminal workflow dependencies are excluded\n152 passed, 8 skipped in 72.76s (0:01:12)\n",
+      "step": "exact_readme_optional_four_path_tests"
+    }
+  ],
+  "completed_at_utc": "2026-09-10T07:06:17.445793+00:00",
+  "export_manifest_sha256": "3eac4b9da850b003e2e04e6db40c16d699b46c4797e70e77a1bb8f218ca98e5e",
+  "export_source_commit": "39a0bce028956f3ddf972f3dbaffe5171e0f6027",
+  "fresh_extraction": "tmp/paper-clause-local-replay-20260910/fresh-01/pcrv1-20260910",
+  "installed_packages": 44,
+  "involvement": "Implemented both clause collectors/workflows and related tests plus earlier geometry/centering components; reviewed but did not implement the public adapter. Same maintainer and machine, not independent institutional verification.",
+  "limitations": [
+    "Fresh environment on the same macOS arm64 host using the local uv cache, not a clean external host or anonymous download.",
+    "Public numerical replay does not authenticate absent responses/images, account or remote model checkpoint, or feature extraction.",
+    "Exact same-platform replay does not establish cross-platform floating-point equality.",
+    "Optional tests require Git for synthetic temporary provenance fixtures; public numerical replay uses no retained Git history."
+  ],
+  "log_sanitization": "Absolute retained-checkout prefixes replaced by {checkout}; local file-URI prefixes removed.",
+  "no_publication": true,
+  "no_source_edits": true,
+  "numerical_replay": {
+    "numerical_sha256": "5580d9699ce15b69a47556bf80d0fd0e986810cfd18f4f0da013c9b23a52a2b2",
+    "planned": 288,
+    "primary_endpoints": 2,
+    "raw_response_authentication": false,
+    "release_id": "pcrv1-20260910",
+    "status": "exact_numeric_and_report_replay",
+    "successor": {
+      "numerical_sha256": "00ab620f5c3e67b6fcac16cc8e4456504a3001e7a82a2524b8c58fcacfe9deb8",
+      "planned": 96,
+      "primary_endpoints": 1,
+      "run_id": "pcsv1-20260910",
+      "views": 3
+    },
+    "views": 6
+  },
+  "package_readme_sha256": "46b4c608952fc2bcc6ef7b4ae8706c19fa82ed62e7554777742c15368b3077a6",
+  "pixels_reextracted": false,
+  "platform": {
+    "machine": "arm64",
+    "macos": "26.6.2",
+    "release": "25.6.0",
+    "system": "Darwin"
+  },
+  "post_test_original_payload_files_byte_identical": 85,
+  "python_verification": "3.13.11",
+  "release_id": "pcrv1-20260910",
+  "release_manifest_sha256": "01ac2e6c7d1843b0a27afe9d8d2a02e3ff27f73ddab9513ffd08d9cfd8795539",
+  "reviewer": "Maintainer-run LLM subagent Reviewer 2",
+  "runtime": {
+    "git_version_for_optional_test_fixtures": "git version 2.50.1 (Apple Git-155)",
+    "packages": {
+      "Pillow": "11.3.0",
+      "PyWavelets": "1.9.0",
+      "httpx": "0.28.1",
+      "numpy": "2.5.2",
+      "pytest": "8.4.2",
+      "ruff": "0.16.5",
+      "scikit-image": "0.26.0",
+      "scipy": "1.18.1"
+    },
+    "python": "3.13.11",
+    "uv_version": "uv 0.9.28 (Homebrew 2026-01-29)"
+  },
+  "schema": "painter-clause-local-replay/1",
+  "scope": "Fresh LOCAL extraction and installed-environment replay of the actual final combined archive; not anonymous or cross-platform verification.",
+  "status": "passed",
+  "study_sources": {
+    "pcsv1-20260910": {
+      "qualified": "07f8231ab47ef51a26d68fcfd5a16acc12c0e293",
+      "recorded": "d5887f86dfe34fc3c0db775358797aca92a8fe1d"
+    },
+    "pcvv1-20260910": {
+      "qualified": "dff2804d9b4f5e092201a38fe51eda1fc76e2b73",
+      "recorded": "90a993f7b34419544a5b3afda4f5b120e9f726c2"
+    }
+  },
+  "tar_regular_file_count": 85,
+  "tests": {
+    "passed": 152,
+    "reason": "Maintainer-only full terminal workflow dependencies are intentionally absent from the numerical archive.",
+    "reported_seconds": 72.76,
+    "skipped": 8,
+    "skips": {
+      "original_terminal_wrapper_local_workflow": 4,
+      "pending_export_local_workflow": 1,
+      "successor_terminal_wrapper_local_workflow": 3
+    }
+  },
+  "verification": {
+    "payload_files": 85,
+    "raw_response_authentication": false,
+    "release_id": "pcrv1-20260910",
+    "runtime_directories_ignored": false,
+    "status": "verified"
+  }
+}

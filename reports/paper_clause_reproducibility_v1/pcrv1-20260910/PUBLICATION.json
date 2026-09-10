@@ -1,0 +1,49 @@
+{
+  "anonymous_post_test_files_unchanged": 85,
+  "build_source_commit": "c73874e7157e61d406d376d05e6cb383ada5d38f",
+  "export_source_commit": "39a0bce028956f3ddf972f3dbaffe5171e0f6027",
+  "observed_at": "2026-09-10T07:10:25.099238+00:00",
+  "paper_assets_included_at_observation": false,
+  "prior_releases_modified": false,
+  "public_history_root_commit": "866fc27042bd41f327b104b54fb2a1dc09387bdf",
+  "publication_branch": "codex/painter-clause-validation-v1",
+  "raw_media_included": false,
+  "regular_files": 85,
+  "release": {
+    "assets": [
+      {
+        "apiUrl": "https://api.github.com/repos/isingmodel/latent-art-bench/releases/assets/554461136",
+        "contentType": "application/x-gtar",
+        "createdAt": "2026-09-10T07:05:03Z",
+        "digest": "sha256:6038da2daed74e6ed4b509464dc6f1a4dae386e644d265235de982db4bf23e40",
+        "downloadCount": 0,
+        "id": "RA_kwDOUHwrAs4hDGfQ",
+        "label": "",
+        "name": "pcrv1-20260910.tar.gz",
+        "size": 1500356,
+        "state": "uploaded",
+        "updatedAt": "2026-09-10T07:05:03Z",
+        "url": "https://github.com/isingmodel/latent-art-bench/releases/download/pcrv1-20260910/pcrv1-20260910.tar.gz"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/isingmodel/latent-art-bench/releases/assets/554461135",
+        "contentType": "application/octet-stream",
+        "createdAt": "2026-09-10T07:05:03Z",
+        "digest": "sha256:dee5519a576901a8914eab29dfca96ecf75187ade944f1bf48117f244b27971f",
+        "downloadCount": 0,
+        "id": "RA_kwDOUHwrAs4hDGfP",
+        "label": "",
+        "name": "pcrv1-20260910.tar.gz.sha256",
+        "size": 88,
+        "state": "uploaded",
+        "updatedAt": "2026-09-10T07:05:03Z",
+        "url": "https://github.com/isingmodel/latent-art-bench/releases/download/pcrv1-20260910/pcrv1-20260910.tar.gz.sha256"
+      }
+    ],
+    "publishedAt": "2026-09-10T07:05:04Z",
+    "tagName": "pcrv1-20260910",
+    "targetCommitish": "866fc27042bd41f327b104b54fb2a1dc09387bdf",
+    "url": "https://github.com/isingmodel/latent-art-bench/releases/tag/pcrv1-20260910"
+  },
+  "schema": "paper-clause-publication/1"
+}

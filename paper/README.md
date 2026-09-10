@@ -9,16 +9,20 @@ whole-scene moment maps, unchanged-map temporal transfer, finite-repeat correcti
 and a separately specified evaluation-centering diagnostic. These use retained
 vectors only. The separate clause validation generated 211 images before stopping;
 its original endpoints are unavailable, and one final 96-output Cezanne/generic
-successor is collecting. Current collection/release status and
+successor is complete. The new-scene comparison lowers primary energy by 1.195
+(p=.00001 at alpha .025) and gives a named/generic observed trace ratio of .552.
+Both directions persist in its two descriptive processing views.
+Current collection/release status and
 final verification are recorded in [STATUS.md](../docs/STATUS.md).
 
 The new measurement section reports all ten transformations, their cross-family
 responses and all eight common-square contrast sensitivities. All four temporal endpoints are reported from the completed 264-image collection.
 The preceding r1 reviews and public-access verification remain recorded. A fresh
 three-reviewer revision cycle is active; its baseline mean is 8.2333/10 and its
-round-2 mean is 8.6889/10. The 34-page manuscript implements that round's
-reporting/access corrections. The new clause cohorts will be integrated after
-terminal analysis and separate public replay; the published geometry paper
+round-2 mean is 8.6889/10. The manuscript implements that round's
+reporting/access corrections and integrates the separate clause outcomes.
+Their [public numerical replay](../reports/paper_clause_reproducibility_v1/pcrv1-20260910/REPORT.md)
+is verified; the next full-paper review is pending. The published geometry paper
 contains neither cohort. Earlier drafts remain in Git history. The
 [review index](../docs/INDEX.md) links preceding reviews; their scores describe
 those manuscript versions and are not external peer-review decisions.

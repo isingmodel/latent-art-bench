@@ -1,0 +1,102 @@
+{
+  "anonymous_request": {
+    "authorization_header": false,
+    "cookies": false,
+    "credential_store": false,
+    "proxy_environment": false
+  },
+  "archive_bytes": 1500356,
+  "archive_sha256": "6038da2daed74e6ed4b509464dc6f1a4dae386e644d265235de982db4bf23e40",
+  "archive_url": "https://github.com/isingmodel/latent-art-bench/releases/download/pcrv1-20260910/pcrv1-20260910.tar.gz",
+  "commands": [
+    {
+      "command": [
+        "python3",
+        "-I",
+        "-S",
+        "tools/paper_clause_release.py",
+        "verify",
+        "--root",
+        "."
+      ],
+      "elapsed_seconds": 0.5025228750891984,
+      "exit_code": 0,
+      "output_display": "{\n  \"status\": \"verified\",\n  \"release_id\": \"pcrv1-20260910\",\n  \"payload_files\": 85,\n  \"runtime_directories_ignored\": false,\n  \"raw_response_authentication\": false\n}\n",
+      "raw_output_sha256": "827b3da30969adf183721fc401a5c4f115e51e90de6934574cb85448377718d1"
+    },
+    {
+      "command": [
+        "uv",
+        "sync",
+        "--locked",
+        "--python",
+        "3.13.11",
+        "--extra",
+        "analysis",
+        "--extra",
+        "dev"
+      ],
+      "elapsed_seconds": 0.3948534169467166,
+      "exit_code": 0,
+      "output_display": "Using CPython 3.13.11\nCreating virtual environment at: .venv\nResolved 147 packages in 0.99ms\n   Building latent-art-bench @ {checkout}/tmp/paper-clause-release/anonymous-02/pcrv1-20260910\n      Built latent-art-bench @ {checkout}/tmp/paper-clause-release/anonymous-02/pcrv1-20260910\nPrepared 1 package in 203ms\nInstalled 44 packages in 114ms\n + annotated-doc==0.0.5\n + annotated-types==0.8.0\n + anyio==4.14.2\n + certifi==2026.7.22\n + contourpy==1.3.3\n + coverage==7.16.0\n + cycler==0.12.1\n + fonttools==4.64.0\n + h11==0.16.0\n + httpcore==1.0.9\n + httpx==0.28.1\n + idna==3.19\n + imageio==2.37.4\n + iniconfig==2.3.0\n + kiwisolver==1.5.1\n + latent-art-bench==0.1.0 (from {checkout}/tmp/paper-clause-release/anonymous-02/pcrv1-20260910)\n + lazy-loader==0.5\n + markdown-it-py==4.2.0\n + matplotlib==3.11.1\n + mdurl==0.1.2\n + networkx==3.6.1\n + numpy==2.5.2\n + packaging==26.3\n + pillow==11.3.0\n + pluggy==1.6.0\n + pydantic==2.13.5\n + pydantic-core==2.46.5\n + pygments==2.21.0\n + pyparsing==3.3.2\n + pytest==8.4.2\n + pytest-cov==6.3.0\n + python-dateutil==2.9.0.post0\n + pywavelets==1.9.0\n + pyyaml==6.0.3\n + rich==15.0.0\n + ruff==0.16.5\n + scikit-image==0.26.0\n + scipy==1.18.1\n + shellingham==1.5.4\n + six==1.17.0\n + tifffile==2026.8.23\n + typer==0.27.2\n + typing-extensions==4.16.0\n + typing-inspection==0.4.4\n",
+      "raw_output_sha256": "0f7c94f6921e0625b60570c8cf113a8dc30f554cad2e0fff773a5dba625e7923"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "tools/paper_clause_release.py",
+        "check",
+        "--root",
+        "."
+      ],
+      "elapsed_seconds": 22.170169916935265,
+      "exit_code": 0,
+      "output_display": "{\n  \"status\": \"exact_numeric_and_report_replay\",\n  \"release_id\": \"pcrv1-20260910\",\n  \"primary_endpoints\": 2,\n  \"views\": 6,\n  \"planned\": 288,\n  \"numerical_sha256\": \"5580d9699ce15b69a47556bf80d0fd0e986810cfd18f4f0da013c9b23a52a2b2\",\n  \"raw_response_authentication\": false,\n  \"successor\": {\n    \"run_id\": \"pcsv1-20260910\",\n    \"primary_endpoints\": 1,\n    \"views\": 3,\n    \"planned\": 96,\n    \"numerical_sha256\": \"00ab620f5c3e67b6fcac16cc8e4456504a3001e7a82a2524b8c58fcacfe9deb8\"\n  }\n}\n",
+      "raw_output_sha256": "2f93ffb4d2fa939e68334676896b250605c0f3baf4618d7d61b9275b478a8bfd"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-q",
+        "--import-mode=importlib",
+        "tests/test_paper_clause_release.py",
+        "tests/painter_clause_validation_v1/test_analysis.py",
+        "tests/painter_clause_validation_v1/test_precision.py",
+        "tests/painter_clause_successor_v1/test_analysis.py"
+      ],
+      "elapsed_seconds": 75.46936645905953,
+      "exit_code": 0,
+      "output_display": "..................................sssss...s..s..s....................... [ 45%]\n........................................................................ [ 90%]\n................                                                         [100%]\n=========================== short test summary info ============================\nSKIPPED [1] tests/test_paper_clause_release.py:524: Maintainer-only terminal workflow dependencies are excluded\nSKIPPED [4] tests/test_paper_clause_release.py:531: Maintainer-only terminal workflow dependencies are excluded\nSKIPPED [3] tests/test_paper_clause_release.py:811: Maintainer-only terminal workflow dependencies are excluded\n152 passed, 8 skipped in 73.62s (0:01:13)\n",
+      "raw_output_sha256": "6c6c99675ea52d0e2c422300a597c369562739246d028439af586189f8825e85"
+    }
+  ],
+  "finished_at": "2026-09-10T07:08:01.068314+00:00",
+  "fresh_environment": true,
+  "fresh_extraction": "tmp/paper-clause-release/anonymous-02/pcrv1-20260910",
+  "http_status": 200,
+  "log_sanitization": "Display only: absolute checkout and file-URI prefixes replaced by {checkout}; raw receipt/logs retained locally at the identified ignored paths.",
+  "machine": "arm64",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "prior_driver_attempt": {
+    "archive_sha256": "6038da2daed74e6ed4b509464dc6f1a4dae386e644d265235de982db4bf23e40",
+    "http_status": 200,
+    "outcome": "Downloaded hash matched; host-system Python lacked tarfile.extractall(filter=...). No extraction, dependency installation or scientific replay occurred. A new directory and qualified Python 3.13.11 driver resolved the runtime mismatch without changing the archive.",
+    "path": "tmp/paper-clause-release/anonymous-01"
+  },
+  "raw_receipt": {
+    "path": "tmp/paper-clause-release/anonymous-02/ANONYMOUS_REPLAY_RAW.json",
+    "sha256": "b2346a9e231722bee925b1ce9959b28e3e644c9bb039b0bf26d52610cbd05372"
+  },
+  "regular_files": 85,
+  "release_id": "pcrv1-20260910",
+  "schema": "paper-clause-anonymous-replay/1",
+  "scope": "Exact numerical/report replay of the two separate clause cohorts; no raw-response or pixel authentication, no generation, no Linux verification.",
+  "started_at": "2026-09-10T07:06:22.379866+00:00",
+  "status": "passed"
+}

@@ -69,17 +69,17 @@ an older stage description.
 - [Evaluation-centering successor](../studies/painter_naming_centering_v1/PROTOCOL.md): separates mean anchoring from the fitted scalar using retained evaluation-free vectors.
 
 - [Prospective actual-clause validation](../studies/painter_clause_validation_v1/PROTOCOL.md):
-  new fixed-scene OAuth experiment; live gate pending implementation qualification.
+  terminal new-scene OAuth experiment; both original primary comparisons unavailable.
 - [Clause allocation and simulation qualification](../studies/painter_clause_validation_v1/PRECISION.md).
 - [Public geometry addendum verification](../reports/paper_geometry_reproducibility_v1/ppgv1-20260910/REPORT.md).
 
 - [Clause numerical-release guide](../studies/paper_clause_reproducibility_v1/README.md):
-  terminal export and standalone public replay, pending the active collection.
+  terminal export and standalone public replay for the two separate clause cohorts.
 - [Clause exporter review](reviews/20260910_substantive_revision/CLAUSE_RELEASE_REVIEW.md):
   bounded synthetic qualification and remaining real-release checks.
 
 - [Single Cezanne/generic successor](../studies/painter_clause_successor_v1/PROTOCOL.md):
-  96-output comparison with a .025 primary threshold, collecting from a qualified freeze.
+  completed 96-output comparison with a fixed .025 primary threshold.
 - [Availability-triggered decision](../studies/painter_clause_successor_v1/DESIGN_DECISION.md):
   fixed before predecessor feature extraction; no pooling or further replacement.
 
@@ -90,3 +90,9 @@ an older stage description.
   all 864 rows, exact scaler/provenance checks and preserved unavailable endpoints.
 - [Combined clause release review](reviews/20260910_substantive_revision/CLAUSE_COMBINED_RELEASE_REVIEW.md):
   separate replay/provenance for both cohorts, synthetic final-stage verification.
+- [Successor terminal and measurement audit](reviews/20260910_substantive_revision/CLAUSE_SUCCESSOR_TERMINAL_AUDIT_2.md):
+  all 96 response hashes, 288 vectors, source/receipt bindings and exact report replay.
+- [Successor independent arithmetic audit](reviews/20260910_substantive_revision/CLAUSE_SUCCESSOR_RESULTS_AUDIT_1.md):
+  separate energy, trace and 99,999-draw calculation with implementation involvement disclosed.
+- [Public clause addendum verification](../reports/paper_clause_reproducibility_v1/pcrv1-20260910/REPORT.md):
+  history-free publication and exact fresh local/anonymous replay of both separate cohorts.
