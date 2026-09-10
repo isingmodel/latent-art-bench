@@ -1,0 +1,206 @@
+{
+  "anonymous_download": {
+    "authentication_sent": false,
+    "client": "httpx",
+    "cookies_sent": false,
+    "fresh_client_each_redirect": true,
+    "metadata": {
+      "path": "tmp/paper-map-release/numerical-anonymous-01/release-metadata.json",
+      "sha256": "dcdc6187562718cf10d237f4730e075a386bacd61974c496b07a46d5f1c9f1e6"
+    },
+    "requests": 5,
+    "retained_evidence": {
+      "path": "tmp/paper-map-release/numerical-anonymous-01/download-verification.json",
+      "sha256": "d6afba5416415994e801697b39310c80588a2eaff1430e40f1d82a16980ae8dd"
+    },
+    "trust_env": false
+  },
+  "archive": {
+    "bytes": 2725809,
+    "path": "tmp/paper-map-release/numerical-anonymous-01/pmrv1-20260910.tar.gz",
+    "sha256": "00e82c31c2b3dd5719c324a1d26b882e3dc98ebbfd491122062df5ccde62cd9f",
+    "url": "https://github.com/isingmodel/latent-art-bench/releases/download/pmrv1-20260910/pmrv1-20260910.tar.gz"
+  },
+  "archive_matches_local_receipt": true,
+  "build_source_commit": "35aef913cfedafc7de2c746fd68b061b05f21b2c",
+  "commands": [
+    {
+      "argv": [
+        "maintainer-python",
+        "-I",
+        "-S",
+        "tools/paper_map_release.py",
+        "verify",
+        "--root",
+        "."
+      ],
+      "cwd": "tmp/paper-map-release/numerical-anonymous-01/pmrv1-20260910",
+      "exit_code": 0,
+      "logs": {
+        "stderr": {
+          "path": "tmp/paper-map-release/numerical-anonymous-01/preinstall-stdlib-verify.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "path": "tmp/paper-map-release/numerical-anonymous-01/preinstall-stdlib-verify.stdout.log",
+          "sha256": "feb8c0d8e7318590a3cdfc1e19dbee4fdf40aa9b76f44dc60ce9fa60ab8a314f"
+        }
+      },
+      "name": "preinstall-stdlib-verify",
+      "output": "{\"absent_pixels_authenticated\": false, \"files\": 18, \"qualification\": \"terminal_failed\", \"status\": \"verified\"}",
+      "seconds": 0.6838248750427738,
+      "started_utc": "2026-09-10T09:35:30.818454+00:00"
+    },
+    {
+      "argv": [
+        "uv",
+        "sync",
+        "--locked",
+        "--python",
+        "3.13.11",
+        "--extra",
+        "analysis",
+        "--extra",
+        "dev"
+      ],
+      "cwd": "tmp/paper-map-release/numerical-anonymous-01/pmrv1-20260910",
+      "exit_code": 0,
+      "logs": {
+        "stderr": {
+          "path": "tmp/paper-map-release/numerical-anonymous-01/locked-install.stderr.log",
+          "sha256": "63d9dc26366d09f327c26866e05b016e49176078b643fef215f79c64968619bc"
+        },
+        "stdout": {
+          "path": "tmp/paper-map-release/numerical-anonymous-01/locked-install.stdout.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "name": "locked-install",
+      "output": "",
+      "seconds": 0.5640362079720944,
+      "started_utc": "2026-09-10T09:35:31.502726+00:00"
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-I",
+        "tools/paper_map_release.py",
+        "check",
+        "--root",
+        "."
+      ],
+      "cwd": "tmp/paper-map-release/numerical-anonymous-01/pmrv1-20260910",
+      "exit_code": 0,
+      "logs": {
+        "stderr": {
+          "path": "tmp/paper-map-release/numerical-anonymous-01/numerical-replay.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "path": "tmp/paper-map-release/numerical-anonymous-01/numerical-replay.stdout.log",
+          "sha256": "89831147ac389133efb25c04e891ba3b6c56bda34f6fd26bd038ec062632bdc0"
+        }
+      },
+      "name": "numerical-replay",
+      "output": "{\"cells\": 81, \"decision\": \"stop_inferential_proposal\", \"exact_values\": true, \"float_absolute_relative_tolerance\": 1e-10, \"service_validation\": false, \"status\": \"checked\", \"writes_scientific_outputs\": false}",
+      "seconds": 42.41597170801833,
+      "started_utc": "2026-09-10T09:35:32.066976+00:00"
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "--import-mode=importlib",
+        "tests/test_paper_map_release.py",
+        "tests/painter_map_validation_v1/test_precision.py"
+      ],
+      "cwd": "tmp/paper-map-release/numerical-anonymous-01/pmrv1-20260910",
+      "exit_code": 0,
+      "logs": {
+        "stderr": {
+          "path": "tmp/paper-map-release/numerical-anonymous-01/public-tests.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "path": "tmp/paper-map-release/numerical-anonymous-01/public-tests.stdout.log",
+          "sha256": "65b9d058e1848e8727e8c28e1940eed5882b5edb1d17f0038e4e222954c32a81"
+        }
+      },
+      "name": "public-tests",
+      "output": "........................................................................ [ 98%]\n.                                                                        [100%]\n73 passed in 15.09s",
+      "seconds": 15.900833207997493,
+      "started_utc": "2026-09-10T09:36:14.481350+00:00"
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-I",
+        "-c",
+        "verify(root, runtime=True) and record runtime"
+      ],
+      "cwd": "tmp/paper-map-release/numerical-anonymous-01/pmrv1-20260910",
+      "exit_code": 0,
+      "logs": {
+        "stderr": {
+          "path": "tmp/paper-map-release/numerical-anonymous-01/post-test-inventory.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "path": "tmp/paper-map-release/numerical-anonymous-01/post-test-inventory.stdout.log",
+          "sha256": "1d879952c7b71e6187c396ff6482d6b09b3458191d5dc9c1d7f6fda163d289cf"
+        }
+      },
+      "name": "post-test-inventory",
+      "output": "{\"absent_pixels_authenticated\": false, \"files\": 18, \"numpy\": \"2.5.2\", \"platform\": \"macOS-26.6.2-arm64-arm-64bit-Mach-O\", \"python\": \"3.13.11\", \"qualification\": \"terminal_failed\", \"scipy\": \"1.18.1\", \"status\": \"verified\"}",
+      "seconds": 0.7458176659420133,
+      "started_utc": "2026-09-10T09:36:30.381684+00:00"
+    }
+  ],
+  "completed_utc": "2026-09-10T09:36:31.127865+00:00",
+  "detached_checksum": {
+    "path": "tmp/paper-map-release/numerical-anonymous-01/pmrv1-20260910.tar.gz.sha256",
+    "sha256": "7f983481013b4812c677002f59e9c598ba625d15a242cee5b6d593cd38c82ed8"
+  },
+  "exact_archive_inventory_verified_before_extraction": true,
+  "extracted_files": 18,
+  "floating_contract": "Finite floats allow 1e-10 absolute/relative tolerance; all values were exact here. Structures, counts, identities, seeds, hashes and decisions are exact.",
+  "fresh_locked_install": true,
+  "involvement": "Maintainer-run LLM agent; implemented the variance/qualification and release adapter and contributed prior reviews.",
+  "new_images": 0,
+  "numerical_package_only": true,
+  "numerical_replay": {
+    "cells": 81,
+    "decision": "stop_inferential_proposal",
+    "exact_values": true,
+    "float_absolute_relative_tolerance": 1e-10,
+    "service_validation": false,
+    "status": "checked",
+    "writes_scientific_outputs": false
+  },
+  "numpy": "2.5.2",
+  "omitted_bodies": "DESIGN and old geometry freeze/receipt bodies are absent; their recorded hashes are provenance fingerprints, not verified public contents.",
+  "original_local_receipt": {
+    "path": "reports/paper_map_reproducibility_v1/pmrv1-20260910/LOCAL.json",
+    "sha256": "4465eb8e86768195567b80adda7a452577f1c938eaf1c8ad3a82c58b304912c9"
+  },
+  "paper_assets_verified": false,
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "post_test_inventory_verified": true,
+  "preinstall_site_packages_disabled": true,
+  "preinstall_stdlib_verify_passed": true,
+  "public_tests": {
+    "passed": 73,
+    "skipped": 0
+  },
+  "python": "3.13.11",
+  "qualification_source_commit": "eb70ab8c30019b4b283366c170f8bdaf1405a023",
+  "release_id": "pmrv1-20260910",
+  "release_url": "https://github.com/isingmodel/latent-art-bench/releases/tag/pmrv1-20260910",
+  "schema": "paper-map-public-replay/1",
+  "scipy": "1.18.1",
+  "scope": "Anonymous asset retrieval and fresh same-Mac maintainer replay; no separate machine/investigator or service/capture/perceptual validation.",
+  "status": "passed",
+  "support_hash_limit": "Reconstructed floating-array support hashes are exact; matching arithmetic/platform may be necessary even when other floats satisfy tolerance."
+}

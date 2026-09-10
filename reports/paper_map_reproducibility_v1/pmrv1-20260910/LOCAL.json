@@ -1,0 +1,71 @@
+{
+  "archive": {
+    "bytes": 2725809,
+    "path": "tmp/paper-map-release/numerical-final-01/pmrv1-20260910.tar.gz",
+    "sha256": "00e82c31c2b3dd5719c324a1d26b882e3dc98ebbfd491122062df5ccde62cd9f"
+  },
+  "commands": [
+    {
+      "argv": [
+        ".venv/bin/python",
+        "tools/paper_map_release.py",
+        "check",
+        "--root",
+        "."
+      ],
+      "cwd": "tmp/paper-map-release/numerical-local-01/pmrv1-20260910",
+      "exit_code": 0,
+      "logs": {
+        "stderr": {
+          "path": "tmp/paper-map-release/numerical-local-01/numerical-replay.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "path": "tmp/paper-map-release/numerical-local-01/numerical-replay.stdout.log",
+          "sha256": "89831147ac389133efb25c04e891ba3b6c56bda34f6fd26bd038ec062632bdc0"
+        }
+      },
+      "name": "numerical-replay",
+      "output": "{\"cells\": 81, \"decision\": \"stop_inferential_proposal\", \"exact_values\": true, \"float_absolute_relative_tolerance\": 1e-10, \"service_validation\": false, \"status\": \"checked\", \"writes_scientific_outputs\": false}",
+      "seconds": 50.33385279204231,
+      "started_utc": "2026-09-10T09:19:58.917010+00:00"
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "--import-mode=importlib",
+        "tests/test_paper_map_release.py",
+        "tests/painter_map_validation_v1/test_precision.py"
+      ],
+      "cwd": "tmp/paper-map-release/numerical-local-01/pmrv1-20260910",
+      "exit_code": 0,
+      "logs": {
+        "stderr": {
+          "path": "tmp/paper-map-release/numerical-local-01/public-tests.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "path": "tmp/paper-map-release/numerical-local-01/public-tests.stdout.log",
+          "sha256": "88b11b1ad25feae3901e168a5be3abfa1e0c6e16e11de6bc6d7d130a638336d1"
+        }
+      },
+      "name": "public-tests",
+      "output": "........................................................................ [ 98%]\n.                                                                        [100%]\n73 passed in 15.11s",
+      "seconds": 16.25152716692537,
+      "started_utc": "2026-09-10T09:20:49.248534+00:00"
+    }
+  ],
+  "completed_utc": "2026-09-10T09:21:05.522979+00:00",
+  "extracted_files": 18,
+  "fresh_locked_install": true,
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "preinstall_stdlib_verify_passed": true,
+  "python": "3.13.11",
+  "schema": "paper-map-local-replay/1",
+  "scope": "Fresh same-host macOS numerical replay and tests; not service/capture validation or separate-investigator replication.",
+  "source_commit": "35aef913cfedafc7de2c746fd68b061b05f21b2c",
+  "status": "passed"
+}

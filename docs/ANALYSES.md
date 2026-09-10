@@ -307,3 +307,24 @@ is a [published numerical addendum](../reports/paper_clause_reproducibility_v1/p
 It replays both cohorts separately from compact measurements, with exact fresh
 local and anonymous replay and 152 tests/eight explicit skips per environment. Local `verify-responses` additionally
 checks private retained response hashes without decoding/re-extracting images.
+
+## Prospective fixed-map precision and validation
+
+| Scope | Contract and retained result | Computation / boundary |
+| --- | --- | --- |
+| Failed `painter_map_validation_v1/pmvqv1-20260910` | [Precision protocol](../studies/painter_map_validation_v1/PRECISION_PROTOCOL.md), [81-cell result](../studies/painter_map_validation_v1/pmvqv1-20260910/PRECISION.md) | Immutable `painter_map_validation_v1/precision.py`; 96/144/192-output candidates all fail the fixed Q-width criterion. Formal writer is closed. |
+| Single `painter_map_validation_v2/pmvqv2-20260910` assessment | [Redesign decision](../studies/painter_map_validation_v2/DECISION.md), [precision protocol](../studies/painter_map_validation_v2/PRECISION_PROTOCOL.md), [27-cell result](../studies/painter_map_validation_v2/pmvqv2-20260910/PRECISION.md) | V2 imports unchanged v1 primitives; R10/240 outputs passes historical-proxy criteria. The formal assessment is complete and must not be rerun. Separate operational qualification precedes collection. |
+
+No images or fitted plots are produced by either qualification. The proposed
+[scientific comparison](../studies/painter_map_validation_v2/PROTOCOL.md) has two
+fixed primary endpoints, with all-31-feature primary512 measurement only.
+There is no further allocation assessment if its collection is unavailable or
+its actual uncertainty is unresolved.
+
+The failed v1 grid has a separately verified [public numerical archive](../reports/paper_map_reproducibility_v1/pmrv1-20260910/REPORT.md).
+From the extracted `pmrv1-20260910/` archive root, first verify with
+`python -I -S tools/paper_map_release.py verify --root .`, install its locked
+environment, then use `uv run --locked python tools/paper_map_release.py check --root .`.
+This replays in memory and compares all 81 cells without invoking the terminal
+writer. All values match exactly in fresh local and anonymous-download Mac
+environments; exact reconstructed support hashes limit portability claims.
