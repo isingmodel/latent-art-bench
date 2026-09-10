@@ -1,0 +1,446 @@
+{
+  "counts": {
+    "artist_free_strings": 16,
+    "named_strings": 64,
+    "scene_groups": 4,
+    "templates": 16,
+    "total_strings": 80
+  },
+  "encoding": "UTF-8, NFC; strings are byte-exact and must not be re-normalized or trimmed",
+  "insertion_rule": {
+    "anchor": "An oil painting on canvas",
+    "inserted_bytes_template": " by {PAINTER}",
+    "position": "immediately after the first occurrence of the anchor"
+  },
+  "negative_prompt": {
+    "rule": "used only when the frozen model exposes a negative-prompt field; never appended to the positive prompt",
+    "sha256": "cdb78fd918baef81fb5ec3991b189ea8d99eac351e46d0e3b1d16d668a1eb1aa",
+    "text": "text, lettering, signature, watermark, frame, border, photograph, collage",
+    "unsupported_marker": "negative_prompt_not_supported"
+  },
+  "painters": [
+    {
+      "painter_id": "claude_monet",
+      "painter_name": "Claude Monet"
+    },
+    {
+      "painter_id": "alfred_sisley",
+      "painter_name": "Alfred Sisley"
+    },
+    {
+      "painter_id": "camille_pissarro",
+      "painter_name": "Camille Pissarro"
+    },
+    {
+      "painter_id": "paul_cezanne",
+      "painter_name": "Paul Cézanne"
+    }
+  ],
+  "protocol_id": "painter-feature-generation-v1/2.1",
+  "protocol_path": "studies/painter_feature_generation_v1/PROTOCOL_2.1.md",
+  "protocol_sha256": "95794800777993d00c4dcf1048ec026ebf6473da522fabd88120a5bcedb2217d",
+  "render_contract": {
+    "height": 1024,
+    "image_to_image_or_reference_input": false,
+    "orientation": "landscape",
+    "outputs_per_request": 1,
+    "post_generation_crop_or_upscale": false,
+    "width": 1536
+  },
+  "scene_groups": [
+    "water_organized",
+    "built_place_organized",
+    "route_organized",
+    "open_or_wooded_land"
+  ],
+  "schema_version": "painter-feature-generation-v1-prompt-library/1.0",
+  "selection_rule": "no selection: every template is rendered under every condition; the prompt scene type is a generated-side diagnostic label only and nothing may rewrite, reorder, or choose among these strings",
+  "status": "rendered_from_protocol_not_yet_reviewed_or_sealed",
+  "strings_sha256": "c0d305dd59ace618ca0e882c90b14bc4a8e4c772226598cf0806cc4f6a829398",
+  "templates": [
+    {
+      "artist_free_prompt": "An oil painting on canvas of a riverbank landscape, with water organizing the composition.",
+      "artist_free_sha256": "442ca9553b74bbd5dd33349186be23a3c49a69e4129565ac48a9ec27bb79448c",
+      "named_prompts": {
+        "alfred_sisley": {
+          "prompt": "An oil painting on canvas by Alfred Sisley of a riverbank landscape, with water organizing the composition.",
+          "sha256": "147e33d939ead7d3ba8439cb57d7c187b6c1e8c67191b769287d0d775d547f4c"
+        },
+        "camille_pissarro": {
+          "prompt": "An oil painting on canvas by Camille Pissarro of a riverbank landscape, with water organizing the composition.",
+          "sha256": "2d4f3612a635844a3914da865bf5ed1fa0a915eaec60c089f8fca764c1598f42"
+        },
+        "claude_monet": {
+          "prompt": "An oil painting on canvas by Claude Monet of a riverbank landscape, with water organizing the composition.",
+          "sha256": "16f80da2f108fb5bc2035928d034ebddb1f514e62857f823454e48a0362de690"
+        },
+        "paul_cezanne": {
+          "prompt": "An oil painting on canvas by Paul Cézanne of a riverbank landscape, with water organizing the composition.",
+          "sha256": "9142f5b98a5af108a55c96d2578d4fa75aadd93b4cdb165b712298900e22d97c"
+        }
+      },
+      "scene_group": "water_organized",
+      "template_id": "W1"
+    },
+    {
+      "artist_free_prompt": "An oil painting on canvas of a coastal or harbor landscape, with water as the main spatial element.",
+      "artist_free_sha256": "3ee9894d81617d9a42edf74eb28aa28c279b471a1f89bf270cb9d203e122419e",
+      "named_prompts": {
+        "alfred_sisley": {
+          "prompt": "An oil painting on canvas by Alfred Sisley of a coastal or harbor landscape, with water as the main spatial element.",
+          "sha256": "846b01c1147f8b89f276e4fe74fb213d5f0b196765a9f3a2e253948a01c0bae5"
+        },
+        "camille_pissarro": {
+          "prompt": "An oil painting on canvas by Camille Pissarro of a coastal or harbor landscape, with water as the main spatial element.",
+          "sha256": "bb11c0eb6f3913b95a6cc93a904a2b66d50635589d3cdd7cfc4d3b112fade880"
+        },
+        "claude_monet": {
+          "prompt": "An oil painting on canvas by Claude Monet of a coastal or harbor landscape, with water as the main spatial element.",
+          "sha256": "965ba5e0ab99d6badcb3b9d5378c5a233b2dfcef07ed335d501f16a0d75c47c2"
+        },
+        "paul_cezanne": {
+          "prompt": "An oil painting on canvas by Paul Cézanne of a coastal or harbor landscape, with water as the main spatial element.",
+          "sha256": "d6a44f25feb7dec68f427e8e910ddf8eeb80e08d0cc915ebb92c6bac1c3b4789"
+        }
+      },
+      "scene_group": "water_organized",
+      "template_id": "W2"
+    },
+    {
+      "artist_free_prompt": "An oil painting on canvas of a canal or lakeside landscape viewed from outdoors.",
+      "artist_free_sha256": "bbdfe4caa5484142f68c892ce7678411eee75d897bc90e0df2c719439e32c945",
+      "named_prompts": {
+        "alfred_sisley": {
+          "prompt": "An oil painting on canvas by Alfred Sisley of a canal or lakeside landscape viewed from outdoors.",
+          "sha256": "11aadf3f21dbf203b293c3d255a758d34bcb0965dda77965095e9bd3a186a1a4"
+        },
+        "camille_pissarro": {
+          "prompt": "An oil painting on canvas by Camille Pissarro of a canal or lakeside landscape viewed from outdoors.",
+          "sha256": "25f057ca9a1b50a7a0a70650e657ba7eb1234df580eb963ffe846c5814a9bad6"
+        },
+        "claude_monet": {
+          "prompt": "An oil painting on canvas by Claude Monet of a canal or lakeside landscape viewed from outdoors.",
+          "sha256": "385dfec1999865fb4d1cecbba88d2ed6ba70bf64c00990f8b1044d327c86adff"
+        },
+        "paul_cezanne": {
+          "prompt": "An oil painting on canvas by Paul Cézanne of a canal or lakeside landscape viewed from outdoors.",
+          "sha256": "8ccb45f0c18939a3c4094103fd2d45d10243625e6c78ddc9c648491adfb4e118"
+        }
+      },
+      "scene_group": "water_organized",
+      "template_id": "W3"
+    },
+    {
+      "artist_free_prompt": "An oil painting on canvas of an outdoor waterside place, with both land and water visible.",
+      "artist_free_sha256": "f032ca4a5360ce5983ec5e48850ac61e6163bbf4b501532fd3e8d50c8f6d42dc",
+      "named_prompts": {
+        "alfred_sisley": {
+          "prompt": "An oil painting on canvas by Alfred Sisley of an outdoor waterside place, with both land and water visible.",
+          "sha256": "078e91ea837690f8b75422ce2a51f1fd3298661e1cb155ae817124fe18425a8b"
+        },
+        "camille_pissarro": {
+          "prompt": "An oil painting on canvas by Camille Pissarro of an outdoor waterside place, with both land and water visible.",
+          "sha256": "c906b278bcaea38e194675b36c5c4c6400b9d64207e49611fc77d69ad27b4f00"
+        },
+        "claude_monet": {
+          "prompt": "An oil painting on canvas by Claude Monet of an outdoor waterside place, with both land and water visible.",
+          "sha256": "e6abdb19c69ae2b207eae0710135b4dbb6f395ce9dacf32b33601691b4432980"
+        },
+        "paul_cezanne": {
+          "prompt": "An oil painting on canvas by Paul Cézanne of an outdoor waterside place, with both land and water visible.",
+          "sha256": "df9ad74ba62c97eab3bf310318358f5ea665a54b57fadbf41c047a43e86e5eac"
+        }
+      },
+      "scene_group": "water_organized",
+      "template_id": "W4"
+    },
+    {
+      "artist_free_prompt": "An oil painting on canvas of an outdoor town street, with buildings organizing the composition.",
+      "artist_free_sha256": "9f0b46d0eb2de72696ecd9b59cfe6219336573bdaf8a70a65d2adcd13fc8c32c",
+      "named_prompts": {
+        "alfred_sisley": {
+          "prompt": "An oil painting on canvas by Alfred Sisley of an outdoor town street, with buildings organizing the composition.",
+          "sha256": "6ce91622c8f45ba6beca5e76d84247c648e9ffaf59faf1e5170eb29fc35924e3"
+        },
+        "camille_pissarro": {
+          "prompt": "An oil painting on canvas by Camille Pissarro of an outdoor town street, with buildings organizing the composition.",
+          "sha256": "c54ad85a8cd27ea147fa57405c9ac3877cf23642ba67d95bb6d52f4c8d93a722"
+        },
+        "claude_monet": {
+          "prompt": "An oil painting on canvas by Claude Monet of an outdoor town street, with buildings organizing the composition.",
+          "sha256": "1c456453e5b45538707985925fc46afbeddab2381703162fc8f70cbe14817ddb"
+        },
+        "paul_cezanne": {
+          "prompt": "An oil painting on canvas by Paul Cézanne of an outdoor town street, with buildings organizing the composition.",
+          "sha256": "c6c845f9c0e55dad298cb0472d80902fbf28c6ec3aaad493c3ea1c5af60dc895"
+        }
+      },
+      "scene_group": "built_place_organized",
+      "template_id": "B1"
+    },
+    {
+      "artist_free_prompt": "An oil painting on canvas of a village or settlement viewed from outdoors.",
+      "artist_free_sha256": "c2ad0c9ad9dc48d00d22740f005d239baba2bbf2a54e6063bfc29c6d87128cf0",
+      "named_prompts": {
+        "alfred_sisley": {
+          "prompt": "An oil painting on canvas by Alfred Sisley of a village or settlement viewed from outdoors.",
+          "sha256": "6fdbcee23cf7666264e0eb719235d92aebc70f8ebb544527e5b59ad759bb1e53"
+        },
+        "camille_pissarro": {
+          "prompt": "An oil painting on canvas by Camille Pissarro of a village or settlement viewed from outdoors.",
+          "sha256": "9c59a3e80a163192c9c584c4bd1acaa73cf08ecaf849652f2d18a7b03efc7f32"
+        },
+        "claude_monet": {
+          "prompt": "An oil painting on canvas by Claude Monet of a village or settlement viewed from outdoors.",
+          "sha256": "15e449ad167d7ebebff2754d5a037f0b41c14d5e494720e35ff6afa6d3dfdf1e"
+        },
+        "paul_cezanne": {
+          "prompt": "An oil painting on canvas by Paul Cézanne of a village or settlement viewed from outdoors.",
+          "sha256": "97bc464fb5629f7b5228febc1638ffcec083b764782df319427c1909dd27c683"
+        }
+      },
+      "scene_group": "built_place_organized",
+      "template_id": "B2"
+    },
+    {
+      "artist_free_prompt": "An oil painting on canvas of an outdoor square or built place, with architecture as the main spatial element.",
+      "artist_free_sha256": "a4c8d7c15e97a6332c5bbef1d2f6fa6c5179feafcd0c57d8a13980eb0b9b2d4f",
+      "named_prompts": {
+        "alfred_sisley": {
+          "prompt": "An oil painting on canvas by Alfred Sisley of an outdoor square or built place, with architecture as the main spatial element.",
+          "sha256": "31700992758cba94be0f8d5e98d93e367d492f8a6ad237a00ffc60fe0355b5fc"
+        },
+        "camille_pissarro": {
+          "prompt": "An oil painting on canvas by Camille Pissarro of an outdoor square or built place, with architecture as the main spatial element.",
+          "sha256": "0c3076d1dc49b95f8ad21901cf8cbab0a62c3ad6a9d17eaa069757790fb9cec2"
+        },
+        "claude_monet": {
+          "prompt": "An oil painting on canvas by Claude Monet of an outdoor square or built place, with architecture as the main spatial element.",
+          "sha256": "94dfdfd587d45ee9974b67e9e6c3e3b2a4ece1e86f32a92368e7b7d441de4682"
+        },
+        "paul_cezanne": {
+          "prompt": "An oil painting on canvas by Paul Cézanne of an outdoor square or built place, with architecture as the main spatial element.",
+          "sha256": "ed6f0832b1180597a05a70fdbd5d8207194082cc2a3b72559599738bb02b7880"
+        }
+      },
+      "scene_group": "built_place_organized",
+      "template_id": "B3"
+    },
+    {
+      "artist_free_prompt": "An oil painting on canvas of buildings in an outdoor landscape, with the built place visually dominant.",
+      "artist_free_sha256": "587934aa666575a852c30531b432b26929a6b81c97c8f3c66b0be525d412a6b8",
+      "named_prompts": {
+        "alfred_sisley": {
+          "prompt": "An oil painting on canvas by Alfred Sisley of buildings in an outdoor landscape, with the built place visually dominant.",
+          "sha256": "87b5708c700d10ab535b703901ec2994059766cf08ca7e2a5eccdd2de7f9d04e"
+        },
+        "camille_pissarro": {
+          "prompt": "An oil painting on canvas by Camille Pissarro of buildings in an outdoor landscape, with the built place visually dominant.",
+          "sha256": "757d4f415ea28c721dc88eb198bf765cccf2d8d2bbc7e6ba0a59bb9faffd756e"
+        },
+        "claude_monet": {
+          "prompt": "An oil painting on canvas by Claude Monet of buildings in an outdoor landscape, with the built place visually dominant.",
+          "sha256": "c4190ea5fe22569bb911726ac8a2d23eeeeae0c166690c92917c52b32ef1cf52"
+        },
+        "paul_cezanne": {
+          "prompt": "An oil painting on canvas by Paul Cézanne of buildings in an outdoor landscape, with the built place visually dominant.",
+          "sha256": "3503011b319a4646788a4cbf89459d5fa65df9468ec034dca6ae8c9262f3ca35"
+        }
+      },
+      "scene_group": "built_place_organized",
+      "template_id": "B4"
+    },
+    {
+      "artist_free_prompt": "An oil painting on canvas of a country road passing through an outdoor landscape.",
+      "artist_free_sha256": "e072d20578c446a244b302e881dc1327335bedaa14d05d953ffb86ee683d7f12",
+      "named_prompts": {
+        "alfred_sisley": {
+          "prompt": "An oil painting on canvas by Alfred Sisley of a country road passing through an outdoor landscape.",
+          "sha256": "db6105a8b327f479eb3b88c11cf45ce53a4f389023e07770cf18ebb159865090"
+        },
+        "camille_pissarro": {
+          "prompt": "An oil painting on canvas by Camille Pissarro of a country road passing through an outdoor landscape.",
+          "sha256": "128f461390aa662582a0dd28c497507738e3ee6aeffc3a0e526af5244f22faea"
+        },
+        "claude_monet": {
+          "prompt": "An oil painting on canvas by Claude Monet of a country road passing through an outdoor landscape.",
+          "sha256": "79c510995f64d3586d0103b542e27b2ffd80ee5552a44296c7df805db2bf5f1e"
+        },
+        "paul_cezanne": {
+          "prompt": "An oil painting on canvas by Paul Cézanne of a country road passing through an outdoor landscape.",
+          "sha256": "f5fde190a5049eb610edc4500408be097afb49e30a886dcae8225a262fb19559"
+        }
+      },
+      "scene_group": "route_organized",
+      "template_id": "R1"
+    },
+    {
+      "artist_free_prompt": "An oil painting on canvas of a path or lane organizing a rural landscape.",
+      "artist_free_sha256": "8a4c85c4ed3b94901d0faf10e96e3bfb7462eff900a928a76be975510773aadf",
+      "named_prompts": {
+        "alfred_sisley": {
+          "prompt": "An oil painting on canvas by Alfred Sisley of a path or lane organizing a rural landscape.",
+          "sha256": "4419d8db38fe3f7b950e7eda136fb4f8ac66ee51fbfcd24646e6de16251bf222"
+        },
+        "camille_pissarro": {
+          "prompt": "An oil painting on canvas by Camille Pissarro of a path or lane organizing a rural landscape.",
+          "sha256": "576149f3012145d0051bc6aac030eb6f5b53b91458ca21ccdfc1c1829f34cf66"
+        },
+        "claude_monet": {
+          "prompt": "An oil painting on canvas by Claude Monet of a path or lane organizing a rural landscape.",
+          "sha256": "3207f069a31f688eac8deeb98bc425dd4d2da0df5e39163056ff53558260b79f"
+        },
+        "paul_cezanne": {
+          "prompt": "An oil painting on canvas by Paul Cézanne of a path or lane organizing a rural landscape.",
+          "sha256": "3ad4c7606803e8a62e4cb1f6f9e8aaaae6ed47698706cf341066f34778c58351"
+        }
+      },
+      "scene_group": "route_organized",
+      "template_id": "R2"
+    },
+    {
+      "artist_free_prompt": "An oil painting on canvas of an outdoor track receding through fields or trees.",
+      "artist_free_sha256": "32a5d1bfc4bb0a05c4dc937c94290a281c644202fec32fcae313d2324f9c156a",
+      "named_prompts": {
+        "alfred_sisley": {
+          "prompt": "An oil painting on canvas by Alfred Sisley of an outdoor track receding through fields or trees.",
+          "sha256": "3145932bb19329b17e8d30b023c0e886a5deb31e8d58a21110c642f373cc771d"
+        },
+        "camille_pissarro": {
+          "prompt": "An oil painting on canvas by Camille Pissarro of an outdoor track receding through fields or trees.",
+          "sha256": "d020c5a9f180693461e41db9ab6cf6f03fd1330c5bba7fda2932fe0412dccb6a"
+        },
+        "claude_monet": {
+          "prompt": "An oil painting on canvas by Claude Monet of an outdoor track receding through fields or trees.",
+          "sha256": "0343c3f2fc557a7171992d62f8814abb0ebae27e85182ed65a66638a1cd7de94"
+        },
+        "paul_cezanne": {
+          "prompt": "An oil painting on canvas by Paul Cézanne of an outdoor track receding through fields or trees.",
+          "sha256": "e361685fa5ee6b9f6ef053934a60a6a4c9048724c9a4944f894965a7f12c60b3"
+        }
+      },
+      "scene_group": "route_organized",
+      "template_id": "R3"
+    },
+    {
+      "artist_free_prompt": "An oil painting on canvas of a landscape structured around a visible road or path.",
+      "artist_free_sha256": "024e715fb32ba006fba4a03718cff873a8330a15f1d8fadeead12eabeeb46bc7",
+      "named_prompts": {
+        "alfred_sisley": {
+          "prompt": "An oil painting on canvas by Alfred Sisley of a landscape structured around a visible road or path.",
+          "sha256": "6fd4d26dcc257a5608a50f9c297d6696ab6338af70f5c29c97bd8c1b4eecd38e"
+        },
+        "camille_pissarro": {
+          "prompt": "An oil painting on canvas by Camille Pissarro of a landscape structured around a visible road or path.",
+          "sha256": "b58443f2b8d81c4363da2fd20da3c7e9080fb3f59ab7a9c5df3cd39f8a6d4d90"
+        },
+        "claude_monet": {
+          "prompt": "An oil painting on canvas by Claude Monet of a landscape structured around a visible road or path.",
+          "sha256": "3fab47897320bcd089cab9df76161d2549a4c752f01561ebd46c10bdc49c9bf6"
+        },
+        "paul_cezanne": {
+          "prompt": "An oil painting on canvas by Paul Cézanne of a landscape structured around a visible road or path.",
+          "sha256": "2ef127ef358c8b09d46a36aff2fa49c3242b828d6b0be6d26de00d4406989499"
+        }
+      },
+      "scene_group": "route_organized",
+      "template_id": "R4"
+    },
+    {
+      "artist_free_prompt": "An oil painting on canvas of open fields and distant land viewed outdoors.",
+      "artist_free_sha256": "5ecac658a19df1887198634e4d7c4684ffae5740909bad8664cb55c111b5ef4f",
+      "named_prompts": {
+        "alfred_sisley": {
+          "prompt": "An oil painting on canvas by Alfred Sisley of open fields and distant land viewed outdoors.",
+          "sha256": "4dd8f8e6b48740a9d967a189834ae1325d3f0d5c241cd0717aff3c8ee70c48fa"
+        },
+        "camille_pissarro": {
+          "prompt": "An oil painting on canvas by Camille Pissarro of open fields and distant land viewed outdoors.",
+          "sha256": "80665de3e716f0af0abe3a63ffd49b253906eb9a8f6b4804a9f64025ae4cb08b"
+        },
+        "claude_monet": {
+          "prompt": "An oil painting on canvas by Claude Monet of open fields and distant land viewed outdoors.",
+          "sha256": "f3de442c7af9cd88bf0775ee5423b09d87a8c291c3136626106ccd52f98dec5a"
+        },
+        "paul_cezanne": {
+          "prompt": "An oil painting on canvas by Paul Cézanne of open fields and distant land viewed outdoors.",
+          "sha256": "4102c01ccc150df1e8e9dd76ba98a61f175710e88cd8e8390d2bc431a1df4855"
+        }
+      },
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L1"
+    },
+    {
+      "artist_free_prompt": "An oil painting on canvas of a wooded hillside or forest landscape.",
+      "artist_free_sha256": "727b463eb0de7f2de63a1655ac295c010e7ab499d8b84077418c980c90ecbdfe",
+      "named_prompts": {
+        "alfred_sisley": {
+          "prompt": "An oil painting on canvas by Alfred Sisley of a wooded hillside or forest landscape.",
+          "sha256": "ef9d5815e0aa0965625eacde4848bcc508e4e3d86b213c4a5719ff48e63c2a07"
+        },
+        "camille_pissarro": {
+          "prompt": "An oil painting on canvas by Camille Pissarro of a wooded hillside or forest landscape.",
+          "sha256": "807474745a97c3d828451284692dc0722e1c5d21e52b9d74ac0a504a24520db0"
+        },
+        "claude_monet": {
+          "prompt": "An oil painting on canvas by Claude Monet of a wooded hillside or forest landscape.",
+          "sha256": "fd59c3fe728d2d94d8a60c8b6b225bc6921fdb48ab079fdcccc320b0fb5ede03"
+        },
+        "paul_cezanne": {
+          "prompt": "An oil painting on canvas by Paul Cézanne of a wooded hillside or forest landscape.",
+          "sha256": "8454074cf072070763c84648444785f02059e467b3515d5368c5fdfd25494fab"
+        }
+      },
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L2"
+    },
+    {
+      "artist_free_prompt": "An oil painting on canvas of an orchard or garden landscape viewed outdoors.",
+      "artist_free_sha256": "6b697b1171a715b5aefc00b5a7751da7a306bb825b7a23c39b1e5fa87718f689",
+      "named_prompts": {
+        "alfred_sisley": {
+          "prompt": "An oil painting on canvas by Alfred Sisley of an orchard or garden landscape viewed outdoors.",
+          "sha256": "0214c1425cafeeab036f121f5073f481716833d563c94510224657584f25fb95"
+        },
+        "camille_pissarro": {
+          "prompt": "An oil painting on canvas by Camille Pissarro of an orchard or garden landscape viewed outdoors.",
+          "sha256": "ef014ce9a39288bb41a2aeeaccf1322d928914a8d45c32382973b6058da22966"
+        },
+        "claude_monet": {
+          "prompt": "An oil painting on canvas by Claude Monet of an orchard or garden landscape viewed outdoors.",
+          "sha256": "a9221b2698c160e0b92c5185b84ef4a17a22fbfd35a2a98f9a10a930434d995b"
+        },
+        "paul_cezanne": {
+          "prompt": "An oil painting on canvas by Paul Cézanne of an orchard or garden landscape viewed outdoors.",
+          "sha256": "aa88980330a19e36d2040e3c99129fd01fbfa3a2e7b03cb81f4a0db180c9df51"
+        }
+      },
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L3"
+    },
+    {
+      "artist_free_prompt": "An oil painting on canvas of an open or wooded landscape with no dominant building, road, or body of water.",
+      "artist_free_sha256": "5b94c5348ce4396bc135e458a6516b497a2a851f68d9000c8220d74601dfe874",
+      "named_prompts": {
+        "alfred_sisley": {
+          "prompt": "An oil painting on canvas by Alfred Sisley of an open or wooded landscape with no dominant building, road, or body of water.",
+          "sha256": "6c2d4446f5f3134c21f8c8406f86ccfb4253b0f9de49a2fbfbbf022040ade5d8"
+        },
+        "camille_pissarro": {
+          "prompt": "An oil painting on canvas by Camille Pissarro of an open or wooded landscape with no dominant building, road, or body of water.",
+          "sha256": "c648449b03fc53f29ab3bc7d8c05db25f6d998deb3d06b49fe8d4b6824055e3c"
+        },
+        "claude_monet": {
+          "prompt": "An oil painting on canvas by Claude Monet of an open or wooded landscape with no dominant building, road, or body of water.",
+          "sha256": "70a5e514f7bf18239fe1dc7be9022eec87b69e6283ba7e3c6b920bd67e18f777"
+        },
+        "paul_cezanne": {
+          "prompt": "An oil painting on canvas by Paul Cézanne of an open or wooded landscape with no dominant building, road, or body of water.",
+          "sha256": "afb6362484d9e7357e762201571982202a31ba5e84a4a382b3edb8d8db1f2f34"
+        }
+      },
+      "scene_group": "open_or_wooded_land",
+      "template_id": "L4"
+    }
+  ]
+}

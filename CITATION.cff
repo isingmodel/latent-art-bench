@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "Please cite the accompanying manuscript and this release."
+title: "Painter Naming and the Distributional Gap Between Generated Images and Original Paintings: numerical reproduction package"
+authors:
+  - name: "LatentArtBench contributors"
+version: "pprv1-20260910"
+date-released: "2026-09-10"
+url: "https://github.com/isingmodel/latent-art-bench"
+license: MIT

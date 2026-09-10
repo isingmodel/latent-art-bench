@@ -1,0 +1,9 @@
+allocated,arm,measured,polarity,statuses.http_error,statuses.measured,statuses.never_started
+24,free,5,muted,1,5,18
+24,free,6,vivid,,6,18
+24,generic,7,muted,,7,17
+24,generic,6,vivid,,6,18
+24,monet,6,muted,,6,18
+24,monet,6,vivid,,6,18
+24,cezanne,6,muted,,6,18
+24,cezanne,7,vivid,,7,17

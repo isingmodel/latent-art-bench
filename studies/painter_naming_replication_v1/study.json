@@ -1,0 +1,19 @@
+{
+  "schema": "painter-naming-replication/1",
+  "run_id": "pnrv1-20260910",
+  "assignment_seed": 2026091031,
+  "analysis_seed": 2026091032,
+  "naming_repetitions": 1,
+  "palette_repetitions": 4,
+  "maximum_images": 264,
+  "maximum_attempts": 272,
+  "maximum_technical_retries": 8,
+  "maximum_in_flight": 2,
+  "minimum_start_interval_seconds": 5,
+  "maximum_collection_seconds": 86400,
+  "overall_spending_ceiling_usd": 75,
+  "historical_accounted_usd": 45.6819185,
+  "request_reservation_usd": 5,
+  "minimum_free_bytes": 5368709120,
+  "alpha": 0.05
+}

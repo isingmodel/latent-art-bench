@@ -1,0 +1,19 @@
+{
+  "feature_vectors": 1706,
+  "freeze_sha256": "75cbaff834eb9428efcaddcd40662f4b5dcb19e137f9befcf366df2a82a303e7",
+  "new_generation_calls": 0,
+  "outputs": [
+    {
+      "path": "data/manifests/painter_measurement_validation_v1/pmvv1-20260910/analysis.json",
+      "sha256": "71d911bc5344fc5ab532e9ef4625f5eadd5e86284266b054fb01bfe5e4393f88"
+    },
+    {
+      "path": "data/manifests/painter_measurement_validation_v1/pmvv1-20260910/features.jsonl",
+      "sha256": "bee5f002765dbf5f4ad43031ca46c76be5ca2d836c4e5b477d8ff9f1d5afe697"
+    }
+  ],
+  "raw_images_verified": 1076,
+  "run_id": "pmvv1-20260910",
+  "source_commit": "f3bc9b61cc142c79a90c521696fad5bcc578f990",
+  "status": "complete"
+}
