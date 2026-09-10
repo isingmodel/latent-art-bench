@@ -1,0 +1,23 @@
+{
+  "collection_receipt_sha256": "03bbf8bf5f7679401051f52a803d6a1c18c0eb23140e3b04a9b5ad232c3618b2",
+  "outputs": [
+    {
+      "path": "data/manifests/painter_map_validation_v2/pmv2-20260910/measurements.jsonl",
+      "sha256": "157d2e541db3e65336a8583ad2c829e62e3834c05750c93e65e767a126430ba2"
+    },
+    {
+      "path": "reports/painter_map_validation_v2/pmv2-20260910/REPORT.md",
+      "sha256": "57470eb939a4120e632690be4e4b6e55ee15deb87f93b7a585cb62ca3e52b498"
+    },
+    {
+      "path": "reports/painter_map_validation_v2/pmv2-20260910/analysis.json",
+      "sha256": "11159b1b9b15dc6be3b1b3e03659298a8bed6bcd38a52aa992f16d2f26833386"
+    },
+    {
+      "path": "research_workspace/painter_map_validation_v2/pmv2-20260910/measurement_started.json",
+      "sha256": "b77c0d5ea9670bde912d499e1efeca9e613877fdc7ef9fd1e6dc8d72b2e40996"
+    }
+  ],
+  "run_id": "pmv2-20260910",
+  "schema": "painter-map-validation-measurement/2"
+}

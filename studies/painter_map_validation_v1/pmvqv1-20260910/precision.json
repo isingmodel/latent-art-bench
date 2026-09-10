@@ -1,0 +1,3668 @@
+{
+  "environment": {
+    "numpy": "2.5.2",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.11",
+    "scipy": "1.18.1"
+  },
+  "proxy_scene_ids": [
+    "water01",
+    "water02",
+    "water03",
+    "water04",
+    "built01",
+    "built02",
+    "built03",
+    "built04",
+    "land01",
+    "land02",
+    "land03",
+    "land04"
+  ],
+  "qualification": {
+    "allocations": [
+      {
+        "R": 4,
+        "baseline_width_pass": false,
+        "coverage_pass": true,
+        "outputs": 96,
+        "qualified": false
+      },
+      {
+        "R": 6,
+        "baseline_width_pass": false,
+        "coverage_pass": true,
+        "outputs": 144,
+        "qualified": false
+      },
+      {
+        "R": 8,
+        "baseline_width_pass": false,
+        "coverage_pass": true,
+        "outputs": 192,
+        "qualified": false
+      }
+    ],
+    "decision": "stop_inferential_proposal",
+    "records": [
+      {
+        "R": 4,
+        "coverage_lower": 0.9988203403968381,
+        "empirical_mean": [
+          0.00353719502094177,
+          1.1393537753760554
+        ],
+        "empirical_variance": [
+          0.001584983170496203,
+          0.18500649900136465
+        ],
+        "joint_coverage": 0.9998,
+        "joint_covered": 9998,
+        "mean": "T1",
+        "median_half_width": [
+          0.16374080203075997,
+          2.0929497960648904
+        ],
+        "negative_estimate_counts": [
+          4522,
+          89
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 96,
+        "regime": "baseline",
+        "shape": "gaussian_shaped",
+        "support_sha256": "a5edb580f363d69b2e7480fb919d42625dab4fb71b9a5507ca889dd8355d7908",
+        "trial_seed": [
+          2026091062,
+          0,
+          0,
+          0,
+          4
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.003421594085675439,
+            1.142378699019647
+          ],
+          "q_sampling_variance": 0.1794772326338125
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 6,
+        "coverage_lower": 0.9907115936006353,
+        "empirical_mean": [
+          0.0148077202626338,
+          1.1498711092747809
+        ],
+        "empirical_variance": [
+          0.0010342883305987614,
+          0.10630607700005326
+        ],
+        "joint_coverage": 0.9937,
+        "joint_covered": 9937,
+        "mean": "T1",
+        "median_half_width": [
+          0.10142549444427895,
+          1.1293609579362889
+        ],
+        "negative_estimate_counts": [
+          3191,
+          7
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 144,
+        "regime": "baseline",
+        "shape": "gaussian_shaped",
+        "support_sha256": "a5edb580f363d69b2e7480fb919d42625dab4fb71b9a5507ca889dd8355d7908",
+        "trial_seed": [
+          2026091062,
+          0,
+          0,
+          0,
+          6
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.013959902269206736,
+            1.142378699019647
+          ],
+          "q_sampling_variance": 0.1064840140791346
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 8,
+        "coverage_lower": 0.9853224309522004,
+        "empirical_mean": [
+          0.019391292171725975,
+          1.140536275678958
+        ],
+        "empirical_variance": [
+          0.0007751534027408908,
+          0.07307448397959847
+        ],
+        "joint_coverage": 0.9891,
+        "joint_covered": 9891,
+        "mean": "T1",
+        "median_half_width": [
+          0.07886391794040026,
+          0.8313773677690206
+        ],
+        "negative_estimate_counts": [
+          2375,
+          1
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 192,
+        "regime": "baseline",
+        "shape": "gaussian_shaped",
+        "support_sha256": "a5edb580f363d69b2e7480fb919d42625dab4fb71b9a5507ca889dd8355d7908",
+        "trial_seed": [
+          2026091062,
+          0,
+          0,
+          0,
+          8
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.01922905636097272,
+            1.142378699019647
+          ],
+          "q_sampling_variance": 0.07563060809182726
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 4,
+        "coverage_lower": 0.9979669576131988,
+        "empirical_mean": [
+          -0.28228533638213654,
+          1.1467631971341656
+        ],
+        "empirical_variance": [
+          0.0048206473068102326,
+          0.7826775070466481
+        ],
+        "joint_coverage": 0.9993,
+        "joint_covered": 9993,
+        "mean": "T1",
+        "median_half_width": [
+          0.2926466549553821,
+          5.173760269042751
+        ],
+        "negative_estimate_counts": [
+          10000,
+          1031
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 96,
+        "regime": "high_positive",
+        "shape": "gaussian_shaped",
+        "support_sha256": "a73113a77f8c98fec01d48d1e8f4d188ed84ed75e1eb4459af089cee1e3d6abb",
+        "trial_seed": [
+          2026091062,
+          0,
+          0,
+          1,
+          4
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            -0.2836099836732471,
+            1.142378699019647
+          ],
+          "q_sampling_variance": 0.7639475684499644
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 6,
+        "coverage_lower": 0.9935210111020059,
+        "empirical_mean": [
+          -0.2611880191957182,
+          1.1408186167861158
+        ],
+        "empirical_variance": [
+          0.003126251257813564,
+          0.37435302222095634
+        ],
+        "joint_coverage": 0.996,
+        "joint_covered": 9960,
+        "mean": "T1",
+        "median_half_width": [
+          0.17798788139287622,
+          2.459410794969423
+        ],
+        "negative_estimate_counts": [
+          10000,
+          461
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 144,
+        "regime": "high_positive",
+        "shape": "gaussian_shaped",
+        "support_sha256": "a73113a77f8c98fec01d48d1e8f4d188ed84ed75e1eb4459af089cee1e3d6abb",
+        "trial_seed": [
+          2026091062,
+          0,
+          0,
+          1,
+          6
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            -0.26141330796237794,
+            1.142378699019647
+          ],
+          "q_sampling_variance": 0.3744906841804345
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 8,
+        "coverage_lower": 0.9864767376520709,
+        "empirical_mean": [
+          -0.25062006749306476,
+          1.1480893991863756
+        ],
+        "empirical_variance": [
+          0.0023336889621249847,
+          0.23840112940057406
+        ],
+        "joint_coverage": 0.9901,
+        "joint_covered": 9901,
+        "mean": "T1",
+        "median_half_width": [
+          0.1372656987625327,
+          1.6778449381723342
+        ],
+        "negative_estimate_counts": [
+          10000,
+          194
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 192,
+        "regime": "high_positive",
+        "shape": "gaussian_shaped",
+        "support_sha256": "a73113a77f8c98fec01d48d1e8f4d188ed84ed75e1eb4459af089cee1e3d6abb",
+        "trial_seed": [
+          2026091062,
+          0,
+          0,
+          1,
+          8
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            -0.2503149701069436,
+            1.142378699019647
+          ],
+          "q_sampling_variance": 0.23753696838261604
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 4,
+        "coverage_lower": 0.9969314770047887,
+        "empirical_mean": [
+          0.10714496446619134,
+          1.1426481607200656
+        ],
+        "empirical_variance": [
+          0.00047755255561616913,
+          0.07344270089655226
+        ],
+        "joint_coverage": 0.9986,
+        "joint_covered": 9986,
+        "mean": "T1",
+        "median_half_width": [
+          0.08940672274761989,
+          1.1911579175059392
+        ],
+        "negative_estimate_counts": [
+          0,
+          3
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 96,
+        "regime": "low_negative",
+        "shape": "gaussian_shaped",
+        "support_sha256": "7211b8a0b518bebaf626bd93c4acb3d220d04905acf2ad6d750b1c47eaa707fc",
+        "trial_seed": [
+          2026091062,
+          0,
+          0,
+          2,
+          4
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.10733806953173608,
+            1.142378699019647
+          ],
+          "q_sampling_variance": 0.0732949620324405
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 6,
+        "coverage_lower": 0.9883412638233507,
+        "empirical_mean": [
+          0.11278425391104428,
+          1.1388076451967428
+        ],
+        "empirical_variance": [
+          0.00031592227152631955,
+          0.046631596294188955
+        ],
+        "joint_coverage": 0.9917,
+        "joint_covered": 9917,
+        "mean": "T1",
+        "median_half_width": [
+          0.05569615556440235,
+          0.6974108260998273
+        ],
+        "negative_estimate_counts": [
+          0,
+          0
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 144,
+        "regime": "low_negative",
+        "shape": "gaussian_shaped",
+        "support_sha256": "7211b8a0b518bebaf626bd93c4acb3d220d04905acf2ad6d750b1c47eaa707fc",
+        "trial_seed": [
+          2026091062,
+          0,
+          0,
+          2,
+          6
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.11288723845945348,
+            1.142378699019647
+          ],
+          "q_sampling_variance": 0.046680502955040316
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 8,
+        "coverage_lower": 0.9802050767236585,
+        "empirical_mean": [
+          0.11583473010331831,
+          1.1429360834905824
+        ],
+        "empirical_variance": [
+          0.00024272271358200963,
+          0.034027978910053956
+        ],
+        "joint_coverage": 0.9846,
+        "joint_covered": 9846,
+        "mean": "T1",
+        "median_half_width": [
+          0.04331287500771604,
+          0.5315044441797558
+        ],
+        "negative_estimate_counts": [
+          0,
+          0
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 192,
+        "regime": "low_negative",
+        "shape": "gaussian_shaped",
+        "support_sha256": "7211b8a0b518bebaf626bd93c4acb3d220d04905acf2ad6d750b1c47eaa707fc",
+        "trial_seed": [
+          2026091062,
+          0,
+          0,
+          2,
+          8
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.11566182292331217,
+            1.142378699019647
+          ],
+          "q_sampling_variance": 0.03430876130202023
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 4,
+        "coverage_lower": 0.9981256948035783,
+        "empirical_mean": [
+          0.003224768213839347,
+          0.006848775199623961
+        ],
+        "empirical_variance": [
+          0.0015406270072130554,
+          0.21787286953499577
+        ],
+        "joint_coverage": 0.9994,
+        "joint_covered": 9994,
+        "mean": "midpoint",
+        "median_half_width": [
+          0.16486083773002347,
+          2.246373438178838
+        ],
+        "negative_estimate_counts": [
+          4572,
+          4730
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 96,
+        "regime": "baseline",
+        "shape": "gaussian_shaped",
+        "support_sha256": "3864f974e7489e3b34f4bdfd3f614941cc74aeb522948c237befb9580e29beb4",
+        "trial_seed": [
+          2026091062,
+          0,
+          1,
+          0,
+          4
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.003421594085675439,
+            -1.8973538018496328e-18
+          ],
+          "q_sampling_variance": 0.22010055324395458
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 6,
+        "coverage_lower": 0.9914339818244541,
+        "empirical_mean": [
+          0.013350090775394919,
+          0.0013801490809407495
+        ],
+        "empirical_variance": [
+          0.001047989525030751,
+          0.13313903951383144
+        ],
+        "joint_coverage": 0.9943,
+        "joint_covered": 9943,
+        "mean": "midpoint",
+        "median_half_width": [
+          0.1020619417188235,
+          1.2402777852632605
+        ],
+        "negative_estimate_counts": [
+          3319,
+          4832
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 144,
+        "regime": "baseline",
+        "shape": "gaussian_shaped",
+        "support_sha256": "3864f974e7489e3b34f4bdfd3f614941cc74aeb522948c237befb9580e29beb4",
+        "trial_seed": [
+          2026091062,
+          0,
+          1,
+          0,
+          6
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.013959902269206736,
+            -1.8973538018496328e-18
+          ],
+          "q_sampling_variance": 0.13356622781922933
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 8,
+        "coverage_lower": 0.983034319136205,
+        "empirical_mean": [
+          0.01914472625101514,
+          0.0011781749455774884
+        ],
+        "empirical_variance": [
+          0.0007868195525922712,
+          0.09634197869598063
+        ],
+        "joint_coverage": 0.9871,
+        "joint_covered": 9871,
+        "mean": "midpoint",
+        "median_half_width": [
+          0.07871071457478201,
+          0.9216842188060432
+        ],
+        "negative_estimate_counts": [
+          2427,
+          4790
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 192,
+        "regime": "baseline",
+        "shape": "gaussian_shaped",
+        "support_sha256": "3864f974e7489e3b34f4bdfd3f614941cc74aeb522948c237befb9580e29beb4",
+        "trial_seed": [
+          2026091062,
+          0,
+          1,
+          0,
+          8
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.01922905636097272,
+            -1.8973538018496328e-18
+          ],
+          "q_sampling_variance": 0.09594226839689829
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 4,
+        "coverage_lower": 0.9975100960620747,
+        "empirical_mean": [
+          -0.28331606651300906,
+          0.0027195779462893415
+        ],
+        "empirical_variance": [
+          0.004850106138041429,
+          0.8834166477569637
+        ],
+        "joint_coverage": 0.999,
+        "joint_covered": 9990,
+        "mean": "midpoint",
+        "median_half_width": [
+          0.29363238097561883,
+          5.314731647587024
+        ],
+        "negative_estimate_counts": [
+          10000,
+          4602
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 96,
+        "regime": "high_positive",
+        "shape": "gaussian_shaped",
+        "support_sha256": "da8fdaed2c1493cf5b05bf62f64b7fbea875ddb984ff062e2cf26f09afe03585",
+        "trial_seed": [
+          2026091062,
+          0,
+          1,
+          1,
+          4
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            -0.2836099836732471,
+            -7.527751208838418e-17
+          ],
+          "q_sampling_variance": 0.881278177681401
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 6,
+        "coverage_lower": 0.9911924972178936,
+        "empirical_mean": [
+          -0.26183869554786604,
+          -0.005709835055013551
+        ],
+        "empirical_variance": [
+          0.003175349501951884,
+          0.4632351615737374
+        ],
+        "joint_coverage": 0.9941,
+        "joint_covered": 9941,
+        "mean": "midpoint",
+        "median_half_width": [
+          0.17798969068153553,
+          2.600876603560531
+        ],
+        "negative_estimate_counts": [
+          10000,
+          4645
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 144,
+        "regime": "high_positive",
+        "shape": "gaussian_shaped",
+        "support_sha256": "da8fdaed2c1493cf5b05bf62f64b7fbea875ddb984ff062e2cf26f09afe03585",
+        "trial_seed": [
+          2026091062,
+          0,
+          1,
+          1,
+          6
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            -0.26141330796237794,
+            -7.527751208838418e-17
+          ],
+          "q_sampling_variance": 0.4527110903347257
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 8,
+        "coverage_lower": 0.9869406883583681,
+        "empirical_mean": [
+          -0.2499046014758674,
+          0.002205050865065545
+        ],
+        "empirical_variance": [
+          0.0023072330891100493,
+          0.29346280490604093
+        ],
+        "joint_coverage": 0.9905,
+        "joint_covered": 9905,
+        "mean": "midpoint",
+        "median_half_width": [
+          0.13713761800224944,
+          1.795432148992643
+        ],
+        "negative_estimate_counts": [
+          10000,
+          4614
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 192,
+        "regime": "high_positive",
+        "shape": "gaussian_shaped",
+        "support_sha256": "da8fdaed2c1493cf5b05bf62f64b7fbea875ddb984ff062e2cf26f09afe03585",
+        "trial_seed": [
+          2026091062,
+          0,
+          1,
+          1,
+          8
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            -0.2503149701069436,
+            -7.527751208838418e-17
+          ],
+          "q_sampling_variance": 0.2962022729983344
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 4,
+        "coverage_lower": 0.9954383310671628,
+        "empirical_mean": [
+          0.107657269739461,
+          0.006570873695072
+        ],
+        "empirical_variance": [
+          0.000481439099421464,
+          0.09278918991410763
+        ],
+        "joint_coverage": 0.9975,
+        "joint_covered": 9975,
+        "mean": "midpoint",
+        "median_half_width": [
+          0.0891629642091479,
+          1.3067881839659732
+        ],
+        "negative_estimate_counts": [
+          0,
+          4738
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 96,
+        "regime": "low_negative",
+        "shape": "gaussian_shaped",
+        "support_sha256": "5fe6238e95d711004a7f74893a29d94fefcb1dde6183047534ef4e23d5b390fe",
+        "trial_seed": [
+          2026091062,
+          0,
+          1,
+          2,
+          4
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.10733806953173608,
+            4.106415728288848e-17
+          ],
+          "q_sampling_variance": 0.09222536214821392
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 6,
+        "coverage_lower": 0.9867085443650576,
+        "empirical_mean": [
+          0.11310268173726842,
+          0.005412137438193418
+        ],
+        "empirical_variance": [
+          0.00031572936560762344,
+          0.058786688416339036
+        ],
+        "joint_coverage": 0.9903,
+        "joint_covered": 9903,
+        "mean": "midpoint",
+        "median_half_width": [
+          0.05591166633569897,
+          0.7790116041815338
+        ],
+        "negative_estimate_counts": [
+          0,
+          4775
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 144,
+        "regime": "low_negative",
+        "shape": "gaussian_shaped",
+        "support_sha256": "5fe6238e95d711004a7f74893a29d94fefcb1dde6183047534ef4e23d5b390fe",
+        "trial_seed": [
+          2026091062,
+          0,
+          1,
+          2,
+          6
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.11288723845945348,
+            4.106415728288848e-17
+          ],
+          "q_sampling_variance": 0.059300769698889255
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 8,
+        "coverage_lower": 0.97885699173078,
+        "empirical_mean": [
+          0.1155531320010522,
+          -0.0019762248239960445
+        ],
+        "empirical_variance": [
+          0.00024176020272341972,
+          0.043287986915201145
+        ],
+        "joint_coverage": 0.9834,
+        "joint_covered": 9834,
+        "mean": "midpoint",
+        "median_half_width": [
+          0.04336883077500561,
+          0.5999958511154082
+        ],
+        "negative_estimate_counts": [
+          0,
+          4879
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 192,
+        "regime": "low_negative",
+        "shape": "gaussian_shaped",
+        "support_sha256": "5fe6238e95d711004a7f74893a29d94fefcb1dde6183047534ef4e23d5b390fe",
+        "trial_seed": [
+          2026091062,
+          0,
+          1,
+          2,
+          8
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.11566182292331217,
+            4.106415728288848e-17
+          ],
+          "q_sampling_variance": 0.04377396135990694
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 4,
+        "coverage_lower": 0.9982888374821319,
+        "empirical_mean": [
+          0.0036541904317502166,
+          -1.135911521249071
+        ],
+        "empirical_variance": [
+          0.0015850931691430868,
+          0.26988729132926387
+        ],
+        "joint_coverage": 0.9995,
+        "joint_covered": 9995,
+        "mean": "T2",
+        "median_half_width": [
+          0.16494624847806272,
+          2.428168810369779
+        ],
+        "negative_estimate_counts": [
+          4476,
+          9940
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 96,
+        "regime": "baseline",
+        "shape": "gaussian_shaped",
+        "support_sha256": "e049d63a3ef42aa0a15856a58239a9e17e4d83e9c522923eb010beb8d6d08c63",
+        "trial_seed": [
+          2026091062,
+          0,
+          2,
+          0,
+          4
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.003421594085675439,
+            -1.1423786990196472
+          ],
+          "q_sampling_variance": 0.26953767139203544
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 6,
+        "coverage_lower": 0.9909517122625707,
+        "empirical_mean": [
+          0.01414479542837075,
+          -1.1399884600753731
+        ],
+        "empirical_variance": [
+          0.001067527694214785,
+          0.165903398402436
+        ],
+        "joint_coverage": 0.9939,
+        "joint_covered": 9939,
+        "mean": "T2",
+        "median_half_width": [
+          0.10164264103180651,
+          1.3645340063696842
+        ],
+        "negative_estimate_counts": [
+          3195,
+          9991
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 144,
+        "regime": "baseline",
+        "shape": "gaussian_shaped",
+        "support_sha256": "e049d63a3ef42aa0a15856a58239a9e17e4d83e9c522923eb010beb8d6d08c63",
+        "trial_seed": [
+          2026091062,
+          0,
+          2,
+          0,
+          6
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.013959902269206736,
+            -1.1423786990196472
+          ],
+          "q_sampling_variance": 0.16652430658461656
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 8,
+        "coverage_lower": 0.9825795391453875,
+        "empirical_mean": [
+          0.019086911854477064,
+          -1.1438285924793579
+        ],
+        "empirical_variance": [
+          0.0007702884893359702,
+          0.12122350918839046
+        ],
+        "joint_coverage": 0.9867,
+        "joint_covered": 9867,
+        "mean": "T2",
+        "median_half_width": [
+          0.07910011867474218,
+          1.0189782480276501
+        ],
+        "negative_estimate_counts": [
+          2433,
+          9999
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 192,
+        "regime": "baseline",
+        "shape": "gaussian_shaped",
+        "support_sha256": "e049d63a3ef42aa0a15856a58239a9e17e4d83e9c522923eb010beb8d6d08c63",
+        "trial_seed": [
+          2026091062,
+          0,
+          2,
+          0,
+          8
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.01922905636097272,
+            -1.1423786990196472
+          ],
+          "q_sampling_variance": 0.12066082747093873
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 4,
+        "coverage_lower": 0.9981256948035783,
+        "empirical_mean": [
+          -0.28305890322266564,
+          -1.121879802882792
+        ],
+        "empirical_variance": [
+          0.004999172498724274,
+          1.037813878729752
+        ],
+        "joint_coverage": 0.9994,
+        "joint_covered": 9994,
+        "mean": "T2",
+        "median_half_width": [
+          0.2934035432532745,
+          5.506786715297812
+        ],
+        "negative_estimate_counts": [
+          10000,
+          8791
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 96,
+        "regime": "high_positive",
+        "shape": "gaussian_shaped",
+        "support_sha256": "5e4e43a854c12eb929dd948912505500cd35d1591c94956c7005e8653cc40e08",
+        "trial_seed": [
+          2026091062,
+          0,
+          2,
+          1,
+          4
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            -0.2836099836732471,
+            -1.142378699019647
+          ],
+          "q_sampling_variance": 1.0488764053663766
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 6,
+        "coverage_lower": 0.9932717004476609,
+        "empirical_mean": [
+          -0.2612632080624322,
+          -1.147098464508155
+        ],
+        "empirical_variance": [
+          0.003146639284502285,
+          0.5761023576555568
+        ],
+        "joint_coverage": 0.9958,
+        "joint_covered": 9958,
+        "mean": "T2",
+        "median_half_width": [
+          0.17806117632478535,
+          2.784234143922221
+        ],
+        "negative_estimate_counts": [
+          10000,
+          9604
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 144,
+        "regime": "high_positive",
+        "shape": "gaussian_shaped",
+        "support_sha256": "5e4e43a854c12eb929dd948912505500cd35d1591c94956c7005e8653cc40e08",
+        "trial_seed": [
+          2026091062,
+          0,
+          2,
+          1,
+          6
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            -0.26141330796237794,
+            -1.142378699019647
+          ],
+          "q_sampling_variance": 0.5644432421247092
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 8,
+        "coverage_lower": 0.9848627549768858,
+        "empirical_mean": [
+          -0.25046374931348275,
+          -1.1460726957836258
+        ],
+        "empirical_variance": [
+          0.002339205486112044,
+          0.37431734225234614
+        ],
+        "joint_coverage": 0.9887,
+        "joint_covered": 9887,
+        "mean": "T2",
+        "median_half_width": [
+          0.13704065709151858,
+          1.973954297923237
+        ],
+        "negative_estimate_counts": [
+          10000,
+          9877
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 192,
+        "regime": "high_positive",
+        "shape": "gaussian_shaped",
+        "support_sha256": "5e4e43a854c12eb929dd948912505500cd35d1591c94956c7005e8653cc40e08",
+        "trial_seed": [
+          2026091062,
+          0,
+          2,
+          1,
+          8
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            -0.2503149701069436,
+            -1.142378699019647
+          ],
+          "q_sampling_variance": 0.38000138684082213
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 4,
+        "coverage_lower": 0.9957024290933058,
+        "empirical_mean": [
+          0.1071520333303408,
+          -1.1461957592056087
+        ],
+        "empirical_variance": [
+          0.0004740448325741694,
+          0.11220715983854986
+        ],
+        "joint_coverage": 0.9977,
+        "joint_covered": 9977,
+        "mean": "T2",
+        "median_half_width": [
+          0.08967010876562098,
+          1.4491109154499753
+        ],
+        "negative_estimate_counts": [
+          0,
+          9999
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 96,
+        "regime": "low_negative",
+        "shape": "gaussian_shaped",
+        "support_sha256": "c1376d521f304a47647821254d4758da58ba267ba236a197cf3709321af5a8ea",
+        "trial_seed": [
+          2026091062,
+          0,
+          2,
+          2,
+          4
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.10733806953173608,
+            -1.1423786990196472
+          ],
+          "q_sampling_variance": 0.11429748841733352
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 6,
+        "coverage_lower": 0.9856679307105737,
+        "empirical_mean": [
+          0.11300919103697006,
+          -1.1356309140743206
+        ],
+        "empirical_variance": [
+          0.00032026908329912056,
+          0.074083029313101
+        ],
+        "joint_coverage": 0.9894,
+        "joint_covered": 9894,
+        "mean": "T2",
+        "median_half_width": [
+          0.05577985277332349,
+          0.8623711862807562
+        ],
+        "negative_estimate_counts": [
+          0,
+          10000
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 144,
+        "regime": "low_negative",
+        "shape": "gaussian_shaped",
+        "support_sha256": "c1376d521f304a47647821254d4758da58ba267ba236a197cf3709321af5a8ea",
+        "trial_seed": [
+          2026091062,
+          0,
+          2,
+          2,
+          6
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.11288723845945348,
+            -1.1423786990196472
+          ],
+          "q_sampling_variance": 0.07401552054496897
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 8,
+        "coverage_lower": 0.9791934716555755,
+        "empirical_mean": [
+          0.11565148315817589,
+          -1.1414595347798113
+        ],
+        "empirical_variance": [
+          0.0002262913052073111,
+          0.053034107563295865
+        ],
+        "joint_coverage": 0.9837,
+        "joint_covered": 9837,
+        "mean": "T2",
+        "median_half_width": [
+          0.04348949072957985,
+          0.6660308258003227
+        ],
+        "negative_estimate_counts": [
+          0,
+          10000
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 192,
+        "regime": "low_negative",
+        "shape": "gaussian_shaped",
+        "support_sha256": "c1376d521f304a47647821254d4758da58ba267ba236a197cf3709321af5a8ea",
+        "trial_seed": [
+          2026091062,
+          0,
+          2,
+          2,
+          8
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.11566182292331217,
+            -1.1423786990196472
+          ],
+          "q_sampling_variance": 0.05481002449446673
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 4,
+        "coverage_lower": 0.9982888374821319,
+        "empirical_mean": [
+          0.0083538598135119,
+          1.1366589391041482
+        ],
+        "empirical_variance": [
+          0.0017627746060508472,
+          0.1973718548989296
+        ],
+        "joint_coverage": 0.9995,
+        "joint_covered": 9995,
+        "mean": "T1",
+        "median_half_width": [
+          0.17196891431686692,
+          2.132779622354116
+        ],
+        "negative_estimate_counts": [
+          4121,
+          117
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 96,
+        "regime": "baseline",
+        "shape": "t5_shaped",
+        "support_sha256": "579b0956607949e7b8ccfa8f0d391d4548c9521ec256f99b8fd0143f7ec1147a",
+        "trial_seed": [
+          2026091062,
+          1,
+          0,
+          0,
+          4
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.00902106187364593,
+            1.142378699019647
+          ],
+          "q_sampling_variance": 0.19401652976678077
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 6,
+        "coverage_lower": 0.9915549977036648,
+        "empirical_mean": [
+          0.019358221062597245,
+          1.1393493720865928
+        ],
+        "empirical_variance": [
+          0.0011310359959382469,
+          0.11580021179726828
+        ],
+        "joint_coverage": 0.9944,
+        "joint_covered": 9944,
+        "mean": "T1",
+        "median_half_width": [
+          0.10598716216166293,
+          1.1610754356883473
+        ],
+        "negative_estimate_counts": [
+          2814,
+          21
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 144,
+        "regime": "baseline",
+        "shape": "t5_shaped",
+        "support_sha256": "579b0956607949e7b8ccfa8f0d391d4548c9521ec256f99b8fd0143f7ec1147a",
+        "trial_seed": [
+          2026091062,
+          1,
+          0,
+          0,
+          6
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.019383523301057082,
+            1.142378699019647
+          ],
+          "q_sampling_variance": 0.11403778846864424
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 8,
+        "coverage_lower": 0.9863609576434814,
+        "empirical_mean": [
+          0.024365389329411104,
+          1.140070457073795
+        ],
+        "empirical_variance": [
+          0.0008390845991186535,
+          0.08066202645192623
+        ],
+        "joint_coverage": 0.99,
+        "joint_covered": 9900,
+        "mean": "T1",
+        "median_half_width": [
+          0.0819749097413301,
+          0.854531810083033
+        ],
+        "negative_estimate_counts": [
+          1997,
+          2
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 192,
+        "regime": "baseline",
+        "shape": "t5_shaped",
+        "support_sha256": "579b0956607949e7b8ccfa8f0d391d4548c9521ec256f99b8fd0143f7ec1147a",
+        "trial_seed": [
+          2026091062,
+          1,
+          0,
+          0,
+          8
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.024564754014762658,
+            1.142378699019647
+          ],
+          "q_sampling_variance": 0.08060837412352294
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 4,
+        "coverage_lower": 0.9979669576131988,
+        "empirical_mean": [
+          -0.24856140843687963,
+          1.133926984451853
+        ],
+        "empirical_variance": [
+          0.00601017657618953,
+          0.8099751993864293
+        ],
+        "joint_coverage": 0.9993,
+        "joint_covered": 9993,
+        "mean": "T1",
+        "median_half_width": [
+          0.32805166102355365,
+          5.009610344708051
+        ],
+        "negative_estimate_counts": [
+          10000,
+          1009
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 96,
+        "regime": "high_positive",
+        "shape": "t5_shaped",
+        "support_sha256": "78d2fe907f9f3e5a98d8930500e5ed09f0c1139e8eb6054b2f2cee514dc71350",
+        "trial_seed": [
+          2026091062,
+          1,
+          0,
+          1,
+          4
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            -0.24801301254350916,
+            1.142378699019647
+          ],
+          "q_sampling_variance": 0.8108316165608979
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 6,
+        "coverage_lower": 0.9920410003636162,
+        "empirical_mean": [
+          -0.22690798483663474,
+          1.1488231412651784
+        ],
+        "empirical_variance": [
+          0.003917470981673043,
+          0.3889435477820754
+        ],
+        "joint_coverage": 0.9948,
+        "joint_covered": 9948,
+        "mean": "T1",
+        "median_half_width": [
+          0.19833042373334167,
+          2.467945650791864
+        ],
+        "negative_estimate_counts": [
+          10000,
+          429
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 144,
+        "regime": "high_positive",
+        "shape": "t5_shaped",
+        "support_sha256": "78d2fe907f9f3e5a98d8930500e5ed09f0c1139e8eb6054b2f2cee514dc71350",
+        "trial_seed": [
+          2026091062,
+          1,
+          0,
+          1,
+          6
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            -0.22618672013823637,
+            1.142378699019647
+          ],
+          "q_sampling_variance": 0.3935512416502838
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 8,
+        "coverage_lower": 0.9850924546214088,
+        "empirical_mean": [
+          -0.2152459014941334,
+          1.1385910929366554
+        ],
+        "empirical_variance": [
+          0.002896193634086238,
+          0.24321036908402188
+        ],
+        "joint_coverage": 0.9889,
+        "joint_covered": 9889,
+        "mean": "T1",
+        "median_half_width": [
+          0.1523420616088317,
+          1.6769616069967188
+        ],
+        "negative_estimate_counts": [
+          10000,
+          196
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 192,
+        "regime": "high_positive",
+        "shape": "t5_shaped",
+        "support_sha256": "78d2fe907f9f3e5a98d8930500e5ed09f0c1139e8eb6054b2f2cee514dc71350",
+        "trial_seed": [
+          2026091062,
+          1,
+          0,
+          1,
+          8
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            -0.2152735739356002,
+            1.142378699019647
+          ],
+          "q_sampling_variance": 0.2479124125051117
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 4,
+        "coverage_lower": 0.9976596743080639,
+        "empirical_mean": [
+          0.10655814080934221,
+          1.1389581115136769
+        ],
+        "empirical_variance": [
+          0.0004982119722471887,
+          0.07755948923725452
+        ],
+        "joint_coverage": 0.9991,
+        "joint_covered": 9991,
+        "mean": "T1",
+        "median_half_width": [
+          0.08999729840193987,
+          1.1729960309884617
+        ],
+        "negative_estimate_counts": [
+          0,
+          3
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 96,
+        "regime": "low_negative",
+        "shape": "t5_shaped",
+        "support_sha256": "d48a9ebbbbf5fb6273608bf2b551d55cae4ef5decd35e161b112ca818df15421",
+        "trial_seed": [
+          2026091062,
+          1,
+          0,
+          2,
+          4
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.10699619695902518,
+            1.142378699019647
+          ],
+          "q_sampling_variance": 0.07602109748264771
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 6,
+        "coverage_lower": 0.9896385313544653,
+        "empirical_mean": [
+          0.11252177253760867,
+          1.141744951001962
+        ],
+        "empirical_variance": [
+          0.00031776224298862545,
+          0.04808591193980804
+        ],
+        "joint_coverage": 0.9928,
+        "joint_covered": 9928,
+        "mean": "T1",
+        "median_half_width": [
+          0.05597858395803042,
+          0.6992954417927819
+        ],
+        "negative_estimate_counts": [
+          0,
+          0
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 144,
+        "regime": "low_negative",
+        "shape": "t5_shaped",
+        "support_sha256": "d48a9ebbbbf5fb6273608bf2b551d55cae4ef5decd35e161b112ca818df15421",
+        "trial_seed": [
+          2026091062,
+          1,
+          0,
+          2,
+          6
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.11245277006034327,
+            1.142378699019647
+          ],
+          "q_sampling_variance": 0.04828757678654588
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 8,
+        "coverage_lower": 0.9816724896263338,
+        "empirical_mean": [
+          0.11501510398589979,
+          1.1406890166981347
+        ],
+        "empirical_variance": [
+          0.000240957732026155,
+          0.03490746541885185
+        ],
+        "joint_coverage": 0.9859,
+        "joint_covered": 9859,
+        "mean": "T1",
+        "median_half_width": [
+          0.04355612217380636,
+          0.5379787105496221
+        ],
+        "negative_estimate_counts": [
+          0,
+          0
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 192,
+        "regime": "low_negative",
+        "shape": "t5_shaped",
+        "support_sha256": "d48a9ebbbbf5fb6273608bf2b551d55cae4ef5decd35e161b112ca818df15421",
+        "trial_seed": [
+          2026091062,
+          1,
+          0,
+          2,
+          8
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.11518105661100231,
+            1.142378699019647
+          ],
+          "q_sampling_variance": 0.035446454239303225
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 4,
+        "coverage_lower": 0.9984575620454271,
+        "empirical_mean": [
+          0.009757620807263603,
+          0.005446426011594041
+        ],
+        "empirical_variance": [
+          0.0017350295379834233,
+          0.23277875945367682
+        ],
+        "joint_coverage": 0.9996,
+        "joint_covered": 9996,
+        "mean": "midpoint",
+        "median_half_width": [
+          0.17214495868664964,
+          2.2780197725874913
+        ],
+        "negative_estimate_counts": [
+          4009,
+          4739
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 96,
+        "regime": "baseline",
+        "shape": "t5_shaped",
+        "support_sha256": "b42573ffde4422f75abccc6ad768014e3b5cf3e5f2b20973146942ca3a58d477",
+        "trial_seed": [
+          2026091062,
+          1,
+          1,
+          0,
+          4
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.00902106187364593,
+            -1.481968844516124e-17
+          ],
+          "q_sampling_variance": 0.23618376527214785
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 6,
+        "coverage_lower": 0.9910720194326686,
+        "empirical_mean": [
+          0.01905214303635801,
+          2.3480180252035444e-05
+        ],
+        "empirical_variance": [
+          0.0011384383373332881,
+          0.1416411202090036
+        ],
+        "joint_coverage": 0.994,
+        "joint_covered": 9940,
+        "mean": "midpoint",
+        "median_half_width": [
+          0.10607758983210547,
+          1.2680962781293232
+        ],
+        "negative_estimate_counts": [
+          2844,
+          4841
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 144,
+        "regime": "baseline",
+        "shape": "t5_shaped",
+        "support_sha256": "b42573ffde4422f75abccc6ad768014e3b5cf3e5f2b20973146942ca3a58d477",
+        "trial_seed": [
+          2026091062,
+          1,
+          1,
+          0,
+          6
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.019383523301057082,
+            -1.481968844516124e-17
+          ],
+          "q_sampling_variance": 0.1421492788055556
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 8,
+        "coverage_lower": 0.9841752460522131,
+        "empirical_mean": [
+          0.025163441784122113,
+          -0.00043772002339660876
+        ],
+        "empirical_variance": [
+          0.0008405205807242894,
+          0.10000103251752672
+        ],
+        "joint_coverage": 0.9881,
+        "joint_covered": 9881,
+        "mean": "midpoint",
+        "median_half_width": [
+          0.08216620778686018,
+          0.9447851660800726
+        ],
+        "negative_estimate_counts": [
+          1911,
+          4846
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 192,
+        "regime": "baseline",
+        "shape": "t5_shaped",
+        "support_sha256": "b42573ffde4422f75abccc6ad768014e3b5cf3e5f2b20973146942ca3a58d477",
+        "trial_seed": [
+          2026091062,
+          1,
+          1,
+          0,
+          8
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.024564754014762658,
+            -1.481968844516124e-17
+          ],
+          "q_sampling_variance": 0.10169199187620648
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 4,
+        "coverage_lower": 0.9962392655345284,
+        "empirical_mean": [
+          -0.24841693195373601,
+          -0.006372748092689959
+        ],
+        "empirical_variance": [
+          0.0061880890889999375,
+          0.9250589851273057
+        ],
+        "joint_coverage": 0.9981,
+        "joint_covered": 9981,
+        "mean": "midpoint",
+        "median_half_width": [
+          0.3282081338457967,
+          5.181098299799961
+        ],
+        "negative_estimate_counts": [
+          10000,
+          4766
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 96,
+        "regime": "high_positive",
+        "shape": "t5_shaped",
+        "support_sha256": "88d82680fdd32cf4578ea840b6dcc184bb6d61d72f4295438835926ed6145aaf",
+        "trial_seed": [
+          2026091062,
+          1,
+          1,
+          1,
+          4
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            -0.24801301254350916,
+            -8.434415275579421e-17
+          ],
+          "q_sampling_variance": 0.9284348790466888
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 6,
+        "coverage_lower": 0.9917976007671749,
+        "empirical_mean": [
+          -0.22693274618110326,
+          -0.0050161750819882394
+        ],
+        "empirical_variance": [
+          0.0039221555782186735,
+          0.46909449149674903
+        ],
+        "joint_coverage": 0.9946,
+        "joint_covered": 9946,
+        "mean": "midpoint",
+        "median_half_width": [
+          0.19869773377291855,
+          2.592873345127239
+        ],
+        "negative_estimate_counts": [
+          10000,
+          4728
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 144,
+        "regime": "high_positive",
+        "shape": "t5_shaped",
+        "support_sha256": "88d82680fdd32cf4578ea840b6dcc184bb6d61d72f4295438835926ed6145aaf",
+        "trial_seed": [
+          2026091062,
+          1,
+          1,
+          1,
+          6
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            -0.22618672013823637,
+            -8.434415275579421e-17
+          ],
+          "q_sampling_variance": 0.47195341664081103
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 8,
+        "coverage_lower": 0.9853224309522004,
+        "empirical_mean": [
+          -0.21561995984323984,
+          0.001890383652019292
+        ],
+        "empirical_variance": [
+          0.002874566084237799,
+          0.31245714741951247
+        ],
+        "joint_coverage": 0.9891,
+        "joint_covered": 9891,
+        "mean": "midpoint",
+        "median_half_width": [
+          0.1526846056952466,
+          1.801999259860425
+        ],
+        "negative_estimate_counts": [
+          10000,
+          4640
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 192,
+        "regime": "high_positive",
+        "shape": "t5_shaped",
+        "support_sha256": "88d82680fdd32cf4578ea840b6dcc184bb6d61d72f4295438835926ed6145aaf",
+        "trial_seed": [
+          2026091062,
+          1,
+          1,
+          1,
+          8
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            -0.2152735739356002,
+            -8.434415275579421e-17
+          ],
+          "q_sampling_variance": 0.3067140437480071
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 4,
+        "coverage_lower": 0.9967907166700526,
+        "empirical_mean": [
+          0.10691296701759088,
+          0.003716014979621683
+        ],
+        "empirical_variance": [
+          0.00047753439292541833,
+          0.09669999085317522
+        ],
+        "joint_coverage": 0.9985,
+        "joint_covered": 9985,
+        "mean": "midpoint",
+        "median_half_width": [
+          0.08981388583216593,
+          1.2997676515353263
+        ],
+        "negative_estimate_counts": [
+          0,
+          4778
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 96,
+        "regime": "low_negative",
+        "shape": "t5_shaped",
+        "support_sha256": "0f0924a2c42ad19e2fb321abc57d2bdc8fa37224da91b91a4684464eb7735498",
+        "trial_seed": [
+          2026091062,
+          1,
+          1,
+          2,
+          4
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.10699619695902518,
+            -5.119467133204991e-17
+          ],
+          "q_sampling_variance": 0.09541041088302486
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 6,
+        "coverage_lower": 0.9891651384123454,
+        "empirical_mean": [
+          0.11261842662756333,
+          -5.9370775134436606e-05
+        ],
+        "empirical_variance": [
+          0.0003195085907864222,
+          0.06190896362867056
+        ],
+        "joint_coverage": 0.9924,
+        "joint_covered": 9924,
+        "mean": "midpoint",
+        "median_half_width": [
+          0.0560190827082742,
+          0.7817922044968035
+        ],
+        "negative_estimate_counts": [
+          0,
+          4907
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 144,
+        "regime": "low_negative",
+        "shape": "t5_shaped",
+        "support_sha256": "0f0924a2c42ad19e2fb321abc57d2bdc8fa37224da91b91a4684464eb7735498",
+        "trial_seed": [
+          2026091062,
+          1,
+          1,
+          2,
+          6
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.11245277006034327,
+            -5.119467133204991e-17
+          ],
+          "q_sampling_variance": 0.06121378572013065
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 8,
+        "coverage_lower": 0.9807685588817165,
+        "empirical_mean": [
+          0.11512311492613353,
+          -0.0009561230838686222
+        ],
+        "empirical_variance": [
+          0.0002414404299109954,
+          0.044412400177382495
+        ],
+        "joint_coverage": 0.9851,
+        "joint_covered": 9851,
+        "mean": "midpoint",
+        "median_half_width": [
+          0.04363150201361437,
+          0.6015173476547948
+        ],
+        "negative_estimate_counts": [
+          0,
+          4943
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 192,
+        "regime": "low_negative",
+        "shape": "t5_shaped",
+        "support_sha256": "0f0924a2c42ad19e2fb321abc57d2bdc8fa37224da91b91a4684464eb7735498",
+        "trial_seed": [
+          2026091062,
+          1,
+          1,
+          2,
+          8
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.11518105661100231,
+            -5.119467133204991e-17
+          ],
+          "q_sampling_variance": 0.04514111093949179
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 4,
+        "coverage_lower": 0.9984575620454271,
+        "empirical_mean": [
+          0.008634975595594273,
+          -1.1454934860260186
+        ],
+        "empirical_variance": [
+          0.001729651189899422,
+          0.28714008052145773
+        ],
+        "joint_coverage": 0.9996,
+        "joint_covered": 9996,
+        "mean": "T2",
+        "median_half_width": [
+          0.17258073511656316,
+          2.4580235944587616
+        ],
+        "negative_estimate_counts": [
+          4098,
+          9907
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 96,
+        "regime": "baseline",
+        "shape": "t5_shaped",
+        "support_sha256": "e344701e50a332858152015b1c0d6f709bc822b74de438a8c00a898a0fc64e08",
+        "trial_seed": [
+          2026091062,
+          1,
+          2,
+          0,
+          4
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.00902106187364593,
+            -1.1423786990196472
+          ],
+          "q_sampling_variance": 0.28716479831545366
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 6,
+        "coverage_lower": 0.9905917744191086,
+        "empirical_mean": [
+          0.01940536073507985,
+          -1.1423395435794144
+        ],
+        "empirical_variance": [
+          0.0011349283207091534,
+          0.17294092851861123
+        ],
+        "joint_coverage": 0.9936,
+        "joint_covered": 9936,
+        "mean": "T2",
+        "median_half_width": [
+          0.1060758360576409,
+          1.3832708643814988
+        ],
+        "negative_estimate_counts": [
+          2726,
+          9993
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 144,
+        "regime": "baseline",
+        "shape": "t5_shaped",
+        "support_sha256": "e344701e50a332858152015b1c0d6f709bc822b74de438a8c00a898a0fc64e08",
+        "trial_seed": [
+          2026091062,
+          1,
+          2,
+          0,
+          6
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.019383523301057082,
+            -1.1423786990196472
+          ],
+          "q_sampling_variance": 0.1761366341677595
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 8,
+        "coverage_lower": 0.9824659782395408,
+        "empirical_mean": [
+          0.024553132513253816,
+          -1.142480217702492
+        ],
+        "empirical_variance": [
+          0.0008424393032041277,
+          0.12628584034835283
+        ],
+        "joint_coverage": 0.9866,
+        "joint_covered": 9866,
+        "mean": "T2",
+        "median_half_width": [
+          0.08219815288792601,
+          1.0402864375675982
+        ],
+        "negative_estimate_counts": [
+          1979,
+          9997
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 192,
+        "regime": "baseline",
+        "shape": "t5_shaped",
+        "support_sha256": "e344701e50a332858152015b1c0d6f709bc822b74de438a8c00a898a0fc64e08",
+        "trial_seed": [
+          2026091062,
+          1,
+          2,
+          0,
+          8
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.024564754014762658,
+            -1.1423786990196472
+          ],
+          "q_sampling_variance": 0.12718250839785938
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 4,
+        "coverage_lower": 0.9961038529138383,
+        "empirical_mean": [
+          -0.24684183344018434,
+          -1.118291058980868
+        ],
+        "empirical_variance": [
+          0.006221663008214984,
+          1.0759763154434725
+        ],
+        "joint_coverage": 0.998,
+        "joint_covered": 9980,
+        "mean": "T2",
+        "median_half_width": [
+          0.32736888219066707,
+          5.390509539929905
+        ],
+        "negative_estimate_counts": [
+          9998,
+          8720
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 96,
+        "regime": "high_positive",
+        "shape": "t5_shaped",
+        "support_sha256": "2e7fd16b3be3083a85fb86e77f409bf7a7b4e51954cfbd2a9dcd2e6c94df80fe",
+        "trial_seed": [
+          2026091062,
+          1,
+          2,
+          1,
+          4
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            -0.24801301254350916,
+            -1.1423786990196472
+          ],
+          "q_sampling_variance": 1.0963057599860184
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 6,
+        "coverage_lower": 0.9911924972178936,
+        "empirical_mean": [
+          -0.2259136357631594,
+          -1.13952588702124
+        ],
+        "empirical_variance": [
+          0.004005892889552145,
+          0.577185398545084
+        ],
+        "joint_coverage": 0.9941,
+        "joint_covered": 9941,
+        "mean": "T2",
+        "median_half_width": [
+          0.1979348490839741,
+          2.745428333399806
+        ],
+        "negative_estimate_counts": [
+          10000,
+          9513
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 144,
+        "regime": "high_positive",
+        "shape": "t5_shaped",
+        "support_sha256": "2e7fd16b3be3083a85fb86e77f409bf7a7b4e51954cfbd2a9dcd2e6c94df80fe",
+        "trial_seed": [
+          2026091062,
+          1,
+          2,
+          1,
+          6
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            -0.22618672013823637,
+            -1.1423786990196472
+          ],
+          "q_sampling_variance": 0.5838673372670308
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 8,
+        "coverage_lower": 0.9857832439738952,
+        "empirical_mean": [
+          -0.21535396148641409,
+          -1.1320064998390211
+        ],
+        "empirical_variance": [
+          0.0028293450981563043,
+          0.39460336384592526
+        ],
+        "joint_coverage": 0.9895,
+        "joint_covered": 9895,
+        "mean": "T2",
+        "median_half_width": [
+          0.15246468850269002,
+          1.9579042992108617
+        ],
+        "negative_estimate_counts": [
+          10000,
+          9798
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 192,
+        "regime": "high_positive",
+        "shape": "t5_shaped",
+        "support_sha256": "2e7fd16b3be3083a85fb86e77f409bf7a7b4e51954cfbd2a9dcd2e6c94df80fe",
+        "trial_seed": [
+          2026091062,
+          1,
+          2,
+          1,
+          8
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            -0.2152735739356002,
+            -1.1423786990196472
+          ],
+          "q_sampling_variance": 0.39064948421767187
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 4,
+        "coverage_lower": 0.9965128707589114,
+        "empirical_mean": [
+          0.107129004965251,
+          -1.141865527286838
+        ],
+        "empirical_variance": [
+          0.0004924532527250826,
+          0.11913586518219887
+        ],
+        "joint_coverage": 0.9983,
+        "joint_covered": 9983,
+        "mean": "T2",
+        "median_half_width": [
+          0.09016249999979933,
+          1.4285513251161128
+        ],
+        "negative_estimate_counts": [
+          0,
+          9999
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 96,
+        "regime": "low_negative",
+        "shape": "t5_shaped",
+        "support_sha256": "1442fd0b62e2fbdb90a91e2709faa5e9c2cf91c83801a7355fea02ed5807a805",
+        "trial_seed": [
+          2026091062,
+          1,
+          2,
+          2,
+          4
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.10699619695902518,
+            -1.1423786990196472
+          ],
+          "q_sampling_variance": 0.1179414504367482
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 6,
+        "coverage_lower": 0.9874060306709601,
+        "empirical_mean": [
+          0.11236515151670921,
+          -1.1438607854789304
+        ],
+        "empirical_variance": [
+          0.0003209546740481731,
+          0.0771854575503265
+        ],
+        "joint_coverage": 0.9909,
+        "joint_covered": 9909,
+        "mean": "T2",
+        "median_half_width": [
+          0.055558025539408015,
+          0.8604754057331243
+        ],
+        "negative_estimate_counts": [
+          0,
+          10000
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 144,
+        "regime": "low_negative",
+        "shape": "t5_shaped",
+        "support_sha256": "1442fd0b62e2fbdb90a91e2709faa5e9c2cf91c83801a7355fea02ed5807a805",
+        "trial_seed": [
+          2026091062,
+          1,
+          2,
+          2,
+          6
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.11245277006034327,
+            -1.1423786990196472
+          ],
+          "q_sampling_variance": 0.0762344787559462
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 8,
+        "coverage_lower": 0.980655774383576,
+        "empirical_mean": [
+          0.1152741241396327,
+          -1.144242566793587
+        ],
+        "empirical_variance": [
+          0.00023931279057691184,
+          0.05652834533397521
+        ],
+        "joint_coverage": 0.985,
+        "joint_covered": 9850,
+        "mean": "T2",
+        "median_half_width": [
+          0.043504119024797304,
+          0.6682866431523266
+        ],
+        "negative_estimate_counts": [
+          0,
+          10000
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 192,
+        "regime": "low_negative",
+        "shape": "t5_shaped",
+        "support_sha256": "1442fd0b62e2fbdb90a91e2709faa5e9c2cf91c83801a7355fea02ed5807a805",
+        "trial_seed": [
+          2026091062,
+          1,
+          2,
+          2,
+          8
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.11518105661100231,
+            -1.1423786990196472
+          ],
+          "q_sampling_variance": 0.05640663071635346
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 4,
+        "coverage_lower": 0.9961038529138383,
+        "empirical_mean": [
+          0.018549008091752493,
+          1.1413887792957138
+        ],
+        "empirical_variance": [
+          0.002040681773009323,
+          0.1727926937523104
+        ],
+        "joint_coverage": 0.998,
+        "joint_covered": 9980,
+        "mean": "T1",
+        "median_half_width": [
+          0.1840699229566184,
+          1.9628223343327356
+        ],
+        "negative_estimate_counts": [
+          3232,
+          82
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 96,
+        "regime": "baseline",
+        "shape": "lognormal_shaped",
+        "support_sha256": "7d1d6c667068c1e567f7b664d31e996373c14e011ff03407bd9b77bf8ff3388b",
+        "trial_seed": [
+          2026091062,
+          2,
+          0,
+          0,
+          4
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.01898048234345029,
+            1.1423786990196472
+          ],
+          "q_sampling_variance": 0.171636842458031
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 6,
+        "coverage_lower": 0.9902332343646605,
+        "empirical_mean": [
+          0.029318205384061543,
+          1.1459313795281392
+        ],
+        "empirical_variance": [
+          0.0012622790474134404,
+          0.10023899318870214
+        ],
+        "joint_coverage": 0.9933,
+        "joint_covered": 9933,
+        "mean": "T1",
+        "median_half_width": [
+          0.11259258550748227,
+          1.0686066131210836
+        ],
+        "negative_estimate_counts": [
+          2025,
+          13
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 144,
+        "regime": "baseline",
+        "shape": "lognormal_shaped",
+        "support_sha256": "7d1d6c667068c1e567f7b664d31e996373c14e011ff03407bd9b77bf8ff3388b",
+        "trial_seed": [
+          2026091062,
+          2,
+          0,
+          0,
+          6
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.02920884982997407,
+            1.1423786990196472
+          ],
+          "q_sampling_variance": 0.10095700047401573
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 8,
+        "coverage_lower": 0.9834899869138436,
+        "empirical_mean": [
+          0.03454360920915089,
+          1.1450643771806692
+        ],
+        "empirical_variance": [
+          0.0009582439499423263,
+          0.07159820865968552
+        ],
+        "joint_coverage": 0.9875,
+        "joint_covered": 9875,
+        "mean": "T1",
+        "median_half_width": [
+          0.08737349703591607,
+          0.7890838331699279
+        ],
+        "negative_estimate_counts": [
+          1337,
+          4
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 192,
+        "regime": "baseline",
+        "shape": "lognormal_shaped",
+        "support_sha256": "7d1d6c667068c1e567f7b664d31e996373c14e011ff03407bd9b77bf8ff3388b",
+        "trial_seed": [
+          2026091062,
+          2,
+          0,
+          0,
+          8
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.03432303357323607,
+            1.1423786990196472
+          ],
+          "q_sampling_variance": 0.07138889140972449
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 4,
+        "coverage_lower": 0.9963755807686511,
+        "empirical_mean": [
+          -0.21271073802734045,
+          1.1504675018891133
+        ],
+        "empirical_variance": [
+          0.007809848242353061,
+          0.7616688517811198
+        ],
+        "joint_coverage": 0.9982,
+        "joint_covered": 9982,
+        "mean": "T1",
+        "median_half_width": [
+          0.36357771596206134,
+          4.562924751711872
+        ],
+        "negative_estimate_counts": [
+          9981,
+          868
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 96,
+        "regime": "high_positive",
+        "shape": "lognormal_shaped",
+        "support_sha256": "b850f1dd7af07c10beaaa9ce38a3da23f2a891cacc8e8b2601a3e2e9f294100e",
+        "trial_seed": [
+          2026091062,
+          2,
+          0,
+          1,
+          4
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            -0.2123492046372144,
+            1.1423786990196474
+          ],
+          "q_sampling_variance": 0.7678855936265694
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 6,
+        "coverage_lower": 0.9891651384123454,
+        "empirical_mean": [
+          -0.1913722398463971,
+          1.135565893363813
+        ],
+        "empirical_variance": [
+          0.004935573505504544,
+          0.36460994302841965
+        ],
+        "joint_coverage": 0.9924,
+        "joint_covered": 9924,
+        "mean": "T1",
+        "median_half_width": [
+          0.21924534113842475,
+          2.286098494142428
+        ],
+        "negative_estimate_counts": [
+          9986,
+          414
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 144,
+        "regime": "high_positive",
+        "shape": "lognormal_shaped",
+        "support_sha256": "b850f1dd7af07c10beaaa9ce38a3da23f2a891cacc8e8b2601a3e2e9f294100e",
+        "trial_seed": [
+          2026091062,
+          2,
+          0,
+          1,
+          6
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            -0.19080535222789052,
+            1.1423786990196474
+          ],
+          "q_sampling_variance": 0.37252097470895534
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 8,
+        "coverage_lower": 0.9858986322852429,
+        "empirical_mean": [
+          -0.1802028404786701,
+          1.1347632726078787
+        ],
+        "empirical_variance": [
+          0.0037069966717476676,
+          0.24153540185353145
+        ],
+        "joint_coverage": 0.9896,
+        "joint_covered": 9896,
+        "mean": "T1",
+        "median_half_width": [
+          0.16847775999480927,
+          1.5726799813561283
+        ],
+        "negative_estimate_counts": [
+          9999,
+          205
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 192,
+        "regime": "high_positive",
+        "shape": "lognormal_shaped",
+        "support_sha256": "b850f1dd7af07c10beaaa9ce38a3da23f2a891cacc8e8b2601a3e2e9f294100e",
+        "trial_seed": [
+          2026091062,
+          2,
+          0,
+          1,
+          8
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            -0.18003342602322814,
+            1.1423786990196474
+          ],
+          "q_sampling_variance": 0.2345827028396159
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 4,
+        "coverage_lower": 0.9954383310671628,
+        "empirical_mean": [
+          0.10864446261992385,
+          1.1418624530926653
+        ],
+        "empirical_variance": [
+          0.0004956349842045705,
+          0.06893503257108734
+        ],
+        "joint_coverage": 0.9975,
+        "joint_covered": 9975,
+        "mean": "T1",
+        "median_half_width": [
+          0.09070728198707798,
+          1.0953124891135273
+        ],
+        "negative_estimate_counts": [
+          0,
+          7
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 96,
+        "regime": "low_negative",
+        "shape": "lognormal_shaped",
+        "support_sha256": "b1c3b4c7fd18d09e4726a39ace595791a77313cecd8125c9e75f98fb0361577d",
+        "trial_seed": [
+          2026091062,
+          2,
+          0,
+          2,
+          4
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.10833394702499333,
+            1.1423786990196472
+          ],
+          "q_sampling_variance": 0.06898937186391352
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 6,
+        "coverage_lower": 0.9857832439738952,
+        "empirical_mean": [
+          0.11383014532366553,
+          1.1409701806354549
+        ],
+        "empirical_variance": [
+          0.0003234827610760729,
+          0.04400288295703015
+        ],
+        "joint_coverage": 0.9895,
+        "joint_covered": 9895,
+        "mean": "T1",
+        "median_half_width": [
+          0.05569625329080266,
+          0.6502264275162136
+        ],
+        "negative_estimate_counts": [
+          0,
+          0
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 144,
+        "regime": "low_negative",
+        "shape": "lognormal_shaped",
+        "support_sha256": "b1c3b4c7fd18d09e4726a39ace595791a77313cecd8125c9e75f98fb0361577d",
+        "trial_seed": [
+          2026091062,
+          2,
+          0,
+          2,
+          6
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.11371991012732452,
+            1.1423786990196472
+          ],
+          "q_sampling_variance": 0.043839336935993255
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 8,
+        "coverage_lower": 0.9785208567522506,
+        "empirical_mean": [
+          0.11663722343126927,
+          1.1456082017073397
+        ],
+        "empirical_variance": [
+          0.00023295338016542084,
+          0.03114671327885723
+        ],
+        "joint_coverage": 0.9831,
+        "joint_covered": 9831,
+        "mean": "T1",
+        "median_half_width": [
+          0.04311961038948527,
+          0.5005941286605995
+        ],
+        "negative_estimate_counts": [
+          0,
+          0
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 192,
+        "regime": "low_negative",
+        "shape": "lognormal_shaped",
+        "support_sha256": "b1c3b4c7fd18d09e4726a39ace595791a77313cecd8125c9e75f98fb0361577d",
+        "trial_seed": [
+          2026091062,
+          2,
+          0,
+          2,
+          8
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.1164128916784899,
+            1.1423786990196472
+          ],
+          "q_sampling_variance": 0.03218728131772559
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 4,
+        "coverage_lower": 0.9970736272840796,
+        "empirical_mean": [
+          0.01886154550887352,
+          0.002335657939183426
+        ],
+        "empirical_variance": [
+          0.0020125093398001663,
+          0.2102348912356549
+        ],
+        "joint_coverage": 0.9987,
+        "joint_covered": 9987,
+        "mean": "midpoint",
+        "median_half_width": [
+          0.18386831460564712,
+          2.094136364799162
+        ],
+        "negative_estimate_counts": [
+          3194,
+          4653
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 96,
+        "regime": "baseline",
+        "shape": "lognormal_shaped",
+        "support_sha256": "b5db82a0d55e2e7bb038089480103133880db98d3b5c23c414a17891d1c5ec24",
+        "trial_seed": [
+          2026091062,
+          2,
+          1,
+          0,
+          4
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.01898048234345029,
+            2.7174849826991365e-16
+          ],
+          "q_sampling_variance": 0.21013636409673242
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 6,
+        "coverage_lower": 0.9904721104564028,
+        "empirical_mean": [
+          0.029608738842099445,
+          0.0022558658048816545
+        ],
+        "empirical_variance": [
+          0.0013320879044304609,
+          0.12800389904565732
+        ],
+        "joint_coverage": 0.9935,
+        "joint_covered": 9935,
+        "mean": "midpoint",
+        "median_half_width": [
+          0.1129072935577286,
+          1.1665681886841524
+        ],
+        "negative_estimate_counts": [
+          2062,
+          4739
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 144,
+        "regime": "baseline",
+        "shape": "lognormal_shaped",
+        "support_sha256": "b5db82a0d55e2e7bb038089480103133880db98d3b5c23c414a17891d1c5ec24",
+        "trial_seed": [
+          2026091062,
+          2,
+          1,
+          0,
+          6
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.02920884982997407,
+            2.7174849826991365e-16
+          ],
+          "q_sampling_variance": 0.12662334823315
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 8,
+        "coverage_lower": 0.9793057098874324,
+        "empirical_mean": [
+          0.03456748858641758,
+          0.0018872034087048365
+        ],
+        "empirical_variance": [
+          0.000979795470607569,
+          0.09170211093913234
+        ],
+        "joint_coverage": 0.9838,
+        "joint_covered": 9838,
+        "mean": "midpoint",
+        "median_half_width": [
+          0.08711588864092523,
+          0.8683881573876364
+        ],
+        "negative_estimate_counts": [
+          1338,
+          4732
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 192,
+        "regime": "baseline",
+        "shape": "lognormal_shaped",
+        "support_sha256": "b5db82a0d55e2e7bb038089480103133880db98d3b5c23c414a17891d1c5ec24",
+        "trial_seed": [
+          2026091062,
+          2,
+          1,
+          0,
+          8
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.03432303357323607,
+            2.7174849826991365e-16
+          ],
+          "q_sampling_variance": 0.09063865222907519
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 4,
+        "coverage_lower": 0.9961038529138383,
+        "empirical_mean": [
+          -0.21178510462682376,
+          -0.013254345991496792
+        ],
+        "empirical_variance": [
+          0.007844076020729993,
+          0.8976565800149123
+        ],
+        "joint_coverage": 0.998,
+        "joint_covered": 9980,
+        "mean": "midpoint",
+        "median_half_width": [
+          0.36095890863673197,
+          4.692262694251999
+        ],
+        "negative_estimate_counts": [
+          9975,
+          4666
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 96,
+        "regime": "high_positive",
+        "shape": "lognormal_shaped",
+        "support_sha256": "5915023383a7444bbea4e76f6ba84d35e63350cb5aa19245aafeff282e61af82",
+        "trial_seed": [
+          2026091062,
+          2,
+          1,
+          1,
+          4
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            -0.2123492046372144,
+            6.397029986889707e-16
+          ],
+          "q_sampling_variance": 0.8820672504976945
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 6,
+        "coverage_lower": 0.990831571625556,
+        "empirical_mean": [
+          -0.19219161889975922,
+          -0.003164342587768835
+        ],
+        "empirical_variance": [
+          0.004991445951380691,
+          0.45288592740972844
+        ],
+        "joint_coverage": 0.9938,
+        "joint_covered": 9938,
+        "mean": "midpoint",
+        "median_half_width": [
+          0.22022530425198758,
+          2.4007599807521287
+        ],
+        "negative_estimate_counts": [
+          9989,
+          4635
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 144,
+        "regime": "high_positive",
+        "shape": "lognormal_shaped",
+        "support_sha256": "5915023383a7444bbea4e76f6ba84d35e63350cb5aa19245aafeff282e61af82",
+        "trial_seed": [
+          2026091062,
+          2,
+          1,
+          1,
+          6
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            -0.19080535222789052,
+            6.397029986889707e-16
+          ],
+          "q_sampling_variance": 0.4486420792897056
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 8,
+        "coverage_lower": 0.9824659782395408,
+        "empirical_mean": [
+          -0.18039985850631793,
+          0.0050576432820859975
+        ],
+        "empirical_variance": [
+          0.0036023941967042823,
+          0.28155876717452805
+        ],
+        "joint_coverage": 0.9866,
+        "joint_covered": 9866,
+        "mean": "midpoint",
+        "median_half_width": [
+          0.16925604488023488,
+          1.6731989794338782
+        ],
+        "negative_estimate_counts": [
+          9998,
+          4617
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 192,
+        "regime": "high_positive",
+        "shape": "lognormal_shaped",
+        "support_sha256": "5915023383a7444bbea4e76f6ba84d35e63350cb5aa19245aafeff282e61af82",
+        "trial_seed": [
+          2026091062,
+          2,
+          1,
+          1,
+          8
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            -0.18003342602322814,
+            6.397029986889707e-16
+          ],
+          "q_sampling_variance": 0.29167353127517853
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 4,
+        "coverage_lower": 0.9946596981943769,
+        "empirical_mean": [
+          0.1082580350159729,
+          -0.0011813984959204945
+        ],
+        "empirical_variance": [
+          0.0004979884667561263,
+          0.0858713919489755
+        ],
+        "joint_coverage": 0.9969,
+        "joint_covered": 9969,
+        "mean": "midpoint",
+        "median_half_width": [
+          0.09098721725705919,
+          1.1991593682819586
+        ],
+        "negative_estimate_counts": [
+          0,
+          4701
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 96,
+        "regime": "low_negative",
+        "shape": "lognormal_shaped",
+        "support_sha256": "372522520efade0508c867814e8a76eb9146dffce12ad803d2bb9d2487871e43",
+        "trial_seed": [
+          2026091062,
+          2,
+          1,
+          2,
+          4
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.10833394702499333,
+            1.736891880321778e-16
+          ],
+          "q_sampling_variance": 0.08692582639915619
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 6,
+        "coverage_lower": 0.9861296383264327,
+        "empirical_mean": [
+          0.11368449354231384,
+          0.0006368242232713144
+        ],
+        "empirical_variance": [
+          0.0003174386470463309,
+          0.056156680344686925
+        ],
+        "joint_coverage": 0.9898,
+        "joint_covered": 9898,
+        "mean": "midpoint",
+        "median_half_width": [
+          0.055873817710303066,
+          0.7282719450406878
+        ],
+        "negative_estimate_counts": [
+          0,
+          4735
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 144,
+        "regime": "low_negative",
+        "shape": "lognormal_shaped",
+        "support_sha256": "372522520efade0508c867814e8a76eb9146dffce12ad803d2bb9d2487871e43",
+        "trial_seed": [
+          2026091062,
+          2,
+          1,
+          2,
+          6
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.11371991012732452,
+            1.736891880321778e-16
+          ],
+          "q_sampling_variance": 0.05579697329282171
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 8,
+        "coverage_lower": 0.9766221970862612,
+        "empirical_mean": [
+          0.11615568893799869,
+          -0.0008750851850916957
+        ],
+        "empirical_variance": [
+          0.00023297201800785193,
+          0.040977005498868804
+        ],
+        "joint_coverage": 0.9814,
+        "joint_covered": 9814,
+        "mean": "midpoint",
+        "median_half_width": [
+          0.04303480666725759,
+          0.558911893178691
+        ],
+        "negative_estimate_counts": [
+          0,
+          4810
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 192,
+        "regime": "low_negative",
+        "shape": "lognormal_shaped",
+        "support_sha256": "372522520efade0508c867814e8a76eb9146dffce12ad803d2bb9d2487871e43",
+        "trial_seed": [
+          2026091062,
+          2,
+          1,
+          2,
+          8
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.1164128916784899,
+            1.736891880321778e-16
+          ],
+          "q_sampling_variance": 0.04115550858534693
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 4,
+        "coverage_lower": 0.9959692792693249,
+        "empirical_mean": [
+          0.018688848061605576,
+          -1.147689503830879
+        ],
+        "empirical_variance": [
+          0.0019891974278873213,
+          0.2559325710669867
+        ],
+        "joint_coverage": 0.9979,
+        "joint_covered": 9979,
+        "mean": "T2",
+        "median_half_width": [
+          0.1844241650592246,
+          2.2614049483178547
+        ],
+        "negative_estimate_counts": [
+          3211,
+          9961
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 96,
+        "regime": "baseline",
+        "shape": "lognormal_shaped",
+        "support_sha256": "3fc1260e39806db27ab947ec98652b7b4081545aa94f48abe3586617c06e5201",
+        "trial_seed": [
+          2026091062,
+          2,
+          2,
+          0,
+          4
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.01898048234345029,
+            -1.142378699019647
+          ],
+          "q_sampling_variance": 0.2574496832733726
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 6,
+        "coverage_lower": 0.9897571996443248,
+        "empirical_mean": [
+          0.029955372067445002,
+          -1.1412269667724035
+        ],
+        "empirical_variance": [
+          0.0013105434772013036,
+          0.15846306487618145
+        ],
+        "joint_coverage": 0.9929,
+        "joint_covered": 9929,
+        "mean": "T2",
+        "median_half_width": [
+          0.11257614596280012,
+          1.2745852520859873
+        ],
+        "negative_estimate_counts": [
+          1989,
+          9998
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 144,
+        "regime": "baseline",
+        "shape": "lognormal_shaped",
+        "support_sha256": "3fc1260e39806db27ab947ec98652b7b4081545aa94f48abe3586617c06e5201",
+        "trial_seed": [
+          2026091062,
+          2,
+          2,
+          0,
+          6
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.02920884982997407,
+            -1.142378699019647
+          ],
+          "q_sampling_variance": 0.15816556101757678
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 8,
+        "coverage_lower": 0.979755063644191,
+        "empirical_mean": [
+          0.03398051540597793,
+          -1.1425093191937168
+        ],
+        "empirical_variance": [
+          0.0009639327696314104,
+          0.11653979704641385
+        ],
+        "joint_coverage": 0.9842,
+        "joint_covered": 9842,
+        "mean": "T2",
+        "median_half_width": [
+          0.08732776536646009,
+          0.9610434896528317
+        ],
+        "negative_estimate_counts": [
+          1376,
+          10000
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 192,
+        "regime": "baseline",
+        "shape": "lognormal_shaped",
+        "support_sha256": "3fc1260e39806db27ab947ec98652b7b4081545aa94f48abe3586617c06e5201",
+        "trial_seed": [
+          2026091062,
+          2,
+          2,
+          0,
+          8
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.03432303357323607,
+            -1.142378699019647
+          ],
+          "q_sampling_variance": 0.1142953118173953
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 4,
+        "coverage_lower": 0.9958354881267379,
+        "empirical_mean": [
+          -0.21269076712413781,
+          -1.1314792025399993
+        ],
+        "empirical_variance": [
+          0.007673970274130672,
+          1.0298300021899358
+        ],
+        "joint_coverage": 0.9978,
+        "joint_covered": 9978,
+        "mean": "T2",
+        "median_half_width": [
+          0.3616784124723883,
+          4.915181164814195
+        ],
+        "negative_estimate_counts": [
+          9985,
+          8923
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 96,
+        "regime": "high_positive",
+        "shape": "lognormal_shaped",
+        "support_sha256": "8c9ab34f0c487911bc956ada461f5c0e98bd10efa598d5077e29dfa40d8f62e7",
+        "trial_seed": [
+          2026091062,
+          2,
+          2,
+          1,
+          4
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            -0.2123492046372144,
+            -1.1423786990196463
+          ],
+          "q_sampling_variance": 1.0465165258223588
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 6,
+        "coverage_lower": 0.9879898048381678,
+        "empirical_mean": [
+          -0.19115766498311834,
+          -1.14961877506197
+        ],
+        "empirical_variance": [
+          0.00493880452615318,
+          0.5600393195075957
+        ],
+        "joint_coverage": 0.9914,
+        "joint_covered": 9914,
+        "mean": "T2",
+        "median_half_width": [
+          0.2190500423683857,
+          2.5390998953801773
+        ],
+        "negative_estimate_counts": [
+          9994,
+          9650
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 144,
+        "regime": "high_positive",
+        "shape": "lognormal_shaped",
+        "support_sha256": "8c9ab34f0c487911bc956ada461f5c0e98bd10efa598d5077e29dfa40d8f62e7",
+        "trial_seed": [
+          2026091062,
+          2,
+          2,
+          1,
+          6
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            -0.19080535222789052,
+            -1.1423786990196463
+          ],
+          "q_sampling_variance": 0.5582749295061483
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 8,
+        "coverage_lower": 0.9796426643453638,
+        "empirical_mean": [
+          -0.1778917068534138,
+          -1.126724277183936
+        ],
+        "empirical_variance": [
+          0.003651156961986577,
+          0.37840946072219656
+        ],
+        "joint_coverage": 0.9841,
+        "joint_covered": 9841,
+        "mean": "T2",
+        "median_half_width": [
+          0.16870348421765252,
+          1.8156686155502089
+        ],
+        "negative_estimate_counts": [
+          9998,
+          9856
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 192,
+        "regime": "high_positive",
+        "shape": "lognormal_shaped",
+        "support_sha256": "8c9ab34f0c487911bc956ada461f5c0e98bd10efa598d5077e29dfa40d8f62e7",
+        "trial_seed": [
+          2026091062,
+          2,
+          2,
+          1,
+          8
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            -0.18003342602322814,
+            -1.1423786990196463
+          ],
+          "q_sampling_variance": 0.37389816893751066
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 4,
+        "coverage_lower": 0.9950466787285099,
+        "empirical_mean": [
+          0.10807035974206174,
+          -1.1454759075510503
+        ],
+        "empirical_variance": [
+          0.0004996780011391716,
+          0.10479887644919098
+        ],
+        "joint_coverage": 0.9972,
+        "joint_covered": 9972,
+        "mean": "T2",
+        "median_half_width": [
+          0.09116156272558879,
+          1.3227301676032528
+        ],
+        "negative_estimate_counts": [
+          0,
+          10000
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 96,
+        "regime": "low_negative",
+        "shape": "lognormal_shaped",
+        "support_sha256": "865c08cb0038cbcdf31f195bea95a772961c6c7ffaba409b18ba69da64240137",
+        "trial_seed": [
+          2026091062,
+          2,
+          2,
+          2,
+          4
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.10833394702499333,
+            -1.142378699019647
+          ],
+          "q_sampling_variance": 0.10800400708774505
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 6,
+        "coverage_lower": 0.983034319136205,
+        "empirical_mean": [
+          0.1135614126965982,
+          -1.1443152867206585
+        ],
+        "empirical_variance": [
+          0.00032261995406327213,
+          0.06898802225313609
+        ],
+        "joint_coverage": 0.9871,
+        "joint_covered": 9871,
+        "mean": "T2",
+        "median_half_width": [
+          0.05576223901433875,
+          0.8028855567523651
+        ],
+        "negative_estimate_counts": [
+          0,
+          10000
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 144,
+        "regime": "low_negative",
+        "shape": "lognormal_shaped",
+        "support_sha256": "865c08cb0038cbcdf31f195bea95a772961c6c7ffaba409b18ba69da64240137",
+        "trial_seed": [
+          2026091062,
+          2,
+          2,
+          2,
+          6
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.11371991012732452,
+            -1.142378699019647
+          ],
+          "q_sampling_variance": 0.06984909375188092
+        },
+        "unavailable": 0
+      },
+      {
+        "R": 8,
+        "coverage_lower": 0.9791934716555755,
+        "empirical_mean": [
+          0.11639603765932066,
+          -1.1401137104003238
+        ],
+        "empirical_variance": [
+          0.00023255001115331277,
+          0.052469976920429394
+        ],
+        "joint_coverage": 0.9837,
+        "joint_covered": 9837,
+        "mean": "T2",
+        "median_half_width": [
+          0.0432125749736091,
+          0.6243456608481028
+        ],
+        "negative_estimate_counts": [
+          0,
+          10000
+        ],
+        "nonfinite_estimate_trials": 0,
+        "outputs": 192,
+        "regime": "low_negative",
+        "shape": "lognormal_shaped",
+        "support_sha256": "865c08cb0038cbcdf31f195bea95a772961c6c7ffaba409b18ba69da64240137",
+        "trial_seed": [
+          2026091062,
+          2,
+          2,
+          2,
+          8
+        ],
+        "trials": 10000,
+        "truth": {
+          "estimate": [
+            0.1164128916784899,
+            -1.142378699019647
+          ],
+          "q_sampling_variance": 0.051694598929641344
+        },
+        "unavailable": 0
+      }
+    ],
+    "selected_R": null,
+    "selected_outputs": null
+  },
+  "schema": "painter-map-precision-run/1",
+  "source_bindings": [
+    {
+      "path": "data/manifests/painter_naming_geometry_v1/pngv1-20260910/analysis.json",
+      "sha256": "f50be0f772a3bff8f4bc66ddc20f3e19b5c13736fd6cced632d80224e2203324"
+    },
+    {
+      "path": "data/manifests/painter_naming_geometry_v1/pngv1-20260910/freeze.json",
+      "sha256": "54b265f2777f79822057492babb3a26ac491797ec3e45eef35f17315b85a4b5b"
+    },
+    {
+      "path": "data/manifests/painter_naming_geometry_v1/pngv1-20260910/inputs.json",
+      "sha256": "eeb3890268a85885f372bdb494e29ab558c271749667fb7e264a7e30881733de"
+    },
+    {
+      "path": "data/manifests/painter_naming_geometry_v1/pngv1-20260910/receipt.json",
+      "sha256": "f9313c4c1ae81c64d7cdb3ac609c0057eb9e98cc9b2b3cce836a7aabd62e7eb9"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8"
+    },
+    {
+      "path": "src/latent_art_bench/__init__.py",
+      "sha256": "3a5d2006e1557187a3585cbe17af183fd7d2f170a32eb96b00c43b00d137c660"
+    },
+    {
+      "path": "src/latent_art_bench/painter_map_validation_v1/__init__.py",
+      "sha256": "cade714d66ac5ba8924ddd9cc1ecb9c62bd06ecc7f37d416bd44fbe5491558db"
+    },
+    {
+      "path": "src/latent_art_bench/painter_map_validation_v1/precision.py",
+      "sha256": "971d909e63346cea64a1b7dd7b695ec8c112dc16562230d9d5dd7d968bd0b44d"
+    },
+    {
+      "path": "studies/painter_map_validation_v1/DESIGN.md",
+      "sha256": "782b957b6cf3221214af503f22576eddc31fbfd60f58252ad6c6087e1fff8fcf"
+    },
+    {
+      "path": "studies/painter_map_validation_v1/PRECISION_PROTOCOL.md",
+      "sha256": "3d0a7ca0e97e303317324f4b0c929aa35ce7dba91be4103c4032ed9aa7fdb4de"
+    },
+    {
+      "path": "tests/painter_map_validation_v1/test_precision.py",
+      "sha256": "53f97071e45dc1976090a39214cf425d06ac2bb45710c3416e76d28e2e2ef1d0"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+    }
+  ],
+  "source_commit": "eb70ab8c30019b4b283366c170f8bdaf1405a023"
+}

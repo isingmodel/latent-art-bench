@@ -1,0 +1,111 @@
+{
+  "cross_version_confidence_claim": false,
+  "environment": {
+    "numpy": "2.5.2",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.11",
+    "scipy": "1.18.1"
+  },
+  "predecessor": {
+    "artifacts": [
+      {
+        "path": "studies/painter_map_validation_v1/pmvqv1-20260910/PRECISION.md",
+        "sha256": "c65ec527fd67289baefa7f52207a85778b84e818015546f703c589994c703555"
+      },
+      {
+        "path": "studies/painter_map_validation_v1/pmvqv1-20260910/RUN.json",
+        "sha256": "944a8ea098b55d8ccb12c66f8b55dd55582456b080e0c77139f8100f4d0589e8"
+      },
+      {
+        "path": "studies/painter_map_validation_v1/pmvqv1-20260910/precision.json",
+        "sha256": "ca5da6798dfc4c6056de6250320d85d1c17dffe1a0d274788d3ac8091557598a"
+      }
+    ],
+    "decision": "stop_inferential_proposal",
+    "source_commit": "eb70ab8c30019b4b283366c170f8bdaf1405a023"
+  },
+  "schema": "painter-map-precision-v2-run/1",
+  "source_bindings": [
+    {
+      "path": "data/manifests/painter_naming_geometry_v1/pngv1-20260910/analysis.json",
+      "sha256": "f50be0f772a3bff8f4bc66ddc20f3e19b5c13736fd6cced632d80224e2203324"
+    },
+    {
+      "path": "data/manifests/painter_naming_geometry_v1/pngv1-20260910/freeze.json",
+      "sha256": "54b265f2777f79822057492babb3a26ac491797ec3e45eef35f17315b85a4b5b"
+    },
+    {
+      "path": "data/manifests/painter_naming_geometry_v1/pngv1-20260910/inputs.json",
+      "sha256": "eeb3890268a85885f372bdb494e29ab558c271749667fb7e264a7e30881733de"
+    },
+    {
+      "path": "data/manifests/painter_naming_geometry_v1/pngv1-20260910/receipt.json",
+      "sha256": "f9313c4c1ae81c64d7cdb3ac609c0057eb9e98cc9b2b3cce836a7aabd62e7eb9"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8"
+    },
+    {
+      "path": "src/latent_art_bench/__init__.py",
+      "sha256": "3a5d2006e1557187a3585cbe17af183fd7d2f170a32eb96b00c43b00d137c660"
+    },
+    {
+      "path": "src/latent_art_bench/painter_map_validation_v1/__init__.py",
+      "sha256": "cade714d66ac5ba8924ddd9cc1ecb9c62bd06ecc7f37d416bd44fbe5491558db"
+    },
+    {
+      "path": "src/latent_art_bench/painter_map_validation_v1/precision.py",
+      "sha256": "971d909e63346cea64a1b7dd7b695ec8c112dc16562230d9d5dd7d968bd0b44d"
+    },
+    {
+      "path": "src/latent_art_bench/painter_map_validation_v2/__init__.py",
+      "sha256": "ca187b0bac15fb697372b37585dc86f9ba6dcc3c6cccf76173237f5fe1904040"
+    },
+    {
+      "path": "src/latent_art_bench/painter_map_validation_v2/precision.py",
+      "sha256": "0ed0cd14e5e2c925f63311136eb8ba7960ee50e12ac5b8c81dda263c84602c7a"
+    },
+    {
+      "path": "studies/painter_map_validation_v1/DESIGN.md",
+      "sha256": "782b957b6cf3221214af503f22576eddc31fbfd60f58252ad6c6087e1fff8fcf"
+    },
+    {
+      "path": "studies/painter_map_validation_v1/PRECISION_PROTOCOL.md",
+      "sha256": "3d0a7ca0e97e303317324f4b0c929aa35ce7dba91be4103c4032ed9aa7fdb4de"
+    },
+    {
+      "path": "studies/painter_map_validation_v1/pmvqv1-20260910/PRECISION.md",
+      "sha256": "c65ec527fd67289baefa7f52207a85778b84e818015546f703c589994c703555"
+    },
+    {
+      "path": "studies/painter_map_validation_v1/pmvqv1-20260910/RUN.json",
+      "sha256": "944a8ea098b55d8ccb12c66f8b55dd55582456b080e0c77139f8100f4d0589e8"
+    },
+    {
+      "path": "studies/painter_map_validation_v1/pmvqv1-20260910/precision.json",
+      "sha256": "ca5da6798dfc4c6056de6250320d85d1c17dffe1a0d274788d3ac8091557598a"
+    },
+    {
+      "path": "studies/painter_map_validation_v2/DECISION.md",
+      "sha256": "5734a1331fb80e1ce5b423cfe8e03d23e8982ca01e6d55fd6ef622f5e5c0d3cb"
+    },
+    {
+      "path": "studies/painter_map_validation_v2/PRECISION_PROTOCOL.md",
+      "sha256": "b9fd2ada9726b2ac0878f2e2bdd3caaefcbc5f8d42881fd6a07e8638ef719377"
+    },
+    {
+      "path": "tests/painter_map_validation_v1/test_precision.py",
+      "sha256": "53f97071e45dc1976090a39214cf425d06ac2bb45710c3416e76d28e2e2ef1d0"
+    },
+    {
+      "path": "tests/painter_map_validation_v2/test_precision.py",
+      "sha256": "c35cbe32cb3133ac1dc71109ecd8aa24504b879097da57b815ea56b7e52c0297"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+    }
+  ],
+  "source_commit": "6956feccb4a1c6f65de1a07ba0eeab856882b012"
+}
