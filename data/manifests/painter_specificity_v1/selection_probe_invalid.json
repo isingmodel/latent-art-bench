@@ -1,0 +1,26 @@
+{
+  "started_at": "2026-09-10T15:13:33.224895+00:00",
+  "status": 200,
+  "payload": {
+    "model": "gpt-6-astra",
+    "input": "Generate a grey circle on a white background.",
+    "tools": [
+      {
+        "type": "image_generation",
+        "model": "invalid-image-model-specificity-control",
+        "action": "generate"
+      }
+    ],
+    "tool_choice": {
+      "type": "image_generation"
+    },
+    "stream": false
+  },
+  "response_sha256": "ede3a1659ed5f02f42cd7a64a681046796d27bbceb067431de554a5219b26dc4",
+  "error": null,
+  "model": "gpt-6-astra",
+  "output_types": [
+    "image_generation_call",
+    "message"
+  ]
+}

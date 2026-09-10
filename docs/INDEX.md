@@ -15,6 +15,8 @@
 
 ## Active research extension
 
+- [Specificity transport repair](../studies/painter_specificity_v2/DECISION.md) and
+  [closed first attempt](../studies/painter_specificity_v1/TERMINATION.md).
 - [Painter-specificity protocol](../studies/painter_specificity_v1/PROTOCOL.md):
   six-model comparison of painter contrast recovery beyond shared painting effects.
 - [Novelty and competing explanations](../studies/painter_specificity_v1/NOVELTY.md).

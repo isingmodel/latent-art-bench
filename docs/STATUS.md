@@ -8,28 +8,32 @@ No terminal study is reopened, and both user-owned Korean files remain untouched
 
 ## Active goal: painter specificity and explanatory model comparisons
 
-The user authorized a new research/manuscript goal around whether painter names
-recover artist-specific variation beyond a shared painting appearance. This
-supersedes the old review-cycle stopping instruction for **this new scope only**.
-The new [protocol](../studies/painter_specificity_v1/PROTOCOL.md) retains four
-painters, 31 features and no human ratings. It plans 1,152 outputs from six models
-on 16 common scenes, including generic and artist-free controls, with paired
-regressions and repeat-corrected artist-geometry errors. Existing terminal evidence
-remains closed. No scientific output from this new allocation has been generated yet.
+The user authorized a new research/manuscript goal: whether painter names recover
+artist-specific variation beyond a shared painting appearance, why they differ,
+and which models perform better on an explicit reference target. Four painters,
+31 interpretable features and no human ratings remain fixed. The new ceiling is
+**strictly below $120**; remaining credit balances are not queried.
 
-Local support for GPT Image 2.5 Flare/Sunburst is implemented in the separate
-openai-oauth checkout at commit `d0a390f`; both isolated transport probes returned
-an image. Exact IDs are forwarded without fallback. The responses omit a model
-ID and return nonsquare/low-quality metadata despite square/medium requests;
-the experiment retains that limitation and includes common-square measurement.
-The dedicated adapter listens on port 10533; the earlier port 10532 is untouched.
+The first prospective specificity panel is **terminated before measurement**.
+After initial success probes, two negative controls found that the upstream image
+and Responses endpoints generate images even for an invented image-model ID.
+That does not prove valid IDs are ignored, but request acceptance cannot qualify
+distinct Flare/Sunburst selection. The [termination decision](../studies/painter_specificity_v1/TERMINATION.md)
+retains 31 returned images, unattempted assignments and explicit recovery of three
+completed worker records. No v1 outputs enter scientific analysis or a successor.
+The separate local adapter commit `d0a390f` adds forwarding of the valid names;
+upstream model selection remains unverified. The earlier port 10532 is untouched.
 
-Historical ledger arithmetic has been reconciled at **$67.5219185**, including
-the existing $5 reserve. The newly authorized ceiling is **strictly below $120**;
-remaining credit balances are not queried. The panel contains 384 paid outputs
-and uses reservations for pending or unknown charges. The prospective statistical
-implementation is being checked before its source/assignment freeze. The English
-paper and literature positioning will be revised after the new analysis.
+The [successor protocol](../studies/painter_specificity_v2/PROTOCOL.md) selects
+**1,008 images: 14 scenes × six models × six clauses × two repeats**, with medium
+quality on all four OpenAI models. Eight disjoint paid cost probes succeeded.
+Cumulative conservative accounting is **$68.50735**, with about $112 forecast
+for completion. The reduction from 16 to 14 scenes is fixed before measurement;
+no feature or visual outcome informed it. Explicit routing replaces the
+unqualified local route. The English manuscript, plotting and literature
+positioning remain to be revised.
+All earlier terminal studies/releases stay unchanged; the old review stopping
+instruction below applies to that earlier iteration only.
 
 ## Reduced routine test scope
 

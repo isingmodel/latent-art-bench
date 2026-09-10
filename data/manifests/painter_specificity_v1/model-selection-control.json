@@ -1,0 +1,19 @@
+{
+  "purpose": "Negative control of upstream model selection; excluded from scientific allocation",
+  "payload": {
+    "model": "invalid-image-model-specificity-control",
+    "prompt": "A grey circle on a white background.",
+    "n": 1,
+    "size": "1024x1024",
+    "quality": "medium",
+    "output_format": "png"
+  },
+  "status": 200,
+  "started_at": "2026-09-10T15:11:00.019Z",
+  "ended_at": "2026-09-10T15:11:17.597Z",
+  "raw_sha256": "c25e09306e27a92b1c22edc1bf3ee07787f681b169e6fec344e543135fbaba46",
+  "images": 1,
+  "error": null,
+  "reported_model": null,
+  "selected_headers": {}
+}
