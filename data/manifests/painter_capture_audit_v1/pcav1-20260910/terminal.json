@@ -1,0 +1,365 @@
+{
+  "study_id": "painter_capture_audit_v1",
+  "run_id": "pcav1-20260910",
+  "stage": "R0_metadata_only",
+  "status": "terminal",
+  "created_utc": "2026-09-10T08:39:00.193300+00:00",
+  "recorded_git_commit": "467cd85c7db8defe3d9ba9f71a158f1c5df68891",
+  "terminal_reason": "All five activated identities disposed; fixed 15 actual-request cap reached.",
+  "first_request_intent_utc": "2026-09-10T08:22:35.368613+00:00",
+  "last_request_outcome_utc": "2026-09-10T08:34:45.564669+00:00",
+  "actual_outbound_requests": 15,
+  "charged_attempts": 15,
+  "raw_ledger_intent_like_records": 16,
+  "nonchargeable_preflight_failures": 1,
+  "qualified_pair_count": 0,
+  "qualified_pair_work_ids": [],
+  "not_activated_candidates": [],
+  "http_status_counts": {
+    "200": 11,
+    "301": 2,
+    "403": 1,
+    "404": 1
+  },
+  "candidate_dispositions": [
+    {
+      "at_utc": "2026-09-10T08:27:52.423528+00:00",
+      "candidate": "Q106925109",
+      "charged_attempts": 3,
+      "disposition": "pair_claim_unresolved",
+      "event_id": "pcav1-20260910:disposition:01:final",
+      "kind": "disposition",
+      "outbound_requests": 3,
+      "qualified_pair": false,
+      "reason": "Credited Flickr page is an ErgsArt app/gallery upload with no identified original photographer or capture equipment. Commons repeats Flickr attribution and dates without camera metadata or separate event. Denver exact retained authority route returned 404.",
+      "retained_capture_authenticated": false
+    },
+    {
+      "at_utc": "2026-09-10T08:29:32.419007+00:00",
+      "candidate": "Q2450237",
+      "charged_attempts": 3,
+      "disposition": "pair_claim_unresolved",
+      "event_id": "pcav1-20260910:disposition:02:final",
+      "kind": "disposition",
+      "outbound_requests": 3,
+      "qualified_pair": false,
+      "reason": "Commons own-work credit accompanies three upload versions, with current higher-resolution file uploaded by Rickdotta in 2019 rather than original 2006 contributor Rlbberlin; no distinct capture author/date/master ancestry established. Contributor profile adds no event provenance. Kimbell authority route returned HTTP 403; not bypassed.",
+      "retained_capture_authenticated": false,
+      "source_family_activation_evidence": false
+    },
+    {
+      "at_utc": "2026-09-10T08:31:58.641101+00:00",
+      "candidate": "Q64319425",
+      "charged_attempts": 3,
+      "disposition": "pair_claim_unresolved",
+      "event_id": "pcav1-20260910:disposition:03:final",
+      "kind": "disposition",
+      "outbound_requests": 3,
+      "qualified_pair": false,
+      "reason": "Catalogue entry 279 credits Peter Schalchli with institution/accession and identifies historical Vollard photo 248, giving actionable capture/archive leads. It does not establish retained Flickr ancestry, modern event/master date, independent comparable full views, object-condition agreement, or rights sufficiency. Direct photo-248 archive link returned a broader index with general archive description; no pagination or unrelated-record requests were made.",
+      "retained_capture_authenticated": false,
+      "source_family_activation_evidence": true
+    },
+    {
+      "at_utc": "2026-09-10T08:33:54.879389+00:00",
+      "candidate": "Q28126494",
+      "charged_attempts": 3,
+      "disposition": "pair_claim_unresolved",
+      "event_id": "pcav1-20260910:disposition:04:final",
+      "kind": "disposition",
+      "outbound_requests": 3,
+      "qualified_pair": false,
+      "reason": "Catalogue supplies Barnes/Bridgeman image credit and historical archive photo 465, but no contemporary event date/master ancestry. Its dated Rewald/Loran photographs depict the landscape motif, not the physical painting. Commons has one 2006 upload and own-work assertion without useful camera metadata. Directly linked Barnes object returned 301; candidate cap exhausted, so destination not requested.",
+      "retained_capture_authenticated": false
+    },
+    {
+      "at_utc": "2026-09-10T08:35:48.283257+00:00",
+      "candidate": "Q28126470",
+      "charged_attempts": 3,
+      "disposition": "pair_claim_unresolved",
+      "event_id": "pcav1-20260910:disposition:05:final",
+      "kind": "disposition",
+      "outbound_requests": 3,
+      "qualified_pair": false,
+      "reason": "Catalogue identifies BF89 and historical Vollard photo 107 but no independently documented contemporary capture pair. Commons has one 2006 own-work upload without camera/capture-event evidence. Exact linked Barnes record returned 301 at candidate cap; redirect destination not requested.",
+      "retained_capture_authenticated": false
+    }
+  ],
+  "activation_event_id": "pcav1-20260910:activation:04-05",
+  "bookkeeping_correction_event_id": "pcav1-20260910:correction:01",
+  "bindings": [
+    {
+      "path": "studies/painter_capture_audit_v1/PROTOCOL.md",
+      "sha256": "293ecdc448258bb62f5996f6c80a75e30d415f041d07dbdea7e612f1197658e5"
+    },
+    {
+      "path": "studies/painter_capture_audit_v1/candidates.json",
+      "sha256": "2b1ade33a2dc39f54b4bbd7556cdf2aa73ad2f87fb234324f68772c70a201860"
+    },
+    {
+      "path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get.py",
+      "sha256": "d4ab40db5632a4bd2b14ff5c09939b73227f3d327cb370f016ca7fbbd79105c7"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-20260906/reference_panel.jsonl",
+      "sha256": "760ec4d5b4f5d7ea48a2a7ec23cdab3ca20d7994e0e92d7dec820ad453dca191"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/deliveries.jsonl",
+      "sha256": "4d21c424a73e8e191b781b4dc4425e6c4a8b73aae41ed24edbe81c85d33aff1d"
+    },
+    {
+      "path": "studies/painter_responsiveness_v1/CAPTURE_FEASIBILITY.md",
+      "sha256": "c403f7d91198a14cd98eb8e473b92bba1729810393c28042cac495af3188eb82"
+    }
+  ],
+  "helper_snapshots": [
+    {
+      "path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get.py",
+      "sha256": "d4ab40db5632a4bd2b14ff5c09939b73227f3d327cb370f016ca7fbbd79105c7"
+    },
+    {
+      "path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v2.py",
+      "sha256": "de91f4cc2aa7685493c27845a81eda2243f9ed991ec46f27c8572ee0f5d89e15"
+    },
+    {
+      "path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v3.py",
+      "sha256": "daeca4a1b907f3b9bf8707c8eff10d92d9f7fd0c971091e050ed61df3a0d5824"
+    },
+    {
+      "path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v4.py",
+      "sha256": "2cf117e1c552962fc2be317ec741dd0e74ce299bdf7572514328cc9e131bfca1"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "data/manifests/painter_capture_audit_v1/pcav1-20260910/start.json",
+      "sha256": "287bc591f697962f58baa5e0adc441c98c440922a737e2c6a5d851698c0718de"
+    },
+    {
+      "path": "data/manifests/painter_capture_audit_v1/pcav1-20260910/attempts.jsonl",
+      "sha256": "63dfaacb3176a5f622a815aa8e4c9c9d690fb3930b842751dddb8f6b66311951"
+    },
+    {
+      "path": "reports/painter_capture_audit_v1/pcav1-20260910/REPORT.md",
+      "sha256": "983e9b72425de2c1065b0be2b7d002de3a64f89c1158b54d2963acd93f7b75e8"
+    }
+  ],
+  "text_responses": [
+    {
+      "request_record_number": 1,
+      "charged_outbound_index": 1,
+      "candidate": "Q106925109",
+      "url": "https://www.flickr.com/photos/78492580@N02/9610751302",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/attempt-01.body.txt",
+      "sha256": "7af9914a973deaa16b21e8854626d2f76812e10f7c724b96abeb47117ab4a85f",
+      "bytes": 525957,
+      "complete": true
+    },
+    {
+      "request_record_number": 2,
+      "charged_outbound_index": 2,
+      "candidate": "Q106925109",
+      "url": "https://www.denverartmuseum.org/en/object/39.2017",
+      "status": 404,
+      "content_type": "text/html; charset=UTF-8",
+      "path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/attempt-02.body.txt",
+      "sha256": "832f166c31d89579013983165ac9ef2a751c02cb52d6ff12a324ea7e55b4e480",
+      "bytes": 24154,
+      "complete": true
+    },
+    {
+      "request_record_number": 4,
+      "charged_outbound_index": 3,
+      "candidate": "Q106925109",
+      "url": "https://commons.wikimedia.org/wiki/File:Monet_houses_snow_norway_1895.jpg",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/attempt-04.body.txt",
+      "sha256": "52cf5c96c1f6f15d2489d073bea90ef3bbf09ab997a531be6d373a596567f834",
+      "bytes": 93497,
+      "complete": true
+    },
+    {
+      "request_record_number": 5,
+      "charged_outbound_index": 4,
+      "candidate": "Q2450237",
+      "url": "https://commons.wikimedia.org/wiki/File:Claude_Monet_Weeping_Willow.jpg",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/attempt-05.body.txt",
+      "sha256": "dcb46d9e1a5b15e0a64b30ec057ae1fac2ff67910dcea673ee279cf4513de1de",
+      "bytes": 151503,
+      "complete": true
+    },
+    {
+      "request_record_number": 6,
+      "charged_outbound_index": 5,
+      "candidate": "Q2450237",
+      "url": "https://www.kimbellart.org/collection-object/weeping-willow",
+      "status": 403,
+      "content_type": "text/html; charset=UTF-8",
+      "path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/attempt-06.body.txt",
+      "sha256": "d218f56282a57e28bb7bb86ee45a90808d17c3a0015083140dd205def21c6312",
+      "bytes": 5697,
+      "complete": true
+    },
+    {
+      "request_record_number": 7,
+      "charged_outbound_index": 6,
+      "candidate": "Q2450237",
+      "url": "https://commons.wikimedia.org/wiki/User:Rlbberlin",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/attempt-07.body.txt",
+      "sha256": "f375fe4c0bd0dedd401f80e10a094ee69894ddde11e9558d321f97f2e74672c9",
+      "bytes": 49502,
+      "complete": true
+    },
+    {
+      "request_record_number": 8,
+      "charged_outbound_index": 7,
+      "candidate": "Q64319425",
+      "url": "https://www.flickr.com/photos/ergsap/9630298363/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/attempt-08.body.txt",
+      "sha256": "99679a8fc3ff38a42c9209af31343fe9a514c33bb30449f4e8f18ff5d1dd1d67",
+      "bytes": 529020,
+      "complete": true
+    },
+    {
+      "request_record_number": 9,
+      "charged_outbound_index": 8,
+      "candidate": "Q64319425",
+      "url": "https://www.cezannecatalogue.com/catalogue/entry.php?id=279",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/attempt-09.body.txt",
+      "sha256": "83589400cdcd1378961d840b60de6991094e1f899f8edf9c235f00629463d89d",
+      "bytes": 62479,
+      "complete": true
+    },
+    {
+      "request_record_number": 10,
+      "charged_outbound_index": 9,
+      "candidate": "Q64319425",
+      "url": "https://www.cezannecatalogue.com/resources/stockbooks.php?type=archives&sb=Vollard&sbno=248",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/attempt-10.body.txt",
+      "sha256": "130dcfa4a42b1062356a2ddd4799e71d3626d7fb83168768218b517f2b93ce56",
+      "bytes": 148717,
+      "complete": true
+    },
+    {
+      "request_record_number": 11,
+      "charged_outbound_index": 10,
+      "candidate": "Q28126494",
+      "url": "https://www.cezannecatalogue.com/catalogue/entry.php?id=741",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/attempt-11.body.txt",
+      "sha256": "fa1dab21636926dd4ae4bf943916b9995b11f47624bd08f7bbbad41d45f8d9c3",
+      "bytes": 44853,
+      "complete": true
+    },
+    {
+      "request_record_number": 12,
+      "charged_outbound_index": 11,
+      "candidate": "Q28126494",
+      "url": "https://commons.wikimedia.org/wiki/File:Paul_Cezanne_Meule_et_citerne_en_sous_bois.jpg",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/attempt-12.body.txt",
+      "sha256": "0c385237aa9afb6d75f0c739c35486425674d9b9dc0d44c4d071d3d3eaf98fca",
+      "bytes": 128874,
+      "complete": true
+    },
+    {
+      "request_record_number": 13,
+      "charged_outbound_index": 12,
+      "candidate": "Q28126494",
+      "url": "https://collection.barnesfoundation.org/objects/5196/details",
+      "status": 301,
+      "content_type": "text/plain; charset=utf-8",
+      "path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/attempt-13.body.txt",
+      "sha256": "f6e3e140fd3a03d7d2f39607f4ca95674b80002ec77b54ac8c8bcf558a094077",
+      "bytes": 124,
+      "complete": true
+    },
+    {
+      "request_record_number": 14,
+      "charged_outbound_index": 13,
+      "candidate": "Q28126470",
+      "url": "https://www.cezannecatalogue.com/catalogue/entry.php?id=611",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/attempt-14.body.txt",
+      "sha256": "066c0c7c7a79bec6a4170784a7377257b25ef31e5b885d30078653f8da04ac62",
+      "bytes": 37547,
+      "complete": true
+    },
+    {
+      "request_record_number": 15,
+      "charged_outbound_index": 14,
+      "candidate": "Q28126470",
+      "url": "https://commons.wikimedia.org/wiki/File:Paul_Cezanne_Maison_et_arbes.jpg",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/attempt-15.body.txt",
+      "sha256": "0e5dab253770295c7cdd102258b7e4a676c9391d20c2b3c50b543e0a4fc1e77d",
+      "bytes": 147673,
+      "complete": true
+    },
+    {
+      "request_record_number": 16,
+      "charged_outbound_index": 15,
+      "candidate": "Q28126470",
+      "url": "https://collection.barnesfoundation.org/objects/4702/details",
+      "status": 301,
+      "content_type": "text/plain; charset=utf-8",
+      "path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/attempt-16.body.txt",
+      "sha256": "cc0f19ab7b9a47938e56be762a425462a5715c5940c3db4259c1851fe0ad0ef4",
+      "bytes": 90,
+      "complete": true
+    }
+  ],
+  "verification": {
+    "actual_intents_outcomes_matched": true,
+    "three_actual_requests_per_candidate": true,
+    "sequential_request_order": true,
+    "all_15_text_bodies_complete_and_sha256_verified": true,
+    "all_start_and_helper_snapshot_bindings_verified": true,
+    "protocol_inventory_clean_and_equal_committed_source": true,
+    "correction_target_line_hashes_verified": true,
+    "five_final_dispositions_verified": true,
+    "historical_evidence_audit": {
+      "git_commit": "467cd85c7db8defe3d9ba9f71a158f1c5df68891",
+      "checks": 2902,
+      "failed": 0,
+      "preexisting_acknowledgements": 2,
+      "exit_code": 0,
+      "path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/historical-evidence-audit.txt",
+      "sha256": "6721b095e87f23d8ec09a6907f8b2683f6ce055ec405fd0c99352a9dab8acfb8",
+      "does_not_register_this_new_namespace": true
+    }
+  },
+  "scope": {
+    "image_requests": 0,
+    "image_inspection": false,
+    "page_subresource_requests": 0,
+    "automatic_redirects": 0,
+    "automatic_retries": 0,
+    "authentication_supplied": false,
+    "feature_extraction": false,
+    "generation": false,
+    "external_holdout_access": false,
+    "messages_to_institutions_or_contributors": false,
+    "old_evidence_changed": false,
+    "new_score": false
+  },
+  "reviewer_involvement": "Maintainer-run LLM with prior paper/design/prose assistance; not independent human or institutional review."
+}

@@ -24,7 +24,7 @@ is already public. A prospective generic-clause follow-up is now complete and
 integrated, with exact fresh local and anonymous public replay. All three
 reviewers inspected the complete 35-page round-3 manuscript and all nine figures.
 Their remaining presentation corrections are applied in the visually checked
-36-page manuscript: comparison units/weights, exact abstract wording, larger
+published 36-page manuscript: comparison units/weights, exact abstract wording, larger
 Figure 3 labels and a precise runtime pin. No new scientific score is assigned;
 these corrections do not resolve the remaining design limits.
 All four painters remain in the manuscript.
@@ -77,10 +77,10 @@ No scene-population, perceptual or internal-mechanism claim follows.
 | [Geometry addendum `ppgv1-20260910`](../reports/paper_geometry_reproducibility_v1/ppgv1-20260910/REPORT.md) | Exact fresh local/anonymous replay of both namespaces and 95 tests. Source `5485e36`, public commit `7923049`; immutable 34-page manuscript and nine figures. |
 | [Clause addendum `pcrv1-20260910`](../reports/paper_clause_reproducibility_v1/pcrv1-20260910/REPORT.md) | Public: 85 files, exact fresh local/anonymous replay of both separate cohorts, 152 tests and eight explicit maintainer-only skips in each environment. Archive SHA256 `6038da2d…bf23e40`, public commit `866fc27`. The final 36-page paper and 16-file source bundle are separately published; fresh compilation matches all page text/pixels, and anonymous downloads match all asset hashes. |
 
-Latest complete Python verification includes the separate Figure 3 presentation
-renderer: **Ruff clean; 1,714 offline tests passed in 256.02 seconds**. All nine
-active manuscript figures replay exactly. Historical evidence
-audit at `e81ea83`: **2,902 checks, zero failures**, with the same two old
+Latest complete Python verification includes the new metadata preflight and
+precision implementation: **Ruff clean; 1,769 offline tests passed in 253.95
+seconds**. The earlier exact replay of all nine active manuscript figures is
+unchanged. Historical evidence audit at `467cd85`: **2,902 checks, zero failures**, with the same two old
 acknowledgements. Both geometry namespaces replay exactly. The historical audit
 does not register the new namespaces; each requires its own numerical check.
 
@@ -108,15 +108,21 @@ provider quote of **$0.07 per output megapixel**. This is separate from the
 $24.2780815 project ceiling headroom. No new images or paid requests were made.
 The create-once receipt is under
 `data/manifests/painter_map_validation_v1/metadata/pmv-feasibility-20260910a/`;
-source commit `c262d98`. The manuscript also now includes an analytically checked
-fixed-center convexity observation, without new vector evaluation or a new score.
+source commit `c262d98`. The current 37-page working manuscript also includes an
+analytically checked fixed-center convexity observation and the terminal capture
+audit's limitation, without new vector evaluation or a new score. Its changed
+pages compile cleanly and pass visual inspection; the earlier public assets
+remain unchanged.
 
-A separate [stage R0 capture audit](../studies/painter_capture_audit_v1/PROTOCOL.md)
-will examine five retained provenance leads, with at most 15 metadata requests
-and no images. Its inventory excludes the four previously audited works;
-the last two candidates require new relevant source-family evidence before
-activation. Capture qualification, image acquisition and measurement remain
-closed until any later applicable gates are satisfied.
+A separate [stage R0 capture audit](../reports/painter_capture_audit_v1/pcav1-20260910/REPORT.md)
+is terminal: **zero qualified pairs after 15 metadata requests across five
+additional works**, with no images. New catalogue photographer/archive evidence
+activated the two conditional candidates. All five capture-pair claims remain
+unresolved; redirects, access denial and missing source ancestry are retained.
+The original four-work audit is unchanged. A
+[portable ledger view](../reports/painter_capture_audit_v1/pcav1-20260910/PORTABILITY.md)
+preserves the complete event content while the original hash-bound ledger stays
+local and unchanged. Capture acquisition and measurement remain closed.
 
 Human style ratings, independently captured reproductions, learned-feature
 validation and replication by separate investigators remain unperformed.

@@ -1,0 +1,41 @@
+{
+  "study_id": "painter_capture_audit_v1",
+  "run_id": "pcav1-20260910",
+  "stage": "R0_metadata_only",
+  "created_utc": "2026-09-10T08:22:22.081786+00:00",
+  "recorded_git_commit": "467cd85c7db8defe3d9ba9f71a158f1c5df68891",
+  "start_git_head": "467cd85c7db8defe3d9ba9f71a158f1c5df68891",
+  "bindings": [
+    {
+      "path": "studies/painter_capture_audit_v1/PROTOCOL.md",
+      "sha256": "293ecdc448258bb62f5996f6c80a75e30d415f041d07dbdea7e612f1197658e5"
+    },
+    {
+      "path": "studies/painter_capture_audit_v1/candidates.json",
+      "sha256": "2b1ade33a2dc39f54b4bbd7556cdf2aa73ad2f87fb234324f68772c70a201860"
+    },
+    {
+      "path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get.py",
+      "sha256": "d4ab40db5632a4bd2b14ff5c09939b73227f3d327cb370f016ca7fbbd79105c7"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-main-20260906/reference_panel.jsonl",
+      "sha256": "760ec4d5b4f5d7ea48a2a7ec23cdab3ca20d7994e0e92d7dec820ad453dca191"
+    },
+    {
+      "path": "data/manifests/painter_distribution_study_v1/pdsv1-reference-delivery-r2-20260906/deliveries.jsonl",
+      "sha256": "4d21c424a73e8e191b781b4dc4425e6c4a8b73aae41ed24edbe81c85d33aff1d"
+    },
+    {
+      "path": "studies/painter_responsiveness_v1/CAPTURE_FEASIBILITY.md",
+      "sha256": "c403f7d91198a14cd98eb8e473b92bba1729810393c28042cac495af3188eb82"
+    }
+  ],
+  "python_version": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+  "transport": "one-off Python stdlib http.client; one GET per invocation; no automatic redirects/retries; response MIME screened before body",
+  "transport_source_review": "AST parse passed; manually inspected one request call and no retry/redirect machinery; no network qualification performed",
+  "attempt_limit": 15,
+  "per_identity_limit": 3,
+  "first_request_not_yet_sent": true,
+  "bound_protocol_inventory_clean_and_commit_equal": true
+}

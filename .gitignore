@@ -44,3 +44,5 @@ research_workspace/
 !/paper/figures/*.pdf
 !/reports/**/plots/*.png
 !/reports/painter_distribution_study_v1/*/*.png
+# Preserve this terminal raw ledger locally; its portable view is committed.
+/data/manifests/painter_capture_audit_v1/pcav1-20260910/attempts.jsonl

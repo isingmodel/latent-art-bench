@@ -1,0 +1,976 @@
+{
+  "normalized_fields": [
+    {
+      "field": "transport_source_path",
+      "original_value_sha256": "0468195569e3dad156a446df64c8b715403b96fd220e167c9666220c33374d1f",
+      "portable_value": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v3.py",
+      "source_line": 11
+    },
+    {
+      "field": "transport_source_path",
+      "original_value_sha256": "0468195569e3dad156a446df64c8b715403b96fd220e167c9666220c33374d1f",
+      "portable_value": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v3.py",
+      "source_line": 12
+    }
+  ],
+  "note": "Derived view only. The unchanged original ledger remains local. Two transport helper path fields are made repository-relative; no event, URL, result, correction or original line hash is replaced.",
+  "records": [
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:22:35.368613+00:00",
+        "attempt": 1,
+        "candidate": "Q106925109",
+        "kind": "intent",
+        "parent_url": null,
+        "purpose": "Resolve credited Flickr capture author, event date, and physical-object ancestry",
+        "transport": "Python stdlib http.client single GET; no automatic redirect or retry",
+        "url": "https://www.flickr.com/photos/78492580@N02/9610751302"
+      },
+      "source_line": 1,
+      "source_line_sha256_including_newline": "e4ece437ed025e80b4f2f6b6372a9f5a8b0cd7b98aaff6b567aec7d445826854"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:22:36.317308+00:00",
+        "attempt": 1,
+        "body_bytes": 525957,
+        "body_complete": true,
+        "body_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/attempt-01.body.txt",
+        "body_read": true,
+        "body_sha256": "7af9914a973deaa16b21e8854626d2f76812e10f7c724b96abeb47117ab4a85f",
+        "candidate": "Q106925109",
+        "content_encoding": null,
+        "content_length": "525957",
+        "content_type": "text/html; charset=utf-8",
+        "error": null,
+        "kind": "outcome",
+        "parent_url": null,
+        "purpose": "Resolve credited Flickr capture author, event date, and physical-object ancestry",
+        "redirect_location": null,
+        "status": 200,
+        "transport": "Python stdlib http.client single GET; no automatic redirect or retry",
+        "url": "https://www.flickr.com/photos/78492580@N02/9610751302"
+      },
+      "source_line": 2,
+      "source_line_sha256_including_newline": "a27b9adbca03ad19d90751f37dc02bad70233bd324597ea35ac0d2541d6ad228"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:23:02.520146+00:00",
+        "attempt": 2,
+        "candidate": "Q106925109",
+        "kind": "intent",
+        "parent_url": null,
+        "purpose": "Check exact institutional object identity and documented master photography",
+        "transport": "Python stdlib http.client single GET; no automatic redirect or retry",
+        "url": "https://www.denverartmuseum.org/en/object/39.2017"
+      },
+      "source_line": 3,
+      "source_line_sha256_including_newline": "3bc8c10d672da9a6b3429725b62fe075c3ab453a7827dd0025d9de7c6c37f754"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:23:03.635140+00:00",
+        "attempt": 2,
+        "body_bytes": 24154,
+        "body_complete": true,
+        "body_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/attempt-02.body.txt",
+        "body_read": true,
+        "body_sha256": "832f166c31d89579013983165ac9ef2a751c02cb52d6ff12a324ea7e55b4e480",
+        "candidate": "Q106925109",
+        "content_encoding": null,
+        "content_length": null,
+        "content_type": "text/html; charset=UTF-8",
+        "error": null,
+        "kind": "outcome",
+        "parent_url": null,
+        "purpose": "Check exact institutional object identity and documented master photography",
+        "redirect_location": null,
+        "status": 404,
+        "transport": "Python stdlib http.client single GET; no automatic redirect or retry",
+        "url": "https://www.denverartmuseum.org/en/object/39.2017"
+      },
+      "source_line": 4,
+      "source_line_sha256_including_newline": "0cd3f3ccfa4f63654b08b8d7595b187a8ae423881de9977dca89b640d2ab9808"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:24:33.926871+00:00",
+        "attempt": 3,
+        "candidate": "Q106925109",
+        "kind": "intent",
+        "note": "Recorded retrospectively after the tool preflight AssertionError, before further work; no outbound request occurred. Charged conservatively to the fixed cap.",
+        "parent_url": null,
+        "purpose": "Check retained-reference file history and capture metadata after uninformative source and missing authority route",
+        "retrospective_conservative_failure_accounting": true,
+        "transport": "metadata_get.py preflight only; no network",
+        "url": "https://commons.wikimedia.org/wiki/File:Monet_houses_snow_norway_1895.jpg"
+      },
+      "source_line": 5,
+      "source_line_sha256_including_newline": "a0612601e3156ea0aaba1a676c39e74fd9bdfb6826f41b2d48b8e55a837b8294"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:24:33.927170+00:00",
+        "attempt": 3,
+        "body_bytes": 0,
+        "body_complete": false,
+        "body_path": null,
+        "body_read": false,
+        "body_sha256": null,
+        "candidate": "Q106925109",
+        "content_type": null,
+        "error": "AssertionError: suffix guard rejected an allowed Commons HTML description URL before connection or request",
+        "kind": "outcome",
+        "outbound_request_sent": false,
+        "parent_url": null,
+        "purpose": "Check retained-reference file history and capture metadata after uninformative source and missing authority route",
+        "redirect_location": null,
+        "retrospective_conservative_failure_accounting": true,
+        "status": null,
+        "transport": "metadata_get.py preflight only; no network",
+        "url": "https://commons.wikimedia.org/wiki/File:Monet_houses_snow_norway_1895.jpg"
+      },
+      "source_line": 6,
+      "source_line_sha256_including_newline": "e75ee5d0ea4076b1521c420f4e2fd95159c183d58ca5f3a36adfc35fad646394"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:24:33.927262+00:00",
+        "attempts": 3,
+        "candidate": "Q106925109",
+        "disposition": "pair_claim_unresolved",
+        "kind": "disposition",
+        "outbound_requests": 2,
+        "qualified_pair": false,
+        "reason": "Flickr describes ErgsArt virtual museum/app rather than attributed original photography; Denver object route HTTP 404; Commons HTML check consumed by local preflight failure. No two-event evidence established.",
+        "retained_capture_authenticated": false
+      },
+      "source_line": 7,
+      "source_line_sha256_including_newline": "b60b4edecbbe273859ad61769251451d3fc6870a5714e5e781e4e2f8ad6d0b0e"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:24:33.928499+00:00",
+        "kind": "transport_revision",
+        "reason": "Allow Commons /wiki/File: HTML description paths despite media-like suffix; MIME screening remains mandatory. Record actual helper path/hash on later requests. Original source/start bindings retained unchanged. No retry of candidate 1 or extra attempts.",
+        "sha256": "de91f4cc2aa7685493c27845a81eda2243f9ed991ec46f27c8572ee0f5d89e15",
+        "source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v2.py",
+        "supersedes_sha256": "d4ab40db5632a4bd2b14ff5c09939b73227f3d327cb370f016ca7fbbd79105c7",
+        "supersedes_source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get.py"
+      },
+      "source_line": 8,
+      "source_line_sha256_including_newline": "aec02c6d0b6b35ba39738141446bb96765b3469a209a6134f5d78fbc23daad41"
+    },
+    {
+      "record": {
+        "actual_charged_attempt_count_after_correction": 2,
+        "at_utc": "2026-09-10T08:26:17.653404+00:00",
+        "basis": "Parent confirmed existing protocol interpretation: failed helper guard ran before any intent or outbound request; retrospective conservative records do not consume a live attempt. Original lines remain unchanged. Candidate-1 disposition was provisional; actual third request remains available. No terminal run has been declared.",
+        "candidate": "Q106925109",
+        "event_id": "pcav1-20260910:correction:01",
+        "kind": "bookkeeping_correction",
+        "nonchargeable_intent_sha256": [
+          "a0612601e3156ea0aaba1a676c39e74fd9bdfb6826f41b2d48b8e55a837b8294"
+        ],
+        "outbound_request_count_after_correction": 2,
+        "provisional_disposition_sha256": [
+          "b60b4edecbbe273859ad61769251451d3fc6870a5714e5e781e4e2f8ad6d0b0e"
+        ],
+        "target_events": [
+          {
+            "attempt": 3,
+            "kind": "intent",
+            "line_1based": 5,
+            "raw_line_sha256_including_newline": "a0612601e3156ea0aaba1a676c39e74fd9bdfb6826f41b2d48b8e55a837b8294"
+          },
+          {
+            "attempt": 3,
+            "kind": "outcome",
+            "line_1based": 6,
+            "raw_line_sha256_including_newline": "e75ee5d0ea4076b1521c420f4e2fd95159c183d58ca5f3a36adfc35fad646394"
+          },
+          {
+            "attempt": null,
+            "kind": "disposition",
+            "line_1based": 7,
+            "raw_line_sha256_including_newline": "b60b4edecbbe273859ad61769251451d3fc6870a5714e5e781e4e2f8ad6d0b0e"
+          }
+        ]
+      },
+      "source_line": 9,
+      "source_line_sha256_including_newline": "6b2ab2fd71f39fb485dc7763cd666ae69a85909c2eb0935d5722bb974155c711"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:26:17.654990+00:00",
+        "event_id": "pcav1-20260910:transport:03",
+        "kind": "transport_revision",
+        "reason": "Retain v2 Commons HTML guard correction and unchanged single-GET/MIME screening. Interpret explicitly referenced append-only bookkeeping correction for cap/order checks; add unique request event IDs and a separate charged outbound-attempt index. No network transport behavior changes or automatic retries.",
+        "sha256": "daeca4a1b907f3b9bf8707c8eff10d92d9f7fd0c971091e050ed61df3a0d5824",
+        "source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v3.py",
+        "supersedes_sha256": "de91f4cc2aa7685493c27845a81eda2243f9ed991ec46f27c8572ee0f5d89e15",
+        "supersedes_source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v2.py"
+      },
+      "source_line": 10,
+      "source_line_sha256_including_newline": "d9c95425582208732b6f6ee4a9cbc8aa44931bac59583eb72bb194d51cf07007"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:26:28.333450+00:00",
+        "attempt": 4,
+        "candidate": "Q106925109",
+        "event_id": "pcav1-20260910:request:04:intent",
+        "kind": "intent",
+        "outbound_attempt_index": 3,
+        "parent_url": null,
+        "purpose": "Actual third metadata request: check retained-reference capture metadata after preflight-only bookkeeping correction",
+        "transport": "Python stdlib http.client single GET; no automatic redirect or retry",
+        "transport_source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v3.py",
+        "transport_source_sha256": "daeca4a1b907f3b9bf8707c8eff10d92d9f7fd0c971091e050ed61df3a0d5824",
+        "url": "https://commons.wikimedia.org/wiki/File:Monet_houses_snow_norway_1895.jpg"
+      },
+      "source_line": 11,
+      "source_line_sha256_including_newline": "514c01924861438dadac2887e318dbd0dc776765d03659f48b1fd794df735b8d"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:26:29.976394+00:00",
+        "attempt": 4,
+        "body_bytes": 93497,
+        "body_complete": true,
+        "body_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/attempt-04.body.txt",
+        "body_read": true,
+        "body_sha256": "52cf5c96c1f6f15d2489d073bea90ef3bbf09ab997a531be6d373a596567f834",
+        "candidate": "Q106925109",
+        "content_encoding": null,
+        "content_length": null,
+        "content_type": "text/html; charset=UTF-8",
+        "error": null,
+        "event_id": "pcav1-20260910:request:04:outcome",
+        "kind": "outcome",
+        "outbound_attempt_index": 3,
+        "parent_url": null,
+        "purpose": "Actual third metadata request: check retained-reference capture metadata after preflight-only bookkeeping correction",
+        "redirect_location": null,
+        "status": 200,
+        "transport": "Python stdlib http.client single GET; no automatic redirect or retry",
+        "transport_source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v3.py",
+        "transport_source_sha256": "daeca4a1b907f3b9bf8707c8eff10d92d9f7fd0c971091e050ed61df3a0d5824",
+        "url": "https://commons.wikimedia.org/wiki/File:Monet_houses_snow_norway_1895.jpg"
+      },
+      "source_line": 12,
+      "source_line_sha256_including_newline": "6b388de7bc1337b43f8272002962700fe935743da466918f63095983dee38809"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:27:52.423528+00:00",
+        "candidate": "Q106925109",
+        "charged_attempts": 3,
+        "disposition": "pair_claim_unresolved",
+        "event_id": "pcav1-20260910:disposition:01:final",
+        "kind": "disposition",
+        "outbound_requests": 3,
+        "qualified_pair": false,
+        "reason": "Credited Flickr page is an ErgsArt app/gallery upload with no identified original photographer or capture equipment. Commons repeats Flickr attribution and dates without camera metadata or separate event. Denver exact retained authority route returned 404.",
+        "retained_capture_authenticated": false
+      },
+      "source_line": 13,
+      "source_line_sha256_including_newline": "7565f571f8fbca857248c3dd9ffc42898966229e5a3d7cb1d8881e8fe4ceb798"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:27:52.425065+00:00",
+        "event_id": "pcav1-20260910:transport:04",
+        "kind": "transport_revision",
+        "reason": "Record portable relative helper path instead of the absolute __file__ path; request and scientific behavior unchanged. Existing attempt-4 absolute path fields are preserved, and resolve to research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v3.py with the same recorded SHA256.",
+        "sha256": "2cf117e1c552962fc2be317ec741dd0e74ce299bdf7572514328cc9e131bfca1",
+        "source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v4.py",
+        "supersedes_sha256": "daeca4a1b907f3b9bf8707c8eff10d92d9f7fd0c971091e050ed61df3a0d5824",
+        "supersedes_source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v3.py"
+      },
+      "source_line": 14,
+      "source_line_sha256_including_newline": "22b67068065b2c1129620894a75167a91bdfdabec151b77cadbf5d384d7038da"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:28:00.459030+00:00",
+        "attempt": 5,
+        "candidate": "Q2450237",
+        "event_id": "pcav1-20260910:request:05:intent",
+        "kind": "intent",
+        "outbound_attempt_index": 4,
+        "parent_url": null,
+        "purpose": "Resolve Rlbberlin own-work credit, file ancestry, and actual capture metadata",
+        "transport": "Python stdlib http.client single GET; no automatic redirect or retry",
+        "transport_source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v4.py",
+        "transport_source_sha256": "2cf117e1c552962fc2be317ec741dd0e74ce299bdf7572514328cc9e131bfca1",
+        "url": "https://commons.wikimedia.org/wiki/File:Claude_Monet_Weeping_Willow.jpg"
+      },
+      "source_line": 15,
+      "source_line_sha256_including_newline": "74f922b3c97016ec1b05c188942b13e7ad5b181e0254a01bb8f1acc34b361ead"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:28:01.612826+00:00",
+        "attempt": 5,
+        "body_bytes": 151503,
+        "body_complete": true,
+        "body_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/attempt-05.body.txt",
+        "body_read": true,
+        "body_sha256": "dcb46d9e1a5b15e0a64b30ec057ae1fac2ff67910dcea673ee279cf4513de1de",
+        "candidate": "Q2450237",
+        "content_encoding": null,
+        "content_length": null,
+        "content_type": "text/html; charset=UTF-8",
+        "error": null,
+        "event_id": "pcav1-20260910:request:05:outcome",
+        "kind": "outcome",
+        "outbound_attempt_index": 4,
+        "parent_url": null,
+        "purpose": "Resolve Rlbberlin own-work credit, file ancestry, and actual capture metadata",
+        "redirect_location": null,
+        "status": 200,
+        "transport": "Python stdlib http.client single GET; no automatic redirect or retry",
+        "transport_source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v4.py",
+        "transport_source_sha256": "2cf117e1c552962fc2be317ec741dd0e74ce299bdf7572514328cc9e131bfca1",
+        "url": "https://commons.wikimedia.org/wiki/File:Claude_Monet_Weeping_Willow.jpg"
+      },
+      "source_line": 16,
+      "source_line_sha256_including_newline": "f0f64a80a9036aadb9b9fa9695ec23f3affd286d8550d84a8e54607e04221fe4"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:28:31.732980+00:00",
+        "attempt": 6,
+        "candidate": "Q2450237",
+        "event_id": "pcav1-20260910:request:06:intent",
+        "kind": "intent",
+        "outbound_attempt_index": 5,
+        "parent_url": null,
+        "purpose": "Check exact Kimbell accession and separately documented institutional photographic master",
+        "transport": "Python stdlib http.client single GET; no automatic redirect or retry",
+        "transport_source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v4.py",
+        "transport_source_sha256": "2cf117e1c552962fc2be317ec741dd0e74ce299bdf7572514328cc9e131bfca1",
+        "url": "https://www.kimbellart.org/collection-object/weeping-willow"
+      },
+      "source_line": 17,
+      "source_line_sha256_including_newline": "b4daef4fbd0562fdd69c4f6e68466b8ce8edeaff80745b812f39b6c49ee372a9"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:28:32.348600+00:00",
+        "attempt": 6,
+        "body_bytes": 5697,
+        "body_complete": true,
+        "body_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/attempt-06.body.txt",
+        "body_read": true,
+        "body_sha256": "d218f56282a57e28bb7bb86ee45a90808d17c3a0015083140dd205def21c6312",
+        "candidate": "Q2450237",
+        "content_encoding": null,
+        "content_length": "5697",
+        "content_type": "text/html; charset=UTF-8",
+        "error": null,
+        "event_id": "pcav1-20260910:request:06:outcome",
+        "kind": "outcome",
+        "outbound_attempt_index": 5,
+        "parent_url": null,
+        "purpose": "Check exact Kimbell accession and separately documented institutional photographic master",
+        "redirect_location": null,
+        "status": 403,
+        "transport": "Python stdlib http.client single GET; no automatic redirect or retry",
+        "transport_source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v4.py",
+        "transport_source_sha256": "2cf117e1c552962fc2be317ec741dd0e74ce299bdf7572514328cc9e131bfca1",
+        "url": "https://www.kimbellart.org/collection-object/weeping-willow"
+      },
+      "source_line": 18,
+      "source_line_sha256_including_newline": "42c3f691341f1ff720e23c16aeddc71588b7dade838e6933aeb578fbf2180af6"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:28:52.871080+00:00",
+        "attempt": 7,
+        "candidate": "Q2450237",
+        "event_id": "pcav1-20260910:request:07:intent",
+        "kind": "intent",
+        "outbound_attempt_index": 6,
+        "parent_url": "https://commons.wikimedia.org/wiki/File:Claude_Monet_Weeping_Willow.jpg",
+        "purpose": "Check directly credited contributor profile for original-photography versus reproduction-source provenance",
+        "transport": "Python stdlib http.client single GET; no automatic redirect or retry",
+        "transport_source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v4.py",
+        "transport_source_sha256": "2cf117e1c552962fc2be317ec741dd0e74ce299bdf7572514328cc9e131bfca1",
+        "url": "https://commons.wikimedia.org/wiki/User:Rlbberlin"
+      },
+      "source_line": 19,
+      "source_line_sha256_including_newline": "c17efeadd1e63820307e17a0b68b1b1b3434b076f2bf29e16ced66381e48bbba"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:28:54.165497+00:00",
+        "attempt": 7,
+        "body_bytes": 49502,
+        "body_complete": true,
+        "body_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/attempt-07.body.txt",
+        "body_read": true,
+        "body_sha256": "f375fe4c0bd0dedd401f80e10a094ee69894ddde11e9558d321f97f2e74672c9",
+        "candidate": "Q2450237",
+        "content_encoding": null,
+        "content_length": null,
+        "content_type": "text/html; charset=UTF-8",
+        "error": null,
+        "event_id": "pcav1-20260910:request:07:outcome",
+        "kind": "outcome",
+        "outbound_attempt_index": 6,
+        "parent_url": "https://commons.wikimedia.org/wiki/File:Claude_Monet_Weeping_Willow.jpg",
+        "purpose": "Check directly credited contributor profile for original-photography versus reproduction-source provenance",
+        "redirect_location": null,
+        "status": 200,
+        "transport": "Python stdlib http.client single GET; no automatic redirect or retry",
+        "transport_source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v4.py",
+        "transport_source_sha256": "2cf117e1c552962fc2be317ec741dd0e74ce299bdf7572514328cc9e131bfca1",
+        "url": "https://commons.wikimedia.org/wiki/User:Rlbberlin"
+      },
+      "source_line": 20,
+      "source_line_sha256_including_newline": "1c2d5c9d2c0fe005c65f70125e21f2cdf590a3ff1089c42f1e218b75ddd8ca89"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:29:32.419007+00:00",
+        "candidate": "Q2450237",
+        "charged_attempts": 3,
+        "disposition": "pair_claim_unresolved",
+        "event_id": "pcav1-20260910:disposition:02:final",
+        "kind": "disposition",
+        "outbound_requests": 3,
+        "qualified_pair": false,
+        "reason": "Commons own-work credit accompanies three upload versions, with current higher-resolution file uploaded by Rickdotta in 2019 rather than original 2006 contributor Rlbberlin; no distinct capture author/date/master ancestry established. Contributor profile adds no event provenance. Kimbell authority route returned HTTP 403; not bypassed.",
+        "retained_capture_authenticated": false,
+        "source_family_activation_evidence": false
+      },
+      "source_line": 21,
+      "source_line_sha256_including_newline": "52ce9b23c7b311e3096a36026008966bec2818cc25e8cd1a1e433ce96643111c"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:29:32.541736+00:00",
+        "attempt": 8,
+        "candidate": "Q64319425",
+        "event_id": "pcav1-20260910:request:08:intent",
+        "kind": "intent",
+        "outbound_attempt_index": 7,
+        "parent_url": null,
+        "purpose": "Check exact credited Cezanne source for attributed original capture rather than artwork-gallery upload",
+        "transport": "Python stdlib http.client single GET; no automatic redirect or retry",
+        "transport_source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v4.py",
+        "transport_source_sha256": "2cf117e1c552962fc2be317ec741dd0e74ce299bdf7572514328cc9e131bfca1",
+        "url": "https://www.flickr.com/photos/ergsap/9630298363/"
+      },
+      "source_line": 22,
+      "source_line_sha256_including_newline": "181b42d804289e55a9fe5b38960fe9f1cc15dc62aa3fb0abe26cdd46de799ffe"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:29:33.887586+00:00",
+        "attempt": 8,
+        "body_bytes": 529020,
+        "body_complete": true,
+        "body_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/attempt-08.body.txt",
+        "body_read": true,
+        "body_sha256": "99679a8fc3ff38a42c9209af31343fe9a514c33bb30449f4e8f18ff5d1dd1d67",
+        "candidate": "Q64319425",
+        "content_encoding": null,
+        "content_length": "529020",
+        "content_type": "text/html; charset=utf-8",
+        "error": null,
+        "event_id": "pcav1-20260910:request:08:outcome",
+        "kind": "outcome",
+        "outbound_attempt_index": 7,
+        "parent_url": null,
+        "purpose": "Check exact credited Cezanne source for attributed original capture rather than artwork-gallery upload",
+        "redirect_location": null,
+        "status": 200,
+        "transport": "Python stdlib http.client single GET; no automatic redirect or retry",
+        "transport_source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v4.py",
+        "transport_source_sha256": "2cf117e1c552962fc2be317ec741dd0e74ce299bdf7572514328cc9e131bfca1",
+        "url": "https://www.flickr.com/photos/ergsap/9630298363/"
+      },
+      "source_line": 23,
+      "source_line_sha256_including_newline": "f6298af70280cf9097925e3d5a4a1113582ff978647b6c4c94018e3c26321ccb"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:29:56.238255+00:00",
+        "attempt": 9,
+        "candidate": "Q64319425",
+        "event_id": "pcav1-20260910:request:09:intent",
+        "kind": "intent",
+        "outbound_attempt_index": 8,
+        "parent_url": null,
+        "purpose": "Check exact catalogue identity, source-image credit, and capture-master provenance route",
+        "transport": "Python stdlib http.client single GET; no automatic redirect or retry",
+        "transport_source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v4.py",
+        "transport_source_sha256": "2cf117e1c552962fc2be317ec741dd0e74ce299bdf7572514328cc9e131bfca1",
+        "url": "https://www.cezannecatalogue.com/catalogue/entry.php?id=279"
+      },
+      "source_line": 24,
+      "source_line_sha256_including_newline": "0522a3a0f4ce8c8cbe2a457e54d43c88384637e139f09467687c1b1ecd94ff32"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:30:03.252259+00:00",
+        "attempt": 9,
+        "body_bytes": 62479,
+        "body_complete": true,
+        "body_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/attempt-09.body.txt",
+        "body_read": true,
+        "body_sha256": "83589400cdcd1378961d840b60de6991094e1f899f8edf9c235f00629463d89d",
+        "candidate": "Q64319425",
+        "content_encoding": null,
+        "content_length": null,
+        "content_type": "text/html; charset=UTF-8",
+        "error": null,
+        "event_id": "pcav1-20260910:request:09:outcome",
+        "kind": "outcome",
+        "outbound_attempt_index": 8,
+        "parent_url": null,
+        "purpose": "Check exact catalogue identity, source-image credit, and capture-master provenance route",
+        "redirect_location": null,
+        "status": 200,
+        "transport": "Python stdlib http.client single GET; no automatic redirect or retry",
+        "transport_source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v4.py",
+        "transport_source_sha256": "2cf117e1c552962fc2be317ec741dd0e74ce299bdf7572514328cc9e131bfca1",
+        "url": "https://www.cezannecatalogue.com/catalogue/entry.php?id=279"
+      },
+      "source_line": 25,
+      "source_line_sha256_including_newline": "c99aad3361ecd7098396ccaf6673765cf6011ffa515ebc59750bead9002640e5"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:30:56.428761+00:00",
+        "attempt": 10,
+        "candidate": "Q64319425",
+        "event_id": "pcav1-20260910:request:10:intent",
+        "kind": "intent",
+        "outbound_attempt_index": 9,
+        "parent_url": "https://www.cezannecatalogue.com/catalogue/entry.php?id=279",
+        "purpose": "Inspect directly linked photograph-248 metadata for separately identified historical capture and archive lineage",
+        "transport": "Python stdlib http.client single GET; no automatic redirect or retry",
+        "transport_source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v4.py",
+        "transport_source_sha256": "2cf117e1c552962fc2be317ec741dd0e74ce299bdf7572514328cc9e131bfca1",
+        "url": "https://www.cezannecatalogue.com/resources/stockbooks.php?type=archives&sb=Vollard&sbno=248"
+      },
+      "source_line": 26,
+      "source_line_sha256_including_newline": "9b5a9b584e5fdbb2d50c3d3df3e7ef647edb341be8d9b4a179243ff701dae182"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:30:58.328985+00:00",
+        "attempt": 10,
+        "body_bytes": 148717,
+        "body_complete": true,
+        "body_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/attempt-10.body.txt",
+        "body_read": true,
+        "body_sha256": "130dcfa4a42b1062356a2ddd4799e71d3626d7fb83168768218b517f2b93ce56",
+        "candidate": "Q64319425",
+        "content_encoding": null,
+        "content_length": null,
+        "content_type": "text/html; charset=UTF-8",
+        "error": null,
+        "event_id": "pcav1-20260910:request:10:outcome",
+        "kind": "outcome",
+        "outbound_attempt_index": 9,
+        "parent_url": "https://www.cezannecatalogue.com/catalogue/entry.php?id=279",
+        "purpose": "Inspect directly linked photograph-248 metadata for separately identified historical capture and archive lineage",
+        "redirect_location": null,
+        "status": 200,
+        "transport": "Python stdlib http.client single GET; no automatic redirect or retry",
+        "transport_source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v4.py",
+        "transport_source_sha256": "2cf117e1c552962fc2be317ec741dd0e74ce299bdf7572514328cc9e131bfca1",
+        "url": "https://www.cezannecatalogue.com/resources/stockbooks.php?type=archives&sb=Vollard&sbno=248"
+      },
+      "source_line": 27,
+      "source_line_sha256_including_newline": "87d88f872e37c43505579ab2b1d474f6099b14169239b6eed9c4f455a4e12d0e"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:31:58.641101+00:00",
+        "candidate": "Q64319425",
+        "charged_attempts": 3,
+        "disposition": "pair_claim_unresolved",
+        "event_id": "pcav1-20260910:disposition:03:final",
+        "kind": "disposition",
+        "outbound_requests": 3,
+        "qualified_pair": false,
+        "reason": "Catalogue entry 279 credits Peter Schalchli with institution/accession and identifies historical Vollard photo 248, giving actionable capture/archive leads. It does not establish retained Flickr ancestry, modern event/master date, independent comparable full views, object-condition agreement, or rights sufficiency. Direct photo-248 archive link returned a broader index with general archive description; no pagination or unrelated-record requests were made.",
+        "retained_capture_authenticated": false,
+        "source_family_activation_evidence": true
+      },
+      "source_line": 28,
+      "source_line_sha256_including_newline": "a8a441271a69c100260c150b21c94e3163fa7af068eb5490f7c57f2e2fd8cb4f"
+    },
+    {
+      "record": {
+        "activated": true,
+        "applicability": "Candidates 4 and 5 have retained exact-entry routes in the same Cezanne catalogue, allowing the same image-credit/archive-provenance field to be inspected. This does not assert a qualified pair or independent workflow.",
+        "at_utc": "2026-09-10T08:31:58.641242+00:00",
+        "candidate_ids": [
+          "Q28126494",
+          "Q28126470"
+        ],
+        "candidate_priorities": [
+          4,
+          5
+        ],
+        "event_id": "pcav1-20260910:activation:04-05",
+        "evidence": "Principal image has specific photographer Peter Schalchli, Zurich, and named institutional copyright/accession; exact historical archive photo number is also identified. This is new actionable photographic/master provenance beyond a bare catalogue entry.",
+        "kind": "activation",
+        "source_family": "cezanne_catalogue_to_institution",
+        "trigger_body_sha256": "83589400cdcd1378961d840b60de6991094e1f899f8edf9c235f00629463d89d",
+        "trigger_outcome_event_id": "pcav1-20260910:request:09:outcome",
+        "trigger_url": "https://www.cezannecatalogue.com/catalogue/entry.php?id=279"
+      },
+      "source_line": 29,
+      "source_line_sha256_including_newline": "d4612fde512222d7bec5575d82b2ba13b8cb7b567b14dd4589b02cd302d8e954"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:31:58.765584+00:00",
+        "attempt": 11,
+        "candidate": "Q28126494",
+        "event_id": "pcav1-20260910:request:11:intent",
+        "kind": "intent",
+        "outbound_attempt_index": 10,
+        "parent_url": null,
+        "purpose": "Inspect activated exact catalogue entry for specific photographer, institutional master credit, and historical capture identifiers",
+        "transport": "Python stdlib http.client single GET; no automatic redirect or retry",
+        "transport_source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v4.py",
+        "transport_source_sha256": "2cf117e1c552962fc2be317ec741dd0e74ce299bdf7572514328cc9e131bfca1",
+        "url": "https://www.cezannecatalogue.com/catalogue/entry.php?id=741"
+      },
+      "source_line": 30,
+      "source_line_sha256_including_newline": "725d8bd27f7af3a27c6ef176788e5dfdd8d5869747793104075801e6bcd0ef6f"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:32:00.351148+00:00",
+        "attempt": 11,
+        "body_bytes": 44853,
+        "body_complete": true,
+        "body_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/attempt-11.body.txt",
+        "body_read": true,
+        "body_sha256": "fa1dab21636926dd4ae4bf943916b9995b11f47624bd08f7bbbad41d45f8d9c3",
+        "candidate": "Q28126494",
+        "content_encoding": null,
+        "content_length": null,
+        "content_type": "text/html; charset=UTF-8",
+        "error": null,
+        "event_id": "pcav1-20260910:request:11:outcome",
+        "kind": "outcome",
+        "outbound_attempt_index": 10,
+        "parent_url": null,
+        "purpose": "Inspect activated exact catalogue entry for specific photographer, institutional master credit, and historical capture identifiers",
+        "redirect_location": null,
+        "status": 200,
+        "transport": "Python stdlib http.client single GET; no automatic redirect or retry",
+        "transport_source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v4.py",
+        "transport_source_sha256": "2cf117e1c552962fc2be317ec741dd0e74ce299bdf7572514328cc9e131bfca1",
+        "url": "https://www.cezannecatalogue.com/catalogue/entry.php?id=741"
+      },
+      "source_line": 31,
+      "source_line_sha256_including_newline": "066626aab8e3cb19642121a3d756d332621f423af38313b375a30eed51354fe2"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:32:36.470636+00:00",
+        "attempt": 12,
+        "candidate": "Q28126494",
+        "event_id": "pcav1-20260910:request:12:intent",
+        "kind": "intent",
+        "outbound_attempt_index": 11,
+        "parent_url": null,
+        "purpose": "Check exact retained-reference own-work capture metadata against catalogue image credit",
+        "transport": "Python stdlib http.client single GET; no automatic redirect or retry",
+        "transport_source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v4.py",
+        "transport_source_sha256": "2cf117e1c552962fc2be317ec741dd0e74ce299bdf7572514328cc9e131bfca1",
+        "url": "https://commons.wikimedia.org/wiki/File:Paul_Cezanne_Meule_et_citerne_en_sous_bois.jpg"
+      },
+      "source_line": 32,
+      "source_line_sha256_including_newline": "e60aec965ac24e70e06dda1cc72cae6783d40ce3e5b5e5bb0c082d6374897d83"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:32:37.591978+00:00",
+        "attempt": 12,
+        "body_bytes": 128874,
+        "body_complete": true,
+        "body_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/attempt-12.body.txt",
+        "body_read": true,
+        "body_sha256": "0c385237aa9afb6d75f0c739c35486425674d9b9dc0d44c4d071d3d3eaf98fca",
+        "candidate": "Q28126494",
+        "content_encoding": null,
+        "content_length": null,
+        "content_type": "text/html; charset=UTF-8",
+        "error": null,
+        "event_id": "pcav1-20260910:request:12:outcome",
+        "kind": "outcome",
+        "outbound_attempt_index": 11,
+        "parent_url": null,
+        "purpose": "Check exact retained-reference own-work capture metadata against catalogue image credit",
+        "redirect_location": null,
+        "status": 200,
+        "transport": "Python stdlib http.client single GET; no automatic redirect or retry",
+        "transport_source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v4.py",
+        "transport_source_sha256": "2cf117e1c552962fc2be317ec741dd0e74ce299bdf7572514328cc9e131bfca1",
+        "url": "https://commons.wikimedia.org/wiki/File:Paul_Cezanne_Meule_et_citerne_en_sous_bois.jpg"
+      },
+      "source_line": 33,
+      "source_line_sha256_including_newline": "37a5e2d5d319f83203f0e8a5ccab4980ba434c2bd5fe2f15a766b298a4d9800d"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:33:32.487134+00:00",
+        "attempt": 13,
+        "candidate": "Q28126494",
+        "event_id": "pcav1-20260910:request:13:intent",
+        "kind": "intent",
+        "outbound_attempt_index": 12,
+        "parent_url": "https://commons.wikimedia.org/wiki/File:Paul_Cezanne_Meule_et_citerne_en_sous_bois.jpg",
+        "purpose": "Check directly linked exact institutional record for master-image identity and independent capture documentation",
+        "transport": "Python stdlib http.client single GET; no automatic redirect or retry",
+        "transport_source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v4.py",
+        "transport_source_sha256": "2cf117e1c552962fc2be317ec741dd0e74ce299bdf7572514328cc9e131bfca1",
+        "url": "https://collection.barnesfoundation.org/objects/5196/details"
+      },
+      "source_line": 34,
+      "source_line_sha256_including_newline": "989f5300604437e324adafdbd271bc05f0b29c4f2e482b449e21f508f0b82985"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:33:32.963189+00:00",
+        "attempt": 13,
+        "body_bytes": 124,
+        "body_complete": true,
+        "body_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/attempt-13.body.txt",
+        "body_read": true,
+        "body_sha256": "f6e3e140fd3a03d7d2f39607f4ca95674b80002ec77b54ac8c8bcf558a094077",
+        "candidate": "Q28126494",
+        "content_encoding": null,
+        "content_length": "124",
+        "content_type": "text/plain; charset=utf-8",
+        "error": null,
+        "event_id": "pcav1-20260910:request:13:outcome",
+        "kind": "outcome",
+        "outbound_attempt_index": 12,
+        "parent_url": "https://commons.wikimedia.org/wiki/File:Paul_Cezanne_Meule_et_citerne_en_sous_bois.jpg",
+        "purpose": "Check directly linked exact institutional record for master-image identity and independent capture documentation",
+        "redirect_location": "/objects/5196/Millstone-and-Cistern-under-Trees-(La-Meule-et-citerne-en-sous-bois)/details",
+        "status": 301,
+        "transport": "Python stdlib http.client single GET; no automatic redirect or retry",
+        "transport_source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v4.py",
+        "transport_source_sha256": "2cf117e1c552962fc2be317ec741dd0e74ce299bdf7572514328cc9e131bfca1",
+        "url": "https://collection.barnesfoundation.org/objects/5196/details"
+      },
+      "source_line": 35,
+      "source_line_sha256_including_newline": "6693cb546d1ee866a677ec62ee56e6d79938500807b8336ea94b03d83f0d9b8d"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:33:54.879389+00:00",
+        "candidate": "Q28126494",
+        "charged_attempts": 3,
+        "disposition": "pair_claim_unresolved",
+        "event_id": "pcav1-20260910:disposition:04:final",
+        "kind": "disposition",
+        "outbound_requests": 3,
+        "qualified_pair": false,
+        "reason": "Catalogue supplies Barnes/Bridgeman image credit and historical archive photo 465, but no contemporary event date/master ancestry. Its dated Rewald/Loran photographs depict the landscape motif, not the physical painting. Commons has one 2006 upload and own-work assertion without useful camera metadata. Directly linked Barnes object returned 301; candidate cap exhausted, so destination not requested.",
+        "retained_capture_authenticated": false
+      },
+      "source_line": 36,
+      "source_line_sha256_including_newline": "28bc01b452b6aaffcc253b4b290429159c8e93737fc09974da4f1600b701736c"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:33:55.014107+00:00",
+        "attempt": 14,
+        "candidate": "Q28126470",
+        "event_id": "pcav1-20260910:request:14:intent",
+        "kind": "intent",
+        "outbound_attempt_index": 13,
+        "parent_url": null,
+        "purpose": "Inspect second activated catalogue entry for attributed image master and exact capture-event evidence",
+        "transport": "Python stdlib http.client single GET; no automatic redirect or retry",
+        "transport_source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v4.py",
+        "transport_source_sha256": "2cf117e1c552962fc2be317ec741dd0e74ce299bdf7572514328cc9e131bfca1",
+        "url": "https://www.cezannecatalogue.com/catalogue/entry.php?id=611"
+      },
+      "source_line": 37,
+      "source_line_sha256_including_newline": "40c1f5c0fb2237bccdba93c5cbca57a557ceea1cd6a6c76f7731f64e4815bbd2"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:33:59.659672+00:00",
+        "attempt": 14,
+        "body_bytes": 37547,
+        "body_complete": true,
+        "body_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/attempt-14.body.txt",
+        "body_read": true,
+        "body_sha256": "066c0c7c7a79bec6a4170784a7377257b25ef31e5b885d30078653f8da04ac62",
+        "candidate": "Q28126470",
+        "content_encoding": null,
+        "content_length": null,
+        "content_type": "text/html; charset=UTF-8",
+        "error": null,
+        "event_id": "pcav1-20260910:request:14:outcome",
+        "kind": "outcome",
+        "outbound_attempt_index": 13,
+        "parent_url": null,
+        "purpose": "Inspect second activated catalogue entry for attributed image master and exact capture-event evidence",
+        "redirect_location": null,
+        "status": 200,
+        "transport": "Python stdlib http.client single GET; no automatic redirect or retry",
+        "transport_source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v4.py",
+        "transport_source_sha256": "2cf117e1c552962fc2be317ec741dd0e74ce299bdf7572514328cc9e131bfca1",
+        "url": "https://www.cezannecatalogue.com/catalogue/entry.php?id=611"
+      },
+      "source_line": 38,
+      "source_line_sha256_including_newline": "c10bd3c9ce3b56948d9218e6caf06141078e72f42c69c1c2a84c3733856a4724"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:34:21.113688+00:00",
+        "attempt": 15,
+        "candidate": "Q28126470",
+        "event_id": "pcav1-20260910:request:15:intent",
+        "kind": "intent",
+        "outbound_attempt_index": 14,
+        "parent_url": null,
+        "purpose": "Inspect retained file ancestry, photographic metadata, and directly linked exact institutional record",
+        "transport": "Python stdlib http.client single GET; no automatic redirect or retry",
+        "transport_source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v4.py",
+        "transport_source_sha256": "2cf117e1c552962fc2be317ec741dd0e74ce299bdf7572514328cc9e131bfca1",
+        "url": "https://commons.wikimedia.org/wiki/File:Paul_Cezanne_Maison_et_arbes.jpg"
+      },
+      "source_line": 39,
+      "source_line_sha256_including_newline": "b3b154872c692f8c9ea6e7a40eb6cb8f8dcff993f3e2fab2f3fab3d9891d6a78"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:34:24.492723+00:00",
+        "attempt": 15,
+        "body_bytes": 147673,
+        "body_complete": true,
+        "body_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/attempt-15.body.txt",
+        "body_read": true,
+        "body_sha256": "0e5dab253770295c7cdd102258b7e4a676c9391d20c2b3c50b543e0a4fc1e77d",
+        "candidate": "Q28126470",
+        "content_encoding": null,
+        "content_length": null,
+        "content_type": "text/html; charset=UTF-8",
+        "error": null,
+        "event_id": "pcav1-20260910:request:15:outcome",
+        "kind": "outcome",
+        "outbound_attempt_index": 14,
+        "parent_url": null,
+        "purpose": "Inspect retained file ancestry, photographic metadata, and directly linked exact institutional record",
+        "redirect_location": null,
+        "status": 200,
+        "transport": "Python stdlib http.client single GET; no automatic redirect or retry",
+        "transport_source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v4.py",
+        "transport_source_sha256": "2cf117e1c552962fc2be317ec741dd0e74ce299bdf7572514328cc9e131bfca1",
+        "url": "https://commons.wikimedia.org/wiki/File:Paul_Cezanne_Maison_et_arbes.jpg"
+      },
+      "source_line": 40,
+      "source_line_sha256_including_newline": "a2e69a72e3f61ec6bb7c14b43d3f6ffb8e1cc9a2757f8d74c39acbc50be9d4b7"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:34:45.112636+00:00",
+        "attempt": 16,
+        "candidate": "Q28126470",
+        "event_id": "pcav1-20260910:request:16:intent",
+        "kind": "intent",
+        "outbound_attempt_index": 15,
+        "parent_url": "https://commons.wikimedia.org/wiki/File:Paul_Cezanne_Maison_et_arbes.jpg",
+        "purpose": "Final capped metadata request: exact institutional record for independent capture/master documentation",
+        "transport": "Python stdlib http.client single GET; no automatic redirect or retry",
+        "transport_source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v4.py",
+        "transport_source_sha256": "2cf117e1c552962fc2be317ec741dd0e74ce299bdf7572514328cc9e131bfca1",
+        "url": "https://collection.barnesfoundation.org/objects/4702/details"
+      },
+      "source_line": 41,
+      "source_line_sha256_including_newline": "22a6331d251acfa9b512f52c8b231a58a6a19affb8a7d66a401f73a04fb82c36"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:34:45.564669+00:00",
+        "attempt": 16,
+        "body_bytes": 90,
+        "body_complete": true,
+        "body_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/attempt-16.body.txt",
+        "body_read": true,
+        "body_sha256": "cc0f19ab7b9a47938e56be762a425462a5715c5940c3db4259c1851fe0ad0ef4",
+        "candidate": "Q28126470",
+        "content_encoding": null,
+        "content_length": "90",
+        "content_type": "text/plain; charset=utf-8",
+        "error": null,
+        "event_id": "pcav1-20260910:request:16:outcome",
+        "kind": "outcome",
+        "outbound_attempt_index": 15,
+        "parent_url": "https://commons.wikimedia.org/wiki/File:Paul_Cezanne_Maison_et_arbes.jpg",
+        "purpose": "Final capped metadata request: exact institutional record for independent capture/master documentation",
+        "redirect_location": "/objects/4702/House-and-Trees-(Maison-et-arbres)/details",
+        "status": 301,
+        "transport": "Python stdlib http.client single GET; no automatic redirect or retry",
+        "transport_source_path": "research_workspace/painter_capture_audit_v1/pcav1-20260910/metadata_get_v4.py",
+        "transport_source_sha256": "2cf117e1c552962fc2be317ec741dd0e74ce299bdf7572514328cc9e131bfca1",
+        "url": "https://collection.barnesfoundation.org/objects/4702/details"
+      },
+      "source_line": 42,
+      "source_line_sha256_including_newline": "6139644575116ac2da71d94f31938e27da1021527fc70aef1d7ee5fd16faf8cc"
+    },
+    {
+      "record": {
+        "at_utc": "2026-09-10T08:35:48.283257+00:00",
+        "candidate": "Q28126470",
+        "charged_attempts": 3,
+        "disposition": "pair_claim_unresolved",
+        "event_id": "pcav1-20260910:disposition:05:final",
+        "kind": "disposition",
+        "outbound_requests": 3,
+        "qualified_pair": false,
+        "reason": "Catalogue identifies BF89 and historical Vollard photo 107 but no independently documented contemporary capture pair. Commons has one 2006 own-work upload without camera/capture-event evidence. Exact linked Barnes record returned 301 at candidate cap; redirect destination not requested.",
+        "retained_capture_authenticated": false
+      },
+      "source_line": 43,
+      "source_line_sha256_including_newline": "f8a27a882f2da550e7a2153dc89b2c4635ef00cfc6d236bdd7cc79cabb4721d5"
+    },
+    {
+      "record": {
+        "actual_outbound_requests": 15,
+        "at_utc": "2026-09-10T08:35:48.283392+00:00",
+        "automatic_redirects": 0,
+        "automatic_retries": 0,
+        "charged_attempts": 15,
+        "event_id": "pcav1-20260910:terminal-decision",
+        "external_holdout_access": false,
+        "feature_extractions": 0,
+        "generation_requests": 0,
+        "image_requests": 0,
+        "kind": "terminal_decision",
+        "nonchargeable_preflight_failures": 1,
+        "not_activated_candidates": 0,
+        "page_subresource_requests": 0,
+        "qualified_pairs": 0,
+        "reason": "All five activated identities disposed and 15 actual request cap reached. No further requests authorized in this run.",
+        "status": "terminal"
+      },
+      "source_line": 44,
+      "source_line_sha256_including_newline": "8e494581dde7c4fe9073b03932915fb5967b36b1575fd4da521dd5861299ba20"
+    }
+  ],
+  "schema": "painter-capture-audit-portable-ledger-view/1",
+  "source_path": "data/manifests/painter_capture_audit_v1/pcav1-20260910/attempts.jsonl",
+  "source_sha256": "63dfaacb3176a5f622a815aa8e4c9c9d690fb3930b842751dddb8f6b66311951"
+}

@@ -844,8 +844,8 @@ one map using the evaluation-free mean $m$:
  \label{eq:centered-map}
 \end{equation}
 It retains the training displacement and scalar. Its output mean equals that
-of translation, while its centered distances equal those of $T_2$. No evaluation-
-named or reference features set the new center. Unlike unchanged pointwise
+of translation, while its centered distances equal those of $T_2$. No named
+evaluation or reference features set the new center. Unlike unchanged pointwise
 transfer, this map adapts to the observed free cohort; it supplies a controlled
 geometric comparison, not another prospective replication.
 
@@ -863,6 +863,14 @@ C\'ezanne. It also reduces generated within-collection distance by 2.373 and
 1.463. Because energy subtracts the latter term, the larger loss of within-cloud
 distance outweighs the improved cross-collection distance. These are exact
 decompositions of the observed contrasts, not estimates of a perceptual cost.
+
+The fixed-center comparison also rules out one possible remedy. Energy is convex
+along a nonnegative scalar path about a fixed center
+(Appendix~\ref{app:scalar-path}). Because the fitted contractions increase energy
+in both later primary cohorts, every stronger contraction about those same
+centers also increases it. This implication concerns the observed clouds;
+it does not rule out an improvement at an intermediate scalar between the fitted
+value and one, or at a different center.
 
 \begin{table}[tbp]
 \centering\small
@@ -1205,6 +1213,10 @@ Euclidean weighting is not a validated perceptual scale. Unknown photographic
 workflows, correlated coordinates and the large texture contribution leave the
 origin of the discrepancy unresolved. Common-square and processing probes bound
 specific sensitivities but do not identify capture effects or physical brushwork.
+A bounded metadata audit of five additional reference works found no pair with
+documented independent capture ancestry and comparable views; photographer
+credits and archival image identifiers alone did not establish these conditions.
+This does not exclude suitable captures outside the audited routes.
 The numerical release enables replay from measurements, not public feature
 re-extraction from all pixels.
 
@@ -1972,6 +1984,34 @@ the 24 later-scene deletions. It cannot estimate a new repeat variance with one
 image per scene/arm. The complete export includes fitted means/scalars, fold
 membership, energy terms, per-anchor occupancy, corrected per-scene contributions
 and every specified deletion result.
+
+\subsection{Energy along a fixed-center scalar path}\label{app:scalar-path}
+Let reference points $x_i$ have nonnegative weights $p_i$ summing to one, and let
+free-cloud residuals $z_j=y_j-m$ have nonnegative weights $w_j$ summing to one. Fix the center
+$q=m+\mu_N-\mu_F$ and every weight. For $a\geq0$, write
+\begin{equation}
+ g(a)=2\sum_{i,j}p_iw_j\|x_i-q-a z_j\|
+       -a\sum_{j,k}w_jw_k\|z_j-z_k\|
+       -\sum_{i,k}p_ip_k\|x_i-x_k\|.
+ \label{eq:scalar-energy}
+\end{equation}
+This is precisely $\E(X,\{q+a z_j\})$. Each norm in the first term is convex in
+$a$; the remaining terms are affine because $a$ is nonnegative. Thus $g$ is
+convex, without a differentiability assumption. If $0<a_0<1$ and
+$g(a_0)>g(1)$, convexity at
+$a_0=[(1-a_0)/(1-a)]a+[(a_0-a)/(1-a)]1$ gives, for $0\leq a<a_0$,
+\begin{equation}
+ g(a)\geq g(a_0)+\frac{a_0-a}{1-a_0}\,[g(a_0)-g(1)]>g(a_0).
+ \label{eq:scalar-bound}
+\end{equation}
+Consequently, no scalar in $[0,a_0]$ minimizes this path. This elementary
+convexity implication requires neither fitting another scalar nor evaluating a
+new grid. The two later primary cohorts satisfy its premise with $a_0\approx.5751$
+for Monet and $.6785$ for C\'ezanne and the positive penalties in
+Table~\ref{tab:centering}. It does not identify an optimum, exclude improvement
+for $a\in(a_0,1)$, or establish the same premise for every original fold from
+their positive average. Changing the center or reference representation defines
+a different path.
 
 \section{Analysis files and reproduction}
 \label{app:release}

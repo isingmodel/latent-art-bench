@@ -81,6 +81,15 @@ that list must not be extended to conceal new damage.
   `tmp/`: a temporary-looking path does not make evidence disposable.
 - Untracked user work and local configuration, including `.env`.
 
+The terminal capture-audit ledger at
+`data/manifests/painter_capture_audit_v1/pcav1-20260910/attempts.jsonl` is also
+retained locally and ignored. Its two accidentally absolute helper-path fields
+must not be edited in place. The committed `attempts.portable.json` preserves
+all records with original line hashes and two disclosed path normalizations;
+the [portability note](../reports/painter_capture_audit_v1/pcav1-20260910/PORTABILITY.md)
+explains the distinction. Terminal report/receipt hashes continue to bind the
+unchanged raw ledger.
+
 The new responsiveness workspace also retains hash-bound normalized reference
 displays. Future human plans, exact submitted exports and free-text responses must
 remain private under that ignored boundary; public scientific receipts contain
