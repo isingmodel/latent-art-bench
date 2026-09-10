@@ -1,0 +1,18 @@
+{
+  "assignment_seed": 2026091071,
+  "historical_accounted_usd": 50.7219185,
+  "maximum_attempts": 248,
+  "maximum_collection_seconds": 86400,
+  "maximum_images": 240,
+  "maximum_in_flight": 2,
+  "maximum_technical_retries": 8,
+  "minimum_free_bytes": 5368709120,
+  "minimum_start_interval_seconds": 5,
+  "overall_spending_ceiling_usd": 75,
+  "planning_attempt_usd": 0.075,
+  "repetitions": 10,
+  "request_reservation_usd": 5,
+  "run_id": "pmv2-20260910",
+  "scenes_per_class": 4,
+  "schema": "painter-map-validation/2"
+}
