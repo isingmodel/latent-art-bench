@@ -1,0 +1,23 @@
+{
+  "collection_receipt_sha256": "06504656c0fcb927068a076f78fde35c261ea86bda37d8d9f9fec6c442b2fd75",
+  "outputs": [
+    {
+      "path": "data/manifests/painter_clause_successor_v1/pcsv1-20260910/measurements.jsonl",
+      "sha256": "32f30fea7fbcaa9862186cbd5b63ae18d439e0f6a519533ac1defaab4ad718c7"
+    },
+    {
+      "path": "reports/painter_clause_successor_v1/pcsv1-20260910/REPORT.md",
+      "sha256": "942d9ea11ae8f1a893b31b9ddcc7cea17fcf6689c02806e6a109a3e1148fd8dd"
+    },
+    {
+      "path": "reports/painter_clause_successor_v1/pcsv1-20260910/analysis.json",
+      "sha256": "00ab620f5c3e67b6fcac16cc8e4456504a3001e7a82a2524b8c58fcacfe9deb8"
+    },
+    {
+      "path": "research_workspace/painter_clause_successor_v1/pcsv1-20260910/measurement_started.json",
+      "sha256": "72749c352914c284cde13d8caac8f28dc0076e5f310f05b3b0c9e439b70b7a6e"
+    }
+  ],
+  "run_id": "pcsv1-20260910",
+  "schema": "painter-clause-successor-measurement/1"
+}
