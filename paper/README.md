@@ -4,12 +4,17 @@ The canonical English manuscript is [paper.tex](paper.tex), compiled to
 [paper.pdf](paper.pdf), with [references.bib](references.bib). It retains the
 four-painter exploration, the separate controlled naming and palette studies,
 scene-retrieval diagnostics, computational measurement challenges and temporal
-follow-up. There are eight vector figures. Current collection/release status and
+follow-up. There are nine vector figures. The current substantive revision adds generated-only
+whole-scene moment maps, unchanged-map temporal transfer, finite-repeat correction
+and a separately specified evaluation-centering diagnostic. These use retained
+vectors only; no images were generated for this revision. Current collection/release status and
 final verification are recorded in [STATUS.md](../docs/STATUS.md).
 
 The new measurement section reports all ten transformations, their cross-family
 responses and all eight common-square contrast sensitivities. All four temporal endpoints are reported from the completed 264-image collection.
-Three full manuscript reviews, final visual QA and public-access verification are complete. Earlier drafts remain only in Git history. The
+The preceding r1 reviews and public-access verification remain recorded. A fresh
+three-reviewer revision cycle is active; its baseline mean is 8.2333/10 and its
+new scores are recorded separately. Earlier drafts remain in Git history. The
 [review index](../docs/INDEX.md) links preceding reviews; their scores describe
 those manuscript versions and are not external peer-review decisions.
 
@@ -28,6 +33,7 @@ make figures-check  # Check manuscript figures without rewriting them
 make palette-check  # Replay Study 2 primary inference using compact inputs only
 make validation-check # Replay controlled measurement challenges and square views
 make replication-check # Replay the separate terminal temporal collection
+make geometry-check # Replay both new retained-vector geometry diagnostics
 ```
 
 `make_figures.py` verifies the hashes of eight published inputs: seven CSVs and
@@ -67,6 +73,11 @@ the figure. The standalone command retains exact primary matching.
 using the unchanged measurement report renderer and saved analysis. Its
 `--check` mode requires byte identity. The common-window appendix table reports
 all eight retained contrasts; the original full-view results remain unchanged.
+
+The ninth figure, `naming_geometry.pdf`, is the immutable output of the new
+geometry report renderer. `make figures` copies it into the manuscript directory;
+`make figures-check` compares the copy, while `make geometry-check` independently
+recomputes both new analyses and their complete numerical reports.
 
 For temporary PNG previews of the six summary figures:
 
@@ -142,8 +153,9 @@ links the actual receipts and scope. All 98 checks match exactly on the recorded
 macOS runtime; Ubuntu passes the documented floating comparison, with seven exact
 PDFs and platform-dependent challenge-figure bytes.
 
-The current canonical manuscript matches the additive `paper-r1.pdf` and
-`paper-r1.tex` assets. The [erratum](../reports/paper_reproducibility_v1/pprv1-20260910/PAPER_ERRATUM.md)
+The preceding manuscript remains available as additive `paper-r1.pdf` and
+`paper-r1.tex` assets. The current substantive revision differs from those assets;
+its new geometry analyses are not in the unchanged predecessor archive. The [erratum](../reports/paper_reproducibility_v1/pprv1-20260910/PAPER_ERRATUM.md)
 clarifies the scoped Welch p-value comparison and one verb agreement. The original
 archive and original `paper.pdf` asset remain unchanged. Corrected TeX can be
 compiled alongside the original archive's manuscript, using the same figures and
@@ -157,3 +169,17 @@ explicit coverage. This supplies numerical reproducibility; feature re-extractio
 and private-response verification still require retained raw bytes. Source URLs
 and recorded license metadata are not guarantees of current raw-image access or
 permission to redistribute artwork.
+
+## Substantive geometry diagnostics
+
+- [Global moment protocol](../studies/painter_naming_geometry_v1/PROTOCOL.md) and [complete results](../reports/painter_naming_geometry_v1/pngv1-20260910/REPORT.md).
+- [Evaluation-centering protocol](../studies/painter_naming_centering_v1/PROTOCOL.md) and [complete results](../reports/painter_naming_centering_v1/pncv1-20260910/REPORT.md).
+- [Fresh baseline and result audits](../docs/reviews/20260910_substantive_revision/BASELINE.json). Reviewers are maintainer-run LLMs; Reviewers 1/2 subsequently helped implement statistical primitives, and Reviewer 3 supplied literature/structure advice.
+
+The fixed translation/scale predictor is evaluated on four whole-scene folds.
+Actual naming beats it on all six primary fold means, but fold and deletion
+reversals remain reported. Pure translation beats actual naming in both later
+primary FLUX comparisons, with a Monet deletion and 256-pixel exceptions. The
+evaluation-centered scalar worsens energy in all 60 original and 18 transfer
+views; this is an algebraic feature comparison, not an internal model mechanism.
+No new hypothesis tests or intervals are introduced.

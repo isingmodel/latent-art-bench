@@ -7,7 +7,7 @@ that a file can be deleted.
 ## Current writing and code organization
 
 `paper/` contains the canonical English manuscript, bibliography, plotting script and
-eight manuscript figures. These are editable presentation artifacts. Superseded
+nine manuscript figures. These are editable presentation artifacts. Superseded
 manuscripts and documentation snapshots live in Git history rather than duplicate
 working-tree directories. For example, historical methodology-review citations
 to the earlier paper can be resolved with:

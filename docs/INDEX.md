@@ -65,3 +65,5 @@ the retired operational workflow guides; consult current status before acting on
 an older stage description.
 
 - [Post-result painter-naming geometry protocol](../studies/painter_naming_geometry_v1/PROTOCOL.md): held-scene global moment benchmark, temporal transfer and repeat correction.
+
+- [Evaluation-centering successor](../studies/painter_naming_centering_v1/PROTOCOL.md): separates mean anchoring from the fitted scalar using retained evaluation-free vectors.

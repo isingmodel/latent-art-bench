@@ -274,3 +274,15 @@ Current pytest runner settings are in [pytest.ini](../pytest.ini). Importlib mod
 allows versioned studies to reuse test filenames; two legacy helper-import paths
 are retained explicitly. The old pyproject configuration is a frozen scientific
 input and remains unchanged.
+
+## Post-result naming geometry
+
+| Analysis | Methods / results | Source and plotting | Replay |
+| --- | --- | --- | --- |
+| Whole-scene moment maps, original-map temporal transfer, corrected conditional variance | [Protocol](../studies/painter_naming_geometry_v1/PROTOCOL.md); [report](../reports/painter_naming_geometry_v1/pngv1-20260910/REPORT.md) | `src/latent_art_bench/painter_naming_geometry_v1/`; `report.py` plots the ninth manuscript figure | `uv run --locked python -m latent_art_bench.painter_naming_geometry_v1 verify` |
+| Evaluation-free centering at unchanged scalar/displacement | [Protocol](../studies/painter_naming_centering_v1/PROTOCOL.md); [report](../reports/painter_naming_centering_v1/pncv1-20260910/REPORT.md) | `src/latent_art_bench/painter_naming_centering_v1/`; no additional figure | `uv run --locked python -m latent_art_bench.painter_naming_centering_v1 verify` |
+
+Both namespaces are terminal, post-result retained-vector analyses with 60
+original and 18 transfer views each. Their own source/input bindings and exact
+replay are required in addition to the historical evidence audit. They neither
+reopen prior collections nor replace the public predecessor release.

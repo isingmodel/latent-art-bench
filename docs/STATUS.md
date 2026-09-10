@@ -10,7 +10,14 @@ rules and [AGENT_HANDOVER.md](AGENT_HANDOVER.md) for operational details.
 The latest user goal requests three skeptical reviews and substantive paper/analysis
 revision until the unchanged nine-score average exceeds 9. The fresh baseline
 mean is **8.2333/10** (rigor/contribution/clarity: 8.1/7.7/8.8, 8.2/7.8/9.0,
-8.4/7.4/8.7). New offline work uses the disjoint
+8.4/7.4/8.7). The completed offline geometry run `pngv1-20260910` (source `459c6a8`, freeze
+`8facfa3`) evaluates 60 original and 18 later views. A separately specified
+centering successor `pncv1-20260910` (source `c390eef`, freeze `45e3ce9`) retains
+the same grid and verifies the predecessor exactly. No new images or API costs.
+The nine-figure English paper has been restructured. Round 2 is complete at
+**8.6889/10** (8.7/8.4/8.8, 8.8/8.6/9.0, 8.8/8.3/8.8), below the target.
+Reporting/access corrections are in progress. A new-scene generic-clause
+validation is being designed; no new acquisition or generation gate is open. New offline work uses the disjoint
 [painter-naming geometry protocol](../studies/painter_naming_geometry_v1/PROTOCOL.md):
 whole-scene moment-map evaluation, original-map transfer to later FLUX, and
 repeat-corrected conditional geometry. No new image generation or extraction
@@ -26,7 +33,7 @@ All remain maintainer-run LLM agents.
 | [Measurement challenges](../reports/painter_measurement_validation_v1/pmvv1-20260910/REPORT.md) | **Complete**: 1,076 retained images verified; 1,706 vectors across ten reference conditions and common-square generated views. All three specified change-minus-processing comparisons are positive. All eight common-square contrast directions and the original four Holm rejections persist. |
 | [Temporal replication](../studies/painter_naming_replication_v1/PROTOCOL.md) | **Complete**: all 264 outputs measured in three pipelines. FLUX naming estimates −.695108/−.952024 reject in the new four-test family; palette estimates −.158648/+.036741 remain unresolved. No failures/retries; 64.3 minutes; source `88cd185`, freeze `2de6bc4`, run `pnrv1-20260910`. |
 | [Public numerical reproduction](../studies/paper_reproducibility_v1/README.md) | **Public and verified**: [release](https://github.com/isingmodel/latent-art-bench/releases/tag/pprv1-20260910), 98 exact fresh local/anonymous checks and 98 hosted Ubuntu checks under the documented portability contract. Seven Ubuntu figure PDFs match exactly; the challenge PDF has platform-dependent bytes. |
-| English paper | Measurement results, all four temporal endpoints and eight figures are integrated in the reviewed 32-page paper. Canonical files match the published paper-r1 assets, which clarify portability and one grammar point through an explicit erratum. Final visual QA and anonymous asset verification pass. |
+| English paper | Current substantive draft is 36 pages with nine figures; whole-scene maps, original-map transfer, evaluation centering and repeat-corrected conditional geometry are integrated. Three round-2 reviews are complete; reporting and access revisions are underway. The immutable published r1 assets describe the preceding paper, not this new revision. |
 
 The measurement source was committed at `f3bc9b6`, its prospective 1,076-image
 inventory at `f2ab8de`, and its completed outputs and reviews at `994d247`.
@@ -138,6 +145,6 @@ Korean files remain untouched. Local `main` was previously fast-forwarded to
 `28a9eb6`. The public release uses a sanitized branch and history-free archive, excluding
 original local research history. Its [verification report](../reports/paper_reproducibility_v1/pprv1-20260910/REPORT.md)
 records archive SHA256 `165ffbde…c6de4`, source commit `b2884c3` and public commit
-`2592dfb`. The original archive/paper asset remains unchanged; current canonical
-paper files match the additive `paper-r1.pdf` / `paper-r1.tex` assets and
+`2592dfb`. The original archive/paper asset remains unchanged; the preceding manuscript
+remains in additive `paper-r1.pdf` / `paper-r1.tex` assets and
 [explicit erratum](../reports/paper_reproducibility_v1/pprv1-20260910/PAPER_ERRATUM.md).
