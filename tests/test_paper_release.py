@@ -201,6 +201,43 @@ def test_welch_schema_is_taken_from_expected_and_unknown_endpoints_stay_strict()
     assert not release.close_values(actual, expected)
 
 
+def test_palette_figure_replay_records_portable_primary_parity_but_defaults_exact(monkeypatch):
+    import math
+
+    root = Path(__file__).resolve().parents[1]
+    presentation = release.runpy.run_path(str(root / "paper/replay_palette.py"))
+    schedule, chroma, expected = presentation["load_inputs"](root)
+    expected[0]["p_holm"] = math.nextafter(expected[0]["p_holm"], math.inf)
+    presentation["load_inputs"] = lambda _: (schedule, chroma, expected)
+    monkeypatch.setattr(release.runpy, "run_path", lambda _: presentation)
+    with pytest.raises(ValueError, match="primary inference differs"):
+        release.palette_figure_bytes(root)
+    raw, check = release.palette_figure_bytes(root, portable_numeric=True)
+    assert raw == (root / "paper/figures/palette_blocks.pdf").read_bytes()
+    assert check["status"] == "within_1e-10_absolute_and_relative_tolerance"
+    differences = check["post_ci_welch_p_amendment"]["previous_exact_p_rule_differences"]
+    assert differences["total_mismatches"] == 1
+    assert differences["displayed_mismatches"][0]["path"] == [0, "p_holm"]
+    assert differences["displayed_mismatches"][0]["expected"] == expected[0]["p_holm"]
+
+
+@pytest.mark.parametrize("damage", ["outside_bound", "decision", "missing_value"])
+def test_portable_palette_figure_keeps_numeric_and_grid_guards(monkeypatch, damage):
+    root = Path(__file__).resolve().parents[1]
+    presentation = release.runpy.run_path(str(root / "paper/replay_palette.py"))
+    schedule, chroma, expected = presentation["load_inputs"](root)
+    if damage == "outside_bound":
+        expected[0]["p_holm"] += 1e-8
+    elif damage == "decision":
+        expected[0]["reject_holm"] = not expected[0]["reject_holm"]
+    else:
+        chroma.pop()
+    presentation["load_inputs"] = lambda _: (schedule, chroma, expected)
+    monkeypatch.setattr(release.runpy, "run_path", lambda _: presentation)
+    with pytest.raises(ValueError, match="primary inference differs|missing planned chroma"):
+        release.palette_figure_bytes(root, portable_numeric=True)
+
+
 def test_restoration_preserves_measurement_stage_and_development_scale():
     source = {name: [{"pipeline": "primary512", "values": [2.0] * 31}]
               for name in ("reference", "generated", "development")}

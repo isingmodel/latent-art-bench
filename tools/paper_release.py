@@ -722,6 +722,19 @@ def assert_digest(value, expected, label, *, reference=None, portable_numeric=Fa
     return result
 
 
+def palette_figure_bytes(root, *, portable_numeric=False):
+    """Reuse presentation replay with the same recorded primary comparison policy."""
+    presentation = runpy.run_path(str(root / "paper/replay_palette.py"))
+    schedule, chroma, saved_primary = presentation["load_inputs"](root)
+    result = presentation["analyze_inputs"](
+        schedule, chroma, saved_primary,
+        primary_comparator=close_values if portable_numeric else None)
+    primary_check = assert_digest(
+        result["primary"], digest(saved_primary), "figures/palette_blocks.pdf:primary",
+        reference=saved_primary, portable_numeric=portable_numeric)
+    return presentation["figure_bytes"](result), primary_check
+
+
 def table_bridges(root, name, value, *, portable_numeric=False):
     """Re-render numerical display tables with their original writers, without plots."""
     from latent_art_bench.painter_distribution_revision_v1 import report as revised_report
@@ -968,19 +981,18 @@ def check_numeric(root, release_id, *, components=None, output=None, portable_nu
     if "figures" in selected:
         with tempfile.TemporaryDirectory(dir=root) as temp:
             target = Path(temp)
-            scripts = (
-                ("make_figures.py", ["--output-dir", str(target)]),
-                ("replay_palette.py", ["--figure", str(target / "palette_blocks.pdf")]),
-            )
-            for script, arguments in scripts:
-                old_argv = sys.argv
-                try:
-                    sys.argv = [script, *arguments]
-                    import matplotlib as mpl
-                    with mpl.rc_context(mpl.rcParamsDefault):
-                        runpy.run_path(str(root / "paper" / script), run_name="__main__")
-                finally:
-                    sys.argv = old_argv
+            old_argv = sys.argv
+            try:
+                sys.argv = ["make_figures.py", "--output-dir", str(target)]
+                import matplotlib as mpl
+                with mpl.rc_context(mpl.rcParamsDefault):
+                    runpy.run_path(str(root / "paper/make_figures.py"), run_name="__main__")
+            finally:
+                sys.argv = old_argv
+            with mpl.rc_context(mpl.rcParamsDefault):
+                raw, palette_primary_check = palette_figure_bytes(
+                    root, portable_numeric=portable_numeric)
+            (target / "palette_blocks.pdf").write_bytes(raw)
             challenge = root / "paper/figures/challenge_matrix.pdf"
             if challenge.exists():
                 from latent_art_bench.painter_measurement_validation_v1.report import figures
@@ -1002,10 +1014,13 @@ def check_numeric(root, release_id, *, components=None, output=None, portable_nu
                 same = path.read_bytes() == (root / "paper/figures" / path.name).read_bytes()
                 if not same and not portable_numeric:
                     raise ValueError("figure byte replay differs: " + path.name)
-                checks.append(dict(component="figures/" + path.name,
-                                   status="exact_pdf_match" if same else
-                                   "rendered_from_verified_inputs_platform_bytes_differ",
-                                   sha256=sha(path.read_bytes())))
+                figure_check = dict(component="figures/" + path.name,
+                                    status="exact_pdf_match" if same else
+                                    "rendered_from_verified_inputs_platform_bytes_differ",
+                                    sha256=sha(path.read_bytes()))
+                if path.name == "palette_blocks.pdf":
+                    figure_check["primary_numeric_check"] = palette_primary_check
+                checks.append(figure_check)
     return dict(status="partial_verified" if components else "verified", release_id=release_id,
                 selected_components=sorted(selected), checks=checks, environment=runtime(),
                 coverage=current_coverage(manifest["coverage"], challenge_figure=(
@@ -1239,6 +1254,10 @@ p-values and their Holm transforms. The diagnostic run showed exactly six final-
 differences, at most 5.551115123125783e-17, with all other leaves passing the original
 rule. Expected values/hashes are unchanged; receipts retain actual/expected differing
 p-values and the maximum error. This exception was not prospectively specified.
+Run 34424383262 then passed the numerical families but exposed an inner exact
+primary guard in the palette figure renderer. Portable figure replay now explicitly
+uses this same comparator and records its primary check alongside that PDF; the
+standalone renderer keeps its exact default and all input/block identity guards.
 Strict local replay still requires exact hashes. Figure byte differences on the portable path
 are reported as platform differences, not falsely called byte-identical reproduction.
 Dependencies may be downloaded during installation. During numerical analysis, a Python
