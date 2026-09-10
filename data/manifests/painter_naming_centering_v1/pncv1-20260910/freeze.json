@@ -1,0 +1,31 @@
+{
+  "bindings": {
+    "data/manifests/painter_naming_geometry_v1/pngv1-20260910/analysis.json": "f50be0f772a3bff8f4bc66ddc20f3e19b5c13736fd6cced632d80224e2203324",
+    "data/manifests/painter_naming_geometry_v1/pngv1-20260910/freeze.json": "54b265f2777f79822057492babb3a26ac491797ec3e45eef35f17315b85a4b5b",
+    "data/manifests/painter_naming_geometry_v1/pngv1-20260910/inputs.json": "eeb3890268a85885f372bdb494e29ab558c271749667fb7e264a7e30881733de",
+    "data/manifests/painter_naming_geometry_v1/pngv1-20260910/receipt.json": "f9313c4c1ae81c64d7cdb3ac609c0057eb9e98cc9b2b3cce836a7aabd62e7eb9",
+    "pyproject.toml": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8",
+    "src/latent_art_bench/painter_naming_centering_v1/__init__.py": "720102934ebfb6b377402b42956fc42f7ebd6fcbac44a99d2eae6e3d6f82b696",
+    "src/latent_art_bench/painter_naming_centering_v1/__main__.py": "a18937261cdcfa1fe3ceba1915f8369711111db5080852534d8eb3c05574b0ad",
+    "src/latent_art_bench/painter_naming_centering_v1/analysis.py": "87aad6e1cb2fc285f13d96deb0d89720b9200a2d3f2f4ab93dd8716dd98ba820",
+    "src/latent_art_bench/painter_naming_geometry_v1/__init__.py": "612bbab3fb691596541625bf7e2e0a89c9d98db1d93aaea5215c5685caf4f1ee",
+    "src/latent_art_bench/painter_naming_geometry_v1/__main__.py": "876ca9f9914feafe5b82453ad623ba247bb20b08c493496179f8769457cf6287",
+    "src/latent_art_bench/painter_naming_geometry_v1/analysis.py": "7a1b6c34ef078c32822f2a9a25d06815275d9386412354197fcc04e142b775b0",
+    "src/latent_art_bench/painter_naming_geometry_v1/geometry.py": "69ddb22d6c38ef979079e0743b61b6bf57a007bc366b58648546ceac46547b12",
+    "src/latent_art_bench/painter_naming_geometry_v1/inputs.py": "41a8c52900e7177a0608cc28e0c2c73fdd65fb5a8c4cc538d14fb5ca573f2262",
+    "src/latent_art_bench/painter_naming_geometry_v1/report.py": "1c369f18fb78d436235d8123153768c1dd3adbe7c702ee9cda1e2ff4da2a4704",
+    "src/latent_art_bench/painter_naming_geometry_v1/variance.py": "740c020cd66fe3c0fbb7c0ed2f0e72e8e7129167f8de92f188a4d91f842bb243",
+    "studies/painter_naming_centering_v1/PROTOCOL.md": "6b926a4497a247d89aa3e9d7333b61b25e386aa6d93b8b4fcf20fe6fbf1d18b3",
+    "studies/painter_naming_geometry_v1/PROTOCOL.md": "c76bf8615309d89c6ffeacf594983bf4beb5f989f1cc8ed30eb214147345274d",
+    "tests/painter_naming_centering_v1/test_analysis.py": "477a488bad0dfcf66922adda1fb4dbbf4e15a125da9d388de93d404d9438c834",
+    "tests/painter_naming_geometry_v1/test_analysis.py": "d82b4f19d3cc0d27fd2ba82c6187f90b3f7e18431550f2f64c258cb35b0cf1b7",
+    "tests/painter_naming_geometry_v1/test_geometry.py": "5a325ed53ade698685b87e41b4cb5a2764cd958576f43e74ab6ec988b65a0ca3",
+    "tests/painter_naming_geometry_v1/test_variance.py": "925b67490eb80c3db857ff9991781cb691f1300eef9f5f4b8246f7f598f53104",
+    "uv.lock": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+  },
+  "hypothesis_tests_added": 0,
+  "post_result": true,
+  "predecessor_run": "pngv1-20260910",
+  "recorded_git_commit": "c390eef639ef8770230243bf5989ef93c84ec8d6",
+  "run_id": "pncv1-20260910"
+}

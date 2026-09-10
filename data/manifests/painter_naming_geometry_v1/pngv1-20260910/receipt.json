@@ -1,0 +1,10 @@
+{
+  "freeze_sha256": "54b265f2777f79822057492babb3a26ac491797ec3e45eef35f17315b85a4b5b",
+  "new_images": 0,
+  "outputs": {
+    "data/manifests/painter_naming_geometry_v1/pngv1-20260910/analysis.json": "f50be0f772a3bff8f4bc66ddc20f3e19b5c13736fd6cced632d80224e2203324",
+    "reports/painter_naming_geometry_v1/pngv1-20260910/REPORT.md": "31a30614e52a74434e3477f2a193e787640dbac83205c687d68d2bd6478c8cfc",
+    "reports/painter_naming_geometry_v1/pngv1-20260910/naming_geometry.pdf": "c08cbe9d5fe24daec1d7901065a867ae993b9c072920d544d141424e0b4ed312"
+  },
+  "recorded_git_commit": "459c6a88a10a209ba22619dc38d616588da8817c"
+}
