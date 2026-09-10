@@ -308,7 +308,7 @@ These analyses are descriptive and do not select a preferred representation.
 
 A separately declared sensitivity addresses unequal subject mixtures in the
 references. Before inspecting the new feature outcomes, we specified equal
-weight for four previously recorded content classes within each painter, then
+weight for four previously recorded, metadata-derived content classes within each painter, then
 recomputed the reference contrasts and all model estimates. For example, water
 scenes are much more frequent in the Monet panel than in the Pissarro panel.
 Equal class weighting tests dependence on that broad mixture, without matching
@@ -551,6 +551,13 @@ recomputes reference means and $H$, and holds generated vectors and scaling
 fixed. It describes reference-panel dependence rather than all uncertainty
 jointly.
 
+The four-class reference sensitivity uses a fixed lexicon applied to source
+titles: water-organized, built-place-organized, route-organized, and open or
+wooded land. Each class mean receives one-quarter weight within a painter.
+Resampling within artist/class strata conditions on those labels and does not
+account for classification error. The older controlled naming panel used a
+separate three-class visual coding scheme, described below.
+
 The shared-effect diagnostic first averages each arm over scenes within repeat.
 Let $h_{ak}$ be the named-minus-free difference and
 $c_k=\frac14\sum_a h_{ak}$. The cross-repeat common and artist-specific squared
@@ -599,11 +606,10 @@ The later controlled naming panel selected Monet and C\'ezanne after the
 exploration. It crossed 24 scenes with three models, two clauses and three
 repeats; 142 additional short-scene outputs supplied two prompt-length
 comparisons. Reference panels contain 38 Monet and 32 C\'ezanne works.
-Their broad content classes were used for prespecified weighting. The recorded
-reference-class labels were coded with an LLM by the study maintainer, without
-independent human adjudication. The new class-balanced sensitivity reuses those
-labels; its reference bootstrap does not account for classification error.
-The primary artist-contrast analysis does not use class weights.
+Their water/built/land classes were visually coded with an LLM by the study
+maintainer, without independent human adjudication. The generated observations
+were weighted to these reference class proportions in the controlled comparisons.
+The new primary artist-contrast analysis does not use class weights.
 
 The six controlled named-minus-free energy changes were $-.846,-1.818$ for
 Nano Banana 2, $-.625,-.896$ for FLUX.2 Max, and $-.234,-.056$ for GPT Image 2
@@ -612,6 +618,13 @@ family of eight; the two GPT Image 2 contrasts did not. A separate 72-output
 FLUX follow-up repeated the directions with changes $-.695,-.952$ and
 adjusted rejection in its new four-endpoint family. These are repeated
 collections by the same investigators, not independent-investigator replication.
+
+The standalone generic-clause comparison randomized its two clauses within
+48 two-position blocks, two per scene. It used the 32-work C\'ezanne panel and
+water/built/land masses $(3,11,18)/32$ for each generated clause. Its two-sided Monte Carlo test used
+99,999 sign draws with the plus-one correction and a fixed threshold of .025.
+The test assumes exchangeability under within-block clause swaps: it tests a
+sharp no-effect null, not equality of energy discrepancies alone.
 
 Conditional variance and scene retrieval need not move together. In the
 controlled FLUX/Monet panel, naming reduced between-scene spread but increased

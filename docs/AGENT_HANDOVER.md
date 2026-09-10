@@ -50,6 +50,9 @@ for terminal measurement and all four replay views. The historical manifest has
 assumed it contained only valid records. The adapter preserves the intended panel
 without editing frozen source or retrying an old failed image. Completed historical findings and their contrary fixed-map
 transfer result remain, with operational details moved out of the main text.
+The new reference-content sensitivity uses the four historical title-lexicon
+classes inherited through the frame. Do not describe these as the later
+controlled panel's separate three-class LLM visual annotations.
 The user's Korean files remain untouched.
 
 ## Closed iteration and current boundary

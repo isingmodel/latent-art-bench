@@ -258,8 +258,10 @@ def build():
         "",
         f"Reference contrast H={h:.9f}; its color/spatial/texture shares are "
         f"{shares['color']:.4f}/{shares['spatial']:.4f}/{shares['texture']:.4f}.",
-        f"Equal-content reference target cosine with the original: "
+        f"Equal-class-weight reference target cosine with the original: "
         f"{balanced['target_cosine']:.6f}.",
+        "The reweighted target uses four historical title-lexicon classes and is conditional "
+        "on that metadata classification.",
         "models.csv includes common-square and reference-content sensitivity estimates. The "
         "separate JSONs retain all intervals, resampling summaries and reference counts.",
         "artists.csv retains energy, generic energy and spread for every model/painter cell. "

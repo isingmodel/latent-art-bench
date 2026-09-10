@@ -43,7 +43,8 @@ from a historical manifest that also preserves four older measurement failures.
 The frozen predecessor readers remain unchanged. An additional
 [reference-content sensitivity](../studies/painter_specificity_reference_v1/PROTOCOL.md)
 was declared before inspecting new outcomes and gives four coarse content classes
-equal weight within each painter.
+equal weight within each painter. These are historical title-lexicon classes,
+distinct from the later controlled panel's three-class visual annotations.
 
 The manuscript source has been rewritten around this design; its empirical
 results and conclusions remain explicitly pending. **The current `paper/paper.pdf`
