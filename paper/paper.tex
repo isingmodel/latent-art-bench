@@ -1364,8 +1364,10 @@ Archive & Included evidence\\
 \end{tabularx}
 \end{center}
 
-The fifth archive replays exactly on the maintainer's Mac; Ubuntu fails
-qualification before observed replay, with the differing field unidentified.
+The fifth archive replays exactly on the maintainer's Mac. Its strict Ubuntu
+replay fails; a separate diagnostic localizes qualification differences to
+support hashes and finds observed floating differences below $3\times10^{-15}$
+(Appendix~\ref{app:release}).
 Replay starts from measurements, not pixels. Raw artwork, generated images and
 response bodies are excluded, preventing feature re-extraction and independent
 acquisition authentication. Recorded delivery metadata are distinguished from
@@ -2231,15 +2233,24 @@ are not authenticated by the archive. No generation or extraction is invoked.
 Fresh local and anonymous-download environments on the maintainer's Mac replay
 all qualification and observed values exactly and each pass 75 tests. A single
 hosted Ubuntu attempt passes both inventory checks and the same 75 tests, but
-fails the complete qualification comparison before observed replay. Its logs
-do not identify the differing numerical field. Thus cross-platform replay of
-this addendum remains unestablished; the recorded failure is preserved without
-changing source, tolerances or outputs.
+fails the complete qualification comparison before observed replay.
+A separate diagnostic records all comparison fields and evaluates the observed
+analysis in a separate call. All 27 qualification failures concern
+reconstructed support hashes; the other 211 differing floats are within the
+existing tolerance, with maximum absolute difference $3.56\times10^{-15}$.
+The observed analysis differs in 156 floating values, by at most
+$2.67\times10^{-15}$, with all nonfloating fields unchanged. Its displayed
+scientific table is identical; only unrounded component values change in the
+report. The observed results agree under the supplemental
+floating comparison, but do not satisfy the original exact observed-result
+contract or reproduce support construction bytewise across platforms.
+The earlier run did not retain its reconstructed object. Both attempts and all
+original source, tolerances and outputs remain unchanged.
 
 \begingroup
 \footnotesize
 \raggedright
-\setlength{\bibsep}{1pt}
+\setlength{\bibsep}{0pt}
 \bibliographystyle{plainnat}
 \bibliography{references}
 \endgroup

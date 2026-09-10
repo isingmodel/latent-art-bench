@@ -1,7 +1,9 @@
 # Substantive academic revision: review record
 
-**Round 4 is complete: the nine-score mean is 8.9333/10 (80.4 ÷ 9). The user's
-strictly-greater-than-9 target has not been reached.** All scores remain exactly
+**Round 4 is complete: the nine-score mean is 8.9333/10 (80.4 ÷ 9), up from
+8.9000. The user then instructed us to finish the current iteration and stop if
+the score increased. That revised condition is met; the original
+strictly-greater-than-9 target was not reached.** All scores remain exactly
 as assigned under the unchanged [three-aspect rubric](../20260909_academic_review/RUBRIC.md)
 and requested [DeerFlow academic-paper-review skill](https://github.com/bytedance/deer-flow/blob/main/skills/public/academic-paper-review/SKILL.md).
 This aggregate is mutable; individual reviews and snapshots are immutable.
@@ -192,7 +194,8 @@ fresh local replay of all 27 qualification cells and the exact observed
 analysis/report, with 75 tests and final inventory checks. Anonymous-download
 replay also passes exactly on the same Mac. The single strict Ubuntu attempt
 fails qualification comparison before observed replay; its 75 tests and
-inventories pass, but the differing numerical leaf remains unidentified.
+inventories pass. Its reconstructed object was not retained; the later diagnostic
+supplies its own complete comparison, as recorded below.
 
 All three Round 4 reviewers read the complete 39-page manuscript, all appendices
 and nine figures, checked the 21 snapshot hashes and consulted targeted primary
@@ -201,15 +204,13 @@ the contrary outcome. The actual Ubuntu failure lowers practical reproduction
 scores; the new observations do not validate capture meaning, actual-service
 interval coverage or a general predictor of evaluator agreement.
 
-The next revisions clarify the full historical fits/full-cloud finite-repeat
-target versus the earlier fold evaluation and distinguish the same-template
-temporal FLUX collection from the new-scene panel. A separate read-only software
-diagnostic will identify the Ubuntu comparison failure before any portability
-remedy is proposed. The closed strict attempt, all original comparator thresholds,
-scientific sources and outputs remain unchanged. No additional collection,
-extraction, formal allocation qualification or retained-data sensitivity search
-is part of this revision. Editorial fixes and diagnostic work receive no
-automatic score increase.
+The completed wording revisions clarify full historical fits/full-cloud
+finite-repeat energy versus the earlier fold evaluation and distinguish the
+same-template temporal FLUX collection from the new-scene panel. The closed
+strict attempt, all original comparator thresholds, scientific sources and
+outputs remain unchanged. No additional collection, extraction, formal allocation
+qualification or retained-data sensitivity search is part of this closeout.
+Editorial fixes and diagnostic work receive no automatic score increase.
 
 The Round 4 wording corrections are applied in the 39-page working manuscript:
 the abstract is 201 words, the two later FLUX panels have distinct labels, and
@@ -220,3 +221,24 @@ whose pixels changed were rendered and inspected, including the archive guide
 at full size. The other 26 pages match the scored snapshot pixelwise. All nine
 figure files, bibliography and scientific outputs remain unchanged. These are
 unscored presentation corrections.
+
+## Final diagnostic and user-directed stop
+
+The separate [diagnostic and saved-output audit](../../../reports/paper_map_portability_diagnostic_v1/pmpdv1-20260910/REPORT.md)
+verify the exact public archive on both runtimes. Mac qualification/observed
+outputs are exact. The new Ubuntu diagnostic has 27 qualification failures,
+all reconstructed support hashes; other qualification differences are below
+3.56e-15. Its separately reached observed output differs only in 156 floats,
+by at most 2.67e-15. The displayed scientific table and all nonfloating fields
+are unchanged; exact observed JSON/report remain different. The final paper
+reports this supplemental comparison without calling it a pass of the original
+strict route. The diagnostic has 31 passing artificial tests and does not invoke
+collection, feature extraction or a formal qualification writer.
+
+The user then instructed us to finish the current iteration and stop if its
+score improved. Round 4's 8.9333 exceeds round 3's 8.9000, so no fifth review is
+started. The proposed fixed-support portability extension is deferred before
+qualified implementation, support export or replay. Its unused draft is outside
+active code, and no portable sidecar or successful repair is claimed. Final
+compilation, verification and release of this iteration's paper do not assign
+new scores. The original above-9 target was not achieved.

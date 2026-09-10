@@ -22,8 +22,10 @@ anticipated precision. This extension adds a two-row table, without new plots
 or refitted maps.
 
 The fixed three-reviewer score means are 8.2333, 8.6889, 8.9000 and **8.9333/10**
-across four completed rounds. The requested mean above 9 remains unmet;
-current corrections receive no automatic score change. Reviewers are maintainer-run LLM agents with disclosed
+across four completed rounds. The user instructed us to finish this iteration
+and stop once the score increased; round 4 meets that revised condition.
+The original mean-above-9 target was not reached, and final wording/diagnostic
+corrections receive no automatic score change. Reviewers are maintainer-run LLM agents with disclosed
 design/implementation involvement, not independent human peer reviewers.
 See the [review record](../docs/reviews/20260910_substantive_revision/REVIEW.md).
 

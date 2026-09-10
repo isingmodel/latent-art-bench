@@ -6,22 +6,26 @@ retention rules, [AGENT_HANDOVER.md](AGENT_HANDOVER.md) for operational boundari
 and [ANALYSES.md](ANALYSES.md) for computation and plotting commands.
 No terminal study is reopened, and both user-owned Korean files remain untouched.
 
-## Active paper-review goal
+## Paper-review iteration closed at the user's stopping condition
 
-The user requests three skeptical reviews and substantive paper/analysis revision
-until the unchanged nine-score average exceeds 9. Fixed aspects are scientific
+The original request was three skeptical reviews and substantive paper/analysis
+revision until the unchanged nine-score average exceeded 9. Fixed aspects are scientific
 rigor, contribution, and clarity/reproducibility, each scored 1–10.
 [Round 1](reviews/20260910_substantive_revision/REVIEW.md) averaged **8.2333**;
 round 2 averaged **8.6889**; round 3 averaged **8.9000**; round 4 averaged
-**8.9333**. The target remains unmet. Three reviewers completed the committed
+**8.9333**. The original threshold remains unmet. The user then instructed us to
+finish the current iteration and stop if the score had increased. Round 4 exceeds
+round 3, so that revised stopping condition is met; no fifth review or new
+research cycle is started. Three reviewers completed the committed
 [39-page Round 4 snapshot](reviews/20260910_substantive_revision/ROUND4_SNAPSHOT.json).
-All assigned scores are preserved in the linked review record. Current work
-clarifies interpretation and supplies an additive numerical-portability route,
+All assigned scores are preserved in the linked review record. Final corrections
+clarify interpretation and report the completed numerical diagnostic,
 without reopening the closed strict attempt or changing scientific evidence.
 The separate diagnostic is complete: all 27 qualification failures are support
 hashes; other qualification and observed floating differences are below 4e-15.
-The fixed-support portable route is being implemented under a separate contract;
-its success is not yet claimed.
+The fixed-support portable proposal is deferred before qualified implementation,
+support export or replay. Its unused agent draft is outside active code; no
+portable sidecar or successful new route is claimed.
 Reviewers are maintainer-run LLM subagents with disclosed subsequent design,
 implementation or writing involvement, not independent human/institutional reviewers.
 
@@ -105,9 +109,10 @@ now records 27 failing support hashes, 211 tolerated qualification floats and
 156 differing observed floats. All numeric differences are below 4e-15; the
 published scientific table is unchanged, while exact observed JSON/report checks
 still fail. The original attempt, scientific source and comparison contract are
-unchanged. A separate [fixed-support route](../studies/paper_map_portability_v1/DECISION.md)
-will preserve exact support/discrete identities and explicitly extend the existing
-1e-10 floating comparison to observed objects; it has not yet completed replay.
+unchanged. The separate [fixed-support proposal](../studies/paper_map_portability_v1/DECISION.md)
+would preserve exact support/discrete identities and extend the existing
+1e-10 floating comparison to observed objects. It is deferred at the user's
+stopping instruction, with no qualified implementation, support export or replay.
 The earlier exact replay of all nine active manuscript figures is
 unchanged. Historical evidence audit at `bd3c9ca`: **2,902 checks, zero failures**, with the same two old
 acknowledgements. Both geometry namespaces replay exactly. The historical audit

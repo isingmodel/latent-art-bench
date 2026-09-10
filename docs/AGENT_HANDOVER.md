@@ -7,18 +7,21 @@ original paths. The canonical English manuscript is [paper/paper.tex](../paper/p
 The [paper guide](../paper/README.md) covers compilation and visual inspection;
 [ANALYSES.md](ANALYSES.md) maps computation and plotting for each study.
 
-## Active goal and current boundary
+## Closed iteration and current boundary
 
-The user requests three skeptical LLM reviews using the DeerFlow academic-paper-
-review skill, substantive paper/analysis revisions and a nine-score mean above 9.
+The original request used the DeerFlow academic-paper-review skill, three
+skeptical LLM reviews, substantive revisions and a nine-score mean above 9.
 The fixed aspects are rigor, contribution and clarity/reproducibility, each 1–10.
 Round 1 averaged 8.2333; round 2 averaged 8.6889; round 3 averaged 8.9000;
-round 4 averaged 8.9333. The requested threshold remains unmet. All three reviewers
+round 4 averaged 8.9333. The original threshold remains unmet. The user's latest
+instruction is to finish the current iteration and stop if the score increased;
+the increase from round 3 meets that revised condition. No fifth review or new
+research cycle is authorized by this closeout. All three reviewers
 completed the [39-page Round 4 snapshot](reviews/20260910_substantive_revision/ROUND4_SNAPSHOT.json),
 including all appendices and nine figures. Current wording corrections and a
 separate Ubuntu diagnostic receive no automatic score increase. See the [review record](reviews/20260910_substantive_revision/REVIEW.md)
-for exact snapshots and scores. Do not inflate scores or claim the goal achieved
-before the honest mean exceeds the threshold. All reviewers are operated by the
+for exact snapshots and scores. Do not inflate scores or claim the original
+above-9 threshold was reached. All reviewers are operated by the
 maintainer and have disclosed subsequent design/implementation involvement.
 They are not independent human or institutional reviewers.
 
@@ -28,8 +31,11 @@ The displayed scientific table is unchanged. The original exact route remains
 failed. The separate [portable replay contract](../studies/paper_map_portability_v1/DECISION.md)
 uses support bytes that must match every pre-data hash and applies the existing
 1e-10 finite-float comparison to the observed object as a declared new contract.
-Implementation is in progress; do not claim successful portable replay yet or
-alter the frozen exporters/diagnostic/scientific results.
+The proposal is deferred at the user's stop instruction, before qualified
+implementation, support export or replay. The unused agent draft was moved to
+the ignored preparation directory; there is no active portable entry point.
+Do not resume that proposal without a new user instruction or alter the frozen
+exporters, completed diagnostic or scientific results.
 
 The current local English draft is 39 pages and unpublished. The latest published
 manuscript is the 36-page clause-release version; earlier assets remain immutable.
@@ -108,9 +114,11 @@ has 74 files and archive SHA256 `8688085fe001e6b45ca34f6d39a5979e3e762a2678cd5ec
 public root is `f38da21`, build source `bd3c9ca`. The
 [single hosted Ubuntu attempt](../reports/paper_map_validation_reproducibility_v2/pmv2r-20260910/HOSTED_REPORT.md)
 fails the qualification comparison before observed replay; all 75 tests and
-inventories pass. The differing field is unknown, so do not label the failure
-confirmed harmless roundoff. No rerun, source or tolerance change is allowed
-for that attempt. Earlier public assets and failed-v1 records remain unchanged.
+inventories pass. Its reconstructed object was not retained. The subsequent
+diagnostic records its own support-hash failures and floating differences below
+4e-15; it cannot recover the earlier discarded object or identify a particular
+backend operation as the cause. No rerun, source or tolerance change is allowed
+for the original attempt. Earlier assets and failed-v1 records remain unchanged.
 
 ## Completed scientific additions
 

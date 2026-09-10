@@ -50,10 +50,11 @@ passes exact fresh local and anonymous replay with 75 tests each. A single
 fails the qualification comparison before observed replay; its tests and
 inventory checks pass. A [separate diagnostic](reports/paper_map_portability_diagnostic_v1/pmpdv1-20260910/REPORT.md)
 localizes its own failure to support hashes and records floating differences below
-4e-15, with the displayed results unchanged. An additive portable route is in
-development; cross-platform replay under that route remains unverified. The fixed
+4e-15, with the displayed results unchanged. An additive portable proposal is
+deferred before support export or replay. The fixed
 round-4 score mean is **8.9333** after three full reviews of the 39-page
-version under the unchanged rubric. The target remains unmet. See
+version under the unchanged rubric, up from 8.9000. The user instructed us to stop
+after that increase; the original above-9 threshold was not reached. See
 [STATUS.md](docs/STATUS.md) for current manuscript integration and verification.
 
 The [four-painter exploration](reports/painter_distribution_exploration_v1/REPORT.md)
