@@ -6,12 +6,13 @@ texture with **31 interpretable features**. The current research asks how adding
 painter's name changes proximity to the reference distribution and variation
 among generated images.
 
-The project is in the **paper-correction phase**. The
+The **computational measurement-validation, temporal-replication and public
+numerical-reproduction follow-up is complete**. The
 [handover](docs/AGENT_HANDOVER.md) records completed work, current boundaries and
 the correction workflow; [STATUS.md](docs/STATUS.md) records integration and checks.
 
 Read the [English paper](paper/paper.pdf), its [source and build guide](paper/README.md),
-and the [complete revision report](reports/painter_distribution_revision_v1/pdrv1-numeric-20260907/REPORT.md).
+and the [analysis catalog](docs/ANALYSES.md).
 The paper begins with a **four-painter distributional analysis**: 649 references
 (297 Monet, 106 Sisley, 141 Pissarro and 105 Cézanne), 1,536 painter-conditioned
 outputs across three prompt methods, and 384 artist-free controls. This descriptive
@@ -48,6 +49,25 @@ and [current status](docs/STATUS.md); `make computational-responsiveness` replay
 published results offline. The earlier [v1 diagnostic](reports/painter_responsiveness_v1/prv1-diagnostic-20260908/REPORT.md)
 and its unperformed human-validation scope remain preserved.
 
+The [measurement challenge](reports/painter_measurement_validation_v1/pmvv1-20260910/REPORT.md)
+adds ten controlled image conditions on the 70 references and common-square
+measurements of all 1,006 Study 1 outputs. The specified transformations exceed
+the selected processing comparison on average, while revealing substantial
+texture sensitivity to resampling and overlapping feature-family responses.
+All eight naming/description contrast directions and the original four adjusted
+rejections persist under the common square. This is computational measurement
+characterization, without human style or independent-capture validation.
+The [fresh 264-image temporal follow-up](reports/painter_naming_replication_v1/pnrv1-20260910/REPORT.md)
+reproduces both FLUX naming directions (adjusted p=.00006/.00004); the two palette
+interactions remain unresolved. All outputs returned without retries, at a new
+reported OpenRouter cost of $5.04. The same maintainer collected this cohort; it
+is not independent-investigator replication. The [public numerical release](https://github.com/isingmodel/latent-art-bench/releases/tag/pprv1-20260910)
+passes 98 exact checks after anonymous download and 98 checks under its documented
+Ubuntu portability contract. Read the corrected `paper-r1.pdf` asset; the original
+archive is retained with an explicit erratum. See the
+[verification report](reports/paper_reproducibility_v1/pprv1-20260910/REPORT.md) and
+[STATUS.md](docs/STATUS.md) for access, scope and accounting.
+
 ## Reproduce
 
 Use the recorded **Python 3.13.11** runtime and `uv` for current evidence replay.
@@ -60,6 +80,8 @@ make four-painter-analysis
 make analysis
 make plots
 make computational-responsiveness
+make validation-check
+make replication-check
 make check
 make evidence
 ```
@@ -69,8 +91,8 @@ and retry presentation. `make analysis` and `make plots` cover Study 1 and its
 computational revision;
 `make computational-responsiveness` covers Study 2, retained-data retrieval and
 the quantile correction. These targets make no generation requests.
-`make figures-check` checks only the six manuscript figures without rewriting
-them. `make figures` rebuilds the six
+`make figures-check` checks the eight manuscript figures without rewriting
+them. `make figures` rebuilds the eight
 manuscript figures; `make paper` builds the PDF with Tectonic. See
 [the analysis catalog](docs/ANALYSES.md) for individual commands, inputs and outputs,
 and [the paper guide](paper/README.md) for rendering and visual checks.

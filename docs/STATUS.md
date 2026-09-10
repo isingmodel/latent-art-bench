@@ -1,161 +1,129 @@
 # Current status — 2026-09-10
 
-The project is in the **paper-correction phase**. The latest correction addresses
-three academic reviews under a fixed three-aspect rubric, preserving all four
-painters and the original primary analyses. It adds a missing coverage comparison,
-fuller methods and a compact-data palette replay with a descriptive block display. Collection and
-measurement remain complete; no collector is active. Work is on `codex/restore-four-artist-analysis`.
+The requested computational measurement validation, separate temporal replication,
+public numerical reproducibility and English paper update are complete. Work is on `codex/restore-four-artist-analysis`.
+No earlier terminal study is reopened. See [ARTIFACTS.md](ARTIFACTS.md) for retention
+rules and [AGENT_HANDOVER.md](AGENT_HANDOVER.md) for operational details.
 
-Before this correction, local `main` was fast-forwarded
-from `bdd57e9` to `ecc2c2b`, incorporating `research/pfg-v2-paper` and preserving
-every commit referenced by scientific evidence. No remote push was performed.
+## Current follow-up
 
-Use the [handover](AGENT_HANDOVER.md) for completed work and correction boundaries,
-the [paper guide](../paper/README.md) for editing/building, and the
-[analysis catalog](ANALYSES.md) for computation and plotting entry points.
-Current guidance is mutable; [ARTIFACTS.md](ARTIFACTS.md) governs retained evidence.
-
-The prior integration cleanup clarified Study 1 versus Study 2 replay commands, added
-`make figures-check`, consolidated current status and rewrote the handover.
-Frozen code, protocols and evidence retain their recorded paths; the approved
-English manuscript and both user-owned Korean files were byte-unchanged during
-that integration. The English paper has since restored four-artist coverage and
-received a full editorial revision; the Korean files remain untouched.
-
-## Manuscript and correction baseline
-
-The canonical English manuscript is [paper/paper.tex](../paper/paper.tex):
-**Painter Naming and the Distributional Gap Between Generated Images and
-Original Paintings**, with a [25-page PDF](../paper/paper.pdf) and seven vector
-figures. The current revision corrects the Deliège comparison, expands the
-feature/scaler and exploratory-prompt specifications, compares artist-free/named/
-real coverage in the main results, and displays all 24 Study 2 block interactions
-per painter. All four painters, all 24 exploratory
-cells, and the separate controlled cohorts remain included.
-The [academic review record](reviews/20260909_academic_review/REVIEW.md) contains
-the fixed rubric, all reviews, responses, version hashes and remaining scientific
-requirements. Three maintainer-run LLM reviewers assessed rigor, contribution and
-clarity/reproducibility; these are not external peer-review scores.
-The aggregate increased from **7.7222 to 7.8889/10**. The user's **>9 target remains
-unmet**: validation, independent replication and public access are substantive
-research/release requirements, not defects that wording alone can resolve.
-The [restoration review](reviews/20260909_four_painter_restoration.md) records
-the omission history, source checks and two skeptical maintainer-run LLM reviews.
-
-The earlier substantive revision `dd314ee` gives each controlled study its own methods and
-results, promotes painter alignment and matched-reference coverage, clarifies the
-evidence hierarchy, and shows all six scene-specific color interactions.
-
-The [scored review record](reviews/20260909_scored_review/REVIEW.md) preserves the
-three reviewers' findings and responses for the prior 19-page version. Its equal-weight mean increased from
-**7.8125 to 8.5417/10**; final reviewer means are 8.625, 8.500 and 8.500, with no
-unresolved blocking manuscript finding at that revision. These are maintainer-run LLM assessments,
-not external peer-review scores. They describe that revision, rather than serving
-as a gate for subsequent corrections or a score for the restored manuscript.
-
-The local Korean manuscript source and PDF are user-owned work and remain
-outside this cleanup. Public archival release of the scientific snapshot
-`28a9eb6` and external raw-media access remain pending; a local merge does not
-establish either.
-
-## Completed evidence
-
-| Component | State and interpretation |
+| Component | State and finding |
 | --- | --- |
-| [Four-painter exploration](../reports/painter_distribution_exploration_v1/REPORT.md) | 649 Monet/Sisley/Pissarro/Cézanne references, 1,536 painter-conditioned outputs and 384 artist-free controls. Main-text distribution analysis restored; all 24 full-feature trace ratios .206–.376, RBF balanced accuracy .940–.983. Post-hoc and separate from the controlled cohorts. |
-| [Four-painter reference controls](../reports/painter_distribution_study_v1/pdsv1-diagnostics-20260906/REPORT.md) | Matched-size generated/reference energy exceeds original/original medians for all four painters. Named medians are lower than artist-free medians only for Sisley; these pooled descriptive comparisons do not estimate the later controlled naming effect. |
-| [Study 1 controlled analysis](../reports/painter_distribution_study_v1/pdsv1-analysis-20260907/REPORT.md) | 1,006 generated images across three services, 70 Monet/Cézanne references and 221 development works. Preserve the original eight conditional randomization tests. Naming lowers primary energy discrepancy in all six service/painter cells; four reject after adjustment. |
-| [Study 1 computational revision](../reports/painter_distribution_revision_v1/pdrv1-numeric-20260907/REPORT.md) | Feature-view, variance, reference/scaler, painter-alignment, coverage and cross-service diagnostics. Aggregate contraction does not establish perceptual similarity or a causal mechanism. |
-| [Retained-data retrieval](../reports/painter_responsiveness_v2/prv2-oauth-20260908/diagnostics/REPORT.md) | Retrieval improves in two cells and declines in four despite between-scene contraction. FLUX/Monet improves from 44.4% to 59.7%. These fixed-feature descriptions are not new significance tests or human scene-adherence scores. |
-| [Study 2 color experiment](../reports/painter_responsiveness_v2/prv2-oauth-recovery-20260908/experiment/REPORT.md) | Sole primary run `prv2-oauth-recovery-20260908` completed 192/192 images: six fixed scenes, four style arms, two palettes and four repeats, with shared free/generic controls. Both primary named-minus-generic interactions remain unresolved. |
-| [Exact-weight quantile corrigendum](../reports/painter_responsiveness_quantiles_v1/prqv1-20260908/REPORT.md) | Corrects 51 primary and 15 ancillary descriptive medians. Primary inference, means, Wasserstein distances, 10th/90th percentile endpoints and range occupancy are unchanged. Original bundles remain preserved. |
-| [Earlier responsiveness v1](../reports/painter_responsiveness_v1/prv1-diagnostic-20260908/REPORT.md) | D0 diagnostic complete; human reference tasks have zero responses and the FLUX preflight is closed. Its human/reference prerequisites were not retroactively waived or fulfilled. |
+| [Measurement challenges](../reports/painter_measurement_validation_v1/pmvv1-20260910/REPORT.md) | **Complete**: 1,076 retained images verified; 1,706 vectors across ten reference conditions and common-square generated views. All three specified change-minus-processing comparisons are positive. All eight common-square contrast directions and the original four Holm rejections persist. |
+| [Temporal replication](../studies/painter_naming_replication_v1/PROTOCOL.md) | **Complete**: all 264 outputs measured in three pipelines. FLUX naming estimates −.695108/−.952024 reject in the new four-test family; palette estimates −.158648/+.036741 remain unresolved. No failures/retries; 64.3 minutes; source `88cd185`, freeze `2de6bc4`, run `pnrv1-20260910`. |
+| [Public numerical reproduction](../studies/paper_reproducibility_v1/README.md) | **Public and verified**: [release](https://github.com/isingmodel/latent-art-bench/releases/tag/pprv1-20260910), 98 exact fresh local/anonymous checks and 98 hosted Ubuntu checks under the documented portability contract. Seven Ubuntu figure PDFs match exactly; the challenge PDF has platform-dependent bytes. |
+| English paper | Measurement results, all four temporal endpoints and eight figures are integrated in the reviewed 32-page paper. Canonical files match the published paper-r1 assets, which clarify portability and one grammar point through an explicit erratum. Final visual QA and anonymous asset verification pass. |
 
-Study 2's Monet interaction is −0.284 (simultaneous family interval
-[−0.585, 0.016], Holm p=0.0649); Cézanne is −0.018 ([−0.343, 0.308],
-p=0.8886). The tested generic-minus-free contrast is secondary: −0.853
-(nominal 95% interval [−1.136, −0.570]). A JPEG sensitivity threshold crossing
-does not replace the prespecified result. The
-[scientific synthesis](../reports/painter_responsiveness_v2/REPORT.md) connects
-these results to the original/generated distributions and their limits.
+The measurement source was committed at `f3bc9b6`, its prospective 1,076-image
+inventory at `f2ab8de`, and its completed outputs and reviews at `994d247`.
+The [precollection review](reviews/20260910_validation_followup/PRECOLLECTION_REVIEW.md)
+and [measurement results review](reviews/20260910_validation_followup/RESULTS_REVIEW.md)
+record implementation checks and interpretation limits. All reviewers are
+maintainer-run LLM agents, not independent institutional or human reviewers.
 
-## Collection boundary and accounting
+The three change-minus-processing means are .157829 (color), .304921 (spatial)
+and 3.944537 (texture), with descriptive work-resampling intervals
+[.138636,.177929], [.238989,.373173] and [3.679809,4.186611]. The complete matrix
+also shows cross-family responses and substantial resampling sensitivity.
+Common-square processing changes visible content and does not establish
+independent-capture equivalence. No classifier was re-fitted on square views.
 
-The 49-image predecessor is ancillary and never pooled into primary inference.
-Its one complete HTTP 503 and 142 never-started slots remain recorded. The
-[prospective recovery protocol](../studies/painter_responsiveness_recovery_v1/PROTOCOL.md)
-created a disjoint replacement and qualified only that exact error form for
-bounded retries. Across both terminal collections there were 242 attempts,
-241 unique images and zero actual retries. See the
-[implementation guide](../studies/painter_responsiveness_v2/README.md) for the
-source/process bindings and recorded commits.
+The fresh naming Holm p-values are .00006 (Monet) and .00004 (Cézanne).
+Fresh palette intervals are [−.474955,.157659] and [−.262540,.336021], with
+Holm p-values .348844 and .726841; these are 98.75% marginal intervals in the
+new four-endpoint family. Neither unresolved palette result establishes equivalence.
 
-All 192 primary outputs were nonsquare despite a square request; 174 reported
-low quality and 18 medium despite a fixed medium request. These fields remain
-unfiltered. Findings concern the complete delivered-service response.
+The terminal numerical/report check reproduces all results exactly, and raw-response
+verification checks all 264 responses. The post-result integrity audit finds no exact
+encoded-file or normalized-array duplicates within the new cohort or against the
+1,006 original Study 1 and 192 primary Study 2 images. It verifies complete admission
+ordering, minimum admission spacing 5.00037 seconds and maximum concurrency two.
+These checks do not establish near-duplicate absence or independent backend states.
+All new OAuth images remain nonsquare; reported quality is medium for 31 and low
+for 161, with arm differences retained in the service-response estimand.
 
-No OpenRouter requests or charges were incurred in this follow-up or manuscript
-revision. Prior conservative accounting remains **$45.6819185 within the $75
-ceiling**; OAuth subscription usage has no assigned monetary value.
+## Accounting and collection boundary
 
-Terminal collections cannot be resumed or refilled. Frozen sources, tests,
-protocols, configurations and evidence stay at their recorded paths. Human
-ratings, independent capture replication and learned-feature validation remain
-unperformed. Paper correction does not reopen image acquisition or extraction.
+The cumulative OpenRouter ceiling is $75. Historical conservative accounting
+is **$45.6819185**, including a retained $5 reserve for an old cost-omitting error.
+A read-only account check found $9.3126443 available. The selected new paid
+allocation produced 72 FLUX images at a reported cost of **$5.04**; the 192
+OAuth outputs have no assigned subscription monetary value. The terminal receipt
+records no new unresolved reserve and conservative cumulative accounting of
+**$50.7219185**, including the retained historical $5 reserve.
+The larger initially proposed paid allocation was reduced before freezing the
+study, preserving all 24 scenes and both painters.
 
-## Verification
+The closed collector admitted at most two requests concurrently, with starts at
+least five seconds apart and complete blocks drained before the next. Its frozen
+contract allowed one retry per slot and at most eight total for qualified technical
+errors; none were needed. Unknown delivery, contract failures, a cluster of errors,
+budget/identity changes or the deadline would have stopped collection. The terminal
+run cannot resume or refill. Old and new observations are never pooled.
 
-The latest academic-review correction passed:
+Computational challenges validate response behavior, not human stylistic judgment.
+The temporal collection is performed by the same maintainer; it does not establish
+independent investigators, independently attested backend states or a population
+of service dates. Human ratings, independent capture validation and learned-feature
+comparisons remain unperformed. Canonical Protocol 2.1's full reproduction gates
+remain unchanged and unqualified.
 
-- **1,149 offline tests** (114.10 seconds) and Ruff, including 14 new compact-replay
-  tests. The two initial targeted runs passed 19 and 31 tests.
-- Both Study 2 primary rows replay exactly from three compact numeric inputs
-  with the unchanged inference implementation. An isolated input-root test
-  requires no raw archive. An additional reviewer independently checked all 48
-  block interactions and the recorded collection order.
-- All eight displayed equation bodies and ten prior table bodies are preserved
-  from `1fcbcc5`; the coverage table is added. The citation-key set and six prior
-  figure PDFs are unchanged. All seven current figures reproduce byte for byte.
-- Historical evidence audit: **2,902 checks, zero failures**, retaining the same
-  two prior acknowledgements. No frozen scientific input or source changed.
-- The **25-page PDF** builds without warnings and all pages received visual QA.
-  The final layout pass changes only paragraph grouping and bibliography
-  presentation. All 284 checked local links resolve; whitespace checks pass and
-  both Korean files retain their starting hashes. The review record preserves
-  the scored and final manuscript hashes and the remaining minor flow note.
+## Retained evidence used by the paper
 
-The earlier four-painter restoration checks passed:
+| Component | Completed scope |
+| --- | --- |
+| [Four-painter exploration](../reports/painter_distribution_exploration_v1/REPORT.md) | 649 references: Monet 297, Sisley 106, Pissarro 141, Cézanne 105; 1,536 named images and 384 artist-free controls. All 24 full-feature trace ratios .206–.376; RBF balanced accuracy .940–.983. Descriptive; two later retries do not restore the original incomplete-grid primary. |
+| [Four-painter reference controls](../reports/painter_distribution_study_v1/pdsv1-diagnostics-20260906/REPORT.md) | Matched-size generated/reference energy exceeds original/original medians for every painter. Pooled named medians are lower than artist-free medians only for Sisley; this is separate from the controlled naming effect. |
+| [Study 1](../reports/painter_distribution_study_v1/pdsv1-analysis-20260907/REPORT.md) | 1,006 generated images across three services, 70 Monet/Cézanne references, 221 development works. All six primary naming contrasts are negative; four reject in the original eight-test family. |
+| [Study 1 diagnostics](../reports/painter_distribution_revision_v1/pdrv1-numeric-20260907/REPORT.md) | Representation/reference sensitivities, painter alignment, spread, matched-real coverage and cross-service detection. |
+| [Scene retrieval](../reports/painter_responsiveness_v2/prv2-oauth-20260908/diagnostics/REPORT.md) | Improves in two cells and declines in four; contraction alone does not determine scene distinguishability. |
+| [Study 2](../reports/painter_responsiveness_v2/prv2-oauth-recovery-20260908/experiment/REPORT.md) | Sole primary color run: 192/192 outputs, six fixed scenes, four repeats, four arms and two palettes. Monet interaction −.284 [−.585,.016], Holm p=.0649; Cézanne −.018 [−.343,.308], p=.8886. Both unresolved; generic-minus-free −.853 is secondary. |
+| [Quantile correction](../reports/painter_responsiveness_quantiles_v1/prqv1-20260908/REPORT.md) | Corrected descriptive medians; primary inference, means, Wasserstein distances and range occupancy unchanged. |
 
-- Ruff and **1,135 offline tests** (113.56 seconds), following 19 targeted tests.
-- Exploration, Stage A and retry-presentation replay: **35 + 18 + 9 = 62 report
-  files**, with unchanged numerical results.
+Study 2's 49-image predecessor remains ancillary. Both earlier collections are
+closed; all 192 primary outputs were nonsquare despite square requests, and
+174 reported low quality and 18 medium despite a medium request. No filtering
+or adjustment removes these delivered-service differences.
+
+## Verification and manuscript history
+
+Current follow-up verification:
+
+- Measurement: 20 targeted tests; 1,076 raw hashes; 1,706 vectors; exact full numeric
+  replay. A separate calculation checks all 30 family means, three intervals and
+  eight energy estimates. All eight figures reproduce locally, and the corrected 32-page PDF builds and passes visual QA.
+- Replication: 33 targeted offline tests, including the complete 264-slot artificial
+  collection/measurement/replay and failure boundaries. A separate LLM reviewer
+  independently reran these tests before the freeze.
+- Full offline suite: **1,245 passed in 121.50 seconds**. Current runner settings
+  in `pytest.ini` resolve versioned test-name collisions and retain two legacy
+  helper import paths without changing frozen sources or `pyproject.toml`.
 - Historical evidence audit: **2,902 checks, zero failures**, with the same two
-  existing acknowledgements.
-- All six figure PDFs reproduce; the previous five are byte-unchanged. The
-  24-page manuscript compiles without warnings and passes complete visual QA.
-- All 316 checked local documentation links resolve; whitespace checks pass.
-  Both user-owned Korean manuscript files remain byte-unchanged.
+  earlier acknowledgements. This audit does not register the new namespaces;
+  their separate replay commands remain necessary.
+- Public package: 50 focused release/palette tests and 98 exact fresh-environment checks, including all eight figure bytes. All three full manuscript reviews are complete; local, hosted and anonymous verification pass.
 
-The [restoration review](reviews/20260909_four_painter_restoration.md) records
-verification and visual QA of the preceding 24-page revision. No new images or
-charges were incurred.
+The [completed follow-up reviews](reviews/20260910_validation_followup/REVIEW.md)
+score the corrected r1 paper at **8.4111/10** across nine aspect scores. All three
+reviewers found no remaining must-fix defect for the stated computational scope;
+the earlier >9 target remains unmet because substantive validity/generalization
+limits persist. These are maintainer-run LLM assessments, not external peer review.
 
-Prior integration checks are recorded in commit `e989cfb`; the earlier
-[computational review](reviews/20260908_computational_responsiveness/REVIEW.md)
-records numerical/report replay and visual checks of the color experiment.
+The preceding academic revision is documented in the
+[three-aspect review record](reviews/20260909_academic_review/REVIEW.md).
+Its maintainer-run LLM mean was 7.8889/10, below the requested >9; those scores
+apply to that earlier manuscript. The
+[four-painter restoration record](reviews/20260909_four_painter_restoration.md)
+explains why Sisley/Pissarro had been omitted from writing and how all their
+existing analyses were restored. Earlier reviews and scientific evidence remain
+at their recorded paths; historical detail is available in Git and those records.
 
-The historical evidence audit does not register responsiveness v2.
-`make computational-responsiveness` separately
-verifies the retrieval, primary replacement, ancillary predecessor and quantile
-correction: **74 report files** plus numerical calculations and input/output
-hashes, using the retained response archive. That full replay passed before the
-manuscript revision; no scientific inputs or implementations changed in cleanup.
-
-`make four-painter-analysis` covers the restored exploratory distributions and
-controls. `make analysis` and `make plots` cover Study 1 and its revision.
-`make palette-check` replays the two Study 2 primary results from compact data;
-its block signs and scene variance shares are new post-result descriptive summaries.
-It does not verify raw responses or feature extraction. `make figures-check`
-checks the seven editable manuscript figures.
-All replay targets are offline; the [paper guide](../paper/README.md) specifies
-the build and page-inspection workflow for the next correction.
+The canonical manuscript is [paper/paper.tex](../paper/paper.tex). Both user-owned
+Korean files remain untouched. Local `main` was previously fast-forwarded to
+`ecc2c2b`; the public remote still does not expose local scientific snapshot
+`28a9eb6`. The public release uses a sanitized branch and history-free archive, excluding
+original local research history. Its [verification report](../reports/paper_reproducibility_v1/pprv1-20260910/REPORT.md)
+records archive SHA256 `165ffbde…c6de4`, source commit `b2884c3` and public commit
+`2592dfb`. The original archive/paper asset remains unchanged; current canonical
+paper files match the additive `paper-r1.pdf` / `paper-r1.tex` assets and
+[explicit erratum](../reports/paper_reproducibility_v1/pprv1-20260910/PAPER_ERRATUM.md).

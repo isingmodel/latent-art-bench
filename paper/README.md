@@ -1,42 +1,22 @@
 # Research paper
 
 The canonical English manuscript is [paper.tex](paper.tex), compiled to
-[paper.pdf](paper.pdf), with [references.bib](references.bib). It restores the
-four-painter distributional analysis to the main text, followed by the separate
-two-painter controlled distribution study, scene-retrieval diagnostics and
-controlled color-response experiment. The current draft is 25 pages with seven
-vector figures.
-The latest correction adds the complete artist-free/named/real coverage comparison,
-corrects the nearest-literature description, expands feature and prompt definitions,
-and displays all 24 palette-interaction blocks for each painter. A compact-data
-replay reproduces both primary palette estimates and intervals. The original
-equations, ten table bodies and six figure PDFs remain unchanged.
-The [academic review record](../docs/reviews/20260909_academic_review/REVIEW.md)
-preserves three maintainer-run LLM reviews, the fixed three-aspect rubric,
-revisions and subsequent assessments. These are not external peer reviews;
-their scores are not evidence of measurement validity or publication acceptance.
-The current aggregate is **7.8889/10** (initially 7.7222), below the requested >9.
-The review record identifies the validation, replication and access work still
-required; further wording changes do not supply that evidence.
-Earlier drafts and the superseded paper are retained only in Git history.
-The [four-painter restoration record](../docs/reviews/20260909_four_painter_restoration.md)
-documents the omission history, restored evidence, two maintainer-run LLM reviews,
-table checks, replay of 62 report files and manuscript QA.
-The [scored manuscript reviews and responses](../docs/reviews/20260909_scored_review/REVIEW.md)
-record three maintainer-run LLM assessments of the **prior 19-page revision**
-under a fixed eight-aspect rubric. Its final average was **8.5417/10** (initially
-7.8125), with no blocking manuscript finding. These scores do not apply to the
-restored four-painter draft and are not external peer acceptance.
-The [earlier integration review](../docs/reviews/20260908_manuscript.md) remains
-historical. The current paper gives each study its own methods and results,
-promotes joint painter alignment and matched-reference occupancy, and shows all
-six scene-specific color interactions alongside the pooled intervals.
+[paper.pdf](paper.pdf), with [references.bib](references.bib). It retains the
+four-painter exploration, the separate controlled naming and palette studies,
+scene-retrieval diagnostics, computational measurement challenges and temporal
+follow-up. There are eight vector figures. Current collection/release status and
+final verification are recorded in [STATUS.md](../docs/STATUS.md).
 
-This is the build guide for the current paper-correction phase. Edit the English
-source, bibliography and presentation figures here; trace claims to the saved
-evidence listed below. The [handover](../docs/AGENT_HANDOVER.md) records completed
-work and scientific boundaries. The dated reviews describe their identified revision;
-their scores are not a gate for routine corrections. Preserve untracked user drafts.
+The new measurement section reports all ten transformations, their cross-family
+responses and all eight common-square contrast sensitivities. All four temporal endpoints are reported from the completed 264-image collection.
+Three full manuscript reviews, final visual QA and public-access verification are complete. Earlier drafts remain only in Git history. The
+[review index](../docs/INDEX.md) links preceding reviews; their scores describe
+those manuscript versions and are not external peer-review decisions.
+
+Edit only the canonical English manuscript and its presentation code here.
+Preserve the user-owned Korean drafts. Use the [analysis catalog](../docs/ANALYSES.md)
+to trace a claim to its immutable result; [ARTIFACTS.md](../docs/ARTIFACTS.md)
+specifies retention boundaries.
 
 ## Build and check
 
@@ -46,6 +26,8 @@ From the repository root, after `uv sync --locked --extra analysis --extra dev`:
 make paper          # Render figures and compile paper/paper.pdf with Tectonic
 make figures-check  # Check manuscript figures without rewriting them
 make palette-check  # Replay Study 2 primary inference using compact inputs only
+make validation-check # Replay controlled measurement challenges and square views
+make replication-check # Replay the separate terminal temporal collection
 ```
 
 `make_figures.py` verifies the hashes of eight published inputs: seven CSVs and
@@ -77,6 +59,14 @@ These checks do not verify raw responses, source pixels, feature extraction,
 service independence or public availability. The full archive checks are unchanged.
 The command was also tested with only these three data files in a temporary input
 root. Its code dependencies and locked Python environment are still required.
+The public package's portable check supplies its documented comparator for
+identified continuous Welch roundoff and records the primary comparison alongside
+the figure. The standalone command retains exact primary matching.
+
+`make_validation_figure.py` supplies the eighth figure, `challenge_matrix.pdf`,
+using the unchanged measurement report renderer and saved analysis. Its
+`--check` mode requires byte identity. The common-window appendix table reports
+all eight retained contrasts; the original full-view results remain unchanged.
 
 For temporary PNG previews of the six summary figures:
 
@@ -109,8 +99,8 @@ reference panel and a development scaler fitted on 221 works. Their controlled
 results are not pooled with the earlier four-painter cohort. The 49-image
 incomplete color-experiment predecessor remains ancillary and is not pooled
 into either primary cohort. The eight original
-conditional randomization tests, post-result diagnostics and two new model-based
-interaction tests remain distinct. Human judgments, independent capture
+conditional randomization tests, original two palette interaction tests,
+new four-endpoint temporal family and post-result diagnostics remain distinct. Human judgments, independent capture
 replication and learned-feature validation are unperformed.
 
 - [Four-painter exploration methods](../studies/painter_distribution_exploration_v1/METHODS.md)
@@ -125,6 +115,11 @@ replication and learned-feature validation are unperformed.
 - [Color experiment and inference](../studies/painter_responsiveness_v2/PROTOCOL.md)
 - [Primary color-response results](../reports/painter_responsiveness_v2/prv2-oauth-recovery-20260908/experiment/REPORT.md)
 - [Exact-weight quantile corrigendum](../reports/painter_responsiveness_quantiles_v1/prqv1-20260908/REPORT.md)
+- [Computational measurement protocol](../studies/painter_measurement_validation_v1/PROTOCOL.md)
+- [Measurement results](../reports/painter_measurement_validation_v1/pmvv1-20260910/REPORT.md)
+- [Temporal replication protocol](../studies/painter_naming_replication_v1/PROTOCOL.md)
+- [Temporal results](../reports/painter_naming_replication_v1/pnrv1-20260910/REPORT.md)
+- [Public numerical release guide](../studies/paper_reproducibility_v1/README.md)
 - [Analysis and plotting source map](../docs/ANALYSES.md)
 
 `make four-painter-analysis` replays the exploration, Stage A diagnostics and
@@ -140,14 +135,25 @@ terminal studies.
 
 ## Release and access status
 
-The project remote is <https://github.com/isingmodel/latent-art-bench>. The
-scientific snapshot cited by this draft is local commit `28a9eb6`; its public
-archival release is pending. The current manuscript source, Makefile and figure/
-numeric replay scripts postdate that snapshot and are supplied with this revision.
-The earlier scientific snapshot alone does not contain the current presentation
-targets. This correction does not publish or push either revision.
-Figure rebuilding and `make palette-check` require compact inputs; full
-computational-follow-up replay verifies separately retained
-raw-response bytes. Image-level remeasurement additionally needs retained image
-pixels. Those media are not publicly redistributed, and external access has
-not been arranged. The paper distinguishes these access boundaries explicitly.
+The [public release](https://github.com/isingmodel/latent-art-bench/releases/tag/pprv1-20260910)
+is verified through a fresh local replay, hosted Ubuntu execution and anonymous
+archive download/replay. The [verification report](../reports/paper_reproducibility_v1/pprv1-20260910/REPORT.md)
+links the actual receipts and scope. All 98 checks match exactly on the recorded
+macOS runtime; Ubuntu passes the documented floating comparison, with seven exact
+PDFs and platform-dependent challenge-figure bytes.
+
+The current canonical manuscript matches the additive `paper-r1.pdf` and
+`paper-r1.tex` assets. The [erratum](../reports/paper_reproducibility_v1/pprv1-20260910/PAPER_ERRATUM.md)
+clarifies the scoped Welch p-value comparison and one verb agreement. The original
+archive and original `paper.pdf` asset remain unchanged. Corrected TeX can be
+compiled alongside the original archive's manuscript, using the same figures and
+bibliography, without modifying any manifest-bound archive file.
+
+The adapter invokes unchanged scientific calculations from compact vectors,
+scalers, memberships and seeds, then checks direct report bridges and all figures.
+It includes both the measurement extension and the completed terminal replication
+extension. See the release guide for commands and
+explicit coverage. This supplies numerical reproducibility; feature re-extraction
+and private-response verification still require retained raw bytes. Source URLs
+and recorded license metadata are not guarantees of current raw-image access or
+permission to redistribute artwork.

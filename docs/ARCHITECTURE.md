@@ -2,7 +2,8 @@
 
 LatentArtBench is a Python package with versioned research namespaces. The current
 paper combines the original four-painter distributional exploration with two
-later controlled experiments and scene-retrieval diagnostics. All replay measured
+later controlled experiments, scene-retrieval diagnostics, computational measurement
+challenges and a separate temporal replication. All replay measured
 vectors and metadata offline. Historical acquisition
 and generation implementations remain as reproducibility dependencies.
 
@@ -29,10 +30,21 @@ Study 2: separate 192-image primary run + shared references/development scalers
     -> painter_responsiveness_quantiles_v1: descriptive quantile correction
        (also corrects the separate 49-image ancillary predecessor)
 
+Measurement follow-up: 70 references in ten conditions + 1,006 central-square generated views
+    -> painter_measurement_validation_v1: computational challenges and geometry sensitivity
+
+Temporal replication: 72 FLUX naming + 192 OAuth palette requests
+    -> painter_naming_replication_v1: separate cohort, original primitives, four primary tests
+
+Public numerical replay: allowlisted vectors, original functions, retained report bridges
+    -> tools/paper_release.py: isolated replay and history-free release archive
+
 Each analysis -> sealed numerical results in data/manifests/
               -> complete report tables and plots in reports/
 Selected saved tables -> paper/make_figures.py: six manuscript figures
-                      -> paper/paper.tex -> paper/paper.pdf
+Palette block data -> paper/replay_palette.py: seventh figure
+Measurement analysis -> paper/make_validation_figure.py: eighth figure
+All presentation -> paper/paper.tex -> paper/paper.pdf
 ```
 
 The revision checks consistency with the original primary endpoints. Its report
@@ -111,7 +123,8 @@ inputs and outputs; the root Makefile groups these commands by task.
 Large image bytes are not in Git. Replay does not require API credentials or model
 weights. Study 2 replay verifies raw-response hashes and therefore needs the
 retained local response archive. Image re-extraction additionally requires retained
-pixels and is outside the paper-correction phase. See
+pixels and an explicitly authorized measurement scope. The new measurement
+successor has that narrow authorization; its completed run cannot be restarted. See
 [ARTIFACTS.md](ARTIFACTS.md) before deleting anything in an ignored directory.
 
 ## Why older namespaces remain

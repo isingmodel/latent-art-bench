@@ -1,0 +1,148 @@
+{
+  "anonymous_download": {
+    "archive_bytes": 11851958,
+    "archive_members": 301,
+    "archive_sha256": "165ffbde2ba234e80a1da450f0e10453b127d79538317b6113ed8c145c6c6de4",
+    "checks": 98,
+    "downloaded_at_utc": "2026-09-10T01:25:57.137722+00:00",
+    "environment": {
+      "Pillow": "11.3.0",
+      "PyWavelets": "1.9.0",
+      "matplotlib": "3.11.1",
+      "module_versions": {
+        "pywt": "1.8.0"
+      },
+      "numpy": "2.5.2",
+      "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+      "python": "3.13.11",
+      "scikit-image": "0.26.0",
+      "scipy": "1.18.1",
+      "version_convention": "Named distributions use importlib.metadata.version; module_versions preserves any distinct module-level string."
+    },
+    "github_credentials_sent": false,
+    "http_status": 200,
+    "runtime_access": {
+      "blocked_file_basenames": [
+        "SystemVersion.plist"
+      ],
+      "checked_file_opens": 2726,
+      "network_attempts": 0,
+      "outside_file_attempts": 1,
+      "subprocess_attempts": 0
+    },
+    "schema": "anonymous-release-replay/1",
+    "scope": "Maintainer-run anonymous download and numerical replay; no pixel extraction or independent-investigator replication.",
+    "status": "verified",
+    "url": "https://github.com/isingmodel/latent-art-bench/releases/download/pprv1-20260910/pprv1-20260910.tar.gz",
+    "verification_sha256": "b6ab31b56f09b53eb41b136227f06e3f5349dc60ceea56a495de6bdcbd934c16",
+    "verified_at_utc": "2026-09-10T01:27:09.341216+00:00"
+  },
+  "archive": {
+    "bytes": 11851958,
+    "manifest_files": 299,
+    "name": "pprv1-20260910.tar.gz",
+    "regular_members": 301,
+    "sha256": "165ffbde2ba234e80a1da450f0e10453b127d79538317b6113ed8c145c6c6de4"
+  },
+  "build_source_commit": "b2884c3cbc1ec281dc9d4383b3aceed90d6eff90",
+  "corrected_manuscript": {
+    "assets": [
+      {
+        "asset": "paper-r1.pdf",
+        "bytes": 411812,
+        "http_status": 200,
+        "sha256": "dd7cca03dcd18a999b348577f65b28979d594654c577ec73037d8aa8456891bc",
+        "url": "https://github.com/isingmodel/latent-art-bench/releases/download/pprv1-20260910/paper-r1.pdf"
+      },
+      {
+        "asset": "paper-r1.tex",
+        "bytes": 95931,
+        "http_status": 200,
+        "sha256": "4abff8f0b31110746eb6ab4a6de5cdc9992847fa0f0383c3ebb06d3abcbb5535",
+        "url": "https://github.com/isingmodel/latent-art-bench/releases/download/pprv1-20260910/paper-r1.tex"
+      },
+      {
+        "asset": "PAPER_ERRATUM.md",
+        "bytes": 2005,
+        "http_status": 200,
+        "sha256": "d6a05f2a95900b1cff531f6f2210e1fd3a9270564a4c09caede803fa1cf8505e",
+        "url": "https://github.com/isingmodel/latent-art-bench/releases/download/pprv1-20260910/PAPER_ERRATUM.md"
+      }
+    ],
+    "checked_at_utc": "2026-09-10T01:31:43.723268+00:00",
+    "github_credentials_sent": false,
+    "status": "verified"
+  },
+  "earlier_hosted_runs": [
+    {
+      "outcome": "Failed strict p-value comparison; original failure retained.",
+      "run_id": 34423375314
+    },
+    {
+      "outcome": "Strict diagnostic revealed six continuous Welch/Holm copies differing at most 5.551115123125783e-17.",
+      "run_id": 34423830742
+    },
+    {
+      "outcome": "All numeric families passed; palette figure helper still required exact primary equality.",
+      "run_id": 34424383262
+    }
+  ],
+  "hosted": {
+    "checks": 98,
+    "exact_pdf_matches": 7,
+    "maximum_recorded_welch_p_absolute_difference": 1.1102230246251565e-16,
+    "numeric_policy": "Recorded 1e-10 absolute/relative tolerance, including expected-schema continuous Welch p-values; randomization and unknown p-values, identities/counts/decisions remain exact.",
+    "platform_pdf_byte_differences": [
+      "challenge_matrix.pdf"
+    ],
+    "run_id": 34425107886,
+    "status": "success",
+    "url": "https://github.com/isingmodel/latent-art-bench/actions/runs/34425107886"
+  },
+  "local_strict": {
+    "checks": 98,
+    "exact_pdf_matches": 8,
+    "receipt": "LOCAL_REPLAY.json"
+  },
+  "public_commit": "2592dfbe6667586e30d945119418bfefe24690ad",
+  "published_at_utc": "2026-09-10T01:25:30Z",
+  "receipt_files": {
+    "ANONYMOUS_REPLAY.json": {
+      "path": "ANONYMOUS_REPLAY.json",
+      "sha256": "b6ab31b56f09b53eb41b136227f06e3f5349dc60ceea56a495de6bdcbd934c16"
+    },
+    "HOSTED_VERIFICATION.json": {
+      "path": "HOSTED_VERIFICATION.json",
+      "sha256": "68298ef067ed78eb9053f8eb504680f963cfd5ff55f9262d27190af20b27cd09"
+    },
+    "LOCAL_REPLAY.json": {
+      "path": "LOCAL_REPLAY.json",
+      "sha256": "4994227ad1199fe8c9c56a3c4c83e763b1d200b1a6bfb596f1658a495f3577e4"
+    },
+    "PAPER_ERRATUM.md": {
+      "path": "PAPER_ERRATUM.md",
+      "sha256": "d6a05f2a95900b1cff531f6f2210e1fd3a9270564a4c09caede803fa1cf8505e"
+    }
+  },
+  "recorded_at_utc": "2026-09-10T01:32:44.531999+00:00",
+  "release_id": "pprv1-20260910",
+  "release_url": "https://github.com/isingmodel/latent-art-bench/releases/tag/pprv1-20260910",
+  "schema": "paper-publication-verification/1",
+  "scope": {
+    "external_investigator_replication": false,
+    "history": "Public branch contains only sanitized release-candidate history; original local research history and raw media are excluded.",
+    "human_perceptual_validation": false,
+    "independent_capture_validation": false,
+    "manuscript_correction": "Additive paper-r1.pdf/tex and PAPER_ERRATUM.md clarify portability and grammar; original archive and paper.pdf remain unchanged.",
+    "numerical_reproduction": true,
+    "public_feature_extraction": false
+  },
+  "screening": {
+    "copied_source_files_compared_with_commit": 294,
+    "generated_release_files": 5,
+    "pdf_files_screened": 9,
+    "status": "passed",
+    "unresolved_sensitive_findings": 0
+  },
+  "status": "publicly_verified"
+}

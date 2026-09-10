@@ -128,7 +128,7 @@ different conditioning and judgment procedures. Our comparison holds scene text
 fixed across naming conditions, linking distributional changes to a specified
 prompt intervention.
 
-\citet{asperti2026} reports human/generated separation in CLIP space and probe
+\citet{asperti2026} reports human/generated separation in CLIP space and probes
 it using interpretable descriptors, multiscale representations and image
 inversion. Their crop, resolution and encoding probes motivate attention to the
 measurement pipeline. The preprint also presents inversion examples with visually
@@ -1646,8 +1646,11 @@ The release README gives the complete command and platform settings.
 \texttt{COVERAGE.json} maps manuscript result families to recomputation or
 recorded-metadata status. Numerical replay uses the released inputs and installed
 runtime, with network and external-file access guarded. The portable comparison
-uses $10^{-10}$ absolute and relative floating-point tolerances while requiring
-exact identities, counts, $p$-values and scientific decisions. Platform-dependent
+uses $10^{-10}$ absolute and relative floating-point tolerances, including
+identified continuous Welch $p$-values and their Holm transforms. Identities,
+counts, randomization and other $p$-values, and scientific decisions remain exact.
+The release README records the Welch-specific comparator amendment made after
+cross-platform verification exposed final-bit differences. Platform-dependent
 PDF bytes are reported separately from numerical agreement. The original
 protocols and feature implementation are available for inspection; source
 pixels are outside the public package.

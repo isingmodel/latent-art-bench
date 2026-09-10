@@ -18,8 +18,10 @@ The [Makefile](../Makefile) provides the common entry points:
 | `make responsiveness` | Replay the earlier v1 responsiveness diagnostic JSON and all report bytes |
 | `make computational-responsiveness` | Replay v2 scene retrieval, both completed experiment bundles, the quantile correction and their report bytes |
 | `make palette-check` | Recompute Study 2 primary inference from committed chroma outcomes and the fixed schedule; no raw-response reads |
-| `make figures` | Rebuild seven editable manuscript figures from retained numeric inputs |
-| `make figures-check` | Check all seven manuscript figures without rewriting them or replaying full reports |
+| `make validation-check` | Replay the computational challenge and all eight common-square contrasts |
+| `make replication-check` | Replay the terminal temporal cohort from its retained measurements |
+| `make figures` | Rebuild eight editable manuscript figures from retained numeric inputs |
+| `make figures-check` | Check all eight manuscript figures without rewriting them or replaying full reports |
 | `make paper` | Rebuild figures and compile the manuscript; see [paper/README.md](../paper/README.md) |
 
 Numeric and report checks use temporary output and preserve the published bundles.
@@ -79,6 +81,45 @@ uv run --locked python -m latent_art_bench.painter_distribution_study_v1.main_re
 uv run --locked python -m latent_art_bench.painter_distribution_revision_v1.report_publication check
 uv run --locked python paper/make_figures.py --check
 ```
+
+## Measurement and temporal follow-up
+
+The September 10 successors preserve the original cohorts and scalers. The
+[measurement protocol](../studies/painter_measurement_validation_v1/PROTOCOL.md)
+fixes ten conditions on all 70 Study 1 references and central-square extraction
+on all 1,006 generated images. Its
+[pipeline](../src/latent_art_bench/painter_measurement_validation_v1/pipeline.py)
+verifies identities, extracts once and replays the calculations; its
+[statistics](../src/latent_art_bench/painter_measurement_validation_v1/statistics.py)
+compute paired processing challenges, descriptive work-bootstrap intervals and
+all original energy contrasts. The
+[report renderer](../src/latent_art_bench/painter_measurement_validation_v1/report.py)
+produces the [complete results](../reports/painter_measurement_validation_v1/pmvv1-20260910/REPORT.md).
+The editable [manuscript renderer](../paper/make_validation_figure.py) supplies
+the eighth figure from that saved analysis, with byte-for-byte checking.
+The frozen geometry figure uses the shorthand “generic” for the original
+short-scene named condition; the manuscript correctly labels it detailed minus
+short scene. Both conditions name the painter.
+
+The [temporal replication protocol](../studies/painter_naming_replication_v1/PROTOCOL.md)
+allocates 72 FLUX naming outputs and 192 OAuth palette outputs in a new collection.
+Its [collector](../src/latent_art_bench/painter_naming_replication_v1/collection.py)
+uses two bounded workers, spaced starts, fixed whole blocks and exact qualified
+retries. Its [analysis](../src/latent_art_bench/painter_naming_replication_v1/analysis.py)
+reuses the original energy and palette primitives with a new four-endpoint Holm
+family; [workflow](../src/latent_art_bench/painter_naming_replication_v1/workflow.py)
+separates collection, measurement, numerical replay and private-response checks.
+Operational completion is recorded in [STATUS.md](STATUS.md); live commands are
+never invoked by Makefile replay targets. The new collection is temporal
+replication by the same maintainer, without independent investigators or verified
+independent backend states.
+
+The [public reproduction adapter](../tools/paper_release.py) exports compact
+inputs and invokes unchanged scientific functions in an isolated environment.
+Its [release guide](../studies/paper_reproducibility_v1/README.md) distinguishes
+numerical replay, private-pixel verification and actual public access. The core
+export and each successor extension are separate create-once records, with no
+pooling or overwrite of original evidence. The [public verification report](../reports/paper_reproducibility_v1/pprv1-20260910/REPORT.md) records the completed archive, hosted and anonymous checks.
 
 ## Computational intervention without human ratings
 
@@ -228,3 +269,8 @@ introducing another Python dispatcher. Retained [scripts/](../scripts/) are
 freeze-bound collection launchers or compatibility aliases. They are not the
 place to add new analysis or plotting logic. For new scientific work, use a new
 study namespace and add its computation, renderer, inputs and replay here.
+
+Current pytest runner settings are in [pytest.ini](../pytest.ini). Importlib mode
+allows versioned studies to reuse test filenames; two legacy helper-import paths
+are retained explicitly. The old pyproject configuration is a frozen scientific
+input and remains unchanged.

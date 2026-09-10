@@ -7,7 +7,7 @@ that a file can be deleted.
 ## Current writing and code organization
 
 `paper/` contains the canonical English manuscript, bibliography, plotting script and
-six manuscript figures. These are editable presentation artifacts. Superseded
+eight manuscript figures. These are editable presentation artifacts. Superseded
 manuscripts and documentation snapshots live in Git history rather than duplicate
 working-tree directories. For example, historical methodology-review citations
 to the earlier paper can be resolved with:
@@ -31,6 +31,12 @@ The [analysis map](ANALYSES.md) connects every study to its computation, plottin
 inputs, methods and replay command. Scientific packages remain versioned at
 recorded paths. Rearranging a frozen package merely to shorten its name would
 break the evidence's path identities.
+
+The measurement and temporal successors use their own ignored workspace
+boundaries and append-only records. New transformed feature vectors do not
+replace original vectors. Public numerical exports are create-once core and
+extension bundles; their sanitized release excludes unique raw media and local
+Git history. A successful public numerical check does not verify absent pixels.
 
 ## Preserve terminal scientific evidence
 
