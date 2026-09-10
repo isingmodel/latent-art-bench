@@ -1,39 +1,37 @@
 # Research paper
 
 The canonical English manuscript is [paper.tex](paper.tex), compiled to
-[paper.pdf](paper.pdf), with [references.bib](references.bib). It retains the
-four-painter exploration, the separate controlled naming and palette studies,
-scene-retrieval diagnostics, computational measurement challenges and temporal
-follow-up. There are nine vector figures. The current substantive revision adds generated-only
-whole-scene moment maps, unchanged-map temporal transfer, finite-repeat correction
-and a separately specified evaluation-centering diagnostic. These use retained
-vectors only. The separate clause validation generated 211 images before stopping;
-its original endpoints are unavailable, and one final 96-output Cezanne/generic
-successor is complete. The new-scene comparison lowers primary energy by 1.195
-(p=.00001 at alpha .025) and gives a named/generic observed trace ratio of .552.
-Both directions persist in its two descriptive processing views.
-Current collection/release status and
-final verification are recorded in [STATUS.md](../docs/STATUS.md).
+[paper.pdf](paper.pdf), with [references.bib](references.bib) and nine vector
+figures. It retains the four-painter exploration, controlled naming and palette
+studies, scene retrieval, measurement challenges and temporal follow-up.
+Generated-only moment maps and evaluation centering diagnose the limits of a
+reference-proximity gain.
 
-The new measurement section reports all ten transformations, their cross-family
-responses and all eight common-square contrast sensitivities. All four temporal endpoints are reported from the completed 264-image collection.
-The preceding r1 reviews and public-access verification remain recorded. A fresh
-three-reviewer revision cycle has means of 8.2333, 8.6889 and **8.9000/10** across
-its three rounds; the requested threshold remains unmet. The manuscript
-implements reporting/access corrections and integrates the separate clause outcomes.
-Their [public numerical replay](../reports/paper_clause_reproducibility_v1/pcrv1-20260910/REPORT.md)
-is verified. The three reviewers read the complete 35-page round-3 version and
-all nine figures. Subsequent presentation fixes produce a 36-page manuscript:
-a comparison-unit guide, precise abstract wording, an exact runtime pin and a
-larger Figure 3. These fixes do not assign a new scientific score.
-The final PDF and standalone source are [published together](https://github.com/isingmodel/latent-art-bench/releases/tag/pcrv1-20260910).
-A fresh source build matches all 36 pages in text and pixels; anonymous asset
-downloads and the separate figure replay pass. The source archive has its own
-build instructions and leaves all numerical releases unchanged.
-The published geometry paper
-contains neither cohort. Earlier drafts remain in Git history. The
-[review index](../docs/INDEX.md) links preceding reviews; their scores describe
-those manuscript versions and are not external peer-review decisions.
+The prospective generic-clause successor uses 96 outputs on 24 new scenes;
+Cezanne naming lowers energy by 1.195 against the generic clause (p=.00001 at
+alpha .025). The stopped 288-slot predecessor retains its 211 images and
+unavailable original endpoints. Neither cohort is pooled with another.
+
+The separate [240-output fixed-map comparison](../reports/painter_map_validation_v2/pmv2-20260910/REPORT.md)
+uses 12 new FLUX/Cezanne scenes and ten paired repetitions per scene. Both
+reference energy and corrected conditional-mean mismatch favor unchanged
+translation/scaling, with approximate contrast intervals below zero. The
+historical opposing ordering does not transfer. The observed Q half-width 2.833
+exceeds the proxy median-width planning criterion 1.0, a retained limitation of
+anticipated precision. This extension adds a two-row table, without new plots
+or refitted maps.
+
+The fixed three-reviewer score means are 8.2333, 8.6889 and **8.9000/10** across
+three rounds. The new evidence is awaiting a complete fourth review; no score
+changes automatically. Reviewers are maintainer-run LLM agents with disclosed
+design/implementation involvement, not independent human peer reviewers.
+See the [review record](../docs/reviews/20260910_substantive_revision/REVIEW.md).
+
+The latest published manuscript remains the [36-page clause version](https://github.com/isingmodel/latent-art-bench/releases/tag/pcrv1-20260910);
+its immutable paper/source assets and earlier versions are preserved. The
+[fixed-map numerical addendum](https://github.com/isingmodel/latent-art-bench/releases/tag/pmv2r-20260910)
+is separate; it contains no manuscript assets yet. Current integration, public
+replay and final paper verification are recorded in [STATUS.md](../docs/STATUS.md).
 
 Edit only the canonical English manuscript and its presentation code here.
 Preserve the user-owned Korean drafts. Use the [analysis catalog](../docs/ANALYSES.md)

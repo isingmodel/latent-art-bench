@@ -1,0 +1,213 @@
+{
+  "archive": {
+    "bytes": 3059166,
+    "checksum_sha256": "32b25e0954eb7e28d22b598ac0d41f40eafc0c1305b52d16430daceef978089f",
+    "regular_files": 74,
+    "sha256": "8688085fe001e6b45ca34f6d39a5979e3e762a2678cd5ecb8169a698defb4eb6",
+    "url": "https://github.com/isingmodel/latent-art-bench/releases/download/pmv2r-20260910/pmv2r-20260910.tar.gz"
+  },
+  "commands": [
+    {
+      "argv": [
+        "/opt/hostedtoolcache/Python/3.13.11/x64/bin/python",
+        "-I",
+        "-S",
+        "tools/paper_map_validation_release.py",
+        "verify",
+        "--root",
+        "."
+      ],
+      "exit_code": 0,
+      "name": "preinstall-verify",
+      "seconds": 2.02035581399997,
+      "stderr": {
+        "file": "preinstall-verify.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "file": "preinstall-verify.stdout.log",
+        "sha256": "950f86f21892138f73145f0c04c7654d148f1777f73eee785d62b9dbe9099a2a"
+      }
+    },
+    {
+      "argv": [
+        "/opt/hostedtoolcache/Python/3.13.11/x64/bin/python",
+        "-m",
+        "pip",
+        "install",
+        "uv==0.9.28"
+      ],
+      "exit_code": 0,
+      "name": "install-uv",
+      "seconds": 1.879944332999969,
+      "stderr": {
+        "file": "install-uv.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "file": "install-uv.stdout.log",
+        "sha256": "c280ca23ce2c7b175ea19f2468645f9de528d466e641623c0aa4f29b5811527b"
+      }
+    },
+    {
+      "argv": [
+        "uv",
+        "--version"
+      ],
+      "exit_code": 0,
+      "name": "uv-version",
+      "seconds": 0.004689237999969009,
+      "stderr": {
+        "file": "uv-version.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "file": "uv-version.stdout.log",
+        "sha256": "00a05502c5045dd4c7ca74afb819192c04cb2cc0b10a4878feb333648e1bb5b7"
+      }
+    },
+    {
+      "argv": [
+        "uv",
+        "sync",
+        "--locked",
+        "--python",
+        "3.13.11",
+        "--extra",
+        "analysis",
+        "--extra",
+        "dev"
+      ],
+      "exit_code": 0,
+      "name": "locked-install",
+      "seconds": 1.9523643640000046,
+      "stderr": {
+        "file": "locked-install.stderr.log",
+        "sha256": "aeaaaabf2a10e5b34979747d4eac26f6696bcd01c9113592ae39c53598ee76cd"
+      },
+      "stdout": {
+        "file": "locked-install.stdout.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-I",
+        "-c",
+        "import json,platform,numpy,scipy; print(json.dumps({'python':platform.python_version(),'platform':platform.platform(),'numpy':numpy.__version__,'scipy':scipy.__version__},sort_keys=True)); numpy.show_config()"
+      ],
+      "exit_code": 0,
+      "name": "numerical-runtime",
+      "seconds": 0.46823241099997404,
+      "stderr": {
+        "file": "numerical-runtime.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "file": "numerical-runtime.stdout.log",
+        "sha256": "6a6e9cfbfd2c9760b5d563a8aaf7a3dd7925f313c1f01ea3d6803f37bc6ddc36"
+      }
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "tools/paper_map_validation_release.py",
+        "check",
+        "--root",
+        "."
+      ],
+      "exit_code": 1,
+      "name": "numerical-check",
+      "seconds": 31.014912557000002,
+      "stderr": {
+        "file": "numerical-check.stderr.log",
+        "sha256": "289a5eae287e2673f070472b974ea64f348a21129bc1392d7616f0079631680f"
+      },
+      "stdout": {
+        "file": "numerical-check.stdout.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-q",
+        "--import-mode=importlib",
+        "tests/test_paper_map_validation_release.py",
+        "tests/painter_map_validation_v2/test_analysis.py",
+        "tests/painter_map_validation_v2/test_analysis_oracle.py"
+      ],
+      "exit_code": 0,
+      "name": "public-tests",
+      "seconds": 164.72801752000004,
+      "stderr": {
+        "file": "public-tests.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "file": "public-tests.stdout.log",
+        "sha256": "259fc4376a4f893f3277c97f6f63374838f1fbaa10cab230cf1b093f96c790c9"
+      }
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-I",
+        "-S",
+        "-B",
+        "-c",
+        "import importlib.util,json,pathlib; p=pathlib.Path('tools/paper_map_validation_release.py'); s=importlib.util.spec_from_file_location('public_release',p); m=importlib.util.module_from_spec(s); s.loader.exec_module(m); print(json.dumps(m.verify(pathlib.Path('.'),runtime=True),sort_keys=True))"
+      ],
+      "exit_code": 0,
+      "name": "post-test-inventory",
+      "seconds": 2.0203561700000137,
+      "stderr": {
+        "file": "post-test-inventory.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "file": "post-test-inventory.stdout.log",
+        "sha256": "950f86f21892138f73145f0c04c7654d148f1777f73eee785d62b9dbe9099a2a"
+      }
+    }
+  ],
+  "completed_utc": "2026-09-10T12:07:55.059674+00:00",
+  "interpretation": "Numerical check failed: consult its exact recorded error stage. Do not infer support hashes alone caused failure or credit an observed replay the checker did not reach.",
+  "numerical_replay": "failed",
+  "observed_replay": "not_credited",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "post_test_inventory": "passed",
+  "preinstall_inventory_verified": true,
+  "public_manifest_sha256": {
+    "MAP_VALIDATION_RELEASE_MANIFEST.json": "186f1efd018420a2cbad1c2cd8e9ba0e9ebf7792703ea88373adfd3e93357d84",
+    "SHA256SUMS": "4d0a102c0c70c555431483375b6c64a77d2f18b6825adf104b80287259fb0f26"
+  },
+  "python": "3.13.11",
+  "release_id": "pmv2r-20260910",
+  "run_url": "https://github.com/isingmodel/latent-art-bench/actions/runs/34474649751",
+  "runner": {
+    "ImageOS": "ubuntu24",
+    "ImageVersion": "20260907.300.1",
+    "RUNNER_ARCH": "X64",
+    "RUNNER_OS": "Linux"
+  },
+  "schema": "paper-map-validation-hosted-replay/1",
+  "scope": "Maintainer-operated hosted numerical portability attempt; no private acquisition authentication or service validation.",
+  "started_utc": "2026-09-10T12:04:30.246540+00:00",
+  "status": "failed",
+  "tests": "passed",
+  "workflow_commit": "f38da21b7ea1c49b5cb5c1678a8410c65df19733"
+}

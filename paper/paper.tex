@@ -13,6 +13,7 @@
 \clubpenalty=10000
 \widowpenalty=10000
 \displaywidowpenalty=10000
+\brokenpenalty=10000
 \renewcommand{\topfraction}{0.9}
 \renewcommand{\bottomfraction}{0.8}
 \renewcommand{\textfraction}{0.08}
@@ -34,16 +35,17 @@ separate 70-work Monet/C\'ezanne panel. Against artist-free controls, naming low
 energy discrepancy in all six original comparisons, with four adjusted rejections;
 both FLUX effects recur later. A prospective 96-image C\'ezanne comparison also
 lowers discrepancy against a generic painting clause on 24 new scenes.
-A post-result analysis tests global translation and
-isotropic scaling fitted to generated training outputs. Actual naming is closer
-than the translation/scale benchmark in all six held-scene averages, but an
-unchanged translation alone gives lower discrepancy than actual naming for both
-painters in the later FLUX cohort. Thus even a recurring naming benefit does not
-uniquely imply recovery of reference variation. Adding scale lowers the
-repeat-corrected scene-mean prediction residual in all six cell averages, yet
-worsens reference proximity in five. A further benchmark holds the evaluation
-mean fixed and finds that the fitted scalar worsens proximity throughout the
-specified views. Repeat-corrected scene variance contracts,
+Post-result diagnostics fit global translation and isotropic scaling to generated
+outputs. Naming beats translation/scaling in all six held-scene averages, but
+unchanged translation alone is closer than naming for both painters in the later
+FLUX cohort. Adding scale lowers the
+repeat-corrected scene-mean prediction residual in all six original cell averages,
+yet worsens reference proximity in five; matching evaluation means retains a
+proximity penalty throughout the specified historical views. However, a
+prospective 240-image FLUX/C\'ezanne comparison on 12 new fixed scenes favors the
+unchanged translation/scaling map on both targets, with both approximate contrast
+intervals below zero. The historical opposition does not transfer to this panel.
+Repeat-corrected scene variance contracts,
 while scene retrieval changes in both directions. Both palette collections
 leave named-minus-generic differences in chroma response unresolved.
 Processing challenges and common-square sensitivity delimit the
@@ -81,6 +83,9 @@ Corrected variance, held-repetition retrieval, palette interventions and
 processing challenges test distinct interpretations of these proximity gains.
 A prospective C\'ezanne comparison extends the proximity result to a generic
 painting clause on 24 newly specified scene briefs.
+Separately, 240 new FLUX/C\'ezanne outputs test the unchanged maps on 12 further
+fixed scenes. Both reference energy and corrected scene-mean prediction favor
+translation/scaling over translation, so the historical opposition does not transfer.
 
 The contribution is an empirical test of what a painter-name proximity gain can
 and cannot establish in a repeated-prompt design. Conditional evaluation and
@@ -220,14 +225,19 @@ evaluation centering and finite-repeat correction; no additional hypothesis-test
 Generic-clause follow-up & 211 of 288 original outputs retained; separate 96-output
 C\'ezanne/generic cohort on 24 new scenes &
 Original comparisons unavailable; one prospectively fixed 48-pair successor
-test at $\alpha=.025$, without pooling or map evaluation.\\
+test at $\alpha=.025$, without pooling or map evaluation.\\[3pt]
+Prospective fixed-map comparison & 240 new FLUX/C\'ezanne outputs:
+12 fixed scenes $\times$ 10 repeats $\times$ 2 arms &
+Two prespecified translation/scaling-minus-translation contrasts with approximate
+simultaneous 95\% intervals; historical maps held fixed, without pooling or refitting.\\
 \bottomrule
 \end{tabularx}
 \caption{Design and evidence hierarchy. Exploratory collection: 5--6 September
 2026 UTC, including two later retries. Study~1 collection: 6--7 September 2026
 UTC; Study~2: 8 September 2026 UTC; temporal follow-up: 9--10 September 2026
-UTC; generic-clause follow-up: 10 September 2026 UTC. Painter selection followed earlier exploration,
-while both studies' primary contrasts were fixed before their generation.
+UTC; generic-clause and prospective fixed-map follow-ups: 10 September 2026 UTC.
+Painter selection followed earlier exploration; controlled primary contrasts and
+prospective follow-up endpoints preceded their respective generation.
 Sensitivity views reuse images; they are not independent replications.}
 \label{tab:design}
 \end{table}
@@ -700,16 +710,17 @@ reported quality is medium for 16 generic and six C\'ezanne outputs and low
 otherwise, despite identical square/medium requests. The contrast includes
 these delivery differences. Changing scenes, controls, time and repeat count
 also prevents attributing its larger magnitude than the original OAuth contrast
-to the generic clause alone. The successor has no free arm and does not evaluate
-global feature maps or conditional predictions; prospective map validation
-therefore remains unavailable. The following diagnostics address the separate question
-of what reference proximity establishes about generated variation.
+to the generic clause alone. This successor has no free arm and does not evaluate
+global feature maps or conditional predictions. The following diagnostics and
+their separate prospective comparison (Section~\ref{sec:prospective-maps}) address
+what reference proximity establishes about generated variation.
 
 \section{Can global feature transformations predict naming?}
 \label{sec:moment}
-The following comparisons use different observational units and weights
+The historical comparisons use different observational units and weights
 (Table~\ref{tab:comparison-units}); their numerical scales and sample counts
-are not interchangeable.
+are not interchangeable. The new fixed-map panel uses the weights in
+Table~\ref{tab:prospective-maps}.
 
 \begin{table}[tbp]
 \centering\small
@@ -750,7 +761,7 @@ query's class; each centroid uses the other two repeats
 & Each query $1/72$ (equal scene mass); accuracy is descriptive.\\
 \bottomrule
 \end{tabularx}
-\caption{Comparison units for the controlled panels and naming diagnostics.
+\caption{Comparison units for the earlier controlled panels and naming diagnostics.
 Here $N_p=38/32$ for Monet/C\'ezanne,
 $q_{pc}=N_{pc}/N_p$ is the reference content-class proportion, and $n_{pc}$
 counts generated images of class $c$ in the compared cloud. Counts describe
@@ -1018,13 +1029,68 @@ OAuth & Monet & 5.254 & 2.546 & 2.794 & 2.868\\
 \bottomrule
 \end{tabular}
 \caption{Predicting the named conditional means and approaching the references
-favor different maps. Both scores are lower-is-better, but have different units
+favor different maps in five original cell averages. Both scores are
+lower-is-better, but have different units
 and targets. Entries average four held-scene folds in the primary metric.
 $Q_T$ subtracts the repeat-noise contribution under its stated assumptions.
 The joint ordering occurs in 15 of 24 folds: adding scale lowers $Q_T$
 in 22 and raises energy in 16. All comparisons are descriptive.}
 \label{tab:targets}
 \end{table}
+
+\FloatBarrier
+\subsection{Prospective fixed-map comparison on new scenes}
+\label{sec:prospective-maps}
+A separate FLUX/C\'ezanne collection tests whether the opposing ordering
+transfers to 12 newly specified scene briefs: four each in water, built and land,
+with ten paired artist-free/named repetitions per scene. All 240 outputs were
+measured in the primary 512-pixel, 31-coordinate representation. The scaler,
+32 references and full original maps remain fixed; each map was fitted to all
+72 historical outputs per arm, rather than averaged across folds. No new fit or
+evaluation centering is applied. The two prespecified contrasts are
+\[
+  \Delta\E=\E(X,T_2F)-\E(X,T_1F), \qquad
+  \Delta Q=Q_{T_2}-Q_{T_1}.
+\]
+$\Delta\E$ targets the expected empirical V-statistic contrast at ten repetitions;
+$\Delta Q$ targets the difference in squared conditional-mean mismatch. The paired
+within-scene jackknife and pre-data precision redesign are specified in
+Appendix~\ref{app:moment}; delivery is summarized in
+Appendix~\ref{app:map-collection}.
+
+Both contrasts are negative, with both approximate simultaneous intervals
+excluding zero (Table~\ref{tab:prospective-maps}). Thus the unchanged
+translation/scaling map improves both evaluated targets relative to translation:
+the historical opposition does not transfer to this panel. The new comparison
+does not isolate a scalar effect, because the old free mean differs from the
+new cloud's mean and $T_2$ changes both its center and spread relative to $T_1$.
+Changed scenes and collection time also preclude attributing the different
+ordering to either alone.
+
+\begin{table}[!htbp]
+\centering\small
+\begin{tabular}{lrrrr}
+\toprule
+Target & Shift $T_1$ & Shift/scale $T_2$ & $T_2-T_1$ & Approximate interval\\
+\midrule
+Reference energy $\E$ & 1.671 & 1.280 & $-.390$ & $[-.509,-.271]$\\
+Conditional residual $Q_T$ & 6.950 & 1.903 & $-5.047$ & $[-7.880,-2.214]$\\
+\bottomrule
+\end{tabular}
+\caption{Prospective fixed-map comparison: 120 pairs on 12 fixed scenes,
+ten repetitions per scene. Each reference has mass $1/32$; class masses are
+$q=(3,11,18)/32$, each scene has mass $q_c/4$ and each image $q_c/40$.
+Two prespecified Bonferroni intervals aim at simultaneous 95\% coverage under
+stable errors independent across paired-repeat blocks; component scores are interpretation aids,
+without separate tests. Energy and $Q$ have different units.}
+\label{tab:prospective-maps}
+\end{table}
+
+The observed $Q$ interval half-width is 2.833, exceeding the planning limit 1.0
+for baseline proxy median half-widths. Qualification under the 27 specified finite
+proxy laws did not bound a realized interval's width or guarantee service coverage.
+The wider uncertainty is retained under the planned procedure; it triggers
+neither extra sampling nor retrospective disqualification.
 
 \subsection{Contraction need not reduce scene distinguishability}
 We classify each held-out Study~1 detailed named or artist-free repetition by
@@ -1047,7 +1113,7 @@ FLUX/Monet improves from 44.4\% to 59.7\%, although its equal-scene
 between-description trace falls to .336 of the artist-free value. Its retrieval
 gain remains positive under all three pipelines, including within-class
 candidate restriction. This example shows that lower between-scene spread can coexist with better
-retrieval in the observed collection. Transfer to new scenes or service runs
+retrieval in the observed collection. Retrieval transfer to new scenes or service runs
 remains untested.
 
 The changes are heterogeneous. For C\'ezanne, accuracy declines from 66.7\% to
@@ -1173,15 +1239,22 @@ digital references; the separate controlled intervention shows that naming can
 reduce them. The map comparisons test what this proximity gain establishes about
 generated variation.
 
-Reference proximity and conditional prediction favor different maps
-(Table~\ref{tab:targets}): adding scale reduces corrected mismatch to named scene
-means in all six primary cells, yet worsens reference energy in five. Holding
-the evaluation means equal retains the scalar's proximity penalty
+Reference proximity and conditional prediction favor different maps in the
+original held-scene comparisons (Table~\ref{tab:targets}): adding scale reduces
+corrected mismatch to named scene means in all six cells, yet worsens reference
+energy in five. Holding the evaluation means equal retains the scalar's proximity penalty
 (Table~\ref{tab:centering}), so center choice alone does not account for it.
+
+That opposition does not transfer to the new 12-scene C\'ezanne panel: the
+unchanged translation/scaling map lowers both reference energy and corrected
+prediction residual (Table~\ref{tab:prospective-maps}). The historical finding
+therefore demonstrates a possible disagreement between the targets, not a
+general incompatibility. Because the fixed maps also differ in their centers on
+the new panel, this comparison does not retest the common-center scalar path.
 
 The cohort comparison provides a complementary constraint. Actual naming beats
 translation/scaling in the six primary held-scene averages, whereas unchanged translation
-alone is closer than actual naming in the later primary FLUX view
+alone is closer than actual naming in the earlier temporal FLUX view
 (Figure~\ref{fig:moment}). Lower discrepancy therefore does not uniquely favor
 the named collection's variation. Transformed coordinates need not be feasible
 paintings, and their performance does not identify the service's internal
@@ -1223,24 +1296,27 @@ below its free control. The later Monet/C\'ezanne contrasts use different panels
 prompts and services and do not supersede that ordering. The two painters were
 selected after exploration; broad classes are maintainer-LLM annotations and
 requested scene content is not independently verified adherence. The prospective
-C\'ezanne/generic comparison uses new scene briefs, but the map and retrieval
-diagnostics reuse the original templates. Their transfer to new scenes or artists
-remains untested. A proposed new-scene fixed-map comparison was stopped before
-generation because none of three allocations met its prespecified offline
-precision criteria (Appendix~\ref{app:moment}). This planning result supplies no
-new evidence about map transfer.
+clause and fixed-map comparisons use new authored briefs, without probability
+sampling of scenes or evidence that their semantic content was unseen in model
+training. The fixed-map comparison covers only FLUX/C\'ezanne; retrieval transfer
+remains untested. Its initial precision proposal stopped without generation,
+and a separately declared pre-data redesign passed the unchanged proxy criteria
+(Appendix~\ref{app:moment}). The wider observed $Q$ interval illustrates the
+limited predictive scope of that finite proxy calculation.
 
-The original and temporal primary families were specified before collection;
-the map and variance diagnostics followed observed results. Their fold and
-scene-deletion stability does not give calibrated population uncertainty.
+The original and temporal primary families and new-scene endpoints were
+specified before their collection; the historical map and variance diagnostics
+followed observed results. Their fold and scene-deletion stability does not give
+calibrated population uncertainty.
 Service carryover could violate primary randomization assumptions, while repeat
-correction and palette intervals require stable independent errors. All
+correction, palette intervals and the prospective jackknife require stable
+independent errors. Randomized request order does not establish these assumptions. All
 collections and LLM reviews were operated by the same maintainer. No independent
 investigator replication, human style validation or learned-feature comparison
 has been performed.
 
-Prospective map validation requires a design that supports the precision needed
-for both evaluation targets; capture validation requires documented independent
+Transfer beyond the new fixed panel and reliable prediction of prospective
+uncertainty remain open; capture validation requires documented independent
 photographs of the same works. Intermediate palette levels and several generic
 clauses could distinguish response slopes from shifts or saturation. These are
 distinct unresolved questions; more images from the current templates alone
@@ -1255,7 +1331,10 @@ temporal transformation comparisons qualify its interpretation: actual naming
 outperforms global translation/scaling in all six primary held-scene averages, but a fixed
 translation alone is closer to both painting panels in the later primary view.
 Matching the evaluation means leaves a proximity penalty for the fitted scalar
-throughout the specified feature and processing views.
+throughout the specified historical feature and processing views.
+On 12 new fixed scenes, however, the unchanged translation/scaling map improves
+both reference energy and corrected scene-mean prediction relative to translation.
+The historical opposing ordering is therefore contingent on the evaluated cohort.
 Repeat-corrected contraction, heterogeneous retrieval and evaluator disagreements
 show that proximity is not a substitute for conditional organization. Together
 with the retained Monet, Sisley, Pissarro and C\'ezanne exploration, these results
@@ -1263,7 +1342,7 @@ characterize prompt-dependent differences from digital painting distributions
 without claiming perceptual equivalence or an identified generative mechanism.
 
 \section*{Data and code availability}
-Four versioned archives provide protocols, source code, locked dependencies,
+Five versioned archives provide protocols, source code, locked dependencies,
 compact measurements, scalers, prompts, memberships and reports. The source
 catalog records work identities, URLs and license metadata. The
 \href{https://github.com/isingmodel/latent-art-bench/releases/tag/pprv1-20260910}{original package}
@@ -1276,7 +1355,10 @@ preserves the failed original cohort's unavailable endpoints and the successful
 C\'ezanne/generic cohort separately, without pooling. The
 \href{https://github.com/isingmodel/latent-art-bench/releases/tag/pmrv1-20260910}{precision addendum}
 records the failed initial offline qualification: no allocation was selected
-and no images were collected in that proposal.
+and no images were collected in that proposal. The
+\href{https://github.com/isingmodel/latent-art-bench/releases/tag/pmv2r-20260910}{prospective fixed-map addendum}
+preserves the separate passing qualification and replays the two contrasts on
+the complete 240-image panel, including their paired deletion estimates.
 
 Checksums bind each archive; Appendix~\ref{app:release} gives reproduction
 commands and contracts. Replay starts from retained measurements. Raw artwork,
@@ -1368,6 +1450,16 @@ generation; at most two requests were active, recorded starts were at least five
 seconds apart and blocks drained before the next. All 96 outputs returned in
 45.5 minutes and yielded measurements in all three pipelines. The successor
 provides the sole new-clause primary result reported in Section~\ref{sec:clause}.
+
+\subsection{Prospective fixed-map collection}\label{app:map-collection}
+The 240-output FLUX/C\'ezanne collection retains Study~1's prompt scaffold and
+requested route, with new scene briefs and no rendering seed. Pair order and
+free/named positions within pairs were independently randomized before collection.
+All 240 requests succeeded without retries in 90.7 minutes, returning
+$1024\times1024$ RGB PNGs; all yielded primary measurements. The source, identity,
+timing, budget and complete-grid restrictions were satisfied. Responses supplied
+no independent backend-checkpoint identifier. Randomized order and complete
+delivery do not establish stationary independent service errors.
 
 \subsection{Exploratory prompt construction}\label{app:exploratory-prompts}
 Let $S$ be the unchanged artist-free scene sentence, beginning ``An oil painting
@@ -1963,7 +2055,7 @@ Equation~\ref{eq:corrected}. No truncation is applied to negative $B^*$.
 Synthetic known-map and heteroscedastic-error checks validate the implementation;
 they do not verify these assumptions for the delivered services.
 
-All sensitivity cells retain the same folds and identities. The later-cohort
+All sensitivity cells retain the same folds and identities. The historical temporal-cohort
 analysis fits each map once on the original FLUX scenes and holds it fixed during
 the 24 later-scene deletions. It cannot estimate a new repeat variance with one
 image per scene/arm. The complete export includes fitted means/scalars, fold
@@ -1987,7 +2079,7 @@ repetitions per scene, retaining the maps, proxy laws, interval procedure and
 criteria. All 27 coverage checks and nine baseline precision checks passed:
 the smallest one-sided coverage lower bound was .97065, and baseline median
 half-widths ranged from .06652 to .07347 for energy and .64586 to .86259 for
-$Q$. No interval was unavailable in either version. The lower-bound floor .94,
+$Q$. No simulated interval was unavailable in either version. The lower-bound floor .94,
 Monte Carlo tail $.05/81$ and baseline width limits .25/1.0 remained fixed;
 no combined confidence claim is made across the two versions. These tolerances
 are planning criteria informed by historical results, not meaningful-effect
@@ -2075,7 +2167,8 @@ protocols and feature implementation are available for inspection; source
 pixels are outside the public package.
 
 The additive geometry archive supplies both complete versioned protocols and
-an independent replay route for Sections~6--7. After checking its archive
+a separate replay route for the historical map and centering diagnostics in
+Sections~6--7. After checking its archive
 checksum, verify the extracted inventory before installing the locked runtime:
 \begin{verbatim}
 python tools/paper_geometry_release.py verify --root .
@@ -2100,7 +2193,7 @@ The first command checks the inventory using only the standard library; the
 last recomputes both clause cohorts with their unchanged eligibility rules,
 assigned weights and seeds. Original unavailable outcomes remain unavailable.
 This separate package neither invokes the generation workflow nor checks the
-other two releases. Its README lists the included numerical and package tests.
+earlier releases. Its README lists the included numerical and package tests.
 
 The failed precision qualification is independently downloadable as a fourth
 archive. After checking its detached archive checksum, run:
@@ -2115,6 +2208,29 @@ anonymous-download environments on the maintainer's Mac match every value and
 pass 73 tests. Exact hashes of reconstructed floating-point supports additionally
 constrain portability; this is not a separate-investigator or cross-platform
 replication of the qualification.
+
+The fifth archive contains the separate R10 qualification and prospective
+fixed-map comparison. From its extracted root, run:
+\begin{verbatim}
+python -I -S tools/paper_map_validation_release.py verify --root .
+uv sync --locked --python 3.13.11 --extra analysis --extra dev
+uv run --locked python tools/paper_map_validation_release.py check --root .
+\end{verbatim}
+The public adapter replays all 27 qualification cells and the unchanged
+observed analysis, including complete-row eligibility, fixed-scaler equality,
+components, paired deletions, variances and intervals. Qualification floats use
+a $10^{-10}$ absolute/relative tolerance; counts, identities, seeds, decisions
+and reconstructed support hashes are exact. Observed analysis and report must
+match exactly. The public eligibility flags attest to locally verified
+collection records; absent response costs, transport timing and image acquisition
+are not authenticated by the archive. No generation or extraction is invoked.
+Fresh local and anonymous-download environments on the maintainer's Mac replay
+all qualification and observed values exactly and each pass 75 tests. A single
+hosted Ubuntu attempt passes both inventory checks and the same 75 tests, but
+fails the complete qualification comparison before observed replay. Its logs
+do not identify the differing numerical field. Thus cross-platform replay of
+this addendum remains unestablished; the recorded failure is preserved without
+changing source, tolerances or outputs.
 
 \begingroup
 \footnotesize

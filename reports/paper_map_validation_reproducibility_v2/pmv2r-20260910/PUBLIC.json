@@ -1,0 +1,318 @@
+{
+  "anonymous_replay": true,
+  "archive": {
+    "bytes": 3059166,
+    "checksum_path": "tmp/paper-map-validation-release/numerical-anonymous-01/downloads/pmv2r-20260910.tar.gz.sha256",
+    "checksum_sha256": "32b25e0954eb7e28d22b598ac0d41f40eafc0c1305b52d16430daceef978089f",
+    "path": "tmp/paper-map-validation-release/numerical-anonymous-01/downloads/pmv2r-20260910.tar.gz",
+    "sha256": "8688085fe001e6b45ca34f6d39a5979e3e762a2678cd5ecb8169a698defb4eb6"
+  },
+  "archive_unchanged": true,
+  "build_source_commit": "bd3c9ca1261541f523617f9c8ed908db3acaac2d",
+  "commands": [
+    {
+      "argv": [
+        "{checkout}/.venv/bin/python3",
+        "-I",
+        "-S",
+        "tools/paper_map_validation_release.py",
+        "verify",
+        "--root",
+        "."
+      ],
+      "cwd": "tmp/paper-map-validation-release/numerical-anonymous-01/extracted/pmv2r-20260910",
+      "exit_code": 0,
+      "logs": {
+        "stderr": {
+          "path": "tmp/paper-map-validation-release/numerical-anonymous-01/logs/preinstall-stdlib-verify.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "path": "tmp/paper-map-validation-release/numerical-anonymous-01/logs/preinstall-stdlib-verify.stdout.log",
+          "sha256": "950f86f21892138f73145f0c04c7654d148f1777f73eee785d62b9dbe9099a2a"
+        }
+      },
+      "name": "preinstall-stdlib-verify",
+      "seconds": 0.8009631250752136,
+      "started_at_utc": "2026-09-10T12:04:22.500662+00:00",
+      "stderr": "",
+      "stdout": "{\"files\": 74, \"private_collection_authenticated\": false, \"status\": \"verified\"}\n"
+    },
+    {
+      "argv": [
+        "uv",
+        "sync",
+        "--locked",
+        "--python",
+        "3.13.11",
+        "--extra",
+        "analysis",
+        "--extra",
+        "dev"
+      ],
+      "cwd": "tmp/paper-map-validation-release/numerical-anonymous-01/extracted/pmv2r-20260910",
+      "exit_code": 0,
+      "logs": {
+        "stderr": {
+          "path": "tmp/paper-map-validation-release/numerical-anonymous-01/logs/locked-install.stderr.log",
+          "sha256": "3d54b1e6e1404b090f4e5ca7a0b8d1dcf01b70ce14122ef8754a63292ef213cf"
+        },
+        "stdout": {
+          "path": "tmp/paper-map-validation-release/numerical-anonymous-01/logs/locked-install.stdout.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "name": "locked-install",
+      "seconds": 0.4864978340920061,
+      "started_at_utc": "2026-09-10T12:04:23.316160+00:00",
+      "stderr": "warning: `VIRTUAL_ENV={checkout}/.venv` does not match the project environment path `.venv` and will be ignored; use `--active` to target the active environment instead\nUsing CPython 3.13.11\nCreating virtual environment at: .venv\nResolved 147 packages in 0.88ms\n   Building latent-art-bench @ file://{checkout}/tmp/paper-map-validation-release/numerical-anonymous-01/extracted/pmv2r-20260910\n      Built latent-art-bench @ file://{checkout}/tmp/paper-map-validation-release/numerical-anonymous-01/extracted/pmv2r-20260910\nPrepared 1 package in 221ms\nInstalled 44 packages in 179ms\n + annotated-doc==0.0.5\n + annotated-types==0.8.0\n + anyio==4.14.2\n + certifi==2026.7.22\n + contourpy==1.3.3\n + coverage==7.16.0\n + cycler==0.12.1\n + fonttools==4.64.0\n + h11==0.16.0\n + httpcore==1.0.9\n + httpx==0.28.1\n + idna==3.19\n + imageio==2.37.4\n + iniconfig==2.3.0\n + kiwisolver==1.5.1\n + latent-art-bench==0.1.0 (from file://{checkout}/tmp/paper-map-validation-release/numerical-anonymous-01/extracted/pmv2r-20260910)\n + lazy-loader==0.5\n + markdown-it-py==4.2.0\n + matplotlib==3.11.1\n + mdurl==0.1.2\n + networkx==3.6.1\n + numpy==2.5.2\n + packaging==26.3\n + pillow==11.3.0\n + pluggy==1.6.0\n + pydantic==2.13.5\n + pydantic-core==2.46.5\n + pygments==2.21.0\n + pyparsing==3.3.2\n + pytest==8.4.2\n + pytest-cov==6.3.0\n + python-dateutil==2.9.0.post0\n + pywavelets==1.9.0\n + pyyaml==6.0.3\n + rich==15.0.0\n + ruff==0.16.5\n + scikit-image==0.26.0\n + scipy==1.18.1\n + shellingham==1.5.4\n + six==1.17.0\n + tifffile==2026.8.23\n + typer==0.27.2\n + typing-extensions==4.16.0\n + typing-inspection==0.4.4\n",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-I",
+        "-c",
+        "import json,platform,numpy,scipy,pytest;print(json.dumps({'python':platform.python_version(),'platform':platform.platform(),'numpy':numpy.__version__,'scipy':scipy.__version__,'pytest':pytest.__version__}));numpy.show_config()"
+      ],
+      "cwd": "tmp/paper-map-validation-release/numerical-anonymous-01/extracted/pmv2r-20260910",
+      "exit_code": 0,
+      "logs": {
+        "stderr": {
+          "path": "tmp/paper-map-validation-release/numerical-anonymous-01/logs/numerical-runtime.stderr.log",
+          "sha256": "f761fe0546c857abc5e47bd715c90d4fd751ce55523db6ac8067dba07f0dc4d6"
+        },
+        "stdout": {
+          "path": "tmp/paper-map-validation-release/numerical-anonymous-01/logs/numerical-runtime.stdout.log",
+          "sha256": "2764ab352e7ba00f9b7f9f68a83a467ed668b108bcebb46efc7cc8d5fc7f01c0"
+        }
+      },
+      "name": "numerical-runtime",
+      "seconds": 1.6837007499998435,
+      "started_at_utc": "2026-09-10T12:04:23.802993+00:00",
+      "stderr": "warning: `VIRTUAL_ENV={checkout}/.venv` does not match the project environment path `.venv` and will be ignored; use `--active` to target the active environment instead\n",
+      "stdout": "{\"python\": \"3.13.11\", \"platform\": \"macOS-26.6.2-arm64-arm-64bit-Mach-O\", \"numpy\": \"2.5.2\", \"scipy\": \"1.18.1\", \"pytest\": \"8.4.2\"}\nBuild Dependencies:\n  blas:\n    detection method: system\n    found: true\n    include directory: unknown\n    lib directory: unknown\n    name: accelerate\n    openblas configuration: unknown\n    pc file directory: unknown\n    version: unknown\n  lapack:\n    detection method: system\n    found: true\n    include directory: unknown\n    lib directory: unknown\n    name: accelerate\n    openblas configuration: unknown\n    pc file directory: unknown\n    version: unknown\nCompilers:\n  c:\n    commands: cc\n    linker: ld64\n    name: clang\n    version: 15.0.0\n  c++:\n    commands: c++\n    linker: ld64\n    name: clang\n    version: 15.0.0\n  cython:\n    commands: cython\n    linker: cython\n    name: cython\n    version: 3.2.9\nMachine Information:\n  build:\n    cpu: aarch64\n    endian: little\n    family: aarch64\n    system: darwin\n  host:\n    cpu: aarch64\n    endian: little\n    family: aarch64\n    system: darwin\nPython Information:\n  path: {local-temp}\n  version: '3.13'\nSIMD Extensions:\n  baseline:\n  - NEON\n  - NEON_FP16\n  - NEON_VFPV4\n  - ASIMD\n  found:\n  - ASIMDHP\n  - ASIMDDP\n  not found:\n  - ASIMDFHM\n\n"
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "tools/paper_map_validation_release.py",
+        "check",
+        "--root",
+        "."
+      ],
+      "cwd": "tmp/paper-map-validation-release/numerical-anonymous-01/extracted/pmv2r-20260910",
+      "exit_code": 0,
+      "logs": {
+        "stderr": {
+          "path": "tmp/paper-map-validation-release/numerical-anonymous-01/logs/public-numerical-check.stderr.log",
+          "sha256": "f761fe0546c857abc5e47bd715c90d4fd751ce55523db6ac8067dba07f0dc4d6"
+        },
+        "stdout": {
+          "path": "tmp/paper-map-validation-release/numerical-anonymous-01/logs/public-numerical-check.stdout.log",
+          "sha256": "e0f6a1adbaf9da45f532aa3f4ef80aed9b6d1f9e9f9a5d26f7f475b64c59daeb"
+        }
+      },
+      "name": "public-numerical-check",
+      "seconds": 40.94559104193468,
+      "started_at_utc": "2026-09-10T12:04:25.487076+00:00",
+      "stderr": "warning: `VIRTUAL_ENV={checkout}/.venv` does not match the project environment path `.venv` and will be ignored; use `--active` to target the active environment instead\n",
+      "stdout": "{\"observed_exact\": true, \"observed_status\": \"approximate_simultaneous_intervals\", \"private_collection_authenticated\": false, \"qualification_cells\": 27, \"qualification_exact\": true, \"scientific_outputs_written\": false, \"status\": \"checked\"}\n"
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-q",
+        "--import-mode=importlib",
+        "tests/test_paper_map_validation_release.py",
+        "tests/painter_map_validation_v2/test_analysis.py",
+        "tests/painter_map_validation_v2/test_analysis_oracle.py"
+      ],
+      "cwd": "tmp/paper-map-validation-release/numerical-anonymous-01/extracted/pmv2r-20260910",
+      "exit_code": 0,
+      "logs": {
+        "stderr": {
+          "path": "tmp/paper-map-validation-release/numerical-anonymous-01/logs/readme-public-tests.stderr.log",
+          "sha256": "f761fe0546c857abc5e47bd715c90d4fd751ce55523db6ac8067dba07f0dc4d6"
+        },
+        "stdout": {
+          "path": "tmp/paper-map-validation-release/numerical-anonymous-01/logs/readme-public-tests.stdout.log",
+          "sha256": "ea868f6614e0bd8ddea962e2f02c8be58bcc1ceac86ed5493f489ed58091c222"
+        }
+      },
+      "name": "readme-public-tests",
+      "seconds": 163.54422687506303,
+      "started_at_utc": "2026-09-10T12:05:06.431363+00:00",
+      "stderr": "warning: `VIRTUAL_ENV={checkout}/.venv` does not match the project environment path `.venv` and will be ignored; use `--active` to target the active environment instead\n",
+      "stdout": "........................................................................ [ 96%]\n...                                                                      [100%]\n75 passed in 161.88s (0:02:41)\n"
+    },
+    {
+      "argv": [
+        "{checkout}/.venv/bin/python3",
+        "-I",
+        "-S",
+        "-c",
+        "import json,runpy;ns=runpy.run_path('tools/paper_map_validation_release.py');print(json.dumps(ns['verify']('.',runtime=True),sort_keys=True))"
+      ],
+      "cwd": "tmp/paper-map-validation-release/numerical-anonymous-01/extracted/pmv2r-20260910",
+      "exit_code": 0,
+      "logs": {
+        "stderr": {
+          "path": "tmp/paper-map-validation-release/numerical-anonymous-01/logs/post-test-runtime-inventory.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "path": "tmp/paper-map-validation-release/numerical-anonymous-01/logs/post-test-runtime-inventory.stdout.log",
+          "sha256": "950f86f21892138f73145f0c04c7654d148f1777f73eee785d62b9dbe9099a2a"
+        }
+      },
+      "name": "post-test-runtime-inventory",
+      "seconds": 0.8046359999570996,
+      "started_at_utc": "2026-09-10T12:07:49.970499+00:00",
+      "stderr": "",
+      "stdout": "{\"files\": 74, \"private_collection_authenticated\": false, \"status\": \"verified\"}\n"
+    }
+  ],
+  "completed_at_utc": "2026-09-10T12:07:50.789894+00:00",
+  "downloads": [
+    {
+      "authenticated": false,
+      "bytes": 3059166,
+      "cookies_carried": false,
+      "environment_proxies_used": false,
+      "fresh_client_each_hop": true,
+      "hops": [
+        {
+          "authorization_sent": false,
+          "cookie_sent": false,
+          "proxy_authorization_sent": false,
+          "query_omitted": false,
+          "status": 302,
+          "trust_env": false,
+          "url_without_query": "https://github.com/isingmodel/latent-art-bench/releases/download/pmv2r-20260910/pmv2r-20260910.tar.gz"
+        },
+        {
+          "authorization_sent": false,
+          "cookie_sent": false,
+          "proxy_authorization_sent": false,
+          "query_omitted": true,
+          "status": 200,
+          "trust_env": false,
+          "url_without_query": "https://release-assets.githubusercontent.com/github-production-release-asset/1350314754/6f31e97f-c5ed-459d-9d8b-3f9f3a06bef2"
+        }
+      ],
+      "httpx_version": "0.28.1",
+      "path": "tmp/paper-map-validation-release/numerical-anonymous-01/downloads/pmv2r-20260910.tar.gz",
+      "sha256": "8688085fe001e6b45ca34f6d39a5979e3e762a2678cd5ecb8169a698defb4eb6",
+      "url": "https://github.com/isingmodel/latent-art-bench/releases/download/pmv2r-20260910/pmv2r-20260910.tar.gz"
+    },
+    {
+      "authenticated": false,
+      "bytes": 88,
+      "cookies_carried": false,
+      "environment_proxies_used": false,
+      "fresh_client_each_hop": true,
+      "hops": [
+        {
+          "authorization_sent": false,
+          "cookie_sent": false,
+          "proxy_authorization_sent": false,
+          "query_omitted": false,
+          "status": 302,
+          "trust_env": false,
+          "url_without_query": "https://github.com/isingmodel/latent-art-bench/releases/download/pmv2r-20260910/pmv2r-20260910.tar.gz.sha256"
+        },
+        {
+          "authorization_sent": false,
+          "cookie_sent": false,
+          "proxy_authorization_sent": false,
+          "query_omitted": true,
+          "status": 200,
+          "trust_env": false,
+          "url_without_query": "https://release-assets.githubusercontent.com/github-production-release-asset/1350314754/8d2cd9b6-ecaa-4793-b5fc-e9e0edcf77c1"
+        }
+      ],
+      "httpx_version": "0.28.1",
+      "path": "tmp/paper-map-validation-release/numerical-anonymous-01/downloads/pmv2r-20260910.tar.gz.sha256",
+      "sha256": "32b25e0954eb7e28d22b598ac0d41f40eafc0c1305b52d16430daceef978089f",
+      "url": "https://github.com/isingmodel/latent-art-bench/releases/download/pmv2r-20260910/pmv2r-20260910.tar.gz.sha256"
+    }
+  ],
+  "driver_sha256": "be2689776fd42e12a2bcec91285f03a34de0f29ba72c13c772bac895ffd12b93",
+  "export_source_commit": "4024d52e04104dad279b1091992ed577df052c7a",
+  "feature_reextraction": false,
+  "formal_writer_invocations": 0,
+  "fresh_extraction": "tmp/paper-map-validation-release/numerical-anonymous-01/extracted/pmv2r-20260910",
+  "involvement": "Maintainer-run LLM reviewer 1; authored map precision protocols/modules, numerical-oracle tests and this public adapter, contributed earlier variance and release tools, and audited actual arithmetic. Anonymous acquisition of the public archive is independently checked here, but this is the same maintainer and Mac, not independent human or institutional replication.",
+  "limitations": [
+    "Fresh environment from an anonymous public download on the same macOS arm64 host, with the local uv cache available; not cross-platform or separate-investigator verification.",
+    "Public collection eligibility is a verified-local-receipt projection and remains an attestation; absent image acquisition, response costs, service identity and timing are not publicly authenticated.",
+    "No pixels are included or features re-extracted. Raw vectors mean 31 numerical features.",
+    "Exact reconstructed support hashes and observed results constrain replay to matching numerical arithmetic; same-host success does not establish portability or actual service interval coverage.",
+    "Optional tests use artificial temporary Git fixtures; the scientific public check uses no retained Git, private workflow, service HTTP or formal output writer."
+  ],
+  "no_publication": true,
+  "no_source_edits": true,
+  "numerical_replay": {
+    "observed_exact": true,
+    "observed_status": "approximate_simultaneous_intervals",
+    "private_collection_authenticated": false,
+    "qualification_cells": 27,
+    "qualification_exact": true,
+    "scientific_outputs_written": false,
+    "status": "checked"
+  },
+  "original_payload_files_unchanged": 74,
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "post_test_verification": {
+    "files": 74,
+    "private_collection_authenticated": false,
+    "status": "verified"
+  },
+  "preinstall_verification": {
+    "files": 74,
+    "private_collection_authenticated": false,
+    "status": "verified"
+  },
+  "preinstall_verification_write_free": true,
+  "python_driver": "3.13.11",
+  "qualification_trials_replayed": 270000,
+  "qualified_source_commit": "c82e1604e60cc7e3d7e4707b77162d7639667a06",
+  "release_id": "pmv2r-20260910",
+  "result_hashes": {
+    "MAP_VALIDATION_RELEASE_MANIFEST.json": "186f1efd018420a2cbad1c2cd8e9ba0e9ebf7792703ea88373adfd3e93357d84",
+    "README.md": "ec13329933c4ad3a77d9b12b9b714589eb61473c0dc6c00abb512d33bbb5ac72",
+    "SHA256SUMS": "4d0a102c0c70c555431483375b6c64a77d2f18b6825adf104b80287259fb0f26",
+    "data/manifests/paper_map_validation_reproducibility_v2/pmv2r-20260910/export_manifest.json": "1cd2a208d960ad74a7805d0a272b15c29cb15e342ec699f3d9857dce8d15ca9a",
+    "reports/painter_map_validation_v2/pmv2-20260910/REPORT.md": "57470eb939a4120e632690be4e4b6e55ee15deb87f93b7a585cb62ca3e52b498",
+    "reports/painter_map_validation_v2/pmv2-20260910/analysis.json": "11159b1b9b15dc6be3b1b3e03659298a8bed6bcd38a52aa992f16d2f26833386",
+    "studies/painter_map_validation_v2/pmvqv2-20260910/PRECISION.md": "6c2e26e9dcd130e6ee0ee03f489e6122e04d7ec14f6c6be50eb559459828f283",
+    "studies/painter_map_validation_v2/pmvqv2-20260910/precision.json": "8b02aea081d16484c6179849ad33b289cd16eae376e4bea92590f657a04731d9"
+  },
+  "runtime": {
+    "numpy": "2.5.2",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "pytest": "8.4.2",
+    "python": "3.13.11",
+    "scipy": "1.18.1"
+  },
+  "schema": "paper-map-validation-public-replay/2",
+  "started_at_utc": "2026-09-10T12:04:20.221163+00:00",
+  "status": "passed",
+  "study_source_commit": "aaf431afa1b2b268723df0442f4937dd099af8b4",
+  "tar_regular_file_count": 74,
+  "tests": {
+    "passed": 75,
+    "reported_seconds": 161.88,
+    "skipped": 0
+  }
+}

@@ -160,3 +160,33 @@ seed or allocation was changed to obtain a pass. The full result is retained,
 including favorable coverage and failed precision. This is a planning result,
 not a new map-transfer or service-validation result, and receives no automatic
 score increase. The current scored mean remains **8.9000**.
+
+## Completed prospective fixed-map extension, awaiting Round 4
+
+After the failed v1 design, one separately declared R10 version passed the
+unchanged 27 historical-proxy coverage/precision criteria before new image
+outcomes. Its fixed 12-scene FLUX/Cezanne collection returned all 240 outputs,
+with no failures or retries and $16.80 in new reported charges. Conservative
+project accounting is $67.5219185 under the $75 ceiling. Collection, extraction
+and allocation assessment are terminal; no replacement or further sampling is
+permitted for this question in the revision.
+
+Both prespecified contrasts favor translation/scaling: deltaE −.390186879 with
+approximate interval [−.509032897, −.271340860], and deltaQ −5.046510453 with
+[−7.879516972, −2.213503934]. The historical opposing ordering does **not**
+transfer to the new panel. This contrary outcome is retained in the abstract,
+new two-endpoint table and discussion. The observed Q half-width 2.833 exceeds
+the proxy median-width planning criterion 1.0; the paper states that limitation
+without disqualifying the result after observing it. The maps change both center
+and spread on the new cloud, so this does not retest the common-center scalar
+path. Scene novelty, time and service behavior are not separately identified.
+
+[Literal numerical arithmetic](MAP_VALIDATION_RESULTS_AUDIT_1.md) and
+[terminal provenance](MAP_VALIDATION_TERMINAL_AUDIT_2.md) pass. Both involved LLM
+auditors disclose their implementation/design roles; neither is independent
+human replication. The separate 74-file public numerical archive has passed
+fresh local replay of all 27 qualification cells and the exact observed
+analysis/report, with 75 tests and final inventory checks. Anonymous and strict
+hosted replay outcomes are recorded separately as they complete. These additions
+supply no automatic score change; Round 4 must assess the final complete
+manuscript and actual evidence under the unchanged rubric.
