@@ -1,0 +1,30 @@
+{
+  "build_source_commit": "35aef913cfedafc7de2c746fd68b061b05f21b2c",
+  "draft": false,
+  "files": {
+    "LICENSE": "9c623de0d41e44d26cf54436e02834563a83ee09ee1cdbd59be292d56277907b",
+    "README.md": "bf3e833e3229d725300b4a2250a407ac8583abbc3f9067405c833c39213282d2",
+    "data/manifests/painter_naming_geometry_v1/pngv1-20260910/analysis.json": "f50be0f772a3bff8f4bc66ddc20f3e19b5c13736fd6cced632d80224e2203324",
+    "data/manifests/painter_naming_geometry_v1/pngv1-20260910/inputs.json": "eeb3890268a85885f372bdb494e29ab558c271749667fb7e264a7e30881733de",
+    "pyproject.toml": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8",
+    "src/latent_art_bench/__init__.py": "3a5d2006e1557187a3585cbe17af183fd7d2f170a32eb96b00c43b00d137c660",
+    "src/latent_art_bench/painter_map_validation_v1/__init__.py": "cade714d66ac5ba8924ddd9cc1ecb9c62bd06ecc7f37d416bd44fbe5491558db",
+    "src/latent_art_bench/painter_map_validation_v1/precision.py": "971d909e63346cea64a1b7dd7b695ec8c112dc16562230d9d5dd7d968bd0b44d",
+    "studies/painter_map_validation_v1/PRECISION_PROTOCOL.md": "3d0a7ca0e97e303317324f4b0c929aa35ce7dba91be4103c4032ed9aa7fdb4de",
+    "studies/painter_map_validation_v1/pmvqv1-20260910/PRECISION.md": "c65ec527fd67289baefa7f52207a85778b84e818015546f703c589994c703555",
+    "studies/painter_map_validation_v1/pmvqv1-20260910/RUN.json": "944a8ea098b55d8ccb12c66f8b55dd55582456b080e0c77139f8100f4d0589e8",
+    "studies/painter_map_validation_v1/pmvqv1-20260910/precision.json": "ca5da6798dfc4c6056de6250320d85d1c17dffe1a0d274788d3ac8091557598a",
+    "tests/painter_map_validation_v1/test_precision.py": "53f97071e45dc1976090a39214cf425d06ac2bb45710c3416e76d28e2e2ef1d0",
+    "tests/test_paper_map_release.py": "fd6b511980ab6f6265163d6d07d612de3af60d5966d15741742cca340cba7505",
+    "tools/paper_map_release.py": "e8f1a0d17d291554b6c2b3dee1477d5f37c2742a9adc1d7d5af118bd9cfb5ad8",
+    "uv.lock": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+  },
+  "omitted_bound_paths": [
+    "data/manifests/painter_naming_geometry_v1/pngv1-20260910/freeze.json",
+    "data/manifests/painter_naming_geometry_v1/pngv1-20260910/receipt.json",
+    "studies/painter_map_validation_v1/DESIGN.md"
+  ],
+  "qualification_source_commit": "eb70ab8c30019b4b283366c170f8bdaf1405a023",
+  "release_id": "pmrv1-20260910",
+  "schema": "paper-map-numerical-release/1"
+}
