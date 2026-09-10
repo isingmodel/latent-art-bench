@@ -1,0 +1,18 @@
+{
+  "schema": "painter-clause-successor/1",
+  "run_id": "pcsv1-20260910",
+  "assignment_seed": 2026091051,
+  "analysis_seed": 2026091052,
+  "repetitions": 2,
+  "scenes_per_class": 8,
+  "maximum_images": 96,
+  "maximum_attempts": 104,
+  "maximum_technical_retries": 8,
+  "maximum_in_flight": 2,
+  "minimum_start_interval_seconds": 5,
+  "maximum_collection_seconds": 86400,
+  "overall_spending_ceiling_usd": 75,
+  "historical_accounted_usd": 50.7219185,
+  "minimum_free_bytes": 5368709120,
+  "alpha": 0.025
+}

@@ -42,6 +42,18 @@ is `79f28c1`. All 143 freeze inputs, exact requests and local proxy identity
 verified before explicit live dispatch. Feature extraction and primary analysis
 remain closed until this collection becomes terminal. No new paid calls are allowed.
 
+## Clause collection availability update
+
+The active run has one genuine error-only HTTP 400 `moderation_blocked` refusal
+at `c:pcv_built04:r00:cezanne` (05:13:08 UTC). Its stored response hash was
+verified; no image was returned. This is not a qualified technical retry.
+Collection continues under the existing contract, but the allocated Cézanne
+primary comparison will be unavailable. Monet remains eligible only if its
+complete named/generic measurements and global terminal gates are satisfied.
+No new feature values have been extracted or inspected. A possible separately
+qualified successor is being assessed using availability information only;
+no successor collection is authorized by this status note.
+
 ## Current follow-up
 
 | Component | State and finding |
