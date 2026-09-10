@@ -107,8 +107,42 @@ def csv_bytes(rows):
     return out.getvalue().encode()
 
 
+def artist_diagnostics(named, references):
+    """Prespecified repeat spread and additive contributions to the existing D."""
+    named = np.asarray(named, dtype=float)
+    r = centered(np.array([a.mean(axis=0) for a in references]))
+    h = np.sum(r * r)
+    complete = np.isfinite(named).all(axis=(1, 2, 3))
+    contributions = [None] * 4
+    if complete.any():
+        error = centered(named[complete]) - r
+        contributions = (np.sum(error[:, 0] * error[:, 1], axis=-1).mean(axis=0) / h).tolist()
+    result = []
+    for a, reference in enumerate(references):
+        pairs = named[:, :, a]
+        pairs = pairs[np.isfinite(pairs).all(axis=(1, 2))]
+        within = (
+            float(np.mean(np.sum((pairs[:, 0] - pairs[:, 1]) ** 2, axis=-1)) / 2)
+            if len(pairs)
+            else None
+        )
+        reference_trace = float(np.var(reference, axis=0, ddof=1).sum())
+        result.append(
+            dict(
+                complete_repeat_scenes=len(pairs),
+                within_scene_trace=within,
+                within_reference_trace_ratio=(
+                    within / reference_trace if within is not None else None
+                ),
+                geometry_complete_scenes=int(complete.sum()),
+                geometry_error_contribution=contributions[a],
+            )
+        )
+    return result
+
+
 def build():
-    _, refs = load()
+    x, refs = load()
     audit = audit_raw()
     primary = s.read(s.DATA / "analysis.json")
     square = s.read(s.DATA / "analysis_square.json")
@@ -141,7 +175,15 @@ def build():
                 balanced_square_distortion=balanced_square["models"][m]["distortion"]["mean"],
             )
         )
-        artists.extend(dict(model=item["model"], **a) for a in item["artists"])
+        diagnostics = dict(zip(s.ARTISTS, artist_diagnostics(x[m, :, :, 2:], refs)))
+        contributions = [a["geometry_error_contribution"] for a in diagnostics.values()]
+        if all(v is not None for v in contributions) and not np.isclose(
+            sum(contributions), item["distortion"]["mean"], rtol=1e-10, atol=1e-10
+        ):
+            raise ValueError("artist contributions do not sum to primary geometry error")
+        artists.extend(
+            dict(model=item["model"], **a, **diagnostics[a["artist"]]) for a in item["artists"]
+        )
     contrasts = [
         dict(
             model_a=r["model_a"],
@@ -221,7 +263,13 @@ def build():
         "models.csv includes common-square and reference-content sensitivity estimates. The "
         "separate JSONs retain all intervals, resampling summaries and reference counts.",
         "artists.csv retains energy, generic energy and spread for every model/painter cell. "
-        "These are descriptive, complementary distributional measures.",
+        "Within-scene trace is the mean squared distance between the two repeats divided by "
+        "two: the sample variance trace within a scene. It is also divided by the reference "
+        "trace for comparison in common units. These are descriptive summaries, not additional "
+        "hypothesis tests.",
+        "The four geometry-error contributions sum to each model's primary D. They are "
+        "additive diagnostics of that existing endpoint, not separate artist-fidelity scores: "
+        "centering couples the four named conditions and finite contributions can be negative.",
         "A large common fraction is not evidence against artist recovery by itself. "
         "Reference-relative slopes/errors test that separate question.",
         "The primary target is conditional mean geometry in 31 fixed digital features, not full "

@@ -67,8 +67,8 @@ clause, or one of four painter clauses. We subtract the mean response across
 painters within each model and scene, then compare the remaining painter
 contrasts with those in a fixed reference panel. Two repeated requests permit
 cross-product estimation of conditional mean error without its usual additive
-sampling-noise bias. A model cannot improve this endpoint merely by applying
-the same painting-like change to every named output.
+sampling-noise bias. An additive feature shift shared by all four painter
+conditions cancels from this endpoint.
 
 This design also gives a limited but testable answer to \emph{why} generated
 collections differ. A shared painting shift, weak or exaggerated artist
@@ -175,7 +175,8 @@ pipeline preserves aspect ratio at a 512-pixel short side, using Lanczos resizin
 without upsampling. Each of the 31 coordinates is centered and scaled by its
 median and interquartile range in the development panel, with equal total
 weight per painter. Thus a unit is a development-panel IQR in that coordinate,
-not a perceptual just-noticeable difference.
+not a perceptual just-noticeable difference. The Euclidean metric weights
+standardized coordinates equally, without further equalizing feature families.
 
 Table~\ref{tab:features} explains the representation. Color features summarize
 lightness and chroma, concentration of hue, and color changes across spatial
@@ -335,7 +336,10 @@ Unlike distance to a mean, this statistic incorporates within-collection
 variation. Its empirical baseline need not be zero for two independent samples
 from the same distribution. We also report generated/reference total-variance
 ratios. These complementary outcomes can reveal narrow or displaced generated
-distributions even when reference painter contrasts are recovered.
+distributions even when reference painter contrasts are recovered. We also
+report within-scene repeat spread, $\frac{1}{2S}\sum_s
+\|z_{msa1}-z_{msa2}\|^2$, the mean sample-variance trace of the two repeated
+outputs. This separates repeat dispersion from total variation across briefs.
 
 \section{Results}\label{sec:results}
 \input{specificity_results.tex}
@@ -446,7 +450,8 @@ source of image geometry variation. Unknown photographic and reproduction
 processes remain potential contributors to generated/reference differences.
 No qualified independent-capture pairs or human style ratings are available.
 
-Model comparisons apply to the requested configurations and collection period.
+Model comparisons apply to the requested configurations, clause template and
+collection period.
 Their repeat correction requires stable conditional responses and independent
 errors; randomized dispatch does not prove those conditions. The experiment has
 14 scene clusters, so uncertainty may remain substantial despite many images.
@@ -531,6 +536,9 @@ the scene-averaged contrasts. Its target differs from the mean scene-conditional
 error: averaging can cancel scene-dependent deviations. Both are reported,
 without selecting the smaller as the primary result. The primary comparison
 weights scenes and artists equally, irrespective of the reference count.
+The report also retains each painter's additive contribution to $D$. These sum
+to the model error but are not standalone artist-fidelity scores, because the
+centering in Equation~\ref{eq:center} couples the four named conditions.
 
 For a model contrast, compute one error difference per complete paired scene.
 Its standard error is the sample standard deviation of those differences divided
@@ -591,10 +599,11 @@ The later controlled naming panel selected Monet and C\'ezanne after the
 exploration. It crossed 24 scenes with three models, two clauses and three
 repeats; 142 additional short-scene outputs supplied two prompt-length
 comparisons. Reference panels contain 38 Monet and 32 C\'ezanne works.
-Their broad content classes were used for prespecified weighting; class coding
-was performed with an LLM by the study maintainer, without independent human
-adjudication. That weighting is not used in the new experiment's equally
-weighted artist-contrast endpoint.
+Their broad content classes were used for prespecified weighting. The recorded
+reference-class labels were coded with an LLM by the study maintainer, without
+independent human adjudication. The new class-balanced sensitivity reuses those
+labels; its reference bootstrap does not account for classification error.
+The primary artist-contrast analysis does not use class weights.
 
 The six controlled named-minus-free energy changes were $-.846,-1.818$ for
 Nano Banana 2, $-.625,-.896$ for FLUX.2 Max, and $-.234,-.056$ for GPT Image 2
