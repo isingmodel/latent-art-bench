@@ -18,6 +18,7 @@ import subprocess
 import sys
 import tarfile
 from pathlib import Path, PurePosixPath
+from types import SimpleNamespace
 
 STUDY = "painter_clause_validation_v1"
 NAMESPACE = "paper_clause_reproducibility_v1"
@@ -130,6 +131,62 @@ ROW_FIELDS = (
     "values",
     "scaled",
 )
+
+SUCCESSOR = "painter_clause_successor_v1"
+SUCCESSOR_RUN = "pcsv1-20260910"
+SUCCESSOR_CORE = frozenset(
+    {
+        f"src/latent_art_bench/{SUCCESSOR}/{name}.py"
+        for name in ("__init__", "__main__", "common", "analysis", "collection", "workflow")
+    }
+    | {
+        f"studies/{SUCCESSOR}/{name}"
+        for name in (
+            "PROTOCOL.md",
+            "DESIGN_DECISION.md",
+            "study.json",
+            "inputs.json",
+            "qualification.json",
+            "PRECOLLECTION_REVIEW.md",
+            "PRECOLLECTION_METHOD_REVIEW.md",
+            "PRECOLLECTION_IMPLEMENTATION_REVIEW.md",
+            "SCIENTIFIC_IMPLEMENTATION_REVIEW.md",
+        )
+    }
+    | {f"tests/{SUCCESSOR}/test_analysis.py"}
+)
+
+
+def cohort(successor=False):
+    """Only these two fixed studies are accepted; never load a caller-named module."""
+    if type(successor) is not bool:
+        raise ValueError("successor selection must be a literal boolean")
+    study, run = (SUCCESSOR, SUCCESSOR_RUN) if successor else (STUDY, RUN)
+    original, report = f"data/manifests/{study}/{run}", f"reports/{study}/{run}"
+    return SimpleNamespace(
+        study=study,
+        run=run,
+        original=original,
+        report=report,
+        design=f"studies/{study}",
+        core=CORE | SUCCESSOR_CORE if successor else CORE,
+        outputs=frozenset(
+            {
+                f"{original}/collection_receipt.json",
+                f"{original}/measurement_receipt.json",
+                f"{report}/analysis.json",
+                f"{report}/REPORT.md",
+            }
+        ),
+        prefix="painter-clause-successor" if successor else "painter-clause-validation",
+        compact_schema=(
+            "painter-clause-successor-compact-inputs/1"
+            if successor
+            else "painter-clause-compact-inputs/1"
+        ),
+        input_name="successor_inputs.json" if successor else "inputs.json",
+        planned=96 if successor else 288,
+    )
 
 
 def digest(raw):
@@ -266,11 +323,15 @@ def project_rows(rows):
     return result
 
 
-def scientific_result(root, bundle):
+def scientific_result(root, bundle, *, successor=False):
     # Deliberately do not import workflow, collection, or the old project CLI.
     sys.path.insert(0, str(root / "src"))
-    from latent_art_bench.painter_clause_validation_v1 import analysis, common
+    if successor:
+        from latent_art_bench.painter_clause_successor_v1 import analysis, common
+    else:
+        from latent_art_bench.painter_clause_validation_v1 import analysis, common
 
+    spec = cohort(successor)
     requests = common.requests(root)
     config = common.configuration(root)
     if bundle["requests"] != requests:
@@ -278,7 +339,7 @@ def scientific_result(root, bundle):
     return analysis.analyze(
         requests,
         bundle["rows"],
-        read(root, f"{DESIGN}/inputs.json"),
+        read(root, f"{spec.design}/inputs.json"),
         config,
         collection_receipt=bundle["collection"],
     ), analysis.report_text
@@ -294,41 +355,50 @@ def require_local_modules(root):
                 raise ValueError("cached scientific module is outside the release source tree")
 
 
-def terminal_inputs(root):
-    """Local only: verify terminal bindings without reading any raw response body."""
-    from latent_art_bench.painter_clause_validation_v1 import workflow
+def terminal_inputs(root, *, successor=False):
+    """Local terminal verification; successor also authenticates its error-only trigger."""
+    if successor:
+        from latent_art_bench.painter_clause_successor_v1 import workflow
+    else:
+        from latent_art_bench.painter_clause_validation_v1 import workflow
 
-    freeze, requests, _, _, collection = workflow.collection_inputs(root, RUN)
-    receipt = read(root, f"{ORIGINAL}/measurement_receipt.json")
+    spec = cohort(successor)
+    freeze, requests, _, _, collection = workflow.collection_inputs(root, spec.run)
+    receipt = read(root, f"{spec.original}/measurement_receipt.json")
     expected_paths = {
-        f"{ORIGINAL}/measurements.jsonl",
-        f"{REPORT}/analysis.json",
-        f"{REPORT}/REPORT.md",
-        f"research_workspace/{STUDY}/{RUN}/measurement_started.json",
+        f"{spec.original}/measurements.jsonl",
+        f"{spec.report}/analysis.json",
+        f"{spec.report}/REPORT.md",
+        f"research_workspace/{spec.study}/{spec.run}/measurement_started.json",
     }
     outputs = records_map(receipt["outputs"])
     if (
-        receipt.get("schema") != "painter-clause-validation-measurement/1"
-        or receipt.get("run_id") != RUN
+        receipt.get("schema") != f"{spec.prefix}-measurement/1"
+        or receipt.get("run_id") != spec.run
         or outputs.keys() != expected_paths
         or receipt["collection_receipt_sha256"]
-        != digest(read_bytes(root, f"{ORIGINAL}/collection_receipt.json"))
+        != digest(read_bytes(root, f"{spec.original}/collection_receipt.json"))
     ):
         raise ValueError("terminal measurement receipt identity or output inventory differs")
     for path, expected in outputs.items():
         if digest(read_bytes(root, path)) != expected:
             raise ValueError("terminal measurement output hash differs")
     rows = [
-        json.loads(line) for line in read_bytes(root, f"{ORIGINAL}/measurements.jsonl").splitlines()
+        json.loads(line)
+        for line in read_bytes(root, f"{spec.original}/measurements.jsonl").splitlines()
     ]
-    if len(requests) != 288 or len(rows) != 864:
+    if len(requests) != spec.planned or len(rows) != spec.planned * 3:
         raise ValueError("every allocated request and pipeline status is required")
     return freeze, requests, rows, collection
 
 
-def export_paths(release_id):
+def export_paths(release_id, *, include_successor=False):
     identifier(release_id)
-    return {f"{DATA}/{release_id}/{name}" for name in ("inputs.json", "export_manifest.json")}
+    cohort(include_successor)
+    names = ["inputs.json", "export_manifest.json"]
+    if include_successor:
+        names.append("successor_inputs.json")
+    return {f"{DATA}/{release_id}/{name}" for name in names}
 
 
 def write_new(path, raw):
@@ -340,42 +410,39 @@ def write_new(path, raw):
         os.fsync(handle.fileno())
 
 
-def export(root, release_id):
-    """Create a numerical projection once, after committed terminal results exist."""
-    root = Path(root).absolute()
-    no_symlinks(root)
-    paths = export_paths(release_id)
-    if any((root / p).exists() or (root / p).is_symlink() for p in paths):
-        raise FileExistsError("retain existing create-once numerical export")
-    freeze, requests, rows, collection = terminal_inputs(root)
+def prepare_cohort_export(root, release_id, *, successor=False):
+    """Validate one sealed cohort completely before writing any export bytes."""
+    spec = cohort(successor)
+    freeze, requests, rows, collection = (
+        terminal_inputs(root, successor=True) if successor else terminal_inputs(root)
+    )
     frozen = records_map(freeze["inputs"])
-    originals = {p: public_bytes(root, p) for p in sorted(CORE | ORIGINAL_OUTPUTS)}
-    if not (CORE - NOT_FREEZE_BOUND) <= frozen.keys():
+    originals = {p: public_bytes(root, p) for p in sorted(spec.core | spec.outputs)}
+    if not (spec.core - NOT_FREEZE_BOUND) <= frozen.keys():
         raise ValueError("scientific release source/design is missing from the study freeze")
-    for path in CORE - NOT_FREEZE_BOUND:
+    for path in spec.core - NOT_FREEZE_BOUND:
         if digest(originals[path]) != frozen[path]:
             raise ValueError("frozen source/design differs from copied bytes")
         if git_bytes(root, freeze["recorded_git_commit"], path) != originals[path]:
             raise ValueError("frozen source commit differs")
-    commit = clean_sources(root, originals)
     bundle = dict(
-        schema="painter-clause-compact-inputs/1",
-        run_id=RUN,
+        schema=spec.compact_schema,
+        run_id=spec.run,
         requests=requests,
         rows=project_rows(rows),
         collection=collection,
     )
     raw = encoded(bundle)
     screen(raw, ".json")
-    actual, render = scientific_result(root, bundle)
-    expected = json.loads(originals[f"{REPORT}/analysis.json"])
+    actual, render = scientific_result(root, bundle, successor=successor)
+    expected = json.loads(originals[f"{spec.report}/analysis.json"])
     if (
         encoded(actual) != encoded(expected)
-        or render(actual).encode() != originals[f"{REPORT}/REPORT.md"]
+        or render(actual).encode() != originals[f"{spec.report}/REPORT.md"]
     ):
         raise ValueError("compact projection fails exact original numerical/report replay")
     source_paths = {
-        f"{ORIGINAL}/{name}"
+        f"{spec.original}/{name}"
         for name in (
             "freeze.json",
             "planned_requests.jsonl",
@@ -383,43 +450,170 @@ def export(root, release_id):
             "collection_receipt.json",
             "measurement_receipt.json",
         )
-    } | {f"{REPORT}/analysis.json", f"{REPORT}/REPORT.md"}
+    } | {f"{spec.report}/analysis.json", f"{spec.report}/REPORT.md"}
     provenance = dict(
-        schema="painter-clause-export/1",
-        release_id=release_id,
-        run_id=RUN,
-        export_source_commit=commit,
+        run_id=spec.run,
         study_source_commit=freeze["recorded_git_commit"],
         qualified_source_commit=freeze["qualified_source_commit"],
-        original_freeze_sha256=digest(read_bytes(root, f"{ORIGINAL}/freeze.json")),
+        original_freeze_sha256=digest(read_bytes(root, f"{spec.original}/freeze.json")),
         private_proxy_snapshot_sha256=digest(encoded(freeze["proxy_snapshot"])),
         freeze_environment=freeze["environment"],
         frozen_input_bindings=frozen,
         original_terminal_hashes={p: digest(read_bytes(root, p)) for p in sorted(source_paths)},
-        files={
-            **{p: digest(b) for p, b in originals.items()},
-            f"{DATA}/{release_id}/inputs.json": digest(raw),
-        },
         expected_numeric_sha256=digest(encoded(expected)),
+    )
+    if successor:
+        # Safe terminal lineage only. The predecessor error body and private
+        # freeze/proxy snapshot remain excluded from the numerical archive.
+        provenance["predecessor_terminal"] = freeze["predecessor_terminal"]
+    return originals, raw, provenance
+
+
+def export(root, release_id, *, include_successor=False):
+    """Create one numerical archive input, optionally with the fixed fresh cohort."""
+    root = Path(root).absolute()
+    no_symlinks(root)
+    export_paths(release_id, include_successor=include_successor)
+    directory = root / DATA / release_id
+    if directory.exists() or directory.is_symlink():
+        raise FileExistsError("retain existing create-once numerical export")
+    require_local_modules(root)
+    originals, raw, provenance = prepare_cohort_export(root, release_id)
+    generated = {f"{DATA}/{release_id}/inputs.json": raw}
+    if include_successor:
+        more, successor_raw, successor_provenance = prepare_cohort_export(
+            root,
+            release_id,
+            successor=True,
+        )
+        if any(path in originals and originals[path] != value for path, value in more.items()):
+            raise ValueError("cohort source snapshots differ during export")
+        originals.update(more)
+        generated[f"{DATA}/{release_id}/successor_inputs.json"] = successor_raw
+        provenance["successor"] = successor_provenance
+        validate_successor_lineage(originals, provenance, successor_provenance)
+    require_local_modules(root)
+    commit = clean_sources(root, originals)
+    provenance.update(
+        schema="painter-clause-export/1",
+        release_id=release_id,
+        export_source_commit=commit,
+        files={p: digest(b) for p, b in (originals | generated).items()},
         transformation="Project measurement rows onto the explicit consumed identity, numeric "
-        "and delivery fields; preserve assignment and collection metadata verbatim.",
-        coverage="Exact unchanged clause-v1 primary, all secondary summaries and report; "
-        "no private response authentication, extraction or historical-result replay.",
+        "and delivery fields; preserve each assignment and collection receipt verbatim.",
+        coverage="Exact unchanged analysis and report for clause-v1"
+        + (" and its separately analyzed fixed C/G successor" if include_successor else "")
+        + "; no pooling, private response authentication, extraction or historical-result replay.",
     )
     manifest = encoded(provenance)
     screen(manifest, ".json")
     if clean_sources(root, originals) != commit:
         raise ValueError("source changed during export")
-    write_new(root / f"{DATA}/{release_id}/inputs.json", raw)
-    write_new(root / f"{DATA}/{release_id}/export_manifest.json", manifest)
-    return dict(status="exported", release_id=release_id, requests=len(requests), rows=len(rows))
+    for path, payload in generated.items():
+        write_new(root / path, payload)
+    write_new(directory / "export_manifest.json", manifest)
+    result = dict(status="exported", release_id=release_id, requests=288, rows=864)
+    if include_successor:
+        result["successor"] = dict(run_id=SUCCESSOR_RUN, requests=96, rows=288)
+    return result
+
+
+def validate_cohort_provenance(files, descriptor, *, successor=False):
+    spec = cohort(successor)
+    if descriptor.get("run_id") != spec.run:
+        raise ValueError("cohort run identity differs")
+    for field in ("study_source_commit", "qualified_source_commit"):
+        if not re.fullmatch(r"[0-9a-f]{40}", str(descriptor.get(field))):
+            raise ValueError("source commit identity missing")
+    frozen = descriptor.get("frozen_input_bindings", {})
+    if not (spec.core - NOT_FREEZE_BOUND) <= frozen.keys():
+        raise ValueError("public provenance omits scientific bindings")
+    for path in spec.core - NOT_FREEZE_BOUND:
+        if frozen[path] != digest(files[path]):
+            raise ValueError("public scientific source differs from frozen provenance")
+    terminal = descriptor["original_terminal_hashes"]
+    if terminal[f"{spec.original}/freeze.json"] != descriptor["original_freeze_sha256"]:
+        raise ValueError("freeze provenance hash mismatch")
+    for path in spec.outputs:
+        if terminal[path] != digest(files[path]):
+            raise ValueError("original terminal output provenance mismatch")
+    collection = json.loads(files[f"{spec.original}/collection_receipt.json"])
+    measurement = json.loads(files[f"{spec.original}/measurement_receipt.json"])
+    measured_outputs = records_map(measurement["outputs"])
+    marker = f"research_workspace/{spec.study}/{spec.run}/measurement_started.json"
+    required_outputs = {
+        f"{spec.original}/measurements.jsonl",
+        f"{spec.report}/analysis.json",
+        f"{spec.report}/REPORT.md",
+        marker,
+    }
+    if (
+        collection.get("schema") != f"{spec.prefix}-collection/1"
+        or collection.get("run_id") != spec.run
+        or collection.get("freeze_sha256") != descriptor["original_freeze_sha256"]
+        or measurement.get("schema") != f"{spec.prefix}-measurement/1"
+        or measurement.get("run_id") != spec.run
+        or measurement.get("collection_receipt_sha256")
+        != digest(files[f"{spec.original}/collection_receipt.json"])
+        or measured_outputs.keys() != required_outputs
+    ):
+        raise ValueError("public terminal receipt chain differs")
+    for path in required_outputs - {marker}:
+        if measured_outputs[path] != terminal[path]:
+            raise ValueError("public measurement provenance differs")
+
+
+def validate_successor_lineage(files, original, successor):
+    """Public numeric lineage check only; never follow private response paths."""
+    spec = cohort(True)
+    old_bytes = files[f"{DESIGN}/inputs.json"]
+    old = json.loads(old_bytes)
+    new = json.loads(files[f"{spec.design}/inputs.json"])
+    expected = dict(
+        schema="painter-clause-successor-inputs/1",
+        origin=dict(path=f"{DESIGN}/inputs.json", sha256=digest(old_bytes)),
+        targets={"paul_cezanne": old["targets"]["paul_cezanne"]},
+        reference={
+            pipe: {"paul_cezanne": cell["paul_cezanne"]} for pipe, cell in old["reference"].items()
+        },
+        scalers=old["scalers"],
+    )
+    if encoded(new) != encoded(expected):
+        raise ValueError("successor reference/scaler projection differs from predecessor")
+    prior = successor.get("predecessor_terminal", {})
+    if (
+        prior.get("run_id") != RUN
+        or prior.get("freeze_sha256") != original["original_freeze_sha256"]
+        or prior.get("collection_receipt_sha256")
+        != digest(files[f"{ORIGINAL}/collection_receipt.json"])
+        or prior.get("source_commit") != original["study_source_commit"]
+        or prior.get("trigger_request_id") != "c:pcv_built04:r00:cezanne"
+        or prior.get("cezanne_primary_complete") is not False
+        or prior.get("numerical_outcomes_accessed") is not False
+        or not re.fullmatch(r"[0-9a-f]{64}", str(prior.get("trigger_response_sha256")))
+    ):
+        raise ValueError("successor predecessor-terminal provenance differs")
 
 
 def gather(root, release_id):
-    paths = CORE | ORIGINAL_OUTPUTS | export_paths(release_id)
+    manifest_path = f"{DATA}/{identifier(release_id)}/export_manifest.json"
+    manifest_raw = public_bytes(root, manifest_path)
+    descriptor = json.loads(manifest_raw)
+    include_successor = "successor" in descriptor
+    if include_successor and not isinstance(descriptor["successor"], dict):
+        raise ValueError("invalid fixed successor provenance")
+    spec = cohort(include_successor)
+    paths = (
+        spec.core
+        | ORIGINAL_OUTPUTS
+        | export_paths(
+            release_id,
+            include_successor=include_successor,
+        )
+    )
+    if include_successor:
+        paths |= spec.outputs
     files = {p: public_bytes(root, p) for p in sorted(paths)}
-    manifest_path = f"{DATA}/{release_id}/export_manifest.json"
-    descriptor = json.loads(files[manifest_path])
     if (
         descriptor.get("schema") != "painter-clause-export/1"
         or descriptor.get("release_id") != release_id
@@ -430,42 +624,12 @@ def gather(root, release_id):
     for path, sha in descriptor["files"].items():
         if digest(files[path]) != sha:
             raise ValueError(f"export payload hash differs: {path}")
-    for field in ("export_source_commit", "study_source_commit", "qualified_source_commit"):
-        if not re.fullmatch(r"[0-9a-f]{40}", str(descriptor.get(field))):
-            raise ValueError("source commit identity missing")
-    frozen = descriptor.get("frozen_input_bindings", {})
-    if not (CORE - NOT_FREEZE_BOUND) <= frozen.keys():
-        raise ValueError("public provenance omits scientific bindings")
-    for path in CORE - NOT_FREEZE_BOUND:
-        if frozen[path] != digest(files[path]):
-            raise ValueError("public scientific source differs from frozen provenance")
-    if (
-        descriptor["original_terminal_hashes"][f"{ORIGINAL}/freeze.json"]
-        != descriptor["original_freeze_sha256"]
-    ):
-        raise ValueError("freeze provenance hash mismatch")
-    for path in ORIGINAL_OUTPUTS:
-        if descriptor["original_terminal_hashes"][path] != digest(files[path]):
-            raise ValueError("original terminal output provenance mismatch")
-    collection = json.loads(files[f"{ORIGINAL}/collection_receipt.json"])
-    measurement = json.loads(files[f"{ORIGINAL}/measurement_receipt.json"])
-    measured_outputs = records_map(measurement["outputs"])
-    required_outputs = {
-        f"{ORIGINAL}/measurements.jsonl",
-        f"{REPORT}/analysis.json",
-        f"{REPORT}/REPORT.md",
-        f"research_workspace/{STUDY}/{RUN}/measurement_started.json",
-    }
-    if (
-        collection.get("freeze_sha256") != descriptor["original_freeze_sha256"]
-        or measurement.get("collection_receipt_sha256")
-        != digest(files[f"{ORIGINAL}/collection_receipt.json"])
-        or measured_outputs.keys() != required_outputs
-    ):
-        raise ValueError("public terminal receipt chain differs")
-    for path in required_outputs - {f"research_workspace/{STUDY}/{RUN}/measurement_started.json"}:
-        if measured_outputs[path] != descriptor["original_terminal_hashes"][path]:
-            raise ValueError("public measurement provenance differs")
+    if not re.fullmatch(r"[0-9a-f]{40}", str(descriptor.get("export_source_commit"))):
+        raise ValueError("export source commit identity missing")
+    validate_cohort_provenance(files, descriptor)
+    if include_successor:
+        validate_cohort_provenance(files, descriptor["successor"], successor=True)
+        validate_successor_lineage(files, descriptor, descriptor["successor"])
     return files, descriptor
 
 
@@ -473,12 +637,20 @@ def checksum_text(files):
     return "".join(f"{digest(raw)}  {path}\n" for path, raw in sorted(files.items())).encode()
 
 
-def readme(release_id, draft):
+def readme(release_id, draft, *, include_successor=False):
+    extra_test = (
+        " \\\n  tests/painter_clause_successor_v1/test_analysis.py" if include_successor else ""
+    )
+    included = (
+        "painter_clause_validation_v1 and its fixed painter_clause_successor_v1 cohort"
+        if include_successor
+        else "painter_clause_validation_v1"
+    )
     return f"""# Prospective painter-clause numerical addendum: {release_id}
 
 {"DRAFT local QA artifact." if draft else "Final local build; publication is a separate action."}
-This standalone package replays only painter_clause_validation_v1 from retained
-compact vectors, using unchanged qualified analysis and report functions. The
+This standalone package replays only {included}
+from retained compact vectors, using unchanged qualified analysis and report functions. The
 original pprv1-20260910 and naming-geometry releases remain necessary to reproduce
 historical results. No original release is modified or replaced. Paper assets
 are separate and are not needed for this numerical replay.
@@ -491,14 +663,14 @@ uv sync --locked --python 3.13.11 --extra analysis --extra dev
 uv run --locked python tools/paper_clause_release.py check --root .
 uv run --locked pytest -q --import-mode=importlib tests/test_paper_clause_release.py \\
   tests/painter_clause_validation_v1/test_analysis.py \\
-  tests/painter_clause_validation_v1/test_precision.py
+  tests/painter_clause_validation_v1/test_precision.py{extra_test}
 ```
 
 The optional tests also require a Git executable for temporary provenance
 fixtures; maintainer-only terminal-workflow tests are explicitly skipped in this
 compact package. Public verify/check require neither Git nor its history.
 
-The descriptor's freeze_environment records the study runtime. Python 3.13.11
+Each cohort's descriptor freeze_environment records its runtime. Python 3.13.11
 matches its recorded interpreter. Installation may download dependencies.
 Public verify uses only Python's standard library. Public check performs local
 numerical computation: no Git, proxy,
@@ -506,8 +678,14 @@ network, response bodies, feature extraction, or image files are required.
 The extra collection/workflow source is provided for inspection, not as a
 supported generation entry point in this numerical package.
 
-Every allocated slot/pipeline status, both primary tests, their withholding,
-all secondary summaries, delivery metadata and the report are checked exactly.
+Every allocated slot/pipeline status, primary test and its withholding,
+secondary summary, delivery record and report is checked exactly within its
+own cohort. The original and optional successor are never pooled; the original
+identity flag and unavailable results remain unchanged. The successor's .025
+threshold is not recycled when the predecessor is unavailable.
+For unavailable predecessor endpoints, the retained Holm value 1 is family
+bookkeeping, not a computed p-value or evidence of non-rejection. Read the
+withheld status and raw_p=null as unavailable inference.
 No numerical tolerance or post-result correction is introduced. Cross-platform
 floating differences fail exact replay and must be reported, not normalized away.
 
@@ -539,10 +717,14 @@ def build(root, output_root, release_id, *, draft=False):
     files, descriptor = gather(root, release_id)
     commit = None if draft else clean_sources(root, files)
     if not draft:
-        for p in CORE - NOT_FREEZE_BOUND:
-            if git_bytes(root, descriptor["study_source_commit"], p) != files[p]:
-                raise ValueError("copied scientific source differs from study commit")
-    files["README.md"] = readme(release_id, draft)
+        cohorts = [(False, descriptor)]
+        if "successor" in descriptor:
+            cohorts.append((True, descriptor["successor"]))
+        for successor, provenance in cohorts:
+            for p in cohort(successor).core - NOT_FREEZE_BOUND:
+                if git_bytes(root, provenance["study_source_commit"], p) != files[p]:
+                    raise ValueError("copied scientific source differs from study commit")
+    files["README.md"] = readme(release_id, draft, include_successor="successor" in descriptor)
     files["CLAUSE_RELEASE_MANIFEST.json"] = encoded(
         dict(
             schema=SCHEMA,
@@ -623,35 +805,48 @@ def verify(root, *, runtime=False):
     )
 
 
+def check_cohort(root, release_id, descriptor, *, successor=False):
+    spec = cohort(successor)
+    bundle = read(root, f"{DATA}/{release_id}/{spec.input_name}")
+    if bundle.get("schema") != spec.compact_schema or bundle.get("run_id") != spec.run:
+        raise ValueError("unknown compact input identity")
+    if bundle["collection"] != read(root, f"{spec.original}/collection_receipt.json"):
+        raise ValueError("compact collection metadata differs from original receipt")
+    require_local_modules(root)
+    actual, render = scientific_result(root, bundle, successor=successor)
+    require_local_modules(root)
+    expected = read(root, f"{spec.report}/analysis.json")
+    if digest(encoded(expected)) != descriptor["expected_numeric_sha256"] or encoded(
+        actual
+    ) != encoded(expected):
+        raise ValueError("exact primary/secondary numerical replay differs")
+    if render(actual).encode() != read_bytes(root, f"{spec.report}/REPORT.md"):
+        raise ValueError("exact report replay differs")
+    return dict(
+        primary_endpoints=len(actual["primary"]),
+        views=len(actual["views"]),
+        planned=actual["planned"],
+        numerical_sha256=digest(encoded(actual)),
+    )
+
+
 def check(root):
     root = Path(root).absolute()
     verified = verify(root, runtime=True)
     release_id = verified["release_id"]
     descriptor = read(root, f"{DATA}/{release_id}/export_manifest.json")
-    bundle = read(root, f"{DATA}/{release_id}/inputs.json")
-    if bundle.get("schema") != "painter-clause-compact-inputs/1" or bundle.get("run_id") != RUN:
-        raise ValueError("unknown compact input identity")
-    if bundle["collection"] != read(root, f"{ORIGINAL}/collection_receipt.json"):
-        raise ValueError("compact collection metadata differs from original receipt")
-    require_local_modules(root)
-    actual, render = scientific_result(root, bundle)
-    require_local_modules(root)
-    expected = read(root, f"{REPORT}/analysis.json")
-    if digest(encoded(expected)) != descriptor["expected_numeric_sha256"] or encoded(
-        actual
-    ) != encoded(expected):
-        raise ValueError("exact primary/secondary numerical replay differs")
-    if render(actual).encode() != read_bytes(root, f"{REPORT}/REPORT.md"):
-        raise ValueError("exact report replay differs")
-    return dict(
+    result = dict(
         status="exact_numeric_and_report_replay",
         release_id=release_id,
-        primary_endpoints=len(actual["primary"]),
-        views=len(actual["views"]),
-        planned=actual["planned"],
+        **check_cohort(root, release_id, descriptor),
         raw_response_authentication=False,
-        numerical_sha256=digest(encoded(actual)),
     )
+    if "successor" in descriptor:
+        result["successor"] = dict(
+            run_id=SUCCESSOR_RUN,
+            **check_cohort(root, release_id, descriptor["successor"], successor=True),
+        )
+    return result
 
 
 def main():
@@ -664,12 +859,14 @@ def main():
         )
         if command in ("export", "build"):
             action.add_argument("--release-id", required=True)
+        if command == "export":
+            action.add_argument("--include-successor", action="store_true")
         if command == "build":
             action.add_argument("--output-root", required=True, type=Path)
             action.add_argument("--draft", action="store_true")
     args = parser.parse_args()
     if args.action == "export":
-        result = export(args.root, args.release_id)
+        result = export(args.root, args.release_id, include_successor=args.include_successor)
     elif args.action == "build":
         result = build(args.root, args.output_root, args.release_id, draft=args.draft)
     elif args.action == "verify":

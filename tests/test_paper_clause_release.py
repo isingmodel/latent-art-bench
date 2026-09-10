@@ -21,6 +21,10 @@ LOCAL_WORKFLOW = (
 LOCAL_ONLY = pytest.mark.skipif(
     not LOCAL_WORKFLOW, reason="Maintainer-only terminal workflow dependencies are excluded"
 )
+SUCCESSOR_ONLY = pytest.mark.skipif(
+    not (ROOT / "src/latent_art_bench/painter_clause_successor_v1/analysis.py").is_file(),
+    reason="Optional successor is not included in this v1-only numerical package",
+)
 SPEC = importlib.util.spec_from_file_location(
     "clause_release_adapter", ROOT / "tools/paper_clause_release.py"
 )
@@ -38,39 +42,43 @@ def _put(root, path, value, *, raw=False):
     target.write_bytes(value if raw else release.encoded(value))
 
 
-def _terminal_records(root, requests, rows, inputs, config, collection):
-    from latent_art_bench.painter_clause_validation_v1 import analysis
+def _terminal_records(root, requests, rows, inputs, config, collection, *, successor=False):
+    if successor:
+        from latent_art_bench.painter_clause_successor_v1 import analysis
+    else:
+        from latent_art_bench.painter_clause_validation_v1 import analysis
+    spec = release.cohort(successor)
 
     collection = copy.deepcopy(collection)
     collection["freeze_sha256"] = release.digest(
-        (root / f"{release.ORIGINAL}/freeze.json").read_bytes()
+        (root / f"{spec.original}/freeze.json").read_bytes()
     )
     expected = analysis.analyze(requests, rows, inputs, config, collection_receipt=collection)
-    _put(root, f"{release.ORIGINAL}/collection_receipt.json", collection)
-    _put(root, f"{release.REPORT}/analysis.json", expected)
-    _put(root, f"{release.REPORT}/REPORT.md", analysis.report_text(expected).encode(), raw=True)
+    _put(root, f"{spec.original}/collection_receipt.json", collection)
+    _put(root, f"{spec.report}/analysis.json", expected)
+    _put(root, f"{spec.report}/REPORT.md", analysis.report_text(expected).encode(), raw=True)
     _put(
         root,
-        f"{release.ORIGINAL}/measurements.jsonl",
+        f"{spec.original}/measurements.jsonl",
         b"".join((json.dumps(r) + "\n").encode() for r in rows),
         raw=True,
     )
-    marker = f"research_workspace/{release.STUDY}/{release.RUN}/measurement_started.json"
+    marker = f"research_workspace/{spec.study}/{spec.run}/measurement_started.json"
     _put(root, marker, dict(synthetic=True))
     measured_paths = [
-        f"{release.ORIGINAL}/measurements.jsonl",
-        f"{release.REPORT}/analysis.json",
-        f"{release.REPORT}/REPORT.md",
+        f"{spec.original}/measurements.jsonl",
+        f"{spec.report}/analysis.json",
+        f"{spec.report}/REPORT.md",
         marker,
     ]
     _put(
         root,
-        f"{release.ORIGINAL}/measurement_receipt.json",
+        f"{spec.original}/measurement_receipt.json",
         dict(
-            schema="painter-clause-validation-measurement/1",
-            run_id=release.RUN,
+            schema=f"{spec.prefix}-measurement/1",
+            run_id=spec.run,
             collection_receipt_sha256=release.digest(
-                (root / f"{release.ORIGINAL}/collection_receipt.json").read_bytes()
+                (root / f"{spec.original}/collection_receipt.json").read_bytes()
             ),
             outputs=[
                 dict(path=p, sha256=release.digest((root / p).read_bytes())) for p in measured_paths
@@ -213,6 +221,9 @@ def synthetic_export(tmp_path_factory):
     _git(root, "add", ".")
     _git(root, "commit", "-qm", "synthetic terminal receipt bindings")
     with pytest.MonkeyPatch.context() as patch:
+        # Fixture construction uses this test process's identical implementation;
+        # fresh public replay below independently enforces copied-module origins.
+        patch.setattr(release, "require_local_modules", lambda selected: None)
         patch.setattr(
             release, "terminal_inputs", lambda selected: (freeze, requests, rows, collection)
         )
@@ -407,6 +418,7 @@ def test_check_rejects_cached_foreign_source(stage, monkeypatch):
 def _isolated_check(stage, tmp_path):
     script = """
 import importlib.util, json, pathlib, sys
+sys.dont_write_bytecode = True
 root = pathlib.Path(sys.argv[1])
 def guard(event, args):
     if event.startswith("socket.") or event == "subprocess.Popen":
@@ -422,6 +434,8 @@ for name, value in sys.modules.items():
         assert pathlib.Path(value.__file__).resolve().is_relative_to((root / "src").resolve()), name
 assert "latent_art_bench.painter_clause_validation_v1.workflow" not in sys.modules
 assert "latent_art_bench.painter_clause_validation_v1.collection" not in sys.modules
+assert "latent_art_bench.painter_clause_successor_v1.workflow" not in sys.modules
+assert "latent_art_bench.painter_clause_successor_v1.collection" not in sys.modules
 print(json.dumps(result))
 """
     environment = {key: value for key, value in os.environ.items() if key != "PYTHONPATH"}
@@ -450,6 +464,7 @@ def test_complete_primary_contributions_pvalues_holm_replay_in_isolation(
     synthetic_export, tmp_path, monkeypatch
 ):
     root = tmp_path / "complete-maintainer"
+    monkeypatch.setattr(release, "require_local_modules", lambda selected: None)
     shutil.copytree(synthetic_export.root, root)
     collection, expected = _terminal_records(
         root,
@@ -556,3 +571,279 @@ def test_row_projection_is_exactly_consumed_fields(synthetic_export):
     assert release.project_rows(rows) == before
     rows[0]["scaled"][0] += 1
     assert release.project_rows(rows) != before
+
+
+@pytest.fixture(scope="module", params=["complete", "missing", "identity"])
+def combined_export(synthetic_export, tmp_path_factory, request):
+    """Artificial all-withheld v1 plus a distinct, never-pooled successor cohort."""
+    if not (ROOT / "src/latent_art_bench/painter_clause_successor_v1/analysis.py").is_file():
+        pytest.skip("Optional successor source is absent")
+    from latent_art_bench.painter_clause_successor_v1 import common
+
+    root = tmp_path_factory.mktemp("combined-maintainer") / "source"
+    shutil.copytree(synthetic_export.root, root)
+    spec = release.cohort(True)
+    for path in release.SUCCESSOR_CORE:
+        target = root / path
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(ROOT / path, target)
+    old_rows = copy.deepcopy(synthetic_export.complete_rows)
+    for row in old_rows:
+        if row["request_id"] == "c:pcv_built04:r00:cezanne":
+            row.update(status="refused", values=None, scaled=None, observed=None)
+        elif row["sequence"] >= 212:
+            row.update(
+                status="not_attempted_collection_stopped", values=None, scaled=None, observed=None
+            )
+    old_collection, old_expected = _terminal_records(
+        root,
+        synthetic_export.requests,
+        old_rows,
+        synthetic_export.inputs,
+        synthetic_export.config,
+        dict(
+            synthetic_export.collection,
+            identity_contract_met=False,
+            status="stopped",
+            reason="unrecognized_backend_error",
+        ),
+    )
+    assert all(
+        r["estimate"] is None and r["raw_p"] is None and r["holm_p"] == 1
+        for r in old_expected["primary"]
+    )
+    assert all(
+        cell["status"] != "descriptive"
+        for view in old_expected["views"]
+        for cell in view["arms"].values()
+    )
+    old = synthetic_export.inputs
+    inputs = dict(
+        schema="painter-clause-successor-inputs/1",
+        origin=dict(
+            path=f"{release.DESIGN}/inputs.json",
+            sha256=release.digest((root / f"{release.DESIGN}/inputs.json").read_bytes()),
+        ),
+        targets={"paul_cezanne": old["targets"]["paul_cezanne"]},
+        reference={
+            pipe: {"paul_cezanne": cell["paul_cezanne"]} for pipe, cell in old["reference"].items()
+        },
+        scalers=old["scalers"],
+    )
+    _put(root, f"{spec.design}/inputs.json", inputs)
+    requests, config = common.requests(root), common.configuration(root)
+    rng = np.random.default_rng(94123)
+    rows = []
+    for assigned in requests:
+        for pipe in common.PIPELINES:
+            x = (rng.normal(size=31) + (0.7 if assigned["arm"] == "generic" else 0)).tolist()
+            rows.append(
+                dict(
+                    {k: v for k, v in assigned.items() if k != "payload"},
+                    pipeline=pipe,
+                    status="measured",
+                    values=x,
+                    scaled=x,
+                    observed=dict(
+                        width=1024, height=768, format="PNG", reported=dict(quality="low")
+                    ),
+                )
+            )
+    if request.param == "missing":
+        missing_id = requests[0]["request_id"]
+        for row in rows:
+            if row["request_id"] == missing_id:
+                row.update(status="refused", values=None, scaled=None, observed=None)
+    _put(
+        root,
+        f"{spec.original}/planned_requests.jsonl",
+        b"".join((json.dumps(r) + "\n").encode() for r in requests),
+        raw=True,
+    )
+    _git(root, "add", ".")
+    _git(root, "commit", "-qm", "artificial successor design and unavailable predecessor")
+    commit = _git(root, "rev-parse", "HEAD")
+    prior = dict(
+        run_id=release.RUN,
+        freeze_sha256=release.digest((root / f"{release.ORIGINAL}/freeze.json").read_bytes()),
+        collection_receipt_sha256=release.digest(
+            (root / f"{release.ORIGINAL}/collection_receipt.json").read_bytes()
+        ),
+        source_commit=synthetic_export.freeze["recorded_git_commit"],
+        trigger_request_id="c:pcv_built04:r00:cezanne",
+        trigger_response_sha256="d" * 64,
+        cezanne_primary_complete=False,
+        numerical_outcomes_accessed=False,
+    )
+    freeze = dict(
+        inputs=[
+            dict(path=p, sha256=release.digest((root / p).read_bytes()))
+            for p in sorted(spec.core - release.NOT_FREEZE_BOUND)
+        ],
+        recorded_git_commit=commit,
+        qualified_source_commit=commit,
+        proxy_snapshot={"private_example": "/private/excluded/successor"},
+        environment={"python": sys.version.split()[0]},
+        predecessor_terminal=prior,
+    )
+    _put(root, f"{spec.original}/freeze.json", freeze)
+    collection = dict(
+        schema="painter-clause-successor-collection/1",
+        run_id=spec.run,
+        planned=96,
+        duration_contract_met=True,
+        identity_contract_met=request.param != "identity",
+        status="stopped" if request.param == "identity" else "complete",
+        reason="proxy_identity_changed" if request.param == "identity" else None,
+        budget=dict(accounted_usd=50.7219185),
+        outputs=[
+            dict(
+                path=f"research_workspace/{spec.study}/{spec.run}/collection_started.json",
+                sha256="e" * 64,
+            )
+        ],
+    )
+    collection, expected = _terminal_records(
+        root,
+        requests,
+        rows,
+        inputs,
+        config,
+        collection,
+        successor=True,
+    )
+    _git(root, "add", ".")
+    _git(root, "commit", "-qm", "artificial successor terminal bindings")
+    with pytest.MonkeyPatch.context() as patch:
+        patch.setattr(release, "require_local_modules", lambda selected: None)
+        patch.setattr(
+            release,
+            "terminal_inputs",
+            lambda selected, successor=False: (
+                (freeze, requests, rows, collection)
+                if successor
+                else (synthetic_export.freeze, synthetic_export.requests, old_rows, old_collection)
+            ),
+        )
+        release.export(root, "combined-synthetic", include_successor=True)
+    _git(root, "add", ".")
+    _git(root, "commit", "-qm", "artificial combined numerical export")
+    output = tmp_path_factory.mktemp("combined-package")
+    built = release.build(root, output, "combined-synthetic")
+    return SimpleNamespace(
+        root=root,
+        stage=Path(built["stage"]),
+        expected=expected,
+        old_expected=old_expected,
+        condition=request.param,
+        collection=collection,
+        old_collection=old_collection,
+    )
+
+
+@SUCCESSOR_ONLY
+def test_combined_exact_replay_keeps_each_cohort_and_unavailable_v1(combined_export, tmp_path):
+    value = _isolated_check(combined_export.stage, tmp_path)
+    assert value["numerical_sha256"] == release.digest(
+        release.encoded(combined_export.old_expected)
+    )
+    new = value["successor"]
+    assert (new["run_id"], new["primary_endpoints"], new["views"], new["planned"]) == (
+        release.SUCCESSOR_RUN,
+        1,
+        3,
+        96,
+    )
+    assert new["numerical_sha256"] == release.digest(release.encoded(combined_export.expected))
+    endpoint = combined_export.expected["primary"][0]
+    if combined_export.condition == "complete":
+        assert endpoint["status"] == "available" and len(endpoint["contributions"]) == 48
+        assert endpoint["randomization"]["permutations"] == 99999
+        assert endpoint["alpha"] == 0.025 and endpoint["raw_p"] is not None
+    else:
+        assert endpoint["raw_p"] is None and not endpoint["reject"]
+        assert (endpoint["estimate"] is None) == (combined_export.condition == "missing")
+    descriptor = release.read(
+        combined_export.stage, f"{release.DATA}/combined-synthetic/export_manifest.json"
+    )
+    files = set(descriptor["files"])
+    assert release.SUCCESSOR_CORE <= files
+    assert release.cohort(True).outputs <= files
+    assert not any("response" in Path(p).name for p in files)
+    readme = (combined_export.stage / "README.md").read_text()
+    assert "not a computed p-value" in readme and "never pooled" in readme
+    assert "tests/painter_clause_successor_v1/test_analysis.py" in readme
+
+
+@SUCCESSOR_ONLY
+def test_combined_stdlib_and_lineage_tamper_checks(combined_export, tmp_path):
+    # No scientific import, external state or image access is needed for integrity.
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-I",
+            "-S",
+            str(combined_export.stage / "tools/paper_clause_release.py"),
+            "verify",
+            "--root",
+            str(combined_export.stage),
+        ],
+        cwd=tmp_path,
+        capture_output=True,
+        text=True,
+        timeout=30,
+    )
+    assert result.returncode == 0, result.stderr
+    files, descriptor = release.gather(combined_export.stage, "combined-synthetic")
+    altered = copy.deepcopy(descriptor["successor"])
+    altered["predecessor_terminal"]["collection_receipt_sha256"] = "0" * 64
+    with pytest.raises(ValueError, match="predecessor-terminal"):
+        release.validate_successor_lineage(files, descriptor, altered)
+    altered_files = dict(files)
+    path = f"studies/{release.SUCCESSOR}/inputs.json"
+    inputs = json.loads(altered_files[path])
+    inputs["reference"]["primary512"]["paul_cezanne"]["values"][0][0] += 0.01
+    altered_files[path] = release.encoded(inputs)
+    with pytest.raises(ValueError, match="reference/scaler projection"):
+        release.validate_successor_lineage(altered_files, descriptor, descriptor["successor"])
+
+
+@LOCAL_ONLY
+@SUCCESSOR_ONLY
+def test_successor_terminal_binding_gate(combined_export, tmp_path, monkeypatch):
+    from latent_art_bench.painter_clause_successor_v1 import workflow
+
+    root = tmp_path / "terminal-successor"
+    shutil.copytree(combined_export.root, root)
+    spec = release.cohort(True)
+    bundle = release.read(root, f"{release.DATA}/combined-synthetic/successor_inputs.json")
+    freeze = release.read(root, f"{spec.original}/freeze.json")
+    monkeypatch.setattr(
+        workflow,
+        "collection_inputs",
+        lambda selected, run: (
+            freeze,
+            bundle["requests"],
+            [],
+            {},
+            bundle["collection"],
+        ),
+    )
+    returned = release.terminal_inputs(root, successor=True)
+    assert len(returned[1]) == 96 and len(returned[2]) == 288
+    assert returned[3] == combined_export.collection
+    path = root / spec.original / "measurement_receipt.json"
+    original = release.read(root, f"{spec.original}/measurement_receipt.json")
+    for mutation in ("empty", "duplicate", "hash", "collection"):
+        changed = copy.deepcopy(original)
+        if mutation == "empty":
+            changed["outputs"] = []
+        elif mutation == "duplicate":
+            changed["outputs"][1] = changed["outputs"][0]
+        elif mutation == "hash":
+            changed["outputs"][0]["sha256"] = "0" * 64
+        else:
+            changed["collection_receipt_sha256"] = "0" * 64
+        path.write_bytes(release.encoded(changed))
+        with pytest.raises(ValueError, match="binding|receipt|output hash"):
+            release.terminal_inputs(root, successor=True)

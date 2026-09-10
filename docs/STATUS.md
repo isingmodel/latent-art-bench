@@ -146,11 +146,13 @@ or adjustment removes these delivered-service differences.
 
 ## Current revision verification
 
-The new clause numerical-release adapter passes its separate maintainer-run LLM
-review and 40 local tests. Its advertised tests pass in a fresh isolated
-synthetic stage: 96 passed, five explicit maintainer-only skips. Full current
-offline suite: **1,561 passed in 190.35 seconds**; Ruff is clean. Real terminal
-export, archive publication and anonymous replay remain pending collection.
+The combined clause numerical-release adapter passes its separate maintainer-run
+LLM review. Its 49 local tests pass, and a fresh synthetic final package passes
+152 tests with eight explicit maintainer-only skips. Full current offline suite:
+**1,714 passed in 260.50 seconds**; Ruff is clean. The historical evidence audit
+passes all 2,902 checks at `ae71fb3`, and both geometry analyses replay exactly.
+Real combined export, archive publication and anonymous replay remain pending
+successor collection and measurement.
 
 At release source `5485e36`, Ruff and the full offline suite pass (**1,394 tests,
 145.60 seconds**); historical audit **2,902 checks, zero failures**. Both new

@@ -85,3 +85,8 @@ an older stage description.
 
 - [Stopped clause transport audit](reviews/20260910_substantive_revision/CLAUSE_TERMINAL_AUDIT_2.md):
   exact terminal accounting and unavailable inference for the original 288-slot run.
+
+- [Stopped clause measurement audit](reviews/20260910_substantive_revision/CLAUSE_MEASUREMENT_AUDIT_2.md):
+  all 864 rows, exact scaler/provenance checks and preserved unavailable endpoints.
+- [Combined clause release review](reviews/20260910_substantive_revision/CLAUSE_COMBINED_RELEASE_REVIEW.md):
+  separate replay/provenance for both cohorts, synthetic final-stage verification.
