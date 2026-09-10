@@ -9,8 +9,8 @@ The [paper guide](../paper/README.md) covers compilation and visual inspection;
 
 Test maintenance after the previous paper closeout reduced routine coverage and
 removed 41 unbound obsolete or formatting cases. The specificity extension adds
-14 numerical, routing and membership cases: `make check` now selects 822, while
-`make check-all` includes 1,121 additional historical cases (1,943 total).
+15 numerical, routing and membership cases: `make check` now selects 823, while
+`make check-all` includes 1,121 additional historical cases (1,944 total).
 See [test scope](../tests/README.md). The original `pytest.ini`, `pyproject.toml`,
 bound tests and published evidence remain unchanged; routine selection lives in
 `pytest-paper.ini`. Use an explicit `tests` argument for the full retained suite.

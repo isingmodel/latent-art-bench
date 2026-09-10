@@ -6,12 +6,12 @@ that a file can be deleted.
 
 ## Current writing and code organization
 
-`paper/` contains the canonical English manuscript, bibliography, plotting script and
-nine active manuscript figures. These are editable presentation artifacts.
+`paper/` contains the canonical English manuscript, bibliography, and scripts for
+scientific figures and tables. These are editable presentation artifacts.
 The older `paper/figures/naming_geometry.pdf` copy remains for the published
-geometry version; the current manuscript uses the separately rendered
-`naming_geometry_presentation.pdf` with larger stacked panels and unchanged
-stored values. Never overwrite its sealed source/report or prior release.
+geometry version. The separately rendered `naming_geometry_presentation.pdf`
+has larger stacked panels and current model labels, with unchanged stored values;
+it remains a supporting figure. Never overwrite the sealed source/report or prior release.
 Superseded
 manuscripts and documentation snapshots live in Git history rather than duplicate
 working-tree directories. For example, historical methodology-review citations
@@ -26,11 +26,12 @@ of the computational follow-up. Its linked per-run numerical/report bundles and
 the versioned quantile corrigendum are immutable evidence. Editing the synthesis
 does not authorize overwriting those published inputs or their displays.
 
-The restored four-painter paper section uses the existing distribution exploration,
-Stage A diagnostic and retry-presentation bundles. These are current descriptive
-paper inputs and remain terminal evidence at their original paths. The new
-manuscript scatter figure reads saved coordinates and variance ratios; it does
-not replace their original reports, fits or recorded retry dispositions.
+The earlier four-painter distribution exploration, Stage A diagnostic and
+retry-presentation bundles remain terminal evidence at their original paths.
+Their supporting scatter figure reads saved coordinates and variance ratios;
+it does not replace the original reports, fits or retry dispositions. The new
+specificity experiment has separate vectors, reference-only projections and
+comparison figures; the earlier generated images are not pooled into it.
 
 The [analysis map](ANALYSES.md) connects every study to its computation, plotting,
 inputs, methods and replay command. Scientific packages remain versioned at
@@ -80,6 +81,14 @@ that list must not be extended to conceal new damage.
 - Hash-bound calibration/randomization JSON and other referenced files under
   `tmp/`: a temporary-looking path does not make evidence disposable.
 - Untracked user work and local configuration, including `.env`.
+
+Specificity collection bytes are confined to their versioned directories under
+`research_workspace/`. The 31 images from the terminated first attempt and all
+technical probes are excluded from scientific analysis but remain unique
+provenance evidence. Do not remove them or copy them into the successor. The
+successor's raw response/image hashes, full and square measurements, terminal
+receipt and four numerical analyses are separately bound. A create-once report
+binds its computation and all inputs; editable manuscript prose does not replace it.
 
 The terminal capture-audit ledger at
 `data/manifests/painter_capture_audit_v1/pcav1-20260910/attempts.jsonl` is also

@@ -87,8 +87,8 @@ and all older releases remain unchanged; the new manuscript is not yet published
 
 ## Verification and next handoff
 
-The new implementation passes Ruff and **1,943 retained offline tests** in
-476.14 seconds. Routine `make check` selects **822** of these; 14 new cases protect
+The new implementation passes Ruff and **1,944 retained offline tests** in
+479.82 seconds. Routine `make check` selects **823** of these; 15 new cases protect
 the new numerical, routing and membership contracts. No plotting/formatting tests
 were added. [Test scope](../tests/README.md) explains the earlier retirement.
 The most recent historical evidence audit passes **2,902 checks with zero failures**

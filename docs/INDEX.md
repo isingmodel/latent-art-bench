@@ -17,8 +17,13 @@
 
 - [Specificity transport repair](../studies/painter_specificity_v2/DECISION.md) and
   [closed first attempt](../studies/painter_specificity_v1/TERMINATION.md).
-- [Painter-specificity protocol](../studies/painter_specificity_v1/PROTOCOL.md):
-  six-model comparison of painter contrast recovery beyond shared painting effects.
+- [Current painter-specificity protocol](../studies/painter_specificity_v2/PROTOCOL.md):
+  1,008 images on qualified routes; retains the
+  [original scientific estimands](../studies/painter_specificity_v1/PROTOCOL.md).
+- [Canonical measurement/reader correction](../studies/painter_specificity_measurement_v1/CORRECTION.md):
+  preserves the intended 649-work reference panel and provides all four replay commands.
+- [Reference-content sensitivity](../studies/painter_specificity_reference_v1/PROTOCOL.md):
+  equal class weights within painter, declared before inspecting new feature outcomes.
 - [Novelty and competing explanations](../studies/painter_specificity_v1/NOVELTY.md).
 - [GPT Image 2.5 transport qualification](../studies/painter_specificity_v1/PILOT.md):
   model support, request forwarding and pilot evidence boundaries.
@@ -27,7 +32,7 @@
 
 | Material | Link |
 | --- | --- |
-| Current substantive reviews | [Four-round aggregate and closeout record](reviews/20260910_substantive_revision/REVIEW.md), [fixed round-4 snapshot](reviews/20260910_substantive_revision/ROUND4_SNAPSHOT.json); three maintainer-run LLM reviewers, mean 8.9000→8.9333; stopped under the user's revised condition, original above-9 threshold unmet |
+| Prior manuscript reviews | [Four-round aggregate and closeout record](reviews/20260910_substantive_revision/REVIEW.md), [fixed round-4 snapshot](reviews/20260910_substantive_revision/ROUND4_SNAPSHOT.json); three maintainer-run LLM reviewers, mean 8.9000→8.9333; stopped under the user's revised condition, original above-9 threshold unmet |
 | Additional evidence feasibility | [Fixed-map design](../studies/painter_map_validation_v1/DESIGN.md), [precision contract](../studies/painter_map_validation_v1/PRECISION_PROTOCOL.md), [implementation audit](reviews/20260910_substantive_revision/MAP_PRECISION_AUDIT_2.md), and [terminal qualification](../studies/painter_map_validation_v1/pmvqv1-20260910/PRECISION.md): no allocation passed, no collection. [Capture provenance audit](../reports/painter_capture_audit_v1/pcav1-20260910/REPORT.md): zero qualified pairs. Both bounded scopes retain their failures. |
 | One pre-data redesign | [V2 decision](../studies/painter_map_validation_v2/DECISION.md), [scientific protocol](../studies/painter_map_validation_v2/PROTOCOL.md), [precision protocol](../studies/painter_map_validation_v2/PRECISION_PROTOCOL.md), [review](../studies/painter_map_validation_v2/PRECISION_REVIEW.md), and [passing qualification](../studies/painter_map_validation_v2/pmvqv2-20260910/PRECISION.md): R10 passes the fixed proxy criteria; v1 remains closed, and separate operational qualification subsequently passed |
 | Completed fixed-map comparison | [Technical contract](../studies/painter_map_validation_v2/TECHNICAL_PROTOCOL.md), [analysis review](../studies/painter_map_validation_v2/ANALYSIS_REVIEW.md), [operational review](../studies/painter_map_validation_v2/OPERATIONAL_REVIEW.md), [coordinator review](../studies/painter_map_validation_v2/PRECOLLECTION_REVIEW.md), [source qualification](../studies/painter_map_validation_v2/qualification.json) and [freeze](../data/manifests/painter_map_validation_v2/pmv2-20260910/freeze.json): all gates passed, 240/240 outputs measured; [two-endpoint result](../reports/painter_map_validation_v2/pmv2-20260910/REPORT.md) favors translation/scaling for both targets, with [terminal audit](reviews/20260910_substantive_revision/MAP_VALIDATION_TERMINAL_AUDIT_2.md) and [literal arithmetic audit](reviews/20260910_substantive_revision/MAP_VALIDATION_RESULTS_AUDIT_1.md) |
@@ -35,7 +40,7 @@
 | Prospective fixed-map public replay | [Local/anonymous verification](../reports/paper_map_validation_reproducibility_v2/pmv2r-20260910/REPORT.md), [strict Ubuntu failure](../reports/paper_map_validation_reproducibility_v2/pmv2r-20260910/HOSTED_REPORT.md), [numerical adapter](../tools/paper_map_validation_release.py) and [packaging audit](reviews/20260910_substantive_revision/MAP_VALIDATION_RELEASE_AUDIT_2.md): 74 files; exact local/anonymous replay and 75 tests each; Ubuntu fails qualification before observed replay |
 | Separate Ubuntu failure diagnostic | [Decision](../studies/paper_map_portability_diagnostic_v1/DECISION.md), [authenticated result](../reports/paper_map_portability_diagnostic_v1/pmpdv1-20260910/REPORT.md): 27 failing support hashes, floating differences below 4e-15, scientific table unchanged; preserves the closed strict attempt |
 | Deferred portable proposal | [Unexecuted contract](../studies/paper_map_portability_v1/DECISION.md): deferred at the user's stop instruction before qualified implementation, support export or replay; no portable sidecar exists |
-| Final presentation checks | [Figure 3 parity](reviews/20260910_substantive_revision/FIGURE3_PRESENTATION_QA_1.md), [all 36 pages and correction verification](reviews/20260910_substantive_revision/FINAL_PRESENTATION_QA_3.md); no additional scientific score |
+| Prior manuscript presentation checks | [Figure 3 parity](reviews/20260910_substantive_revision/FIGURE3_PRESENTATION_QA_1.md), [all 36 pages and correction verification](reviews/20260910_substantive_revision/FINAL_PRESENTATION_QA_3.md); no additional scientific score |
 | Latest published manuscript | [Final source-build and anonymous-access record](../reports/paper_map_validation_reproducibility_v2/pmv2r-20260910/PAPER_ASSETS.md); 39-page paper, 16-file source bundle and unchanged numerical archives; all page text/pixels and downloaded asset hashes verified |
 | New validation and replication follow-up | [Measurement challenge protocol](../studies/painter_measurement_validation_v1/PROTOCOL.md) tests fixed computational image changes and common-square sensitivity; [naming/palette successor protocol](../studies/painter_naming_replication_v1/PROTOCOL.md) specifies a separate bounded collection. See [current status](STATUS.md) for gates and actual execution. |
 | Public numerical reproduction | [Published release and verification](../reports/paper_reproducibility_v1/pprv1-20260910/REPORT.md), [implementation guide](../studies/paper_reproducibility_v1/README.md); an allowlisted package with explicit numerical replay coverage, separate from raw-media access and independent research replication. |
