@@ -58,6 +58,23 @@ scaler is unchanged. The 49-image earlier palette cohort remains ancillary; two
 late exploratory retries do not restore the original incomplete-grid primary.
 Never pool these cohorts to change an inferential result or denominator.
 
+## Active prospective clause collection
+
+Run `pcvv1-20260910` is collecting 288 OAuth-only requests after source `dff2804`,
+qualification `90a993f` and assignment/freeze `79f28c1`. All 1,521 offline tests,
+Ruff, the 2,902-check historical audit and both geometry replays passed. The live
+command is `python -m latent_art_bench.painter_clause_validation_v1 collect --live
+--proxy-root ../openai-oauth`; it is one-shot and must never be rerun on this run.
+At most two requests are active, starts are five seconds apart, and blocks drain
+before later admission. New paid calls are prohibited. Generation source, tests,
+protocol, reviews, inputs, qualification and freeze are now immutable.
+
+After terminal collection, the same module provides `measure`, `check` and
+`verify-responses`. Both primary comparisons are named-minus-generic energy on
+24 new fixed scenes with three repeats; maps trained on old OAuth observations
+are unchanged prospective secondary predictions. Terminal gates and missingness
+must be preserved. The current paper contains no result from this new run yet.
+
 ## Analysis and paper entry points
 
 [ANALYSES.md](ANALYSES.md) maps every study's inputs, numerical computation and

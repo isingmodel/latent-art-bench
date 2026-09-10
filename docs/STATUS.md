@@ -18,8 +18,8 @@ The nine-figure English paper has been restructured. Round 2 is complete at
 **8.6889/10** (8.7/8.4/8.8, 8.8/8.6/9.0, 8.8/8.3/8.8), below the target.
 Reporting/access corrections are complete. The [geometry addendum](../reports/paper_geometry_reproducibility_v1/ppgv1-20260910/REPORT.md)
 is public with exact fresh local and anonymous replay; 95 included tests pass.
-A separately specified 288-output OAuth-only generic-clause validation is under
-implementation qualification; no new acquisition or generation gate is open. New offline work uses the disjoint
+The separately specified 288-output OAuth-only generic-clause validation has
+passed qualification and its live collector is running from a committed freeze. New offline work uses the disjoint
 [painter-naming geometry protocol](../studies/painter_naming_geometry_v1/PROTOCOL.md):
 whole-scene moment-map evaluation, original-map transfer to later FLUX, and
 repeat-corrected conditional geometry. No new image generation or extraction
@@ -37,8 +37,10 @@ summaries are secondary. The [precision record](../studies/painter_clause_valida
 why 288 was selected over 144/384 without claiming realized-service power.
 Three precollection reviews report no unresolved critical defect after fixing
 identity/terminal-replay and reporting gaps. Ruff and all 1,521 offline tests pass;
-the historical audit passes all 2,902 checks. Source qualification and assignment
-freeze are the remaining precollection gates. No new outputs exist.
+the historical audit passes all 2,902 checks. Source is `dff2804`, qualification `90a993f`, and the committed assignment/freeze
+is `79f28c1`. All 143 freeze inputs, exact requests and local proxy identity
+verified before explicit live dispatch. Feature extraction and primary analysis
+remain closed until this collection becomes terminal. No new paid calls are allowed.
 
 ## Current follow-up
 
