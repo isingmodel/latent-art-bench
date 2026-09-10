@@ -1,0 +1,91 @@
+{
+  "adapter_commit": "d0a390f",
+  "baseline_usd": 67.5219185,
+  "ceiling_usd": 120.0,
+  "concurrency": 3,
+  "created_at": "2026-09-10T15:07:53.883625+00:00",
+  "inputs": [
+    {
+      "path": "studies/painter_specificity_v1/PROTOCOL.md",
+      "sha256": "292514599bd88f06c011b7fc8f1354a4c274335c5dc79b4a68b35ab51c63c5dc"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/confirmation_features.jsonl",
+      "sha256": "01cc5167c09b88eab6a86885b72040f76fc8a7ca8a62acd56d85a8b16b2f7717"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/scaler.json",
+      "sha256": "71f511235081dfc1e9846976320c69477bcbd04dd43fc9a2e271f7b0375497b9"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-renderings-r2-20260905/acquisitions.jsonl",
+      "sha256": "3933e1627a0e7182baf899917cf651530f86c04b8e92b0312f7ada15dae98f5e"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/features.py",
+      "sha256": "b295c2de1a8501e8ab335d88ed56ab8f2dc8b3ca704141b92e02ef586d48d172"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/statistics.py",
+      "sha256": "20830e7a90bc49666f0937ef7bc2ae3f11206f986c72eb8f80ad30cc24fcdaa8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/discovery.py",
+      "sha256": "211fe3d93077aec9861915b58fa57b2e8954dd17cdc291fdc1e5d33072d1d0eb"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v1/accounting_baseline.json",
+      "sha256": "51488761220109dac1f7e1d9d8b8c3bb356b88bb023bbc69da2cad26f848ec11"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v1/provider_quotes.json",
+      "sha256": "ba4473c151a89bed18f04831bff9c376d4ae467489d598930a93a2386d5605f7"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v1/__init__.py",
+      "sha256": "5b6b6fdec0b62d962c14323a847c3d76b40b02232745296bd469bc4bd3810fc9"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v1/analysis.py",
+      "sha256": "ac5df333a8768dc66b84be0d2c1403f9dba3b229f101de8d65ad6cdb27bce06c"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v1/study.py",
+      "sha256": "e2da0d39e65f7f069c3b05cc959b0ee7dfd771944cabf7966baad573d6d84688"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v1/workflow.py",
+      "sha256": "504c87bf7d4161d537d0cdf59f2015a42e2a63224ebab83e3a1db1c9927fc018"
+    },
+    {
+      "path": "tests/painter_specificity_v1/test_analysis.py",
+      "sha256": "8577989bcf88574832d8fadf1e76e889f234cbb4a47870481eb7560393bad43e"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v1/psv1-20260910/requests.jsonl",
+      "sha256": "72b11c67f24308664feff634f1fd9fd6cbd6afd71fca7ebb9656f09ff7a710ab"
+    }
+  ],
+  "local_endpoint": "http://127.0.0.1:10533/v1/images/generations",
+  "maximum_images": 1152,
+  "maximum_retries": 24,
+  "models": [
+    "gpt-image-1",
+    "gpt-image-2",
+    "gpt-image-2.5-flare",
+    "gpt-image-2.5-sunburst",
+    "google/gemini-3.1-flash-image",
+    "black-forest-labs/flux.2-max"
+  ],
+  "recorded_git_commit": "72ea59066cddee66641af2cfcecf103674d094c5",
+  "run_id": "psv1-20260910",
+  "spacing_seconds": 5
+}
