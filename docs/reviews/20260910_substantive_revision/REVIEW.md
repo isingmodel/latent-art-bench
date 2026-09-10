@@ -210,3 +210,13 @@ scientific sources and outputs remain unchanged. No additional collection,
 extraction, formal allocation qualification or retained-data sensitivity search
 is part of this revision. Editorial fixes and diagnostic work receive no
 automatic score increase.
+
+The Round 4 wording corrections are applied in the 39-page working manuscript:
+the abstract is 201 words, the two later FLUX panels have distinct labels, and
+the conclusion reports nonrecurrence under the prospective evaluation rather
+than an identified cohort effect. A five-row archive guide replaces the longer
+availability narrative. Tectonic 0.17.0 compiles without warnings; the 13 pages
+whose pixels changed were rendered and inspected, including the archive guide
+at full size. The other 26 pages match the scored snapshot pixelwise. All nine
+figure files, bibliography and scientific outputs remain unchanged. These are
+unscored presentation corrections.

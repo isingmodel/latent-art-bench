@@ -28,30 +28,26 @@
 
 \begin{abstract}
 Painter names can improve the proximity of generated images to painting
-reproductions without recovering their distribution. We study this distinction in 31 interpretable
-color, spatial and texture coordinates. Exploration covers Monet, Sisley,
-Pissarro and C\'ezanne; controlled comparisons use three image services and a
-separate 70-work Monet/C\'ezanne panel. Against artist-free controls, naming lowers
-energy discrepancy in all six original comparisons, with four adjusted rejections;
-both FLUX effects recur later. A prospective 96-image C\'ezanne comparison also
-lowers discrepancy against a generic painting clause on 24 new scenes.
-Post-result diagnostics fit global translation and isotropic scaling to generated
-outputs. Naming beats translation/scaling in all six held-scene averages, but
-unchanged translation alone is closer than naming for both painters in the later
-FLUX cohort. Adding scale lowers the
-repeat-corrected scene-mean prediction residual in all six original cell averages,
-yet worsens reference proximity in five; matching evaluation means retains a
-proximity penalty throughout the specified historical views. However, a
-prospective 240-image FLUX/C\'ezanne comparison on 12 new fixed scenes favors the
-unchanged translation/scaling map on both targets, with both approximate contrast
-intervals below zero. The historical opposition does not transfer to this panel.
-Repeat-corrected scene variance contracts,
-while scene retrieval changes in both directions. Both palette collections
-leave named-minus-generic differences in chroma response unresolved.
-Processing challenges and common-square sensitivity delimit the
-measurement interpretation. The findings distinguish reference proximity from
-conditional organization in digital feature space; they do not identify a
-perceptual or internal generative mechanism.
+reproductions without recovering their distribution. We study this distinction
+in 31 interpretable color, spatial and texture coordinates. Exploration covers
+Monet, Sisley, Pissarro and C\'ezanne; controlled comparisons use three image
+services and a separate Monet/C\'ezanne panel. Naming lowers energy discrepancy
+against artist-free controls in all six original comparisons, with four adjusted
+rejections; both FLUX effects recur on the same templates. A prospective
+96-image C\'ezanne comparison also lowers discrepancy against a generic painting
+clause on 24 new scenes. Post-result global transformation diagnostics distinguish
+reference proximity from prediction of named scene means. Adding isotropic scale
+to translation lowers the repeat-corrected scene-mean prediction residual in all
+six original cell averages, yet worsens reference proximity in five. However,
+a prospective 240-image FLUX/C\'ezanne comparison on 12 new fixed scenes favors
+the unchanged translation/scaling map on both targets, with both approximate
+contrast intervals below zero. The historical opposition does not recur under
+this evaluation. Corrected scene variance contracts, while scene retrieval changes
+in both directions. Both palette collections leave named-minus-generic chroma
+response differences unresolved. Processing sensitivity and unresolved capture
+differences limit interpretation: these findings concern digital feature
+distributions, without identifying perceptual similarity or an internal
+generative mechanism.
 \end{abstract}
 
 \section{Introduction}
@@ -827,17 +823,17 @@ energy on held-out scenes: negative favors actual naming. Blue diamonds are
 means over four separately evaluated translation/scale maps; gray points show
 the four folds, and red crosses the translation-only means. Fold variation is
 not an uncertainty interval. (B) The original full-cohort FLUX maps applied
-unchanged to the later free outputs. Translation alone is closer to both
-reference panels than actual naming; translation/scaling is farther. Both
+unchanged to the same-template temporal FLUX artist-free outputs. Translation
+alone is closer to both reference panels than actual naming; translation/scaling is farther. Both
 panels use the primary 31-coordinate representation and reference-content energy
 weights. Panel A uses 18 queries per fold, panel B 24 per arm.}
 \label{fig:moment}
 \end{figure}
 
-\subsection{What transfers to the later collection?}
+\subsection{Fixed-map transfer to the same-template temporal FLUX collection}
 We fit one map per painter to all original FLUX observations and apply it
-unchanged to the later free outputs. Actual naming beats translation/scaling
-again, by .330 energy units for Monet and .172 for C\'ezanne. Translation alone,
+unchanged to the same-template temporal FLUX artist-free outputs. Actual naming
+beats translation/scaling again, by .330 energy units for Monet and .172 for C\'ezanne. Translation alone,
 however, gives energies 1.470 and .736, below actual naming's 1.571 and .820.
 The translation advantage persists in 23 of 24 Monet scene deletions and all
 24 C\'ezanne deletions. It holds in 15 of 18 processing/feature views; all three
@@ -894,8 +890,8 @@ Monet & 1.470 & 1.901 & 2.062 & 1.571\\
 C\'ezanne & .736 & .992 & .990 & .820\\
 \bottomrule
 \end{tabular}
-\caption{Later FLUX energy in the primary representation. The evaluation-centered
-map has the translation map's weighted mean and the old-center map's centered
+\caption{Same-template temporal FLUX energy in the primary representation. The
+evaluation-centered map has the translation map's weighted mean and the old-center map's centered
 shape. Its worse score therefore isolates a scalar change at fixed mean in this
 specified feature comparison. All parameters except the evaluation-free mean
 come from the original cohort; no named evaluation outcomes are used for fitting.}
@@ -1047,7 +1043,9 @@ with ten paired artist-free/named repetitions per scene. All 240 outputs were
 measured in the primary 512-pixel, 31-coordinate representation. The scaler,
 32 references and full original maps remain fixed; each map was fitted to all
 72 historical outputs per arm, rather than averaged across folds. No new fit or
-evaluation centering is applied. The two prespecified contrasts are
+evaluation centering is applied. Full-cloud energy at ten repetitions also differs
+from the three-repeat fold average in Table~\ref{tab:targets}; this is not an
+identical-estimand replication. The two prespecified contrasts are
 \[
   \Delta\E=\E(X,T_2F)-\E(X,T_1F), \qquad
   \Delta Q=Q_{T_2}-Q_{T_1}.
@@ -1334,7 +1332,7 @@ Matching the evaluation means leaves a proximity penalty for the fitted scalar
 throughout the specified historical feature and processing views.
 On 12 new fixed scenes, however, the unchanged translation/scaling map improves
 both reference energy and corrected scene-mean prediction relative to translation.
-The historical opposing ordering is therefore contingent on the evaluated cohort.
+The historical opposing ordering is not reproduced under this prospective evaluation.
 Repeat-corrected contraction, heterogeneous retrieval and evaluator disagreements
 show that proximity is not a substitute for conditional organization. Together
 with the retained Monet, Sisley, Pissarro and C\'ezanne exploration, these results
@@ -1342,32 +1340,38 @@ characterize prompt-dependent differences from digital painting distributions
 without claiming perceptual equivalence or an identified generative mechanism.
 
 \section*{Data and code availability}
-Five versioned archives provide protocols, source code, locked dependencies,
-compact measurements, scalers, prompts, memberships and reports. The source
-catalog records work identities, URLs and license metadata. The
-\href{https://github.com/isingmodel/latent-art-bench/releases/tag/pprv1-20260910}{original package}
-covers the four-painter exploration, controlled studies, measurement challenges
-and temporal follow-up; the
-\href{https://github.com/isingmodel/latent-art-bench/releases/tag/ppgv1-20260910}{geometry addendum}
-covers moment maps, conditional organization and evaluation centering. The
-\href{https://github.com/isingmodel/latent-art-bench/releases/tag/pcrv1-20260910}{clause addendum}
-preserves the failed original cohort's unavailable endpoints and the successful
-C\'ezanne/generic cohort separately, without pooling. The
-\href{https://github.com/isingmodel/latent-art-bench/releases/tag/pmrv1-20260910}{precision addendum}
-records the failed initial offline qualification: no allocation was selected
-and no images were collected in that proposal. The
-\href{https://github.com/isingmodel/latent-art-bench/releases/tag/pmv2r-20260910}{prospective fixed-map addendum}
-preserves the separate passing qualification and replays the two contrasts on
-the complete 240-image panel, including their paired deletion estimates.
+Five versioned archives contain protocols, source code, locked dependencies,
+compact measurements, scalers, prompts, memberships and reports. The source catalog
+records work identities, URLs and license metadata. Checksums bind each archive;
+Appendix~\ref{app:release} gives commands and comparison contracts.
 
-Checksums bind each archive; Appendix~\ref{app:release} gives reproduction
-commands and contracts. Replay starts from retained measurements. Raw artwork,
-generated pixels and provider-response bodies are excluded; the archives do not
-support feature re-extraction or independent acquisition authentication.
-Delivery metadata and integrity summaries are distinguished from recomputed
-results. Source links and license metadata guarantee neither continuing pixel
-access nor redistribution permission. Code and author-produced numerical exports
-use the repository's MIT license, which grants no rights to excluded artwork.
+\begin{center}\small
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{.24\linewidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Archive & Included evidence\\
+\midrule
+\href{https://github.com/isingmodel/latent-art-bench/releases/tag/pprv1-20260910}{Original package}
+& Four-painter exploration, controlled studies, measurement challenges and temporal follow-up.\\[3pt]
+\href{https://github.com/isingmodel/latent-art-bench/releases/tag/ppgv1-20260910}{Geometry addendum}
+& Historical moment maps, conditional organization and evaluation centering.\\[3pt]
+\href{https://github.com/isingmodel/latent-art-bench/releases/tag/pcrv1-20260910}{Clause addendum}
+& Failed original endpoints remain unavailable; successful C\'ezanne/generic cohort is separate, without pooling.\\[3pt]
+\href{https://github.com/isingmodel/latent-art-bench/releases/tag/pmrv1-20260910}{Precision addendum}
+& Failed initial qualification; no allocation selected or new images collected.\\[3pt]
+\href{https://github.com/isingmodel/latent-art-bench/releases/tag/pmv2r-20260910}{Fixed-map addendum}
+& Separate passing qualification and complete 240-image comparison, including paired deletions.\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+The fifth archive replays exactly on the maintainer's Mac; Ubuntu fails
+qualification before observed replay, with the differing field unidentified.
+Replay starts from measurements, not pixels. Raw artwork, generated images and
+response bodies are excluded, preventing feature re-extraction and independent
+acquisition authentication. Recorded delivery metadata are distinguished from
+recomputed results. Source links guarantee neither continuing access nor
+redistribution rights. Code and author-produced numerical exports use the MIT
+license, which grants no rights to excluded artwork.
 
 \appendix
 \section{Features, prompts and collection details}
