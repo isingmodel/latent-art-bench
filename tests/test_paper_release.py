@@ -120,6 +120,87 @@ def test_comparison_diagnostics_bound_output_and_retain_structural_failures():
     assert full["displayed_mismatches"][-1]["actual"] == {"type": "dict", "length": 1}
 
 
+def observed_welch_fixture():
+    """Six actual final-bit differences from hosted run 34423830742."""
+    def row(raw, adjusted):
+        return dict(contrast="monet_minus_generic", inference_status="approximate_model_based",
+                    welch_df=14.635366139368532, standard_error=.1111361930603175,
+                    p_two_sided=raw, p_holm=adjusted, reject_holm=False)
+
+    expected = dict(palette={
+        "primary512": {"primary": [row(.17442192426365563, .34884384852731126)]},
+        "resolution256": {"primary": [row(.1612614037155397, .3225228074310794)]}},
+        primary=[dict(status="conditional_randomization", raw_p=.00002, holm_p=.00006),
+                 dict(status="conditional_randomization", raw_p=.00001, holm_p=.00004),
+                 dict(endpoint="palette_monet", experiment="palette",
+                      status="approximate_model_based", welch_df=14.635366139368532,
+                      standard_error=.1111361930603175, raw_p=.17442192426365563,
+                      holm_p=.34884384852731126, reject=False, direction="negative")],
+        availability=dict(measured=264, missing=0))
+    actual = json.loads(json.dumps(expected))
+    for pipeline, raw, adjusted in (("primary512", .1744219242636556, .3488438485273112),
+                                    ("resolution256", .16126140371553968, .32252280743107936)):
+        actual["palette"][pipeline]["primary"][0].update(p_two_sided=raw, p_holm=adjusted)
+    actual["primary"][2].update(raw_p=.1744219242636556, holm_p=.3488438485273112)
+    return actual, expected
+
+
+def test_observed_welch_drift_uses_fixed_bound_and_is_recorded_but_strict_still_fails(capsys):
+    actual, expected = observed_welch_fixture()
+    assert not release.close_values(actual, expected, welch_p=False)
+    result = release.assert_digest(actual, release.digest(expected), "replication",
+                                   reference=expected, portable_numeric=True)
+    assert result["status"] == "within_1e-10_absolute_and_relative_tolerance"
+    amendment = result["post_ci_welch_p_amendment"]
+    assert "not prospectively" in amendment["scope"]
+    differences = amendment["previous_exact_p_rule_differences"]
+    assert differences["total_mismatches"] == 6
+    assert differences["truncated"] is False
+    assert differences["maximum_absolute_error"] == 5.551115123125783e-17
+    assert differences["nonnumeric_mismatches"] == 0
+    with pytest.raises(ValueError, match="numerical replay differs"):
+        release.assert_digest(actual, release.digest(expected), "replication",
+                              reference=expected, portable_numeric=False)
+    capsys.readouterr()
+
+
+@pytest.mark.parametrize("change", ["outside_bound", "randomization", "unknown_p", "status",
+                                    "decision", "direction", "count", "missingness", "p_type"])
+def test_welch_exception_cannot_admit_other_scientific_changes(change):
+    actual, expected = observed_welch_fixture()
+    if change == "outside_bound":
+        actual["primary"][2]["raw_p"] += 1e-8
+    elif change == "randomization":
+        actual["primary"][0]["raw_p"] += 1e-12
+    elif change == "unknown_p":
+        expected["primary"][2]["unknown_p"] = .125
+        actual["primary"][2]["unknown_p"] = .125 + 1e-12
+    elif change == "status":
+        actual["primary"][2]["status"] = "withheld_collection_duration_contract"
+    elif change == "decision":
+        actual["primary"][2]["reject"] = True
+    elif change == "direction":
+        actual["primary"][2]["direction"] = "positive"
+    elif change == "count":
+        actual["availability"]["measured"] = 264.0
+    elif change == "missingness":
+        del actual["availability"]["missing"]
+    else:
+        expected["primary"][2]["raw_p"] = 0.0
+        actual["primary"][2]["raw_p"] = 0
+    assert not release.close_values(actual, expected)
+
+
+def test_welch_schema_is_taken_from_expected_and_unknown_endpoints_stay_strict():
+    actual, expected = observed_welch_fixture()
+    expected["primary"][2]["endpoint"] = "unknown_palette_endpoint"
+    actual["primary"][2]["endpoint"] = "unknown_palette_endpoint"
+    assert not release.close_values(actual, expected)
+    actual, expected = observed_welch_fixture()
+    expected["primary"][2]["status"] = "conditional_randomization"
+    assert not release.close_values(actual, expected)
+
+
 def test_restoration_preserves_measurement_stage_and_development_scale():
     source = {name: [{"pipeline": "primary512", "values": [2.0] * 31}]
               for name in ("reference", "generated", "development")}
