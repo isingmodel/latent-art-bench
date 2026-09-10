@@ -104,6 +104,48 @@ def close_values(actual, expected, *, tolerance=1e-10):
     return type(actual) is type(expected) and actual == expected
 
 
+def comparison_diagnostics(actual, expected, *, tolerance=1e-10, limit=20):
+    """Describe rejected leaves without changing the existing acceptance rule."""
+    mismatches = []
+    total = 0
+
+    def visit(left, right, path, allowed):
+        nonlocal total
+        if close_values(left, right, tolerance=allowed):
+            return
+        if isinstance(right, dict) and isinstance(left, dict) and left.keys() == right.keys():
+            for key, value in right.items():
+                visit(left[key], value, [*path, key],
+                      0 if re.search(r"^p_|_p$|p_value|pvalue", key) else allowed)
+            return
+        if isinstance(right, list) and isinstance(left, list) and len(left) == len(right):
+            for index, (a, b) in enumerate(zip(left, right, strict=True)):
+                visit(a, b, [*path, index], allowed)
+            return
+        total += 1
+        if len(mismatches) >= limit:
+            return
+
+        def display(value):
+            if isinstance(value, (dict, list)):
+                return dict(type=type(value).__name__, length=len(value))
+            return value[:160] if isinstance(value, str) else value
+
+        row = dict(path=path, actual=display(left), expected=display(right),
+                   actual_type=type(left).__name__, expected_type=type(right).__name__,
+                   absolute_and_relative_tolerance=allowed)
+        if (type(left) in (int, float) and type(right) in (int, float)
+                and math.isfinite(left) and math.isfinite(right)):
+            row.update(absolute_error=abs(left - right),
+                       within_1e_10_if_numeric=math.isclose(left, right,
+                                                          abs_tol=1e-10, rel_tol=1e-10))
+        mismatches.append(row)
+
+    visit(actual, expected, [], tolerance)
+    return dict(total_mismatches=total, displayed_mismatches=mismatches,
+                truncated=total > len(mismatches))
+
+
 def csv_values(raw):
     def value(text):
         if not text:
@@ -619,6 +661,14 @@ def assert_digest(value, expected, label, *, reference=None, portable_numeric=Fa
     actual = digest(value)
     if actual != expected and not (portable_numeric and reference is not None
                                    and close_values(native(value), reference)):
+        if reference is not None:
+            diagnostic = comparison_diagnostics(native(value), reference,
+                                                tolerance=1e-10 if portable_numeric else 0)
+            print(json.dumps(dict(component=label, status="numerical_mismatch_diagnostic",
+                                  portable_numeric=portable_numeric,
+                                  actual_sha256=actual, retained_sha256=expected,
+                                  comparison=diagnostic),
+                             allow_nan=False), flush=True)
         raise ValueError(f"numerical replay differs from retained result: {label}")
     return dict(component=label, status=("exact_numeric_match" if actual == expected
                                         else "within_1e-10_absolute_and_relative_tolerance"),
