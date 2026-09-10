@@ -121,17 +121,22 @@ pages compile cleanly and pass visual inspection; the earlier public assets
 remain unchanged.
 
 One [explicit prospective v2 redesign](../studies/painter_map_validation_v2/DECISION.md)
-is now being assessed: R=10, or 240 outputs, with the same maps, interval,
+has passed its sole [offline qualification](../studies/painter_map_validation_v2/pmvqv2-20260910/PRECISION.md): R=10, or 240 outputs, with the same maps, interval,
 historical proxy laws and precision thresholds. V1 remains stopped. The decision
 records that v1's future-proposal clause and Protocol 2.1 section 15 permit a
 separate version before new outcomes; the earlier broader interpretation was
-corrected openly. Its finite-R energy target changes with R. No v2 qualification
-or new generation has run, and no collection gate is open. This is the sole
-additional allocation assessment for the map question in this revision.
+corrected openly. Its finite-R energy target changes with R. All 27 coverage
+checks and all nine baseline width checks passed in 270,000 simulated trials;
+the minimum coverage lower bound is .97065 and the largest baseline Q median
+half-width is .862593. There were no unavailable intervals. Source commit
+`6956fec` precedes this single formal assessment. These are historical discrete
+proxy calculations, not a service-coverage guarantee. No new generation has run;
+a separate tested operational contract, fresh budget check and freeze remain
+required. There is no further allocation assessment for this question in the revision.
 
 A separate [stage R0 capture audit](../reports/painter_capture_audit_v1/pcav1-20260910/REPORT.md)
 is terminal: **zero qualified pairs after 15 metadata requests across five
-additional works**, with no images. New catalogue photographer/archive evidence
+selected works**, with no images. New catalogue photographer/archive evidence
 activated the two conditional candidates. All five capture-pair claims remain
 unresolved; redirects, access denial and missing source ancestry are retained.
 The original four-work audit is unchanged. A
