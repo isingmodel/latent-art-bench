@@ -12,7 +12,10 @@ The [paper guide](../paper/README.md) covers compilation and visual inspection;
 The user requests three skeptical LLM reviews using the DeerFlow academic-paper-
 review skill, substantive paper/analysis revisions and a nine-score mean above 9.
 The fixed aspects are rigor, contribution and clarity/reproducibility, each 1–10.
-Round 1 averaged 8.2333; round 2 averaged 8.6889. See the [review record](reviews/20260910_substantive_revision/REVIEW.md)
+Round 1 averaged 8.2333; round 2 averaged 8.6889; round 3 averaged 8.9000.
+The requested threshold remains unmet. All three round-3 reviewers inspected
+the complete 35-page manuscript and nine figures; subsequent presentation fixes
+do not constitute a new scored review. See the [review record](reviews/20260910_substantive_revision/REVIEW.md)
 for exact snapshots and scores. Do not inflate scores or claim the goal achieved
 before the honest mean exceeds the threshold. All reviewers are operated by the
 maintainer and have disclosed subsequent design/implementation involvement.
@@ -95,8 +98,10 @@ adapters have explicitly narrower numerical contracts. Do not repeat extraction
 merely to verify a manuscript edit.
 
 Six figures come from `paper/make_figures.py`, one from `paper/replay_palette.py`,
-one from `paper/make_validation_figure.py`, and the ninth is copied from the
-immutable geometry report. The older geometry-sensitivity figure uses “generic”
+one from `paper/make_validation_figure.py`, and the ninth uses
+`paper/make_geometry_figure.py` to display unchanged sealed geometry values in
+larger stacked panels. The original numerical renderer and figure remain
+unchanged. The older geometry-sensitivity figure uses “generic”
 for short-scene named prompts; the manuscript labels that contrast correctly
 without overwriting frozen evidence. New clause findings use a compact table.
 
@@ -125,9 +130,12 @@ pixels. Source URLs/license metadata do not grant image redistribution rights.
 
 ## Verification and preservation
 
-Latest source qualification: Ruff passes, all 1,714 offline tests pass in 260.50
-seconds, and the historical audit passes 2,902 checks at `ae71fb3`. These checks
-cover the complete adapter source committed at `4fd4c15`.
+Latest source qualification: Ruff passes, all 1,714 offline tests pass in 256.02
+seconds, and the historical audit passes 2,902 checks at `28b7d28`. These checks
+include the separate manuscript geometry renderer. All nine active figures
+replay exactly; the final 36-page PDF passes visual QA. The immutable
+[presentation check](reviews/20260910_substantive_revision/FINAL_PRESENTATION_QA_3.md)
+records its exact TeX/PDF hashes and does not assign new scores.
 The historical audit does not register the new namespaces, so run their own
 replays as well. Before handoff after Python changes:
 

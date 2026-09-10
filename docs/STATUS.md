@@ -12,15 +12,21 @@ The user requests three skeptical reviews and substantive paper/analysis revisio
 until the unchanged nine-score average exceeds 9. Fixed aspects are scientific
 rigor, contribution, and clarity/reproducibility, each scored 1–10.
 [Round 1](reviews/20260910_substantive_revision/REVIEW.md) averaged **8.2333**;
-round 2 averaged **8.6889**. Neither meets the target. No round-3 score is assigned
-yet. Reviewers are maintainer-run LLM subagents with disclosed subsequent design,
+round 2 averaged **8.6889**; round 3 averaged **8.9000**. The target remains unmet.
+All nine round-3 scores are preserved in the linked review record.
+Reviewers are maintainer-run LLM subagents with disclosed subsequent design,
 implementation or writing involvement, not independent human/institutional reviewers.
 
 The revision adds whole-scene moment maps, unchanged-map temporal transfer,
 repeat-corrected conditional geometry and a separate evaluation-centering
 comparison. These reuse retained measurements. Their complete numerical addendum
 is already public. A prospective generic-clause follow-up is now complete and
-integrated, with exact fresh local and anonymous public replay. The next whole-paper review is pending.
+integrated, with exact fresh local and anonymous public replay. All three
+reviewers inspected the complete 35-page round-3 manuscript and all nine figures.
+Their remaining presentation corrections are applied in the visually checked
+36-page manuscript: comparison units/weights, exact abstract wording, larger
+Figure 3 labels and a precise runtime pin. No new scientific score is assigned;
+these corrections do not resolve the remaining design limits.
 All four painters remain in the manuscript.
 
 ## Completed clause collection and analysis
@@ -71,9 +77,10 @@ No scene-population, perceptual or internal-mechanism claim follows.
 | [Geometry addendum `ppgv1-20260910`](../reports/paper_geometry_reproducibility_v1/ppgv1-20260910/REPORT.md) | Exact fresh local/anonymous replay of both namespaces and 95 tests. Source `5485e36`, public commit `7923049`; immutable 34-page manuscript and nine figures. |
 | [Clause addendum `pcrv1-20260910`](../reports/paper_clause_reproducibility_v1/pcrv1-20260910/REPORT.md) | Public: 85 files, exact fresh local/anonymous replay of both separate cohorts, 152 tests and eight explicit maintainer-only skips in each environment. Archive SHA256 `6038da2d…bf23e40`, public commit `866fc27`. Final paper assets follow review. |
 
-Latest complete Python verification covers source committed at `4fd4c15`:
-**Ruff clean; 1,714 offline tests passed in 260.50 seconds**. Historical evidence
-audit at `ae71fb3`: **2,902 checks, zero failures**, with the same two old
+Latest complete Python verification includes the separate Figure 3 presentation
+renderer: **Ruff clean; 1,714 offline tests passed in 256.02 seconds**. All nine
+active manuscript figures replay exactly. Historical evidence
+audit at `28b7d28`: **2,902 checks, zero failures**, with the same two old
 acknowledgements. Both geometry namespaces replay exactly. The historical audit
 does not register the new namespaces; each requires its own numerical check.
 

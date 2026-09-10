@@ -20,8 +20,8 @@ The [Makefile](../Makefile) provides the common entry points:
 | `make palette-check` | Recompute Study 2 primary inference from committed chroma outcomes and the fixed schedule; no raw-response reads |
 | `make validation-check` | Replay the computational challenge and all eight common-square contrasts |
 | `make replication-check` | Replay the terminal temporal cohort from its retained measurements |
-| `make figures` | Rebuild eight editable manuscript figures from retained numeric inputs |
-| `make figures-check` | Check all eight manuscript figures without rewriting them or replaying full reports |
+| `make figures` | Rebuild nine manuscript figures from retained numeric inputs |
+| `make figures-check` | Check all nine manuscript figures without rewriting them or replaying full reports |
 | `make paper` | Rebuild figures and compile the manuscript; see [paper/README.md](../paper/README.md) |
 
 Numeric and report checks use temporary output and preserve the published bundles.
@@ -279,7 +279,7 @@ input and remains unchanged.
 
 | Analysis | Methods / results | Source and plotting | Replay |
 | --- | --- | --- | --- |
-| Whole-scene moment maps, original-map temporal transfer, corrected conditional variance | [Protocol](../studies/painter_naming_geometry_v1/PROTOCOL.md); [report](../reports/painter_naming_geometry_v1/pngv1-20260910/REPORT.md) | `src/latent_art_bench/painter_naming_geometry_v1/`; `report.py` plots the ninth manuscript figure | `uv run --locked python -m latent_art_bench.painter_naming_geometry_v1 verify` |
+| Whole-scene moment maps, original-map temporal transfer, corrected conditional variance | [Protocol](../studies/painter_naming_geometry_v1/PROTOCOL.md); [report](../reports/painter_naming_geometry_v1/pngv1-20260910/REPORT.md) | `src/latent_art_bench/painter_naming_geometry_v1/`; immutable `report.py` figure, with a separate readable manuscript display in [make_geometry_figure.py](../paper/make_geometry_figure.py) | `uv run --locked python -m latent_art_bench.painter_naming_geometry_v1 verify` |
 | Evaluation-free centering at unchanged scalar/displacement | [Protocol](../studies/painter_naming_centering_v1/PROTOCOL.md); [report](../reports/painter_naming_centering_v1/pncv1-20260910/REPORT.md) | `src/latent_art_bench/painter_naming_centering_v1/`; no additional figure | `uv run --locked python -m latent_art_bench.painter_naming_centering_v1 verify` |
 
 Both namespaces are terminal, post-result retained-vector analyses with 60

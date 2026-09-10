@@ -7,7 +7,12 @@ that a file can be deleted.
 ## Current writing and code organization
 
 `paper/` contains the canonical English manuscript, bibliography, plotting script and
-nine manuscript figures. These are editable presentation artifacts. Superseded
+nine active manuscript figures. These are editable presentation artifacts.
+The older `paper/figures/naming_geometry.pdf` copy remains for the published
+geometry version; the current manuscript uses the separately rendered
+`naming_geometry_presentation.pdf` with larger stacked panels and unchanged
+stored values. Never overwrite its sealed source/report or prior release.
+Superseded
 manuscripts and documentation snapshots live in Git history rather than duplicate
 working-tree directories. For example, historical methodology-review citations
 to the earlier paper can be resolved with:

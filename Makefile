@@ -81,13 +81,13 @@ figures:
 	$(PYTHON) paper/make_figures.py
 	$(PYTHON) paper/replay_palette.py --figure paper/figures/palette_blocks.pdf
 	$(PYTHON) paper/make_validation_figure.py
-	cp reports/painter_naming_geometry_v1/pngv1-20260910/naming_geometry.pdf paper/figures/naming_geometry.pdf
+	$(PYTHON) paper/make_geometry_figure.py
 
 figures-check:
 	$(PYTHON) paper/make_figures.py --check
 	$(PYTHON) paper/replay_palette.py --check-figure paper/figures/palette_blocks.pdf
 	$(PYTHON) paper/make_validation_figure.py --check
-	cmp reports/painter_naming_geometry_v1/pngv1-20260910/naming_geometry.pdf paper/figures/naming_geometry.pdf
+	$(PYTHON) paper/make_geometry_figure.py --check
 
 paper: figures
 	mkdir -p $(PAPER_BUILD)

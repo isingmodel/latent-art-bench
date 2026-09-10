@@ -38,7 +38,8 @@ isotropic scaling fitted to generated training outputs. Actual naming is closer
 than the translation/scale benchmark in all six held-scene averages, but an
 unchanged translation alone gives lower discrepancy than actual naming for both
 painters in the later FLUX cohort. Thus even a recurring naming benefit does not
-uniquely imply recovery of reference variation. Adding scale better predicts named scene means in all six primary cells, yet
+uniquely imply recovery of reference variation. Adding scale lowers the
+repeat-corrected scene-mean prediction residual in all six cell averages, yet
 worsens reference proximity in five. A further benchmark holds the evaluation
 mean fixed and finds that the fitted scalar worsens proximity throughout the
 specified views. Repeat-corrected scene variance contracts,
@@ -705,6 +706,60 @@ of what reference proximity establishes about generated variation.
 
 \section{Can global feature transformations predict naming?}
 \label{sec:moment}
+The following comparisons use different observational units and weights
+(Table~\ref{tab:comparison-units}); their numerical scales and sample counts
+are not interchangeable.
+
+\begin{table}[tbp]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{.19\linewidth}
+>{\raggedright\arraybackslash}p{.41\linewidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Quantity & Observations compared & Weighting and aggregation\\
+\midrule
+Full-cloud energy $\E$
+& 72 images per detailed Study~1 arm; 24 per later FLUX arm;
+48 per fresh C\'ezanne/generic arm
+& Each reference $1/N_p$; each generated class-$c$ image
+$q_{pc}/n_{pc}$.\\[3pt]
+Mean held-scene energy
+& Four folds, each with 18 held images per arm
+(six scenes, three repeats)
+& Each reference $1/N_p$; each held image $q_{pc}/6$;
+equal mean of four separately scored folds.\\[3pt]
+Matched-real coverage
+& Monet/C\'ezanne: 18/15 anchors and 18/15 disjoint real or sampled
+generated queries per draw
+& Equal-weight anchor hits; matched class counts;
+median over 100 draws.\\[3pt]
+All-reference occupancy
+& All 38/32 reference anchors; 18 queries per held fold or 24 later queries,
+with six or eight per class
+& Equal-weight anchor hits, without query weights or resampling;
+equal fold mean for the original cohort.\\[3pt]
+Conditional residual $Q_T$
+& The same four scene folds; within each held scene, cross-products of
+distinct repeats ($R=3$)
+& Scene mass $q_{pc}/2$ within each fold; equal fold mean;
+no painting-distance term.\\[3pt]
+Scene retrieval
+& 72 held-repetition queries; 24 candidate centroids, or eight in the
+query's class; each centroid uses the other two repeats
+& Each query $1/72$ (equal scene mass); accuracy is descriptive.\\
+\bottomrule
+\end{tabularx}
+\caption{Comparison units for the controlled panels and naming diagnostics.
+Here $N_p=38/32$ for Monet/C\'ezanne,
+$q_{pc}=N_{pc}/N_p$ is the reference content-class proportion, and $n_{pc}$
+counts generated images of class $c$ in the compared cloud. Counts describe
+complete cells, not independent replicates. Both neighborhood summaries use
+$k=3$ in the main presentation; their anchors and query constructions differ.
+The matched-real allocation and other $k$ values are in
+Appendix~\ref{app:coverage}.}
+\label{tab:comparison-units}
+\end{table}
+
 \subsection{Generated-only fitting and whole-scene evaluation}
 We specified this diagnostic after observing Study~1 and the temporal FLUX
 results, before the prospective generic-clause follow-up. It uses
@@ -754,7 +809,7 @@ is less stable, favoring naming in 51 of 60 cells. These are overlapping
 sensitivity results, not independent replications or a new inferential family.
 
 \begin{figure}[tbp]
-\centering\includegraphics[width=\linewidth]{naming_geometry.pdf}
+\centering\includegraphics[width=\linewidth]{naming_geometry_presentation.pdf}
 \caption{Testing a global moment account of naming. (A) Actual-minus-benchmark
 energy on held-out scenes: negative favors actual naming. Blue diamonds are
 means over four separately evaluated translation/scale maps; gray points show
@@ -836,10 +891,10 @@ independent-repeat conditional correction below to $T_{2c}$.
 
 \subsection{Coverage does not resolve the competing accounts}
 For the same clouds we count hits in fixed balls around every reference work,
-using its third-nearest reference as the radius. Anchors and query identities
-are shared across map comparisons. Queries are equal-class allocations of 18
-per held-out fold or 24 in the later cohort. This differs from the matched-real
-coverage design in Table~\ref{tab:coverage-main}; it has no real/real calibration.
+using its third-nearest other reference as the radius. Anchors, radii and paired
+query slots are shared across map comparisons. This all-reference occupancy
+uses the complete equal-class query sets in Table~\ref{tab:comparison-units};
+unlike the matched-real coverage design, it has no real/real calibration.
 
 In the later primary view, translation/scaling reaches .605/.750 of the
 Monet/C\'ezanne balls, compared with .526/.719 under actual naming, despite its
@@ -1956,7 +2011,7 @@ an independent replay route for Sections~6--7. After checking its archive
 checksum, verify the extracted inventory before installing the locked runtime:
 \begin{verbatim}
 python tools/paper_geometry_release.py verify --root .
-uv sync --locked --python 3.13 --extra analysis --extra dev
+uv sync --locked --python 3.13.11 --extra analysis --extra dev
 uv run --locked python -m latent_art_bench.painter_naming_geometry_v1 verify
 uv run --locked python -m latent_art_bench.painter_naming_centering_v1 verify
 \end{verbatim}

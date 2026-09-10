@@ -18,11 +18,15 @@ final verification are recorded in [STATUS.md](../docs/STATUS.md).
 The new measurement section reports all ten transformations, their cross-family
 responses and all eight common-square contrast sensitivities. All four temporal endpoints are reported from the completed 264-image collection.
 The preceding r1 reviews and public-access verification remain recorded. A fresh
-three-reviewer revision cycle is active; its baseline mean is 8.2333/10 and its
-round-2 mean is 8.6889/10. The manuscript implements that round's
-reporting/access corrections and integrates the separate clause outcomes.
+three-reviewer revision cycle has means of 8.2333, 8.6889 and **8.9000/10** across
+its three rounds; the requested threshold remains unmet. The manuscript
+implements reporting/access corrections and integrates the separate clause outcomes.
 Their [public numerical replay](../reports/paper_clause_reproducibility_v1/pcrv1-20260910/REPORT.md)
-is verified; the next full-paper review is pending. The published geometry paper
+is verified. The three reviewers read the complete 35-page round-3 version and
+all nine figures. Subsequent presentation fixes produce a 36-page manuscript:
+a comparison-unit guide, precise abstract wording, an exact runtime pin and a
+larger Figure 3. These fixes do not assign a new scientific score.
+The published geometry paper
 contains neither cohort. Earlier drafts remain in Git history. The
 [review index](../docs/INDEX.md) links preceding reviews; their scores describe
 those manuscript versions and are not external peer-review decisions.
@@ -83,10 +87,14 @@ using the unchanged measurement report renderer and saved analysis. Its
 `--check` mode requires byte identity. The common-window appendix table reports
 all eight retained contrasts; the original full-view results remain unchanged.
 
-The ninth figure, `naming_geometry.pdf`, is the immutable output of the new
-geometry report renderer. `make figures` copies it into the manuscript directory;
-`make figures-check` compares the copy, while `make geometry-check` independently
-recomputes both new analyses and their complete numerical reports.
+`make_geometry_figure.py` supplies the readable Figure 3 derivative,
+`naming_geometry_presentation.pdf`: the same two panels stacked at the 160 mm
+manuscript width, with text at least 8.5 pt. It hash-checks the sealed geometry
+`analysis.json`, verifies plotted coordinates against its stored values and
+supports byte-identical `--check` replay. `make figures` and `make figures-check`
+use this presentation renderer. The original `naming_geometry.pdf` and sealed
+report renderer remain unchanged; `make geometry-check` independently recomputes
+both scientific analyses and their complete numerical reports.
 
 For temporary PNG previews of the six summary figures:
 

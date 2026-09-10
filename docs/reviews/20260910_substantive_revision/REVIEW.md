@@ -1,83 +1,128 @@
 # Substantive academic revision: review record
 
-This cycle follows the requested [DeerFlow academic-paper-review skill](https://github.com/bytedance/deer-flow/blob/main/skills/public/academic-paper-review/SKILL.md) and the unchanged [three-aspect rubric](../20260909_academic_review/RUBRIC.md). The arithmetic mean weights all nine scores equally. The user target is strictly greater than 9; it has not been reached in either completed round. Scores are preserved as assigned, without target-driven revision or credit for unperformed work.
+**Round 3 is complete: the nine-score mean is 8.9/10 (80.1 ÷ 9). The user's
+strictly-greater-than-9 target has not been reached.** All scores remain exactly
+as assigned under the unchanged [three-aspect rubric](../20260909_academic_review/RUBRIC.md)
+and requested [DeerFlow academic-paper-review skill](https://github.com/bytedance/deer-flow/blob/main/skills/public/academic-paper-review/SKILL.md).
+This aggregate is mutable; individual reviews and snapshots are immutable.
 
-Every reviewer is an LLM subagent operated by the maintainer. These are not independent human/institutional peer reviews or publication decisions. After the fresh baseline, reviewers 1/2 contributed statistical implementation and packaging, while reviewer 3 supplied literature and structural advice. Later experiment design and implementation involvement is disclosed in the separate precollection reviews.
+Every reviewer is a maintainer-run LLM subagent, with subsequent statistical,
+collection, packaging, protocol or prose involvement disclosed in the individual
+reports. These are not independent human/institutional peer reviews, publication
+decisions or replication by separate investigators. No score is reassigned to
+meet a target, and unperformed work receives no credit.
 
-| Round | Reviewer | Rigor | Contribution | Clarity/reproducibility | Reviewer mean |
-|---|---|---:|---:|---:|---:|
-| 1 | 1 | 8.1 | 7.7 | 8.8 | 8.2000 |
-| 1 | 2 | 8.2 | 7.8 | 9.0 | 8.3333 |
-| 1 | 3 | 8.4 | 7.4 | 8.7 | 8.1667 |
-| 2 | 1 | 8.7 | 8.4 | 8.8 | 8.6333 |
-| 2 | 2 | 8.8 | 8.6 | 9.0 | 8.8000 |
-| 2 | 3 | 8.8 | 8.3 | 8.8 | 8.6333 |
+| Round | Reviewer/report | Rigor | Contribution | Clarity/reproducibility | Reviewer mean |
+| --- | --- | ---: | ---: | ---: | ---: |
+| 1 | [1](REVIEWER_1_ROUND1.md) | 8.1 | 7.7 | 8.8 | 8.2000 |
+| 1 | [2](REVIEWER_2_ROUND1.md) | 8.2 | 7.8 | 9.0 | 8.3333 |
+| 1 | [3](REVIEWER_3_ROUND1.md) | 8.4 | 7.4 | 8.7 | 8.1667 |
+| 2 | [1](REVIEWER_1_ROUND2.md) | 8.7 | 8.4 | 8.8 | 8.6333 |
+| 2 | [2](REVIEWER_2_ROUND2.md) | 8.8 | 8.6 | 9.0 | 8.8000 |
+| 2 | [3](REVIEWER_3_ROUND2.md) | 8.8 | 8.3 | 8.8 | 8.6333 |
+| 3 | [1](REVIEWER_1_ROUND3.md) | 8.8 | 8.6 | 9.0 | 8.8000 |
+| 3 | [2](REVIEWER_2_ROUND3.md) | 8.9 | 8.8 | 9.4 | 9.0333 |
+| 3 | [3](REVIEWER_3_ROUND3.md) | 8.9 | 8.6 | 9.1 | 8.8667 |
 
-Round 1 mean: **8.2333333333**. Round 2 mean: **8.6888888889**.
+Round means: **8.2333333333**, **8.6888888889**, **8.9000000000**.
+All nine aspect scores have equal weight.
 
-The baseline snapshot is in BASELINE.json and the complete reports are REVIEWER_1_ROUND1.md through REVIEWER_3_ROUND2.md. Round 2 reviewed TeX SHA256 `8973d78ceb7d4f81a05010e118454eabc210ecdaa4885ad85eec1e3e41cff0e5` and PDF `ca291f0e0b04ebfa740240d697be89bbe78cfdaecae5b47b61f06acb636d3b9b` (36 pages, nine figures). Each reviewer read the full manuscript/appendices, inspected all pages and figures, checked primary literature and recorded claim/evidence judgments.
+## Reviewed snapshots
 
-## Substantive changes between rounds
+The initial identity is in [BASELINE.json](BASELINE.json). Round 2 reviewed TeX
+SHA256 `8973d78ceb7d4f81a05010e118454eabc210ecdaa4885ad85eec1e3e41cff0e5`
+and PDF `ca291f0e0b04ebfa740240d697be89bbe78cfdaecae5b47b61f06acb636d3b9b`
+(36 pages, nine figures).
 
-The separately frozen geometry analysis evaluates generated-only translation and translation/scaling on whole held-out scenes, applies original maps unchanged to later FLUX outputs, and estimates repeat-corrected scene geometry and conditional-mean mismatch. Its centering successor separates a scalar change at a common evaluation mean from displacement due to the old fitting center. Both run the full specified grid, with no new images or feature extraction.
+[ROUND3_SNAPSHOT.json](ROUND3_SNAPSHOT.json) binds committed manuscript
+`28b7d28ae630f7fe601eb77f63194376587eba48`, including:
 
-The main finding is disagreement between explicit prediction targets: adding the scalar improves corrected prediction of named scene means in all six primary cells while worsening reference energy in five. On the later FLUX cohort, translation scores better than actual naming in both primary views, but this is not representation-invariant. At a shared mean, scalar contraction worsens energy in all 60 original and 18 later cell means. These are empirical diagnostic findings, not a new general theorem or internal mechanism.
+- TeX: `5853d7283c5a3d737288d232a481a05e3dd170273934486ea0df169be906d9ce`.
+- PDF: `873c78aca8b9f9d469ea8ae4c0f819c3202a5705d912146111815b77634fe52f`.
+- Bibliography and all nine figure hashes; 35 pages.
 
-## Corrections after round 2
+Each Round 3 report records complete manuscript/appendix reading, page and
+figure inspection, targeted primary literature, claim/evidence judgments and
+review limits. Scores apply to this snapshot, not to subsequent optional edits.
 
-The manuscript restores Study 2’s actual geometry/quality delivery counts, qualifies summary claims as fold averages, explains the cross-distance/within-distance terms behind the centered-scale penalty, identifies both new namespaces/run IDs/replay commands, and removes avoidable float barriers. Closest literature now includes Su et al.’s fixed-content artist substitutions and held-out-prompt benchmark, alongside the previously added conditional evaluation work. No result or score was overwritten.
+## Evidence added and reporting corrected
 
-The corrected 34-page paper and both complete numerical analyses were published as the [additive geometry release](https://github.com/isingmodel/latent-art-bench/releases/tag/ppgv1-20260910), source `5485e36`. Both new analyses replay exactly from fresh local and anonymous-download environments, with 95 scientific tests passing; the prior 1,394-test full suite and 2,902-check historical audit also passed. See [release verification](../../../reports/paper_geometry_reproducibility_v1/ppgv1-20260910/REPORT.md). Earlier public archives remain unchanged. This corrected snapshot has not been assigned new full-paper scores.
+The separately frozen geometry and centering studies compare generated-only
+moment maps on whole held-out scenes and transfer original fits to later FLUX
+outputs. Adding scale lowers corrected named-scene-mean residuals in all six
+primary cell averages but raises reference energy in five. Translation alone
+beats actual naming in both later primary views; at a shared evaluation mean,
+the fitted scalar worsens energy in all 60 original and 18 later cell means.
+These are specific post-result empirical diagnostics, not a general theorem or
+an identified internal mechanism. The complete [geometry addendum](../../../reports/paper_geometry_reproducibility_v1/ppgv1-20260910/REPORT.md)
+has exact fresh local/anonymous replay and 95 passing scientific tests.
 
-## Next discriminating experiment
+Round 3 adds a prospective actual Cézanne/generic-clause comparison on 24 new
+fixed scenes. The separate 96-output cohort completes 48 pairs: primary energy
+change −1.195419353, raw p=.00001 at fixed alpha .025, named/generic trace .552327.
+The failed original 288-slot cohort retains its 211 returned images and
+permanently unavailable Monet/Cézanne endpoints and complete-grid secondary
+summaries. No pooling, refilling or restoration of the original map targets
+occurs. [Direct arithmetic](CLAUSE_SUCCESSOR_RESULTS_AUDIT_1.md) and
+[terminal/measurement provenance](CLAUSE_SUCCESSOR_TERMINAL_AUDIT_2.md) audits
+are complementary involved-LLM checks.
 
-Reviewer consultation identified an actual generic-clause control on newly specified scenes as a useful missing intervention. Merely adding more retained-data grids would not resolve new-scene selection or reference validity. A separate 288-output OAuth experiment was qualified, comparing free/generic/Monet/Cezanne clauses on 24 new fixed scenes with 3 repeats and two primary named-minus-generic energy tests. It uses no paid calls or human ratings. Its old-map/conditional summaries are secondary; it does not substitute OAuth for a claimed FLUX replication or establish scene-population generalization.
+The [public clause addendum](../../../reports/paper_clause_reproducibility_v1/pcrv1-20260910/REPORT.md)
+replays both cohorts separately and exactly. Fresh local and anonymous-download
+environments each pass 152 tests with eight explicit maintainer-only skips.
+Both use the same macOS arm64 host; this is numerical replay from vectors,
+not public pixel re-extraction or independent acquisition authentication.
+Earlier archives remain unchanged.
 
-No outcome or score improvement is assumed. The original metric/capture limitations, single generic wording and established conceptual antecedents remain material. A new paper review requires the completed result, manuscript and verified access, with its own snapshot and honest unchanged rubric.
+Reporting now explains the cross/self-distance terms behind centered scaling,
+separates retrieval methods from unrelated variance weighting, gives actual
+delivery/missingness counts and public commands, and positions the contribution
+against prior artist-substitution and conditional-evaluation work. All four
+painters and contrary results remain visible.
 
-## Revision work after the second round
+The added fold sentence reports existing values from sealed geometry analysis
+SHA256 `f50be0f772a3bff8f4bc66ddc20f3e19b5c13736fd6cced632d80224e2203324`:
+in `original`, restricted to `primary512/all31`, scale lowers
+`conditional_residual.translation_scale.cross_repeat_mean_square` versus
+translation in 22/24 folds and raises `energies.*.energy` in 16/24, jointly
+15/24. Joint counts are 2,3,2,3,2,3 for NB2-Monet/Cézanne, FLUX-Monet/Cézanne,
+OAuth-Monet/Cézanne. Reviewer 2 independently verified them. No new fit, test or
+independence claim was introduced.
 
-The new-scene four-arm clause study is terminal after returning 211 of 288
-allocated images. Its original Monet/Cezanne endpoints and complete-grid
-secondary outputs remain unavailable. No complete cases or replacement slots
-are used. An availability-triggered, separately frozen final 96-output
-Cezanne/generic cohort is now complete; its design preceded predecessor feature
-extraction, and its allocation and .025 threshold did not change after Monet
-also became unavailable. These outcomes cannot validate new-scene moment-map
-transfer. No new paper score is assumed.
+## Round 3 assessment and remaining work
 
-Reviewer 3 supplied twelve prose replacements and a Section 7 reorder. Root
-applied them, moving retrieval methods next to retrieval results and retaining
-all four-painter findings, equations and tabulated values. Root also exposed
-the central target comparison's fold heterogeneity: from the sealed geometry
-analysis `f50be0f772a3bff8f4bc66ddc20f3e19b5c13736fd6cced632d80224e2203324`,
-restrict `original` to `pipeline=primary512`, `view=all31`, and compare each
-fold's `conditional_residual.translation_scale.cross_repeat_mean_square` with
-its `translation` counterpart and the two `energies.*.energy` values. Scale
-lowers Q in 22/24 folds, raises reference energy in 16/24, and does both in
-15/24. Joint counts are 2,3,2,3,2,3 for NB2-Monet/Cezanne, FLUX-Monet/Cezanne,
-OAuth-Monet/Cezanne. Six cell averages retain six Q improvements and five energy
-increases. Reviewer 2 independently verified these counts from the same sealed
-output. This is reporting of retained values, with no new fit, test or claim
-that overlapping folds are independent.
+All reviewers support the bounded empirical presentation and identify no
+result-changing numerical correction or missing numerical-release blocker.
+The improvement comes from the actual generic-clause evidence, clearer target
+comparison and demonstrated access; it does not remove the material limits:
 
-The prose revision saves 466 whitespace-delimited TeX words after adding the
-fold sentence. The preliminary 33-page PDF builds and all pages were visually
-inspected; a remaining PCA float barrier causing avoidable whitespace is
-removed. The clause comparison and its failed predecessor are now integrated,
-with failure detail in the appendix and the main scientific result in Section 5.7.
-Final PDF QA and the next full-paper assessment are pending. The numerical
-[clause addendum](../../../reports/paper_clause_reproducibility_v1/pcrv1-20260910/REPORT.md)
-is public with exact fresh local and anonymous replay of both separate cohorts;
-each environment passes 152 tests with eight explicit maintainer-only skips.
+- Capture history, content and the correlated 31-feature metric remain part of
+  the generated/reference difference; processing derivatives do not establish
+  capture equivalence or perceptual validity.
+- Central map diagnostics are post-result and lack prospective new-scene
+  validation. The successful C/G cohort has no free arm or map evaluation.
+- The new result covers one painter, generic wording, service and authored panel.
+  Unequal delivered quality/geometry is part of the attained service contrast;
+  it does not isolate artist semantics or explain changes from earlier cohorts.
+- Repeat-error/no-interference assumptions remain empirically unverified.
+  Exact replay cannot establish remote backend behavior or population validity.
 
-The final successor returned all 96 outputs without failures/retries in 45.5
-minutes. Its primary Cezanne-minus-generic energy is −1.195419353, raw p=.00001
-at the unchanged .025 threshold, with a named/generic observed trace ratio of
-.552327. Two separate involved-LLM audits check direct energy/trace/randomization
-arithmetic and terminal/measurement provenance. The manuscript distinguishes
-this actual generic-clause comparison from the earlier artist-free OAuth result:
-scenes, comparator, date and repeat count changed, and geometry/quality delivery
-differences remain part of the assigned outcome. It adds neither a Monet result
-nor prospective map validation. Both cohorts are committed and included in a
-separate create-once numerical export; no earlier evidence or score is revised.
+Optional presentation fixes are to shorten the abstract, describe Q as a
+repeat-corrected residual in cell averages, enlarge Figure 3 labels if layout
+permits, and add a compact guide to comparison units/weights or archive coverage.
+These are readability improvements, not a basis for automatic rescoring.
+
+The final 36-page presentation applies the precise Q wording, a six-row
+comparison-unit guide, clarified occupancy construction and exact Python runtime
+pin. Figure 3 uses a separate larger stacked rendering of unchanged stored
+values. [Figure parity QA](FIGURE3_PRESENTATION_QA_1.md) and
+[complete final-page QA](FINAL_PRESENTATION_QA_3.md) pass. Ruff, 1,714 offline
+tests (256.02 seconds), all nine figure replays and the 2,902-check historical
+evidence audit pass. These presentation checks do not constitute a fourth
+scientific review, and the fixed nine-score mean remains **8.9**.
+
+A future stronger scientific claim would require separately specified new-scene
+free/named map evaluation with repeat measurements, or independent-capture
+calibration for a different measurement question. No additional retained-data
+sweep, another replacement cohort, reopening of terminal evidence or new
+collection solely to improve review scores is recommended by these reviews.
