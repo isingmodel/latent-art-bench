@@ -286,3 +286,17 @@ Both namespaces are terminal, post-result retained-vector analyses with 60
 original and 18 transfer views each. Their own source/input bindings and exact
 replay are required in addition to the historical evidence audit. They neither
 reopen prior collections nor replace the public predecessor release.
+
+
+## Prospective actual-clause validation (qualification pending)
+
+`painter_clause_validation_v1` is a disjoint prospective namespace for 288 OAuth
+outputs on 24 new fixed scenes, with free/generic/Monet/Cezanne clauses and three
+repeats. [Protocol](../studies/painter_clause_validation_v1/PROTOCOL.md),
+[allocation/qualification](../studies/painter_clause_validation_v1/PRECISION.md),
+[analysis source](../src/latent_art_bench/painter_clause_validation_v1/analysis.py).
+The two primary tests compare actual named with actual generic output energy.
+Three-pipeline arm summaries, corrected variation, retrieval and unchanged
+historical OAuth maps are secondary. No new data or result exists yet. The
+one-shot workflow requires reviewed source qualification and a committed freeze
+before its explicit live command; no `make` target launches generation.

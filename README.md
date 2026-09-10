@@ -6,8 +6,10 @@ texture with **31 interpretable features**. The current research asks how adding
 painter's name changes proximity to the reference distribution and variation
 among generated images.
 
-The **computational measurement-validation, temporal-replication and public
-numerical-reproduction follow-up is complete**. The
+The paper now includes **held-scene moment maps, temporal transfer and a
+center-controlled comparison**, with [public numerical replay](https://github.com/isingmodel/latent-art-bench/releases/tag/ppgv1-20260910).
+A prospective 288-image OAuth clause experiment is under qualification; no new
+collection gate is open. The
 [handover](docs/AGENT_HANDOVER.md) records completed work, current boundaries and
 the correction workflow; [STATUS.md](docs/STATUS.md) records integration and checks.
 
@@ -63,8 +65,9 @@ interactions remain unresolved. All outputs returned without retries, at a new
 reported OpenRouter cost of $5.04. The same maintainer collected this cohort; it
 is not independent-investigator replication. The [public numerical release](https://github.com/isingmodel/latent-art-bench/releases/tag/pprv1-20260910)
 passes 98 exact checks after anonymous download and 98 checks under its documented
-Ubuntu portability contract. Read the corrected `paper-r1.pdf` asset; the original
-archive is retained with an explicit erratum. See the
+Ubuntu portability contract. That preceding paper remains in its corrected `paper-r1.pdf` asset; the current
+34-page manuscript is in the additive geometry release. Both earlier archives
+and the explicit erratum are preserved. See the
 [verification report](reports/paper_reproducibility_v1/pprv1-20260910/REPORT.md) and
 [STATUS.md](docs/STATUS.md) for access, scope and accounting.
 
@@ -82,6 +85,7 @@ make plots
 make computational-responsiveness
 make validation-check
 make replication-check
+make geometry-check
 make check
 make evidence
 ```
@@ -91,8 +95,8 @@ and retry presentation. `make analysis` and `make plots` cover Study 1 and its
 computational revision;
 `make computational-responsiveness` covers Study 2, retained-data retrieval and
 the quantile correction. These targets make no generation requests.
-`make figures-check` checks the eight manuscript figures without rewriting
-them. `make figures` rebuilds the eight
+`make figures-check` checks the nine manuscript figures without rewriting
+them. `make figures` rebuilds the nine
 manuscript figures; `make paper` builds the PDF with Tectonic. See
 [the analysis catalog](docs/ANALYSES.md) for individual commands, inputs and outputs,
 and [the paper guide](paper/README.md) for rendering and visual checks.

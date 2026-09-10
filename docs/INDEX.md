@@ -67,3 +67,8 @@ an older stage description.
 - [Post-result painter-naming geometry protocol](../studies/painter_naming_geometry_v1/PROTOCOL.md): held-scene global moment benchmark, temporal transfer and repeat correction.
 
 - [Evaluation-centering successor](../studies/painter_naming_centering_v1/PROTOCOL.md): separates mean anchoring from the fitted scalar using retained evaluation-free vectors.
+
+- [Prospective actual-clause validation](../studies/painter_clause_validation_v1/PROTOCOL.md):
+  new fixed-scene OAuth experiment; live gate pending implementation qualification.
+- [Clause allocation and simulation qualification](../studies/painter_clause_validation_v1/PRECISION.md).
+- [Public geometry addendum verification](../reports/paper_geometry_reproducibility_v1/ppgv1-20260910/REPORT.md).

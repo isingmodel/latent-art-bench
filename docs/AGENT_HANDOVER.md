@@ -11,7 +11,7 @@ The canonical English source is [paper/paper.tex](../paper/paper.tex); the
 The active user goal requests three skeptical reviews using the linked academic
 review skill, substantive paper/analysis revisions and an unchanged nine-score
 average above 9. Fresh baseline is 8.2333/10. Round 2 reviews currently assess
-the 36-page, nine-figure manuscript (TeX `8973d78c…`, PDF `ca291f0e…`).
+the 34-page, nine-figure manuscript (TeX `8973d78c…`, PDF `ca291f0e…`).
 Do not alter recorded reviewer scores or claim completion before the actual
 mean exceeds the target. All reviewers are maintainer-run LLMs; Reviewers 1/2
 helped implement the new statistical primitives after their baseline reviews,
@@ -190,3 +190,23 @@ reports under `docs/reviews/20260910_substantive_revision/`; its baseline is
 review here is maintainer-run LLM work, not independent human peer review
 or a prediction of publication acceptance. Current paper claims must follow the
 actual results, including unresolved or contrary findings.
+
+
+## Active prospective clause validation
+
+Current user goal remains active: honest unchanged nine-score mean >9. Latest
+complete round is **8.6889**; no later score is assigned. Geometry/centering are
+sealed and publicly reproduced at `ppgv1-20260910`, source `5485e36`, public
+commit `7923049`, SHA256 `4a26b9c3…ce5a9b30`. Their 34-page paper is published;
+never replace the archived manuscript or numerical bytes.
+
+`painter_clause_validation_v1` is a newly versioned study under qualification.
+It specifies 288 OAuth outputs, 24 new fixed scenes x3 repeats x4 clauses, no
+paid calls. R1 wrote precision/source/tests (committed `6dd1e80`, qualified
+synthetic results), R2 wrote collection/workflow/tests, R3 wrote protocol/scenes
+and reviews root analysis. Root owns common/analysis/CLI/tests. Reviews disclose
+these roles. Identity failure after a non-identity stop is being checked for
+terminal replay; all must-fix findings must close before source/qualification
+commit, preparation, freeze commit and explicit live collection. No new scene
+images have been generated or measured. Preserve the fixed historical OAuth
+maps and the pair-specific primary completeness rules.

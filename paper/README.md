@@ -14,7 +14,9 @@ The new measurement section reports all ten transformations, their cross-family
 responses and all eight common-square contrast sensitivities. All four temporal endpoints are reported from the completed 264-image collection.
 The preceding r1 reviews and public-access verification remain recorded. A fresh
 three-reviewer revision cycle is active; its baseline mean is 8.2333/10 and its
-new scores are recorded separately. Earlier drafts remain in Git history. The
+round-2 mean is 8.6889/10. The 34-page manuscript implements that round's
+reporting/access corrections; a new fixed-scene clause experiment is under
+qualification and has no result in this published paper. Earlier drafts remain in Git history. The
 [review index](../docs/INDEX.md) links preceding reviews; their scores describe
 those manuscript versions and are not external peer-review decisions.
 

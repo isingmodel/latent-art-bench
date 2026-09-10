@@ -1,0 +1,13 @@
+{
+  "schema": "painter-geometry-public-download/1",
+  "utc": "2026-09-10T04:15:08.012902+00:00",
+  "url": "https://github.com/isingmodel/latent-art-bench/releases/download/ppgv1-20260910/painter-naming-geometry-20260910.tar.gz",
+  "http_status": 200,
+  "http_date": "Thu, 10 Sep 2026 04:15:07 GMT",
+  "authentication": "No authorization header, API key or browser session used",
+  "archive_sha256": "4a26b9c3f089d0a0c1dfaf7bd45a86f6658d6ee89ad5f6a47d6994a3ce5a9b30",
+  "archive_bytes": 4628225,
+  "source_commit": "5485e36",
+  "public_commit": "79230499f7e035921e2d351cf44b7bf3f7dcb251",
+  "scope": "Download verification only; replay recorded separately"
+}

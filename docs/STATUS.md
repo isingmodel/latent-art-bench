@@ -16,8 +16,10 @@ centering successor `pncv1-20260910` (source `c390eef`, freeze `45e3ce9`) retain
 the same grid and verifies the predecessor exactly. No new images or API costs.
 The nine-figure English paper has been restructured. Round 2 is complete at
 **8.6889/10** (8.7/8.4/8.8, 8.8/8.6/9.0, 8.8/8.3/8.8), below the target.
-Reporting/access corrections are in progress. A new-scene generic-clause
-validation is being designed; no new acquisition or generation gate is open. New offline work uses the disjoint
+Reporting/access corrections are complete. The [geometry addendum](../reports/paper_geometry_reproducibility_v1/ppgv1-20260910/REPORT.md)
+is public with exact fresh local and anonymous replay; 95 included tests pass.
+A separately specified 288-output OAuth-only generic-clause validation is under
+implementation qualification; no new acquisition or generation gate is open. New offline work uses the disjoint
 [painter-naming geometry protocol](../studies/painter_naming_geometry_v1/PROTOCOL.md):
 whole-scene moment-map evaluation, original-map transfer to later FLUX, and
 repeat-corrected conditional geometry. No new image generation or extraction
@@ -26,6 +28,18 @@ Reviewers 1/2 assist with statistical primitives after their baseline reviews;
 Reviewer 3 supplies literature/structure advice without implementing the study.
 All remain maintainer-run LLM agents.
 
+The proposed [clause validation](../studies/painter_clause_validation_v1/PROTOCOL.md)
+uses all 24 new fixed scenes, three repeats and four actual clauses (288 OAuth
+outputs, no paid calls). Only named-minus-generic energy for Monet/Cézanne is
+primary, with two-endpoint Holm adjustment; old OAuth maps and conditional
+summaries are secondary. The [precision record](../studies/painter_clause_validation_v1/PRECISION.md)
+(source `6dd1e80`) passes all five synthetic randomization checks and documents
+why 288 was selected over 144/384 without claiming realized-service power.
+Three precollection reviews report no unresolved critical defect after fixing
+identity/terminal-replay and reporting gaps. Ruff and all 1,521 offline tests pass;
+the historical audit passes all 2,902 checks. Source qualification and assignment
+freeze are the remaining precollection gates. No new outputs exist.
+
 ## Current follow-up
 
 | Component | State and finding |
@@ -33,7 +47,7 @@ All remain maintainer-run LLM agents.
 | [Measurement challenges](../reports/painter_measurement_validation_v1/pmvv1-20260910/REPORT.md) | **Complete**: 1,076 retained images verified; 1,706 vectors across ten reference conditions and common-square generated views. All three specified change-minus-processing comparisons are positive. All eight common-square contrast directions and the original four Holm rejections persist. |
 | [Temporal replication](../studies/painter_naming_replication_v1/PROTOCOL.md) | **Complete**: all 264 outputs measured in three pipelines. FLUX naming estimates −.695108/−.952024 reject in the new four-test family; palette estimates −.158648/+.036741 remain unresolved. No failures/retries; 64.3 minutes; source `88cd185`, freeze `2de6bc4`, run `pnrv1-20260910`. |
 | [Public numerical reproduction](../studies/paper_reproducibility_v1/README.md) | **Public and verified**: [release](https://github.com/isingmodel/latent-art-bench/releases/tag/pprv1-20260910), 98 exact fresh local/anonymous checks and 98 hosted Ubuntu checks under the documented portability contract. Seven Ubuntu figure PDFs match exactly; the challenge PDF has platform-dependent bytes. |
-| English paper | Current substantive draft is 36 pages with nine figures; whole-scene maps, original-map transfer, evaluation centering and repeat-corrected conditional geometry are integrated. Three round-2 reviews are complete; reporting and access revisions are underway. The immutable published r1 assets describe the preceding paper, not this new revision. |
+| English paper | Published substantive draft is 34 pages with nine figures; whole-scene maps, original-map transfer, evaluation centering and repeat-corrected conditional geometry are integrated. Three round-2 reviews are complete; their reporting and access corrections are implemented. New experiment qualification is active. The immutable published r1 assets describe the preceding paper, not this new revision. |
 
 The measurement source was committed at `f3bc9b6`, its prospective 1,076-image
 inventory at `f2ab8de`, and its completed outputs and reviews at `994d247`.
@@ -105,6 +119,16 @@ Study 2's 49-image predecessor remains ancillary. Both earlier collections are
 closed; all 192 primary outputs were nonsquare despite square requests, and
 174 reported low quality and 18 medium despite a medium request. No filtering
 or adjustment removes these delivered-service differences.
+
+## Current revision verification
+
+At release source `5485e36`, Ruff and the full offline suite pass (**1,394 tests,
+145.60 seconds**); historical audit **2,902 checks, zero failures**. Both new
+geometry namespaces reproduce exactly. The 47-file additive archive has SHA256
+`4a26b9c3f089d0a0c1dfaf7bd45a86f6658d6ee89ad5f6a47d6994a3ce5a9b30`, public
+commit `7923049`, release tag `ppgv1-20260910`; nine figures and the 34-page paper
+are included. These checks precede the unsealed clause-validation source and are
+not its final qualification. Earlier published assets are unchanged.
 
 ## Verification and manuscript history
 

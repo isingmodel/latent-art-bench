@@ -1,0 +1,36 @@
+{
+  "schema": "painter-geometry-public-replay/1",
+  "recorded_utc": "2026-09-10T04:17:39.931399+00:00",
+  "archive_sha256": "4a26b9c3f089d0a0c1dfaf7bd45a86f6658d6ee89ad5f6a47d6994a3ce5a9b30",
+  "local_source_commit": "5485e36860631ab2451ea393d386415ae7557e32",
+  "public_commit": "79230499f7e035921e2d351cf44b7bf3f7dcb251",
+  "release_url": "https://github.com/isingmodel/latent-art-bench/releases/tag/ppgv1-20260910",
+  "payload_files": 47,
+  "verification": "Exact inventory hashes before fresh installation; both scientific module replays exact; 95 scientific tests passed in both local and anonymous-download environments",
+  "runtime": {
+    "python": "3.13.11",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.1",
+    "Pillow": "11.3.0",
+    "PyWavelets": "1.9.0",
+    "pytest": "8.4.2"
+  },
+  "commands": [
+    "python tools/paper_geometry_release.py verify --root .",
+    "uv sync --locked --python 3.13 --extra analysis --extra dev",
+    "uv run --locked python -m latent_art_bench.painter_naming_geometry_v1 verify",
+    "uv run --locked python -m latent_art_bench.painter_naming_centering_v1 verify",
+    "uv run --locked pytest -q --import-mode=importlib tests/painter_naming_geometry_v1 tests/painter_naming_centering_v1"
+  ],
+  "limits": [
+    "Maintainer-operated fresh environments, not independent investigators",
+    "No raw pixel extraction, source authentication or new generation",
+    "Historical paper results require the unchanged preceding release",
+    "No hosted Linux replay of this addendum claimed"
+  ],
+  "paper": {
+    "paper.tex": "e0be30f058d59140bcb8a30ef5ef89cadb00fd0524ea9b856c5af908febd12e6",
+    "paper.pdf": "371cc4a9d323cf7e67840fd8b51b2da6455a9f818636056f1c1967efc084dd45"
+  }
+}
