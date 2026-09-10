@@ -97,11 +97,17 @@ user's **$75** ceiling, including a retained historical $5 reserve. The temporal
 FLUX collection added $5.04; both clause cohorts add zero paid cost. No monetary
 value is assigned to OAuth subscription use. No further clause generation is planned.
 
-The next review response is assessing a distinct, prospectively fixed
-FLUX/Cezanne map-validation study on 12 new scenes. Candidate allocations are
-96, 144 or 192 outputs; none is selected or authorized for dispatch before its
-offline uncertainty/precision qualification and new collection freeze. It cannot
-restore either unavailable clause endpoint, reuse their slots or pool cohorts.
+The distinct FLUX/Cezanne map-validation proposal on 12 new scenes has stopped
+before collection. Its fixed [offline qualification](../studies/painter_map_validation_v1/pmvqv1-20260910/PRECISION.md)
+evaluated 96, 144 and 192 outputs (4, 6 and 8 repeats). All 81 proxy coverage
+checks passed, but every allocation failed the baseline conditional-residual
+precision criterion. At eight repeats, two of nine baseline Q median
+half-widths were 1.018978 and 1.040286 against the fixed maximum 1.0; all energy
+width checks passed. No interval was unavailable. Source commit `eb70ab8`;
+810,000 simulated trials, no new images and no paid generation. No allocation
+is selected, and this inferential proposal will not be collected or tuned after
+failure. It cannot restore either unavailable clause endpoint, reuse their slots
+or pool cohorts.
 A bounded metadata-only preflight at 08:16 UTC on 10 September records
 **$19.2726443 actual OpenRouter credits** and the unchanged `flux.2-max`
 provider quote of **$0.07 per output megapixel**. This is separate from the

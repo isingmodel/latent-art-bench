@@ -132,3 +132,31 @@ free/named map evaluation with repeat measurements, or independent-capture
 calibration for a different measurement question. No additional retained-data
 sweep, another replacement cohort, reopening of terminal evidence or new
 collection solely to improve review scores is recommended by these reviews.
+
+## Subsequent unscored work
+
+An elementary fixed-center convexity argument now makes the scalar comparison
+more precise: for each later primary cloud, any stronger nonnegative contraction
+at the same center also worsens reference energy. It does not identify an optimum
+or establish prospective transfer. The short proof was checked separately by the
+reviewers and is in the existing moment-map appendix.
+
+A separate, bounded five-work metadata audit found no pair with documented
+independent capture ancestry and comparable views. Its terminal report and
+portable event projection are retained; no capture images were acquired and no
+measurement-validity claim is added.
+
+A distinct proposed FLUX/Cezanne fixed-map study was stopped before collection.
+The [fixed precision qualification](../../../studies/painter_map_validation_v1/pmvqv1-20260910/PRECISION.md)
+used 27 finite-support historical proxy laws and 10,000 trials for each of three
+allocations (96, 144 and 192 images). All 81 coverage criteria and all 27 baseline
+energy-width criteria passed. Baseline conditional-residual precision failed
+9/9, 9/9 and 2/9 cells, respectively. The largest allocation's two failed median
+half-widths were 1.018978 and 1.040286 against the fixed tolerance 1.0. The
+[result audit](MAP_PRECISION_RESULT_AUDIT_2.md) verifies provenance, complete
+inventory and the stop decision; no implementation defect was identified.
+No allocation was selected, no images were generated, and no method, threshold,
+seed or allocation was changed to obtain a pass. The full result is retained,
+including favorable coverage and failed precision. This is a planning result,
+not a new map-transfer or service-validation result, and receives no automatic
+score increase. The current scored mean remains **8.9000**.
