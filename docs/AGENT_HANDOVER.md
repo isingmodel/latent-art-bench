@@ -77,7 +77,11 @@ The user's Korean files remain untouched.
 Final layout fixes corrected inline math, placed the complete comparison tables
 together and clarified the common-fraction denominator. Table-generation changes
 only affect LaTeX float placement; numerical replay remains exact. Current-doc
-relative links and `git diff --check` pass. The temporary keep-awake assertion
+relative links pass. The frozen report CSVs retain the standard CSV writer's
+CRLF endings; an ordinary staged whitespace check flags those carriage returns.
+The CRLF-aware check passes without changing any bound report byte:
+`git -c core.whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol diff --check HEAD^ HEAD`.
+The temporary keep-awake assertion
 has been stopped; no collection or postprocessing process remains.
 
 The terminal collection is committed at `3fe90d7`. Numerical source/freeze
