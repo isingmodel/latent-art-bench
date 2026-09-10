@@ -26,6 +26,10 @@ is verified. The three reviewers read the complete 35-page round-3 version and
 all nine figures. Subsequent presentation fixes produce a 36-page manuscript:
 a comparison-unit guide, precise abstract wording, an exact runtime pin and a
 larger Figure 3. These fixes do not assign a new scientific score.
+The final PDF and standalone source are [published together](https://github.com/isingmodel/latent-art-bench/releases/tag/pcrv1-20260910).
+A fresh source build matches all 36 pages in text and pixels; anonymous asset
+downloads and the separate figure replay pass. The source archive has its own
+build instructions and leaves all numerical releases unchanged.
 The published geometry paper
 contains neither cohort. Earlier drafts remain in Git history. The
 [review index](../docs/INDEX.md) links preceding reviews; their scores describe

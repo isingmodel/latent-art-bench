@@ -1,0 +1,784 @@
+{
+  "archive": {
+    "bytes": 1368582,
+    "path": "tmp/paper-clause-release/paper-assets-20260910/final-01/paper-source.tar.gz",
+    "sha256": "7e98f48ffe432b8d93a96d64a43fafe18e79c94139a473f3433dc9812a57e946"
+  },
+  "commands": [
+    {
+      "argv": [
+        "tectonic",
+        "--version"
+      ],
+      "cwd": "<repository>",
+      "exit_code": 0,
+      "logs": {
+        "stderr": {
+          "bytes": 0,
+          "display_tail": "",
+          "path": "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/tectonic-version.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 16,
+          "display_tail": "Tectonic 0.17.0\n",
+          "path": "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/tectonic-version.stdout.log",
+          "sha256": "d2c451323def920d009840284f43cb877d93c95a62a92133ffe2dc2b43bed7b6"
+        }
+      },
+      "name": "tectonic-version",
+      "started_at": "2026-09-10T07:52:20.608599+00:00"
+    },
+    {
+      "argv": [
+        "tmp/paper-substantive-release/anonymous-final-01/painter-naming-geometry-20260910/.venv/bin/python",
+        "--version"
+      ],
+      "cwd": "<repository>",
+      "exit_code": 0,
+      "logs": {
+        "stderr": {
+          "bytes": 0,
+          "display_tail": "",
+          "path": "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/geometry-python-version.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 15,
+          "display_tail": "Python 3.13.11\n",
+          "path": "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/geometry-python-version.stdout.log",
+          "sha256": "38ef1fadde02a6382af1c086feb75499e55cec0827e1f749465a912a6c442c0a"
+        }
+      },
+      "name": "geometry-python-version",
+      "started_at": "2026-09-10T07:52:20.630533+00:00"
+    },
+    {
+      "argv": [
+        "pdftoppm",
+        "-v"
+      ],
+      "cwd": "<repository>",
+      "exit_code": 0,
+      "logs": {
+        "stderr": {
+          "bytes": 144,
+          "display_tail": "pdftoppm version 26.07.0\nCopyright 2005-2026 The Poppler Developers - http://poppler.freedesktop.org\nCopyright 1996-2011, 2022 Glyph & Cog, LLC\n",
+          "path": "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/pdftoppm-version.stderr.log",
+          "sha256": "86e03e41b1420566523e484ca18fde5a3783e4c14f4cee7e6d9307fbb58d545c"
+        },
+        "stdout": {
+          "bytes": 0,
+          "display_tail": "",
+          "path": "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/pdftoppm-version.stdout.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "name": "pdftoppm-version",
+      "started_at": "2026-09-10T07:52:20.637845+00:00"
+    },
+    {
+      "argv": [
+        "tectonic",
+        "--outdir",
+        "../../../build",
+        "paper.tex"
+      ],
+      "cwd": "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/extracted/paper-source/paper",
+      "exit_code": 0,
+      "logs": {
+        "stderr": {
+          "bytes": 0,
+          "display_tail": "",
+          "path": "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/standalone-compile.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 384,
+          "display_tail": "note: Running TeX ...\nnote: Running BibTeX on paper.aux ...\nnote: Rerunning TeX because bibtex was run ...\nnote: Rerunning TeX because \"paper.aux\" changed ...\nnote: Rerunning TeX because \"paper.aux\" changed ...\nnote: Running xdvipdfmx ...\nnote: Writing `../../../build/paper.pdf` (453.8583984375 KiB)\nnote: Skipped writing 3 intermediate files (use --keep-intermediates to keep them)\n",
+          "path": "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/standalone-compile.stdout.log",
+          "sha256": "76bb7809e840cddcb7c49910163708d28e23ca6da1a1b22c31c431fa6b3d0e0e"
+        }
+      },
+      "name": "standalone-compile",
+      "started_at": "2026-09-10T07:52:20.665628+00:00"
+    },
+    {
+      "argv": [
+        "pdfinfo",
+        "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/build/paper.pdf"
+      ],
+      "cwd": "<repository>",
+      "exit_code": 0,
+      "logs": {
+        "stderr": {
+          "bytes": 0,
+          "display_tail": "",
+          "path": "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/pdfinfo.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 430,
+          "display_tail": "Creator:         LaTeX with hyperref\nProducer:        xdvipdfmx (0.1)\nCreationDate:    Thu Sep 10 16:52:20 2026 KST\nCustom Metadata: no\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           36\nEncrypted:       no\nPage size:       595.28 x 841.89 pts (A4)\nPage rot:        0\nFile size:       464751 bytes\nOptimized:       no\nPDF version:     1.5\n",
+          "path": "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/pdfinfo.stdout.log",
+          "sha256": "7e5b652814bf755c79bd2a03795208d3a95f34268b87a6488f81e07955cde0c9"
+        }
+      },
+      "name": "pdfinfo",
+      "started_at": "2026-09-10T07:52:22.438494+00:00"
+    },
+    {
+      "argv": [
+        "pdftotext",
+        "-layout",
+        "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/build/paper.pdf",
+        "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/rebuilt.txt"
+      ],
+      "cwd": "<repository>",
+      "exit_code": 0,
+      "logs": {
+        "stderr": {
+          "bytes": 0,
+          "display_tail": "",
+          "path": "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/rebuilt-text.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 0,
+          "display_tail": "",
+          "path": "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/rebuilt-text.stdout.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "name": "rebuilt-text",
+      "started_at": "2026-09-10T07:52:22.459500+00:00"
+    },
+    {
+      "argv": [
+        "pdftotext",
+        "-layout",
+        "paper/paper.pdf",
+        "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/canonical.txt"
+      ],
+      "cwd": "<repository>",
+      "exit_code": 0,
+      "logs": {
+        "stderr": {
+          "bytes": 0,
+          "display_tail": "",
+          "path": "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/canonical-text.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 0,
+          "display_tail": "",
+          "path": "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/canonical-text.stdout.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "name": "canonical-text",
+      "started_at": "2026-09-10T07:52:22.605478+00:00"
+    },
+    {
+      "argv": [
+        "pdftoppm",
+        "-r",
+        "100",
+        "-png",
+        "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/build/paper.pdf",
+        "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/render/page"
+      ],
+      "cwd": "<repository>",
+      "exit_code": 0,
+      "logs": {
+        "stderr": {
+          "bytes": 0,
+          "display_tail": "",
+          "path": "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/render-100dpi.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 0,
+          "display_tail": "",
+          "path": "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/render-100dpi.stdout.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "name": "render-100dpi",
+      "started_at": "2026-09-10T07:52:22.748811+00:00"
+    },
+    {
+      "argv": [
+        "tmp/paper-substantive-release/anonymous-final-01/painter-naming-geometry-20260910/.venv/bin/python",
+        "paper/make_geometry_figure.py",
+        "--check"
+      ],
+      "cwd": "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/extracted/paper-source",
+      "exit_code": 0,
+      "logs": {
+        "stderr": {
+          "bytes": 63,
+          "display_tail": "Matplotlib is building the font cache; this may take a moment.\n",
+          "path": "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/geometry-figure-check.stderr.log",
+          "sha256": "cace1071573ef725e762e8856427937617c8c67e5d0784c45c0e854e56a803a8"
+        },
+        "stdout": {
+          "bytes": 202,
+          "display_tail": "Geometry presentation reproduces byte for byte.\nExact plotted parity: 24 fold residuals, 12 stored means, eight energies; 192 stored deletion records unchanged. Text is at least 8.5 pt at 160 mm width.\n",
+          "path": "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/geometry-figure-check.stdout.log",
+          "sha256": "4394b1a4551b7aebd47d90877e090ecaf66c24000ebf2dd436c6ef198d70f1b4"
+        }
+      },
+      "name": "geometry-figure-check",
+      "started_at": "2026-09-10T07:52:30.042652+00:00"
+    }
+  ],
+  "committed_source_inputs_verified": 14,
+  "completed_at": "2026-09-10T07:52:46.295633+00:00",
+  "disclosure": "Maintainer-run LLM agent; implemented the temporary packager and earlier geometry/centering and clause collectors/workflows. This is an involved same-host local QA, not anonymous, human, institutional or external-investigator verification.",
+  "extraction": "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/extracted/paper-source",
+  "figure_check": {
+    "environment_python": "tmp/paper-substantive-release/anonymous-final-01/painter-naming-geometry-20260910/.venv/bin/python",
+    "environment_reinstalled": false,
+    "exact_pdf_reproduction": true,
+    "exit_code": 0,
+    "figure": {
+      "bytes": 21749,
+      "path": "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/extracted/paper-source/paper/figures/naming_geometry_presentation.pdf",
+      "sha256": "5ca6af3ba8509fb8614c5595210c4ed5b03eff913cd6e80b56d3bfeef246733d"
+    },
+    "input": {
+      "bytes": 9940672,
+      "path": "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/extracted/paper-source/data/manifests/painter_naming_geometry_v1/pngv1-20260910/analysis.json",
+      "sha256": "f50be0f772a3bff8f4bc66ddc20f3e19b5c13736fd6cced632d80224e2203324"
+    },
+    "python_version": "Python 3.13.11",
+    "read_only_check": true
+  },
+  "limits": [
+    "Local built archive, not a downloaded published asset.",
+    "Same macOS arm64 host and existing installed/cache environment; no cross-platform claim.",
+    "Compilation, rendering and stored-value figure verification only; no scientific refit, image extraction, generation or new score.",
+    "No source/archive member modified, no numerical package replaced and no publication performed.",
+    "Raw stdout/stderr logs remain in ignored local QA; receipt displays normalize local paths and record each raw log hash."
+  ],
+  "outer_checksums": {
+    "bytes": 162,
+    "path": "tmp/paper-clause-release/paper-assets-20260910/final-01/paper-assets-SHA256SUMS",
+    "sha256": "1d885c331a819a1530bf503f1b7902a50e05fa7a4a44416222c59fe6e3db9f15"
+  },
+  "packaging_receipt": {
+    "bytes": 5943,
+    "path": "tmp/paper-clause-release/paper-assets-20260910/final-01/BUILD.json",
+    "sha256": "f2c8758d4484a397b5d494bc5e4f3f7c2bab70edd6d087e6befcdde283ab766d"
+  },
+  "payload_checksums_verified": 15,
+  "platform": {
+    "driver_python": "3.13.11",
+    "machine": "arm64",
+    "release": "25.6.0",
+    "system": "Darwin"
+  },
+  "published_candidate_pdf": {
+    "bytes": 464751,
+    "path": "tmp/paper-clause-release/paper-assets-20260910/final-01/paper.pdf",
+    "sha256": "f786c8a169dc0b5fb9f11df06b687837c6ab16cc48a6c9f492d613a1b2f4934c"
+  },
+  "qa_script": {
+    "bytes": 10909,
+    "path": "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/run_qa.py",
+    "sha256": "365bddf3b244d9836f585466c8714a80ad2d2145639a5c50bd90ba8df071724f"
+  },
+  "schema": "paper-source-local-build/1",
+  "source_commit": "e81ea83736b9f97e98d52ee9c7c771b26f3f8347",
+  "source_files_unchanged_after_commands": 16,
+  "source_inventory": {
+    "LICENSE": {
+      "bytes": 1084,
+      "sha256": "9c623de0d41e44d26cf54436e02834563a83ee09ee1cdbd59be292d56277907b"
+    },
+    "README.md": {
+      "bytes": 5375,
+      "sha256": "47d86b792ca699b879a6e30c0d9f0abc827f620520e14a39fedbbf3a193094f0"
+    },
+    "SHA256SUMS": {
+      "bytes": 1480,
+      "sha256": "b0d4558cf0ac3836ffb747627ab905559c7c71a1c282c9df22d77a2bd985593c"
+    },
+    "data/manifests/painter_naming_geometry_v1/pngv1-20260910/analysis.json": {
+      "bytes": 9940672,
+      "sha256": "f50be0f772a3bff8f4bc66ddc20f3e19b5c13736fd6cced632d80224e2203324"
+    },
+    "paper/figures/challenge_matrix.pdf": {
+      "bytes": 22186,
+      "sha256": "b6ff250f20fc3d278ff5d491b6d35513e7d5542b1e8169f96a780a0e567d3ae1"
+    },
+    "paper/figures/color_responsiveness.pdf": {
+      "bytes": 21776,
+      "sha256": "5529ade7b8d6f2d8225720f14e4e369a67f5a9c9d0a23ae2da3ec8b1ca949bf6"
+    },
+    "paper/figures/common_pca.pdf": {
+      "bytes": 42854,
+      "sha256": "cc85d953b05b10b40d6869494be1fcb7cd0724091fd6f205f052b6057ecdca67"
+    },
+    "paper/figures/four_painter_distributions.pdf": {
+      "bytes": 73271,
+      "sha256": "e2caed73ab1161798a3e3f7f3efda76343933bc15e841f21db5813e3ae6423a8"
+    },
+    "paper/figures/naming_geometry_presentation.pdf": {
+      "bytes": 21749,
+      "sha256": "5ca6af3ba8509fb8614c5595210c4ed5b03eff913cd6e80b56d3bfeef246733d"
+    },
+    "paper/figures/palette_blocks.pdf": {
+      "bytes": 21363,
+      "sha256": "47397fc0a4dd1c599f366c2fdec684f03000da5aa885eb86e621f44254041b02"
+    },
+    "paper/figures/primary_comparison.pdf": {
+      "bytes": 17163,
+      "sha256": "d31b02af0e97119ee21ed9de1489f4df7f2b43df0da5a300d5a9983682d46216"
+    },
+    "paper/figures/scene_retrieval.pdf": {
+      "bytes": 17276,
+      "sha256": "d8412df8b59ce8b26cccb05e6e91f44cbda28628cf9d57e1c5c02a07c015e04e"
+    },
+    "paper/figures/variation_ratios.pdf": {
+      "bytes": 14523,
+      "sha256": "900f0a82deb64f6339a33babd1b3a226826ec9ac02f4492152a85e7f5cbfffbd"
+    },
+    "paper/make_geometry_figure.py": {
+      "bytes": 7265,
+      "sha256": "c3f6120f3b0c80dfaf1cb5146aac9e56d926f748c5172f4aec549d46871b9ace"
+    },
+    "paper/paper.tex": {
+      "bytes": 114979,
+      "sha256": "12c2f3db21b2ba86dc25a6ec6826d84d49ea563c9dc18030465ff6286345b71b"
+    },
+    "paper/references.bib": {
+      "bytes": 6697,
+      "sha256": "7b2d0dcb8ec858009ac2401903cc63572c42610fef1972e622419afd83e70808"
+    }
+  },
+  "standalone_build": {
+    "all_pages_pixel_equal": true,
+    "canonical_render_directory": "tmp/paper/final-presentation-20260910",
+    "canonical_text": {
+      "bytes": 133496,
+      "path": "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/canonical.txt",
+      "sha256": "6aa91bb1a1c34b71eaf902eeb4233b88fda18c816f84ae16f30fbd80c94895fa"
+    },
+    "compiler": "Tectonic 0.17.0",
+    "full_text_equal": true,
+    "output": {
+      "bytes": 464751,
+      "path": "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/build/paper.pdf",
+      "sha256": "c32c0ad5dc4bf153f76685091e7ff70c43b1b7ec7b151f969c2525b98cf72771"
+    },
+    "page_checks": [
+      {
+        "canonical_png_sha256": "7856a1efd6ccdcb5b21176eb65e689b78226ae79f3f5502c817f5ea4798562f6",
+        "page": 1,
+        "page_text_sha256": "1460c49b57446a9acb58b7bfc65814a2429a1f0f3e6fabba6891500cdb0cbb15",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "7856a1efd6ccdcb5b21176eb65e689b78226ae79f3f5502c817f5ea4798562f6",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "d4eeafc1489cde7415e8bc0019c63b225ce9fdd30e45dda02b1ac0e4fc35cbb4",
+        "page": 2,
+        "page_text_sha256": "cf8956ff328cc3243a5688fb2067ca9c6e99ca67bb91ae2148d39137928dc2e2",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "d4eeafc1489cde7415e8bc0019c63b225ce9fdd30e45dda02b1ac0e4fc35cbb4",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "8b01b0384c7d548bacafa87547ebea7f72ef317b27702d672272bb9925a36ab7",
+        "page": 3,
+        "page_text_sha256": "943e094efe10f72d321488d8932b6decd46e8575774ba7e9595e117c7451650d",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "8b01b0384c7d548bacafa87547ebea7f72ef317b27702d672272bb9925a36ab7",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "00308a677aa8aefb7e5e6dfe350ce05888cd922aa705e58e37ec1f4f4d581040",
+        "page": 4,
+        "page_text_sha256": "e055f3ad8e36aa2909787c2509c46317506f02c1268865db34de9c6ebe068adb",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "00308a677aa8aefb7e5e6dfe350ce05888cd922aa705e58e37ec1f4f4d581040",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "fb0a7d3ee338cf4529f602a65f1d159ed61cd464c7838caa376b4b50b251ad6a",
+        "page": 5,
+        "page_text_sha256": "cb2b48d63593659ed75c9af6a37e3e72a96cf0374d8e544810378d18d156c0b2",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "fb0a7d3ee338cf4529f602a65f1d159ed61cd464c7838caa376b4b50b251ad6a",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "e9bccce7d8978983948bf45a806725859bce56d1ebf0bba74319ab643b026bd9",
+        "page": 6,
+        "page_text_sha256": "b26e61042399d3bb2d7cd3f94b2b2597ebc1be3f9272f38d1e9a15d4baa5680b",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "e9bccce7d8978983948bf45a806725859bce56d1ebf0bba74319ab643b026bd9",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "8cbfdb3baf474ef0d49eb82875b0a82ec873a08eaac21240d2067b7a7515377c",
+        "page": 7,
+        "page_text_sha256": "48f7c7088655599d99cc94d29e66c70c4cbfff5175f628cb2274f1ba38b4f301",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "8cbfdb3baf474ef0d49eb82875b0a82ec873a08eaac21240d2067b7a7515377c",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "fe8b502159fc80beed84074bba254adb2c46cc928fb16eeca5081c6235062752",
+        "page": 8,
+        "page_text_sha256": "bd312d0e637b81d0332890a8dafa66d47911dea0811fd8da99ae1dfccfe53a6c",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "fe8b502159fc80beed84074bba254adb2c46cc928fb16eeca5081c6235062752",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "ceffe6fb581f1b26059eaa9c955a61a1778c49285cc264e3afb4b055e0107929",
+        "page": 9,
+        "page_text_sha256": "1c75f8b3a4348e625ddc23b86d30fd569d0acaaee96fc2b3fc5dc2281d8821f4",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "ceffe6fb581f1b26059eaa9c955a61a1778c49285cc264e3afb4b055e0107929",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "d2921a6b13483b6d04deaa2abd00ab5361d720222eadd133065ef8febffad54b",
+        "page": 10,
+        "page_text_sha256": "4fcdfb0ffc218bd75af3f81add971a810f33d0036e465cb2d32f788e7839a85a",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "d2921a6b13483b6d04deaa2abd00ab5361d720222eadd133065ef8febffad54b",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "05f89eba875f0acfcfeee55340c7994968ddff058dc5669de3f04d4eed0dcc94",
+        "page": 11,
+        "page_text_sha256": "025d085ff2cc643bc9876fa4ef05bdbe3a41badf997ea3a926a069b895d68aaa",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "05f89eba875f0acfcfeee55340c7994968ddff058dc5669de3f04d4eed0dcc94",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "4aa00ebaa3e796a8b201cf345b50de3de42e4c6e4cadabb2394741513a0734d9",
+        "page": 12,
+        "page_text_sha256": "d1aab00385dd0f42d695642f04558655edd4c67b99434e86da6104320afb0410",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "4aa00ebaa3e796a8b201cf345b50de3de42e4c6e4cadabb2394741513a0734d9",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "04a855de0540c82c173a02ec3d6000e6cabe42e4ad17659859b77d23b8981f5c",
+        "page": 13,
+        "page_text_sha256": "8e71d002477d7a10f907f5383f5af93bf6a5c33a757ce74aa56397aa9645d92a",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "04a855de0540c82c173a02ec3d6000e6cabe42e4ad17659859b77d23b8981f5c",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "5a43e19a279d72c4a8030a190d8e1143d6e553ab65fb28113bbc2b56ea9040da",
+        "page": 14,
+        "page_text_sha256": "5d0a87ced824e1822b19e153f62a4bd14bb1b8ae855784101d1d55a587e3ed9a",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "5a43e19a279d72c4a8030a190d8e1143d6e553ab65fb28113bbc2b56ea9040da",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "97c2bfb5e5e54e3a7db9ddefe35f604dbc9a5f57e80cfffd02c8b9c17b44e809",
+        "page": 15,
+        "page_text_sha256": "30729aa6ecac999da89a17e9fff6cbf2c79266ac11393f9418bc18a8039c626a",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "97c2bfb5e5e54e3a7db9ddefe35f604dbc9a5f57e80cfffd02c8b9c17b44e809",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "946debca16d286ed3b9da14a2ccc4a157ae60fb8ac6f574c8bf67b9a8c20ab41",
+        "page": 16,
+        "page_text_sha256": "d4c1af0bc562d00a0a49611cf5c40e23a48eed6c0d453343332191f47a0123c5",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "946debca16d286ed3b9da14a2ccc4a157ae60fb8ac6f574c8bf67b9a8c20ab41",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "087f1fde0339d4f70f24ee9452dc1932c0da274972ea451614c730b1d3a672ef",
+        "page": 17,
+        "page_text_sha256": "fc1a333550b224c8e748ba155dceeb3b94fa0f9a14d2335291138f61eacc3866",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "087f1fde0339d4f70f24ee9452dc1932c0da274972ea451614c730b1d3a672ef",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "ff851d9a1c7cdd089275546b89527dca747c600360718aaf3b85797cebb5bec2",
+        "page": 18,
+        "page_text_sha256": "8b1bf0b64d0ec5f49cff28b7f8608b62ed4055c561185714df05eb6e9b24bdd7",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "ff851d9a1c7cdd089275546b89527dca747c600360718aaf3b85797cebb5bec2",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "4947a98977c57a8c84309f0696aec8124fc826f0207ccb1a1b9b285da5de711e",
+        "page": 19,
+        "page_text_sha256": "87069f2f6335f79bc73c8a1413bf2be5d33148be381fffac1204d78145e37aeb",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "4947a98977c57a8c84309f0696aec8124fc826f0207ccb1a1b9b285da5de711e",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "b5ed5ab0978d9bdd26ede159e0d1094d59f7bddd7d08cbe5a261aeb8c7fd2887",
+        "page": 20,
+        "page_text_sha256": "ee3f687000da11742b1fc77db055c4da4cb7902f3247b7c6fdb690e2394c545e",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "b5ed5ab0978d9bdd26ede159e0d1094d59f7bddd7d08cbe5a261aeb8c7fd2887",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "32cc8d6f88caf5d09e1c4b8b49e3c0cadd4dd86be91b8d64919b62a3beebd83e",
+        "page": 21,
+        "page_text_sha256": "ba02a807b79fcae2fd802709306bfaa4884cb93de138b0a561cd2b6969e45563",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "32cc8d6f88caf5d09e1c4b8b49e3c0cadd4dd86be91b8d64919b62a3beebd83e",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "6534c5ea272c5c705d414e9dcc7b871c93004dcf0a3afcd5b22d99aec1ce948a",
+        "page": 22,
+        "page_text_sha256": "97bc7efcf57280ff6e8c5da7879fdb59166a13541eafb5e3556e11822ac8c4ca",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "6534c5ea272c5c705d414e9dcc7b871c93004dcf0a3afcd5b22d99aec1ce948a",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "a6634978cccf21a5764910415ce0f023a7a3c080aafd5d1d38e5fad23503c5cd",
+        "page": 23,
+        "page_text_sha256": "a789b0597b87d05dff46256332b23284b3238a14f189be65eae56a7fc744411d",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "a6634978cccf21a5764910415ce0f023a7a3c080aafd5d1d38e5fad23503c5cd",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "69de6e588a36a2af9e6aa8e6ee6bee4c8629febeb53be05e64019ef76029ef7c",
+        "page": 24,
+        "page_text_sha256": "5cc2704bfc5b356d800c21556f289888cb4168a016303d7edeaecf4a820794c8",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "69de6e588a36a2af9e6aa8e6ee6bee4c8629febeb53be05e64019ef76029ef7c",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "9910d4ab26d95e032a6e450a118d9722349313c685a988487247500ac470cb5e",
+        "page": 25,
+        "page_text_sha256": "222e66ce3cca800b3300eed516a56e34395d71910867f83e9d7ec895ab3e6d99",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "9910d4ab26d95e032a6e450a118d9722349313c685a988487247500ac470cb5e",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "8f1e5b896265e228c9f26ceedd25dc9b847fdbd00dd8ca26b0ddd31902ce8591",
+        "page": 26,
+        "page_text_sha256": "b9ca7d9c58a12bc0e2f2f43e49457279338891eca1ee4ddd10187f4b8a937de5",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "8f1e5b896265e228c9f26ceedd25dc9b847fdbd00dd8ca26b0ddd31902ce8591",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "5bdcd63212e8e9b0b31a2cd9faf5afa58481b303e87708cb217f9bc2f6b947ca",
+        "page": 27,
+        "page_text_sha256": "5dfa9827a0affc6dab86f30333e7670f846303d4f5f7c48b78e5e08fe3b3cb25",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "5bdcd63212e8e9b0b31a2cd9faf5afa58481b303e87708cb217f9bc2f6b947ca",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "f9822f303ae1f61b3f240330de77692be973f6e49ac924259ba90d8b3762ebd5",
+        "page": 28,
+        "page_text_sha256": "1a4589049be796ff7380b994c6498be075a8076fdc75da5d2ab9eed839eab4f5",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "f9822f303ae1f61b3f240330de77692be973f6e49ac924259ba90d8b3762ebd5",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "e8ef6531f75f3855fe13e0aa649037230f5a429246ebcdd858315beadaaedafb",
+        "page": 29,
+        "page_text_sha256": "3245b7281c53eb78d79ad0067a4c272d61b19b202331926b5f84bf16fd9cc409",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "e8ef6531f75f3855fe13e0aa649037230f5a429246ebcdd858315beadaaedafb",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "5ac9648296929d4177979bead958eae4d26438992fed23fe574277e6911e86be",
+        "page": 30,
+        "page_text_sha256": "71028d8684b1cec4b37fb2eaac7cc65c8036749eb83bd2a017d67d5817b68412",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "5ac9648296929d4177979bead958eae4d26438992fed23fe574277e6911e86be",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "12b756459b47759642f60025aded974a837f1f97f0530216c072d410a3a690fd",
+        "page": 31,
+        "page_text_sha256": "278a6e684a634220b914ded1d2e00e075de41fe0254aa39aa3d70b22369d065c",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "12b756459b47759642f60025aded974a837f1f97f0530216c072d410a3a690fd",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "42b346a906581a6084f6c284a57c9e205cab53a50c77a5ac7861f7ab28f31efb",
+        "page": 32,
+        "page_text_sha256": "8017657715514f85d0365d42c9587fd39c14399ad3287d6446b750f8d0807ac2",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "42b346a906581a6084f6c284a57c9e205cab53a50c77a5ac7861f7ab28f31efb",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "d2a33fdc383e9864b5c34598f1529cae5ad65c91f7704bb635b8cd40b21a4134",
+        "page": 33,
+        "page_text_sha256": "d9e6a3ea5d4fa99783cee528ad111e51bc60ad74fa839114c1f4803135a9e9e1",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "d2a33fdc383e9864b5c34598f1529cae5ad65c91f7704bb635b8cd40b21a4134",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "ce74504617ce1d33c99ff7c65a1c75e0a3df516676366c22bf16bcff74831b96",
+        "page": 34,
+        "page_text_sha256": "c33e38b2309765c445f233b4d08471071576ce39c20195fa0183df3c626ca63a",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "ce74504617ce1d33c99ff7c65a1c75e0a3df516676366c22bf16bcff74831b96",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "c61ccb0ef3b0ca0b37f2aaaa43060fb6dfcd03b989da766bbc9ff773eba43fa4",
+        "page": 35,
+        "page_text_sha256": "62d7105d6eda91602f72ef44a1f3be6ac588213c04b7c20635222721afb5030e",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "c61ccb0ef3b0ca0b37f2aaaa43060fb6dfcd03b989da766bbc9ff773eba43fa4",
+        "size": [
+          827,
+          1170
+        ]
+      },
+      {
+        "canonical_png_sha256": "cb669b507128d973a30e9abb1ae5bda66b0ed34407e9657572a7eb8777e7260d",
+        "page": 36,
+        "page_text_sha256": "2ff8548ec3f04139b801fa6908e0b53583f34ccd4a4e3154365a104d404cdb54",
+        "pixel_equal": true,
+        "rebuilt_png_sha256": "cb669b507128d973a30e9abb1ae5bda66b0ed34407e9657572a7eb8777e7260d",
+        "size": [
+          827,
+          1170
+        ]
+      }
+    ],
+    "page_count": 36,
+    "pdf_byte_equal": false,
+    "rebuilt_text": {
+      "bytes": 133496,
+      "path": "tmp/paper-clause-release/paper-assets-20260910/local-qa-01/rebuilt.txt",
+      "sha256": "6aa91bb1a1c34b71eaf902eeb4233b88fda18c816f84ae16f30fbd80c94895fa"
+    },
+    "render_dpi": 100
+  },
+  "status": "passed"
+}

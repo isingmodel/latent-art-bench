@@ -121,6 +121,12 @@ tests (256.02 seconds), all nine figure replays and the 2,902-check historical
 evidence audit pass. These presentation checks do not constitute a fourth
 scientific review, and the fixed nine-score mean remains **8.9**.
 
+The final paper and 16-file source bundle are also [publicly available](https://github.com/isingmodel/latent-art-bench/releases/tag/pcrv1-20260910).
+Fresh source compilation matches all 36 pages in text and rendering; anonymous
+downloads match the published hashes and reproduce the new presentation figure.
+The [publication record](../../../reports/paper_clause_reproducibility_v1/pcrv1-20260910/REPORT.md#final-english-manuscript-assets)
+keeps these checks separate from the fixed scored review and scientific validation.
+
 A future stronger scientific claim would require separately specified new-scene
 free/named map evaluation with repeat measurements, or independent-capture
 calibration for a different measurement question. No additional retained-data

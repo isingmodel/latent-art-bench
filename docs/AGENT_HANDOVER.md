@@ -119,7 +119,10 @@ passes exact fresh local and anonymous replay, each with 152 tests and eight
 explicit maintainer-only skips. The archive has 85 files and SHA256
 `6038da2daed74e6ed4b509464dc6f1a4dae386e644d265235de982db4bf23e40`.
 Public root commit is `866fc27`; export/build source is `c73874e`. Preserve the
-create-once export, archive and all earlier releases. Final paper assets follow review.
+create-once export, archive and all earlier releases. The final 36-page English
+paper and 16-file source bundle are published as separate additive assets from
+`e81ea83`. Fresh compilation matches all page text/pixels; anonymous downloads
+and presentation replay pass. Preserve these assets as well.
 See its [guide](../studies/paper_clause_reproducibility_v1/README.md).
 
 Publication uses an explicit allowlist and sanitized history-free branch. Never
@@ -131,7 +134,7 @@ pixels. Source URLs/license metadata do not grant image redistribution rights.
 ## Verification and preservation
 
 Latest source qualification: Ruff passes, all 1,714 offline tests pass in 256.02
-seconds, and the historical audit passes 2,902 checks at `28b7d28`. These checks
+seconds, and the historical audit passes 2,902 checks at `e81ea83`. These checks
 include the separate manuscript geometry renderer. All nine active figures
 replay exactly; the final 36-page PDF passes visual QA. The immutable
 [presentation check](reviews/20260910_substantive_revision/FINAL_PRESENTATION_QA_3.md)

@@ -75,12 +75,12 @@ No scene-population, perceptual or internal-mechanism claim follows.
 | --- | --- |
 | [Original release `pprv1-20260910`](../reports/paper_reproducibility_v1/pprv1-20260910/REPORT.md) | 98 exact fresh local/anonymous checks; 98 hosted Ubuntu checks under the recorded floating-point contract. Seven Ubuntu figures match bytewise; the challenge PDF has platform-dependent bytes. Source `b2884c3`, public commit `2592dfb`. |
 | [Geometry addendum `ppgv1-20260910`](../reports/paper_geometry_reproducibility_v1/ppgv1-20260910/REPORT.md) | Exact fresh local/anonymous replay of both namespaces and 95 tests. Source `5485e36`, public commit `7923049`; immutable 34-page manuscript and nine figures. |
-| [Clause addendum `pcrv1-20260910`](../reports/paper_clause_reproducibility_v1/pcrv1-20260910/REPORT.md) | Public: 85 files, exact fresh local/anonymous replay of both separate cohorts, 152 tests and eight explicit maintainer-only skips in each environment. Archive SHA256 `6038da2d…bf23e40`, public commit `866fc27`. Final paper assets follow review. |
+| [Clause addendum `pcrv1-20260910`](../reports/paper_clause_reproducibility_v1/pcrv1-20260910/REPORT.md) | Public: 85 files, exact fresh local/anonymous replay of both separate cohorts, 152 tests and eight explicit maintainer-only skips in each environment. Archive SHA256 `6038da2d…bf23e40`, public commit `866fc27`. The final 36-page paper and 16-file source bundle are separately published; fresh compilation matches all page text/pixels, and anonymous downloads match all asset hashes. |
 
 Latest complete Python verification includes the separate Figure 3 presentation
 renderer: **Ruff clean; 1,714 offline tests passed in 256.02 seconds**. All nine
 active manuscript figures replay exactly. Historical evidence
-audit at `28b7d28`: **2,902 checks, zero failures**, with the same two old
+audit at `e81ea83`: **2,902 checks, zero failures**, with the same two old
 acknowledgements. Both geometry namespaces replay exactly. The historical audit
 does not register the new namespaces; each requires its own numerical check.
 

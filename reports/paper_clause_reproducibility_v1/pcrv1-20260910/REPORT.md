@@ -42,8 +42,39 @@ remain part of the interpretation.
 [PUBLICATION.json](PUBLICATION.json) records the published metadata. Only the
 explicit allowlist was copied into the new root commit; no full local Git history
 was pushed. Earlier numerical releases and their paper assets remain unchanged.
-The numerical archive excludes manuscript files; final English manuscript assets
-are published separately after their review.
+The numerical archive excludes manuscript files. The final English manuscript
+and its source are published separately as described below.
+
+## Final English manuscript assets
+
+On 10 September 2026 at 07:53:46 UTC, the same release gained three additive
+assets from source commit `e81ea83736b9f97e98d52ee9c7c771b26f3f8347`:
+
+| Asset | Bytes | SHA256 |
+| --- | ---: | --- |
+| `paper.pdf` | 464,751 | `f786c8a169dc0b5fb9f11df06b687837c6ab16cc48a6c9f492d613a1b2f4934c` |
+| `paper-source.tar.gz` | 1,368,582 | `7e98f48ffe432b8d93a96d64a43fafe18e79c94139a473f3433dc9812a57e946` |
+| `paper-assets-SHA256SUMS` | 162 | `1d885c331a819a1530bf503f1b7902a50e05fa7a4a44416222c59fe6e3db9f15` |
+
+The 16-file source archive contains TeX, bibliography, nine active figure PDFs,
+the unchanged MIT notice, the separate Figure 3 presentation renderer and its
+sealed numerical input, and build/checksum instructions. No old geometry figure,
+scientific source or numerical archive was replaced. The package supports
+standalone manuscript compilation; the three numerical releases remain separate.
+
+[LOCAL_PAPER_BUILD.json](LOCAL_PAPER_BUILD.json) records a fresh extraction,
+all 15 payload checksums and a standalone Tectonic 0.17.0 build. All 36 pages
+match the canonical text and 100-dpi pixels. PDF binary hashes differ, and the
+creation timestamps differ; no byte-identical manuscript build is claimed.
+The new figure checks byte for byte in the previously installed locked geometry
+environment (Python 3.13.11). All 16 source members remain unchanged.
+
+[PAPER_ASSETS.json](PAPER_ASSETS.json) records HTTP 200 anonymous downloads of
+all three assets, their exact hashes, the complete source inventory and a further
+read-only figure replay. No new environment or second manuscript compilation
+was performed for this downloaded copy. These checks establish public artifact
+access and presentation reproducibility on the recorded macOS host; they do not
+change scientific review scores or establish independent empirical replication.
 
 ## Fresh reproduction
 
