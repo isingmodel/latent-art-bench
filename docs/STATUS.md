@@ -78,10 +78,14 @@ No scene-population, perceptual or internal-mechanism claim follows.
 | [Clause addendum `pcrv1-20260910`](../reports/paper_clause_reproducibility_v1/pcrv1-20260910/REPORT.md) | Public: 85 files, exact fresh local/anonymous replay of both separate cohorts, 152 tests and eight explicit maintainer-only skips in each environment. Archive SHA256 `6038da2d…bf23e40`, public commit `866fc27`. The final 36-page paper and 16-file source bundle are separately published; fresh compilation matches all page text/pixels, and anonymous downloads match all asset hashes. |
 | [Failed precision qualification `pmrv1-20260910`](../reports/paper_map_reproducibility_v1/pmrv1-20260910/REPORT.md) | Public: 18 files, all 81 cells reproduce exactly in fresh local and anonymous-download environments; 73 tests in each. Archive SHA256 `00e82c31…62cd9f`, public root commit `3d70c37`. Same Mac; exact reconstructed support hashes constrain portability. V2 and manuscript assets are outside this release. |
 
-Latest complete Python verification includes the new metadata preflight,
-precision implementation and release adapter: **Ruff clean; 1,800 offline tests
-passed in 272.96 seconds**. The earlier exact replay of all nine active manuscript figures is
-unchanged. Historical evidence audit at `467cd85`: **2,902 checks, zero failures**, with the same two old
+The earlier complete Python verification passed **1,800 tests in 272.96 seconds**.
+The new map-validation namespace separately passes **110 offline tests in 28.12 seconds**,
+including independent numerical-oracle and complete artificial transport checks.
+Whole-tree Ruff is clean. A full run while the separate public adapter was being
+implemented finished with **1,929 passes and four provisional adapter-test failures
+in 516.03 seconds**; those failures are outside the frozen collection source and
+require a final clean rerun before handoff. The earlier exact replay of all nine active manuscript figures is
+unchanged. Historical evidence audit at `dabc2f8`: **2,902 checks, zero failures**, with the same two old
 acknowledgements. Both geometry namespaces replay exactly. The historical audit
 does not register the new namespaces; each requires its own numerical check.
 
@@ -93,7 +97,7 @@ credentials, literature full text, weights and Korean drafts are excluded.
 
 ## Accounting and remaining boundaries
 
-Cumulative conservative OpenRouter accounting is **$50.7219185** against the
+The pre-map-validation conservative OpenRouter baseline is **$50.7219185** against the
 user's **$75** ceiling, including a retained historical $5 reserve. The temporal
 FLUX collection added $5.04; both clause cohorts add zero paid cost. No monetary
 value is assigned to OAuth subscription use. No further clause generation is planned.
@@ -131,9 +135,24 @@ checks and all nine baseline width checks passed in 270,000 simulated trials;
 the minimum coverage lower bound is .97065 and the largest baseline Q median
 half-width is .862593. There were no unavailable intervals. Source commit
 `6956fec` precedes this single formal assessment. These are historical discrete
-proxy calculations, not a service-coverage guarantee. No new generation has run;
-a separate tested operational contract, fresh budget check and freeze remain
-required. There is no further allocation assessment for this question in the revision.
+proxy calculations, not a service-coverage guarantee. There is no further
+allocation assessment for this question in the revision.
+
+The separately reviewed v2 operational gates are now complete and collection
+started at **10:11 UTC**. Source `765c5f7`, metadata/review source `c82e160`,
+qualification commit `aaf431a` and freeze commit `c68c235` retain 188 bound inputs
+and all 240 exact assignments. Both fresh two-GET metadata gates passed with the
+unchanged endpoint and sufficient actual credits for the conditional $18.60
+allowance. At most two requests overlap, with five-second start spacing and
+automatic financial serialization. A permanent slot loss stops the cohort;
+there is no replacement. Current paid charges and pending reservations are in
+`data/manifests/painter_map_validation_v2/pmv2-20260910/generation_events.jsonl`.
+No scientific vector has been extracted or new E/Q result computed yet.
+The precollection [analysis](../studies/painter_map_validation_v2/ANALYSIS_REVIEW.md),
+[operational](../studies/painter_map_validation_v2/OPERATIONAL_REVIEW.md) and
+[coordinator](../studies/painter_map_validation_v2/PRECOLLECTION_REVIEW.md) reviews
+remain source-bound. The working 37-page manuscript includes both allocation
+decisions and the interval method, with the updated appendix pages visually checked.
 
 A separate [stage R0 capture audit](../reports/painter_capture_audit_v1/pcav1-20260910/REPORT.md)
 is terminal: **zero qualified pairs after 15 metadata requests across five
