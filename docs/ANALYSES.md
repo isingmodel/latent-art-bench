@@ -344,6 +344,20 @@ A [strict Ubuntu attempt](../reports/paper_map_validation_reproducibility_v2/pmv
 fails the qualification comparison before reaching observed replay; passing
 synthetic tests and inventory checks do not replace that failed numerical check.
 
+The separate [completed diagnostic](../reports/paper_map_portability_diagnostic_v1/pmpdv1-20260910/REPORT.md)
+retains actual reconstructed objects and field differences without invoking the
+formal qualification writer. Its source is `tools/paper_map_portability_diagnostic.py`,
+with 31 artificial tests. Ubuntu's 27 qualification failures are support hashes;
+all other numerical differences are below 4e-15. Observed displayed tables match,
+but exact JSON/report checks fail. This does not repair the closed strict route.
+The fixed-support portable proposal is deferred at the user's stopping instruction.
+No new qualification, support export, data collection or review round is pending.
+
+The [final manuscript assets](../reports/paper_map_validation_reproducibility_v2/pmv2r-20260910/PAPER_ASSETS.md)
+contain the unchanged nine figures and a 39-page paper. Fresh standalone source
+compilation matches all page text/pixels, and anonymous access checks match all
+asset hashes. The fixed-map result is a table, not a new fitted plot.
+
 The failed v1 grid has a separately verified [public numerical archive](../reports/paper_map_reproducibility_v1/pmrv1-20260910/REPORT.md).
 From the extracted `pmrv1-20260910/` archive root, first verify with
 `python -I -S tools/paper_map_release.py verify --root .`, install its locked

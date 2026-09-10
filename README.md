@@ -17,10 +17,12 @@ Neither clause cohort is pooled with another, and both added zero paid cost. The
 [handover](docs/AGENT_HANDOVER.md) records completed work, current boundaries and
 the correction workflow; [STATUS.md](docs/STATUS.md) records integration and checks.
 
-The [local English draft](paper/paper.pdf) is now 39 pages and remains unpublished.
-The latest [published paper](https://github.com/isingmodel/latent-art-bench/releases/tag/pcrv1-20260910)
-is the 36-page clause-release version. See the [source and build guide](paper/README.md)
-and [analysis catalog](docs/ANALYSES.md).
+The final [39-page English paper](paper/paper.pdf) and standalone source bundle
+are [published](https://github.com/isingmodel/latent-art-bench/releases/tag/pmv2r-20260910).
+Fresh compilation matches all page text and pixels; anonymous downloads match
+all asset hashes. See the [verification record](reports/paper_map_validation_reproducibility_v2/pmv2r-20260910/PAPER_ASSETS.md),
+[source and build guide](paper/README.md) and [analysis catalog](docs/ANALYSES.md).
+Earlier paper and numerical assets remain unchanged.
 The paper begins with a **four-painter distributional analysis**: 649 references
 (297 Monet, 106 Sisley, 141 Pissarro and 105 Cézanne), 1,536 painter-conditioned
 outputs across three prompt methods, and 384 artist-free controls. This descriptive

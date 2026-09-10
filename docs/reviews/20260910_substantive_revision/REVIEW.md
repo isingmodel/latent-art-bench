@@ -242,3 +242,12 @@ qualified implementation, support export or replay. Its unused draft is outside
 active code, and no portable sidecar or successful repair is claimed. Final
 compilation, verification and release of this iteration's paper do not assign
 new scores. The original above-9 target was not achieved.
+
+Final closeout is complete: the 39-page manuscript from source `2969a31` and its
+16-file standalone source bundle are [published and verified](../../../reports/paper_map_validation_reproducibility_v2/pmv2r-20260910/PAPER_ASSETS.md).
+Fresh compilation matches all 39 page texts and rasters; anonymous downloads
+match the published asset hashes. Final whole-tree checks pass 1,970 offline
+tests in 499.08 seconds and Ruff. The historical audit at `be5cc37` passes
+2,902 checks with zero failures and the same two old acknowledgements. All
+scientific outputs, prior releases and four rounds of assigned scores remain
+unchanged. No further iteration is started.

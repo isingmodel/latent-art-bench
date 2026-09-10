@@ -23,6 +23,14 @@ clarify interpretation and report the completed numerical diagnostic,
 without reopening the closed strict attempt or changing scientific evidence.
 The separate diagnostic is complete: all 27 qualification failures are support
 hashes; other qualification and observed floating differences are below 4e-15.
+The final 39-page manuscript and 16-file source bundle are now
+[published and verified](../reports/paper_map_validation_reproducibility_v2/pmv2r-20260910/PAPER_ASSETS.md)
+from source `2969a31`. Fresh standalone compilation matches all page text and
+pixels; anonymous downloads match all three asset hashes. Final validation
+passes **1,970 offline tests in 499.08 seconds**, Ruff and `git diff --check`.
+The historical evidence audit at `be5cc37` passes **2,902 checks, zero failures**,
+with its two existing acknowledgements. There is no pending review or release
+work for this iteration.
 The fixed-support portable proposal is deferred before qualified implementation,
 support export or replay. Its unused agent draft is outside active code; no
 portable sidecar or successful new route is claimed.
@@ -89,7 +97,7 @@ No scene-population, perceptual or internal-mechanism claim follows.
 | [Geometry addendum `ppgv1-20260910`](../reports/paper_geometry_reproducibility_v1/ppgv1-20260910/REPORT.md) | Exact fresh local/anonymous replay of both namespaces and 95 tests. Source `5485e36`, public commit `7923049`; immutable 34-page manuscript and nine figures. |
 | [Clause addendum `pcrv1-20260910`](../reports/paper_clause_reproducibility_v1/pcrv1-20260910/REPORT.md) | Public: 85 files, exact fresh local/anonymous replay of both separate cohorts, 152 tests and eight explicit maintainer-only skips in each environment. Archive SHA256 `6038da2d…bf23e40`, public commit `866fc27`. The final 36-page paper and 16-file source bundle are separately published; fresh compilation matches all page text/pixels, and anonymous downloads match all asset hashes. |
 | [Failed precision qualification `pmrv1-20260910`](../reports/paper_map_reproducibility_v1/pmrv1-20260910/REPORT.md) | Public: 18 files, all 81 cells reproduce exactly in fresh local and anonymous-download environments; 73 tests in each. Archive SHA256 `00e82c31…62cd9f`, public root commit `3d70c37`. Same Mac; exact reconstructed support hashes constrain portability. V2 and manuscript assets are outside this release. |
-| [Prospective fixed-map release `pmv2r-20260910`](../reports/paper_map_validation_reproducibility_v2/pmv2r-20260910/REPORT.md) | Public: 74 files, exact fresh local/anonymous replay of all 27 qualification cells and observed E/Q analysis, 75 tests in each. Archive SHA256 `8688085f…defb4eb6`, public root `f38da21`. [Single Ubuntu attempt](../reports/paper_map_validation_reproducibility_v2/pmv2r-20260910/HOSTED_REPORT.md) fails qualification comparison before observed replay; 75 tests and inventories pass. Current paper assets are not yet published. |
+| [Prospective fixed-map release `pmv2r-20260910`](../reports/paper_map_validation_reproducibility_v2/pmv2r-20260910/REPORT.md) | Public: 74 files, exact fresh local/anonymous replay of all 27 qualification cells and observed E/Q analysis, 75 tests in each. Archive SHA256 `8688085f…defb4eb6`, public root `f38da21`. [Single Ubuntu attempt](../reports/paper_map_validation_reproducibility_v2/pmv2r-20260910/HOSTED_REPORT.md) fails qualification comparison before observed replay; 75 tests and inventories pass. The [final 39-page paper assets](../reports/paper_map_validation_reproducibility_v2/pmv2r-20260910/PAPER_ASSETS.md) are separately published; fresh build and anonymous access checks pass. |
 
 The earlier complete Python verification passed **1,800 tests in 272.96 seconds**.
 The new map-validation namespace separately passes **110 offline tests in 28.12 seconds**,
@@ -148,7 +156,7 @@ provider quote of **$0.07 per output megapixel**. This is separate from the
 $24.2780815 project ceiling headroom. No new images or paid requests were made.
 The create-once receipt is under
 `data/manifests/painter_map_validation_v1/metadata/pmv-feasibility-20260910a/`;
-source commit `c262d98`. The current 39-page working manuscript also includes an
+source commit `c262d98`. The final 39-page manuscript also includes an
 analytically checked fixed-center convexity observation and the terminal capture
 audit's limitation, without new vector evaluation or a new score. Its changed
 pages compile cleanly and pass visual inspection; the earlier public assets
@@ -190,7 +198,7 @@ measurement again.
 The precollection [analysis](../studies/painter_map_validation_v2/ANALYSIS_REVIEW.md),
 [operational](../studies/painter_map_validation_v2/OPERATIONAL_REVIEW.md) and
 [coordinator](../studies/painter_map_validation_v2/PRECOLLECTION_REVIEW.md) reviews
-remain source-bound. The working 39-page manuscript includes both allocation decisions, the interval
+remain source-bound. The final published 39-page manuscript includes both allocation decisions, the interval
 method and the contrary prospective result. All pages were rendered and inspected;
 all nine figure replays pass. The final offline rerun with terminal records and public exports passed
 **1,939 tests in 473.41 seconds**. Whole-tree Ruff and `git diff --check` pass.

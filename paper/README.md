@@ -29,11 +29,13 @@ corrections receive no automatic score change. Reviewers are maintainer-run LLM 
 design/implementation involvement, not independent human peer reviewers.
 See the [review record](../docs/reviews/20260910_substantive_revision/REVIEW.md).
 
-The latest published manuscript remains the [36-page clause version](https://github.com/isingmodel/latent-art-bench/releases/tag/pcrv1-20260910);
-its immutable paper/source assets and earlier versions are preserved. The
-[fixed-map numerical addendum](https://github.com/isingmodel/latent-art-bench/releases/tag/pmv2r-20260910)
-is separate; it contains no manuscript assets yet. Current integration, public
-replay and final paper verification are recorded in [STATUS.md](../docs/STATUS.md).
+The final [39-page manuscript and 16-file source bundle](https://github.com/isingmodel/latent-art-bench/releases/tag/pmv2r-20260910)
+are published as separate assets alongside the unchanged fixed-map numerical
+archive. [Final verification](../reports/paper_map_validation_reproducibility_v2/pmv2r-20260910/PAPER_ASSETS.md)
+records matching text and pixels across all 39 freshly compiled pages, anonymous
+asset hashes and presentation replay. The earlier 36-page clause version and
+all preceding paper/source assets remain immutable. Current checks and research
+boundaries are recorded in [STATUS.md](../docs/STATUS.md).
 
 Edit only the canonical English manuscript and its presentation code here.
 Preserve the user-owned Korean drafts. Use the [analysis catalog](../docs/ANALYSES.md)

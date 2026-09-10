@@ -37,8 +37,11 @@ the ignored preparation directory; there is no active portable entry point.
 Do not resume that proposal without a new user instruction or alter the frozen
 exporters, completed diagnostic or scientific results.
 
-The current local English draft is 39 pages and unpublished. The latest published
-manuscript is the 36-page clause-release version; earlier assets remain immutable.
+The final 39-page English manuscript and 16-file source bundle are
+[published and verified](../reports/paper_map_validation_reproducibility_v2/pmv2r-20260910/PAPER_ASSETS.md)
+from source commit `2969a31`. Fresh compilation matches all page text/pixels;
+anonymous asset hashes and presentation replay pass. Earlier assets remain
+immutable. No publication or review work is pending for this iteration.
 The fixed-map collection and measurement are terminal complete, using paid FLUX
 without human ratings or learned features. New reported costs total $16.80;
 conservative accounting is $67.5219185 against the $75 ceiling, including the
@@ -206,8 +209,12 @@ Read [STATUS.md](STATUS.md) for current test and evidence-audit results, includi
 the full-suite rerun after the final adapter changes. Do not carry an earlier
 passing count forward as a claim about the current tree. The immutable
 [presentation check](reviews/20260910_substantive_revision/FINAL_PRESENTATION_QA_3.md)
-records the published 36-page version's TeX/PDF and nine-figure QA, not the current
-39-page draft, and assigns no new scores. The historical evidence audit does not
+records the earlier 36-page version's TeX/PDF and nine-figure QA. The current
+[39-page build/access record](../reports/paper_map_validation_reproducibility_v2/pmv2r-20260910/PAPER_ASSETS.md)
+covers final publication and assigns no new scores. The final suite passes
+1,970 offline tests in 499.08 seconds; Ruff is clean. The historical audit at
+`be5cc37` passes 2,902 checks with zero failures and the same two old
+acknowledgements. The historical evidence audit does not
 register the new namespaces, so their own replays are also required. Before
 handoff after Python changes:
 
