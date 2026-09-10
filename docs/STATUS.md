@@ -19,16 +19,16 @@ The [fixed allocation](../studies/painter_specificity_v2/PROTOCOL.md) contains
 **1,008 images: six models × 14 scenes × six clauses × two repeats**. The models
 are GPT Image 1, GPT Image 2, GPT Image 2.5 Flare, GPT Image 2.5 Sunburst,
 Nano Banana 2 and FLUX.2 Max. The four OpenAI configurations use medium quality.
-The collector is running with at most three requests overlapping and five seconds
-between starts. Do not start another collector or measure an incomplete panel.
-A separate postprocessing worker waits for terminal closure, then measures,
-replays four numerical views, audits raw bytes and renders figures.
+Collection is **complete: 1,008/1,008 outputs, no failures or retries**, closed
+at 18:21:04 UTC on 10 September. The collector is permanently closed.
+The postprocessing worker is measuring the images, then will replay four numerical
+views, audit raw bytes and render figures. Do not start duplicate measurement.
 
-Baseline accounting is **$68.50735**, including all technical probes and the
-historical $5 reserve. The fixed allocation forecasts approximately $112
-cumulative; admission also reserves $5 per active request. Progress-log accounting
-therefore includes temporary reservations and is not settled expenditure.
-The terminal receipt will establish the final total.
+The collection added **$43.786326** to the $68.50735 baseline, giving final
+conservative cumulative accounting of **$112.293676**, including the historical
+$5 reserve and all technical probes. Every new charge is known. Intermediate
+progress-log totals included temporary reservations; they are not settled
+expenditure. No remaining-credit query was made.
 
 The scientific inputs are 649 measured reference works (297 Monet, 106 Sisley,
 141 Pissarro, 105 Cézanne) and a separate 221-work development scaler. The primary

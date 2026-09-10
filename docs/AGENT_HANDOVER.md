@@ -32,13 +32,15 @@ adapter adds model-name forwarding but does not verify upstream model selection.
 
 The successor has **1,008 requests: six models × 14 scenes × six clauses × two
 repeats**, with medium quality for all four OpenAI models on explicit paid routes.
-Source commit `d223402`; exact assignment/freeze commit `c55fef6`. Its collector
-is currently running with three overlapping requests and five-second start
-spacing. Do not launch a second collector. The append-only ledger and terminal
+Source commit `d223402`; exact assignment/freeze commit `c55fef6`. Collection is
+complete: 1,008/1,008 outputs, no failures or retries, closed at 18:21:04 UTC on
+10 September. Do not restart it. The append-only ledger and terminal
 receipt are under `data/manifests/painter_specificity_v2/psv2-20260911/`;
 raw bytes are under the corresponding ignored workspace. Baseline $68.50735
 includes all eight paid probes and the historical $5 uncertainty reserve.
-The forecast is about $112 cumulative. Never query remaining balances.
+New charges total $43.786326; final cumulative accounting is $112.293676.
+Never query remaining balances. The automatic postprocessing worker is now
+measuring the images; do not launch duplicate extraction.
 
 The manuscript has been rewritten around artist-relative recovery. New result
 text, abstract conclusions and figures remain pending terminal measurement;
