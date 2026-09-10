@@ -5,6 +5,20 @@ public numerical reproducibility and English paper update are complete. Work is 
 No earlier terminal study is reopened. See [ARTIFACTS.md](ARTIFACTS.md) for retention
 rules and [AGENT_HANDOVER.md](AGENT_HANDOVER.md) for operational details.
 
+## Active substantive paper revision
+
+The latest user goal requests three skeptical reviews and substantive paper/analysis
+revision until the unchanged nine-score average exceeds 9. The fresh baseline
+mean is **8.2333/10** (rigor/contribution/clarity: 8.1/7.7/8.8, 8.2/7.8/9.0,
+8.4/7.4/8.7). New offline work uses the disjoint
+[painter-naming geometry protocol](../studies/painter_naming_geometry_v1/PROTOCOL.md):
+whole-scene moment-map evaluation, original-map transfer to later FLUX, and
+repeat-corrected conditional geometry. No new image generation or extraction
+is authorized by this diagnostic. Existing public assets remain unchanged.
+Reviewers 1/2 assist with statistical primitives after their baseline reviews;
+Reviewer 3 supplies literature/structure advice without implementing the study.
+All remain maintainer-run LLM agents.
+
 ## Current follow-up
 
 | Component | State and finding |

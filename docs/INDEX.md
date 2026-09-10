@@ -63,3 +63,5 @@ Historical protocols and reports can be hash-bound dependencies. Their presence
 does not make them current operating instructions. The analysis catalog replaces
 the retired operational workflow guides; consult current status before acting on
 an older stage description.
+
+- [Post-result painter-naming geometry protocol](../studies/painter_naming_geometry_v1/PROTOCOL.md): held-scene global moment benchmark, temporal transfer and repeat correction.
