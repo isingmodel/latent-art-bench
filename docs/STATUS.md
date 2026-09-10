@@ -12,7 +12,8 @@ The user requests three skeptical reviews and substantive paper/analysis revisio
 until the unchanged nine-score average exceeds 9. Fixed aspects are scientific
 rigor, contribution, and clarity/reproducibility, each scored 1–10.
 [Round 1](reviews/20260910_substantive_revision/REVIEW.md) averaged **8.2333**;
-round 2 averaged **8.6889**; round 3 averaged **8.9000**. The target remains unmet.
+round 2 averaged **8.6889**; round 3 averaged **8.9000**. The target remains unmet; three reviewers are assessing the committed
+[39-page Round 4 snapshot](reviews/20260910_substantive_revision/ROUND4_SNAPSHOT.json).
 All nine round-3 scores are preserved in the linked review record.
 Reviewers are maintainer-run LLM subagents with disclosed subsequent design,
 implementation or writing involvement, not independent human/institutional reviewers.
@@ -77,6 +78,7 @@ No scene-population, perceptual or internal-mechanism claim follows.
 | [Geometry addendum `ppgv1-20260910`](../reports/paper_geometry_reproducibility_v1/ppgv1-20260910/REPORT.md) | Exact fresh local/anonymous replay of both namespaces and 95 tests. Source `5485e36`, public commit `7923049`; immutable 34-page manuscript and nine figures. |
 | [Clause addendum `pcrv1-20260910`](../reports/paper_clause_reproducibility_v1/pcrv1-20260910/REPORT.md) | Public: 85 files, exact fresh local/anonymous replay of both separate cohorts, 152 tests and eight explicit maintainer-only skips in each environment. Archive SHA256 `6038da2d…bf23e40`, public commit `866fc27`. The final 36-page paper and 16-file source bundle are separately published; fresh compilation matches all page text/pixels, and anonymous downloads match all asset hashes. |
 | [Failed precision qualification `pmrv1-20260910`](../reports/paper_map_reproducibility_v1/pmrv1-20260910/REPORT.md) | Public: 18 files, all 81 cells reproduce exactly in fresh local and anonymous-download environments; 73 tests in each. Archive SHA256 `00e82c31…62cd9f`, public root commit `3d70c37`. Same Mac; exact reconstructed support hashes constrain portability. V2 and manuscript assets are outside this release. |
+| [Prospective fixed-map release `pmv2r-20260910`](../reports/paper_map_validation_reproducibility_v2/pmv2r-20260910/REPORT.md) | Public: 74 files, exact fresh local/anonymous replay of all 27 qualification cells and observed E/Q analysis, 75 tests in each. Archive SHA256 `8688085f…defb4eb6`, public root `f38da21`. [Single Ubuntu attempt](../reports/paper_map_validation_reproducibility_v2/pmv2r-20260910/HOSTED_REPORT.md) fails qualification comparison before observed replay; 75 tests and inventories pass. Current paper assets are not yet published. |
 
 The earlier complete Python verification passed **1,800 tests in 272.96 seconds**.
 The new map-validation namespace separately passes **110 offline tests in 28.12 seconds**,
@@ -87,9 +89,13 @@ provisional adapter-test failures in the earlier 1,929-pass run; those failures
 were outside the frozen collection source. The reviewed adapter at `916f5c5`
 also passes all 29 scoped synthetic tests, with a separate
 [packaging audit](reviews/20260910_substantive_revision/MAP_VALIDATION_RELEASE_AUDIT_2.md).
-Actual terminal export and complete fresh numerical/public replay remain pending.
+Actual export and complete fresh local/anonymous replay now pass all 27
+qualification cells, exact observed analysis/report and 75 public tests each.
+The single strict Ubuntu attempt fails the qualification comparison before
+observed replay; all 75 tests and both inventory checks pass there. Its differing
+numerical field is unknown. No rerun or tolerance/source change was made.
 The earlier exact replay of all nine active manuscript figures is
-unchanged. Historical evidence audit at `dabc2f8`: **2,902 checks, zero failures**, with the same two old
+unchanged. Historical evidence audit at `bd3c9ca`: **2,902 checks, zero failures**, with the same two old
 acknowledgements. Both geometry namespaces replay exactly. The historical audit
 does not register the new namespaces; each requires its own numerical check.
 
@@ -123,7 +129,7 @@ provider quote of **$0.07 per output megapixel**. This is separate from the
 $24.2780815 project ceiling headroom. No new images or paid requests were made.
 The create-once receipt is under
 `data/manifests/painter_map_validation_v1/metadata/pmv-feasibility-20260910a/`;
-source commit `c262d98`. The current 37-page working manuscript also includes an
+source commit `c262d98`. The current 39-page working manuscript also includes an
 analytically checked fixed-center convexity observation and the terminal capture
 audit's limitation, without new vector evaluation or a new score. Its changed
 pages compile cleanly and pass visual inspection; the earlier public assets
@@ -165,8 +171,10 @@ measurement again.
 The precollection [analysis](../studies/painter_map_validation_v2/ANALYSIS_REVIEW.md),
 [operational](../studies/painter_map_validation_v2/OPERATIONAL_REVIEW.md) and
 [coordinator](../studies/painter_map_validation_v2/PRECOLLECTION_REVIEW.md) reviews
-remain source-bound. The working 37-page manuscript includes both allocation
-decisions and the interval method, with the updated appendix pages visually checked.
+remain source-bound. The working 39-page manuscript includes both allocation decisions, the interval
+method and the contrary prospective result. All pages were rendered and inspected;
+all nine figure replays pass. The latest complete suite passed 1,939 tests; a
+final offline rerun with terminal records and public exports is in progress.
 
 A separate [stage R0 capture audit](../reports/painter_capture_audit_v1/pcav1-20260910/REPORT.md)
 is terminal: **zero qualified pairs after 15 metadata requests across five

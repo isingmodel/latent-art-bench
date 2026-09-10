@@ -334,8 +334,15 @@ plotting basis or new map. The manuscript uses a compact endpoint table.
 The ordinary offline `uv run --locked python -m latent_art_bench.painter_map_validation_v2 check`
 authenticates retained private response costs and replays numerical rows without
 extracting features again; the terminal audit passed this check. It is not a
-public-pixels check. The separate public adapter passed synthetic review; actual
-export and complete fresh numerical/public replay remain pending.
+public-pixels check. The separate [public adapter and numerical archive](../reports/paper_map_validation_reproducibility_v2/pmv2r-20260910/REPORT.md)
+pass exact fresh local/anonymous replay of all 27 qualification cells and the
+observed analysis/report, with 75 tests each. From its extracted root, verify
+with `python -I -S tools/paper_map_validation_release.py verify --root .`,
+install the locked Python 3.13.11 environment, then run
+`uv run --locked python tools/paper_map_validation_release.py check --root .`.
+A [strict Ubuntu attempt](../reports/paper_map_validation_reproducibility_v2/pmv2r-20260910/HOSTED_REPORT.md)
+fails the qualification comparison before reaching observed replay; passing
+synthetic tests and inventory checks do not replace that failed numerical check.
 
 The failed v1 grid has a separately verified [public numerical archive](../reports/paper_map_reproducibility_v1/pmrv1-20260910/REPORT.md).
 From the extracted `pmrv1-20260910/` archive root, first verify with

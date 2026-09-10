@@ -13,7 +13,9 @@ The user requests three skeptical LLM reviews using the DeerFlow academic-paper-
 review skill, substantive paper/analysis revisions and a nine-score mean above 9.
 The fixed aspects are rigor, contribution and clarity/reproducibility, each 1–10.
 Round 1 averaged 8.2333; round 2 averaged 8.6889; round 3 averaged 8.9000.
-The requested threshold remains unmet. All three round-3 reviewers inspected
+The requested threshold remains unmet; all three reviewers are assessing the
+[39-page Round 4 snapshot](reviews/20260910_substantive_revision/ROUND4_SNAPSHOT.json).
+All three round-3 reviewers inspected
 the complete 35-page manuscript and nine figures; subsequent presentation fixes
 do not constitute a new scored review. See the [review record](reviews/20260910_substantive_revision/REVIEW.md)
 for exact snapshots and scores. Do not inflate scores or claim the goal achieved
@@ -21,7 +23,7 @@ before the honest mean exceeds the threshold. All reviewers are operated by the
 maintainer and have disclosed subsequent design/implementation involvement.
 They are not independent human or institutional reviewers.
 
-The current local English draft is 37 pages and unpublished. The latest published
+The current local English draft is 39 pages and unpublished. The latest published
 manuscript is the 36-page clause-release version; earlier assets remain immutable.
 The fixed-map collection and measurement are terminal complete, using paid FLUX
 without human ratings or learned features. New reported costs total $16.80;
@@ -43,7 +45,7 @@ The [terminal audit](reviews/20260910_substantive_revision/CLAUSE_TERMINAL_AUDIT
 records timing, accounting, response hashes and the inference restrictions.
 
 Both clause collectors are one-shot. Do not invoke collect again, resume, refill,
-change bound source or replace failed slots. At most two requests are active,
+change bound source or replace failed slots. At most two requests overlapped,
 recorded starts are five seconds apart, and blocks drain before the next.
 Both collections and one-shot measurements are complete. Do not invoke measure again.
 The successor's three
@@ -91,8 +93,16 @@ The reviewed public adapter, `tools/paper_map_validation_release.py`, is committ
 at `916f5c5`; its 29 synthetic tests passed in 155.56 seconds. The
 [adapter audit](reviews/20260910_substantive_revision/MAP_VALIDATION_RELEASE_AUDIT_2.md)
 records independent synthetic extraction, stdlib verification and observed-vector
-replay. Actual terminal export, complete fresh 27-cell replay and public acceptance
-remain pending. This is separate from the already public failed-v1 package.
+replay. Actual export and fresh local/anonymous replay now pass all 27 qualification
+cells, exact observed E/Q/report and 75 tests each. The
+[public package](../reports/paper_map_validation_reproducibility_v2/pmv2r-20260910/REPORT.md)
+has 74 files and archive SHA256 `8688085fe001e6b45ca34f6d39a5979e3e762a2678cd5ecb8169a698defb4eb6`;
+public root is `f38da21`, build source `bd3c9ca`. The
+[single hosted Ubuntu attempt](../reports/paper_map_validation_reproducibility_v2/pmv2r-20260910/HOSTED_REPORT.md)
+fails the qualification comparison before observed replay; all 75 tests and
+inventories pass. The differing field is unknown, so do not label the failure
+confirmed harmless roundoff. No rerun, source or tolerance change is allowed
+for that attempt. Earlier public assets and failed-v1 records remain unchanged.
 
 ## Completed scientific additions
 
@@ -181,7 +191,7 @@ the full-suite rerun after the final adapter changes. Do not carry an earlier
 passing count forward as a claim about the current tree. The immutable
 [presentation check](reviews/20260910_substantive_revision/FINAL_PRESENTATION_QA_3.md)
 records the published 36-page version's TeX/PDF and nine-figure QA, not the current
-37-page draft, and assigns no new scores. The historical evidence audit does not
+39-page draft, and assigns no new scores. The historical evidence audit does not
 register the new namespaces, so their own replays are also required. Before
 handoff after Python changes:
 

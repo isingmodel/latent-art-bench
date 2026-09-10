@@ -17,7 +17,7 @@ Neither clause cohort is pooled with another, and both added zero paid cost. The
 [handover](docs/AGENT_HANDOVER.md) records completed work, current boundaries and
 the correction workflow; [STATUS.md](docs/STATUS.md) records integration and checks.
 
-The [local English draft](paper/paper.pdf) is now 37 pages and remains unpublished.
+The [local English draft](paper/paper.pdf) is now 39 pages and remains unpublished.
 The latest [published paper](https://github.com/isingmodel/latent-art-bench/releases/tag/pcrv1-20260910)
 is the 36-page clause-release version. See the [source and build guide](paper/README.md)
 and [analysis catalog](docs/ANALYSES.md).
@@ -44,8 +44,13 @@ New reported charges are $16.80; conservative project accounting is **$67.521918
 against the $75 ceiling. All 240 outputs returned without failure/retry. The
 [terminal audit](docs/reviews/20260910_substantive_revision/MAP_VALIDATION_TERMINAL_AUDIT_2.md)
 passes response, source and measured-vector provenance plus exact numerical replay.
-Actual public export and fresh replay remain pending. The fixed round-3 score
-mean remains **8.9**; the new evidence has not yet been scored. See
+The [public numerical archive](reports/paper_map_validation_reproducibility_v2/pmv2r-20260910/REPORT.md)
+passes exact fresh local and anonymous replay with 75 tests each. A single
+[Ubuntu attempt](reports/paper_map_validation_reproducibility_v2/pmv2r-20260910/HOSTED_REPORT.md)
+fails the qualification comparison before observed replay; its tests and
+inventory checks pass. Cross-platform replay remains unestablished. The fixed
+round-3 score mean is **8.9**; three reviewers are assessing the new 39-page
+version under the unchanged rubric. See
 [STATUS.md](docs/STATUS.md) for current manuscript integration and verification.
 
 The [four-painter exploration](reports/painter_distribution_exploration_v1/REPORT.md)
