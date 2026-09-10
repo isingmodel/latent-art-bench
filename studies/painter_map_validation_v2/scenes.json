@@ -1,0 +1,73 @@
+{
+  "schema": "painter-map-scenes/2",
+  "status": "prospective_fixed_scenes_conditional_on_qualification_and_technical_freeze",
+  "run_id": "pmv2-20260910",
+  "author": "maintainer-run LLM agents; coordinator-authored draft with reviewer scene revisions and review",
+  "source_draft": {
+    "path": "tmp/paper/map-validation-scene-draft.json",
+    "sha256": "62c86f258463a8f851df3fcb5068b211052ae944f1db6c8855271e2417320989",
+    "copy_rule": "Preserve brief order, content_class and detailed text exactly; replace only the pmv_ brief-ID prefix with pmv2_."
+  },
+  "briefs": [
+    {
+      "brief_id": "pmv2_water01",
+      "content_class": "water",
+      "detailed": "A shallow lake contains scattered dead tree stumps emerging from the water. The nearest stumps stand apart in the foreground, while smaller ones continue toward a low reed-covered bank across the lake."
+    },
+    {
+      "brief_id": "pmv2_water02",
+      "content_class": "water",
+      "detailed": "Several empty rowboats rest at anchor in an open bay. Water surrounds each boat and occupies most of the view, with a low strip of distant shore beyond the boats and small waves crossing the near surface."
+    },
+    {
+      "brief_id": "pmv2_water03",
+      "content_class": "water",
+      "detailed": "A river passes beneath an overhanging rock ledge along one bank. Seen from the open bank opposite, the ledge and its reflection enclose the far side of the water, while the river extends beyond both edges of the view."
+    },
+    {
+      "brief_id": "pmv2_water04",
+      "content_class": "water",
+      "detailed": "Floodwater covers a low meadow around a line of fence posts. The posts recede diagonally through the water from the foreground toward a raised grassy bank, with a few isolated patches of grass emerging between them."
+    },
+    {
+      "brief_id": "pmv2_built01",
+      "content_class": "built",
+      "detailed": "An empty outdoor market square contains several closed wooden stalls. Their roofs and shuttered fronts face a central paved space, with a row of small shops forming the far boundary of the square."
+    },
+    {
+      "brief_id": "pmv2_built02",
+      "content_class": "built",
+      "detailed": "A windmill with four stationary sails stands beside a low storage building. The tower and sails fill the middle of the view, with a cleared yard in front and an open field extending behind the buildings."
+    },
+    {
+      "brief_id": "pmv2_built03",
+      "content_class": "built",
+      "detailed": "A small railway signal box stands beside a level crossing. The tracks pass across the foreground, a wooden barrier is raised at one side, and the box with its upper windows is visible beyond the crossing."
+    },
+    {
+      "brief_id": "pmv2_built04",
+      "content_class": "built",
+      "detailed": "An outdoor amphitheater is viewed from its empty central floor. Curving rows of stone seats rise across the scene, with narrow stairways dividing the rows and a grassy slope visible beyond their upper edge."
+    },
+    {
+      "brief_id": "pmv2_land01",
+      "content_class": "land",
+      "detailed": "Rows of grapevines follow a sloping vineyard. The view looks diagonally across the rows, showing repeated vine supports and exposed earth between them, with a narrow grassy margin along the lower edge."
+    },
+    {
+      "brief_id": "pmv2_land02",
+      "content_class": "land",
+      "detailed": "A patch of tall ferns grows beside a low earthen bank. The fronds spread across the foreground, with a strip of bare ground between the plants and the bank and an opening onto grass at one side."
+    },
+    {
+      "brief_id": "pmv2_land03",
+      "content_class": "land",
+      "detailed": "A footpath passes between two tall hedges on level ground. The hedges form continuous walls of leaves on either side, with the path visible from the near foreground to a small opening at its far end."
+    },
+    {
+      "brief_id": "pmv2_land04",
+      "content_class": "land",
+      "detailed": "Several rabbit burrows open in a grassy bank. Small heaps of loose earth lie below the entrances, and short tracks connect them across the base of the bank, with unbroken grass covering the higher ground."
+    }
+  ]
+}
