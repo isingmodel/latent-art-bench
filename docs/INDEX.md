@@ -11,7 +11,7 @@
 | [Architecture](ARCHITECTURE.md) | Code and data dependencies |
 | [Artifact policy](ARTIFACTS.md) | What must be retained and what is disposable |
 | [Contributing](../CONTRIBUTING.md) | Development and verification workflow |
-| [Agent rules](../AGENTS.md) | Repository-wide research and editing boundaries |
+| [Test scope](../tests/README.md) | Smaller routine suite, retired tests and explicit historical coverage |
 
 ## Current paper and scientific record
 

@@ -43,8 +43,9 @@ the original incomplete prompt study's unavailable primary inference.
 
 ```bash
 make paper           # Render manuscript figures and build the PDF
-make figures-check   # Check the six manuscript figures without rewriting them
-make check           # Ruff and the full offline test suite
+make figures-check   # Check the nine manuscript figures without rewriting them
+make check           # Ruff and the current analysis/integrity test suite
+make check-all       # Ruff and all retained offline regression tests
 make evidence        # Commit-bound historical evidence audit
 make four-painter-analysis  # Replay exploration, Stage A controls and retry presentation
 make analysis        # Replay Study 1 controlled and revision numeric results
@@ -52,8 +53,10 @@ make plots           # Replay Study 1 report bundles and check manuscript figure
 make computational-responsiveness  # Replay Study 2, retrieval and quantile correction
 ```
 
-Run the checks relevant to the change. Python changes require Ruff and the full
-offline suite. Paper changes require compilation and visual page inspection;
+Run the checks relevant to the change. [Test scope](tests/README.md) distinguishes
+the 808-case routine suite from retained historical coverage. Shared Python or
+test-runner changes require `make check-all`; current analysis changes require
+`make check` and any affected historical modules. Paper changes require compilation and visual page inspection;
 documentation changes require working links. Keep live tests explicitly marked
 `live` and run them only with user authorization.
 

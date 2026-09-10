@@ -1,11 +1,18 @@
 # Agent handover — paper revision and fixed-map validation
 
 Read [STATUS.md](STATUS.md), then [ARTIFACTS.md](ARTIFACTS.md), inspect
-`git status --short --branch`, and follow [AGENTS.md](../AGENTS.md).
+`git status --short --branch`, and preserve unrelated working-tree changes.
 This document is mutable orientation; immutable scientific records stay at their
 original paths. The canonical English manuscript is [paper/paper.tex](../paper/paper.tex).
 The [paper guide](../paper/README.md) covers compilation and visual inspection;
 [ANALYSES.md](ANALYSES.md) maps computation and plotting for each study.
+
+Test maintenance after paper closeout reduced `make check` to 808 current
+analysis/integrity cases and removed 41 unbound obsolete or formatting cases.
+The remaining 1,121 historical cases run with `make check-all` (1,929 total).
+See [test scope](../tests/README.md). The original `pytest.ini`, `pyproject.toml`,
+bound tests and published evidence remain unchanged; routine selection lives in
+`pytest-paper.ini`. Use an explicit `tests` argument for the full retained suite.
 
 ## Closed iteration and current boundary
 
@@ -220,7 +227,7 @@ handoff after Python changes:
 
 ```sh
 uv run --locked ruff check .
-uv run --locked pytest -q -m 'not live'
+uv run --locked pytest -q tests -m 'not live'
 uv run --locked latent-art-bench verify-evidence
 make geometry-check
 make figures-check

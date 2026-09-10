@@ -6,13 +6,14 @@ CONTROLLED := latent_art_bench.painter_distribution_study_v1
 REVISION := latent_art_bench.painter_distribution_revision_v1
 PAPER_BUILD := tmp/paper/build
 
-.PHONY: help check evidence analysis four-painter-analysis plots responsiveness computational-responsiveness palette-check validation-check replication-check geometry-check clause-check clause-successor-check figures figures-check paper
+.PHONY: help check check-all evidence analysis four-painter-analysis plots responsiveness computational-responsiveness palette-check validation-check replication-check geometry-check clause-check clause-successor-check figures figures-check paper
 
 help:
 	@echo 'Paper correction: paper/README.md and docs/AGENT_HANDOVER.md'
 	@echo 'make paper     Render manuscript figures and compile paper/paper.pdf'
 	@echo 'make figures-check  Check manuscript figures without rewriting them'
-	@echo 'make check     Ruff and the complete offline test suite'
+	@echo 'make check     Ruff and the current analysis/integrity test suite'
+	@echo 'make check-all Ruff and all retained offline tests, including historical workflows'
 	@echo 'make evidence  Verify historical evidence bindings and ledgers'
 	@echo 'make analysis  Replay Study 1 controlled and revision numeric results'
 	@echo 'make four-painter-analysis  Replay four-painter distributions and controls'
@@ -30,7 +31,11 @@ help:
 
 check:
 	$(UV) ruff check .
-	$(UV) pytest -q -m 'not live'
+	$(UV) pytest -c pytest-paper.ini -q -m 'not live'
+
+check-all:
+	$(UV) ruff check .
+	$(UV) pytest -q tests -m 'not live'
 
 evidence:
 	$(UV) latent-art-bench verify-evidence

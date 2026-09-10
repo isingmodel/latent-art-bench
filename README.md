@@ -149,7 +149,7 @@ hashes, so it requires the local response archive without re-extracting features
 | --- | --- |
 | [paper/](paper/README.md) | The current manuscript, bibliography, figures and figure builder |
 | [src/latent_art_bench/](src/latent_art_bench/) | Versioned analysis code and shared measurement primitives |
-| [tests/](tests/) | Offline contract and numerical tests |
+| [tests/](tests/README.md) | 808 routine analysis/integrity cases; historical checks via `make check-all` |
 | [reports/](reports/) | Published numerical results, complete tables and report plots |
 | [studies/](studies/) | Protocols, fixed study plans and methodological boundaries |
 | [data/manifests/](data/manifests/) | Compact measured vectors, request records, hashes and receipts |

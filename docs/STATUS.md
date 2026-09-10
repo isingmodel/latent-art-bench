@@ -6,6 +6,29 @@ retention rules, [AGENT_HANDOVER.md](AGENT_HANDOVER.md) for operational boundari
 and [ANALYSES.md](ANALYSES.md) for computation and plotting commands.
 No terminal study is reopened, and both user-owned Korean files remain untouched.
 
+## Reduced routine test scope
+
+After paper closeout, the user requested fewer tests. `make check` now selects
+**808 current analysis and integrity cases**, compared with the former 1,970-case
+routine run. **41 unbound cases were removed**: eight obsolete acquisition,
+generation and probe test files, plus two report-formatting tests. The remaining
+**1,121 historical cases** are retained outside the routine selection;
+`make check-all` runs all **1,929 retained cases**. See [test scope](../tests/README.md)
+for the exact retirement and coverage boundaries.
+
+The selection keeps numerical oracles, all four painters, missingness and retry
+identity, current R10 qualification rules, vector/report tamper checks and the
+latest artificial transport safeguards. This is a reduction in routine coverage
+of closed workflows, not an equivalence claim for their implementations.
+`pytest-paper.ini` supplies the routine selection; the frozen `pytest.ini`,
+`pyproject.toml`, scientific source, bound tests and published assets are unchanged.
+Verification passes: **808 routine tests in 278.64 seconds**, **1,929 retained
+tests in 501.48 seconds**, Ruff and the **2,902-check historical evidence audit**
+with zero failures and the same two old acknowledgements. The two test commands
+were exercised separately; the count reduction is not a runtime benchmark.
+The preceding paper-closeout count below remains the historical result for that
+earlier tree.
+
 ## Paper-review iteration closed at the user's stopping condition
 
 The original request was three skeptical reviews and substantive paper/analysis
@@ -26,7 +49,7 @@ hashes; other qualification and observed floating differences are below 4e-15.
 The final 39-page manuscript and 16-file source bundle are now
 [published and verified](../reports/paper_map_validation_reproducibility_v2/pmv2r-20260910/PAPER_ASSETS.md)
 from source `2969a31`. Fresh standalone compilation matches all page text and
-pixels; anonymous downloads match all three asset hashes. Final validation
+pixels; anonymous downloads match all three asset hashes. Paper-closeout validation
 passes **1,970 offline tests in 499.08 seconds**, Ruff and `git diff --check`.
 The historical evidence audit at `be5cc37` passes **2,902 checks, zero failures**,
 with its two existing acknowledgements. There is no pending review or release
