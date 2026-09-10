@@ -1,4 +1,4 @@
-# Agent handover — paper revision and fixed-map validation
+# Agent handover — artist-specificity experiment and paper
 
 Read [STATUS.md](STATUS.md), then [ARTIFACTS.md](ARTIFACTS.md), inspect
 `git status --short --branch`, and preserve unrelated working-tree changes.
@@ -7,9 +7,10 @@ original paths. The canonical English manuscript is [paper/paper.tex](../paper/p
 The [paper guide](../paper/README.md) covers compilation and visual inspection;
 [ANALYSES.md](ANALYSES.md) maps computation and plotting for each study.
 
-Test maintenance after paper closeout reduced `make check` to 808 current
-analysis/integrity cases and removed 41 unbound obsolete or formatting cases.
-The remaining 1,121 historical cases run with `make check-all` (1,929 total).
+Test maintenance after the previous paper closeout reduced routine coverage and
+removed 41 unbound obsolete or formatting cases. The specificity extension adds
+14 numerical, routing and membership cases: `make check` now selects 822, while
+`make check-all` includes 1,121 additional historical cases (1,943 total).
 See [test scope](../tests/README.md). The original `pytest.ini`, `pyproject.toml`,
 bound tests and published evidence remain unchanged; routine selection lives in
 `pytest-paper.ini`. Use an explicit `tests` argument for the full retained suite.

@@ -101,9 +101,9 @@ assessments of historical and generated art. AI-Pastiche studies authenticity
 judgments and prompt adherence \citep{asperti2025pastiche}; AI-WikiArt uses
 painting-derived captions and vision-language models to study attribution
 \citep{fu2025aiwikiart}. These studies motivate distinguishing convincing
-imitation, recognizable authorship and distributional recovery. We measure the
-last of these in explicit digital feature coordinates, without substituting
-those coordinates for expert judgments.
+imitation, recognizable authorship and distributional recovery. We test
+reference-relative painter differences and summarize full-distribution outcomes
+in explicit digital coordinates, without substituting them for expert judgments.
 
 Quantitative art research has examined color, composition and image statistics
 across painting collections \citep{kim2014,sigaki2018,lee2020}. \citet{kim2026}
@@ -348,9 +348,9 @@ named and 384 artist-free outputs from GPT Image 1 and GPT Image 2 request group
 three prompt methods and 16 scenes. Across its 24 painter--model--method cells,
 generated/reference trace ratios ranged from .206 to .376. Generated and
 reference images were also separable by a grouped classifier, with balanced
-accuracy .940--.983. Figure~\ref{fig:four} shows the corresponding projected
-distributions. These findings motivated the present experiment; they do not
-supply its inferential evidence or establish perceptual differences.
+accuracy .940--.983. These findings motivated the present experiment; they do
+not supply its inferential evidence or establish perceptual differences.
+The original projections remain available with the exploration's numerical report.
 
 The effect of naming on reference proximity was not uniform. In matched-size
 real/real comparisons, generated/reference energy exceeded the real/real median
@@ -477,7 +477,6 @@ URLs and rights statements, without granting new rights to the images.
 \bibliographystyle{plainnat}
 \bibliography{references}
 
-\clearpage
 \appendix
 \section{Feature definitions}\label{app:features}
 Color coordinates use CIELAB under D65 and the $2^\circ$ observer. Lightness
@@ -628,17 +627,6 @@ conditional-error half-width exceeded its finite-proxy planning criterion,
 so planning calculations did not guarantee achieved precision. The contrary
 prospective result is retained without extra sampling.
 
-\FloatBarrier
-\begin{figure}[tbp]
-\centering\includegraphics[width=\linewidth]{four_painter_distributions.pdf}
-\caption{Earlier four-painter distribution exploration. Reference and named
-outputs are projected onto each painter's recorded comparison basis; the plots
-are descriptive and axes are not shared across painters. The retained spread
-and discrimination statistics use the full representation. Separation here does
-not determine whether names recover differences among painters.}
-\label{fig:four}
-\end{figure}
-\FloatBarrier
 \section{Collection provenance and computational scope}\label{app:provenance}
 Historical GPT Image 1 and GPT Image 2 labels identify the requested model
 names. A later technical negative control showed that the earlier image
@@ -646,7 +634,7 @@ interface also accepted an invented image-model identifier. This does not show
 that valid names select the same underlying model, but successful request
 acceptance alone cannot authenticate their separation. Historical contrasts
 are therefore interpreted as recorded request-group comparisons. The current
-experiment uses explicit documented model routes and fixed provider restrictions;
+experiment uses explicit documented model identifiers and fixed routes;
 it does not reuse historical images as verified examples of the new variants.
 Raw responses retain returned size, quality and model fields when available.
 Underlying checkpoints and training corpora are not available for inspection.
