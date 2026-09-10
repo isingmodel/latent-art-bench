@@ -288,7 +288,7 @@ replay are required in addition to the historical evidence audit. They neither
 reopen prior collections nor replace the public predecessor release.
 
 
-## Prospective actual-clause validation (qualification pending)
+## Prospective actual-clause validation (collection active)
 
 `painter_clause_validation_v1` is a disjoint prospective namespace for 288 OAuth
 outputs on 24 new fixed scenes, with free/generic/Monet/Cezanne clauses and three
@@ -297,6 +297,8 @@ repeats. [Protocol](../studies/painter_clause_validation_v1/PROTOCOL.md),
 [analysis source](../src/latent_art_bench/painter_clause_validation_v1/analysis.py).
 The two primary tests compare actual named with actual generic output energy.
 Three-pipeline arm summaries, corrected variation, retrieval and unchanged
-historical OAuth maps are secondary. No new data or result exists yet. The
-one-shot workflow requires reviewed source qualification and a committed freeze
-before its explicit live command; no `make` target launches generation.
+historical OAuth maps are secondary. Source `dff2804`, qualification `90a993f`
+and assignment/freeze `79f28c1` passed all required gates before collection. No
+scientific result exists yet. After terminal measurement, `make clause-check`
+replays the full numerical report and checks retained evidence; it needs the
+local response archive. No `make` target launches generation.

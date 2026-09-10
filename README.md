@@ -8,8 +8,8 @@ among generated images.
 
 The paper now includes **held-scene moment maps, temporal transfer and a
 center-controlled comparison**, with [public numerical replay](https://github.com/isingmodel/latent-art-bench/releases/tag/ppgv1-20260910).
-A prospective 288-image OAuth clause experiment is under qualification; no new
-collection gate is open. The
+A prospective 288-image OAuth clause experiment is collecting from a reviewed,
+committed assignment freeze. Its analysis begins only after collection closes. The
 [handover](docs/AGENT_HANDOVER.md) records completed work, current boundaries and
 the correction workflow; [STATUS.md](docs/STATUS.md) records integration and checks.
 

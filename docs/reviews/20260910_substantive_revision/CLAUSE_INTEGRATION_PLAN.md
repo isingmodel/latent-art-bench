@@ -141,3 +141,41 @@ of an actual generic control and fixed maps on both targets in this painting
 setting; it cannot be novelty of name substitution, held-out prompts or the
 marginal/conditional distinction itself. No result branch guarantees an
 exceptional contribution or a higher score.
+
+## Methods-only insertion draft
+
+The following draft contains design facts only. Insert it with the completed
+outcomes, terminal accounting and verified release reference; it is not yet in
+the manuscript. It adds no result claim or new analysis.
+
+```latex
+We specified a separate OAuth comparison after the preceding findings, fixing
+its design and analysis before generation. The allocation comprises 24 newly
+authored scene briefs, eight per water/built/land class, with three repetitions
+under artist-free, generic, Monet and C\'ezanne clauses: 288 requested outputs.
+The generic sentence is ``In a traditional landscape-painting style.'' All arms
+retain Study~1's detailed prompt core without palette instructions. The fixed
+scene panel is not a probability sample or independently verified content match.
+Free and generic outputs are shared across painter comparisons.
+
+The two primary contrasts are $\E(X_p,N_p)-\E(X_p,G)$, using the unchanged
+reference panels, development scalers and primary 31-feature pipeline. Each
+generated observation in class $c$ has weight $q_{pc}/24$. Condition positions
+are randomized within each scene/repetition block; conditioning on the other
+two positions leaves 72 named/generic pairs per painter. The existing swap
+statistic (Appendix~\ref{app:inference}) uses 99,999 sign draws and Holm adjustment
+over these two endpoints, without effect confidence intervals. Each endpoint
+requires all its allocated primary measurements; both also require the terminal
+24-hour and service/identity contracts. Missing free measurements affect their
+secondary summaries, not an otherwise eligible primary endpoint.
+
+Before collection, we fitted $T_1,T_2$ to all original detailed OAuth outputs,
+separately by painter and pipeline. We apply these fixed maps to the new free
+outputs and evaluate reference energy and corrected conditional-mean residual
+$Q_T$ (Appendix~\ref{app:moment}), without refitting or evaluation centering.
+Their differences, trace summaries and held-repeat retrieval are descriptive.
+The two other existing processing pipelines retain all 31 features and add no
+primary tests. The new scenes and collection occasion change together, so their
+effects are not separately identified. Reported delivery differences are retained
+as service outcomes rather than used for selection or adjustment.
+```

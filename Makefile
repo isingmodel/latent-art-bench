@@ -6,7 +6,7 @@ CONTROLLED := latent_art_bench.painter_distribution_study_v1
 REVISION := latent_art_bench.painter_distribution_revision_v1
 PAPER_BUILD := tmp/paper/build
 
-.PHONY: help check evidence analysis four-painter-analysis plots responsiveness computational-responsiveness palette-check validation-check replication-check geometry-check figures figures-check paper
+.PHONY: help check evidence analysis four-painter-analysis plots responsiveness computational-responsiveness palette-check validation-check replication-check geometry-check clause-check figures figures-check paper
 
 help:
 	@echo 'Paper correction: paper/README.md and docs/AGENT_HANDOVER.md'
@@ -23,6 +23,7 @@ help:
 	@echo 'make validation-check  Replay computational challenges and geometry sensitivity'
 	@echo 'make replication-check  Replay the terminal temporal replication from retained measurements'
 	@echo 'make geometry-check  Replay held-scene maps and evaluation centering'
+	@echo 'make clause-check  Replay the clause study after its terminal measurement receipt exists'
 	@echo 'make figures   Render the nine manuscript figures from retained numeric inputs'
 	@echo 'Other studies: docs/ANALYSES.md'
 
@@ -68,6 +69,9 @@ replication-check:
 geometry-check:
 	$(PYTHON) -m latent_art_bench.painter_naming_geometry_v1 verify
 	$(PYTHON) -m latent_art_bench.painter_naming_centering_v1 verify
+
+clause-check:
+	$(PYTHON) -m latent_art_bench.painter_clause_validation_v1 check
 
 figures:
 	$(PYTHON) paper/make_figures.py

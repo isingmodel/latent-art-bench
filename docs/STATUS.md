@@ -124,6 +124,12 @@ or adjustment removes these delivered-service differences.
 
 ## Current revision verification
 
+The new clause numerical-release adapter passes its separate maintainer-run LLM
+review and 40 local tests. Its advertised tests pass in a fresh isolated
+synthetic stage: 96 passed, five explicit maintainer-only skips. Full current
+offline suite: **1,561 passed in 190.35 seconds**; Ruff is clean. Real terminal
+export, archive publication and anonymous replay remain pending collection.
+
 At release source `5485e36`, Ruff and the full offline suite pass (**1,394 tests,
 145.60 seconds**); historical audit **2,902 checks, zero failures**. Both new
 geometry namespaces reproduce exactly. The 47-file additive archive has SHA256

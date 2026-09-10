@@ -425,20 +425,18 @@ named/artist-free ratio $\V(Y_{\mathrm N})/\V(Y_{\mathrm F})$.
 The first measures spread relative to paintings; the second measures the change
 under naming. Sums of squared coordinate-wise IQRs provide a complementary summary.
 
-Repeated descriptions allow an exact descriptive decomposition. For description
-$b$, let $w_b$ be its total image weight and $\bar y_b$ its weighted mean. Then
+For description $b$ with total weight $w_b$ and weighted mean $\bar y_b$,
+observed spread decomposes exactly as
 \begin{equation}
 \V(Y)=
 \underbrace{\sum_b\sum_{j\in b}b_j\|y_j-\bar y_b\|_2^2}_{W:\ \text{within descriptions}}
 +\underbrace{\sum_b w_b\|\bar y_b-\bar y\|_2^2}_{B:\ \text{between description means}}.
 \label{eq:decomposition}
 \end{equation}
-The between-description term can be further separated into within-class and
-between-class components. These are exact summaries of the observed images.
-With only three repetitions per scene, the between-description component also
-contains generation noise in the estimated scene means; it is not a
-bias-corrected variance component. Section~\ref{sec:conditional} reports the
-subsequent finite-repeat correction under explicit repeat-error assumptions.
+The observed term $B$ also separates into within-class and between-class
+components. It contains noise from the three-repeat scene means;
+Section~\ref{sec:conditional} gives the subsequent finite-repeat correction and
+its error assumptions.
 
 \paragraph{Primary contrasts and inference.}
 The prespecified inferential family comprises six named-minus-artist-free
@@ -1078,45 +1076,37 @@ the delivered-service estimand.
 
 \section{Discussion}
 \subsection{What the proximity gain establishes}
-The four-painter exploration finds a persistent difference between generated
-collections and digital references. The controlled intervention then shows that
-adding a painter clause can reduce measured discrepancy: all six primary naming
-contrasts are negative, four reject, and both FLUX directions recur later.
-The question is what this improvement says about the generated distribution.
+The four-painter exploration finds differences between generated collections and
+digital references; the separate controlled intervention shows that naming can
+reduce them. The map comparisons test what this proximity gain establishes about
+generated variation.
 
-The held-scene benchmark gives a more specific answer than contraction alone.
-Actual named outputs are closer to paintings than a global translation/scale
-fit predicts in all six primary averages over four fixed folds, including after removal of texture
-or the dominant blur-sensitive coordinate. Yet in the later FLUX collection,
-an unchanged translation alone is closer than actual naming in the primary
-metric. The evaluation-centered comparison further shows that the fitted scalar worsens
-reference proximity even when the transformed means agree. This is an empirical
-counterexample to interpreting lower discrepancy as uniquely favoring the actual
-named collection's variation. It does not show
-that translated coordinates are feasible paintings, or that a translation
-explains the service's internal computation.
+Reference proximity and conditional prediction favor different maps
+(Table~\ref{tab:targets}): adding scale reduces corrected mismatch to named scene
+means in all six primary cells, yet worsens reference energy in five. Holding
+the evaluation means equal retains the scalar's proximity penalty
+(Table~\ref{tab:centering}), so center choice alone does not account for it.
 
-The two prediction targets make this distinction explicit: adding the scalar
-reduces corrected mismatch to named scene means in all six primary cells, yet
-worsens reference energy in five (Table~\ref{tab:targets}).
-The common-mean comparison shows that this proximity penalty cannot be attributed
-solely to the map's choice of center.
+The cohort comparison provides a complementary constraint. Actual naming beats
+translation/scaling in the six primary held-scene averages, whereas unchanged translation
+alone is closer than actual naming in the later primary FLUX view
+(Figure~\ref{fig:moment}). Lower discrepancy therefore does not uniquely favor
+the named collection's variation. Transformed coordinates need not be feasible
+paintings, and their performance does not identify the service's internal
+computation.
 
-Coverage and conditional structure constrain this account further. A map can
-hit more reference neighborhoods while having worse energy discrepancy.
-Moreover, uniform translation and positive scaling preserve scene retrieval,
-whereas actual naming changes it in both directions. Finite-repeat correction
-preserves between-scene contraction, but equal-scene scalar signal/noise does not
-explain FLUX/Monet's retrieval improvement. Proximity, occupied neighborhoods and
-conditional organization therefore supply different evidence even for one fixed
-intervention, extending established conditional-evaluation principles
-\citep{benny2021conditional} to these painting collections.
+Coverage and scene retrieval further separate these interpretations. A map can
+hit more reference neighborhoods while having worse energy. Uniform translation
+and positive scaling preserve retrieval, whereas actual naming changes it in
+both directions. Corrected between-scene variance contracts, but equal-scene
+scalar signal/noise does not explain FLUX/Monet's retrieval improvement. These
+observed disagreements apply established conditional-evaluation principles
+\citep{benny2021conditional} to the painting comparisons.
 
-The palette findings offer a boundary rather than a mechanism: neither collection
-resolves additional named-clause attenuation beyond the generic clause. Both
-secondary generic comparisons are negative. The control instruction is thus
-part of the scientific comparison, and global chroma response under explicit
-extremes cannot stand in for the observed distributional changes.
+Neither palette collection resolves additional named-clause attenuation beyond
+the generic clause, although both secondary generic-minus-free responses are
+negative. This control dependence limits interpretation: chroma response under
+two explicit extremes cannot identify the cause of the broader distributional changes.
 
 \subsection{Scope and unresolved explanations}
 The features measure digital color, spatial organization and texture; their

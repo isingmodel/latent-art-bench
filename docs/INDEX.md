@@ -72,3 +72,8 @@ an older stage description.
   new fixed-scene OAuth experiment; live gate pending implementation qualification.
 - [Clause allocation and simulation qualification](../studies/painter_clause_validation_v1/PRECISION.md).
 - [Public geometry addendum verification](../reports/paper_geometry_reproducibility_v1/ppgv1-20260910/REPORT.md).
+
+- [Clause numerical-release guide](../studies/paper_clause_reproducibility_v1/README.md):
+  terminal export and standalone public replay, pending the active collection.
+- [Clause exporter review](reviews/20260910_substantive_revision/CLAUSE_RELEASE_REVIEW.md):
+  bounded synthetic qualification and remaining real-release checks.
