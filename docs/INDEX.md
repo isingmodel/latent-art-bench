@@ -77,3 +77,8 @@ an older stage description.
   terminal export and standalone public replay, pending the active collection.
 - [Clause exporter review](reviews/20260910_substantive_revision/CLAUSE_RELEASE_REVIEW.md):
   bounded synthetic qualification and remaining real-release checks.
+
+- [Single Cezanne/generic successor](../studies/painter_clause_successor_v1/PROTOCOL.md):
+  96-output comparison with a .025 primary threshold, pending qualification.
+- [Availability-triggered decision](../studies/painter_clause_successor_v1/DESIGN_DECISION.md):
+  fixed before predecessor feature extraction; no pooling or further replacement.

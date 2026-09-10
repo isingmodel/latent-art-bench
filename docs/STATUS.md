@@ -19,7 +19,7 @@ The nine-figure English paper has been restructured. Round 2 is complete at
 Reporting/access corrections are complete. The [geometry addendum](../reports/paper_geometry_reproducibility_v1/ppgv1-20260910/REPORT.md)
 is public with exact fresh local and anonymous replay; 95 included tests pass.
 The separately specified 288-output OAuth-only generic-clause validation has
-passed qualification and its live collector is running from a committed freeze. New offline work uses the disjoint
+passed qualification and is now terminal after an unqualified backend error. New offline work uses the disjoint
 [painter-naming geometry protocol](../studies/painter_naming_geometry_v1/PROTOCOL.md):
 whole-scene moment-map evaluation, original-map transfer to later FLUX, and
 repeat-corrected conditional geometry. No new image generation or extraction
@@ -44,15 +44,22 @@ remain closed until this collection becomes terminal. No new paid calls are allo
 
 ## Clause collection availability update
 
-The active run has one genuine error-only HTTP 400 `moderation_blocked` refusal
-at `c:pcv_built04:r00:cezanne` (05:13:08 UTC). Its stored response hash was
-verified; no image was returned. This is not a qualified technical retry.
-Collection continues under the existing contract, but the allocated Cézanne
-primary comparison will be unavailable. Monet remains eligible only if its
-complete named/generic measurements and global terminal gates are satisfied.
-No new feature values have been extracted or inspected. A possible separately
-qualified successor is being assessed using availability information only;
-no successor collection is authorized by this status note.
+The original run is permanently terminal: 211 images returned from 288 allocated
+slots in 62.97 minutes, one moderation refusal, one unqualified HTTP 500 server
+error, one cancellation before posting and 74 unattempted slots. It has no new
+paid cost. The frozen contract records identity false after the unrecognized
+error, so both primary comparisons and incomplete-grid secondary summaries are
+unavailable. No complete-case estimates, refilling or pooling are permitted.
+The final local source/proxy checks pass; the error contains no authentication
+or quota diagnosis, and local health alone does not prove backend recovery.
+
+No new feature values have been extracted or inspected. A single 96-output
+Cezanne/generic successor was fixed in design commit `f0ab2d4` after the initial
+refusal, before the later stop. It keeps all 24 scenes, two repetitions, fresh
+controls and alpha .025 even though Monet also became unavailable. Three
+implementation reviews and 144 focused tests pass. Whole-suite checks,
+source qualification and the new committed freeze remain required before live
+collection. No further successor is planned if this one fails or is unresolved.
 
 ## Current follow-up
 
@@ -61,7 +68,7 @@ no successor collection is authorized by this status note.
 | [Measurement challenges](../reports/painter_measurement_validation_v1/pmvv1-20260910/REPORT.md) | **Complete**: 1,076 retained images verified; 1,706 vectors across ten reference conditions and common-square generated views. All three specified change-minus-processing comparisons are positive. All eight common-square contrast directions and the original four Holm rejections persist. |
 | [Temporal replication](../studies/painter_naming_replication_v1/PROTOCOL.md) | **Complete**: all 264 outputs measured in three pipelines. FLUX naming estimates −.695108/−.952024 reject in the new four-test family; palette estimates −.158648/+.036741 remain unresolved. No failures/retries; 64.3 minutes; source `88cd185`, freeze `2de6bc4`, run `pnrv1-20260910`. |
 | [Public numerical reproduction](../studies/paper_reproducibility_v1/README.md) | **Public and verified**: [release](https://github.com/isingmodel/latent-art-bench/releases/tag/pprv1-20260910), 98 exact fresh local/anonymous checks and 98 hosted Ubuntu checks under the documented portability contract. Seven Ubuntu figure PDFs match exactly; the challenge PDF has platform-dependent bytes. |
-| English paper | Published substantive draft is 34 pages with nine figures; whole-scene maps, original-map transfer, evaluation centering and repeat-corrected conditional geometry are integrated. Three round-2 reviews are complete; their reporting and access corrections are implemented. New experiment qualification is active. The immutable published r1 assets describe the preceding paper, not this new revision. |
+| English paper | Published substantive draft is 34 pages with nine figures; whole-scene maps, original-map transfer, evaluation centering and repeat-corrected conditional geometry are integrated. Three round-2 reviews are complete; their reporting and access corrections are implemented. The original clause validation is terminal and unavailable; the fixed Cezanne/generic successor is under qualification. The immutable published r1 assets describe the preceding paper, not this new revision. |
 
 The measurement source was committed at `f3bc9b6`, its prospective 1,076-image
 inventory at `f2ab8de`, and its completed outputs and reviews at `994d247`.
