@@ -1,0 +1,41 @@
+{
+  "attempts": 264,
+  "budget": {
+    "accounted_usd": 50.72191850000009,
+    "attempts": 264,
+    "new_reported_usd": 5.04,
+    "new_reserves_usd": 0.0,
+    "pending": [],
+    "pending_paid": 0,
+    "terminal_reserves_usd": 0.0,
+    "unknown": []
+  },
+  "duration_contract_met": true,
+  "elapsed_seconds": 3859.5767120830715,
+  "ended_at_utc": "2026-09-10T00:10:27.002717+00:00",
+  "outputs": [
+    {
+      "path": "data/manifests/painter_naming_replication_v1/pnrv1-20260910/generation_events.jsonl",
+      "sha256": "39ee383ee3f093397e35287765815dabed4acab50aaed2165b1199497772ec43"
+    },
+    {
+      "path": "data/manifests/painter_naming_replication_v1/pnrv1-20260910/slot_outcomes.jsonl",
+      "sha256": "fdaf20daf8f8eab7f7930abad5b521baa21818420a064de928207e8d9f143c59"
+    },
+    {
+      "path": "data/manifests/painter_naming_replication_v1/pnrv1-20260910/credit_preflight.json",
+      "sha256": "5e49b3edc5ae5b3960529928aede45cd784b5b37cc3ec3726f4998e1016699ac"
+    }
+  ],
+  "planned": 264,
+  "posted_attempts": 264,
+  "reason": null,
+  "retries": 0,
+  "retry_decisions": 0,
+  "retry_intents": 0,
+  "run_id": "pnrv1-20260910",
+  "slot_counts": {
+    "image_returned": 264
+  },
+  "status": "complete"
+}

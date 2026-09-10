@@ -1,0 +1,18 @@
+{
+  "collection_receipt_sha256": "6144b6d5d2847f9191c619b9b24764834f458bf52246ab55a0b03654381700bf",
+  "outputs": [
+    {
+      "path": "data/manifests/painter_naming_replication_v1/pnrv1-20260910/measurements.jsonl",
+      "sha256": "9c4b1e4d95fbb62edb9f7ebbe87853a345bb7a027a20eff8baa87c945aaefd41"
+    },
+    {
+      "path": "reports/painter_naming_replication_v1/pnrv1-20260910/REPORT.md",
+      "sha256": "b3f142f3f1216978afd420112e13abdbdf139f28711a8b4332405b1be430df85"
+    },
+    {
+      "path": "reports/painter_naming_replication_v1/pnrv1-20260910/analysis.json",
+      "sha256": "e7da57c0b8942679a3ffaf3ce7740c0203cd9a7c3dbd50eaa2b64e5565b8e185"
+    }
+  ],
+  "run_id": "pnrv1-20260910"
+}

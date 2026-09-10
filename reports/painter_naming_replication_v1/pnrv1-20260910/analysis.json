@@ -1,0 +1,6393 @@
+{
+  "alpha": 0.05,
+  "availability": {
+    "measured": 264
+  },
+  "collection": {
+    "attempts": 264,
+    "budget": {
+      "accounted_usd": 50.72191850000009,
+      "attempts": 264,
+      "new_reported_usd": 5.04,
+      "new_reserves_usd": 0.0,
+      "pending": [],
+      "pending_paid": 0,
+      "terminal_reserves_usd": 0.0,
+      "unknown": []
+    },
+    "duration_contract_met": true,
+    "elapsed_seconds": 3859.5767120830715,
+    "ended_at_utc": "2026-09-10T00:10:27.002717+00:00",
+    "outputs": [
+      {
+        "path": "data/manifests/painter_naming_replication_v1/pnrv1-20260910/generation_events.jsonl",
+        "sha256": "39ee383ee3f093397e35287765815dabed4acab50aaed2165b1199497772ec43"
+      },
+      {
+        "path": "data/manifests/painter_naming_replication_v1/pnrv1-20260910/slot_outcomes.jsonl",
+        "sha256": "fdaf20daf8f8eab7f7930abad5b521baa21818420a064de928207e8d9f143c59"
+      },
+      {
+        "path": "data/manifests/painter_naming_replication_v1/pnrv1-20260910/credit_preflight.json",
+        "sha256": "5e49b3edc5ae5b3960529928aede45cd784b5b37cc3ec3726f4998e1016699ac"
+      }
+    ],
+    "planned": 264,
+    "posted_attempts": 264,
+    "reason": null,
+    "retries": 0,
+    "retry_decisions": 0,
+    "retry_intents": 0,
+    "run_id": "pnrv1-20260910",
+    "slot_counts": {
+      "image_returned": 264
+    },
+    "status": "complete"
+  },
+  "component_diagnostics_scope": "Nested randomization and palette records retain unchanged primitive diagnostics, including the palette primitive's two-endpoint adjustments. Only top-level primary records, after collection-scope gating, declare successor four-endpoint inference or replication claims.",
+  "distributions": [
+    {
+      "arm": "free",
+      "coordinate_iqr_ratios": [
+        1.0464730829774138,
+        0.5289926937961006,
+        1.0826977144820273,
+        0.4266896358780767,
+        1.896706261859789,
+        0.09055660384327391,
+        0.748559941232034,
+        0.3759978099498703,
+        0.28501408879154205,
+        0.3929487813840919,
+        0.9611074153400634,
+        1.0274822870850702,
+        0.9618737611745948,
+        0.9198464707884422,
+        4.4189642856178715,
+        1.6503684535358643,
+        0.3813081966657115,
+        0.2545265185759443,
+        1.8327001968142982,
+        0.4057602275779439,
+        0.3879191375804241,
+        0.483599101459394,
+        0.7286991652078608,
+        0.43042298320506445,
+        0.6770035270733709,
+        0.8452838616761018,
+        0.4807014722731192,
+        0.5416102398481775,
+        1.0142568513802552,
+        0.9980357520574332,
+        0.6925873924897328
+      ],
+      "coverage_k3": 0.47368421052631576,
+      "energy_distance": 2.2656301799666707,
+      "generated_ids": [
+        "n:built01:r00:free",
+        "n:built02:r00:free",
+        "n:built03:r00:free",
+        "n:built04:r00:free",
+        "n:built05:r00:free",
+        "n:built06:r00:free",
+        "n:built07:r00:free",
+        "n:built08:r00:free",
+        "n:land01:r00:free",
+        "n:land02:r00:free",
+        "n:land03:r00:free",
+        "n:land04:r00:free",
+        "n:land05:r00:free",
+        "n:land06:r00:free",
+        "n:land07:r00:free",
+        "n:land08:r00:free",
+        "n:water01:r00:free",
+        "n:water02:r00:free",
+        "n:water03:r00:free",
+        "n:water04:r00:free",
+        "n:water05:r00:free",
+        "n:water06:r00:free",
+        "n:water07:r00:free",
+        "n:water08:r00:free"
+      ],
+      "generated_n": 24,
+      "generated_weight_effective_size": 18.453674121405747,
+      "generated_weights": [
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106
+      ],
+      "original_n": 38,
+      "original_weight_effective_size": 38.0,
+      "painter_id": "claude_monet",
+      "pipeline": "primary512",
+      "population_variance_ratio": 0.7373097034582746,
+      "reference_ids": [
+        "wikidata:Q67158045",
+        "wikidata:Q19967292",
+        "wikidata:Q106925109",
+        "wikidata:Q47615867",
+        "wikidata:Q117435199",
+        "wikidata:Q2450237",
+        "wikidata:Q79790741",
+        "wikidata:Q105099626",
+        "wikidata:Q116143411",
+        "wikidata:Q50415977",
+        "wikidata:Q17493461",
+        "wikidata:Q3794124",
+        "wikidata:Q105099583",
+        "wikidata:Q63952037",
+        "wikidata:Q24953805",
+        "wikidata:Q92831691",
+        "wikidata:Q105099613",
+        "wikidata:Q59530379",
+        "wikidata:Q17493907",
+        "wikidata:Q66126523",
+        "wikidata:Q106879983",
+        "wikidata:Q79868506",
+        "wikidata:Q20538824",
+        "wikidata:Q105099601",
+        "wikidata:Q50700359",
+        "wikidata:Q68372814",
+        "wikidata:Q20538849",
+        "wikidata:Q117435200",
+        "wikidata:Q85224931",
+        "wikidata:Q67220780",
+        "wikidata:Q30093031",
+        "wikidata:Q17492292",
+        "wikidata:Q67609602",
+        "wikidata:Q20809479",
+        "wikidata:Q92787519",
+        "wikidata:Q87367853",
+        "wikidata:Q113520917",
+        "wikidata:Q79790733"
+      ],
+      "sample_variance_ratio": null,
+      "squared_iqr_sum_ratio": 0.7653013269131175,
+      "status": "descriptive"
+    },
+    {
+      "arm": "monet",
+      "coordinate_iqr_ratios": [
+        0.6464759090821692,
+        0.6477169551320384,
+        0.844922359390978,
+        0.5709305284843935,
+        1.0743604135406521,
+        0.08042011860841705,
+        0.3628082382965698,
+        0.5305244134524187,
+        0.5761580138473863,
+        0.49900915979265287,
+        0.44504664478331185,
+        0.6288897391675465,
+        0.7359859452579532,
+        0.6694649424724591,
+        3.618767256616841,
+        1.8309889247120268,
+        0.5183553620119294,
+        0.3091745734086955,
+        1.5352464549972946,
+        0.3890111014980542,
+        0.3701285538848744,
+        0.5272718230192855,
+        0.7691137905792281,
+        0.22399062922579435,
+        0.47827747443641255,
+        0.4114222402634076,
+        0.2868733383673528,
+        0.3422398540397423,
+        0.6447187208992033,
+        0.7775410844884572,
+        0.5041421032302698
+      ],
+      "coverage_k3": 0.5263157894736842,
+      "energy_distance": 1.57052225665256,
+      "generated_ids": [
+        "n:built01:r00:monet",
+        "n:built02:r00:monet",
+        "n:built03:r00:monet",
+        "n:built04:r00:monet",
+        "n:built05:r00:monet",
+        "n:built06:r00:monet",
+        "n:built07:r00:monet",
+        "n:built08:r00:monet",
+        "n:land01:r00:monet",
+        "n:land02:r00:monet",
+        "n:land03:r00:monet",
+        "n:land04:r00:monet",
+        "n:land05:r00:monet",
+        "n:land06:r00:monet",
+        "n:land07:r00:monet",
+        "n:land08:r00:monet",
+        "n:water01:r00:monet",
+        "n:water02:r00:monet",
+        "n:water03:r00:monet",
+        "n:water04:r00:monet",
+        "n:water05:r00:monet",
+        "n:water06:r00:monet",
+        "n:water07:r00:monet",
+        "n:water08:r00:monet"
+      ],
+      "generated_n": 24,
+      "generated_weight_effective_size": 18.453674121405747,
+      "generated_weights": [
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106
+      ],
+      "original_n": 38,
+      "original_weight_effective_size": 38.0,
+      "painter_id": "claude_monet",
+      "pipeline": "primary512",
+      "population_variance_ratio": 0.34349216747462474,
+      "reference_ids": [
+        "wikidata:Q67158045",
+        "wikidata:Q19967292",
+        "wikidata:Q106925109",
+        "wikidata:Q47615867",
+        "wikidata:Q117435199",
+        "wikidata:Q2450237",
+        "wikidata:Q79790741",
+        "wikidata:Q105099626",
+        "wikidata:Q116143411",
+        "wikidata:Q50415977",
+        "wikidata:Q17493461",
+        "wikidata:Q3794124",
+        "wikidata:Q105099583",
+        "wikidata:Q63952037",
+        "wikidata:Q24953805",
+        "wikidata:Q92831691",
+        "wikidata:Q105099613",
+        "wikidata:Q59530379",
+        "wikidata:Q17493907",
+        "wikidata:Q66126523",
+        "wikidata:Q106879983",
+        "wikidata:Q79868506",
+        "wikidata:Q20538824",
+        "wikidata:Q105099601",
+        "wikidata:Q50700359",
+        "wikidata:Q68372814",
+        "wikidata:Q20538849",
+        "wikidata:Q117435200",
+        "wikidata:Q85224931",
+        "wikidata:Q67220780",
+        "wikidata:Q30093031",
+        "wikidata:Q17492292",
+        "wikidata:Q67609602",
+        "wikidata:Q20809479",
+        "wikidata:Q92787519",
+        "wikidata:Q87367853",
+        "wikidata:Q113520917",
+        "wikidata:Q79790733"
+      ],
+      "sample_variance_ratio": null,
+      "squared_iqr_sum_ratio": 0.5076762592040239,
+      "status": "descriptive"
+    },
+    {
+      "arm": "cezanne",
+      "coordinate_iqr_ratios": [
+        0.9778095258924548,
+        0.45349341433360807,
+        0.8768584103778749,
+        0.1615644646211705,
+        1.0527575844946635,
+        0.20046820118221148,
+        0.49024731369290575,
+        0.37704183990444007,
+        0.5105669116254744,
+        0.6689765682772499,
+        0.8076316606705,
+        0.4046604547056585,
+        0.416923096152478,
+        0.36150286774344764,
+        3.8216811087902993,
+        2.006021889739824,
+        0.37008389676748593,
+        0.2674758898582454,
+        1.3274194485102524,
+        0.41284836703999533,
+        0.3924800939605718,
+        0.48253779643662004,
+        0.6615471832333084,
+        0.37057152591723697,
+        0.3920284500982043,
+        0.5202914477126729,
+        0.1786216829371313,
+        0.4642343815716871,
+        0.7571441678681982,
+        0.9949118426790607,
+        0.7101234391486677
+      ],
+      "coverage_k3": 0.6578947368421053,
+      "energy_distance": 1.6654991578796592,
+      "generated_ids": [
+        "n:built01:r00:cezanne",
+        "n:built02:r00:cezanne",
+        "n:built03:r00:cezanne",
+        "n:built04:r00:cezanne",
+        "n:built05:r00:cezanne",
+        "n:built06:r00:cezanne",
+        "n:built07:r00:cezanne",
+        "n:built08:r00:cezanne",
+        "n:land01:r00:cezanne",
+        "n:land02:r00:cezanne",
+        "n:land03:r00:cezanne",
+        "n:land04:r00:cezanne",
+        "n:land05:r00:cezanne",
+        "n:land06:r00:cezanne",
+        "n:land07:r00:cezanne",
+        "n:land08:r00:cezanne",
+        "n:water01:r00:cezanne",
+        "n:water02:r00:cezanne",
+        "n:water03:r00:cezanne",
+        "n:water04:r00:cezanne",
+        "n:water05:r00:cezanne",
+        "n:water06:r00:cezanne",
+        "n:water07:r00:cezanne",
+        "n:water08:r00:cezanne"
+      ],
+      "generated_n": 24,
+      "generated_weight_effective_size": 18.453674121405747,
+      "generated_weights": [
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106
+      ],
+      "original_n": 38,
+      "original_weight_effective_size": 38.0,
+      "painter_id": "claude_monet",
+      "pipeline": "primary512",
+      "population_variance_ratio": 0.37794655390513004,
+      "reference_ids": [
+        "wikidata:Q67158045",
+        "wikidata:Q19967292",
+        "wikidata:Q106925109",
+        "wikidata:Q47615867",
+        "wikidata:Q117435199",
+        "wikidata:Q2450237",
+        "wikidata:Q79790741",
+        "wikidata:Q105099626",
+        "wikidata:Q116143411",
+        "wikidata:Q50415977",
+        "wikidata:Q17493461",
+        "wikidata:Q3794124",
+        "wikidata:Q105099583",
+        "wikidata:Q63952037",
+        "wikidata:Q24953805",
+        "wikidata:Q92831691",
+        "wikidata:Q105099613",
+        "wikidata:Q59530379",
+        "wikidata:Q17493907",
+        "wikidata:Q66126523",
+        "wikidata:Q106879983",
+        "wikidata:Q79868506",
+        "wikidata:Q20538824",
+        "wikidata:Q105099601",
+        "wikidata:Q50700359",
+        "wikidata:Q68372814",
+        "wikidata:Q20538849",
+        "wikidata:Q117435200",
+        "wikidata:Q85224931",
+        "wikidata:Q67220780",
+        "wikidata:Q30093031",
+        "wikidata:Q17492292",
+        "wikidata:Q67609602",
+        "wikidata:Q20809479",
+        "wikidata:Q92787519",
+        "wikidata:Q87367853",
+        "wikidata:Q113520917",
+        "wikidata:Q79790733"
+      ],
+      "sample_variance_ratio": null,
+      "squared_iqr_sum_ratio": 0.5040059366431618,
+      "status": "descriptive"
+    },
+    {
+      "arm": "free",
+      "coordinate_iqr_ratios": [
+        1.041796650583019,
+        0.631675154050181,
+        1.081744150282678,
+        0.42781783589988975,
+        1.8858277071796934,
+        0.08778350292044813,
+        0.7637593739465688,
+        0.3378955746011661,
+        0.29332541944541624,
+        0.41778054316369645,
+        1.2612404442153957,
+        0.9895550505814601,
+        0.8456069842664211,
+        0.9354930911277115,
+        2.8459182795890117,
+        1.3500847810817,
+        0.4344585207639217,
+        0.2675378212115576,
+        0.9837225166881862,
+        0.4135855553592912,
+        0.4555636107095069,
+        0.7269054318281617,
+        0.7740625109087736,
+        0.8552439328016086,
+        1.0183766067131483,
+        0.6476611653599997,
+        0.9620721967655805,
+        1.3193713675011893,
+        1.1764857625598932,
+        0.8699001839739225,
+        0.5656039221962562
+      ],
+      "coverage_k3": 0.42105263157894735,
+      "energy_distance": 1.795428192136682,
+      "generated_ids": [
+        "n:built01:r00:free",
+        "n:built02:r00:free",
+        "n:built03:r00:free",
+        "n:built04:r00:free",
+        "n:built05:r00:free",
+        "n:built06:r00:free",
+        "n:built07:r00:free",
+        "n:built08:r00:free",
+        "n:land01:r00:free",
+        "n:land02:r00:free",
+        "n:land03:r00:free",
+        "n:land04:r00:free",
+        "n:land05:r00:free",
+        "n:land06:r00:free",
+        "n:land07:r00:free",
+        "n:land08:r00:free",
+        "n:water01:r00:free",
+        "n:water02:r00:free",
+        "n:water03:r00:free",
+        "n:water04:r00:free",
+        "n:water05:r00:free",
+        "n:water06:r00:free",
+        "n:water07:r00:free",
+        "n:water08:r00:free"
+      ],
+      "generated_n": 24,
+      "generated_weight_effective_size": 18.453674121405747,
+      "generated_weights": [
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106
+      ],
+      "original_n": 38,
+      "original_weight_effective_size": 38.0,
+      "painter_id": "claude_monet",
+      "pipeline": "resolution256",
+      "population_variance_ratio": 0.8303622642748295,
+      "reference_ids": [
+        "wikidata:Q67158045",
+        "wikidata:Q19967292",
+        "wikidata:Q106925109",
+        "wikidata:Q47615867",
+        "wikidata:Q117435199",
+        "wikidata:Q2450237",
+        "wikidata:Q79790741",
+        "wikidata:Q105099626",
+        "wikidata:Q116143411",
+        "wikidata:Q50415977",
+        "wikidata:Q17493461",
+        "wikidata:Q3794124",
+        "wikidata:Q105099583",
+        "wikidata:Q63952037",
+        "wikidata:Q24953805",
+        "wikidata:Q92831691",
+        "wikidata:Q105099613",
+        "wikidata:Q59530379",
+        "wikidata:Q17493907",
+        "wikidata:Q66126523",
+        "wikidata:Q106879983",
+        "wikidata:Q79868506",
+        "wikidata:Q20538824",
+        "wikidata:Q105099601",
+        "wikidata:Q50700359",
+        "wikidata:Q68372814",
+        "wikidata:Q20538849",
+        "wikidata:Q117435200",
+        "wikidata:Q85224931",
+        "wikidata:Q67220780",
+        "wikidata:Q30093031",
+        "wikidata:Q17492292",
+        "wikidata:Q67609602",
+        "wikidata:Q20809479",
+        "wikidata:Q92787519",
+        "wikidata:Q87367853",
+        "wikidata:Q113520917",
+        "wikidata:Q79790733"
+      ],
+      "sample_variance_ratio": null,
+      "squared_iqr_sum_ratio": 0.7631488506814829,
+      "status": "descriptive"
+    },
+    {
+      "arm": "monet",
+      "coordinate_iqr_ratios": [
+        0.6326951768360117,
+        0.685365150544518,
+        0.8436977534299349,
+        0.5242418588087591,
+        1.0987176849170186,
+        0.07511426648069656,
+        0.31378426261823344,
+        0.5626595216229414,
+        0.5578622317403785,
+        0.5308905392986902,
+        0.6572024023743596,
+        0.6936156354536102,
+        0.6899628064422746,
+        0.6610097481213021,
+        1.987116420244805,
+        1.363866530712087,
+        0.6252913024548299,
+        0.33079152400927164,
+        1.2185404040101053,
+        0.39144321063760257,
+        0.5056097863738098,
+        0.753969595228259,
+        0.8456010926636228,
+        0.42410417697100045,
+        0.959372450668486,
+        0.4674530619603506,
+        0.4536672611183779,
+        0.6105785223859173,
+        0.7550112747382776,
+        0.6494633555151257,
+        0.38180998207498684
+      ],
+      "coverage_k3": 0.5263157894736842,
+      "energy_distance": 1.4384154992590972,
+      "generated_ids": [
+        "n:built01:r00:monet",
+        "n:built02:r00:monet",
+        "n:built03:r00:monet",
+        "n:built04:r00:monet",
+        "n:built05:r00:monet",
+        "n:built06:r00:monet",
+        "n:built07:r00:monet",
+        "n:built08:r00:monet",
+        "n:land01:r00:monet",
+        "n:land02:r00:monet",
+        "n:land03:r00:monet",
+        "n:land04:r00:monet",
+        "n:land05:r00:monet",
+        "n:land06:r00:monet",
+        "n:land07:r00:monet",
+        "n:land08:r00:monet",
+        "n:water01:r00:monet",
+        "n:water02:r00:monet",
+        "n:water03:r00:monet",
+        "n:water04:r00:monet",
+        "n:water05:r00:monet",
+        "n:water06:r00:monet",
+        "n:water07:r00:monet",
+        "n:water08:r00:monet"
+      ],
+      "generated_n": 24,
+      "generated_weight_effective_size": 18.453674121405747,
+      "generated_weights": [
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106
+      ],
+      "original_n": 38,
+      "original_weight_effective_size": 38.0,
+      "painter_id": "claude_monet",
+      "pipeline": "resolution256",
+      "population_variance_ratio": 0.38746275699502997,
+      "reference_ids": [
+        "wikidata:Q67158045",
+        "wikidata:Q19967292",
+        "wikidata:Q106925109",
+        "wikidata:Q47615867",
+        "wikidata:Q117435199",
+        "wikidata:Q2450237",
+        "wikidata:Q79790741",
+        "wikidata:Q105099626",
+        "wikidata:Q116143411",
+        "wikidata:Q50415977",
+        "wikidata:Q17493461",
+        "wikidata:Q3794124",
+        "wikidata:Q105099583",
+        "wikidata:Q63952037",
+        "wikidata:Q24953805",
+        "wikidata:Q92831691",
+        "wikidata:Q105099613",
+        "wikidata:Q59530379",
+        "wikidata:Q17493907",
+        "wikidata:Q66126523",
+        "wikidata:Q106879983",
+        "wikidata:Q79868506",
+        "wikidata:Q20538824",
+        "wikidata:Q105099601",
+        "wikidata:Q50700359",
+        "wikidata:Q68372814",
+        "wikidata:Q20538849",
+        "wikidata:Q117435200",
+        "wikidata:Q85224931",
+        "wikidata:Q67220780",
+        "wikidata:Q30093031",
+        "wikidata:Q17492292",
+        "wikidata:Q67609602",
+        "wikidata:Q20809479",
+        "wikidata:Q92787519",
+        "wikidata:Q87367853",
+        "wikidata:Q113520917",
+        "wikidata:Q79790733"
+      ],
+      "sample_variance_ratio": null,
+      "squared_iqr_sum_ratio": 0.493119764244856,
+      "status": "descriptive"
+    },
+    {
+      "arm": "cezanne",
+      "coordinate_iqr_ratios": [
+        0.9759143012803444,
+        0.43622272438750964,
+        0.8802297057475579,
+        0.18154795538613228,
+        1.04711108254058,
+        0.19753742390537488,
+        0.4723518138649262,
+        0.5265144979777941,
+        0.49460733990611927,
+        0.6920257074907175,
+        1.3246094350053454,
+        0.3423899497800157,
+        0.5573082425566656,
+        0.37520738770964984,
+        1.9898703537053484,
+        1.573526300500615,
+        0.5128552071907857,
+        0.32323962013331076,
+        1.0591099129989494,
+        0.4033837061720498,
+        0.463477280382436,
+        0.6488129514247245,
+        0.7172732600982525,
+        0.31298204269988616,
+        0.7752734916451292,
+        0.5497677208940185,
+        0.6530954287614495,
+        1.064335906739644,
+        1.0204639515574994,
+        0.9401209263901269,
+        0.6165931731892051
+      ],
+      "coverage_k3": 0.6578947368421053,
+      "energy_distance": 1.233817881543776,
+      "generated_ids": [
+        "n:built01:r00:cezanne",
+        "n:built02:r00:cezanne",
+        "n:built03:r00:cezanne",
+        "n:built04:r00:cezanne",
+        "n:built05:r00:cezanne",
+        "n:built06:r00:cezanne",
+        "n:built07:r00:cezanne",
+        "n:built08:r00:cezanne",
+        "n:land01:r00:cezanne",
+        "n:land02:r00:cezanne",
+        "n:land03:r00:cezanne",
+        "n:land04:r00:cezanne",
+        "n:land05:r00:cezanne",
+        "n:land06:r00:cezanne",
+        "n:land07:r00:cezanne",
+        "n:land08:r00:cezanne",
+        "n:water01:r00:cezanne",
+        "n:water02:r00:cezanne",
+        "n:water03:r00:cezanne",
+        "n:water04:r00:cezanne",
+        "n:water05:r00:cezanne",
+        "n:water06:r00:cezanne",
+        "n:water07:r00:cezanne",
+        "n:water08:r00:cezanne"
+      ],
+      "generated_n": 24,
+      "generated_weight_effective_size": 18.453674121405747,
+      "generated_weights": [
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106
+      ],
+      "original_n": 38,
+      "original_weight_effective_size": 38.0,
+      "painter_id": "claude_monet",
+      "pipeline": "resolution256",
+      "population_variance_ratio": 0.44751334822118055,
+      "reference_ids": [
+        "wikidata:Q67158045",
+        "wikidata:Q19967292",
+        "wikidata:Q106925109",
+        "wikidata:Q47615867",
+        "wikidata:Q117435199",
+        "wikidata:Q2450237",
+        "wikidata:Q79790741",
+        "wikidata:Q105099626",
+        "wikidata:Q116143411",
+        "wikidata:Q50415977",
+        "wikidata:Q17493461",
+        "wikidata:Q3794124",
+        "wikidata:Q105099583",
+        "wikidata:Q63952037",
+        "wikidata:Q24953805",
+        "wikidata:Q92831691",
+        "wikidata:Q105099613",
+        "wikidata:Q59530379",
+        "wikidata:Q17493907",
+        "wikidata:Q66126523",
+        "wikidata:Q106879983",
+        "wikidata:Q79868506",
+        "wikidata:Q20538824",
+        "wikidata:Q105099601",
+        "wikidata:Q50700359",
+        "wikidata:Q68372814",
+        "wikidata:Q20538849",
+        "wikidata:Q117435200",
+        "wikidata:Q85224931",
+        "wikidata:Q67220780",
+        "wikidata:Q30093031",
+        "wikidata:Q17492292",
+        "wikidata:Q67609602",
+        "wikidata:Q20809479",
+        "wikidata:Q92787519",
+        "wikidata:Q87367853",
+        "wikidata:Q113520917",
+        "wikidata:Q79790733"
+      ],
+      "sample_variance_ratio": null,
+      "squared_iqr_sum_ratio": 0.5148756516889507,
+      "status": "descriptive"
+    },
+    {
+      "arm": "free",
+      "coordinate_iqr_ratios": [
+        1.0526278670107896,
+        0.5266059851940785,
+        1.1159675224545833,
+        0.4174214901348504,
+        1.7412782851415536,
+        0.08286301351126535,
+        0.6558564984060488,
+        0.2640492969692791,
+        0.26143965925193285,
+        0.3984658550547187,
+        0.8095324090476775,
+        1.031600687464648,
+        1.0145749482650748,
+        0.9278538391401833,
+        4.551744394119283,
+        1.628176155582507,
+        0.3831862717212735,
+        0.25839035234921953,
+        1.5725734021273134,
+        0.3976946010325941,
+        0.3883609190156577,
+        0.4873229191022243,
+        0.7287090360585649,
+        0.48302169855375976,
+        0.7587671510566871,
+        0.6257077445046377,
+        0.41707280863258867,
+        0.48201804609936344,
+        1.0147444751308103,
+        0.9974959642368223,
+        0.6890629816761169
+      ],
+      "coverage_k3": 0.5,
+      "energy_distance": 2.2489407630370852,
+      "generated_ids": [
+        "n:built01:r00:free",
+        "n:built02:r00:free",
+        "n:built03:r00:free",
+        "n:built04:r00:free",
+        "n:built05:r00:free",
+        "n:built06:r00:free",
+        "n:built07:r00:free",
+        "n:built08:r00:free",
+        "n:land01:r00:free",
+        "n:land02:r00:free",
+        "n:land03:r00:free",
+        "n:land04:r00:free",
+        "n:land05:r00:free",
+        "n:land06:r00:free",
+        "n:land07:r00:free",
+        "n:land08:r00:free",
+        "n:water01:r00:free",
+        "n:water02:r00:free",
+        "n:water03:r00:free",
+        "n:water04:r00:free",
+        "n:water05:r00:free",
+        "n:water06:r00:free",
+        "n:water07:r00:free",
+        "n:water08:r00:free"
+      ],
+      "generated_n": 24,
+      "generated_weight_effective_size": 18.453674121405747,
+      "generated_weights": [
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106
+      ],
+      "original_n": 38,
+      "original_weight_effective_size": 38.0,
+      "painter_id": "claude_monet",
+      "pipeline": "jpeg90_512",
+      "population_variance_ratio": 0.7598816920439755,
+      "reference_ids": [
+        "wikidata:Q67158045",
+        "wikidata:Q19967292",
+        "wikidata:Q106925109",
+        "wikidata:Q47615867",
+        "wikidata:Q117435199",
+        "wikidata:Q2450237",
+        "wikidata:Q79790741",
+        "wikidata:Q105099626",
+        "wikidata:Q116143411",
+        "wikidata:Q50415977",
+        "wikidata:Q17493461",
+        "wikidata:Q3794124",
+        "wikidata:Q105099583",
+        "wikidata:Q63952037",
+        "wikidata:Q24953805",
+        "wikidata:Q92831691",
+        "wikidata:Q105099613",
+        "wikidata:Q59530379",
+        "wikidata:Q17493907",
+        "wikidata:Q66126523",
+        "wikidata:Q106879983",
+        "wikidata:Q79868506",
+        "wikidata:Q20538824",
+        "wikidata:Q105099601",
+        "wikidata:Q50700359",
+        "wikidata:Q68372814",
+        "wikidata:Q20538849",
+        "wikidata:Q117435200",
+        "wikidata:Q85224931",
+        "wikidata:Q67220780",
+        "wikidata:Q30093031",
+        "wikidata:Q17492292",
+        "wikidata:Q67609602",
+        "wikidata:Q20809479",
+        "wikidata:Q92787519",
+        "wikidata:Q87367853",
+        "wikidata:Q113520917",
+        "wikidata:Q79790733"
+      ],
+      "sample_variance_ratio": null,
+      "squared_iqr_sum_ratio": 0.7182487850618995,
+      "status": "descriptive"
+    },
+    {
+      "arm": "monet",
+      "coordinate_iqr_ratios": [
+        0.6473319419691856,
+        0.6369151460932626,
+        0.8181491935106363,
+        0.4562126483268874,
+        0.8174712979444637,
+        0.04389629541241227,
+        0.3154392070780058,
+        0.5413065843667132,
+        0.548521740610019,
+        0.47365074725455714,
+        0.37681423332934016,
+        0.6250434515476134,
+        0.7649364188046504,
+        0.666253858949278,
+        3.577181364692134,
+        1.7675943841587964,
+        0.5410646864638936,
+        0.30764394129905237,
+        1.5489019963212922,
+        0.4090193306944654,
+        0.36750708105830837,
+        0.5223799120139252,
+        0.7707531440893581,
+        0.18698223856722665,
+        0.5160647224814802,
+        0.6017898559538819,
+        0.2513253298409113,
+        0.19065819976423706,
+        0.6819616038474388,
+        0.7907222012779394,
+        0.5207320403359534
+      ],
+      "coverage_k3": 0.5,
+      "energy_distance": 1.6387393853818297,
+      "generated_ids": [
+        "n:built01:r00:monet",
+        "n:built02:r00:monet",
+        "n:built03:r00:monet",
+        "n:built04:r00:monet",
+        "n:built05:r00:monet",
+        "n:built06:r00:monet",
+        "n:built07:r00:monet",
+        "n:built08:r00:monet",
+        "n:land01:r00:monet",
+        "n:land02:r00:monet",
+        "n:land03:r00:monet",
+        "n:land04:r00:monet",
+        "n:land05:r00:monet",
+        "n:land06:r00:monet",
+        "n:land07:r00:monet",
+        "n:land08:r00:monet",
+        "n:water01:r00:monet",
+        "n:water02:r00:monet",
+        "n:water03:r00:monet",
+        "n:water04:r00:monet",
+        "n:water05:r00:monet",
+        "n:water06:r00:monet",
+        "n:water07:r00:monet",
+        "n:water08:r00:monet"
+      ],
+      "generated_n": 24,
+      "generated_weight_effective_size": 18.453674121405747,
+      "generated_weights": [
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106
+      ],
+      "original_n": 38,
+      "original_weight_effective_size": 38.0,
+      "painter_id": "claude_monet",
+      "pipeline": "jpeg90_512",
+      "population_variance_ratio": 0.3442343488916447,
+      "reference_ids": [
+        "wikidata:Q67158045",
+        "wikidata:Q19967292",
+        "wikidata:Q106925109",
+        "wikidata:Q47615867",
+        "wikidata:Q117435199",
+        "wikidata:Q2450237",
+        "wikidata:Q79790741",
+        "wikidata:Q105099626",
+        "wikidata:Q116143411",
+        "wikidata:Q50415977",
+        "wikidata:Q17493461",
+        "wikidata:Q3794124",
+        "wikidata:Q105099583",
+        "wikidata:Q63952037",
+        "wikidata:Q24953805",
+        "wikidata:Q92831691",
+        "wikidata:Q105099613",
+        "wikidata:Q59530379",
+        "wikidata:Q17493907",
+        "wikidata:Q66126523",
+        "wikidata:Q106879983",
+        "wikidata:Q79868506",
+        "wikidata:Q20538824",
+        "wikidata:Q105099601",
+        "wikidata:Q50700359",
+        "wikidata:Q68372814",
+        "wikidata:Q20538849",
+        "wikidata:Q117435200",
+        "wikidata:Q85224931",
+        "wikidata:Q67220780",
+        "wikidata:Q30093031",
+        "wikidata:Q17492292",
+        "wikidata:Q67609602",
+        "wikidata:Q20809479",
+        "wikidata:Q92787519",
+        "wikidata:Q87367853",
+        "wikidata:Q113520917",
+        "wikidata:Q79790733"
+      ],
+      "sample_variance_ratio": null,
+      "squared_iqr_sum_ratio": 0.49193414056678947,
+      "status": "descriptive"
+    },
+    {
+      "arm": "cezanne",
+      "coordinate_iqr_ratios": [
+        0.9791081426239883,
+        0.45180856693083193,
+        0.8339584379401559,
+        0.20246329161566623,
+        1.1749075762426313,
+        0.20005724492703345,
+        0.5803700966272634,
+        0.3924453640161751,
+        0.46850894895956097,
+        0.6601582510504216,
+        0.7748867580356731,
+        0.42191544233671524,
+        0.42286649272876026,
+        0.36517664899095886,
+        3.834080716700051,
+        1.9357229969369303,
+        0.32923080455967557,
+        0.2817909813251214,
+        1.3040204535958322,
+        0.42753659184586196,
+        0.3916043169871666,
+        0.47603678655816667,
+        0.6608447432468346,
+        0.38998790278485207,
+        0.43801684550198045,
+        0.669965002722394,
+        0.27894403967102877,
+        0.48705393381324946,
+        0.7918765557259836,
+        0.9885700932476803,
+        0.7159154790192265
+      ],
+      "coverage_k3": 0.6578947368421053,
+      "energy_distance": 1.6178104932001052,
+      "generated_ids": [
+        "n:built01:r00:cezanne",
+        "n:built02:r00:cezanne",
+        "n:built03:r00:cezanne",
+        "n:built04:r00:cezanne",
+        "n:built05:r00:cezanne",
+        "n:built06:r00:cezanne",
+        "n:built07:r00:cezanne",
+        "n:built08:r00:cezanne",
+        "n:land01:r00:cezanne",
+        "n:land02:r00:cezanne",
+        "n:land03:r00:cezanne",
+        "n:land04:r00:cezanne",
+        "n:land05:r00:cezanne",
+        "n:land06:r00:cezanne",
+        "n:land07:r00:cezanne",
+        "n:land08:r00:cezanne",
+        "n:water01:r00:cezanne",
+        "n:water02:r00:cezanne",
+        "n:water03:r00:cezanne",
+        "n:water04:r00:cezanne",
+        "n:water05:r00:cezanne",
+        "n:water06:r00:cezanne",
+        "n:water07:r00:cezanne",
+        "n:water08:r00:cezanne"
+      ],
+      "generated_n": 24,
+      "generated_weight_effective_size": 18.453674121405747,
+      "generated_weights": [
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.013157894736842105,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.04276315789473684,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106,
+        0.06907894736842106
+      ],
+      "original_n": 38,
+      "original_weight_effective_size": 38.0,
+      "painter_id": "claude_monet",
+      "pipeline": "jpeg90_512",
+      "population_variance_ratio": 0.37199104826517926,
+      "reference_ids": [
+        "wikidata:Q67158045",
+        "wikidata:Q19967292",
+        "wikidata:Q106925109",
+        "wikidata:Q47615867",
+        "wikidata:Q117435199",
+        "wikidata:Q2450237",
+        "wikidata:Q79790741",
+        "wikidata:Q105099626",
+        "wikidata:Q116143411",
+        "wikidata:Q50415977",
+        "wikidata:Q17493461",
+        "wikidata:Q3794124",
+        "wikidata:Q105099583",
+        "wikidata:Q63952037",
+        "wikidata:Q24953805",
+        "wikidata:Q92831691",
+        "wikidata:Q105099613",
+        "wikidata:Q59530379",
+        "wikidata:Q17493907",
+        "wikidata:Q66126523",
+        "wikidata:Q106879983",
+        "wikidata:Q79868506",
+        "wikidata:Q20538824",
+        "wikidata:Q105099601",
+        "wikidata:Q50700359",
+        "wikidata:Q68372814",
+        "wikidata:Q20538849",
+        "wikidata:Q117435200",
+        "wikidata:Q85224931",
+        "wikidata:Q67220780",
+        "wikidata:Q30093031",
+        "wikidata:Q17492292",
+        "wikidata:Q67609602",
+        "wikidata:Q20809479",
+        "wikidata:Q92787519",
+        "wikidata:Q87367853",
+        "wikidata:Q113520917",
+        "wikidata:Q79790733"
+      ],
+      "sample_variance_ratio": null,
+      "squared_iqr_sum_ratio": 0.5105561190541553,
+      "status": "descriptive"
+    },
+    {
+      "arm": "free",
+      "coordinate_iqr_ratios": [
+        1.1959117419247243,
+        2.0070678208483246,
+        1.2049324034476432,
+        0.8439847197272184,
+        3.0571961433959385,
+        0.25067943906595713,
+        0.9083745386586658,
+        0.9572511621678483,
+        0.6904831491359686,
+        0.4076767213712959,
+        1.2854453041621494,
+        1.3363850663961934,
+        1.3736384583067216,
+        2.012867499648709,
+        0.8992178693648882,
+        1.0032670322950792,
+        0.619772368940687,
+        0.5896959596067498,
+        1.6401724939823483,
+        1.0017972556589234,
+        0.4913308162791682,
+        0.6195225880761251,
+        0.5589685624834513,
+        0.5216036157202639,
+        1.5326212490718059,
+        0.4403671744626567,
+        0.5789781437105366,
+        0.46194578638527384,
+        1.7106115826862833,
+        1.433990848906975,
+        0.8984728412546086
+      ],
+      "coverage_k3": 0.375,
+      "energy_distance": 1.7722754776955716,
+      "generated_ids": [
+        "n:built01:r00:free",
+        "n:built02:r00:free",
+        "n:built03:r00:free",
+        "n:built04:r00:free",
+        "n:built05:r00:free",
+        "n:built06:r00:free",
+        "n:built07:r00:free",
+        "n:built08:r00:free",
+        "n:land01:r00:free",
+        "n:land02:r00:free",
+        "n:land03:r00:free",
+        "n:land04:r00:free",
+        "n:land05:r00:free",
+        "n:land06:r00:free",
+        "n:land07:r00:free",
+        "n:land08:r00:free",
+        "n:water01:r00:free",
+        "n:water02:r00:free",
+        "n:water03:r00:free",
+        "n:water04:r00:free",
+        "n:water05:r00:free",
+        "n:water06:r00:free",
+        "n:water07:r00:free",
+        "n:water08:r00:free"
+      ],
+      "generated_n": 24,
+      "generated_weight_effective_size": 18.044052863436125,
+      "generated_weights": [
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875
+      ],
+      "original_n": 32,
+      "original_weight_effective_size": 32.0,
+      "painter_id": "paul_cezanne",
+      "pipeline": "primary512",
+      "population_variance_ratio": 0.751218386183425,
+      "reference_ids": [
+        "wikidata:Q119122440",
+        "wikidata:Q22337850",
+        "wikidata:Q64374464",
+        "wikidata:Q91932567",
+        "wikidata:Q79889845",
+        "wikidata:Q108187503",
+        "wikidata:Q64212455",
+        "wikidata:Q123469396",
+        "wikidata:Q64364677",
+        "wikidata:Q20198272",
+        "wikidata:Q64355195",
+        "wikidata:Q64370842",
+        "wikidata:Q3821663",
+        "wikidata:Q28126494",
+        "wikidata:Q135208928",
+        "wikidata:Q94637082",
+        "wikidata:Q124156637",
+        "wikidata:Q28126472",
+        "wikidata:Q28039709",
+        "wikidata:Q64244598",
+        "wikidata:Q79161263",
+        "wikidata:Q108479438",
+        "wikidata:Q64366377",
+        "wikidata:Q64319425",
+        "wikidata:Q87842510",
+        "wikidata:Q20190070",
+        "wikidata:Q20879001",
+        "wikidata:Q28126470",
+        "wikidata:Q63670617",
+        "wikidata:Q3984602",
+        "wikidata:Q63870916",
+        "wikidata:Q135088199"
+      ],
+      "sample_variance_ratio": null,
+      "squared_iqr_sum_ratio": 0.9391513395058385,
+      "status": "descriptive"
+    },
+    {
+      "arm": "monet",
+      "coordinate_iqr_ratios": [
+        0.9575147193890956,
+        1.0036202738796989,
+        0.8718087608181745,
+        0.6344569951480772,
+        2.298283872234423,
+        0.12289503300779367,
+        0.4521104799548966,
+        1.4094239544691902,
+        1.0867154729141413,
+        0.34614459715902385,
+        0.7778834468337165,
+        1.0085490155100614,
+        1.8084250519795824,
+        1.2721159446788186,
+        0.6297428420338888,
+        0.9048168262993884,
+        0.6894266296690463,
+        0.5983517073171499,
+        1.0782884573450437,
+        0.5728704393869857,
+        0.42858892489335015,
+        0.6775635272042183,
+        0.7084201938692001,
+        0.4683925007911615,
+        0.7665523579453203,
+        0.34391013005008547,
+        0.2951692677977422,
+        0.37446351173149817,
+        0.8893167784652867,
+        0.755557322506327,
+        0.4903147242856493
+      ],
+      "coverage_k3": 0.34375,
+      "energy_distance": 2.58825849172365,
+      "generated_ids": [
+        "n:built01:r00:monet",
+        "n:built02:r00:monet",
+        "n:built03:r00:monet",
+        "n:built04:r00:monet",
+        "n:built05:r00:monet",
+        "n:built06:r00:monet",
+        "n:built07:r00:monet",
+        "n:built08:r00:monet",
+        "n:land01:r00:monet",
+        "n:land02:r00:monet",
+        "n:land03:r00:monet",
+        "n:land04:r00:monet",
+        "n:land05:r00:monet",
+        "n:land06:r00:monet",
+        "n:land07:r00:monet",
+        "n:land08:r00:monet",
+        "n:water01:r00:monet",
+        "n:water02:r00:monet",
+        "n:water03:r00:monet",
+        "n:water04:r00:monet",
+        "n:water05:r00:monet",
+        "n:water06:r00:monet",
+        "n:water07:r00:monet",
+        "n:water08:r00:monet"
+      ],
+      "generated_n": 24,
+      "generated_weight_effective_size": 18.044052863436125,
+      "generated_weights": [
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875
+      ],
+      "original_n": 32,
+      "original_weight_effective_size": 32.0,
+      "painter_id": "paul_cezanne",
+      "pipeline": "primary512",
+      "population_variance_ratio": 0.3689580253544825,
+      "reference_ids": [
+        "wikidata:Q119122440",
+        "wikidata:Q22337850",
+        "wikidata:Q64374464",
+        "wikidata:Q91932567",
+        "wikidata:Q79889845",
+        "wikidata:Q108187503",
+        "wikidata:Q64212455",
+        "wikidata:Q123469396",
+        "wikidata:Q64364677",
+        "wikidata:Q20198272",
+        "wikidata:Q64355195",
+        "wikidata:Q64370842",
+        "wikidata:Q3821663",
+        "wikidata:Q28126494",
+        "wikidata:Q135208928",
+        "wikidata:Q94637082",
+        "wikidata:Q124156637",
+        "wikidata:Q28126472",
+        "wikidata:Q28039709",
+        "wikidata:Q64244598",
+        "wikidata:Q79161263",
+        "wikidata:Q108479438",
+        "wikidata:Q64366377",
+        "wikidata:Q64319425",
+        "wikidata:Q87842510",
+        "wikidata:Q20190070",
+        "wikidata:Q20879001",
+        "wikidata:Q28126470",
+        "wikidata:Q63670617",
+        "wikidata:Q3984602",
+        "wikidata:Q63870916",
+        "wikidata:Q135088199"
+      ],
+      "sample_variance_ratio": null,
+      "squared_iqr_sum_ratio": 0.5592382762331936,
+      "status": "descriptive"
+    },
+    {
+      "arm": "cezanne",
+      "coordinate_iqr_ratios": [
+        0.8673510032223748,
+        0.24711092402914045,
+        1.090444008289083,
+        0.715280413420273,
+        1.8868179234146663,
+        0.41280989849018757,
+        0.5256079905182085,
+        1.2873750746593469,
+        1.0653839916145929,
+        0.36289579462966387,
+        1.210482276987649,
+        0.610577939750838,
+        0.8684487258333076,
+        1.106737737036922,
+        0.7662168043110739,
+        1.0104011029990076,
+        0.44535147379983514,
+        0.8011944935532732,
+        1.5069694168722716,
+        0.8647949572157567,
+        0.5104661677189231,
+        0.5069191956513073,
+        0.5098235636009902,
+        0.256532396372261,
+        0.656069721495363,
+        0.3741316707480328,
+        0.23508327939175858,
+        0.37876730532137887,
+        1.3518533540024438,
+        1.409078819706379,
+        0.7355214840588168
+      ],
+      "coverage_k3": 0.71875,
+      "energy_distance": 0.8202514455907286,
+      "generated_ids": [
+        "n:built01:r00:cezanne",
+        "n:built02:r00:cezanne",
+        "n:built03:r00:cezanne",
+        "n:built04:r00:cezanne",
+        "n:built05:r00:cezanne",
+        "n:built06:r00:cezanne",
+        "n:built07:r00:cezanne",
+        "n:built08:r00:cezanne",
+        "n:land01:r00:cezanne",
+        "n:land02:r00:cezanne",
+        "n:land03:r00:cezanne",
+        "n:land04:r00:cezanne",
+        "n:land05:r00:cezanne",
+        "n:land06:r00:cezanne",
+        "n:land07:r00:cezanne",
+        "n:land08:r00:cezanne",
+        "n:water01:r00:cezanne",
+        "n:water02:r00:cezanne",
+        "n:water03:r00:cezanne",
+        "n:water04:r00:cezanne",
+        "n:water05:r00:cezanne",
+        "n:water06:r00:cezanne",
+        "n:water07:r00:cezanne",
+        "n:water08:r00:cezanne"
+      ],
+      "generated_n": 24,
+      "generated_weight_effective_size": 18.044052863436125,
+      "generated_weights": [
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875
+      ],
+      "original_n": 32,
+      "original_weight_effective_size": 32.0,
+      "painter_id": "paul_cezanne",
+      "pipeline": "primary512",
+      "population_variance_ratio": 0.5525783320924282,
+      "reference_ids": [
+        "wikidata:Q119122440",
+        "wikidata:Q22337850",
+        "wikidata:Q64374464",
+        "wikidata:Q91932567",
+        "wikidata:Q79889845",
+        "wikidata:Q108187503",
+        "wikidata:Q64212455",
+        "wikidata:Q123469396",
+        "wikidata:Q64364677",
+        "wikidata:Q20198272",
+        "wikidata:Q64355195",
+        "wikidata:Q64370842",
+        "wikidata:Q3821663",
+        "wikidata:Q28126494",
+        "wikidata:Q135208928",
+        "wikidata:Q94637082",
+        "wikidata:Q124156637",
+        "wikidata:Q28126472",
+        "wikidata:Q28039709",
+        "wikidata:Q64244598",
+        "wikidata:Q79161263",
+        "wikidata:Q108479438",
+        "wikidata:Q64366377",
+        "wikidata:Q64319425",
+        "wikidata:Q87842510",
+        "wikidata:Q20190070",
+        "wikidata:Q20879001",
+        "wikidata:Q28126470",
+        "wikidata:Q63670617",
+        "wikidata:Q3984602",
+        "wikidata:Q63870916",
+        "wikidata:Q135088199"
+      ],
+      "sample_variance_ratio": null,
+      "squared_iqr_sum_ratio": 0.5985097732547949,
+      "status": "descriptive"
+    },
+    {
+      "arm": "free",
+      "coordinate_iqr_ratios": [
+        1.1501620491807525,
+        2.033906325493907,
+        1.2037807648325916,
+        0.8275814046396957,
+        3.0186247201040732,
+        0.24856459486543472,
+        0.949622416190421,
+        0.9554716821444127,
+        0.6118757261818573,
+        0.43862319210043293,
+        1.3201945565691489,
+        1.1385562200072188,
+        0.9001425478575286,
+        2.000654902178392,
+        0.9740512059578182,
+        1.4056603553571951,
+        0.5571038636061884,
+        0.6758127638224202,
+        1.303515386741665,
+        0.6071711314240751,
+        0.6567353027661059,
+        0.6912630302447254,
+        0.7645491832972011,
+        0.7283732472433921,
+        0.8295747736565592,
+        1.0255806403997862,
+        0.8636274567125596,
+        0.7790588124113634,
+        1.5964406389067765,
+        1.4449686713788616,
+        0.886661247324485
+      ],
+      "coverage_k3": 0.34375,
+      "energy_distance": 1.9397035636584903,
+      "generated_ids": [
+        "n:built01:r00:free",
+        "n:built02:r00:free",
+        "n:built03:r00:free",
+        "n:built04:r00:free",
+        "n:built05:r00:free",
+        "n:built06:r00:free",
+        "n:built07:r00:free",
+        "n:built08:r00:free",
+        "n:land01:r00:free",
+        "n:land02:r00:free",
+        "n:land03:r00:free",
+        "n:land04:r00:free",
+        "n:land05:r00:free",
+        "n:land06:r00:free",
+        "n:land07:r00:free",
+        "n:land08:r00:free",
+        "n:water01:r00:free",
+        "n:water02:r00:free",
+        "n:water03:r00:free",
+        "n:water04:r00:free",
+        "n:water05:r00:free",
+        "n:water06:r00:free",
+        "n:water07:r00:free",
+        "n:water08:r00:free"
+      ],
+      "generated_n": 24,
+      "generated_weight_effective_size": 18.044052863436125,
+      "generated_weights": [
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875
+      ],
+      "original_n": 32,
+      "original_weight_effective_size": 32.0,
+      "painter_id": "paul_cezanne",
+      "pipeline": "resolution256",
+      "population_variance_ratio": 0.8093717371268349,
+      "reference_ids": [
+        "wikidata:Q119122440",
+        "wikidata:Q22337850",
+        "wikidata:Q64374464",
+        "wikidata:Q91932567",
+        "wikidata:Q79889845",
+        "wikidata:Q108187503",
+        "wikidata:Q64212455",
+        "wikidata:Q123469396",
+        "wikidata:Q64364677",
+        "wikidata:Q20198272",
+        "wikidata:Q64355195",
+        "wikidata:Q64370842",
+        "wikidata:Q3821663",
+        "wikidata:Q28126494",
+        "wikidata:Q135208928",
+        "wikidata:Q94637082",
+        "wikidata:Q124156637",
+        "wikidata:Q28126472",
+        "wikidata:Q28039709",
+        "wikidata:Q64244598",
+        "wikidata:Q79161263",
+        "wikidata:Q108479438",
+        "wikidata:Q64366377",
+        "wikidata:Q64319425",
+        "wikidata:Q87842510",
+        "wikidata:Q20190070",
+        "wikidata:Q20879001",
+        "wikidata:Q28126470",
+        "wikidata:Q63670617",
+        "wikidata:Q3984602",
+        "wikidata:Q63870916",
+        "wikidata:Q135088199"
+      ],
+      "sample_variance_ratio": null,
+      "squared_iqr_sum_ratio": 1.0069822899113428,
+      "status": "descriptive"
+    },
+    {
+      "arm": "monet",
+      "coordinate_iqr_ratios": [
+        0.9122079589991567,
+        1.0598731183339154,
+        0.8887226426213827,
+        0.6346611819116124,
+        2.25872086404685,
+        0.14299860235589884,
+        0.5656012130682766,
+        1.491865039831505,
+        0.8738075364197644,
+        0.3520779866228241,
+        0.965587795615595,
+        1.298293911594187,
+        1.0211492121579353,
+        1.2809728253091957,
+        0.5967379149047419,
+        1.126383883209228,
+        0.5871736812707644,
+        0.5023240076107689,
+        0.7910868318414835,
+        0.4765480027596353,
+        0.7175355418495494,
+        0.8743201182897019,
+        0.5704170073105476,
+        0.5229663108641661,
+        0.8630355470656257,
+        0.6773808720755908,
+        0.5773114597768326,
+        0.38646662277990973,
+        0.9127018101793191,
+        0.7454192585469926,
+        0.5088150189753095
+      ],
+      "coverage_k3": 0.21875,
+      "energy_distance": 3.0815371580618565,
+      "generated_ids": [
+        "n:built01:r00:monet",
+        "n:built02:r00:monet",
+        "n:built03:r00:monet",
+        "n:built04:r00:monet",
+        "n:built05:r00:monet",
+        "n:built06:r00:monet",
+        "n:built07:r00:monet",
+        "n:built08:r00:monet",
+        "n:land01:r00:monet",
+        "n:land02:r00:monet",
+        "n:land03:r00:monet",
+        "n:land04:r00:monet",
+        "n:land05:r00:monet",
+        "n:land06:r00:monet",
+        "n:land07:r00:monet",
+        "n:land08:r00:monet",
+        "n:water01:r00:monet",
+        "n:water02:r00:monet",
+        "n:water03:r00:monet",
+        "n:water04:r00:monet",
+        "n:water05:r00:monet",
+        "n:water06:r00:monet",
+        "n:water07:r00:monet",
+        "n:water08:r00:monet"
+      ],
+      "generated_n": 24,
+      "generated_weight_effective_size": 18.044052863436125,
+      "generated_weights": [
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875
+      ],
+      "original_n": 32,
+      "original_weight_effective_size": 32.0,
+      "painter_id": "paul_cezanne",
+      "pipeline": "resolution256",
+      "population_variance_ratio": 0.4042740759030242,
+      "reference_ids": [
+        "wikidata:Q119122440",
+        "wikidata:Q22337850",
+        "wikidata:Q64374464",
+        "wikidata:Q91932567",
+        "wikidata:Q79889845",
+        "wikidata:Q108187503",
+        "wikidata:Q64212455",
+        "wikidata:Q123469396",
+        "wikidata:Q64364677",
+        "wikidata:Q20198272",
+        "wikidata:Q64355195",
+        "wikidata:Q64370842",
+        "wikidata:Q3821663",
+        "wikidata:Q28126494",
+        "wikidata:Q135208928",
+        "wikidata:Q94637082",
+        "wikidata:Q124156637",
+        "wikidata:Q28126472",
+        "wikidata:Q28039709",
+        "wikidata:Q64244598",
+        "wikidata:Q79161263",
+        "wikidata:Q108479438",
+        "wikidata:Q64366377",
+        "wikidata:Q64319425",
+        "wikidata:Q87842510",
+        "wikidata:Q20190070",
+        "wikidata:Q20879001",
+        "wikidata:Q28126470",
+        "wikidata:Q63670617",
+        "wikidata:Q3984602",
+        "wikidata:Q63870916",
+        "wikidata:Q135088199"
+      ],
+      "sample_variance_ratio": null,
+      "squared_iqr_sum_ratio": 0.6456795271437572,
+      "status": "descriptive"
+    },
+    {
+      "arm": "cezanne",
+      "coordinate_iqr_ratios": [
+        0.8504954424798536,
+        0.32224988741917715,
+        1.0842130899487072,
+        0.6562472877185956,
+        1.8550534770310603,
+        0.4223430540588154,
+        0.5519667749643808,
+        1.3272066878023703,
+        0.9382607383667158,
+        0.3554687957436685,
+        1.4167912098810707,
+        0.7347112120253246,
+        0.7676938757313794,
+        1.0962550481685382,
+        0.7516097261241603,
+        1.180778438631362,
+        0.4319812804743495,
+        0.8751651065624978,
+        1.3746327262689813,
+        0.5349971142664246,
+        0.5424884008289574,
+        0.6397081152941471,
+        0.5199168589484396,
+        0.2399661515678511,
+        0.47274938647587916,
+        1.2674778515370557,
+        0.5678731487441294,
+        0.8619892548664064,
+        1.449353083166705,
+        1.4793506720201037,
+        0.7545350010202634
+      ],
+      "coverage_k3": 0.5625,
+      "energy_distance": 0.8133513939463715,
+      "generated_ids": [
+        "n:built01:r00:cezanne",
+        "n:built02:r00:cezanne",
+        "n:built03:r00:cezanne",
+        "n:built04:r00:cezanne",
+        "n:built05:r00:cezanne",
+        "n:built06:r00:cezanne",
+        "n:built07:r00:cezanne",
+        "n:built08:r00:cezanne",
+        "n:land01:r00:cezanne",
+        "n:land02:r00:cezanne",
+        "n:land03:r00:cezanne",
+        "n:land04:r00:cezanne",
+        "n:land05:r00:cezanne",
+        "n:land06:r00:cezanne",
+        "n:land07:r00:cezanne",
+        "n:land08:r00:cezanne",
+        "n:water01:r00:cezanne",
+        "n:water02:r00:cezanne",
+        "n:water03:r00:cezanne",
+        "n:water04:r00:cezanne",
+        "n:water05:r00:cezanne",
+        "n:water06:r00:cezanne",
+        "n:water07:r00:cezanne",
+        "n:water08:r00:cezanne"
+      ],
+      "generated_n": 24,
+      "generated_weight_effective_size": 18.044052863436125,
+      "generated_weights": [
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875
+      ],
+      "original_n": 32,
+      "original_weight_effective_size": 32.0,
+      "painter_id": "paul_cezanne",
+      "pipeline": "resolution256",
+      "population_variance_ratio": 0.5931038817215232,
+      "reference_ids": [
+        "wikidata:Q119122440",
+        "wikidata:Q22337850",
+        "wikidata:Q64374464",
+        "wikidata:Q91932567",
+        "wikidata:Q79889845",
+        "wikidata:Q108187503",
+        "wikidata:Q64212455",
+        "wikidata:Q123469396",
+        "wikidata:Q64364677",
+        "wikidata:Q20198272",
+        "wikidata:Q64355195",
+        "wikidata:Q64370842",
+        "wikidata:Q3821663",
+        "wikidata:Q28126494",
+        "wikidata:Q135208928",
+        "wikidata:Q94637082",
+        "wikidata:Q124156637",
+        "wikidata:Q28126472",
+        "wikidata:Q28039709",
+        "wikidata:Q64244598",
+        "wikidata:Q79161263",
+        "wikidata:Q108479438",
+        "wikidata:Q64366377",
+        "wikidata:Q64319425",
+        "wikidata:Q87842510",
+        "wikidata:Q20190070",
+        "wikidata:Q20879001",
+        "wikidata:Q28126470",
+        "wikidata:Q63670617",
+        "wikidata:Q3984602",
+        "wikidata:Q63870916",
+        "wikidata:Q135088199"
+      ],
+      "sample_variance_ratio": null,
+      "squared_iqr_sum_ratio": 0.7214594974320631,
+      "status": "descriptive"
+    },
+    {
+      "arm": "free",
+      "coordinate_iqr_ratios": [
+        1.1870688532750542,
+        2.0108287187388862,
+        1.1384062857777029,
+        0.7665270504095179,
+        3.210811964994602,
+        0.2647446371194729,
+        0.9396735345206984,
+        0.9328488537683203,
+        0.5976271200614217,
+        0.44686556260260407,
+        1.2087901284693228,
+        1.2374345310216328,
+        1.4821926227560616,
+        2.0298605790355415,
+        0.9947863520265674,
+        1.004223357415872,
+        0.630123764147162,
+        0.6189958368521353,
+        1.625134895125298,
+        1.0421524730611202,
+        0.5174634286984376,
+        0.6164418586559608,
+        0.5594799322420058,
+        0.5201581295120654,
+        1.4139639829982036,
+        0.3175333863097989,
+        0.5296967994942315,
+        0.4405420512967646,
+        1.6299482654611794,
+        1.3386347146208029,
+        0.9048409354814894
+      ],
+      "coverage_k3": 0.375,
+      "energy_distance": 1.7829935117041886,
+      "generated_ids": [
+        "n:built01:r00:free",
+        "n:built02:r00:free",
+        "n:built03:r00:free",
+        "n:built04:r00:free",
+        "n:built05:r00:free",
+        "n:built06:r00:free",
+        "n:built07:r00:free",
+        "n:built08:r00:free",
+        "n:land01:r00:free",
+        "n:land02:r00:free",
+        "n:land03:r00:free",
+        "n:land04:r00:free",
+        "n:land05:r00:free",
+        "n:land06:r00:free",
+        "n:land07:r00:free",
+        "n:land08:r00:free",
+        "n:water01:r00:free",
+        "n:water02:r00:free",
+        "n:water03:r00:free",
+        "n:water04:r00:free",
+        "n:water05:r00:free",
+        "n:water06:r00:free",
+        "n:water07:r00:free",
+        "n:water08:r00:free"
+      ],
+      "generated_n": 24,
+      "generated_weight_effective_size": 18.044052863436125,
+      "generated_weights": [
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875
+      ],
+      "original_n": 32,
+      "original_weight_effective_size": 32.0,
+      "painter_id": "paul_cezanne",
+      "pipeline": "jpeg90_512",
+      "population_variance_ratio": 0.6881250059274462,
+      "reference_ids": [
+        "wikidata:Q119122440",
+        "wikidata:Q22337850",
+        "wikidata:Q64374464",
+        "wikidata:Q91932567",
+        "wikidata:Q79889845",
+        "wikidata:Q108187503",
+        "wikidata:Q64212455",
+        "wikidata:Q123469396",
+        "wikidata:Q64364677",
+        "wikidata:Q20198272",
+        "wikidata:Q64355195",
+        "wikidata:Q64370842",
+        "wikidata:Q3821663",
+        "wikidata:Q28126494",
+        "wikidata:Q135208928",
+        "wikidata:Q94637082",
+        "wikidata:Q124156637",
+        "wikidata:Q28126472",
+        "wikidata:Q28039709",
+        "wikidata:Q64244598",
+        "wikidata:Q79161263",
+        "wikidata:Q108479438",
+        "wikidata:Q64366377",
+        "wikidata:Q64319425",
+        "wikidata:Q87842510",
+        "wikidata:Q20190070",
+        "wikidata:Q20879001",
+        "wikidata:Q28126470",
+        "wikidata:Q63670617",
+        "wikidata:Q3984602",
+        "wikidata:Q63870916",
+        "wikidata:Q135088199"
+      ],
+      "sample_variance_ratio": null,
+      "squared_iqr_sum_ratio": 0.9080571396953118,
+      "status": "descriptive"
+    },
+    {
+      "arm": "monet",
+      "coordinate_iqr_ratios": [
+        0.9617193317921944,
+        0.9895799323555544,
+        0.8422894305106111,
+        0.6002447859739473,
+        1.930948921565252,
+        0.08931426948849663,
+        0.4783346864015331,
+        1.5189642770095857,
+        1.0473395061984387,
+        0.3295188977301175,
+        0.8810382824629368,
+        0.9630068046507542,
+        1.94112696447016,
+        1.2685048437675268,
+        0.7009008461267305,
+        0.9131300001766605,
+        0.7114567613805859,
+        0.5868787939762458,
+        0.8811917682756302,
+        0.6081406940038284,
+        0.4456160754072919,
+        0.6643372950315303,
+        0.7078325835983389,
+        0.4569115781748195,
+        0.7056549170247927,
+        0.3945904901904005,
+        0.42778418306014226,
+        0.38646485301394046,
+        0.8864758188053273,
+        0.7255919044224005,
+        0.4982462886357772
+      ],
+      "coverage_k3": 0.3125,
+      "energy_distance": 2.6748727005664383,
+      "generated_ids": [
+        "n:built01:r00:monet",
+        "n:built02:r00:monet",
+        "n:built03:r00:monet",
+        "n:built04:r00:monet",
+        "n:built05:r00:monet",
+        "n:built06:r00:monet",
+        "n:built07:r00:monet",
+        "n:built08:r00:monet",
+        "n:land01:r00:monet",
+        "n:land02:r00:monet",
+        "n:land03:r00:monet",
+        "n:land04:r00:monet",
+        "n:land05:r00:monet",
+        "n:land06:r00:monet",
+        "n:land07:r00:monet",
+        "n:land08:r00:monet",
+        "n:water01:r00:monet",
+        "n:water02:r00:monet",
+        "n:water03:r00:monet",
+        "n:water04:r00:monet",
+        "n:water05:r00:monet",
+        "n:water06:r00:monet",
+        "n:water07:r00:monet",
+        "n:water08:r00:monet"
+      ],
+      "generated_n": 24,
+      "generated_weight_effective_size": 18.044052863436125,
+      "generated_weights": [
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875
+      ],
+      "original_n": 32,
+      "original_weight_effective_size": 32.0,
+      "painter_id": "paul_cezanne",
+      "pipeline": "jpeg90_512",
+      "population_variance_ratio": 0.33883227589072085,
+      "reference_ids": [
+        "wikidata:Q119122440",
+        "wikidata:Q22337850",
+        "wikidata:Q64374464",
+        "wikidata:Q91932567",
+        "wikidata:Q79889845",
+        "wikidata:Q108187503",
+        "wikidata:Q64212455",
+        "wikidata:Q123469396",
+        "wikidata:Q64364677",
+        "wikidata:Q20198272",
+        "wikidata:Q64355195",
+        "wikidata:Q64370842",
+        "wikidata:Q3821663",
+        "wikidata:Q28126494",
+        "wikidata:Q135208928",
+        "wikidata:Q94637082",
+        "wikidata:Q124156637",
+        "wikidata:Q28126472",
+        "wikidata:Q28039709",
+        "wikidata:Q64244598",
+        "wikidata:Q79161263",
+        "wikidata:Q108479438",
+        "wikidata:Q64366377",
+        "wikidata:Q64319425",
+        "wikidata:Q87842510",
+        "wikidata:Q20190070",
+        "wikidata:Q20879001",
+        "wikidata:Q28126470",
+        "wikidata:Q63670617",
+        "wikidata:Q3984602",
+        "wikidata:Q63870916",
+        "wikidata:Q135088199"
+      ],
+      "sample_variance_ratio": null,
+      "squared_iqr_sum_ratio": 0.5610497194132879,
+      "status": "descriptive"
+    },
+    {
+      "arm": "cezanne",
+      "coordinate_iqr_ratios": [
+        0.8729527439304807,
+        0.2550361274706847,
+        0.9879579757775403,
+        0.5279084810669397,
+        2.1639451457178978,
+        0.47209977106113354,
+        0.6646467284971651,
+        1.163067205516801,
+        1.0416656524464625,
+        0.3001559887599046,
+        1.1753636488312367,
+        0.5767439670879632,
+        0.9428896182126877,
+        1.1094234763336472,
+        0.8361837875045401,
+        1.0125960488155634,
+        0.4745790415732114,
+        0.8283452285804552,
+        1.4734137659479771,
+        0.9305883699123298,
+        0.5183040341934162,
+        0.5004603340601314,
+        0.509568569327381,
+        0.3119899661892424,
+        0.7832793004597585,
+        0.39487502251939116,
+        0.2969588487143764,
+        0.37347589537624926,
+        1.3378141505800936,
+        1.3307838400022804,
+        0.7507826139940891
+      ],
+      "coverage_k3": 0.625,
+      "energy_distance": 0.8270330476056529,
+      "generated_ids": [
+        "n:built01:r00:cezanne",
+        "n:built02:r00:cezanne",
+        "n:built03:r00:cezanne",
+        "n:built04:r00:cezanne",
+        "n:built05:r00:cezanne",
+        "n:built06:r00:cezanne",
+        "n:built07:r00:cezanne",
+        "n:built08:r00:cezanne",
+        "n:land01:r00:cezanne",
+        "n:land02:r00:cezanne",
+        "n:land03:r00:cezanne",
+        "n:land04:r00:cezanne",
+        "n:land05:r00:cezanne",
+        "n:land06:r00:cezanne",
+        "n:land07:r00:cezanne",
+        "n:land08:r00:cezanne",
+        "n:water01:r00:cezanne",
+        "n:water02:r00:cezanne",
+        "n:water03:r00:cezanne",
+        "n:water04:r00:cezanne",
+        "n:water05:r00:cezanne",
+        "n:water06:r00:cezanne",
+        "n:water07:r00:cezanne",
+        "n:water08:r00:cezanne"
+      ],
+      "generated_n": 24,
+      "generated_weight_effective_size": 18.044052863436125,
+      "generated_weights": [
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.04296875,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.0703125,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875,
+        0.01171875
+      ],
+      "original_n": 32,
+      "original_weight_effective_size": 32.0,
+      "painter_id": "paul_cezanne",
+      "pipeline": "jpeg90_512",
+      "population_variance_ratio": 0.5051660307797949,
+      "reference_ids": [
+        "wikidata:Q119122440",
+        "wikidata:Q22337850",
+        "wikidata:Q64374464",
+        "wikidata:Q91932567",
+        "wikidata:Q79889845",
+        "wikidata:Q108187503",
+        "wikidata:Q64212455",
+        "wikidata:Q123469396",
+        "wikidata:Q64364677",
+        "wikidata:Q20198272",
+        "wikidata:Q64355195",
+        "wikidata:Q64370842",
+        "wikidata:Q3821663",
+        "wikidata:Q28126494",
+        "wikidata:Q135208928",
+        "wikidata:Q94637082",
+        "wikidata:Q124156637",
+        "wikidata:Q28126472",
+        "wikidata:Q28039709",
+        "wikidata:Q64244598",
+        "wikidata:Q79161263",
+        "wikidata:Q108479438",
+        "wikidata:Q64366377",
+        "wikidata:Q64319425",
+        "wikidata:Q87842510",
+        "wikidata:Q20190070",
+        "wikidata:Q20879001",
+        "wikidata:Q28126470",
+        "wikidata:Q63670617",
+        "wikidata:Q3984602",
+        "wikidata:Q63870916",
+        "wikidata:Q135088199"
+      ],
+      "sample_variance_ratio": null,
+      "squared_iqr_sum_ratio": 0.6036635021295786,
+      "status": "descriptive"
+    }
+  ],
+  "historical": {
+    "caveat": "Old FLUX has 72 outputs per painter/arm; new counts and shared controls change finite-sample V-energy behavior and dependence. Magnitudes are descriptive comparisons, not a formal old/new equality test.",
+    "naming": [
+      {
+        "estimate": "-0.6246466296754083",
+        "holm_p": "8e-05",
+        "painter_id": "claude_monet",
+        "pairs": "72",
+        "raw_p": "1e-05"
+      },
+      {
+        "estimate": "-0.8955934771671753",
+        "holm_p": "8e-05",
+        "painter_id": "paul_cezanne",
+        "pairs": "72",
+        "raw_p": "1e-05"
+      }
+    ],
+    "palette": [
+      {
+        "contrast": "monet_minus_generic",
+        "estimate": "-0.28436771515521886",
+        "family_interval": "[-0.5847146068230691, 0.01597917651263131]",
+        "inference_status": "approximate_model_based",
+        "nominal_interval": "[-0.5415728341218076, -0.02716259618863015]",
+        "p_holm": "0.06485704743323234",
+        "p_two_sided": "0.03242852371661617",
+        "reject_holm": "False",
+        "standard_error": "0.12084101713054927",
+        "template_estimates": "[-0.287842521063415, -0.18126284404820558, -0.7782223994068427, -0.31405372384345864, -0.07507066761047232, -0.0697541349589188]",
+        "welch_df": "15.245940829798052"
+      },
+      {
+        "contrast": "cezanne_minus_generic",
+        "estimate": "-0.01772092687727252",
+        "family_interval": "[-0.3430563970054997, 0.3076145432509547]",
+        "inference_status": "approximate_model_based",
+        "nominal_interval": "[-0.2928645408492572, 0.2574226870947122]",
+        "p_holm": "0.8886367891440512",
+        "p_two_sided": "0.8886367891440512",
+        "reject_holm": "False",
+        "standard_error": "0.12334204666629008",
+        "template_estimates": "[0.32812958919386315, 0.2194773850040178, -0.24396744471470555, 0.09702170830927809, -0.20150424115538035, -0.3054825579007083]",
+        "welch_df": "9.914811109224507"
+      }
+    ]
+  },
+  "naming_contributions": [
+    {
+      "block_id": "n:built01:r00",
+      "block_order": 45,
+      "conditioned_third_id": "n:built01:r00:cezanne",
+      "conditioned_third_position": 2,
+      "contribution": -0.02254899027249777,
+      "endpoint": "naming_monet",
+      "free_id": "n:built01:r00:free",
+      "named_id": "n:built01:r00:monet",
+      "weight": 0.013157894736842105
+    },
+    {
+      "block_id": "n:built02:r00",
+      "block_order": 40,
+      "conditioned_third_id": "n:built02:r00:cezanne",
+      "conditioned_third_position": 0,
+      "contribution": -0.011225310352961287,
+      "endpoint": "naming_monet",
+      "free_id": "n:built02:r00:free",
+      "named_id": "n:built02:r00:monet",
+      "weight": 0.013157894736842105
+    },
+    {
+      "block_id": "n:built03:r00",
+      "block_order": 10,
+      "conditioned_third_id": "n:built03:r00:cezanne",
+      "conditioned_third_position": 2,
+      "contribution": -0.0008703848054436463,
+      "endpoint": "naming_monet",
+      "free_id": "n:built03:r00:free",
+      "named_id": "n:built03:r00:monet",
+      "weight": 0.013157894736842105
+    },
+    {
+      "block_id": "n:built04:r00",
+      "block_order": 41,
+      "conditioned_third_id": "n:built04:r00:cezanne",
+      "conditioned_third_position": 0,
+      "contribution": -0.011071763178790777,
+      "endpoint": "naming_monet",
+      "free_id": "n:built04:r00:free",
+      "named_id": "n:built04:r00:monet",
+      "weight": 0.013157894736842105
+    },
+    {
+      "block_id": "n:built05:r00",
+      "block_order": 38,
+      "conditioned_third_id": "n:built05:r00:cezanne",
+      "conditioned_third_position": 1,
+      "contribution": -0.01646972421414548,
+      "endpoint": "naming_monet",
+      "free_id": "n:built05:r00:free",
+      "named_id": "n:built05:r00:monet",
+      "weight": 0.013157894736842105
+    },
+    {
+      "block_id": "n:built06:r00",
+      "block_order": 21,
+      "conditioned_third_id": "n:built06:r00:cezanne",
+      "conditioned_third_position": 1,
+      "contribution": -0.018687221695153407,
+      "endpoint": "naming_monet",
+      "free_id": "n:built06:r00:free",
+      "named_id": "n:built06:r00:monet",
+      "weight": 0.013157894736842105
+    },
+    {
+      "block_id": "n:built07:r00",
+      "block_order": 23,
+      "conditioned_third_id": "n:built07:r00:cezanne",
+      "conditioned_third_position": 0,
+      "contribution": 0.0006098389464329319,
+      "endpoint": "naming_monet",
+      "free_id": "n:built07:r00:free",
+      "named_id": "n:built07:r00:monet",
+      "weight": 0.013157894736842105
+    },
+    {
+      "block_id": "n:built08:r00",
+      "block_order": 26,
+      "conditioned_third_id": "n:built08:r00:cezanne",
+      "conditioned_third_position": 0,
+      "contribution": -0.005520581685728268,
+      "endpoint": "naming_monet",
+      "free_id": "n:built08:r00:free",
+      "named_id": "n:built08:r00:monet",
+      "weight": 0.013157894736842105
+    },
+    {
+      "block_id": "n:land01:r00",
+      "block_order": 11,
+      "conditioned_third_id": "n:land01:r00:cezanne",
+      "conditioned_third_position": 1,
+      "contribution": -0.020761430119072957,
+      "endpoint": "naming_monet",
+      "free_id": "n:land01:r00:free",
+      "named_id": "n:land01:r00:monet",
+      "weight": 0.04276315789473684
+    },
+    {
+      "block_id": "n:land02:r00",
+      "block_order": 20,
+      "conditioned_third_id": "n:land02:r00:cezanne",
+      "conditioned_third_position": 1,
+      "contribution": -0.051146234776563555,
+      "endpoint": "naming_monet",
+      "free_id": "n:land02:r00:free",
+      "named_id": "n:land02:r00:monet",
+      "weight": 0.04276315789473684
+    },
+    {
+      "block_id": "n:land03:r00",
+      "block_order": 37,
+      "conditioned_third_id": "n:land03:r00:cezanne",
+      "conditioned_third_position": 0,
+      "contribution": -0.05343621488649803,
+      "endpoint": "naming_monet",
+      "free_id": "n:land03:r00:free",
+      "named_id": "n:land03:r00:monet",
+      "weight": 0.04276315789473684
+    },
+    {
+      "block_id": "n:land04:r00",
+      "block_order": 18,
+      "conditioned_third_id": "n:land04:r00:cezanne",
+      "conditioned_third_position": 1,
+      "contribution": -0.05851199059050066,
+      "endpoint": "naming_monet",
+      "free_id": "n:land04:r00:free",
+      "named_id": "n:land04:r00:monet",
+      "weight": 0.04276315789473684
+    },
+    {
+      "block_id": "n:land05:r00",
+      "block_order": 13,
+      "conditioned_third_id": "n:land05:r00:cezanne",
+      "conditioned_third_position": 0,
+      "contribution": -0.012764449281279138,
+      "endpoint": "naming_monet",
+      "free_id": "n:land05:r00:free",
+      "named_id": "n:land05:r00:monet",
+      "weight": 0.04276315789473684
+    },
+    {
+      "block_id": "n:land06:r00",
+      "block_order": 33,
+      "conditioned_third_id": "n:land06:r00:cezanne",
+      "conditioned_third_position": 1,
+      "contribution": -0.025571238936269412,
+      "endpoint": "naming_monet",
+      "free_id": "n:land06:r00:free",
+      "named_id": "n:land06:r00:monet",
+      "weight": 0.04276315789473684
+    },
+    {
+      "block_id": "n:land07:r00",
+      "block_order": 36,
+      "conditioned_third_id": "n:land07:r00:cezanne",
+      "conditioned_third_position": 1,
+      "contribution": -0.014981960261666533,
+      "endpoint": "naming_monet",
+      "free_id": "n:land07:r00:free",
+      "named_id": "n:land07:r00:monet",
+      "weight": 0.04276315789473684
+    },
+    {
+      "block_id": "n:land08:r00",
+      "block_order": 19,
+      "conditioned_third_id": "n:land08:r00:cezanne",
+      "conditioned_third_position": 1,
+      "contribution": -0.047631977736099014,
+      "endpoint": "naming_monet",
+      "free_id": "n:land08:r00:free",
+      "named_id": "n:land08:r00:monet",
+      "weight": 0.04276315789473684
+    },
+    {
+      "block_id": "n:water01:r00",
+      "block_order": 25,
+      "conditioned_third_id": "n:water01:r00:cezanne",
+      "conditioned_third_position": 1,
+      "contribution": -0.09177698618689725,
+      "endpoint": "naming_monet",
+      "free_id": "n:water01:r00:free",
+      "named_id": "n:water01:r00:monet",
+      "weight": 0.06907894736842106
+    },
+    {
+      "block_id": "n:water02:r00",
+      "block_order": 47,
+      "conditioned_third_id": "n:water02:r00:cezanne",
+      "conditioned_third_position": 2,
+      "contribution": -0.08631140270077428,
+      "endpoint": "naming_monet",
+      "free_id": "n:water02:r00:free",
+      "named_id": "n:water02:r00:monet",
+      "weight": 0.06907894736842106
+    },
+    {
+      "block_id": "n:water03:r00",
+      "block_order": 15,
+      "conditioned_third_id": "n:water03:r00:cezanne",
+      "conditioned_third_position": 0,
+      "contribution": 0.013061908576974408,
+      "endpoint": "naming_monet",
+      "free_id": "n:water03:r00:free",
+      "named_id": "n:water03:r00:monet",
+      "weight": 0.06907894736842106
+    },
+    {
+      "block_id": "n:water04:r00",
+      "block_order": 24,
+      "conditioned_third_id": "n:water04:r00:cezanne",
+      "conditioned_third_position": 0,
+      "contribution": -0.042607920870163095,
+      "endpoint": "naming_monet",
+      "free_id": "n:water04:r00:free",
+      "named_id": "n:water04:r00:monet",
+      "weight": 0.06907894736842106
+    },
+    {
+      "block_id": "n:water05:r00",
+      "block_order": 35,
+      "conditioned_third_id": "n:water05:r00:cezanne",
+      "conditioned_third_position": 0,
+      "contribution": -0.004619944540614488,
+      "endpoint": "naming_monet",
+      "free_id": "n:water05:r00:free",
+      "named_id": "n:water05:r00:monet",
+      "weight": 0.06907894736842106
+    },
+    {
+      "block_id": "n:water06:r00",
+      "block_order": 29,
+      "conditioned_third_id": "n:water06:r00:cezanne",
+      "conditioned_third_position": 2,
+      "contribution": -0.013082374485303368,
+      "endpoint": "naming_monet",
+      "free_id": "n:water06:r00:free",
+      "named_id": "n:water06:r00:monet",
+      "weight": 0.06907894736842106
+    },
+    {
+      "block_id": "n:water07:r00",
+      "block_order": 31,
+      "conditioned_third_id": "n:water07:r00:cezanne",
+      "conditioned_third_position": 0,
+      "contribution": -0.07597025497062543,
+      "endpoint": "naming_monet",
+      "free_id": "n:water07:r00:free",
+      "named_id": "n:water07:r00:monet",
+      "weight": 0.06907894736842106
+    },
+    {
+      "block_id": "n:water08:r00",
+      "block_order": 16,
+      "conditioned_third_id": "n:water08:r00:cezanne",
+      "conditioned_third_position": 2,
+      "contribution": -0.02321131429046995,
+      "endpoint": "naming_monet",
+      "free_id": "n:water08:r00:free",
+      "named_id": "n:water08:r00:monet",
+      "weight": 0.06907894736842106
+    },
+    {
+      "block_id": "n:built01:r00",
+      "block_order": 45,
+      "conditioned_third_id": "n:built01:r00:monet",
+      "conditioned_third_position": 0,
+      "contribution": -0.08769856541862855,
+      "endpoint": "naming_cezanne",
+      "free_id": "n:built01:r00:free",
+      "named_id": "n:built01:r00:cezanne",
+      "weight": 0.04296875
+    },
+    {
+      "block_id": "n:built02:r00",
+      "block_order": 40,
+      "conditioned_third_id": "n:built02:r00:monet",
+      "conditioned_third_position": 1,
+      "contribution": -0.05583887377429571,
+      "endpoint": "naming_cezanne",
+      "free_id": "n:built02:r00:free",
+      "named_id": "n:built02:r00:cezanne",
+      "weight": 0.04296875
+    },
+    {
+      "block_id": "n:built03:r00",
+      "block_order": 10,
+      "conditioned_third_id": "n:built03:r00:monet",
+      "conditioned_third_position": 1,
+      "contribution": -0.022623304106662037,
+      "endpoint": "naming_cezanne",
+      "free_id": "n:built03:r00:free",
+      "named_id": "n:built03:r00:cezanne",
+      "weight": 0.04296875
+    },
+    {
+      "block_id": "n:built04:r00",
+      "block_order": 41,
+      "conditioned_third_id": "n:built04:r00:monet",
+      "conditioned_third_position": 1,
+      "contribution": -0.06814042519436163,
+      "endpoint": "naming_cezanne",
+      "free_id": "n:built04:r00:free",
+      "named_id": "n:built04:r00:cezanne",
+      "weight": 0.04296875
+    },
+    {
+      "block_id": "n:built05:r00",
+      "block_order": 38,
+      "conditioned_third_id": "n:built05:r00:monet",
+      "conditioned_third_position": 0,
+      "contribution": -0.04130376978592968,
+      "endpoint": "naming_cezanne",
+      "free_id": "n:built05:r00:free",
+      "named_id": "n:built05:r00:cezanne",
+      "weight": 0.04296875
+    },
+    {
+      "block_id": "n:built06:r00",
+      "block_order": 21,
+      "conditioned_third_id": "n:built06:r00:monet",
+      "conditioned_third_position": 0,
+      "contribution": -0.07662306575875055,
+      "endpoint": "naming_cezanne",
+      "free_id": "n:built06:r00:free",
+      "named_id": "n:built06:r00:cezanne",
+      "weight": 0.04296875
+    },
+    {
+      "block_id": "n:built07:r00",
+      "block_order": 23,
+      "conditioned_third_id": "n:built07:r00:monet",
+      "conditioned_third_position": 1,
+      "contribution": -0.05620764193492561,
+      "endpoint": "naming_cezanne",
+      "free_id": "n:built07:r00:free",
+      "named_id": "n:built07:r00:cezanne",
+      "weight": 0.04296875
+    },
+    {
+      "block_id": "n:built08:r00",
+      "block_order": 26,
+      "conditioned_third_id": "n:built08:r00:monet",
+      "conditioned_third_position": 2,
+      "contribution": -0.012196387840460364,
+      "endpoint": "naming_cezanne",
+      "free_id": "n:built08:r00:free",
+      "named_id": "n:built08:r00:cezanne",
+      "weight": 0.04296875
+    },
+    {
+      "block_id": "n:land01:r00",
+      "block_order": 11,
+      "conditioned_third_id": "n:land01:r00:monet",
+      "conditioned_third_position": 0,
+      "contribution": -0.058537146182951014,
+      "endpoint": "naming_cezanne",
+      "free_id": "n:land01:r00:free",
+      "named_id": "n:land01:r00:cezanne",
+      "weight": 0.0703125
+    },
+    {
+      "block_id": "n:land02:r00",
+      "block_order": 20,
+      "conditioned_third_id": "n:land02:r00:monet",
+      "conditioned_third_position": 2,
+      "contribution": -0.017981656909144147,
+      "endpoint": "naming_cezanne",
+      "free_id": "n:land02:r00:free",
+      "named_id": "n:land02:r00:cezanne",
+      "weight": 0.0703125
+    },
+    {
+      "block_id": "n:land03:r00",
+      "block_order": 37,
+      "conditioned_third_id": "n:land03:r00:monet",
+      "conditioned_third_position": 2,
+      "contribution": -0.07146215550690199,
+      "endpoint": "naming_cezanne",
+      "free_id": "n:land03:r00:free",
+      "named_id": "n:land03:r00:cezanne",
+      "weight": 0.0703125
+    },
+    {
+      "block_id": "n:land04:r00",
+      "block_order": 18,
+      "conditioned_third_id": "n:land04:r00:monet",
+      "conditioned_third_position": 2,
+      "contribution": -0.0904767477210487,
+      "endpoint": "naming_cezanne",
+      "free_id": "n:land04:r00:free",
+      "named_id": "n:land04:r00:cezanne",
+      "weight": 0.0703125
+    },
+    {
+      "block_id": "n:land05:r00",
+      "block_order": 13,
+      "conditioned_third_id": "n:land05:r00:monet",
+      "conditioned_third_position": 2,
+      "contribution": -0.03647063336798892,
+      "endpoint": "naming_cezanne",
+      "free_id": "n:land05:r00:free",
+      "named_id": "n:land05:r00:cezanne",
+      "weight": 0.0703125
+    },
+    {
+      "block_id": "n:land06:r00",
+      "block_order": 33,
+      "conditioned_third_id": "n:land06:r00:monet",
+      "conditioned_third_position": 2,
+      "contribution": -0.041661243947485035,
+      "endpoint": "naming_cezanne",
+      "free_id": "n:land06:r00:free",
+      "named_id": "n:land06:r00:cezanne",
+      "weight": 0.0703125
+    },
+    {
+      "block_id": "n:land07:r00",
+      "block_order": 36,
+      "conditioned_third_id": "n:land07:r00:monet",
+      "conditioned_third_position": 0,
+      "contribution": -0.062403436753785804,
+      "endpoint": "naming_cezanne",
+      "free_id": "n:land07:r00:free",
+      "named_id": "n:land07:r00:cezanne",
+      "weight": 0.0703125
+    },
+    {
+      "block_id": "n:land08:r00",
+      "block_order": 19,
+      "conditioned_third_id": "n:land08:r00:monet",
+      "conditioned_third_position": 2,
+      "contribution": -0.07891945166397697,
+      "endpoint": "naming_cezanne",
+      "free_id": "n:land08:r00:free",
+      "named_id": "n:land08:r00:cezanne",
+      "weight": 0.0703125
+    },
+    {
+      "block_id": "n:water01:r00",
+      "block_order": 25,
+      "conditioned_third_id": "n:water01:r00:monet",
+      "conditioned_third_position": 0,
+      "contribution": -0.013452931136824796,
+      "endpoint": "naming_cezanne",
+      "free_id": "n:water01:r00:free",
+      "named_id": "n:water01:r00:cezanne",
+      "weight": 0.01171875
+    },
+    {
+      "block_id": "n:water02:r00",
+      "block_order": 47,
+      "conditioned_third_id": "n:water02:r00:monet",
+      "conditioned_third_position": 0,
+      "contribution": -0.0008851101566862002,
+      "endpoint": "naming_cezanne",
+      "free_id": "n:water02:r00:free",
+      "named_id": "n:water02:r00:cezanne",
+      "weight": 0.01171875
+    },
+    {
+      "block_id": "n:water03:r00",
+      "block_order": 15,
+      "conditioned_third_id": "n:water03:r00:monet",
+      "conditioned_third_position": 1,
+      "contribution": -0.015309402011599582,
+      "endpoint": "naming_cezanne",
+      "free_id": "n:water03:r00:free",
+      "named_id": "n:water03:r00:cezanne",
+      "weight": 0.01171875
+    },
+    {
+      "block_id": "n:water04:r00",
+      "block_order": 24,
+      "conditioned_third_id": "n:water04:r00:monet",
+      "conditioned_third_position": 1,
+      "contribution": -0.011704147377744695,
+      "endpoint": "naming_cezanne",
+      "free_id": "n:water04:r00:free",
+      "named_id": "n:water04:r00:cezanne",
+      "weight": 0.01171875
+    },
+    {
+      "block_id": "n:water05:r00",
+      "block_order": 35,
+      "conditioned_third_id": "n:water05:r00:monet",
+      "conditioned_third_position": 1,
+      "contribution": -0.007487665210946598,
+      "endpoint": "naming_cezanne",
+      "free_id": "n:water05:r00:free",
+      "named_id": "n:water05:r00:cezanne",
+      "weight": 0.01171875
+    },
+    {
+      "block_id": "n:water06:r00",
+      "block_order": 29,
+      "conditioned_third_id": "n:water06:r00:monet",
+      "conditioned_third_position": 1,
+      "contribution": -0.012376231480074405,
+      "endpoint": "naming_cezanne",
+      "free_id": "n:water06:r00:free",
+      "named_id": "n:water06:r00:cezanne",
+      "weight": 0.01171875
+    },
+    {
+      "block_id": "n:water07:r00",
+      "block_order": 31,
+      "conditioned_third_id": "n:water07:r00:monet",
+      "conditioned_third_position": 2,
+      "contribution": -0.010520636094572655,
+      "endpoint": "naming_cezanne",
+      "free_id": "n:water07:r00:free",
+      "named_id": "n:water07:r00:cezanne",
+      "weight": 0.01171875
+    },
+    {
+      "block_id": "n:water08:r00",
+      "block_order": 16,
+      "conditioned_third_id": "n:water08:r00:monet",
+      "conditioned_third_position": 0,
+      "contribution": -0.0017434027690949871,
+      "endpoint": "naming_cezanne",
+      "free_id": "n:water08:r00:free",
+      "named_id": "n:water08:r00:cezanne",
+      "weight": 0.01171875
+    }
+  ],
+  "palette": {
+    "jpeg90_512": {
+      "alpha": 0.05,
+      "arm_means": [
+        {
+          "arm": "free",
+          "mean": -0.22068468383819373,
+          "polarity": "muted",
+          "weighting": "equal templates; available outputs within template"
+        },
+        {
+          "arm": "free",
+          "mean": 3.106759676417932,
+          "polarity": "vivid",
+          "weighting": "equal templates; available outputs within template"
+        },
+        {
+          "arm": "generic",
+          "mean": 0.11081090259267651,
+          "polarity": "muted",
+          "weighting": "equal templates; available outputs within template"
+        },
+        {
+          "arm": "generic",
+          "mean": 2.5939885096782684,
+          "polarity": "vivid",
+          "weighting": "equal templates; available outputs within template"
+        },
+        {
+          "arm": "monet",
+          "mean": -0.6123302646620451,
+          "polarity": "muted",
+          "weighting": "equal templates; available outputs within template"
+        },
+        {
+          "arm": "monet",
+          "mean": 1.708517172173859,
+          "polarity": "vivid",
+          "weighting": "equal templates; available outputs within template"
+        },
+        {
+          "arm": "cezanne",
+          "mean": -0.1531743799976927,
+          "polarity": "muted",
+          "weighting": "equal templates; available outputs within template"
+        },
+        {
+          "arm": "cezanne",
+          "mean": 2.3509827919475588,
+          "polarity": "vivid",
+          "weighting": "equal templates; available outputs within template"
+        }
+      ],
+      "assumptions": [
+        "Conditional on the six fixed templates and their equal weights; no new-scene inference.",
+        "Independent replicate blocks with stable within-template distributions; block-common additive disturbances cancel in the response interactions.",
+        "Welch–Satterthwaite t inference is approximate, including under non-Gaussian noise; randomized dispatch does not make a weak zero-interaction test exact.",
+        "The two primary intervals use Bonferroni allocation of the family alpha. Holm-adjusted two-sided p-values are reported separately.",
+        "Any unavailable planned measurement withholds primary inference. Complete-block survivor summaries cannot identify the originally allocated response effect."
+      ],
+      "availability": [
+        {
+          "allocated": 24,
+          "arm": "free",
+          "measured": 24,
+          "polarity": "muted",
+          "statuses": {
+            "measured": 24
+          }
+        },
+        {
+          "allocated": 24,
+          "arm": "free",
+          "measured": 24,
+          "polarity": "vivid",
+          "statuses": {
+            "measured": 24
+          }
+        },
+        {
+          "allocated": 24,
+          "arm": "generic",
+          "measured": 24,
+          "polarity": "muted",
+          "statuses": {
+            "measured": 24
+          }
+        },
+        {
+          "allocated": 24,
+          "arm": "generic",
+          "measured": 24,
+          "polarity": "vivid",
+          "statuses": {
+            "measured": 24
+          }
+        },
+        {
+          "allocated": 24,
+          "arm": "monet",
+          "measured": 24,
+          "polarity": "muted",
+          "statuses": {
+            "measured": 24
+          }
+        },
+        {
+          "allocated": 24,
+          "arm": "monet",
+          "measured": 24,
+          "polarity": "vivid",
+          "statuses": {
+            "measured": 24
+          }
+        },
+        {
+          "allocated": 24,
+          "arm": "cezanne",
+          "measured": 24,
+          "polarity": "muted",
+          "statuses": {
+            "measured": 24
+          }
+        },
+        {
+          "allocated": 24,
+          "arm": "cezanne",
+          "measured": 24,
+          "polarity": "vivid",
+          "statuses": {
+            "measured": 24
+          }
+        }
+      ],
+      "cells": [
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": -0.14417872589602604,
+          "polarity": "muted",
+          "template_id": "built_houses",
+          "values": [
+            -0.20563264136901196,
+            -0.09030731288384547,
+            0.013482569115796183,
+            -0.29425751844704295
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": 2.929502153149688,
+          "polarity": "vivid",
+          "template_id": "built_houses",
+          "values": [
+            2.678002827642544,
+            2.817789637059021,
+            3.064889277028255,
+            3.157326870868932
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": 0.1459569260337957,
+          "polarity": "muted",
+          "template_id": "built_houses",
+          "values": [
+            0.048028258175278976,
+            0.183123051985959,
+            0.07264520278483717,
+            0.2800311911891077
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": 2.6185436478940587,
+          "polarity": "vivid",
+          "template_id": "built_houses",
+          "values": [
+            2.7422445882831674,
+            2.6464452938763485,
+            2.5879471834576044,
+            2.497537525959114
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": -0.42592717086136633,
+          "polarity": "muted",
+          "template_id": "built_houses",
+          "values": [
+            -0.4122842554821081,
+            -0.41997273737843166,
+            -0.4283468483318628,
+            -0.4431048422530629
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": 1.8294629105080125,
+          "polarity": "vivid",
+          "template_id": "built_houses",
+          "values": [
+            1.865011989327417,
+            1.896515198775064,
+            1.6412324867082584,
+            1.9150919672213103
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": -0.10055239681775933,
+          "polarity": "muted",
+          "template_id": "built_houses",
+          "values": [
+            -0.3342431503040546,
+            0.07546836480089414,
+            -0.0823444295835531,
+            -0.06109037218432376
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": 2.3534720055977876,
+          "polarity": "vivid",
+          "template_id": "built_houses",
+          "values": [
+            2.408583831237417,
+            2.7507231984724223,
+            2.0188551726919903,
+            2.235725819989321
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": -0.1426081005869274,
+          "polarity": "muted",
+          "template_id": "built_village",
+          "values": [
+            -0.19933957629880497,
+            -0.009672302830650535,
+            -0.23417357450383908,
+            -0.12724694871441505
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": 2.540179309154011,
+          "polarity": "vivid",
+          "template_id": "built_village",
+          "values": [
+            2.1146732455288206,
+            2.501840629197249,
+            2.7923791458452225,
+            2.751824216044752
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": 0.08417466514584375,
+          "polarity": "muted",
+          "template_id": "built_village",
+          "values": [
+            0.29360681527858684,
+            0.04893581251216276,
+            -0.04716730466378707,
+            0.04132333745641243
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": 2.3293218413613404,
+          "polarity": "vivid",
+          "template_id": "built_village",
+          "values": [
+            2.531614563811464,
+            2.6587795959067275,
+            2.301933457208112,
+            1.8249597485190576
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": -0.4184850493776513,
+          "polarity": "muted",
+          "template_id": "built_village",
+          "values": [
+            -0.2828993236382999,
+            -0.4878137415904664,
+            -0.5191200164230889,
+            -0.3841071158587499
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": 1.3925808697652131,
+          "polarity": "vivid",
+          "template_id": "built_village",
+          "values": [
+            1.3064713745368832,
+            1.047363952955027,
+            1.4868328559029642,
+            1.7296552956659783
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": -0.10053685859542191,
+          "polarity": "muted",
+          "template_id": "built_village",
+          "values": [
+            -0.22969380524001062,
+            -0.0019219614628281448,
+            -0.24600003247974306,
+            0.07546836480089414
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": 2.289350632326882,
+          "polarity": "vivid",
+          "template_id": "built_village",
+          "values": [
+            2.996838336439427,
+            1.9714902333938147,
+            2.3422532995269387,
+            1.846820659947349
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": 0.030691098618527993,
+          "polarity": "muted",
+          "template_id": "land_fields",
+          "values": [
+            0.03259055510433191,
+            -0.19254361122645408,
+            0.4641453622462797,
+            -0.18142791165004557
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": 4.631455167388862,
+          "polarity": "vivid",
+          "template_id": "land_fields",
+          "values": [
+            4.780511592622514,
+            4.35263618168937,
+            5.081441063823759,
+            4.311231831419805
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": 0.48512411381680004,
+          "polarity": "muted",
+          "template_id": "land_fields",
+          "values": [
+            0.24129816480178165,
+            0.22376680557035128,
+            0.8877092335111163,
+            0.5877222513839511
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": 4.198038868204257,
+          "polarity": "vivid",
+          "template_id": "land_fields",
+          "values": [
+            4.1003807030202735,
+            4.214541420321786,
+            4.07429732335142,
+            4.402936026123551
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": -0.5548022574230691,
+          "polarity": "muted",
+          "template_id": "land_fields",
+          "values": [
+            -0.6388093941138363,
+            -0.44160308543559773,
+            -0.7935491829521631,
+            -0.3452473671906791
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": 2.661636987920895,
+          "polarity": "vivid",
+          "template_id": "land_fields",
+          "values": [
+            2.5585515503254825,
+            2.6858188464067174,
+            2.512125743546553,
+            2.8900518114048275
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": 0.3053549213728472,
+          "polarity": "muted",
+          "template_id": "land_fields",
+          "values": [
+            -0.02991421414884777,
+            0.43393961624188887,
+            0.5151884369903268,
+            0.30220584640802084
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": 3.2613393631608334,
+          "polarity": "vivid",
+          "template_id": "land_fields",
+          "values": [
+            3.6227574735931296,
+            3.569661545075529,
+            2.700873061299277,
+            3.152065372675398
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": -0.04132393522370044,
+          "polarity": "muted",
+          "template_id": "land_garden",
+          "values": [
+            -0.23319043900734715,
+            0.017531948817985143,
+            0.06982697089997927,
+            -0.01946422160541902
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": 2.6934398337230467,
+          "polarity": "vivid",
+          "template_id": "land_garden",
+          "values": [
+            2.740663862081957,
+            2.943468766170458,
+            2.570884822760369,
+            2.518741883879402
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": 0.07905137491817824,
+          "polarity": "muted",
+          "template_id": "land_garden",
+          "values": [
+            -0.1251317741013655,
+            0.07920631329148857,
+            0.30271869284201813,
+            0.05941226764057172
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": 2.0008099318223063,
+          "polarity": "vivid",
+          "template_id": "land_garden",
+          "values": [
+            1.9274087722872173,
+            2.476981115013697,
+            1.9037561259409868,
+            1.6950937140473235
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": -0.4579540170983302,
+          "polarity": "muted",
+          "template_id": "land_garden",
+          "values": [
+            -0.3446941910575097,
+            -0.47562751654734897,
+            -0.5864917529573452,
+            -0.4250026078311169
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": 1.3484479862375205,
+          "polarity": "vivid",
+          "template_id": "land_garden",
+          "values": [
+            1.244544371731924,
+            1.2987478610585521,
+            1.6180538225661654,
+            1.2324458895934407
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": 0.04034889776231631,
+          "polarity": "muted",
+          "template_id": "land_garden",
+          "values": [
+            0.06577526918600633,
+            -0.011759296188291666,
+            0.1559537992205541,
+            -0.04857418116900356
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": 2.235557806535377,
+          "polarity": "vivid",
+          "template_id": "land_garden",
+          "values": [
+            2.0719463547264483,
+            2.090186496016802,
+            2.0739659500234113,
+            2.7061324253748475
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": -0.5360995514760435,
+          "polarity": "muted",
+          "template_id": "water_bend",
+          "values": [
+            -0.6854825419338795,
+            -0.4943325424189485,
+            -0.6419786496778044,
+            -0.3226044718735415
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": 3.1669508578416803,
+          "polarity": "vivid",
+          "template_id": "water_bend",
+          "values": [
+            2.682899529501941,
+            3.412967235173879,
+            3.5885786481656945,
+            2.9833580185252058
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": -0.025296868029021626,
+          "polarity": "muted",
+          "template_id": "water_bend",
+          "values": [
+            -0.03990057780542443,
+            0.07351620984647082,
+            -0.15322599668920436,
+            0.018422892532071466
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": 2.3950131139160797,
+          "polarity": "vivid",
+          "template_id": "water_bend",
+          "values": [
+            2.2350992272101853,
+            2.06271585623265,
+            2.7895083173719835,
+            2.492729054849501
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": -0.8729613483971383,
+          "polarity": "muted",
+          "template_id": "water_bend",
+          "values": [
+            -0.9537291151071207,
+            -0.9819958808577599,
+            -0.8700110213220305,
+            -0.6861093763016426
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": 1.6241440110344236,
+          "polarity": "vivid",
+          "template_id": "water_bend",
+          "values": [
+            1.7401413555281788,
+            1.9441863923159959,
+            1.3040794193754883,
+            1.5081688769180317
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": -0.45984417499721686,
+          "polarity": "muted",
+          "template_id": "water_bend",
+          "values": [
+            -0.20988685226807652,
+            -0.5766247122401341,
+            -0.46954542508975494,
+            -0.5833197103909019
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": 2.194203529232462,
+          "polarity": "vivid",
+          "template_id": "water_bend",
+          "values": [
+            2.136698734027,
+            1.873813537033583,
+            2.4925684721503325,
+            2.273733373718933
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": -0.4905888884649928,
+          "polarity": "muted",
+          "template_id": "water_river",
+          "values": [
+            -0.08947101128146762,
+            -0.69936726987348,
+            -0.47798291455048014,
+            -0.6955343581545438
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": 2.6790307372503035,
+          "polarity": "vivid",
+          "template_id": "water_river",
+          "values": [
+            2.8531150181090537,
+            2.7066273247807136,
+            2.310555887218784,
+            2.845824718892663
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": -0.10414479632953696,
+          "polarity": "muted",
+          "template_id": "water_river",
+          "values": [
+            0.00523969851871105,
+            -0.34978890066772383,
+            0.06954955465276004,
+            -0.1415795378218951
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": 2.0222036548715687,
+          "polarity": "vivid",
+          "template_id": "water_river",
+          "values": [
+            2.3318378979467775,
+            2.303248047370958,
+            1.6197988670243926,
+            1.8339298071441468
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": -0.943851744814715,
+          "polarity": "muted",
+          "template_id": "water_river",
+          "values": [
+            -0.8324926829240542,
+            -1.0519503183121572,
+            -1.048716918590247,
+            -0.8422470594324017
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": 1.3948302675770905,
+          "polarity": "vivid",
+          "template_id": "water_river",
+          "values": [
+            1.5276116809190323,
+            1.1728741976178914,
+            1.5531617667669266,
+            1.3256734250045117
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": -0.6038166687109218,
+          "polarity": "muted",
+          "template_id": "water_river",
+          "values": [
+            -0.5775520880842776,
+            -0.4267100575348573,
+            -0.7067084051241174,
+            -0.7042961241004347
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": 1.7719734148320103,
+          "polarity": "vivid",
+          "template_id": "water_river",
+          "values": [
+            1.5941765183530405,
+            1.8172157961928042,
+            1.6868990181868595,
+            1.9896023265953373
+          ]
+        }
+      ],
+      "complete_blocks_by_template": {
+        "built_houses": 4,
+        "built_village": 4,
+        "land_fields": 4,
+        "land_garden": 4,
+        "water_bend": 4,
+        "water_river": 4
+      },
+      "design": {
+        "blocks": 24,
+        "repetitions": 4,
+        "requests": 192,
+        "templates": [
+          "built_houses",
+          "built_village",
+          "land_fields",
+          "land_garden",
+          "water_bend",
+          "water_river"
+        ]
+      },
+      "family_interval_target_coverage": 0.95,
+      "generic_minus_free": [
+        {
+          "contrast": "generic_minus_free",
+          "estimate": -0.8442667531705336,
+          "inference_status": "approximate_model_based",
+          "nominal_interval": [
+            -1.0300679746892014,
+            -0.6584655316518657
+          ],
+          "standard_error": 0.08722403185598193,
+          "template_estimates": [
+            -0.6010941571854512,
+            -0.4376402335254418,
+            -0.8878493143828765,
+            -0.813005212042619,
+            -1.2827404273726217,
+            -1.043271174514191
+          ],
+          "welch_df": 15.1049107163668
+        }
+      ],
+      "interpretation": "An attenuation claim additionally requires a positive generic response, a functioning free-arm manipulation, no named-arm response reversal, and reference/perceptual validation. Failed or uncertain checks exclude no output.",
+      "manipulation_checks": [
+        {
+          "arm": "free",
+          "estimate": 3.3274443602561257,
+          "margin": 0,
+          "point_response_reversed": false,
+          "status": "nominal_interval_above_margin"
+        },
+        {
+          "arm": "generic",
+          "estimate": 2.483177607085592,
+          "margin": 0,
+          "point_response_reversed": false,
+          "status": "nominal_interval_above_margin"
+        },
+        {
+          "arm": "monet",
+          "estimate": 2.320847436835904,
+          "margin": 0,
+          "point_response_reversed": false,
+          "status": "nominal_interval_above_margin"
+        },
+        {
+          "arm": "cezanne",
+          "estimate": 2.5041571719452516,
+          "margin": 0,
+          "point_response_reversed": false,
+          "status": "nominal_interval_above_margin"
+        }
+      ],
+      "manipulation_margin": 0,
+      "nominal_interval_coverage": 0.95,
+      "primary": [
+        {
+          "contrast": "monet_minus_generic",
+          "estimate": -0.16233017024968766,
+          "family_interval": [
+            -0.44665914016538216,
+            0.12199879966600685
+          ],
+          "inference_status": "approximate_model_based",
+          "nominal_interval": [
+            -0.40549896133638225,
+            0.08083862083700694
+          ],
+          "p_holm": 0.3492222996238838,
+          "p_two_sided": 0.1746111498119419,
+          "reject_holm": false,
+          "standard_error": 0.11367656611778068,
+          "template_estimates": [
+            -0.21719664049088416,
+            -0.4340812570726321,
+            -0.49647550904349314,
+            -0.11535655356827723,
+            0.07679537748646065,
+            0.21233356119069996
+          ],
+          "welch_df": 14.4060844046174
+        },
+        {
+          "contrast": "cezanne_minus_generic",
+          "estimate": 0.020979564859659572,
+          "family_interval": [
+            -0.23749115302355533,
+            0.2794502827428745
+          ],
+          "inference_status": "approximate_model_based",
+          "nominal_interval": [
+            -0.19926633550910217,
+            0.2412254652284213
+          ],
+          "p_holm": 0.8396411299748714,
+          "p_two_sided": 0.8396411299748714,
+          "reject_holm": false,
+          "standard_error": 0.10154331372686586,
+          "template_estimates": [
+            -0.01856231944471609,
+            0.14474031470680765,
+            -0.7569303125994712,
+            0.2734503518689331,
+            0.23373772228457762,
+            0.24944163234182642
+          ],
+          "welch_df": 12.510938941866662
+        }
+      ],
+      "primary_covariance": [
+        [
+          0.012922361684330162,
+          0.004508549055894392
+        ],
+        [
+          0.004508549055894392,
+          0.010311044562632703
+        ]
+      ],
+      "primary_family_size": 2,
+      "responses": [
+        {
+          "contrast": "free",
+          "estimate": 3.3274443602561257,
+          "inference_status": "approximate_model_based",
+          "nominal_interval": [
+            3.1908091631438897,
+            3.4640795573683616
+          ],
+          "standard_error": 0.06333765852193692,
+          "template_estimates": [
+            3.0736808790457144,
+            2.6827874097409383,
+            4.600764068770334,
+            2.734763768946747,
+            3.703050409317724,
+            3.1696196257152964
+          ],
+          "welch_df": 13.18749338918008
+        },
+        {
+          "contrast": "generic",
+          "estimate": 2.483177607085592,
+          "inference_status": "approximate_model_based",
+          "nominal_interval": [
+            2.323318502363474,
+            2.64303671180771
+          ],
+          "standard_error": 0.07519049998379237,
+          "template_estimates": [
+            2.472586721860263,
+            2.2451471762154966,
+            3.712914754387458,
+            1.9217585569041278,
+            2.4203099819451013,
+            2.1263484512011055
+          ],
+          "welch_df": 15.450054682027503
+        },
+        {
+          "contrast": "monet",
+          "estimate": 2.320847436835904,
+          "inference_status": "approximate_model_based",
+          "nominal_interval": [
+            2.2112120288946917,
+            2.4304828447771163
+          ],
+          "standard_error": 0.05000915605878419,
+          "template_estimates": [
+            2.255390081369379,
+            1.8110659191428644,
+            3.216439245343964,
+            1.8064020033358505,
+            2.497105359431562,
+            2.3386820123918057
+          ],
+          "welch_df": 11.368737466634963
+        },
+        {
+          "contrast": "cezanne",
+          "estimate": 2.5041571719452516,
+          "inference_status": "approximate_model_based",
+          "nominal_interval": [
+            2.305323957146246,
+            2.7029903867442573
+          ],
+          "standard_error": 0.0908571289806396,
+          "template_estimates": [
+            2.4540244024155466,
+            2.389887490922304,
+            2.955984441787986,
+            2.1952089087730613,
+            2.6540477042296793,
+            2.375790083542932
+          ],
+          "welch_df": 11.54310848057786
+        }
+      ],
+      "secondary_named_minus_free": [
+        {
+          "contrast": "monet_minus_free",
+          "estimate": -1.0065969234202214,
+          "inference_status": "approximate_model_based",
+          "nominal_interval": [
+            -1.1886106288406766,
+            -0.8245832179997664
+          ],
+          "standard_error": 0.0824041831104973,
+          "template_estimates": [
+            -0.8182907976763354,
+            -0.8717214905980739,
+            -1.3843248234263696,
+            -0.9283617656108961,
+            -1.2059450498861612,
+            -0.8309376133234909
+          ],
+          "welch_df": 10.690209024315644
+        },
+        {
+          "contrast": "cezanne_minus_free",
+          "estimate": -0.8232871883108738,
+          "inference_status": "approximate_model_based",
+          "nominal_interval": [
+            -1.0709651462629586,
+            -0.5756092303587891
+          ],
+          "standard_error": 0.11446751183338792,
+          "template_estimates": [
+            -0.6196564766301673,
+            -0.29289991881863414,
+            -1.6447796269823476,
+            -0.5395548601736858,
+            -1.0490027050880442,
+            -0.7938295421723645
+          ],
+          "welch_df": 12.80371168757868
+        }
+      ],
+      "status": "complete_grid_approximate_inference"
+    },
+    "primary512": {
+      "alpha": 0.05,
+      "arm_means": [
+        {
+          "arm": "free",
+          "mean": -0.2617938949467633,
+          "polarity": "muted",
+          "weighting": "equal templates; available outputs within template"
+        },
+        {
+          "arm": "free",
+          "mean": 3.17989815435012,
+          "polarity": "vivid",
+          "weighting": "equal templates; available outputs within template"
+        },
+        {
+          "arm": "generic",
+          "mean": 0.07770703808510707,
+          "polarity": "muted",
+          "weighting": "equal templates; available outputs within template"
+        },
+        {
+          "arm": "generic",
+          "mean": 2.6283374274141433,
+          "polarity": "vivid",
+          "weighting": "equal templates; available outputs within template"
+        },
+        {
+          "arm": "monet",
+          "mean": -0.6143952096157851,
+          "polarity": "muted",
+          "weighting": "equal templates; available outputs within template"
+        },
+        {
+          "arm": "monet",
+          "mean": 1.7775872865410733,
+          "polarity": "vivid",
+          "weighting": "equal templates; available outputs within template"
+        },
+        {
+          "arm": "cezanne",
+          "mean": -0.16398558580290618,
+          "polarity": "muted",
+          "weighting": "equal templates; available outputs within template"
+        },
+        {
+          "arm": "cezanne",
+          "mean": 2.423385600329968,
+          "polarity": "vivid",
+          "weighting": "equal templates; available outputs within template"
+        }
+      ],
+      "assumptions": [
+        "Conditional on the six fixed templates and their equal weights; no new-scene inference.",
+        "Independent replicate blocks with stable within-template distributions; block-common additive disturbances cancel in the response interactions.",
+        "Welch–Satterthwaite t inference is approximate, including under non-Gaussian noise; randomized dispatch does not make a weak zero-interaction test exact.",
+        "The two primary intervals use Bonferroni allocation of the family alpha. Holm-adjusted two-sided p-values are reported separately.",
+        "Any unavailable planned measurement withholds primary inference. Complete-block survivor summaries cannot identify the originally allocated response effect."
+      ],
+      "availability": [
+        {
+          "allocated": 24,
+          "arm": "free",
+          "measured": 24,
+          "polarity": "muted",
+          "statuses": {
+            "measured": 24
+          }
+        },
+        {
+          "allocated": 24,
+          "arm": "free",
+          "measured": 24,
+          "polarity": "vivid",
+          "statuses": {
+            "measured": 24
+          }
+        },
+        {
+          "allocated": 24,
+          "arm": "generic",
+          "measured": 24,
+          "polarity": "muted",
+          "statuses": {
+            "measured": 24
+          }
+        },
+        {
+          "allocated": 24,
+          "arm": "generic",
+          "measured": 24,
+          "polarity": "vivid",
+          "statuses": {
+            "measured": 24
+          }
+        },
+        {
+          "allocated": 24,
+          "arm": "monet",
+          "measured": 24,
+          "polarity": "muted",
+          "statuses": {
+            "measured": 24
+          }
+        },
+        {
+          "allocated": 24,
+          "arm": "monet",
+          "measured": 24,
+          "polarity": "vivid",
+          "statuses": {
+            "measured": 24
+          }
+        },
+        {
+          "allocated": 24,
+          "arm": "cezanne",
+          "measured": 24,
+          "polarity": "muted",
+          "statuses": {
+            "measured": 24
+          }
+        },
+        {
+          "allocated": 24,
+          "arm": "cezanne",
+          "measured": 24,
+          "polarity": "vivid",
+          "statuses": {
+            "measured": 24
+          }
+        }
+      ],
+      "cells": [
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": -0.18408561338944074,
+          "polarity": "muted",
+          "template_id": "built_houses",
+          "values": [
+            -0.251679087149476,
+            -0.13902218369123837,
+            -0.03212020481698612,
+            -0.3135209779000625
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": 2.9817398166866704,
+          "polarity": "vivid",
+          "template_id": "built_houses",
+          "values": [
+            2.678788474875035,
+            2.9103020588437203,
+            3.1250079911354804,
+            3.2128607418924453
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": 0.1163004703729888,
+          "polarity": "muted",
+          "template_id": "built_houses",
+          "values": [
+            0.016948068472280194,
+            0.15061675644051284,
+            0.032295199614553405,
+            0.2653418569646087
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": 2.64451691190749,
+          "polarity": "vivid",
+          "template_id": "built_houses",
+          "values": [
+            2.790147397812864,
+            2.6862999792644864,
+            2.5852398828001526,
+            2.5163803877524558
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": -0.4435986012936446,
+          "polarity": "muted",
+          "template_id": "built_houses",
+          "values": [
+            -0.4307735349185211,
+            -0.43696713592923747,
+            -0.44152180183529544,
+            -0.4651319324915243
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": 1.8673038773978747,
+          "polarity": "vivid",
+          "template_id": "built_houses",
+          "values": [
+            1.9276538573701338,
+            1.9118347386767427,
+            1.6634044005875392,
+            1.9663225129570832
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": -0.11824037358192875,
+          "polarity": "muted",
+          "template_id": "built_houses",
+          "values": [
+            -0.34175081825374715,
+            0.0670524372475501,
+            -0.10540204997492514,
+            -0.09286106334659282
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": 2.4158848060677105,
+          "polarity": "vivid",
+          "template_id": "built_houses",
+          "values": [
+            2.4594708855615135,
+            2.8269252043472513,
+            2.0965944076311547,
+            2.280548726730922
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": -0.195448654997624,
+          "polarity": "muted",
+          "template_id": "built_village",
+          "values": [
+            -0.24468692295141548,
+            -0.0681108446476684,
+            -0.28598141737731186,
+            -0.18301543501410036
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": 2.5895983583602042,
+          "polarity": "vivid",
+          "template_id": "built_village",
+          "values": [
+            2.1417412263902778,
+            2.553182940055248,
+            2.8866467486801004,
+            2.7768225183151913
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": 0.04885115819789336,
+          "polarity": "muted",
+          "template_id": "built_village",
+          "values": [
+            0.28331112338221615,
+            0.015555144720941076,
+            -0.09503003384770416,
+            -0.008431601463879616
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": 2.343631968060948,
+          "polarity": "vivid",
+          "template_id": "built_village",
+          "values": [
+            2.5310412511225184,
+            2.664384427756503,
+            2.306570932566248,
+            1.8725312607985218
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": -0.44184492155397764,
+          "polarity": "muted",
+          "template_id": "built_village",
+          "values": [
+            -0.31742554188062544,
+            -0.5033662490091437,
+            -0.5309608871415357,
+            -0.41562700818460585
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": 1.430984823002682,
+          "polarity": "vivid",
+          "template_id": "built_village",
+          "values": [
+            1.3627579137461903,
+            1.0891092661989028,
+            1.5256378899359013,
+            1.7464342221297335
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": -0.1190138324498008,
+          "polarity": "muted",
+          "template_id": "built_village",
+          "values": [
+            -0.25416389186923016,
+            -0.024598408000701722,
+            -0.2782753626538666,
+            0.08098233272459535
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": 2.35691668497876,
+          "polarity": "vivid",
+          "template_id": "built_village",
+          "values": [
+            3.068975418844796,
+            2.0341011474036232,
+            2.4206992808126313,
+            1.9038908928539893
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": -0.0013740068976919942,
+          "polarity": "muted",
+          "template_id": "land_fields",
+          "values": [
+            -0.0026881384865202903,
+            -0.2027475941966621,
+            0.3901753173116444,
+            -0.19023561221922997
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": 4.71591110417734,
+          "polarity": "vivid",
+          "template_id": "land_fields",
+          "values": [
+            4.851722384676328,
+            4.455810029959614,
+            5.200987114837048,
+            4.355124887236371
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": 0.4505366603994302,
+          "polarity": "muted",
+          "template_id": "land_fields",
+          "values": [
+            0.26604254148771395,
+            0.1580285554155401,
+            0.8285462491765365,
+            0.5495292955179304
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": 4.2282058073376145,
+          "polarity": "vivid",
+          "template_id": "land_fields",
+          "values": [
+            4.129096761122682,
+            4.229249484056451,
+            4.10151996003909,
+            4.452957024132234
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": -0.5627493580191568,
+          "polarity": "muted",
+          "template_id": "land_fields",
+          "values": [
+            -0.6650283494999926,
+            -0.46642097772968205,
+            -0.7781023272918299,
+            -0.34144577755512284
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": 2.692033040871513,
+          "polarity": "vivid",
+          "template_id": "land_fields",
+          "values": [
+            2.58187418277873,
+            2.7378216549759395,
+            2.5605081221937183,
+            2.887928203537666
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": 0.29572032290938177,
+          "polarity": "muted",
+          "template_id": "land_fields",
+          "values": [
+            -0.05126859217877365,
+            0.4359433576275652,
+            0.5074927177983118,
+            0.2907138083904238
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": 3.331479259720657,
+          "polarity": "vivid",
+          "template_id": "land_fields",
+          "values": [
+            3.690854575356579,
+            3.649370472284098,
+            2.7728193680464925,
+            3.212872623195457
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": -0.0887067926845015,
+          "polarity": "muted",
+          "template_id": "land_garden",
+          "values": [
+            -0.2572904108451339,
+            -0.04024301967189348,
+            0.01640444913371149,
+            -0.07369818935469014
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": 2.7467658990263315,
+          "polarity": "vivid",
+          "template_id": "land_garden",
+          "values": [
+            2.7945593194390916,
+            2.9971654292887884,
+            2.6242021814842738,
+            2.5711366658931736
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": 0.03992816804258741,
+          "polarity": "muted",
+          "template_id": "land_garden",
+          "values": [
+            -0.17123185541583472,
+            0.04641863533460707,
+            0.2820904806664557,
+            0.0024354115851215902
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": 2.024739496492445,
+          "polarity": "vivid",
+          "template_id": "land_garden",
+          "values": [
+            1.9720195161602723,
+            2.490186268001369,
+            1.9173647554059714,
+            1.7193874464021666
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": -0.4716616110347289,
+          "polarity": "muted",
+          "template_id": "land_garden",
+          "values": [
+            -0.3548018869892113,
+            -0.4761229991096799,
+            -0.6157328086040619,
+            -0.4399887494359626
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": 1.400087366181492,
+          "polarity": "vivid",
+          "template_id": "land_garden",
+          "values": [
+            1.2892949813689505,
+            1.3936857881588518,
+            1.7006570721930145,
+            1.2167116230051518
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": 0.029772837593755406,
+          "polarity": "muted",
+          "template_id": "land_garden",
+          "values": [
+            0.059417410003146494,
+            -0.02466269955946055,
+            0.13632740498413373,
+            -0.05199076505279805
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": 2.3065695565395106,
+          "polarity": "vivid",
+          "template_id": "land_garden",
+          "values": [
+            2.1260635463599495,
+            2.167520684481325,
+            2.18654974200512,
+            2.7461442533116487
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": -0.5775819459360976,
+          "polarity": "muted",
+          "template_id": "water_bend",
+          "values": [
+            -0.7130577215232958,
+            -0.5204736506727263,
+            -0.6932994100247025,
+            -0.3834970015236655
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": 3.2855426428816665,
+          "polarity": "vivid",
+          "template_id": "water_bend",
+          "values": [
+            2.7886842982198505,
+            3.5484015173908747,
+            3.716512823853735,
+            3.088571932062206
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": -0.05290308998861065,
+          "polarity": "muted",
+          "template_id": "water_bend",
+          "values": [
+            -0.06669278413339975,
+            0.04315622620305387,
+            -0.18499131314560696,
+            -0.0030844888784897907
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": 2.45588982710609,
+          "polarity": "vivid",
+          "template_id": "water_bend",
+          "values": [
+            2.316954366455586,
+            2.1252573720439707,
+            2.8659147401132605,
+            2.5154328298115414
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": -0.8556603020136216,
+          "polarity": "muted",
+          "template_id": "water_bend",
+          "values": [
+            -0.9210122896872264,
+            -0.9549543655201725,
+            -0.8681437140877596,
+            -0.6785308387593281
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": 1.7550611291702687,
+          "polarity": "vivid",
+          "template_id": "water_bend",
+          "values": [
+            1.8725251720982186,
+            2.056884181646188,
+            1.4384930104886255,
+            1.6523421524480422
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": -0.45886381527624154,
+          "polarity": "muted",
+          "template_id": "water_bend",
+          "values": [
+            -0.21251639093205774,
+            -0.5655414588574138,
+            -0.4713866066477579,
+            -0.5860108046677368
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": 2.298361999170316,
+          "polarity": "vivid",
+          "template_id": "water_bend",
+          "values": [
+            2.259502196513689,
+            1.954476078617312,
+            2.5854052972556625,
+            2.394064424294601
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": -0.5235663557752243,
+          "polarity": "muted",
+          "template_id": "water_river",
+          "values": [
+            -0.12847167216013602,
+            -0.7349716696454492,
+            -0.4968270709401299,
+            -0.7339950103551819
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": 2.7598311049685087,
+          "polarity": "vivid",
+          "template_id": "water_river",
+          "values": [
+            2.942942220365339,
+            2.7833703077717455,
+            2.3664911093452625,
+            2.9465207823916875
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": -0.13647113851364662,
+          "polarity": "muted",
+          "template_id": "water_river",
+          "values": [
+            -0.03874564791306387,
+            -0.3567471266829783,
+            0.022901371711486908,
+            -0.17329315117003125
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": 2.073040553580273,
+          "polarity": "vivid",
+          "template_id": "water_river",
+          "values": [
+            2.3957786039771802,
+            2.3556526443663555,
+            1.653009392362033,
+            1.8877215736155224
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": -0.9108564637795805,
+          "polarity": "muted",
+          "template_id": "water_river",
+          "values": [
+            -0.8192489457392534,
+            -0.9927416890115086,
+            -1.0056779824171886,
+            -0.8257572379503713
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": 1.520053482622611,
+          "polarity": "vivid",
+          "template_id": "water_river",
+          "values": [
+            1.620807126618846,
+            1.3352133077137285,
+            1.6677669346317032,
+            1.456426561526166
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": -0.6132886540126031,
+          "polarity": "muted",
+          "template_id": "water_river",
+          "values": [
+            -0.5881974009631105,
+            -0.44226059826458336,
+            -0.7169047921450812,
+            -0.7057918246776375
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": 1.8311012955028552,
+          "polarity": "vivid",
+          "template_id": "water_river",
+          "values": [
+            1.655866216502373,
+            1.8711967709198931,
+            1.7501602744004114,
+            2.047181920188743
+          ]
+        }
+      ],
+      "complete_blocks_by_template": {
+        "built_houses": 4,
+        "built_village": 4,
+        "land_fields": 4,
+        "land_garden": 4,
+        "water_bend": 4,
+        "water_river": 4
+      },
+      "design": {
+        "blocks": 24,
+        "repetitions": 4,
+        "requests": 192,
+        "templates": [
+          "built_houses",
+          "built_village",
+          "land_fields",
+          "land_garden",
+          "water_bend",
+          "water_river"
+        ]
+      },
+      "family_interval_target_coverage": 0.95,
+      "generic_minus_free": [
+        {
+          "contrast": "generic_minus_free",
+          "estimate": -0.8910616599678476,
+          "inference_status": "approximate_model_based",
+          "nominal_interval": [
+            -1.0778613076767711,
+            -0.704262012258924
+          ],
+          "standard_error": 0.08788529398953693,
+          "template_estimates": [
+            -0.63760898854161,
+            -0.49026620349477396,
+            -0.9396159641368481,
+            -0.8506613632609759,
+            -1.3543316717230636,
+            -1.0738857686498136
+          ],
+          "welch_df": 15.49851334888273
+        }
+      ],
+      "interpretation": "An attenuation claim additionally requires a positive generic response, a functioning free-arm manipulation, no named-arm response reversal, and reference/perceptual validation. Failed or uncertain checks exclude no output.",
+      "manipulation_checks": [
+        {
+          "arm": "free",
+          "estimate": 3.441692049296883,
+          "margin": 0,
+          "point_response_reversed": false,
+          "status": "nominal_interval_above_margin"
+        },
+        {
+          "arm": "generic",
+          "estimate": 2.550630389329036,
+          "margin": 0,
+          "point_response_reversed": false,
+          "status": "nominal_interval_above_margin"
+        },
+        {
+          "arm": "monet",
+          "estimate": 2.3919824961568583,
+          "margin": 0,
+          "point_response_reversed": false,
+          "status": "nominal_interval_above_margin"
+        },
+        {
+          "arm": "cezanne",
+          "estimate": 2.587371186132874,
+          "margin": 0,
+          "point_response_reversed": false,
+          "status": "nominal_interval_above_margin"
+        }
+      ],
+      "manipulation_margin": 0,
+      "nominal_interval_coverage": 0.95,
+      "primary": [
+        {
+          "contrast": "monet_minus_generic",
+          "estimate": -0.15864789317217737,
+          "family_interval": [
+            -0.43612339433127295,
+            0.11882760798691822
+          ],
+          "inference_status": "approximate_model_based",
+          "nominal_interval": [
+            -0.39604414734215054,
+            0.07874836099779581
+          ],
+          "p_holm": 0.34884384852731126,
+          "p_two_sided": 0.17442192426365563,
+          "reject_holm": false,
+          "standard_error": 0.1111361930603175,
+          "template_estimates": [
+            -0.21731396284298177,
+            -0.4219510653063947,
+            -0.5228867480475137,
+            -0.1130623512336364,
+            0.10192851408919001,
+            0.2213982543082721
+          ],
+          "welch_df": 14.635366139368532
+        },
+        {
+          "contrast": "cezanne_minus_generic",
+          "estimate": 0.036740796803838294,
+          "family_interval": [
+            -0.22475517334853262,
+            0.2982367669562092
+          ],
+          "inference_status": "approximate_model_based",
+          "nominal_interval": [
+            -0.1861401031330617,
+            0.2596216967407383
+          ],
+          "p_holm": 0.7268407457182556,
+          "p_two_sided": 0.7268407457182556,
+          "reject_holm": false,
+          "standard_error": 0.10285750017613272,
+          "template_estimates": [
+            0.005908738115138257,
+            0.18114970756550636,
+            -0.7419102101269092,
+            0.291985390495898,
+            0.24843289735185736,
+            0.2348782574215389
+          ],
+          "welch_df": 12.626095044974623
+        }
+      ],
+      "primary_covariance": [
+        [
+          0.012351253407940164,
+          0.0045055313798402705
+        ],
+        [
+          0.0045055313798402705,
+          0.010579665342483143
+        ]
+      ],
+      "primary_family_size": 2,
+      "responses": [
+        {
+          "contrast": "free",
+          "estimate": 3.441692049296883,
+          "inference_status": "approximate_model_based",
+          "nominal_interval": [
+            3.300113364321295,
+            3.5832707342724714
+          ],
+          "standard_error": 0.0656323748519012,
+          "template_estimates": [
+            3.1658254300761106,
+            2.7850470133578282,
+            4.717285111075032,
+            2.8354726917108333,
+            3.863124588817764,
+            3.2833974607437324
+          ],
+          "welch_df": 13.193815708913965
+        },
+        {
+          "contrast": "generic",
+          "estimate": 2.550630389329036,
+          "inference_status": "approximate_model_based",
+          "nominal_interval": [
+            2.392371562799394,
+            2.708889215858678
+          ],
+          "standard_error": 0.07444846296324106,
+          "template_estimates": [
+            2.528216441534501,
+            2.2947808098630547,
+            3.777669146938184,
+            1.9848113284498574,
+            2.5087929170947003,
+            2.209511692093919
+          ],
+          "welch_df": 15.476325313476906
+        },
+        {
+          "contrast": "monet",
+          "estimate": 2.3919824961568583,
+          "inference_status": "approximate_model_based",
+          "nominal_interval": [
+            2.2838760452379274,
+            2.500088947075789
+          ],
+          "standard_error": 0.049455041907645915,
+          "template_estimates": [
+            2.310902478691519,
+            1.8728297445566597,
+            3.2547823988906703,
+            1.871748977216221,
+            2.61072143118389,
+            2.430909946402191
+          ],
+          "welch_df": 11.656554911424983
+        },
+        {
+          "contrast": "cezanne",
+          "estimate": 2.587371186132874,
+          "inference_status": "approximate_model_based",
+          "nominal_interval": [
+            2.387349649242119,
+            2.787392723023629
+          ],
+          "standard_error": 0.09087965839001312,
+          "template_estimates": [
+            2.534125179649639,
+            2.475930517428561,
+            3.0357589368112747,
+            2.2767967189457554,
+            2.757225814446558,
+            2.4443899495154584
+          ],
+          "welch_df": 11.001461779520573
+        }
+      ],
+      "secondary_named_minus_free": [
+        {
+          "contrast": "monet_minus_free",
+          "estimate": -1.0497095531400251,
+          "inference_status": "approximate_model_based",
+          "nominal_interval": [
+            -1.2336749107219491,
+            -0.865744195558101
+          ],
+          "standard_error": 0.08354979258536378,
+          "template_estimates": [
+            -0.8549229513845917,
+            -0.9122172688011686,
+            -1.462502712184362,
+            -0.9637237144946122,
+            -1.2524031576338737,
+            -0.8524875143415415
+          ],
+          "welch_df": 10.964092809338734
+        },
+        {
+          "contrast": "cezanne_minus_free",
+          "estimate": -0.8543208631640091,
+          "inference_status": "approximate_model_based",
+          "nominal_interval": [
+            -1.108543003267439,
+            -0.6000987230605792
+          ],
+          "standard_error": 0.1173899837638167,
+          "template_estimates": [
+            -0.6317002504264717,
+            -0.3091164959292676,
+            -1.681526174263757,
+            -0.5586759727650779,
+            -1.105898774371206,
+            -0.8390075112282747
+          ],
+          "welch_df": 12.697040000845298
+        }
+      ],
+      "status": "complete_grid_approximate_inference"
+    },
+    "resolution256": {
+      "alpha": 0.05,
+      "arm_means": [
+        {
+          "arm": "free",
+          "mean": -0.2564381198684136,
+          "polarity": "muted",
+          "weighting": "equal templates; available outputs within template"
+        },
+        {
+          "arm": "free",
+          "mean": 3.183639945785514,
+          "polarity": "vivid",
+          "weighting": "equal templates; available outputs within template"
+        },
+        {
+          "arm": "generic",
+          "mean": 0.08471784067016774,
+          "polarity": "muted",
+          "weighting": "equal templates; available outputs within template"
+        },
+        {
+          "arm": "generic",
+          "mean": 2.6336198508642776,
+          "polarity": "vivid",
+          "weighting": "equal templates; available outputs within template"
+        },
+        {
+          "arm": "monet",
+          "mean": -0.614001765296654,
+          "polarity": "muted",
+          "weighting": "equal templates; available outputs within template"
+        },
+        {
+          "arm": "monet",
+          "mean": 1.7701841337128812,
+          "polarity": "vivid",
+          "weighting": "equal templates; available outputs within template"
+        },
+        {
+          "arm": "cezanne",
+          "mean": -0.16174014253263932,
+          "polarity": "muted",
+          "weighting": "equal templates; available outputs within template"
+        },
+        {
+          "arm": "cezanne",
+          "mean": 2.4081139957784745,
+          "polarity": "vivid",
+          "weighting": "equal templates; available outputs within template"
+        }
+      ],
+      "assumptions": [
+        "Conditional on the six fixed templates and their equal weights; no new-scene inference.",
+        "Independent replicate blocks with stable within-template distributions; block-common additive disturbances cancel in the response interactions.",
+        "Welch–Satterthwaite t inference is approximate, including under non-Gaussian noise; randomized dispatch does not make a weak zero-interaction test exact.",
+        "The two primary intervals use Bonferroni allocation of the family alpha. Holm-adjusted two-sided p-values are reported separately.",
+        "Any unavailable planned measurement withholds primary inference. Complete-block survivor summaries cannot identify the originally allocated response effect."
+      ],
+      "availability": [
+        {
+          "allocated": 24,
+          "arm": "free",
+          "measured": 24,
+          "polarity": "muted",
+          "statuses": {
+            "measured": 24
+          }
+        },
+        {
+          "allocated": 24,
+          "arm": "free",
+          "measured": 24,
+          "polarity": "vivid",
+          "statuses": {
+            "measured": 24
+          }
+        },
+        {
+          "allocated": 24,
+          "arm": "generic",
+          "measured": 24,
+          "polarity": "muted",
+          "statuses": {
+            "measured": 24
+          }
+        },
+        {
+          "allocated": 24,
+          "arm": "generic",
+          "measured": 24,
+          "polarity": "vivid",
+          "statuses": {
+            "measured": 24
+          }
+        },
+        {
+          "allocated": 24,
+          "arm": "monet",
+          "measured": 24,
+          "polarity": "muted",
+          "statuses": {
+            "measured": 24
+          }
+        },
+        {
+          "allocated": 24,
+          "arm": "monet",
+          "measured": 24,
+          "polarity": "vivid",
+          "statuses": {
+            "measured": 24
+          }
+        },
+        {
+          "allocated": 24,
+          "arm": "cezanne",
+          "measured": 24,
+          "polarity": "muted",
+          "statuses": {
+            "measured": 24
+          }
+        },
+        {
+          "allocated": 24,
+          "arm": "cezanne",
+          "measured": 24,
+          "polarity": "vivid",
+          "statuses": {
+            "measured": 24
+          }
+        }
+      ],
+      "cells": [
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": -0.17891176743199738,
+          "polarity": "muted",
+          "template_id": "built_houses",
+          "values": [
+            -0.24659472813147254,
+            -0.13380443150621874,
+            -0.024635242619204172,
+            -0.3106126674710941
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": 3.0020665195323852,
+          "polarity": "vivid",
+          "template_id": "built_houses",
+          "values": [
+            2.7201494169650013,
+            2.9126114919374193,
+            3.146294353118972,
+            3.229210816108148
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": 0.12305197479774442,
+          "polarity": "muted",
+          "template_id": "built_houses",
+          "values": [
+            0.02218459840483429,
+            0.15998220390882387,
+            0.03851439989995815,
+            0.27152669697736137
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": 2.6576349114497893,
+          "polarity": "vivid",
+          "template_id": "built_houses",
+          "values": [
+            2.794610061031341,
+            2.695107853513671,
+            2.6115760518451117,
+            2.529245679409034
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": -0.43768092596088537,
+          "polarity": "muted",
+          "template_id": "built_houses",
+          "values": [
+            -0.4219030867368842,
+            -0.43250160436176105,
+            -0.4365207599605292,
+            -0.459798252784367
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": 1.8654412994721006,
+          "polarity": "vivid",
+          "template_id": "built_houses",
+          "values": [
+            1.9203655175587933,
+            1.9162915302578665,
+            1.6692734977218064,
+            1.9558346523499366
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": -0.11658569739795285,
+          "polarity": "muted",
+          "template_id": "built_houses",
+          "values": [
+            -0.3418828145087895,
+            0.06864265779691851,
+            -0.1028871200117357,
+            -0.09021551286820474
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": 2.401881369760227,
+          "polarity": "vivid",
+          "template_id": "built_houses",
+          "values": [
+            2.445398453357533,
+            2.81550748015922,
+            2.076901914725268,
+            2.2697176307988873
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": -0.1866009749836738,
+          "polarity": "muted",
+          "template_id": "built_village",
+          "values": [
+            -0.2379794676486415,
+            -0.058620388549597335,
+            -0.27424530285866283,
+            -0.17555874087779352
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": 2.598301838269235,
+          "polarity": "vivid",
+          "template_id": "built_village",
+          "values": [
+            2.151854190881461,
+            2.5631775890646695,
+            2.8888926647722406,
+            2.7892829083585693
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": 0.05526468865729117,
+          "polarity": "muted",
+          "template_id": "built_village",
+          "values": [
+            0.2899356614216623,
+            0.02090114881810003,
+            -0.08759827602846276,
+            -0.002179779582134886
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": 2.355547458183083,
+          "polarity": "vivid",
+          "template_id": "built_village",
+          "values": [
+            2.548307624435665,
+            2.6716700109514315,
+            2.31928903755448,
+            1.8829231597907556
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": -0.4360878571472581,
+          "polarity": "muted",
+          "template_id": "built_village",
+          "values": [
+            -0.3074529901521874,
+            -0.5003605489561798,
+            -0.5281653718095846,
+            -0.4083725176710809
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": 1.4311183482858416,
+          "polarity": "vivid",
+          "template_id": "built_village",
+          "values": [
+            1.3596408826307775,
+            1.0839097573945826,
+            1.5260447017157184,
+            1.7548780514022884
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": -0.11440822983282745,
+          "polarity": "muted",
+          "template_id": "built_village",
+          "values": [
+            -0.24522035798395314,
+            -0.021505127208546665,
+            -0.2717610935064344,
+            0.08085365936762445
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": 2.3436479249678928,
+          "polarity": "vivid",
+          "template_id": "built_village",
+          "values": [
+            3.054027493965603,
+            2.0249727484615416,
+            2.4078873524733977,
+            1.887704104971029
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": 0.004913757835661156,
+          "polarity": "muted",
+          "template_id": "land_fields",
+          "values": [
+            -9.526659384417875e-05,
+            -0.2042657964938955,
+            0.414052638576601,
+            -0.1900365441462167
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": 4.718542208777246,
+          "polarity": "vivid",
+          "template_id": "land_fields",
+          "values": [
+            4.866133293560603,
+            4.453445399531265,
+            5.194866653033056,
+            4.359723488984061
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": 0.4619410086903586,
+          "polarity": "muted",
+          "template_id": "land_fields",
+          "values": [
+            0.2693597154728816,
+            0.17605024176691145,
+            0.8398151098878078,
+            0.5625389676338334
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": 4.243245253624058,
+          "polarity": "vivid",
+          "template_id": "land_fields",
+          "values": [
+            4.1520492172784795,
+            4.250126702989943,
+            4.107698936734284,
+            4.463106157493525
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": -0.5602892089084434,
+          "polarity": "muted",
+          "template_id": "land_fields",
+          "values": [
+            -0.6621088620073542,
+            -0.45788043598164835,
+            -0.7831561462513318,
+            -0.3380113913934393
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": 2.693275067945057,
+          "polarity": "vivid",
+          "template_id": "land_fields",
+          "values": [
+            2.5867051748168217,
+            2.7322942015882474,
+            2.5564508295436483,
+            2.897650065831512
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": 0.30149551297292515,
+          "polarity": "muted",
+          "template_id": "land_fields",
+          "values": [
+            -0.044857330391761666,
+            0.4375214283139611,
+            0.5140698921236261,
+            0.2992480618458751
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": 3.3198978394162957,
+          "polarity": "vivid",
+          "template_id": "land_fields",
+          "values": [
+            3.684675616333477,
+            3.6362869625707015,
+            2.757798743209167,
+            3.2008300355518378
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": -0.08339761044675043,
+          "polarity": "muted",
+          "template_id": "land_garden",
+          "values": [
+            -0.25121766305089954,
+            -0.03681639922442318,
+            0.022430622073306643,
+            -0.06798700158498558
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": 2.762241438985452,
+          "polarity": "vivid",
+          "template_id": "land_garden",
+          "values": [
+            2.8103180811507458,
+            3.013813629458918,
+            2.6364999545568364,
+            2.5883340907753065
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": 0.04663806520587425,
+          "polarity": "muted",
+          "template_id": "land_garden",
+          "values": [
+            -0.16530096645795878,
+            0.04872421455336202,
+            0.29122518246573903,
+            0.011903830262354717
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": 2.0382003339059547,
+          "polarity": "vivid",
+          "template_id": "land_garden",
+          "values": [
+            1.974112675804451,
+            2.5127482366435885,
+            1.9370140464361572,
+            1.7289263767396217
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": -0.468551247037093,
+          "polarity": "muted",
+          "template_id": "land_garden",
+          "values": [
+            -0.351900435475399,
+            -0.47499621218818344,
+            -0.6117683544331756,
+            -0.43553998605161404
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": 1.4004393050766217,
+          "polarity": "vivid",
+          "template_id": "land_garden",
+          "values": [
+            1.2926725588753714,
+            1.3823164136328874,
+            1.6926080038091529,
+            1.234160243989075
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": 0.03289825439537285,
+          "polarity": "muted",
+          "template_id": "land_garden",
+          "values": [
+            0.06192706712133495,
+            -0.023498856212392966,
+            0.14320959307115894,
+            -0.050044786398609535
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": 2.2914258070977427,
+          "polarity": "vivid",
+          "template_id": "land_garden",
+          "values": [
+            2.115494658233941,
+            2.146714072096492,
+            2.1620435062625574,
+            2.74145099179798
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": -0.5743481570481973,
+          "polarity": "muted",
+          "template_id": "water_bend",
+          "values": [
+            -0.7116205486223729,
+            -0.5182242367272865,
+            -0.6908775859737182,
+            -0.3766702568694114
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": 3.266685238755309,
+          "polarity": "vivid",
+          "template_id": "water_bend",
+          "values": [
+            2.7678476688696914,
+            3.5318557568805087,
+            3.695536777376522,
+            3.071500751894513
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": -0.04795177524118109,
+          "polarity": "muted",
+          "template_id": "water_bend",
+          "values": [
+            -0.05808402693658714,
+            0.045965450222547236,
+            -0.18081925667805174,
+            0.0011307324273672813
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": 2.4432593612410343,
+          "polarity": "vivid",
+          "template_id": "water_bend",
+          "values": [
+            2.2939455812395244,
+            2.116095694246295,
+            2.850043270157735,
+            2.5129528993205823
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": -0.8625686733908463,
+          "polarity": "muted",
+          "template_id": "water_bend",
+          "values": [
+            -0.9306026397424217,
+            -0.9623752242369691,
+            -0.8760528213551206,
+            -0.6812440082288735
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": 1.73173381546063,
+          "polarity": "vivid",
+          "template_id": "water_bend",
+          "values": [
+            1.846326499399447,
+            2.039196260265549,
+            1.413545519391073,
+            1.6278669827864511
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": -0.4599778700438139,
+          "polarity": "muted",
+          "template_id": "water_bend",
+          "values": [
+            -0.21094221497937563,
+            -0.5690143725237483,
+            -0.471849010473034,
+            -0.5881058821990977
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": 2.272568604322787,
+          "polarity": "vivid",
+          "template_id": "water_bend",
+          "values": [
+            2.228303342728457,
+            1.9333221182405855,
+            2.560592145873565,
+            2.3680568104485413
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": -0.5202839671355236,
+          "polarity": "muted",
+          "template_id": "water_river",
+          "values": [
+            -0.12178388996825935,
+            -0.7332562676913486,
+            -0.49413860811591476,
+            -0.7319571027665717
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "free",
+          "available": 4,
+          "mean": 2.754002430393455,
+          "polarity": "vivid",
+          "template_id": "water_river",
+          "values": [
+            2.926716736512475,
+            2.792034551462384,
+            2.372535979393053,
+            2.924722454205908
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": -0.1306369180890808,
+          "polarity": "muted",
+          "template_id": "water_river",
+          "values": [
+            -0.030826117418769595,
+            -0.3532382894878823,
+            0.03146294324128111,
+            -0.16994620869095234
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "generic",
+          "available": 4,
+          "mean": 2.0638317867817455,
+          "polarity": "vivid",
+          "template_id": "water_river",
+          "values": [
+            2.3854077869846506,
+            2.3517448131292396,
+            1.646533979080261,
+            1.87164056793283
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": -0.9188326793353976,
+          "polarity": "muted",
+          "template_id": "water_river",
+          "values": [
+            -0.824822121656053,
+            -1.0057479297081258,
+            -1.0143937408268262,
+            -0.8303669251505853
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "monet",
+          "available": 4,
+          "mean": 1.4990969660370346,
+          "polarity": "vivid",
+          "template_id": "water_river",
+          "values": [
+            1.6067807427976044,
+            1.3079854947746359,
+            1.6453787319382522,
+            1.4362428946376455
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": -0.6138628252895397,
+          "polarity": "muted",
+          "template_id": "water_river",
+          "values": [
+            -0.5886307059025206,
+            -0.4411288443847939,
+            -0.718124234381287,
+            -0.7075675164895575
+          ]
+        },
+        {
+          "allocated": 4,
+          "arm": "cezanne",
+          "available": 4,
+          "mean": 1.8192624291059025,
+          "polarity": "vivid",
+          "template_id": "water_river",
+          "values": [
+            1.6429300877888207,
+            1.864256805858408,
+            1.7423190999385858,
+            2.027543722837795
+          ]
+        }
+      ],
+      "complete_blocks_by_template": {
+        "built_houses": 4,
+        "built_village": 4,
+        "land_fields": 4,
+        "land_garden": 4,
+        "water_bend": 4,
+        "water_river": 4
+      },
+      "design": {
+        "blocks": 24,
+        "repetitions": 4,
+        "requests": 192,
+        "templates": [
+          "built_houses",
+          "built_village",
+          "land_fields",
+          "land_garden",
+          "water_bend",
+          "water_river"
+        ]
+      },
+      "family_interval_target_coverage": 0.95,
+      "generic_minus_free": [
+        {
+          "contrast": "generic_minus_free",
+          "estimate": -0.8911760554598175,
+          "inference_status": "approximate_model_based",
+          "nominal_interval": [
+            -1.0765025934376977,
+            -0.7058495174819372
+          ],
+          "standard_error": 0.08719774430661398,
+          "template_estimates": [
+            -0.6463953503123376,
+            -0.484620043727117,
+            -0.9323242060078858,
+            -0.8540767807321219,
+            -1.3498222593212905,
+            -1.0798176926581524
+          ],
+          "welch_df": 15.510184372452137
+        }
+      ],
+      "interpretation": "An attenuation claim additionally requires a positive generic response, a functioning free-arm manipulation, no named-arm response reversal, and reference/perceptual validation. Failed or uncertain checks exclude no output.",
+      "manipulation_checks": [
+        {
+          "arm": "free",
+          "estimate": 3.440078065653927,
+          "margin": 0,
+          "point_response_reversed": false,
+          "status": "nominal_interval_above_margin"
+        },
+        {
+          "arm": "generic",
+          "estimate": 2.54890201019411,
+          "margin": 0,
+          "point_response_reversed": false,
+          "status": "nominal_interval_above_margin"
+        },
+        {
+          "arm": "monet",
+          "estimate": 2.3841858990095353,
+          "margin": 0,
+          "point_response_reversed": false,
+          "status": "nominal_interval_above_margin"
+        },
+        {
+          "arm": "cezanne",
+          "estimate": 2.5698541383111144,
+          "margin": 0,
+          "point_response_reversed": false,
+          "status": "nominal_interval_above_margin"
+        }
+      ],
+      "manipulation_margin": 0,
+      "nominal_interval_coverage": 0.95,
+      "primary": [
+        {
+          "contrast": "monet_minus_generic",
+          "estimate": -0.16471611118457466,
+          "family_interval": [
+            -0.4434112205494377,
+            0.11397899818028837
+          ],
+          "inference_status": "approximate_model_based",
+          "nominal_interval": [
+            -0.4031625287296968,
+            0.07373030636054753
+          ],
+          "p_holm": 0.3225228074310794,
+          "p_two_sided": 0.1612614037155397,
+          "reject_holm": false,
+          "standard_error": 0.1116398032451777,
+          "template_estimates": [
+            -0.23146071121905898,
+            -0.4330765640926919,
+            -0.5277399680801985,
+            -0.12257171658636556,
+            0.10309135236926092,
+            0.22346094050160614
+          ],
+          "welch_df": 14.652949762957101
+        },
+        {
+          "contrast": "cezanne_minus_generic",
+          "estimate": 0.020952128117004375,
+          "family_interval": [
+            -0.2403407440405484,
+            0.2822450002745571
+          ],
+          "inference_status": "approximate_model_based",
+          "nominal_interval": [
+            -0.20178887536389747,
+            0.2436931315979062
+          ],
+          "p_holm": 0.841806419386736,
+          "p_two_sided": 0.841806419386736,
+          "reject_holm": false,
+          "standard_error": 0.10285073730110515,
+          "template_estimates": [
+            -0.01611586949386501,
+            0.15777338527492857,
+            -0.7629019184903286,
+            0.2669652840022895,
+            0.24133533788438577,
+            0.238656549524616
+          ],
+          "welch_df": 12.694115528956575
+        }
+      ],
+      "primary_covariance": [
+        [
+          0.012463445668621988,
+          0.004512378402086499
+        ],
+        [
+          0.004512378402086499,
+          0.010578274163380943
+        ]
+      ],
+      "primary_family_size": 2,
+      "responses": [
+        {
+          "contrast": "free",
+          "estimate": 3.440078065653927,
+          "inference_status": "approximate_model_based",
+          "nominal_interval": [
+            3.299224514313681,
+            3.5809316169941727
+          ],
+          "standard_error": 0.06525308725205738,
+          "template_estimates": [
+            3.1809782869643826,
+            2.7849028132529083,
+            4.713628450941585,
+            2.845639049432202,
+            3.841033395803506,
+            3.274286397528978
+          ],
+          "welch_df": 13.10725631348218
+        },
+        {
+          "contrast": "generic",
+          "estimate": 2.54890201019411,
+          "inference_status": "approximate_model_based",
+          "nominal_interval": [
+            2.3899613459004865,
+            2.7078426744877335
+          ],
+          "standard_error": 0.07475388584636214,
+          "template_estimates": [
+            2.5345829366520447,
+            2.3002827695257917,
+            3.781304244933699,
+            1.9915622687000805,
+            2.491211136482215,
+            2.1944687048708262
+          ],
+          "welch_df": 15.438743860696787
+        },
+        {
+          "contrast": "monet",
+          "estimate": 2.3841858990095353,
+          "inference_status": "approximate_model_based",
+          "nominal_interval": [
+            2.276070953228952,
+            2.4923008447901185
+          ],
+          "standard_error": 0.04942484322169363,
+          "template_estimates": [
+            2.303122225432986,
+            1.8672062054330998,
+            3.253564276853501,
+            1.868990552113715,
+            2.5943024888514765,
+            2.4179296453724324
+          ],
+          "welch_df": 11.586804081198805
+        },
+        {
+          "contrast": "cezanne",
+          "estimate": 2.5698541383111144,
+          "inference_status": "approximate_model_based",
+          "nominal_interval": [
+            2.369566855965176,
+            2.770141420657053
+          ],
+          "standard_error": 0.0911043993828421,
+          "template_estimates": [
+            2.51846706715818,
+            2.4580561548007207,
+            3.0184023264433706,
+            2.2585275527023696,
+            2.7325464743666013,
+            2.433125254395442
+          ],
+          "welch_df": 11.105492939859836
+        }
+      ],
+      "secondary_named_minus_free": [
+        {
+          "contrast": "monet_minus_free",
+          "estimate": -1.0558921666443923,
+          "inference_status": "approximate_model_based",
+          "nominal_interval": [
+            -1.2391213495556246,
+            -0.8726629837331601
+          ],
+          "standard_error": 0.0831513115882999,
+          "template_estimates": [
+            -0.8778560615313966,
+            -0.9176966078198089,
+            -1.4600641740880844,
+            -0.9766484973184875,
+            -1.2467309069520298,
+            -0.8563567521565464
+          ],
+          "welch_df": 10.895503557640927
+        },
+        {
+          "contrast": "cezanne_minus_free",
+          "estimate": -0.8702239273428131,
+          "inference_status": "approximate_model_based",
+          "nominal_interval": [
+            -1.12296134025502,
+            -0.6174865144306061
+          ],
+          "standard_error": 0.11673993619676105,
+          "template_estimates": [
+            -0.6625112198062026,
+            -0.3268466584521884,
+            -1.6952261244982143,
+            -0.5871114967298323,
+            -1.1084869214369049,
+            -0.8411611431335365
+          ],
+          "welch_df": 12.734225432272924
+        }
+      ],
+      "status": "complete_grid_approximate_inference"
+    }
+  },
+  "primary": [
+    {
+      "direction": "negative",
+      "directional_replication": true,
+      "endpoint": "naming_monet",
+      "estimate": -0.6951079233141104,
+      "experiment": "naming",
+      "holm_p": 6.000000000000001e-05,
+      "interval": null,
+      "painter_id": "claude_monet",
+      "randomization": {
+        "estimate": -0.6951079233141104,
+        "exceedances": 1,
+        "method": "monte_carlo_paired_randomization",
+        "null": "sharp no-prompt-effect with no interference under the frozen randomized assignment; alternatively joint within-scene method-label swap invariance; not equal energy alone",
+        "pairs": 24,
+        "permutations": 99999,
+        "raw_p": 2e-05,
+        "seed": 2026091032,
+        "status": "conditional_randomization",
+        "tie_tolerance": 5.133326072559364e-15,
+        "zero_contributions": false
+      },
+      "raw_p": 2e-05,
+      "reject": true,
+      "status": "conditional_randomization"
+    },
+    {
+      "direction": "negative",
+      "directional_replication": true,
+      "endpoint": "naming_cezanne",
+      "estimate": -0.9520240321048407,
+      "experiment": "naming",
+      "holm_p": 4e-05,
+      "interval": null,
+      "painter_id": "paul_cezanne",
+      "randomization": {
+        "estimate": -0.9520240321048407,
+        "exceedances": 0,
+        "method": "monte_carlo_paired_randomization",
+        "null": "sharp no-prompt-effect with no interference under the frozen randomized assignment; alternatively joint within-scene method-label swap invariance; not equal energy alone",
+        "pairs": 24,
+        "permutations": 99999,
+        "raw_p": 1e-05,
+        "seed": 2026091033,
+        "status": "conditional_randomization",
+        "tie_tolerance": 6.764537602811349e-15,
+        "zero_contributions": false
+      },
+      "raw_p": 1e-05,
+      "reject": true,
+      "status": "conditional_randomization"
+    },
+    {
+      "direction": "negative",
+      "endpoint": "palette_monet",
+      "estimate": -0.15864789317217737,
+      "experiment": "palette",
+      "holm_p": 0.34884384852731126,
+      "interpretation": "new measured interaction; historical result was unresolved",
+      "interval": [
+        -0.4749549336777144,
+        0.15765914733335967
+      ],
+      "interval_coverage": 0.9875,
+      "painter_id": "claude_monet",
+      "raw_p": 0.17442192426365563,
+      "reject": false,
+      "standard_error": 0.1111361930603175,
+      "status": "approximate_model_based",
+      "welch_df": 14.635366139368532
+    },
+    {
+      "direction": "positive",
+      "endpoint": "palette_cezanne",
+      "estimate": 0.036740796803838294,
+      "experiment": "palette",
+      "holm_p": 0.7268407457182556,
+      "interpretation": "new measured interaction; historical result was unresolved",
+      "interval": [
+        -0.26253983772005024,
+        0.3360214313277268
+      ],
+      "interval_coverage": 0.9875,
+      "painter_id": "paul_cezanne",
+      "raw_p": 0.7268407457182556,
+      "reject": false,
+      "standard_error": 0.10285750017613272,
+      "status": "approximate_model_based",
+      "welch_df": 12.626095044974623
+    }
+  ],
+  "primary_family_size": 4,
+  "scope": "One fresh collection; no independent-backend, session-population, perceptual or original/new equality claim."
+}
