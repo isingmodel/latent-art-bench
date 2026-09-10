@@ -98,7 +98,9 @@ from the earlier input-export commit and from the history-free public branch's o
 commit. `--draft` permits a clearly labeled uncommitted development artifact only.
 The public workflow exports the tracked tree without `.git`, installs the locked
 runtime and runs the isolated checker on Ubuntu. It uses a fixed 1e-10 float
-tolerance, preserving exact identities, counts, seeds, decisions and p-values.
+tolerance, preserving exact identities, counts, seeds, statuses and decisions.
+Randomization and unknown p-values remain exact. A post-CI amendment, described
+below, applies that same bound to recognized approximate Welch p-values.
 Cross-platform PDF byte differences are labeled explicitly; local strict replay
 requires byte identity. The workflow retains its verification receipt as an artifact.
 The isolation flag installs a Python audit-hook guard for socket creation/use,
@@ -109,3 +111,25 @@ Runtime receipts distinguish installed-distribution versions from module strings
 In the retained environment, PyWavelets distribution metadata is 1.9.0 while
 `pywt.__version__` is 1.8.0. This is not by itself evidence of environment drift;
 the measurement study consistently uses its frozen module-version convention.
+
+## Post-CI numerical comparison amendment
+
+The first Ubuntu run, `34423375314`, passed Study 1 and revision within the fixed
+1e-10 tolerance and the measurement analysis exactly, then rejected the temporal
+replication. Diagnostic run `34423830742` identified exactly six untruncated
+differences: Monet's Welch p-values and derived Holm values at primary512 and
+resolution256, plus the copied top-level primary endpoint. Absolute differences
+were 2.7755575615628914e-17 or 5.551115123125783e-17. All other leaves passed the
+original rule. The failed runs remain part of the verification history.
+
+The adapter now applies the existing 1e-10 bound to p-values only when the
+expected result has one of the known approximate-model-based Welch endpoint
+schemas, including positive finite standard error and degrees of freedom.
+Unknown and randomization p-values remain exact, as do p-value types, statuses,
+decisions, directions, counts, identities and missingness. This is an explicitly
+post-CI comparison amendment, not a change to inference, frozen source, expected
+results, hashes or the numerical tolerance. Strict replay remains exact. Portable
+receipts record the actual and retained p-values, total differences and maximum
+absolute error whenever the amendment is used. Subsequent hosted outcomes are
+recorded with the public release; the amendment itself is not evidence that the
+complete run succeeds.

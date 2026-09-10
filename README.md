@@ -18,9 +18,16 @@ The full check recomputes the original statistical functions and compares their 
 with hash-bound retained outputs. It checks every included manuscript figure PDF.
 Exact float/PDF byte comparisons may expose platform differences: the receipts record
 the numerical runtime. A failure must be investigated; do not change a bound hash or relax
-a scientific test to make it pass. Hosted CI uses `--portable-numeric`, a prospectively
-fixed 1e-10 absolute/relative tolerance for finite floating results, with exact structures,
-identities, counts, seeds, decisions and p-values. Figure byte differences on that path
+a scientific test to make it pass. Hosted CI uses `--portable-numeric`, with the fixed
+1e-10 absolute/relative tolerance for finite floating results and exact structures,
+identities, counts, seeds, statuses and decisions. Randomization and unknown p-values
+remain exact. Following failed hosted runs 34423375314 and 34423830742, a narrow
+post-CI amendment applies the same numeric bound to recognized approximate Welch
+p-values and their Holm transforms. The diagnostic run showed exactly six final-bit
+differences, at most 5.551115123125783e-17, with all other leaves passing the original
+rule. Expected values/hashes are unchanged; receipts retain actual/expected differing
+p-values and the maximum error. This exception was not prospectively specified.
+Strict local replay still requires exact hashes. Figure byte differences on the portable path
 are reported as platform differences, not falsely called byte-identical reproduction.
 Dependencies may be downloaded during installation. During numerical analysis, a Python
 audit-hook guard blocks socket creation/use, subprocesses and file access outside this
