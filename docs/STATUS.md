@@ -30,8 +30,15 @@ quality on all four OpenAI models. Eight disjoint paid cost probes succeeded.
 Cumulative conservative accounting is **$68.50735**, with about $112 forecast
 for completion. The reduction from 16 to 14 scenes is fixed before measurement;
 no feature or visual outcome informed it. Explicit routing replaces the
-unqualified local route. The English manuscript, plotting and literature
-positioning remain to be revised.
+unqualified local route. The manuscript has been rewritten around the sharper question; result text and
+conclusions remain explicitly pending. A postprocessing worker waits for the
+active collector and will then measure, analyze four views, audit and render
+figures. Do not start duplicate measurement. The corrected reader is documented
+in [CORRECTION.md](../studies/painter_specificity_measurement_v1/CORRECTION.md):
+the old feature manifest has 649 valid records plus four old failures, while the
+scientific target remains exactly the 649 previously measured works. A separate
+[content-mixture sensitivity](../studies/painter_specificity_reference_v1/PROTOCOL.md)
+was frozen before inspecting new outcomes.
 All earlier terminal studies/releases stay unchanged; the old review stopping
 instruction below applies to that earlier iteration only.
 

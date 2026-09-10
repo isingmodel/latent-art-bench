@@ -49,8 +49,8 @@ SOURCES = {
         "6476d8f24e36eae1b5357811a8971a5510ad9f620acd577ce49565b0c7db1d80",
 }
 PAINTERS = {"claude_monet": "Monet", "paul_cezanne": "Cézanne"}
-ROUTES = {"nano_banana_2": "NB2", "flux_2_max": "FLUX", "oauth_gpt_image_2": "OAuth"}
-ROUTE_TITLES = ("Nano Banana 2", "FLUX.2 Max", "OAuth service")
+ROUTES = {"nano_banana_2": "NB2", "flux_2_max": "FLUX", "oauth_gpt_image_2": "GPT Image 2"}
+ROUTE_TITLES = ("Nano Banana 2", "FLUX.2 Max", "GPT Image 2")
 GROUPS = [(p, r) for p in PAINTERS for r in ROUTES]
 LABELS = [f"{PAINTERS[p]} · {ROUTES[r]}" for p, r in GROUPS]
 Y = [6, 5, 4, 2, 1, 0]

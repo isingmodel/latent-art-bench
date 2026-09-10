@@ -116,3 +116,6 @@ an older stage description.
   separate energy, trace and 99,999-draw calculation with implementation involvement disclosed.
 - [Public clause addendum verification](../reports/paper_clause_reproducibility_v1/pcrv1-20260910/REPORT.md):
   history-free publication and exact fresh local/anonymous replay of both separate cohorts.
+
+- [Reference content-mixture sensitivity](../studies/painter_specificity_reference_v1/PROTOCOL.md): declared during collection before feature inspection; equal class weights within each painter, no new images.
+- [Reference-reader correction](../studies/painter_specificity_measurement_v1/CORRECTION.md): canonical measurement/replay adapter preserves the intended 649 valid works; four historical failed records remain excluded.

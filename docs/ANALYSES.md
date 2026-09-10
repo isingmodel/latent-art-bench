@@ -10,7 +10,7 @@ The [Makefile](../Makefile) provides the common entry points:
 
 | Command | Scope |
 | --- | --- |
-| `make check` | Ruff and the complete offline test suite |
+| `make check` | Ruff and the selected current offline tests; `make check-all` includes retained historical tests |
 | `make evidence` | Historical evidence bindings, dispositions and retained-byte integrity |
 | `make four-painter-analysis` | Replay four-painter exploration, Stage A controls and retry presentation (35 + 18 + 9 files) |
 | `make analysis` | Replay Study 1 controlled and revision numeric results |
@@ -29,6 +29,30 @@ An evidence audit checks integrity; it is not necessarily a numeric recomputatio
 Use the recorded implementation and locked runtime. Investigate a mismatch against
 its recorded commit rather than changing a stored hash. Raw-byte audits may require
 the ignored local research workspace. The commands below do not contact providers.
+
+## Active artist-specificity experiment
+
+The [v2 protocol](../studies/painter_specificity_v2/PROTOCOL.md) fixes 1,008
+medium-quality/common-configuration requests before scientific measurement.
+The predecessor is terminated without analysis; it must not be measured or pooled.
+
+| Component | Source | Command after terminal measurement |
+| --- | --- | --- |
+| Artist geometry, paired model regressions, references and processing sensitivities | [analysis.py](../src/latent_art_bench/painter_specificity_v2/analysis.py), reusing frozen numerical primitives | `uv run --locked python -m latent_art_bench.painter_specificity_measurement_v1.workflow analyze --check` |
+| Common-square repeat | Same module, separate saved vectors and result | Add `--square --check` |
+| Model intervals, artist contrast projection and error/spread figures | [make_specificity_figures.py](../paper/make_specificity_figures.py) | `uv run --locked python paper/make_specificity_figures.py --check` |
+
+Collection and measurement are explicit operational commands, not replay targets.
+The collector is currently active. Do not start it twice or call measurement
+before the terminal collection receipt. Raw images remain ignored; compact
+vectors and results have disjoint paths under `painter_specificity_v2`.
+
+The [reader correction](../studies/painter_specificity_measurement_v1/CORRECTION.md)
+selects exactly the protocol's 649 measured works from a historical manifest
+that also retains four old failures. The old measurement/reader CLIs must not be
+used. Add `--reference` to the corrected analysis command for the separately
+frozen reference-content sensitivity. All corrected data paths remain under the
+active collection; no generation or statistical endpoint changes.
 
 ## Current evidence and presentation
 

@@ -1,4 +1,4 @@
-"""Replay Study 2 primary inference from three hash-bound compact inputs.
+"""Replay Palette intervention primary inference from three hash-bound compact inputs.
 
 Run ``uv run --locked --extra analysis python paper/replay_palette.py``.
 This numerical replay reads only the saved schedule, chroma table and primary

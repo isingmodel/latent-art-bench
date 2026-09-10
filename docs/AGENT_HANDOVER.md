@@ -18,11 +18,38 @@ bound tests and published evidence remain unchanged; routine selection lives in
 
 The user has now authorized a separate painter-specificity extension and full
 manuscript reframing. See the first active-goal section of [STATUS.md](STATUS.md)
-and [the new protocol](../studies/painter_specificity_v1/PROTOCOL.md). The prior
+and [the new protocol](../studies/painter_specificity_v2/PROTOCOL.md). The prior
 review stopping condition below applies to that old iteration. Do not resume its
 collectors, portable replay proposal or score optimization. Keep new evidence in
-`painter_specificity_v1`, retain all four artists, use English and keep cumulative
+`painter_specificity_v2`, retain all four artists, use English and keep cumulative
 paid accounting below $120 without querying remaining credit balances.
+
+The first specificity attempt is terminal after 31 outputs, before feature
+measurement. Both upstream model-selection negative controls accepted invented
+image-model IDs. Preserve that evidence and do not measure/pool it. The local
+adapter adds model-name forwarding but does not verify upstream model selection.
+
+The successor has **1,008 requests: six models × 14 scenes × six clauses × two
+repeats**, with medium quality for all four OpenAI models on explicit paid routes.
+Source commit `d223402`; exact assignment/freeze commit `c55fef6`. Its collector
+is currently running with three overlapping requests and five-second start
+spacing. Do not launch a second collector. The append-only ledger and terminal
+receipt are under `data/manifests/painter_specificity_v2/psv2-20260911/`;
+raw bytes are under the corresponding ignored workspace. Baseline $68.50735
+includes all eight paid probes and the historical $5 uncertainty reserve.
+The forecast is about $112 cumulative. Never query remaining balances.
+
+The manuscript has been rewritten around artist-relative recovery. New result
+text, abstract conclusions and figures remain pending terminal measurement;
+`paper/paper.pdf` still represents the preceding completed manuscript. The new
+plotter is `paper/make_specificity_figures.py`. No experimental outcomes have
+been inspected. Use the [corrected reference reader](../studies/painter_specificity_measurement_v1/CORRECTION.md)
+for terminal measurement and all four replay views. The historical manifest has
+649 measured works and four old failures; the frozen original reader mistakenly
+assumed it contained only valid records. The adapter preserves the intended panel
+without editing frozen source or retrying an old failed image. Completed historical findings and their contrary fixed-map
+transfer result remain, with operational details moved out of the main text.
+The user's Korean files remain untouched.
 
 ## Closed iteration and current boundary
 

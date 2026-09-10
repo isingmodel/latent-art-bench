@@ -25,7 +25,7 @@ SOURCE = ROOT / "data/manifests/painter_naming_geometry_v1/pngv1-20260910/analys
 SOURCE_SHA256 = "f50be0f772a3bff8f4bc66ddc20f3e19b5c13736fd6cced632d80224e2203324"
 TARGET = ROOT / "paper/figures/naming_geometry_presentation.pdf"
 LABELS = {
-    "nano_banana_2": "NB2", "flux_2_max": "FLUX", "oauth_gpt_image_2": "OAuth",
+    "nano_banana_2": "NB2", "flux_2_max": "FLUX", "oauth_gpt_image_2": "GPT Image 2",
     "claude_monet": "Monet", "paul_cezanne": "Cézanne",
 }
 KINDS = ("identity", "translation", "translation_scale", "named")
