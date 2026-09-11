@@ -104,7 +104,9 @@ threshold was not reached. No fifth review or continued score optimization belon
 to that closed iteration. Reviews were maintainer-run LLM subagents, not independent
 human or institutional review. See [the record](reviews/20260910_substantive_revision/REVIEW.md).
 The [previous 39-page paper assets](../reports/paper_map_validation_reproducibility_v2/pmv2r-20260910/PAPER_ASSETS.md)
-and all older releases remain unchanged; the new manuscript is not yet published.
+and all older releases remain unchanged. The new PDF is committed at `9441d59`
+and pushed to the GitHub branch `codex/restore-four-artist-analysis`; it has not
+been archived as a new versioned release.
 
 ## Verification and next handoff
 
