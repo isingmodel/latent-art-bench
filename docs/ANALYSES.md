@@ -12,6 +12,8 @@ The [Makefile](../Makefile) provides the common entry points:
 | --- | --- |
 | `make check` | Ruff and the selected current offline tests; `make check-all` includes retained historical tests |
 | `make specificity-check` | Four exact new numerical views, without image generation |
+| `make review-check` | Replay post-result target diagnostics and numeric presentation |
+| `make review-images-check` | Verify 40 example source hashes and image-panel replay; needs retained pixels |
 | `make specificity-audit` | New report binding and retained raw response/image hashes |
 | `make evidence` | Historical evidence bindings, dispositions and retained-byte integrity |
 | `make four-painter-analysis` | Replay four-painter exploration, Stage A controls and retry presentation (35 + 18 + 9 files) |
@@ -63,7 +65,27 @@ binds the four analyses, raw-byte identities and its own source.
 `paper/make_specificity_tables.py --check` verifies the two generated table files.
 Eight figures cover model comparisons, centered geometry, spread/error diagnostics
 and reference-only distribution projections for all four painters. The main
-manuscript includes the geometry, diagnostics and prespecified Sunburst panels.
+manuscript keeps the geometry plot in the main results and the diagnostics
+and prespecified Sunburst distributions in the supplement.
+
+## Review-driven target diagnostics
+
+The [post-result plan](../studies/painter_specificity_review_v1/PLAN.md) and
+[report](../reports/painter_specificity_review_v1/REPORT.md) cover the additive
+scene decomposition, Q/alignment and held-scene calibration, artist coverage,
+class-specific and real/reference controls, weighting, stratified energy and
+synthetic coverage. [painter_specificity_review_v1.py](../src/latent_art_bench/painter_specificity_review_v1.py)
+loads the unchanged corrected reader; `make review-check` replays its create-once,
+source-bound numerical record. It does not contact APIs or extract features.
+
+[make_review_figures.py](../paper/make_review_figures.py) presents tables and
+artist-pair summaries. With `--images`, it also reads 40 hash-checked retained
+images for deterministic, uncurated example panels and their inspection manifest.
+Use `make review-images-check` to verify these bytes. Ordinary paper builds
+reuse the committed example PDFs without needing source pixels. The panels
+expose calibration strips and a title-class mismatch; no source-region or label
+correction has been performed. Added results are descriptive, not retroactive
+extensions of the original 21-comparison family.
 
 ## Current evidence and presentation
 

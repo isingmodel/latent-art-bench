@@ -13,12 +13,21 @@
 | [Contributing](../CONTRIBUTING.md) | Development and verification workflow |
 | [Test scope](../tests/README.md) | Smaller routine suite, retired tests and explicit historical coverage |
 
+## Latest supplied-review revision
+
+- [Response to both critiques](reviews/20260912_critics/RESPONSE.md): claim corrections,
+  added diagnostics, observed source artifacts and remaining validation gaps.
+- [Post-result diagnostic report](../reports/painter_specificity_review_v1/REPORT.md),
+  [recorded choices](../studies/painter_specificity_review_v1/PLAN.md) and
+  [image inspection manifest](../reports/painter_specificity_review_v1/inspection.json).
+  These are separate from the unchanged primary inferential family.
+
 ## Completed artist-specificity extension
 
 - [Six-model results and complete tables](../reports/painter_specificity_v2/psv2-20260911/REPORT.md):
   all 1,008 outputs measured; four exact numerical views, raw-byte audit and eight figures.
 - [Current manuscript](../paper/paper.pdf) and [source/build guide](../paper/README.md):
-  17 pages centered on aligned responses versus recovery of painter differences.
+  23 pages distinguishing aligned responses, calibration and pooled-reference agreement.
 - [Specificity transport repair](../studies/painter_specificity_v2/DECISION.md) and
   [closed first attempt](../studies/painter_specificity_v1/TERMINATION.md).
 - [Current painter-specificity protocol](../studies/painter_specificity_v2/PROTOCOL.md):

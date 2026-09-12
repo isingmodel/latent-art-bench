@@ -7,7 +7,7 @@ This project compares generated images with digital reproductions of paintings
 by Monet, Sisley, Pissarro and Cézanne using 31 interpretable color, spatial and
 texture features. The current experiment separates common appearance from
 reference-aligned painter variation and compares six image models on the same
-scenes. It evaluates digital feature recovery, without claiming perceptual
+scenes. It evaluates agreement with digital reference contrasts, without claiming perceptual
 style validation or an identified internal model mechanism.
 
 The [prospective protocol](studies/painter_specificity_v2/PROTOCOL.md) fixes
@@ -16,9 +16,13 @@ cell. Models are GPT Image 1, GPT Image 2, GPT Image 2.5 Flare, GPT Image 2.5
 Sunburst, Nano Banana 2 and FLUX.2 Max. All 1,008 images were collected and
 measured. The [results](reports/painter_specificity_v2/psv2-20260911/REPORT.md)
 show positive reference-aligned responses in every model, but response strength
-does not track recovery of painter differences. FLUX has the lowest estimated
+does not track pooled-reference agreement. FLUX has the lowest estimated
 geometry error and adjusted advantages over both GPT Image 2.5 variants; the
-other 13 pairwise differences remain unresolved. The [novelty assessment](studies/painter_specificity_v1/NOVELTY.md)
+other 13 pairwise differences remain unresolved. No model is established to beat
+the no-contrast benchmark. [Review-driven diagnostics](reports/painter_specificity_review_v1/REPORT.md)
+add content/reference controls, artist-pair analysis and held-scene calibration;
+image inspection also exposes reference calibration strips and a title-class
+mismatch. These limitations preclude a validated ranking of artistic fidelity. The [novelty assessment](studies/painter_specificity_v1/NOVELTY.md)
 identifies close prior work and the limited contribution being tested.
 
 - [Current status](docs/STATUS.md): completed analysis, accounting and boundaries.
@@ -43,6 +47,7 @@ on older interpreters. From the repository root:
 ```bash
 uv sync --locked --extra analysis --extra dev --inexact
 make specificity-check
+make review-check
 make specificity-audit  # Requires retained local response/image bytes
 make paper
 make four-painter-analysis
@@ -77,7 +82,7 @@ hashes, so it requires the local response archive without re-extracting features
 | --- | --- |
 | [paper/](paper/README.md) | The current manuscript, bibliography, figures and figure builder |
 | [src/latent_art_bench/](src/latent_art_bench/) | Versioned analysis code and shared measurement primitives |
-| [tests/](tests/README.md) | 823 routine analysis/integrity cases; historical checks via `make check-all` |
+| [tests/](tests/README.md) | 830 routine analysis/integrity cases; historical checks via `make check-all` |
 | [reports/](reports/) | Published numerical results, complete tables and report plots |
 | [studies/](studies/) | Protocols, fixed study plans and methodological boundaries |
 | [data/manifests/](data/manifests/) | Compact measured vectors, request records, hashes and receipts |
@@ -93,4 +98,5 @@ read [the handover](docs/AGENT_HANDOVER.md),
 [architecture](docs/ARCHITECTURE.md) and [contributing guidance](CONTRIBUTING.md).
 The [documentation index](docs/INDEX.md) links earlier studies without duplicating
 their history here. Code is distributed under [the repository license](LICENSE);
-raw artwork is not redistributed by this repository.
+full-resolution raw artwork is not redistributed by this repository; the paper
+includes four reduced reference examples with recorded public-domain metadata.

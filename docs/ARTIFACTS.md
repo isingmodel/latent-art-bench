@@ -44,6 +44,15 @@ replace original vectors. Public numerical exports are create-once core and
 extension bundles; their sanitized release excludes unique raw media and local
 Git history. A successful public numerical check does not verify absent pixels.
 
+The review-driven diagnostic namespace has its own create-once
+`reports/painter_specificity_review_v1/analysis.json`, binding its plan, numerical
+source and retained inputs. Preserve those bytes. Its manuscript tables and
+figures are editable presentation. Two new PDF panels contain reduced renderings
+of 36 generated images and four recorded public-domain reference examples;
+`inspection.json` records exact source identities and selection rules. Full-resolution
+source images remain at their original ignored paths. Visible calibration strips
+and title-label defects must not be hidden by editing the sealed records.
+
 ## Preserve terminal scientific evidence
 
 | Location | What is retained |

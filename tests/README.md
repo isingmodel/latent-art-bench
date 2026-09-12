@@ -1,7 +1,7 @@
 # Test scope
 
 Use `make check` for the current paper's analysis and data-integrity tests. It
-runs Ruff and the **823-case routine suite** selected by
+runs Ruff and the **830-case routine suite** selected by
 [pytest-paper.ini](../pytest-paper.ini). Tests cover the 31-feature calculations,
 four-painter comparisons, weighting and randomization, missing observations,
 palette response, geometry, arithmetic oracles, evidence integrity and the main
@@ -13,6 +13,11 @@ centering, repeat correction, paired intervals, regression and repeat spread; th
 accounting checks; two reference-mixture checks; and one reference-membership
 check. They protect the new scientific and collection contracts. No plotting or
 document-formatting tests were added.
+
+The review diagnostics add seven analytical controls for scene decomposition,
+repeat covariance, held-scene fitting, stratified-energy expectation,
+development weighting, reference splitting and synthetic shared-state bias.
+They do not add formatting or image-layout tests.
 
 ```sh
 make check                         # Routine analysis and integrity checks
@@ -37,7 +42,7 @@ equivalent coverage of every old implementation.
 
 Another **41 cases were removed from the working tree**, leaving 1,929 at that
 retirement. With the subsequent 15 specificity cases, `make check-all` contains
-1,944 retained cases. Eight retired unbound files covered obsolete operational paths:
+1,944 retained cases before the seven review-diagnostic controls (1,951 now). Eight retired unbound files covered obsolete operational paths:
 
 - `painter_feature_generation_v1/test_collect.py`: the early generic metadata collector.
 - `painter_feature_generation_v2/test_acquisition.py`, `test_renderings.py` and

@@ -1,10 +1,52 @@
-# Current status — 2026-09-11
+# Current status — 2026-09-12
 
 Work is on `codex/restore-four-artist-analysis`. The canonical English source is
 [paper/paper.tex](../paper/paper.tex). Read [ARTIFACTS.md](ARTIFACTS.md) for retention,
 [AGENT_HANDOVER.md](AGENT_HANDOVER.md) for operational boundaries and
 [ANALYSES.md](ANALYSES.md) for computation and plotting commands. User-owned Korean
 files and ignored research bytes remain untouched.
+
+## Complete: response to the two supplied critiques
+
+The current [23-page paper](../paper/paper.pdf) and source have been revised
+from the two reports in `critics/`. See the
+[point-by-point response](reviews/20260912_critics/RESPONSE.md) and
+[new descriptive results](../reports/painter_specificity_review_v1/REPORT.md).
+The scope is offline diagnostics plus editorial work, in the new
+`painter_specificity_review_v1` namespace. No images or features were acquired,
+generated or re-extracted, and expenditure remains $112.293676.
+
+The paper now distinguishes scene-wise agreement with pooled reference contrasts
+from content-conditional or perceptual artist fidelity. It retains the declared
+primary results and all four artists. Added analyses cover response magnitude,
+held-scene scalar calibration, all artist pairs/components/omissions, label
+assignments, class-specific targets, disjoint real/reference controls, feature
+weighting, stratified energy and synthetic interval coverage. They are explicitly
+post-result and do not alter the original 21-comparison family.
+
+GPT Image 2 has the strongest corrected directional alignment and the lowest
+held-scene calibrated point error (.554 versus FLUX .714); FLUX retains the
+lowest uncalibrated primary error. Positive aggregate slopes hide weak or
+reversed Monet–Sisley contrasts in several models. The genuine-painting control
+ranges are too wide to define an artistic-fidelity threshold.
+
+The PDF includes 36 rule-selected generated examples and four references.
+Inspection exposed calibration strips retained in primary measurements of
+Sisley Q104774055 and Pissarro Q104773676, and a water-class label for the Cézanne
+street scene Q17490974. Their prevalence and numerical effect are not established.
+The original pixels, labels and measurements remain unchanged. Correcting or
+re-extracting them requires a separate versioned scope, not resuming collection.
+Human validation, source-held-out controls and an immutable exact-pixel release
+remain incomplete. Inspectable thumbnails do not complete measurement replication.
+
+Verification: seven new analytical tests pass; the full retained offline suite
+passes **1,951** cases in 466.82 seconds. Routine selection now includes **830**.
+Ruff, the unchanged 2,902-check historical audit, four primary numerical replays,
+primary raw-byte audit and new exact diagnostic replay pass. The PDF builds
+without TeX warnings. Presentation replay and rendered-page checks cover the
+revised figures and all 40 source examples. The 23-page revision replaces the
+earlier PDF at `9441d59` on `codex/restore-four-artist-analysis`; a new versioned
+release has not been archived.
 
 ## Complete: artist specificity across six generators
 
@@ -47,15 +89,15 @@ was declared before inspecting new outcomes and gives four coarse content classe
 equal weight within each painter. These are historical title-lexicon classes,
 distinct from the later controlled panel's three-class visual annotations.
 
-The completed [17-page manuscript](../paper/paper.pdf) replaces the previous
-working PDF; earlier published assets remain unchanged. The
+The initial 17-page specificity manuscript (now revised above) replaced the
+previous working PDF; earlier published assets remain unchanged. The
 [terminal report](../reports/painter_specificity_v2/psv2-20260911/REPORT.md)
 binds all measured vectors, four analyses, raw bytes and report source.
 Eight new figures and two generated table files reproduce the saved outcomes.
 Plot/table templates were committed before new feature outcomes were inspected.
 The Sunburst four-painter illustration was likewise selected in advance.
 
-The central result is **aligned response without faithful artist geometry**.
+The declared result is **aligned response with residual pooled-reference mismatch**.
 All six simultaneous slope intervals exceed zero. GPT Image 2 has slope .999
 but corrected error 1.226, almost entirely in other artist-contrast directions.
 FLUX.2 Max has the lowest estimated error (.801): Flare minus FLUX is
@@ -104,14 +146,14 @@ threshold was not reached. No fifth review or continued score optimization belon
 to that closed iteration. Reviews were maintainer-run LLM subagents, not independent
 human or institutional review. See [the record](reviews/20260910_substantive_revision/REVIEW.md).
 The [previous 39-page paper assets](../reports/paper_map_validation_reproducibility_v2/pmv2r-20260910/PAPER_ASSETS.md)
-and all older releases remain unchanged. The new PDF is committed at `9441d59`
+and all older releases remain unchanged. The earlier 17-page PDF is committed at `9441d59`
 and pushed to the GitHub branch `codex/restore-four-artist-analysis`; it has not
 been archived as a new versioned release.
 
-## Verification and next handoff
+## Verification of the preceding experiment closeout
 
-The new implementation passes Ruff and **1,944 retained offline tests** in
-479.82 seconds. Routine `make check` selects **823** of these; 15 new cases protect
+Before the review revision, the implementation passed Ruff and **1,944 retained offline tests** in
+479.82 seconds. At that closeout, routine `make check` selected **823** of these; 15 new cases protect
 the new numerical, routing and membership contracts. No plotting/formatting tests
 were added. [Test scope](../tests/README.md) explains the earlier retirement.
 The most recent historical evidence audit passes **2,902 checks with zero failures**

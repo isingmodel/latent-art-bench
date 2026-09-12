@@ -7,10 +7,43 @@ original paths. The canonical English manuscript is [paper/paper.tex](../paper/p
 The [paper guide](../paper/README.md) covers compilation and visual inspection;
 [ANALYSES.md](ANALYSES.md) maps computation and plotting for each study.
 
+## Latest handoff: supplied-review revision
+
+The current paper is 23 pages, titled **Artist-Name Responses beyond a Shared
+Painting Effect in Text-to-Image Generation**. The
+[review response](reviews/20260912_critics/RESPONSE.md) distinguishes completed
+changes from remaining validation gaps; [diagnostic results](../reports/painter_specificity_review_v1/REPORT.md)
+contain the new findings. All additions are post-result. The primary analysis,
+its 21-comparison family and all existing frozen records are unchanged.
+
+Use `make review-check` for numerical replay and `make review-images-check` to
+check the 40 source images and their reduced panels. The latter needs ignored
+local image bytes; normal paper builds reuse the committed example PDFs.
+`painter_specificity_review_v1.py` and its plan/inputs are bound by the create-once
+analysis JSON. Do not overwrite that record or silently change the diagnostic
+source; presentation scripts and manuscript prose remain editable.
+
+Key qualifications: D penalizes legitimate possible artist-by-scene differences;
+GPT Image 2 has the smallest held-scene scalar-calibrated error, whereas FLUX
+has the lowest uncalibrated primary error. Genuine-reference controls are wide.
+The image examples reveal calibration strips in two reference files and a
+Cézanne street scene assigned the water title class. These are recorded defects,
+not repaired measurements. No new acquisition, generation or extraction occurred.
+A corrected reference scope, human assessment and an exact-pixel archive remain
+future work. Do not claim full satisfaction of the reviewers' validation demands.
+
+Latest checks: Ruff; 1,951 full offline cases (seven new analytical controls),
+830 routine cases collected; 2,902 historical evidence checks; four primary
+numeric views; primary raw-byte audit; exact new diagnostic and presentation
+replay. The 23-page PDF builds without warnings and is visually checked.
+This revision is maintained on `codex/restore-four-artist-analysis`; no new
+versioned release has been archived.
+User-supplied `critics/` files and Korean files remain untouched.
+
 Test maintenance after the previous paper closeout reduced routine coverage and
 removed 41 unbound obsolete or formatting cases. The specificity extension adds
-15 numerical, routing and membership cases: `make check` now selects 823, while
-`make check-all` includes 1,121 additional historical cases (1,944 total).
+15 numerical, routing and membership cases: `make check` then selected 823 (1,944 total retained). The review diagnostics
+add seven analytical controls, giving 830 routine and 1,951 total cases.
 See [test scope](../tests/README.md). The original `pytest.ini`, `pyproject.toml`,
 bound tests and published evidence remain unchanged; routine selection lives in
 `pytest-paper.ini`. Use an explicit `tests` argument for the full retained suite.
@@ -21,8 +54,8 @@ The authorized painter-specificity extension and manuscript reframing are
 complete. See the completed-results section of [STATUS.md](STATUS.md)
 and [the new protocol](../studies/painter_specificity_v2/PROTOCOL.md). The prior
 review stopping condition below applies to that old iteration. Do not resume its
-collectors, portable replay proposal or score optimization. Keep new evidence in
-`painter_specificity_v2`, retain all four artists, use English and keep cumulative
+collectors, portable replay proposal or score optimization. The completed collection evidence remains in
+`painter_specificity_v2`; retain all four artists, use English and keep cumulative
 paid accounting below $120 without querying remaining credit balances.
 
 The first specificity attempt is terminal after 31 outputs, before feature
@@ -43,9 +76,9 @@ Never query remaining balances. Measurement is complete: 1,008 generated rows
 and 649 reference-window rows, with full/square vectors and four numerical
 analyses. Do not launch duplicate extraction or collection.
 
-The completed 17-page manuscript presents the six-model results, three main
-figures and all four painters. The central contrast is strong aligned response
-without faithful reference geometry: GPT Image 2 has beta .999 but D 1.226;
+The preceding 17-page manuscript presented the six-model results, three main
+figures and all four painters. The declared contrast is strong aligned response
+with residual pooled-reference mismatch: GPT Image 2 has beta .999 but D 1.226;
 FLUX has the smallest point D (.801), with adjusted advantages over both 2.5
 variants and no resolved advantage over the other models. All 24 generated
 clouds have lower total variance than the references. The terminal
@@ -65,7 +98,7 @@ classes inherited through the frame. Do not describe these as the later
 controlled panel's separate three-class LLM visual annotations.
 The user's Korean files remain untouched.
 
-### Verification and immutable inputs
+### Preceding closeout verification and immutable inputs
 
 - `make specificity-check`: four exact numerical replays pass.
 - `make specificity-audit`: terminal report and all 1,008 response/image hashes pass.
