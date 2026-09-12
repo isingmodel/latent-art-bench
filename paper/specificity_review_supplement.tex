@@ -1,0 +1,26 @@
+\begin{table}[htbp]\centering\small
+\begin{tabular}{@{}lrrrr@{}}\toprule
+ & \multicolumn{2}{c}{11 common briefs} & \multicolumn{2}{c}{14 briefs}\\
+Model & Pooled target & Class target & Equal family & Covariance\\\midrule
+GPT Image 1 & 1.557 & 1.366 & 1.551 & 2.103\\
+GPT Image 2 & 1.099 & 1.130 & 1.243 & 1.511\\
+2.5 Flare & 1.726 & 1.539 & 1.765 & 1.636\\
+2.5 Sunburst & 1.633 & 1.525 & 1.680 & 1.617\\
+Nano Banana 2 & 0.987 & 0.948 & 1.203 & 1.385\\
+FLUX.2 Max & 0.750 & 0.786 & 0.808 & 0.928\\
+\bottomrule\end{tabular}
+\caption{Descriptive error under alternative targets and metrics. The class target uses title-derived water, built and land strata; the three mixed briefs are excluded. Each column uses its own reference normalizer; absolute values across columns are not directly comparable. Covariance is fitted only on development works, with fixed 50\% shrinkage.}
+\label{tab:review-targets}\end{table}
+\begin{table}[htbp]\centering\small
+\begin{tabular}{@{}lrrr|rrrr@{}}\toprule
+ & \multicolumn{3}{c}{Reference-component slopes} & \multicolumn{4}{c}{Slope after omitting}\\
+Model & First & Second & Third & Monet & Sisley & Pissarro & C\'ezanne\\\midrule
+GPT Image 1 & 1.248 & 0.310 & 0.356 & 1.140 & 1.072 & 0.840 & 0.389\\
+GPT Image 2 & 1.156 & 0.617 & 0.800 & 1.195 & 0.972 & 0.992 & 0.651\\
+2.5 Flare & 1.022 & 0.211 & 0.383 & 1.034 & 0.734 & 0.802 & 0.222\\
+2.5 Sunburst & 1.082 & 0.250 & 0.417 & 1.116 & 0.840 & 0.762 & 0.284\\
+Nano Banana 2 & 0.513 & 0.371 & 0.195 & 0.569 & 0.446 & 0.388 & 0.276\\
+FLUX.2 Max & 0.666 & 0.021 & 0.183 & 0.539 & 0.511 & 0.527 & 0.096\\
+\bottomrule\end{tabular}
+\caption{Artist coverage of the aligned response. Reference components account for 66.3\%, 20.6\% and 13.0\% of centroid variation. Each omission recomputes the target and recenters the other three artists. These slopes are descriptive, not artist-level significance tests.}
+\label{tab:review-components}\end{table}

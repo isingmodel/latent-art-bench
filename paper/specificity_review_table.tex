@@ -1,0 +1,13 @@
+\begin{table}[tbp]\centering\small
+\begin{tabular}{@{}lrrrrr@{}}\toprule
+Model & $D_{\rm aggregate}$ & $V_{\rm scene}$ & $Q$ & $\beta/\sqrt Q$ & $D_{\rm held}$\\
+\midrule
+GPT Image 1 & 1.239 & 0.333 & 2.449 & 0.600 & 0.645\\
+GPT Image 2 & 1.044 & 0.182 & 2.223 & 0.670 & 0.554\\
+2.5 Flare & 1.483 & 0.255 & 2.281 & 0.511 & 0.741\\
+2.5 Sunburst & 1.337 & 0.305 & 2.289 & 0.545 & 0.706\\
+Nano Banana 2 & 0.723 & 0.387 & 0.994 & 0.444 & 0.832\\
+FLUX.2 Max & 0.761 & 0.040 & 0.741 & 0.546 & 0.714\\
+\bottomrule\end{tabular}
+\caption{Post-result decomposition and scalar calibration. $D=D_{\rm aggregate}+V_{\rm scene}$, whereas $D=1-2\beta+Q$ separates alignment and response magnitude. $D_{\rm held}$ evaluates a scalar fitted on the other 13 scenes. These are descriptive feature-space counterfactuals, without new significance tests or realizability claims.}
+\label{tab:review-calibration}\end{table}

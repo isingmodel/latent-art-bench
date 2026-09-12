@@ -1,0 +1,178 @@
+\section{Post-result target diagnostics}\label{app:diagnostics}
+These analyses use the completed 1,008 generated vectors, existing references
+and unchanged scaler. Their choices were recorded after the primary results
+and reviewer comments were known. They are not new confirmatory experiments.
+The accompanying result contains every scalar fit, artist-pair result, artist
+omission, label assignment, coordinate contribution and control draw.
+
+\subsection{Content-specific targets and genuine-painting controls}
+The recorded reference classes are water-organized, built-place-organized,
+route-organized, and open or wooded land, assigned by a fixed source-title
+lexicon. Counts in that order are $(191,67,8,31)$ for Monet, $(52,29,9,16)$ for
+Sisley, $(28,77,12,24)$ for Pissarro and $(31,28,12,34)$ for C\'ezanne.
+Class-specific means are centered across painters just as in the pooled target.
+Their mean squared departure from the pooled target is $.438H$, a description
+of observed reference means that includes finite-sample error.
+
+For the generated comparison, the four water, four built and three land briefs
+use the corresponding class means; the three mixed briefs are excluded.
+We divide the summed class-specific cross-product error by
+$H_c=S^{-1}\sum_s\sum_a\|r_{a,c(s)}\|^2=7.413$, compared with pooled $H=5.915$.
+Each column of Table~\ref{tab:review-targets} therefore has its own denominator.
+The unchanged 11-scene pooled comparison isolates the scene-subset choice.
+These title-derived strata have 16--191 reference works per artist/class among
+the three included classes, but do not supply visually matched historical scenes.
+
+For each of 1,000 genuine-painting controls, works in each artist/class cell
+are randomly divided into disjoint halves, with the smaller half used for
+target estimation. A pooled control samples two independent works with replacement
+from each painter's held-out half for each of 14 pseudo-scenes. A class-stratified
+control samples within the held-out class for each of the 11 water, built or
+land pseudo-scenes. It is compared with both pooled and class-specific means
+from the training halves, using each target's own squared magnitude.
+The random seed is 2026091201. Sampling can repeat a held-out work, but no
+held-out work is used to estimate that split's target. The development scaler
+is fixed throughout.
+
+These controls reveal finite-reference instability and content dependence;
+they do not establish a universal real-art baseline. Training-target estimation,
+held-out mean differences and two-draw noise all contribute to their spread.
+Stratifying on title classes does not hold out capture sources or remove
+classification error. In particular, the class-specific control's median error
+$.702$ and central interval $[-.248,1.946]$ do not justify a perceptual acceptance
+threshold or an assertion that model errors above one indicate artistic failure.
+
+\input{specificity_review_supplement.tex}
+\FloatBarrier
+
+\subsection{Magnitude, artist coverage and coordinate weighting}
+The cross-repeat version of Equation~\ref{eq:scene-decomposition} is exact for
+the retained vectors. Its variation term replaces squared deviations with
+cross-products between scene-centered repeats. The term can be negative in
+finite samples, although its independent-repeat population target is nonnegative.
+Scalar calibration fits only the other 13 scenes. All fold denominators $Q$
+are positive. GPT Image 2's fitted scalars range from .438 to .459 and FLUX's
+from .598 to .694; all fold-specific scores are retained. No calibration
+parameter is selected by minimizing its own held-out score.
+
+For artist pairs, both generated and reference contrasts are direct differences
+between the two artists; the denominator is the squared reference-pair distance.
+Leaving one artist out recenters the remaining three generated and reference
+conditions. Reference singular components use the three rank-one terms of the
+reference-mean matrix, and project onto each such term separately.
+Table~\ref{tab:review-components} shows that aggregate positive alignment is
+uneven across those components. The 24 permutations rearrange generated artist
+labels while leaving the reference fixed. Their ranks are not exact permutation
+$p$-values: the named conditions are not exchangeable under an established null.
+
+Equal-family weighting gives each coordinate a weight inversely proportional
+to its family's size (11, 8 or 12). The covariance sensitivity uses the
+221 development works with equal total mass per painter. For their weighted
+covariance $\Sigma$, the metric matrix is
+$[.5\Sigma+.5\operatorname{tr}(\Sigma)I/31]^{-1}$; the shrinkage is fixed,
+without tuning on the evaluated images. These changes address correlated
+coordinate weighting but are not independently validated artistic metrics.
+FLUX retains the smallest point estimate under each of 31 single-coordinate
+deletions. The largest individual primary-error contribution varies by model:
+32-neighbor LBP entropy for GPT Image 1, spectral residual for GPT Image 2,
+wavelet curvature for the two 2.5 variants, and quadrant orientation divergence
+for Nano Banana 2 and FLUX. All contributions, including negative terms, are
+reported rather than selecting a favorable coordinate subset.
+
+\subsection{A design-aware energy correction}
+The primary energy values use empirical distributions, including their zero
+diagonal distances. To estimate energy between a fixed empirical reference
+and the equally weighted mixture of scene-conditional output distributions,
+cross-scene generated pairs already have the required independent draws.
+Only the same-scene generated term needs adjustment. With two repeats and
+$S$ scenes, the descriptive correction is
+\[
+ \widehat{\mathcal E}_{\rm strata}
+ =\widehat{\mathcal E}_{\rm empirical}
+ -\frac{1}{2S^2}\sum_s\|y_{s1}-y_{s2}\|.
+\]
+The reference within-distance remains empirical because this target conditions
+on the finite reference panel. A pooled IID $n/(n-1)$ multiplier would also
+alter cross-scene terms and estimate a different target. This correction retains
+the 21 negative named-minus-generic differences. It does not solve unequal
+historical and generated content mixtures, and no new energy tests are performed.
+
+\subsection{Uncertainty and synthetic coverage checks}
+The Student procedure uses 14 scene summaries. For independent scene errors
+with fixed conditional means $\delta_s$, its estimated variance has expectation
+\[
+ \mathbb E[s_\delta^2/S]
+ =\operatorname{Var}(\bar{\widehat\delta})
+ +\frac{1}{S(S-1)}\sum_s(\delta_s-\bar\delta)^2.
+\]
+It therefore includes real between-scene heterogeneity as well as request noise.
+This explains why it is not a direct estimate of fresh-request variance for
+exactly the fixed panel. It also does not provide an exact coverage guarantee:
+non-Gaussian cross-products and dependence can affect the Student approximation.
+
+We simulate 5,000 repetitions per specified scenario (seed 2026091202), with
+six configurations, 14 scenes, two repeats and the same 21-endpoint family.
+The reference configuration is normalized to unit squared magnitude.
+Synthetic mean contrasts combine fixed reference slopes with orthogonal
+components of magnitudes similar to the reported estimates; random directions
+are artist-centered. Independent centered noise has total expected squared
+magnitude .5. The scenarios use Gaussian errors; variance-standardized Student
+$t_3$ errors with scene-specific scale factors from .5 to 2; Gaussian errors
+with additional fixed artist-by-scene interactions; and a shared-state violation.
+The last allocates half the error variance to a model-specific random component
+shared by both repeats and every scene in a simulated run. These are explicit
+stress models, not estimates of the actual service process.
+
+Simultaneous coverage of all 21 known fixed-panel quantities is 95.96\%, 97.42\%
+and 99.68\% in the first three scenarios. It falls to .04\% in the shared-state
+scenario, where mean corrected-error bias is approximately .25, as expected
+from the retained cross-repeat covariance. Monte Carlo standard error for a
+coverage probability is $\sqrt{p(1-p)/5000}$. The simulations show how the
+procedure can succeed or fail under specified assumptions; they cannot verify
+actual repeat independence or calibrate the original intervals from two
+observations per cell. No revised significance threshold is selected from them.
+
+\section{Inspectable image examples}\label{app:images}
+The generated panel uses the first declared brief and first repeat for every
+model and clause, selected by this fixed rule after numerical analysis. The
+brief reads: ``A broad river bends past a gravel bank. Three tall trees stand
+on the far bank, with a low hill behind them under a pale overcast sky.''
+Every prompt ends with ``No text or frame.'' Artist-free, generic and named
+clauses otherwise follow Section~\ref{sec:design}. Images were not selected by
+visual success, distance or agreement with the paper's claims.
+
+Reference examples are the lexicographically first measured water-class work
+identifier for each painter with recorded public-domain status. They are
+examples from the comparison collection, not matched depictions of the generated
+brief. The Sisley and Pissarro examples visibly retain calibration strips. Their
+primary measurement records have zero crop fraction, so those non-painting
+regions were not masked. The C\'ezanne example, \emph{Crossroad of Rue R\'emy,
+Auvers}, depicts a street despite its title-derived water class. These
+observations concern four selected examples, not a prevalence audit. They are
+retained to expose the source and labeling problems, without recropping,
+reclassifying or recomputing the sealed analysis.
+The accompanying inspection manifest identifies exact source bytes,
+work metadata and generated requests. These reduced display panels permit
+qualitative inspection of content and rendering, not independent feature
+extraction, blinded scene-adherence scoring or artist-fidelity validation.
+
+\begin{figure}[htbp]
+\centering\includegraphics[width=\linewidth]{specificity_reference_examples.pdf}
+\caption{Rule-selected reference examples. Columns identify painters and recorded
+Wikidata work identifiers. Calibration strips are visible beside the Sisley
+and Pissarro reproductions; the C\'ezanne example reveals a title-class mismatch.
+Source URLs and public-domain metadata are retained
+with the inspection manifest. The works are not exact content matches to the
+common generated brief.}
+\label{fig:reference-examples}
+\end{figure}
+\begin{figure}[p]
+\centering\includegraphics[width=\linewidth]{specificity_image_examples.pdf}
+\caption{One common brief across all six models and clauses, first repeat.
+Every thumbnail carries its stable request identifier. Rows compare recorded
+configurations; columns compare clauses. Selection is deterministic and
+post-result, without appearance-based curation. No human evaluation is inferred
+from this panel.}
+\label{fig:image-examples}
+\end{figure}
+\FloatBarrier

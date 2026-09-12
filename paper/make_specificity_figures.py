@@ -66,7 +66,7 @@ def comparison(result):
         ax.axvline(1, color="#888888", lw=0.7, linestyle="--")
         ax.set_ylim(-0.6, 5.6)
     axes[0].set(xlabel="Reference-aligned slope β", title="(a) Artist response")
-    axes[1].set(xlabel="Corrected error D", title="(b) Geometry recovery")
+    axes[1].set(xlabel="Corrected error D", title="(b) Reference-contrast mismatch")
     fig.subplots_adjust(left=0.19, right=0.985, bottom=0.19, top=0.87, wspace=0.2)
     return fig
 
@@ -129,7 +129,7 @@ def diagnostics(result):
     y = np.arange(6)
     for field, label, color in (
         ("amplitude_error", "Aligned amplitude", "#0072B2"),
-        ("off_axis_error", "Other directions", "#D55E00"),
+        ("off_axis_error", "Orthogonal residual", "#D55E00"),
     ):
         vals = [r[field] for r in result["models"]]
         offset = -0.12 if field == "amplitude_error" else 0.12
@@ -138,7 +138,7 @@ def diagnostics(result):
         yticks=y,
         yticklabels=SHORT,
         xlabel="Component of corrected error D",
-        title="(a) Sources of recovery error",
+        title="(a) Reference-mismatch components",
     )
     axes[0].axvline(0, color="#888888", lw=0.7)
     axes[0].invert_yaxis()

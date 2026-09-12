@@ -17,78 +17,76 @@
 \renewcommand{\floatpagefraction}{0.75}
 \newcommand{\E}{\widehat{\mathcal E}}
 \newcommand{\R}{\mathbb R}
-\title{Artist Specificity beyond a Shared Painting Effect\\in Text-to-Image Generation}
+\title{Artist-Name Responses beyond a Shared Painting Effect\\in Text-to-Image Generation}
 \author{Anonymous authors}
 \date{}
 \begin{document}
 \maketitle
 
 \begin{abstract}
-An image generator can respond strongly to a painter's name without recovering
-what distinguishes that painter from others. We test this distinction using
-Monet, Sisley, Pissarro and C\'ezanne, 649 digital painting reproductions, and
-31 interpretable color, spatial and texture features. A prospective experiment
-crosses six image models with 14 fixed scenes, a generic oil-painting clause,
-four painter clauses and an artist-free control, with two repeated requests per
-cell. Centering the named outputs within each scene removes their common
-response. We then measure reference-aligned artist variation and use independent
-repeats to correct the noise bias in artist-geometry error. Scene-paired
-regressions compare models on the same reference target. All six models show
-positive reference-aligned variation, although 82.5--95.7\% of their global
-named-versus-free squared feature change is shared across painters. GPT Image 2
-matches the reference-aligned amplitude ($\beta=.999$) but retains substantial
-error in other artist-contrast directions ($D=1.226$). FLUX.2 Max has the lowest
-estimated error ($D=.801$), with adjusted advantages over both GPT Image 2.5
-variants; the other 13 pairwise differences remain unresolved. These findings
-persist under common-square measurement and coarse reference-content balancing.
-Naming thus produces measurable artist-specific responses, but their strength
-does not establish faithful recovery of reference painter differences.
+A detectable response to a painter's name need not reproduce the differences
+between that painter's works and those of other painters. We examine this
+distinction in 31 interpretable digital features using 649 reproductions of
+Monet, Sisley, Pissarro and C\'ezanne. Six generators receive 14 fixed outdoor
+briefs under artist-free, generic-painting and four named-painter conditions,
+with two outputs per cell. Removing the common additive response separates
+reference-aligned contrast strength from repeat-corrected disagreement with
+pooled reference contrasts. All six configurations have positive aligned
+slopes. GPT Image 2 has a slope close to one ($\beta=.999$), but substantial
+contrast error ($D=1.226$). FLUX.2 Max has the lowest estimated primary error
+and adjusted advantages over the two GPT Image 2.5 configurations; no model
+is established to outperform the no-artist-contrast benchmark. Post-result
+diagnostics qualify this ordering: scalar calibration evaluated on held-out
+scenes favors GPT Image 2, and genuine-painting controls expose substantial
+content dependence and reference uncertainty. The study distinguishes detectable
+name effects, response calibration and agreement with a specified reference
+collection. It does not validate this feature-space agreement as artistic fidelity.
 \end{abstract}
 
 \section{Introduction}
-``In the style of Monet'' is an instruction to distinguish one painter from
-others. Yet a visibly painterly output need not satisfy that instruction. A
-common change in color, contrast or surface texture can make images look less
-photographic while leaving the differences between Monet, Sisley, Pissarro and
-C\'ezanne poorly reproduced. Even a generator that produces distinguishable
-outputs for all four names may distinguish them along the wrong visual axes.
-The central question is therefore whether painter-name prompting recovers
-\emph{artist-specific variation}, beyond the appearance shared by its named
-outputs.
+A painter's name can change an image in several ways. It can introduce a common
+painting appearance, exaggerate familiar color or texture cues, or alter the
+features that distinguish one painter from another. These effects are easy to
+conflate. Moving closer to Monet's collection, for example, does not show that
+a generator reproduces the differences between Monet and Sisley: a generic
+painting instruction could improve proximity to both.
 
-Distance to a painter's collection alone cannot settle this question. A generic
-painting transformation could lower that distance for several painters at once.
-Conversely, correct differences between painters could coexist with a common
-offset from all reference paintings. These are distinct errors with different
-implications for model comparison. A permutation of painter labels illustrates
-the problem: generated collections can remain separable while their names map
-to the wrong reference painters. An evaluation should separate the common
-response, the amplitude of reference-aligned differences, and artist contrasts
-that depart from the reference geometry.
+We ask whether painter names induce differences aligned with those among
+\emph{documented digital reproductions}, beyond a response shared across names.
+Our target is the labeled, centered mean configuration of four painters in
+31 color, spatial and texture coordinates. This is an explicit collection-relative
+target, not a perceptually validated definition of style. Historical subject
+mixtures and reproduction processes can contribute to its artist differences.
+Holding the generated scene text fixed controls the prompt intervention; it
+does not make those historical subjects identical.
 
-We make that separation experimentally and statistically. Six generators receive
-the same scene descriptions with either no painting clause, a generic oil-painting
-clause, or one of four painter clauses. We subtract the mean response across
-painters within each model and scene, then compare the remaining painter
-contrasts with those in a fixed reference panel. Two repeated requests permit
-cross-product estimation of conditional mean error without its usual additive
-sampling-noise bias. An additive feature shift shared by all four painter
-conditions cancels from this endpoint.
+The distinction matters for evaluation. A generator can produce easily
+separable named conditions whose labels map to the wrong reference painters.
+It can also recover the reference-aligned amplitude while introducing large
+additional contrasts. Conversely, a restrained response may have lower squared
+error than a stronger response, without distinguishing artists more accurately
+in every respect. A single proximity score or recognition accuracy cannot
+separate these possibilities.
 
-This design also gives a limited but testable answer to \emph{why} generated
-collections differ. A shared painting shift, weak or exaggerated artist
-contrasts, differences along other feature axes, and dependence on the depicted
-scene produce different signatures in the decomposition. Generic-clause and
-palette interventions probe alternatives to a uniquely artist-specific response.
-These are explanations of observable output behavior. They do not identify
-training frequencies, guidance rules or the internal representation of a painter.
+We cross six model configurations with identical scene descriptions and
+artist-free, generic oil-painting and four named-painter clauses. Centering the
+named outputs removes their common additive shift. A reference-aligned slope
+measures response amplitude; an independent-repeat cross-product estimates
+scene-wise disagreement with the pooled reference contrasts without additive
+sampling-noise bias. Paired scene comparisons retain the same target across
+models. This applies established estimation principles to a controlled audit
+of low-level artist contrasts, rather than proposing a new general style metric.
 
-The contribution is a controlled test of reference-relative artist specificity,
-with a common target for comparing six current model configurations. It combines
-painter contrasts, generic controls and repeat-corrected error in an interpretable
-feature space. We retain distributional proximity and spread as complementary
-outcomes: reproducing differences among painter means is a narrower achievement
-than reproducing the painters' full distributions.
+The experiment supports positive reference alignment but not a general ranking
+of artistic fidelity. Review-driven diagnostics reveal two reasons for that
+restriction. First, scene-wise disagreement includes variation in artist
+contrasts across scenes, which can be appropriate rather than erroneous.
+Second, response magnitude influences the primary model ordering: a scalar
+fitted on other scenes changes that ordering. We report these post-result
+checks separately from the declared analysis, alongside artist-pair summaries,
+genuine-painting controls and inspectable image examples. They explain aspects
+of the measured disagreement while leaving its perceptual and causal
+interpretation open.
 
 \section{Related work}
 Artist imitation and computational style measurement are established research
@@ -177,7 +175,8 @@ not a random sample of all possible content.
 Images undergo orientation correction and conversion to sRGB using valid
 embedded profiles; compatible unprofiled files are treated as sRGB. The primary
 pipeline preserves aspect ratio at a 512-pixel short side, using Lanczos resizing
-without upsampling. Each of the 31 coordinates is centered and scaled by its
+without upsampling. No painting-region mask is applied: source margins or
+calibration strips can enter the measurements. Each coordinate is centered and scaled by its
 median and interquartile range in the development panel, with equal total
 weight per painter. Thus a unit is a development-panel IQR in that coordinate,
 not a perceptual just-noticeable difference. The Euclidean metric weights
@@ -220,20 +219,21 @@ Exact scales and definitions appear in Appendix~\ref{app:features}.}
 \label{tab:features}
 \end{table}
 
-\section{Separating common appearance from artist recovery}\label{sec:method}
+\section{Measuring reference-relative artist contrasts}\label{sec:method}
 \subsection{Reference-aligned variation}
 Let $\mu_a\in\R^{31}$ be the standardized reference mean for painter $a$ and
 let $\bar\mu=\frac14\sum_a\mu_a$. Define the reference painter contrasts
 $r_a=\mu_a-\bar\mu$ and their total squared magnitude $H=\sum_a\|r_a\|^2$.
 For generated vector $z_{msak}$ from model $m$, scene $s$, painter $a$ and
-repeat $k\in\{1,2\}$, remove the common named response:
+repeat $k\in\{1,2\}$, remove the common additive named response:
 \begin{equation}
  d_{msak}=z_{msak}-\frac14\sum_b z_{msbk}.
  \label{eq:center}
 \end{equation}
 Any shift shared by all four named outputs of that model, scene and repeat
-cancels exactly. This includes a common painting effect and any model-specific
-baseline that acts additively in these coordinates.
+cancels exactly. This removes additive baselines in these coordinates. It does not remove
+a shared transformation: if all conditions undergo $z\mapsto Az+b$,
+centering removes $b$ but leaves $Ad$.
 
 The reference-aligned slope is
 \begin{equation}
@@ -244,10 +244,11 @@ The reference-aligned slope is
 It is the least-squares coefficient of generated painter contrasts on reference
 contrasts. A value of zero indicates no response along the reference direction;
 one matches its amplitude. Values above one indicate exaggeration along that
-direction, not necessarily better recovery. A nonzero slope also does not
-exclude substantial differences along other axes.
+direction, not necessarily better recovery. A nonzero slope does not establish agreement for every artist pair. It is
+a projection onto one vectorized reference configuration, not a test that
+all reference contrast dimensions are recovered.
 
-\subsection{Noise-corrected error and its explanation}
+\subsection{Repeat-corrected disagreement with a pooled target}
 Two independently requested repeats permit the cross-product estimator
 \begin{equation}
  \widehat D_{ms}=\frac1H\sum_a
@@ -258,8 +259,10 @@ Two independently requested repeats permit the cross-product estimator
 Under stable conditional means and independent, mean-zero repeat errors, its
 expectation is the squared error of the scene-conditional mean painter
 contrasts, normalized by $H$. The error contributed by output sampling does not
-inflate this expectation. Exact mean-geometry recovery gives expected $D=0$;
-a purely common named response gives expected $D=1$. Finite estimates may be
+inflate this expectation. Exact agreement with these reference contrasts in every scene gives expected
+$D=0$; identical conditional means for all four artist labels give expected
+$D=1$. This latter benchmark is a theoretical no-contrast predictor, not an
+observed generic-arm estimate. Finite estimates may be
 negative. We do not truncate them or interpret a negative estimate as
 better-than-perfect recovery.
 
@@ -271,13 +274,31 @@ $e_{msak}=d_{msak}-\widehat\beta_{msk}r_a$. Then
  +\frac1H\sum_a\langle e_{msa1},e_{msa2}\rangle.
  \label{eq:decomposition}
 \end{equation}
-The first term is error in the amplitude of the reference-aligned response;
-the second is error orthogonal to that direction. This distinguishes weak or
-exaggerated conditioning from a different organization of painter contrasts.
-Both terms retain the cross-repeat correction and can be negative in finite
-samples. Computing the same error after averaging over scenes supplies a
-separate descriptive target: low aggregate error can conceal scene-dependent
-failures.
+The first term measures reference-aligned amplitude error. The residual is
+orthogonal to the single stacked reference configuration; it is not necessarily
+outside the feature-space span of the reference means, much less outside all
+authentic artistic variation. Both terms can be negative in finite samples.
+
+A simple example clarifies the target. Conditional contrasts $0$, $r$ and $2r$
+give expected errors 1, 0 and 1, respectively. Permuting distinct reference
+labels preserves all unlabeled pairwise distances but gives nonzero error.
+Thus $D$ measures labeled coordinate agreement, including response strength.
+It is not just a measure of separation or distance-geometry preservation.
+
+Let $\theta_s$ stack the four conditional mean contrasts and
+$\bar\theta=S^{-1}\sum_s\theta_s$. The population target decomposes as
+\begin{equation}
+ D_{\rm scene}=\frac{\|\bar\theta-r\|^2}{H}
+ +\frac1{SH}\sum_s\|\theta_s-\bar\theta\|^2
+ =D_{\rm aggregate}+V_{\rm scene}.
+ \label{eq:scene-decomposition}
+\end{equation}
+The second term penalizes changes in artist contrasts across scenes. Such
+changes need not be artistic mistakes: a generator with $\theta_s=r+u_s$
+and $\sum_su_s=0$ matches the aggregate target but incurs positive scene-wise
+error. We therefore interpret the primary endpoint as \emph{scene-wise agreement
+with pooled reference contrasts}. It cannot establish content-conditional
+artist fidelity without a corresponding historical target.
 
 \subsection{Comparing models}
 We fit the scene fixed-effects regression
@@ -295,9 +316,13 @@ The fixed inferential family contains six reference-aligned slopes and 15
 pairwise model error contrasts. We report paired-scene Student intervals with
 $n-1$ degrees of freedom and Bonferroni adjustment across these 21 comparisons.
 Nominal 95\% intervals for absolute $D_m$ are descriptive. These are approximate
-summaries of variation across the fixed briefs under the assumed error model;
-randomized request order does not establish independence or justify inference
-to arbitrary scenes. All 14 scenes are complete for all models.
+model-based summaries using dispersion across the fixed briefs. That dispersion
+mixes generation noise with genuine between-brief variation in conditional
+contrasts; it does not isolate fresh-request uncertainty for exactly these
+briefs or establish coverage for new scenes. Bonferroni adjustment requires
+adequately calibrated individual intervals. Two outputs permit noise correction
+but do not precisely characterize its sampling distribution. All 14 scenes
+are complete for all models.
 
 Prespecified sensitivity analyses remove each scene in turn, resample scenes
 for model contrasts, and resample reference works within painter while holding
@@ -313,8 +338,8 @@ references. Before inspecting the new feature outcomes, we specified equal
 weight for four previously recorded, metadata-derived content classes within each painter, then
 recomputed the reference contrasts and all model estimates. For example, water
 scenes are much more frequent in the Monet panel than in the Pissarro panel.
-Equal class weighting tests dependence on that broad mixture, without matching
-individual compositions or identifying pure style. Reference resampling within
+Equal class weighting changes the pooled mixture; it does not supply a
+content-conditional target, match individual compositions or identify pure style. Reference resampling within
 artist/class strata assesses the stability of this alternative target.
 
 \subsection{Generic controls and full distributions}
@@ -324,7 +349,7 @@ of the common component with the free-to-generic change. Their cosine similarity
 and cross-repeat squared magnitudes test whether a generic painting clause
 reproduces the shared direction. A large common fraction alone cannot show that
 naming fails: these four reference painters also share visual properties.
-Equations~\ref{eq:beta}--\ref{eq:distortion} supply the separate recovery test.
+Equations~\ref{eq:beta}--\ref{eq:distortion} separately assess reference contrasts.
 
 For painter $a$, energy discrepancy compares its generated collection $Y_a$
 with reference collection $X_a$:
@@ -335,166 +360,146 @@ with reference collection $X_a$:
  \label{eq:energy}
 \end{equation}
 Unlike distance to a mean, this statistic incorporates within-collection
-variation. Its empirical baseline need not be zero for two independent samples
-from the same distribution. We also report generated/reference total-variance
-ratios. These complementary outcomes can reveal narrow or displaced generated
-distributions even when reference painter contrasts are recovered. We also
+variation. Its finite-sample expectation depends on within-collection spread, so equal
+generated sample sizes do not eliminate comparison bias. We retain this declared
+statistic and add a correction respecting the scene-stratified design in
+Appendix~\ref{app:diagnostics}. Generated/reference variance ratios compare
+28 outputs from 14 fixed briefs with a historically broader collection. A ratio
+below one is not, by itself, evidence of deficient diversity. We also
 report within-scene repeat spread, $\frac{1}{2S}\sum_s
 \|z_{msa1}-z_{msa2}\|^2$, the mean sample-variance trace of the two repeated
 outputs. This separates repeat dispersion from total variation across briefs.
+
+\subsection{Post-result diagnostic analyses}\label{sec:diagnostics}
+The declared endpoints are retained. The following analyses were added in
+response to review, after the primary results were known, and are descriptive.
+We examine artist pairs, reference singular components, label permutations,
+class-specific targets and disjoint real/reference controls. Equal family
+weighting and a covariance metric fitted only to development works examine
+coordinate weighting; simulation probes the interval procedure under explicit
+noise models. Appendix~\ref{app:diagnostics} specifies these choices.
+
+To separate contrast strength from direction, define
+\begin{equation}
+ \widehat Q_m=\frac1{SH}\sum_{s,a}\langle d_{msa1},d_{msa2}\rangle,
+ \qquad \widehat D_m=1-2\widehat\beta_m+\widehat Q_m.
+ \label{eq:magnitude}
+\end{equation}
+For positive $\widehat Q_m$, $\widehat\beta_m/\sqrt{\widehat Q_m}$ is a
+noise-corrected alignment summary; finite estimates need not lie in $[-1,1]$.
+Scaling every centered generated contrast by $c$ gives
+$\widehat D_m(c)=1-2c\widehat\beta_m+c^2\widehat Q_m$.
+We fit $c=\max(0,\widehat\beta/\widehat Q)$ on the other 13 scenes and evaluate
+it on the held-out scene. The fitting criterion is available only when its
+training $\widehat Q$ is positive, as it is in every observed fold. This
+counterfactual concerns feature vectors, not an implemented image transformation.
 
 \section{Results}\label{sec:results}
 \input{specificity_results.tex}
 \FloatBarrier
 
-\section{What the supporting interventions explain}\label{sec:why}
-\subsection{Proximity gains do not establish painter specificity}
-An earlier exploration used the same four-painter reference panel with 1,536
-named and 384 artist-free outputs from GPT Image 1 and GPT Image 2 request groups,
-three prompt methods and 16 scenes. Across its 24 painter--model--method cells,
-generated/reference trace ratios ranged from .206 to .376. Generated and
-reference images were also separable by a grouped classifier, with balanced
-accuracy .940--.983. These findings motivated the present experiment; they do
-not supply its inferential evidence or establish perceptual differences.
-The original projections remain available with the exploration's numerical report.
-
-The effect of naming on reference proximity was not uniform. In matched-size
-real/real comparisons, generated/reference energy exceeded the real/real median
-for every painter. Pooling the explored named conditions lowered the energy
-median relative to the free control only for Sisley. A later controlled
-Monet/C\'ezanne panel, with 24 shared scenes and three repeats, produced negative
-named-minus-free energy changes in all six model--painter comparisons; four
-rejected in their original eight-test family. The different reference panels,
-prompts and collection conditions preclude treating these as a single ranking.
-
-A separate prospective C\'ezanne experiment supplied the stronger generic
-control: 96 outputs on 24 new scenes, with two repeats per clause. Naming
-reduced energy relative to the generic painting clause by 1.195
-($p=.00001$, fixed $\alpha=.025$), while the named/generic trace ratio was .552.
-Thus a generic clause did not reproduce the entire proximity gain in that
-comparison. This is compatible with either correct or incorrect painter-specific
-contrasts; the current four-painter design directly distinguishes those cases.
-
-\subsection{Generic painting can alter responsiveness}
-Two separate palette experiments crossed six scenes with muted/vivid
-instructions and free, generic, Monet and C\'ezanne clauses, producing 192
-outputs per collection. Their primary endpoint was the painter-minus-generic
-difference in the vivid-minus-muted response of median CIELAB chroma. Neither
-collection resolved an additional painter-name interaction: the original
-Monet and C\'ezanne estimates were $-.284$ and $-.018$ in development-IQR units,
-with simultaneous intervals $[-.585,.016]$ and $[-.343,.308]$; the later estimates
-were $-.159$ and $.037$, also with intervals spanning zero.
-
-In contrast, the secondary generic-minus-free response was negative in both
-collections: $-.853$ and $-.891$, with nominal 95\% intervals excluding zero.
-A generic painting clause can therefore attenuate the measured palette response
-without an identified additional name effect. This supports including a generic
-control rather than attributing every named/free difference to painter
-specificity. The unresolved interactions do not prove equivalence, and two
-palette levels cannot distinguish reduced response gain from a shifted operating
-range or saturation.
-
-\subsection{Moment-map explanations depend on the scene panel}
-Generated-only moment maps provide another proxy explanation. Translation
-matches the mean of named outputs; translation plus isotropic scaling also
-matches their total variance. In the earlier controlled panel, actual naming
-had lower held-scene reference energy than the translation/scaling map in all
-six model--painter averages. Mean and scalar spread changes therefore did not
-exhaust the observed naming effect. Adding scale improved prediction of named
-scene means in all six cells while worsening reference energy in five, showing
-that these two evaluation targets can disagree.
-
-That historical ordering did not transfer to a prospective 240-image
-FLUX/C\'ezanne comparison on 12 new scenes. The unchanged translation/scaling
-map improved both reference energy and repeat-corrected scene-mean prediction
-relative to translation: differences $-.390$ and $-5.047$, with approximate
-simultaneous intervals $[-.509,-.271]$ and $[-7.880,-2.214]$. The new scenes,
-collection time and finite-sample energy target differed. This contrary result
-rules out presenting the earlier ordering as a general mechanism. It motivates
-the present scene-conditional artist-contrast analysis, which evaluates recovery
-directly rather than identifying naming with a universal global transformation.
-
 \section{Discussion}\label{sec:discussion}
-The distinction between a common painting response and recovery of painter
-contrasts changes what counts as a successful model. Strong named/free movement
-is insufficient, as is recognition of the requested name. The relevant test is
-whether the differences generated by changing the name correspond to the
-differences in the reference artists. The reference-aligned slope and corrected
-error provide complementary answers: response amplitude alone cannot establish
-correct geometry, and mean geometry alone cannot establish full-distribution
-recovery.
+The main finding is a separation between three claims: painter names induce
+reference-aligned variation; a configuration has lower error than another on
+a specified target; and that configuration faithfully reproduces an artist's
+style. The experiment supports the first claim for all six configurations and
+two comparisons under the second. It does not establish the third. Nor does it
+establish that any configuration improves on the no-artist-contrast benchmark
+in absolute squared error. Positive alignment and that absolute benchmark
+answer different questions.
 
-The observed error is not explained by weak name conditioning alone. GPT Image 2
-matches the amplitude of reference differences, yet its residual artist contrasts
-dominate the recovery error. The GPT Image 2.5 configurations likewise combine
-substantial aligned responses with larger off-axis errors and relatively little
-within-scene repeat dispersion. For these configurations, increasing the strength
-or consistency of the existing name response would not necessarily repair the
-measured mismatch. FLUX.2 Max illustrates the opposite tradeoff: a weaker aligned
-response accompanies lower total error. This identifies the organization of
-artist contrasts, alongside response strength, as a target for model improvement.
+The response-strength decomposition explains part of the model ordering.
+GPT Image 2 has a slope close to one, yet the total magnitude of its artist
+contrasts exceeds their reference-aligned component. FLUX has a weaker response
+and lower uncalibrated error. Scalar calibration on other scenes reduces error
+for every configuration and gives GPT Image 2 the smallest calibrated point
+estimate. This is evidence that response calibration influences the ranking,
+not that a feature-space rescaling is a realizable image intervention or that
+GPT Image 2 has the best artistic representation. The unresolved primary
+GPT Image 2--FLUX contrast remains unresolved.
 
-The generic intervention supplies a partial explanation of the large common
-shift: its direction overlaps the shared named response, and the earlier palette
-experiments show that a generic painting clause can alter chroma responsiveness.
-It does not explain the entire shift or the residual painter contrasts. Nor does
-the decomposition identify separate latent modules in a generator. Training
-imbalance, artist--subject associations, preference optimization and inference-time
-guidance remain possible upstream causes. Distinguishing them would require
-interventions on training data, conditioning or model internals; the present
-results instead locate the mismatch in observable output geometry.
+Artist-pair analysis also changes the interpretation of positive aggregate
+alignment. The dominant reference contrast receives stronger responses than
+the remaining components in every model. In particular, positive overall
+slopes coexist with near-zero or reversed Monet--Sisley slopes in several
+configurations. A response aligned with a broad separation among the four
+painters is not equivalent to recovering all their distinctions.
 
-\subsection{Scope of the evidence}
-Reference contrasts combine stylistic and content differences in this finite
-panel. Holding generated scene text fixed controls the prompt intervention but
-does not make historical content identical or verify that outputs follow every
-scene instruction. Results therefore concern recovery of measured reference
-painter differences under these outdoor briefs. They do not measure the complete
-style of an artist or establish generalization to unrelated artistic traditions.
-Four related painters make the common-response question useful but narrow its
-external scope.
+A generic painting clause reproduces part of the common named shift; artist-contrast
+magnitude and scene dependence account algebraically for other components.
+These are observable response patterns, not identified internal mechanisms.
+Common non-additive transformations, artist-associated content substitution,
+and differences in reproduction processes remain alternatives to an incorrect
+artist representation. Training imbalance, preference optimization and guidance
+are possible upstream causes, but were not manipulated. The separate palette
+and fixed-map evidence in Appendix~\ref{sec:why}, including the contrary
+prospective result, does not identify a universal mechanism.
 
-The representation is transparent but not perceptually calibrated. A separate
-processing challenge found exact invariance for lossless round trips, while
-resizing and blur materially changed texture coordinates. Eight-neighbor
+\subsection{What remains unvalidated}
+Genuine class-specific painting contrasts differ from the pooled
+target, and small disjoint real/reference panels yield widely varying corrected
+errors. The present collection cannot define a narrow artistic-fidelity threshold.
+Coarse within-class comparisons reduce one source of mismatch but do not match
+viewpoint, season, composition, career period or actual generated content.
+The rule-selected images expose concrete problems: the Sisley and Pissarro
+reference files include calibration strips retained by the primary full-frame
+measurement, and the C\'ezanne street scene is labeled water-organized from its
+title metadata (Appendix~\ref{app:images}). These examples establish that the
+reference target can contain non-painting content and imperfect subject labels;
+they do not estimate their prevalence or contribution to the reported errors.
+An output could also improve reference agreement by introducing artist-associated
+subjects that depart from the requested scene. The image panels permit inspection;
+they are not a blinded assessment of scene adherence or artist resemblance.
+
+The 31 coordinates are transparent measurements, not a validated perceptual
+instrument. Equal family weighting and development-only covariance weighting
+retain FLUX's lowest primary point estimate, but cannot determine the right
+weighting of artistic properties. A previous processing challenge found that
+resizing and blur materially changed texture measurements; eight-neighbor
 local-binary-pattern entropy accounted for 83.9\% of squared texture displacement
-under the tested blur. Common-square remeasurement retained all eight historical
-energy-contrast signs and the four adjusted rejections, but controls only one
-source of image geometry variation. Unknown photographic and reproduction
-processes remain potential contributors to generated/reference differences.
-No qualified independent-capture pairs or human style ratings are available.
+under the tested blur, not of the present model error. Square windows and
+without-texture analyses do not control photographic illumination, sharpening,
+color correction or conservation state. Independent captures and style-oriented
+representations would provide different, still imperfect, validation routes.
 
-Model comparisons apply to the requested configurations, clause template and
-collection period.
-Their repeat correction requires stable conditional responses and independent
-errors; randomized dispatch does not prove those conditions. The experiment has
-14 scene clusters, so uncertainty may remain substantial despite many images.
-Reference-work resampling and scene deletions assess sensitivity without
-creating new independent replication. All collections were conducted by the
-same research team; there is no separate-investigator replication.
+The uncertainty analysis conditions on this reference panel and scaler. Synthetic
+checks illustrate acceptable family coverage under specified independent-error
+models and severe failure under shared-state errors; they do not establish the
+actual generation process. The 14 fixed briefs, two repeats, four related painters
+and one clause template restrict external inference. No independently collected
+replication, human style validation or source-held-out measurement validation
+has been completed. These gaps limit the artistic interpretation even when
+numerical replay succeeds.
 
 \section{Conclusion}
-Painter-name prompting produces both a shared painting response and measurable
-reference-aligned artist variation. Across six generators, however, aligned
-response strength does not determine recovery of painter differences. Much of
-the observed error lies in other artist-contrast directions, even when the
-aligned amplitude is correct. FLUX.2 Max outperforms both GPT Image 2.5 variants
-on the specified geometry endpoint, without establishing a universal model
-ranking. Evaluating which differences a name induces, rather than only how much
-it moves an image toward a painter's collection, reveals this limitation.
+Painter names produce detectable, reference-aligned digital contrasts beyond
+a common additive painting response. Their amplitude, scene dependence and
+agreement with pooled painting statistics nevertheless differ. FLUX has lower
+declared error than the two GPT Image 2.5 configurations, while held-scene scalar
+calibration and artist-pair analysis qualify any broader ranking. The contribution
+is a controlled demonstration that response detection, calibration and
+collection-relative agreement are separate evaluation questions. Establishing
+which disagreements represent artistic failure requires validation beyond the
+present feature-space target.
 
 \section*{Data and code availability}
-Versioned protocols, exact prompts, model configurations, compact features,
-scalers and numerical replay code are retained with the analysis. The earlier
-experiments are available through the
-\href{https://github.com/isingmodel/latent-art-bench/releases}{project's versioned releases}.
-The new experiment's compact inputs and exact replay commands are retained in
-the accompanying project under \texttt{painter\_specificity\_v2}; a public release
-of this addition has not yet been archived. Numerical replay starts from retained feature vectors.
-Raw artwork, generated pixels and response bodies are excluded from the public
-packages; numerical replay therefore does not independently re-extract images
-or authenticate their acquisition. Source metadata records work identifiers,
-URLs and rights statements, without granting new rights to the images.
+The \href{https://github.com/isingmodel/latent-art-bench}{project repository}
+contains protocols, exact prompts, request configurations, reference metadata,
+scalers, retained feature vectors and numerical replay code. The primary
+six-model results and the post-result diagnostics have separate records;
+the original inferential family is unchanged. Earlier experiments have
+\href{https://github.com/isingmodel/latent-art-bench/releases}{versioned releases};
+the current addition has not yet been archived as an immutable public release.
+
+Appendix~\ref{app:images} supplies 36 generated examples covering all model/clauses
+for one fixed brief, plus four reference reproductions. Stable image identifiers,
+exact prompts, source URLs, recorded rights and byte hashes accompany these
+panels. They support visual inspection but are not the full-resolution measurement
+inputs. Public numerical replay begins with retained vectors; it does not
+independently reproduce feature extraction or acquisition. Full-resolution
+artworks, generated images and response bodies remain outside the compact
+packages. Archiving permissible exact pixels and validating recovery from
+reference source records remain necessary for measurement-level reproducibility.
 
 \bibliographystyle{plainnat}
 \bibliography{references}
@@ -545,12 +550,12 @@ repeat blocks preserve the vanishing cross-repeat term. A common response has
 $\theta_{msa}=0$ and hence expected $D=1$, even if it shifts the entire named
 collection toward the references. A correctly aligned but rescaled response
 $\theta_{msa}=b r_a$ gives expected $D=(b-1)^2$. Orthogonal deviations add their
-squared magnitude. This identity explains why more visibly distinct painter
-outputs need not have lower recovery error.
+squared magnitude. This identity explains why stronger painter contrasts need not have lower
+reference-relative squared error.
 
 For each model, global distortion applies the same cross-product estimator to
-the scene-averaged contrasts. Its target differs from the mean scene-conditional
-error: averaging can cancel scene-dependent deviations. Both are reported,
+the scene-averaged contrasts. Its target differs from the mean scene-wise error through the variation term
+in Equation~\ref{eq:scene-decomposition}; this term is not necessarily a failure. Both are reported,
 without selecting the smaller as the primary result. The primary comparison
 weights scenes and artists equally, irrespective of the reference count.
 The report also retains each painter's additive contribution to $D$. These sum
@@ -586,6 +591,8 @@ negative, so the ratio is not a probability. Generic/common cosine uses their
 repeat-averaged vectors. This descriptive global statistic is separate from
 the conditional recovery endpoint.
 
+\input{specificity_review_appendix.tex}
+
 \section{Complete model and painter summaries}\label{app:results}
 Table~\ref{tab:all-specificity-pairs} reports the full model-comparison family;
 Table~\ref{tab:artist-distributions} retains distributional outcomes for every
@@ -595,7 +602,32 @@ significance tests. Their energy values concern empirical distributions of
 \input{specificity_supplement_tables.tex}
 \FloatBarrier
 
-\section{Supporting cohorts and interpretation}\label{app:cohorts}
+\begin{figure}[tbp]
+\centering\includegraphics[width=\linewidth]{specificity_diagnostics.pdf}
+\caption{Complementary descriptive summaries. (a) Reference-aligned amplitude
+error and the residual orthogonal to the stacked reference configuration.
+(b) Generated/reference variance ratios for every model and painter. Total
+spread includes variation across fixed briefs and is not a mode-collapse measure.}
+\label{fig:specificity-diagnostics}
+\end{figure}
+\begin{figure}[tbp]
+\centering\includegraphics[width=.92\linewidth]{specificity_sunburst_distributions.pdf}
+\caption{All four painters' reference and generated distributions, illustrated
+with GPT Image 2.5 Sunburst. This model illustration was selected before the
+primary feature outcomes were inspected. Each panel uses principal components
+fitted only to that painter's reference works, so axes differ between painters.
+The 14 generated briefs and two repeats have a different content distribution
+from the historical panel. Projections are descriptive; numerical summaries
+use all 31 coordinates.}
+\label{fig:specificity-distributions}
+\end{figure}
+\FloatBarrier
+
+\section{Supporting interventions}\label{sec:why}\label{app:cohorts}
+These earlier cohorts address related but different questions
+(Table~\ref{tab:cohorts}). They are not pooled with the six-model experiment
+or treated as independent-investigator replications.
+
 \begin{table}[htbp]
 \centering\small
 \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{.22\linewidth}>{\raggedright\arraybackslash}p{.27\linewidth}>{\raggedright\arraybackslash}X@{}}
@@ -620,59 +652,65 @@ Different prompts, panels and finite-sample targets do not form one pooled test.
 \label{tab:cohorts}
 \end{table}
 
-The four-painter exploration used repeated scenes and three prompt methods.
-Its projected distributions, trace ratios and grouped discrimination are
-post-result descriptions. The pooled named energy medians for Monet, Sisley,
-Pissarro and C\'ezanne were 2.068, 1.678, 1.975 and 2.142, compared with free
-medians 1.732, 1.878, 1.854 and 1.657. Matched-size real/real medians were
-.193, .215, .164 and .199. These summaries neither isolate a prompt method
-nor identify a generator mechanism.
+\subsection{Proximity and spread under naming}
+The four-painter exploration used 1,536 named and 384 artist-free outputs,
+three prompt methods and 16 scenes. Its 24 model--painter--method cells had
+trace ratios .206--.376 and grouped generated/reference discrimination accuracy
+.940--.983. Pooled named energy medians for Monet, Sisley, Pissarro and C\'ezanne
+were 2.068, 1.678, 1.975 and 2.142; corresponding artist-free medians were
+1.732, 1.878, 1.854 and 1.657. Only Sisley had a lower pooled named median.
+Matched-size real/real medians were .193, .215, .164 and .199. These post-result
+summaries describe that exploration, not a general naming effect.
 
-The later controlled naming panel selected Monet and C\'ezanne after the
-exploration. It crossed 24 scenes with three models, two clauses and three
-repeats; 142 additional short-scene outputs supplied two prompt-length
-comparisons. Reference panels contain 38 Monet and 32 C\'ezanne works.
-Their water/built/land labels came from maintainer-run LLM visual coding. The generated observations
-were weighted to these reference class proportions in the controlled comparisons.
-The new primary artist-contrast analysis does not use class weights.
+The later controlled panel selected Monet and C\'ezanne after exploration.
+It crossed 24 scenes with three models, two clauses and three repeats; 142
+short-scene outputs supplied two prompt-length comparisons. Reference panels
+contained 38 Monet and 32 C\'ezanne works, with water/built/land masses based on
+maintainer-run LLM visual coding. Named-minus-free energy changes were
+$-.846,-1.818$ for Nano Banana 2, $-.625,-.896$ for FLUX, and $-.234,-.056$ for
+GPT Image 2 (Monet, C\'ezanne). The first four rejected in the original family
+of eight. A separate 72-output FLUX collection repeated both directions
+($-.695,-.952$) with rejection in its own four-endpoint family.
 
-The six controlled named-minus-free energy changes were $-.846,-1.818$ for
-Nano Banana 2, $-.625,-.896$ for FLUX.2 Max, and $-.234,-.056$ for GPT Image 2
-(Monet, C\'ezanne). The first four rejected after adjustment in the original
-family of eight; the two GPT Image 2 contrasts did not. A separate 72-output
-FLUX follow-up repeated the directions with changes $-.695,-.952$ and
-adjusted rejection in its new four-endpoint family. These are repeated
-collections by the same investigators, not independent-investigator replication.
+A standalone 96-output C\'ezanne comparison on 24 new scenes reduced energy
+relative to the generic clause by 1.195 ($p=.00001$, fixed $\alpha=.025$), with
+named/generic trace ratio .552. It randomized clauses within 48 two-position
+blocks, used reference class masses $(3,11,18)/32$, and tested a sharp no-effect
+null with 99,999 within-block sign draws and plus-one correction. This tests
+clause effects, not equality of energy alone. A generic clause therefore did
+not reproduce the full proximity gain in that panel, but proximity does not
+establish correct four-artist contrasts. Likewise, lower total spread does
+not establish loss of scene information: controlled FLUX/Monet held-repetition
+scene retrieval rose from 44.4\% to 59.7\% under naming. This measures relative
+feature distinguishability, not verified prompt adherence.
 
-The standalone generic-clause comparison randomized its two clauses within
-48 two-position blocks, two per scene. It used the 32-work C\'ezanne panel and
-water/built/land masses $(3,11,18)/32$ for each generated clause. Its two-sided Monte Carlo test used
-99,999 sign draws with the plus-one correction and a fixed threshold of .025.
-The test assumes exchangeability under within-block clause swaps: it tests a
-sharp no-effect null, not equality of energy discrepancies alone.
+\subsection{Palette responsiveness and a contrary transfer result}
+Two separate 192-output palette collections used six scenes, four repeats,
+muted/vivid instructions and free, generic, Monet and C\'ezanne clauses. The
+primary name-minus-generic chroma-response interactions were unresolved:
+$-.284,-.018$ in the first collection and $-.159,.037$ in the later one.
+Their respective adjusted intervals spanned zero; the original family had
+two interactions and the later family included two additional FLUX endpoints.
+Secondary generic-minus-free responses were $-.853$ and $-.891$, with nominal
+95\% intervals excluding zero. Thus generic painting can attenuate measured
+palette response without an identified additional name effect. Two palette
+levels do not distinguish reduced gain from saturation or an operating-range
+shift, and unresolved interactions do not demonstrate equivalence.
 
-Conditional variance and scene retrieval need not move together. In the
-controlled FLUX/Monet panel, naming reduced between-scene spread but increased
-held-repetition scene retrieval from 44.4\% to 59.7\%. Retrieval assigns each
-held-out image to the nearest centroid formed from the other repetitions; it
-measures relative feature distinguishability, not verified scene adherence.
-This example prevents equating contraction with loss of all content response.
-
-The palette experiments used six fixed scenes and four repeats per
-arm/polarity. Original approximate intervals used a two-interaction family;
-the later family also included two FLUX naming endpoints. Their unresolved
-name-minus-generic estimates do not establish equality between names and a
-generic clause. Secondary generic-minus-free intervals were nominal.
-
-Historical transformation maps were fitted to generated outputs without
-reference optimization and evaluated on held-out whole scenes. The prospective
-fixed-map experiment used the original full fits unchanged, 12 new scenes and
-ten repetitions. Its energy target depends on that repeat count; conditional
-prediction error uses a repeat-noise correction. The two simultaneous
-jackknife intervals assume stable independent repeat-block errors. The observed
-conditional-error half-width exceeded its finite-proxy planning criterion,
-so planning calculations did not guarantee achieved precision. The contrary
-prospective result is retained without extra sampling.
+Historical generated-only moment maps were fitted on training scenes and
+assessed on held-out scenes. Actual naming had lower reference energy than
+translation plus isotropic scaling in all six model--painter averages. Adding
+scale improved named-mean prediction in all six while worsening reference
+energy in five. That ordering did not transfer to a prospective 240-output
+FLUX/C\'ezanne comparison with 12 new scenes and ten repeats, using the original
+fits unchanged. Translation/scaling improved both energy and repeat-corrected
+prediction error relative to translation: $-.390\;[-.509,-.271]$ and
+$-5.047\;[-7.880,-2.214]$, with approximate simultaneous jackknife intervals.
+The achieved prediction-error half-width exceeded its planning criterion.
+This contrary result is retained without extra sampling; it rules out treating
+the historical opposing ordering as a universal mechanism. These fitted
+named/free maps are distinct from the review-driven artist-contrast scalar
+counterfactual in Table~\ref{tab:review-calibration}.
 
 \section{Collection provenance and computational scope}\label{app:provenance}
 Historical GPT Image 1 and GPT Image 2 labels identify the requested model

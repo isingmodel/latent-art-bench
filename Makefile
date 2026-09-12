@@ -7,7 +7,7 @@ REVISION := latent_art_bench.painter_distribution_revision_v1
 PAPER_BUILD := tmp/paper/build
 SPECIFICITY := latent_art_bench.painter_specificity_measurement_v1
 
-.PHONY: help check check-all evidence analysis four-painter-analysis plots responsiveness computational-responsiveness palette-check validation-check replication-check geometry-check clause-check clause-successor-check figures figures-check paper specificity-check specificity-audit
+.PHONY: help check check-all evidence analysis four-painter-analysis plots responsiveness computational-responsiveness palette-check validation-check replication-check geometry-check clause-check clause-successor-check figures figures-check paper specificity-check specificity-audit review-check review-images-check
 
 help:
 	@echo 'Paper correction: paper/README.md and docs/AGENT_HANDOVER.md'
@@ -91,6 +91,13 @@ specificity-check:
 	$(PYTHON) -m $(SPECIFICITY).workflow analyze --reference --check
 	$(PYTHON) -m $(SPECIFICITY).workflow analyze --reference --square --check
 
+review-check:
+	$(PYTHON) -m latent_art_bench.painter_specificity_review_v1 check
+	$(PYTHON) paper/make_review_figures.py --check
+
+review-images-check:
+	$(PYTHON) paper/make_review_figures.py --check --images
+
 specificity-audit:
 	$(PYTHON) -m $(SPECIFICITY).report --check
 
@@ -101,6 +108,7 @@ figures:
 	$(PYTHON) paper/make_geometry_figure.py
 	$(PYTHON) paper/make_specificity_figures.py
 	$(PYTHON) paper/make_specificity_tables.py
+	$(PYTHON) paper/make_review_figures.py
 
 figures-check:
 	$(PYTHON) paper/make_figures.py --check
@@ -109,6 +117,7 @@ figures-check:
 	$(PYTHON) paper/make_geometry_figure.py --check
 	$(PYTHON) paper/make_specificity_figures.py --check
 	$(PYTHON) paper/make_specificity_tables.py --check
+	$(PYTHON) paper/make_review_figures.py --check
 
 paper: figures
 	mkdir -p $(PAPER_BUILD)

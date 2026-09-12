@@ -50,8 +50,8 @@ def build():
         )
     rows += [
         r"\bottomrule\end{tabularx}",
-        r"\caption{Reference-relative recovery and scene-paired model comparisons. "
-        r"Lower $D$ indicates less conditional artist-geometry error; "
+        r"\caption{Pooled-reference agreement and scene-paired model comparisons. "
+        r"Lower $D$ indicates less scene-wise mismatch with pooled reference contrasts; "
         r"larger $\beta$ is not necessarily better. Brackets give approximate simultaneous "
         r"intervals from the fixed family of six slopes and 15 model contrasts. "
         r"On a complete common panel, model differences equal the scene fixed-effects "

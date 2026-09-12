@@ -1,0 +1,344 @@
+{
+  "generated": [
+    {
+      "arm": "free",
+      "id": "psv2-0555",
+      "model": "GPT Image 1",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0555.png",
+      "prompt": "A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "04c6a96321d98b07717ca1c89c0dc0e36a5c3c6587e2122b3af13679a9e8ef47"
+    },
+    {
+      "arm": "generic",
+      "id": "psv2-0551",
+      "model": "GPT Image 1",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0551.png",
+      "prompt": "Render as an oil painting. A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "58fb57a73d471260aa510b19d39461427b6fc537daac79eb3a66b41feca18726"
+    },
+    {
+      "arm": "claude_monet",
+      "id": "psv2-0568",
+      "model": "GPT Image 1",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0568.png",
+      "prompt": "Render as an oil painting in the style of Claude Monet. A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "479624a26017730f8c320290e1fa88b33676170336f78bc13e647e35a64ae71e"
+    },
+    {
+      "arm": "alfred_sisley",
+      "id": "psv2-0560",
+      "model": "GPT Image 1",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0560.png",
+      "prompt": "Render as an oil painting in the style of Alfred Sisley. A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "0979d3e8ba4022522d13b15eadec3fc2fff1913982254a15fbda64c671142581"
+    },
+    {
+      "arm": "camille_pissarro",
+      "id": "psv2-0537",
+      "model": "GPT Image 1",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0537.png",
+      "prompt": "Render as an oil painting in the style of Camille Pissarro. A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "0c43b92b70650bc4af6e2ad9dae653eec9c873d6c9ef4c4134be6ea94258dc9a"
+    },
+    {
+      "arm": "paul_cezanne",
+      "id": "psv2-0574",
+      "model": "GPT Image 1",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0574.png",
+      "prompt": "Render as an oil painting in the style of Paul Cezanne. A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "a2084f5f87ffdee5d38c3c1239ae74cb9cbb3bad9224e91b94af2f8b02e45558"
+    },
+    {
+      "arm": "free",
+      "id": "psv2-0525",
+      "model": "GPT Image 2",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0525.png",
+      "prompt": "A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "ff645a970e3ae3c468d543cf10f1e40d4fa9d936d3d3a7c85e56b73fc5011275"
+    },
+    {
+      "arm": "generic",
+      "id": "psv2-0539",
+      "model": "GPT Image 2",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0539.png",
+      "prompt": "Render as an oil painting. A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "6850723eef9554afe0efd15bf5482577951b141b8d8f18a5d9e58dc7a616cb89"
+    },
+    {
+      "arm": "claude_monet",
+      "id": "psv2-0536",
+      "model": "GPT Image 2",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0536.png",
+      "prompt": "Render as an oil painting in the style of Claude Monet. A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "333cbd4cefb620a9afe3ccc58b1105c247dd017c90ef941c9fb035fa408f6df3"
+    },
+    {
+      "arm": "alfred_sisley",
+      "id": "psv2-0527",
+      "model": "GPT Image 2",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0527.png",
+      "prompt": "Render as an oil painting in the style of Alfred Sisley. A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "3a416ee04afa3f344a74fd50f5bfab5ed9966cce86049d5e89df9602051ae8f1"
+    },
+    {
+      "arm": "camille_pissarro",
+      "id": "psv2-0575",
+      "model": "GPT Image 2",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0575.png",
+      "prompt": "Render as an oil painting in the style of Camille Pissarro. A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "c7c44d9baf7298560b9958243ff2319c4e56e06c9e2958784e95b79dfbd9bc71"
+    },
+    {
+      "arm": "paul_cezanne",
+      "id": "psv2-0526",
+      "model": "GPT Image 2",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0526.png",
+      "prompt": "Render as an oil painting in the style of Paul Cezanne. A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "1ccb296571cf68dc5b9f8c6223556b2c6bcc576ed0847a969b2ced6cc6d2c8c7"
+    },
+    {
+      "arm": "free",
+      "id": "psv2-0566",
+      "model": "GPT Image 2.5 Flare",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0566.png",
+      "prompt": "A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "75141f182b9e8f902e399f69c347d5d93ef5bf271a14af93611c30720335bc13"
+    },
+    {
+      "arm": "generic",
+      "id": "psv2-0550",
+      "model": "GPT Image 2.5 Flare",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0550.png",
+      "prompt": "Render as an oil painting. A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "1b27f2699bf978c0375a975de78cc9d197f5411318430aefb0b6f89d91587686"
+    },
+    {
+      "arm": "claude_monet",
+      "id": "psv2-0534",
+      "model": "GPT Image 2.5 Flare",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0534.png",
+      "prompt": "Render as an oil painting in the style of Claude Monet. A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "810a9d0243410a1aa612d4eaba6fcffd32dbd388187fc89e3f5264c41c7a61aa"
+    },
+    {
+      "arm": "alfred_sisley",
+      "id": "psv2-0515",
+      "model": "GPT Image 2.5 Flare",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0515.png",
+      "prompt": "Render as an oil painting in the style of Alfred Sisley. A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "fa0b1f5e2465181985d661337fbaf4312f65d11a89fe344e384850853233d15c"
+    },
+    {
+      "arm": "camille_pissarro",
+      "id": "psv2-0561",
+      "model": "GPT Image 2.5 Flare",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0561.png",
+      "prompt": "Render as an oil painting in the style of Camille Pissarro. A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "b4ce347f8f3eeb2bfb00d34828e765715a1315abc57a9b13ba696f29482babdc"
+    },
+    {
+      "arm": "paul_cezanne",
+      "id": "psv2-0509",
+      "model": "GPT Image 2.5 Flare",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0509.png",
+      "prompt": "Render as an oil painting in the style of Paul Cezanne. A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "7858c74cebfd78ffdec2b1ac262434250283ebb40b87950078a4d6b17caf09f9"
+    },
+    {
+      "arm": "free",
+      "id": "psv2-0510",
+      "model": "GPT Image 2.5 Sunburst",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0510.png",
+      "prompt": "A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "1df19839b679e57c32f851c07b6b2f8fdc2cfe7c74c421291564f501638dcea7"
+    },
+    {
+      "arm": "generic",
+      "id": "psv2-0543",
+      "model": "GPT Image 2.5 Sunburst",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0543.png",
+      "prompt": "Render as an oil painting. A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "9730fb84c6b80ebcbf2359093b0d388ad009fa7c6f404cf25d4d2d817348fe7e"
+    },
+    {
+      "arm": "claude_monet",
+      "id": "psv2-0549",
+      "model": "GPT Image 2.5 Sunburst",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0549.png",
+      "prompt": "Render as an oil painting in the style of Claude Monet. A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "20d148bc133583c3f25ac48de9fe8b784838ea8d38b9c57430dd2ef5d5bd6613"
+    },
+    {
+      "arm": "alfred_sisley",
+      "id": "psv2-0544",
+      "model": "GPT Image 2.5 Sunburst",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0544.png",
+      "prompt": "Render as an oil painting in the style of Alfred Sisley. A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "95f29dfb6a3831c8b4d42e1769c6cfa900bf55206afbb3221654fa4725a9ba48"
+    },
+    {
+      "arm": "camille_pissarro",
+      "id": "psv2-0553",
+      "model": "GPT Image 2.5 Sunburst",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0553.png",
+      "prompt": "Render as an oil painting in the style of Camille Pissarro. A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "7107f6b219090b2534929274fa7804e057856d4aba5928737ef0072f6c213185"
+    },
+    {
+      "arm": "paul_cezanne",
+      "id": "psv2-0511",
+      "model": "GPT Image 2.5 Sunburst",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0511.png",
+      "prompt": "Render as an oil painting in the style of Paul Cezanne. A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "52c4461961e269f4a57cf419eac89e54a3c448b333934cee1f4a3062579fac46"
+    },
+    {
+      "arm": "free",
+      "id": "psv2-0559",
+      "model": "Nano Banana 2",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0559.png",
+      "prompt": "A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "57d12950e96c9ab4f954182450d180ea430fa4d56f290d0d822cc5505375785a"
+    },
+    {
+      "arm": "generic",
+      "id": "psv2-0556",
+      "model": "Nano Banana 2",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0556.png",
+      "prompt": "Render as an oil painting. A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "928536510e686c7a4fe0a98a8a8f037dc45b39691a2352eec383c54dabd9b6f7"
+    },
+    {
+      "arm": "claude_monet",
+      "id": "psv2-0552",
+      "model": "Nano Banana 2",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0552.png",
+      "prompt": "Render as an oil painting in the style of Claude Monet. A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "7a9de3bf3de5e046ac50ef6c494d042f765758d04c5d91577c85700defa82efc"
+    },
+    {
+      "arm": "alfred_sisley",
+      "id": "psv2-0508",
+      "model": "Nano Banana 2",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0508.png",
+      "prompt": "Render as an oil painting in the style of Alfred Sisley. A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "569f3503123c4e1afbbfb9aa4780e762adc533e689997c039e5c1c18145efdc7"
+    },
+    {
+      "arm": "camille_pissarro",
+      "id": "psv2-0569",
+      "model": "Nano Banana 2",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0569.png",
+      "prompt": "Render as an oil painting in the style of Camille Pissarro. A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "f158ecd456d5e96bc93da9c998c3440fa6e512c1a0be54e1363fa07a7cd1b56b"
+    },
+    {
+      "arm": "paul_cezanne",
+      "id": "psv2-0529",
+      "model": "Nano Banana 2",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0529.png",
+      "prompt": "Render as an oil painting in the style of Paul Cezanne. A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "e62d4a8957d952787168c95f0baff1cb089c26c316173cf78d614a925df7ced7"
+    },
+    {
+      "arm": "free",
+      "id": "psv2-0558",
+      "model": "FLUX.2 Max",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0558.png",
+      "prompt": "A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "d1fd567a798ee3e581076203d00a1bf48423653889ba9133bade510689e305d4"
+    },
+    {
+      "arm": "generic",
+      "id": "psv2-0557",
+      "model": "FLUX.2 Max",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0557.png",
+      "prompt": "Render as an oil painting. A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "4725ec6bb2bf52df42bb0c7dc07dfb90529fee2600eb60d2ea03be43a63d0635"
+    },
+    {
+      "arm": "claude_monet",
+      "id": "psv2-0563",
+      "model": "FLUX.2 Max",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0563.png",
+      "prompt": "Render as an oil painting in the style of Claude Monet. A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "647590611a7793d4c965e277846035666e8c553fda5f0e7b697dd6ed2dd9dd9c"
+    },
+    {
+      "arm": "alfred_sisley",
+      "id": "psv2-0523",
+      "model": "FLUX.2 Max",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0523.png",
+      "prompt": "Render as an oil painting in the style of Alfred Sisley. A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "2c0fc09127489d9e5878c35a2f86c096cb7b280dd9b1ff5bc49257e59bd0118a"
+    },
+    {
+      "arm": "camille_pissarro",
+      "id": "psv2-0567",
+      "model": "FLUX.2 Max",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0567.png",
+      "prompt": "Render as an oil painting in the style of Camille Pissarro. A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "051ec92de001c31630159c78f76d1b57bd2efbf8f747478291a88e75577d4034"
+    },
+    {
+      "arm": "paul_cezanne",
+      "id": "psv2-0522",
+      "model": "FLUX.2 Max",
+      "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0522.png",
+      "prompt": "Render as an oil painting in the style of Paul Cezanne. A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky. No text or frame.",
+      "sha256": "a74157480696af59e41068adc1a2c5a6a4d9e2222b51d536a8db7cfac2aced45"
+    }
+  ],
+  "references": [
+    {
+      "artist": "claude_monet",
+      "id": "wikidata:Q10346982",
+      "licence": "Public domain",
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/987f61339d71401670f7b4750efbff17942969c9dbcbd482ef568eeb9ec4842f",
+      "selection": "lexicographically first measured water-class work with recorded public-domain status",
+      "sha256": "987f61339d71401670f7b4750efbff17942969c9dbcbd482ef568eeb9ec4842f",
+      "title": [
+        "Rocks at Port-Goulphar, Belle-\u00cele"
+      ],
+      "url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Paysage_%C3%A0_Port-Goulphar.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    },
+    {
+      "artist": "alfred_sisley",
+      "id": "wikidata:Q104774055",
+      "licence": "Public domain",
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/be98239c7ffb872f84922f85cefce89cac62ed9715ca087056d5ae52b4ce1484",
+      "selection": "lexicographically first measured water-class work with recorded public-domain status",
+      "sha256": "be98239c7ffb872f84922f85cefce89cac62ed9715ca087056d5ae52b4ce1484",
+      "title": [
+        "The Loing and the Mills of Moret, Snow Effect"
+      ],
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Alfred_Sisley_-_The_Loing_and_the_Mills_of_Moret%2C_Snow_Effect_-_1955.545_-_Clark_Art_Institute.tiff/lossy-page1-3840px-Alfred_Sisley_-_The_Loing_and_the_Mills_of_Moret%2C_Snow_Effect_-_1955.545_-_Clark_Art_Institute.tiff.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    },
+    {
+      "artist": "camille_pissarro",
+      "id": "wikidata:Q104773676",
+      "licence": "Public domain",
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/6abfb220f3ea1cbffc5b7bbf7b6cba245bbf0fc98b7ee407a628f3e94d91d7c7",
+      "selection": "lexicographically first measured water-class work with recorded public-domain status",
+      "sha256": "6abfb220f3ea1cbffc5b7bbf7b6cba245bbf0fc98b7ee407a628f3e94d91d7c7",
+      "title": [
+        "The River Oise near Pontoise"
+      ],
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Camille_Pissarro_-_The_River_Oise_near_Pontoise_-_1955.554_-_Clark_Art_Institute.tiff/lossy-page1-3840px-Camille_Pissarro_-_The_River_Oise_near_Pontoise_-_1955.554_-_Clark_Art_Institute.tiff.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    },
+    {
+      "artist": "paul_cezanne",
+      "id": "wikidata:Q17490974",
+      "licence": "Public domain",
+      "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/d1fc475de48684a6080b779d5aa22bc5365925ba620c35d221c188f62804e9ac",
+      "selection": "lexicographically first measured water-class work with recorded public-domain status",
+      "sha256": "d1fc475de48684a6080b779d5aa22bc5365925ba620c35d221c188f62804e9ac",
+      "title": [
+        "Carrefour de la rue R\u00e9my \u00e0 Auvers-sur-Oise (Crossroad of Rue R\u00e9my, Auvers)"
+      ],
+      "url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Carrefour_de_la_rue_R%C3%A9my_%C3%A0_Auvers-sur-Oise%2C_par_Paul_C%C3%A9zanne%2C_FWN_64.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    }
+  ],
+  "scene": "A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky.",
+  "selection": "first declared scene, first repeat, all models and clauses"
+}
