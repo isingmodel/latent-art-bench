@@ -1,134 +1,71 @@
 # Artifact retention
 
-Git contains compact scientific records and editable writing. Large local media
-and some bound intermediate files are ignored. Ignore status does not establish
-that a file can be deleted.
+Keep material needed to understand, reproduce or audit a scientific result.
+Use Git history for superseded editorial discussion. A file's age, extension or
+ignored status alone does not determine whether it can be removed.
 
-## Current writing and code organization
+## Scientific evidence
 
-`paper/` contains the canonical English manuscript, bibliography, and scripts for
-scientific figures and tables. These are editable presentation artifacts.
-The older `paper/figures/naming_geometry.pdf` copy remains for the published
-geometry version. The separately rendered `naming_geometry_presentation.pdf`
-has larger stacked panels and current model labels, with unchanged stored values;
-it remains a supporting figure. Never overwrite the sealed source/report or prior release.
-Superseded
-manuscripts and documentation snapshots live in Git history rather than duplicate
-working-tree directories. For example, historical methodology-review citations
-to the earlier paper can be resolved with:
+Preserve the original paths and bytes of protocols, fixed plans, configurations,
+bound source/tests, measured vectors, request ledgers, receipts, numerical
+reports and their plots. These live chiefly in `studies/`, `configs/`,
+`data/manifests/`, `src/`, `tests/` and `reports/`. The
+[results index](../reports/README.md) and [analysis catalog](ANALYSES.md) provide
+navigation without moving those dependencies.
+
+Completed outputs may bind both code and prose. In `docs/`, the
+[mechanism proposal](RESEARCH_IDEA_20260908.md) and
+[methodology revision plan](reviews/20260907_methodology/REVIEW_AND_REVISION_PLAN.md)
+are hash-bound inputs. The plan's three source reviews remain linked provenance.
+The current diagnostic [analysis.json](../reports/painter_specificity_review_v1/analysis.json)
+also binds its own source, plan and inputs. Do not rewrite these to make checks
+pass. Scientific corrections belong in a separate result version.
+
+Failures, exclusions and contrary findings remain part of the record. In
+particular, the stopped specificity attempt, incomplete clause experiment,
+failed map qualification and failed strict Ubuntu replay are retained. Earlier
+release archives and publication receipts remain unchanged. Numerical replay
+does not authenticate absent pixels or validate perceptual style.
+
+## Unique local material
+
+- `research_workspace/`: original image responses, generated images, failed
+  requests, normalized reference displays, transport bodies and execution locks.
+- `artifacts/models/` and `artifacts/sources/`: retained weights and source
+  checkouts that Git does not back up.
+- `tmp/pdfs/` and hash-bound calibration/qualification files under `tmp/`:
+  some are scientific inputs despite their temporary-looking paths.
+- User work, `.env` and other local configuration. The Korean manuscript and
+  latest `critics/` reviews are outside the retired-document list.
+
+The capture audit's original ignored `attempts.jsonl` remains unchanged. Its
+committed [portable view](../data/manifests/painter_capture_audit_v1/pcav1-20260910/attempts.portable.json)
+retains all 44 records and original line hashes; only `transport_source_path`
+on lines 11 and 12 is normalized to a repository-relative path. Terminal
+bindings still refer to the original ledger. The portable view is a disclosed
+derivative, not a substitute for byte verification of the local original.
+
+Create a checksum inventory and separate archive before migrating or removing
+unique research bytes. Do not use broad cleanup commands such as `git clean -xfd`.
+The two existing historical evidence acknowledgements must not be expanded to
+conceal new missing files.
+
+## Retired documentation
+
+The 2026-09-13 cleanup removes superseded review rounds, the initial unbound
+proposal, duplicate feature-distance guidance and redundant report/release prose.
+Their necessary conclusions and navigation are consolidated in the current
+docs and results index. Numerical JSON/CSV, figures, release receipts and bound
+documents retain their original bytes and locations.
+
+The previous tree is available at commit `cc764fe12bfbef3172edf0c56f3d5fc8cff423c2`:
 
 ```bash
-git show 52fa1d6:papers/painter_distribution_study_v1/paper.tex
+git show cc764fe:docs/RESEARCH_PROPOSAL_20260906.md
+git ls-tree -r --name-only cc764fe docs/reviews
 ```
 
-`reports/painter_responsiveness_v2/REPORT.md` is the current editorial synthesis
-of the computational follow-up. Its linked per-run numerical/report bundles and
-the versioned quantile corrigendum are immutable evidence. Editing the synthesis
-does not authorize overwriting those published inputs or their displays.
-
-The earlier four-painter distribution exploration, Stage A diagnostic and
-retry-presentation bundles remain terminal evidence at their original paths.
-Their supporting scatter figure reads saved coordinates and variance ratios;
-it does not replace the original reports, fits or retry dispositions. The new
-specificity experiment has separate vectors, reference-only projections and
-comparison figures; the earlier generated images are not pooled into it.
-
-The [analysis map](ANALYSES.md) connects every study to its computation, plotting,
-inputs, methods and replay command. Scientific packages remain versioned at
-recorded paths. Rearranging a frozen package merely to shorten its name would
-break the evidence's path identities.
-
-The measurement and temporal successors use their own ignored workspace
-boundaries and append-only records. New transformed feature vectors do not
-replace original vectors. Public numerical exports are create-once core and
-extension bundles; their sanitized release excludes unique raw media and local
-Git history. A successful public numerical check does not verify absent pixels.
-
-The review-driven diagnostic namespace has its own create-once
-`reports/painter_specificity_review_v1/analysis.json`, binding its plan, numerical
-source and retained inputs. Preserve those bytes. Its manuscript tables and
-figures are editable presentation. Two new PDF panels contain reduced renderings
-of 36 generated images and four recorded public-domain reference examples;
-`inspection.json` records exact source identities and selection rules. Full-resolution
-source images remain at their original ignored paths. Visible calibration strips
-and title-label defects must not be hidden by editing the sealed records.
-
-## Preserve terminal scientific evidence
-
-| Location | What is retained |
-|---|---|
-| `studies/` | Protocols, amendments, inference contracts and fixed validation/literature plans |
-| `configs/` | Settings and inventories used by completed stages |
-| `data/manifests/` | Freezes, input hashes, requests, append-only ledgers, metadata, measured vectors and result receipts |
-| `reports/` | Published numerical results, memberships, tables, plots and provenance |
-| `src/latent_art_bench/` and `tests/` | The implementations and tests that produced or qualified those results |
-| `scripts/` | Historical bound launchers and compatibility entry points |
-| `docs/reviews/20260907_methodology/` | Historical methodology review; the aggregate revision plan is a bound analysis input |
-| `literature_reviews/` | Retained bibliography, evidence matrix, search audit and thematic reviews |
-
-Do not rewrite, move, truncate, reorder or regenerate a terminal protocol, report,
-ledger, receipt, bound source file or fixed review. Corrections require a successor
-scope. Do not resume a closed collector or replace failed records in place.
-Mutable status belongs in [STATUS.md](STATUS.md), not in old protocols.
-
-Evidence verification resolves inputs at their recorded Git commits and verifies
-local research bytes in place. Never refresh hashes to make an audit pass.
-Exactly two historical unrecoverable inputs are recorded in
-`data/manifests/painter_feature_generation_v1/evidence_acknowledgements.json`;
-that list must not be extended to conceal new damage.
-
-## Preserve ignored research bytes
-
-- `research_workspace/`: source image responses, full-resolution generated
-  images, compressed transport bodies, failed requests and one-shot execution
-  locks. Failures and pilot responses can be unique evidence even when excluded
-  from scientific endpoints.
-- `artifacts/models/` and `artifacts/sources/`: retained weights and source
-  checkouts. Git does not back them up.
-- `tmp/pdfs/`: retained literature PDFs, author sources and extracted text;
-  `tmp/pdfs/kim2026/published.txt` is cited by a frozen literature comparison.
-- Hash-bound calibration/randomization JSON and other referenced files under
-  `tmp/`: a temporary-looking path does not make evidence disposable.
-- Untracked user work and local configuration, including `.env`.
-
-Specificity collection bytes are confined to their versioned directories under
-`research_workspace/`. The 31 images from the terminated first attempt and all
-technical probes are excluded from scientific analysis but remain unique
-provenance evidence. Do not remove them or copy them into the successor. The
-successor's raw response/image hashes, full and square measurements, terminal
-receipt and four numerical analyses are separately bound. A create-once report
-binds its computation and all inputs; editable manuscript prose does not replace it.
-
-The terminal capture-audit ledger at
-`data/manifests/painter_capture_audit_v1/pcav1-20260910/attempts.jsonl` is also
-retained locally and ignored. Its two accidentally absolute helper-path fields
-must not be edited in place. The committed `attempts.portable.json` preserves
-all records with original line hashes and two disclosed path normalizations;
-the [portability note](../reports/painter_capture_audit_v1/pcav1-20260910/PORTABILITY.md)
-explains the distinction. Terminal report/receipt hashes continue to bind the
-unchanged raw ledger.
-
-The new responsiveness workspace also retains hash-bound normalized reference
-displays. Future human plans, exact submitted exports and free-text responses must
-remain private under that ignored boundary; public scientific receipts contain
-only deidentified summaries and hashes. Technical previews are not human results.
-Do not overwrite pilot or validation session paths to change their interpretation.
-
-The computational v2 workspace retains compressed response bodies for every attempt,
-including technical errors, and its one-shot collection/measurement markers. Tracked
-v2 manifests bind these raw responses and all 192 planned slots. Diagnostic JSON
-also preserves normalized query, split and prediction identities; its size does not
-make it a disposable report cache.
-
-Before machine migration or deletion of unique local material, create a separate
-checksum inventory and archive. No broad recursive deletion under `artifacts/`,
-`data/`, `research_workspace/` or `tmp/pdfs/`; never use `git clean -xfd`.
-
-## Disposable build state
-
-Known manuscript builds, rendered-page previews and numeric report previews are
-reproducible from retained sources. Current paper intermediates belong under
-`tmp/paper/`. Python test/lint caches, bytecode and operating-system metadata are
-also disposable when unused. Remove only inspected exact targets; do not infer
-that an entire ignored directory is safe from its name. In particular, execution
-locks and bound temporary JSON files must remain untouched.
+Manuscript builds, rendered-page previews under `tmp/paper/`, test/lint caches,
+bytecode and operating-system metadata are reproducible disposable state when
+unused. Inspect exact targets before deleting them; do not extend this rule to
+an entire ignored directory.

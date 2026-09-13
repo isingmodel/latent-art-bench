@@ -25,9 +25,10 @@ image inspection also exposes reference calibration strips and a title-class
 mismatch. These limitations preclude a validated ranking of artistic fidelity. The [novelty assessment](studies/painter_specificity_v1/NOVELTY.md)
 identifies close prior work and the limited contribution being tested.
 
-- [Current status](docs/STATUS.md): completed analysis, accounting and boundaries.
-- [Handover](docs/AGENT_HANDOVER.md): source freezes and continuation instructions.
-- [Analysis catalog](docs/ANALYSES.md): computation, plots and replay commands.
+- [Current status](docs/STATUS.md): findings, accounting and outstanding review requests.
+- [Handover](docs/AGENT_HANDOVER.md): implementation entry points and continuation.
+- [Analysis catalog](docs/ANALYSES.md): computation, plotting and replay commands.
+- [Results index](reports/README.md): current reports and supporting evidence.
 - [Manuscript source](paper/paper.tex) and [build guide](paper/README.md).
 - [Artifact retention](docs/ARTIFACTS.md): immutable evidence and unique local bytes.
 
@@ -48,28 +49,14 @@ on older interpreters. From the repository root:
 uv sync --locked --extra analysis --extra dev --inexact
 make specificity-check
 make review-check
-make specificity-audit  # Requires retained local response/image bytes
 make paper
-make four-painter-analysis
-make analysis
-make plots
-make computational-responsiveness
-make validation-check
-make replication-check
-make geometry-check
-make check
-make evidence
 ```
 
-`make four-painter-analysis` replays the four-painter exploration, Stage A controls
-and retry presentation. `make analysis` and `make plots` cover the controlled naming panel and its
-computational revision;
-`make computational-responsiveness` covers palette responsiveness, retained-data retrieval and
-the quantile correction. These targets make no generation requests.
-`make figures-check` checks the current and supporting figures/tables without
-rewriting them. `make figures` rebuilds those presentation artifacts; `make paper` builds the PDF with Tectonic. See
-[the analysis catalog](docs/ANALYSES.md) for individual commands, inputs and outputs,
-and [the paper guide](paper/README.md) for rendering and visual checks.
+These commands make no generation requests. `make figures-check` verifies
+presentation without rewriting it. See [the analysis catalog](docs/ANALYSES.md)
+for supporting experiments and [the paper guide](paper/README.md) for compilation
+and visual checks. Run targeted checks for the work being changed;
+[test scope](tests/README.md) explains the broader suites.
 
 No API key or learned-model weights are needed for current analysis replay.
 Re-extracting features would require retained raw image bytes; a Git checkout does
@@ -82,8 +69,8 @@ hashes, so it requires the local response archive without re-extracting features
 | --- | --- |
 | [paper/](paper/README.md) | The current manuscript, bibliography, figures and figure builder |
 | [src/latent_art_bench/](src/latent_art_bench/) | Versioned analysis code and shared measurement primitives |
-| [tests/](tests/README.md) | 830 routine analysis/integrity cases; historical checks via `make check-all` |
-| [reports/](reports/) | Published numerical results, complete tables and report plots |
+| [tests/](tests/README.md) | Current analysis/integrity checks and retained historical coverage |
+| [reports/](reports/README.md) | Numerical results, complete tables, report plots and release receipts |
 | [studies/](studies/) | Protocols, fixed study plans and methodological boundaries |
 | [data/manifests/](data/manifests/) | Compact measured vectors, request records, hashes and receipts |
 | [docs/](docs/INDEX.md) | Current guidance and navigation to retained historical evidence |
@@ -96,7 +83,7 @@ local evidence remain necessary for reproducibility. Read the
 For the current state, read [STATUS.md](docs/STATUS.md). For implementation work,
 read [the handover](docs/AGENT_HANDOVER.md),
 [architecture](docs/ARCHITECTURE.md) and [contributing guidance](CONTRIBUTING.md).
-The [documentation index](docs/INDEX.md) links earlier studies without duplicating
-their history here. Code is distributed under [the repository license](LICENSE);
+The [documentation index](docs/INDEX.md) links current guidance. Superseded
+editorial reviews and duplicate summaries remain in Git history. Code is distributed under [the repository license](LICENSE);
 full-resolution raw artwork is not redistributed by this repository; the paper
 includes four reduced reference examples with recorded public-domain metadata.
