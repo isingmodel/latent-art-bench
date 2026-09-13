@@ -1,82 +1,68 @@
 # Current status — 2026-09-13
 
-The project is in paper correction. The canonical English
-[paper](../paper/paper.tex) and [PDF](../paper/paper.pdf) are on `main`, titled
-**Artist-Name Responses beyond a Shared Painting Effect in Text-to-Image
-Generation**. The current PDF has 23 pages. This documentation cleanup does not
-run collection, measurement or new scientific analysis.
+The canonical English [paper](../paper/paper.tex), **Artist-Name Responses
+beyond a Shared Painting Effect in Text-to-Image Generation**, has been revised
+in the working tree. The [PDF](../paper/paper.pdf) is 22 pages, down from 23,
+with no human evaluation added, as requested. Original scientific records remain
+preserved; new analyses have separate versioned plans and source bindings.
 
-## Completed evidence
+## Findings and review corrections
 
-The primary experiment contains **1,008 generated images**: six models × 14
-scenes × six prompt clauses × two repeats. All outputs were collected and
-measured. Its four-painter reference panel contains 649 works: Monet 297,
-Sisley 106, Pissarro 141 and Cézanne 105. Scaling uses a separate 221-work
-development panel and all 31 interpretable features.
+The completed primary experiment contains **1,008 generated images**: six
+models × 14 scenes × six clauses × two repeats. Its reference panel contains
+649 works (Monet 297, Sisley 106, Pissarro 141, Cézanne 105); a separate
+221-work development panel scales all 31 features.
 
-The [primary report](../reports/painter_specificity_v2/psv2-20260911/REPORT.md)
-and separate [post-result diagnostics](../reports/painter_specificity_review_v1/REPORT.md)
-support the following conclusions:
+- All six aggregate reference-aligned slopes remain positive under the declared
+  simultaneous procedure, including the source-correction sensitivities.
+- FLUX.2 Max retains the lowest uncalibrated error point estimate: original
+  D = 0.801, corrected regions D = 0.832, corrected regions and scaler D = 0.872.
+  The originally resolved Sunburst comparison loses adjusted separation after
+  correction; Flare remains separated. The corrected GPT Image 1 interval also
+  moves above zero, a retrospective sensitivity rather than a new confirmatory
+  claim. No model is established to beat the D = 1 no-contrast benchmark.
+- GPT Image 2 retains the lowest held-scene calibrated error. Full-procedure
+  scene deletion preserves its descriptive advantage over FLUX; dependent folds
+  do not establish a new superiority test.
+- Aggregate alignment remains uneven across artist pairs, especially Monet–Sisley.
+  Calibration, response magnitude and target agreement answer different questions.
+- An assistant audit covers all 870 reference/development sources. Separate
+  measurements remove peripheral regions in 90 reference and 41 development
+  images. Ten calibration-strip cases are identified; 43 uncertain boundaries
+  remain unchanged. Alternative visual classes differ from 230 title assignments,
+  with 42 unclear cases retained. These labels are not independent ground truth.
+- Cross-repeat generic/common alignment remains positive after removing the
+  shared-control covariance term. Integrating out sparse painting draws greatly
+  narrows real-control ranges; those distributions do not validate artistic fidelity.
 
-- All six models have positive reference-aligned artist-name responses under
-  the declared simultaneous inference.
-- FLUX.2 Max has the lowest estimated uncalibrated error, D = 0.801, and adjusted
-  advantages over both GPT Image 2.5 variants. The other 13 model differences
-  remain unresolved. No model is established to beat the D = 1 no-contrast
-  benchmark.
-- GPT Image 2 has the strongest corrected alignment and lowest estimated error
-  after held-scene scalar calibration. That descriptive ordering has no added
-  model-ranking tests and is not a ranking of perceptual artistic fidelity.
-- Aggregate alignment conceals weak distinctions between nearby artists,
-  especially Monet and Sisley. The scene-variation component of D can also
-  penalize legitimate artist-by-content variation.
-- Reference examples expose calibration strips and a title-class mismatch.
-  Their prevalence and effect on the full reference target remain unmeasured.
+See the [primary report](../reports/painter_specificity_v2/psv2-20260911/REPORT.md),
+[initial diagnostics](../reports/painter_specificity_review_v1/REPORT.md),
+[follow-up diagnostics](../reports/painter_specificity_review_v2/REPORT.md) and
+[source-quality sensitivity](../reports/painter_reference_quality_v1/REPORT.md).
+The paper retains the generic/palette controls and contrary prospective fixed-map
+result. Cohorts remain separate; no images were generated or acquired for this revision.
 
-The paper also retains the four-painter descriptive analysis, generic/palette
-controls and the contrary prospective fixed-map result. Cohorts remain separate;
-failed or incomplete experiments have not been repaired by pooling later data.
-The [results index](../reports/README.md) links the supporting evidence.
+## Remaining limits
 
-Recorded cumulative paid accounting is **$112.293676** against the user's $120
-ceiling. This includes the retained historical uncertainty reserve. Documentation
-cleanup makes no paid requests and does not change the ledger.
+The reviews in `critics/` motivated these corrections. No human ratings or learned
+feature validation were added. Assistant crop and content judgments do not correct
+all capture variation or establish perceptual artistic fidelity. The six-model
+experiment still lacks a dedicated versioned public release and exact-pixel archive.
+Local hashes and replay do not constitute independent research replication.
 
-## Outstanding review requests
+Recorded cumulative paid accounting remains **$112.293676** against the user's
+$120 ceiling. This revision made no paid requests and did not change the ledger.
 
-The latest user-supplied reviews remain in `critics/review1.md`,
-`critics/review2.md` and `critics/review3.md`. They assess the revised paper and
-have not yet been implemented. Their actionable priorities are:
+## Verification
 
-1. Quantify reference-region and content-label defects, including the development
-   panel, and compare corrected targets with the original results in a separate
-   sensitivity analysis.
-2. Check shared-control noise in the generic/common cosine using cross-repeat
-   products. The reviewers distinguish this secondary diagnostic from primary D.
-3. Give coarse versus fine artist distinctions more emphasis; quantify the
-   stability of calibrated model comparisons.
-4. Establish an external interpretation of the feature measures and improve
-   image-level reproducibility. Numerical replay alone does not validate style
-   or constitute independent research replication.
+On 2026-09-13, `make check` passed Ruff and all **848 routine tests**. All four
+primary numerical views, both diagnostic versions, source-quality numerical
+results and existing figures/tables replayed exactly. The image check verified
+all 870 source hashes and exact crop-feature re-extraction for 131 images.
+The historical evidence audit passed all 2,902 checks. The PDF compiled without
+warnings and all 22 pages were visually inspected. The full historical test
+suite was not rerun; see [the analysis catalog](ANALYSES.md) for reproduction.
 
-These requests are a research backlog, not results of this cleanup. Human
-ratings and learned-feature validation have not been performed. Internal LLM
-review scores do not establish publication readiness.
-
-## Reproducibility and verification
-
-The last scientific revision was checked on 2026-09-12: numerical replay,
-presentation replay, retained-image hashes, Ruff and the full offline suite
-passed; the PDF compiled without warnings and was visually inspected. See
-[the analysis catalog](ANALYSES.md) for checks appropriate to a new change.
-
-Earlier versioned releases retain their own verification receipts. The fixed-map
-release's strict Ubuntu replay failed; its separate diagnostic did not repair
-that exact-comparison contract. The current six-model experiment and 23-page
-paper are committed on `main` but do not yet have a dedicated versioned release
-or an exact-pixel archive.
-
-The 2026-09-13 documentation cleanup passed local-link checks, preserved-file
-hash comparisons, `make evidence`, `make specificity-check`, `make review-check`
-and `make figures-check`. It did not change the paper or scientific outputs;
-the full Python test suite was not rerun for this documentation change.
+Earlier versioned releases retain their own receipts. The fixed-map release's
+strict Ubuntu replay failed; its separate diagnostic did not repair that
+exact-comparison contract.

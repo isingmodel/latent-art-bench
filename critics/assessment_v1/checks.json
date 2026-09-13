@@ -1,0 +1,218 @@
+{
+  "reference_h": 5.9150074798210355,
+  "models": [
+    {
+      "model": "GPT Image 1",
+      "cosine_plugin": 0.6933765932751225,
+      "cosine_cross": 0.6890412259161443,
+      "cosine_cross_leave_scene_range": [
+        0.6116155475169077,
+        0.7433310456053801
+      ],
+      "plugin_numerator": 7.496257096578189,
+      "estimated_shared_free_noise": 0.3299620975369734,
+      "g_cross_norm_squared": 7.453037193443391,
+      "c_cross_norm_squared": 14.801791631487708,
+      "centered_repeat_noise_power": 1.896146253811536,
+      "beta": 0.9384223792067209,
+      "q": 2.449260812793746,
+      "d": 1.5724160543803039,
+      "held": 0.6446869427767735,
+      "fitted_optimum": 0.6404480252997207
+    },
+    {
+      "model": "GPT Image 2",
+      "cosine_plugin": 0.7686566128204081,
+      "cosine_cross": 0.774234144177636,
+      "cosine_cross_leave_scene_range": [
+        0.7517554326848679,
+        0.789976438106427
+      ],
+      "plugin_numerator": 10.437377388675742,
+      "estimated_shared_free_noise": 0.18984200493331818,
+      "g_cross_norm_squared": 9.293862482864125,
+      "c_cross_norm_squared": 18.21681420650537,
+      "centered_repeat_noise_power": 0.9686170508698531,
+      "beta": 0.9986502556169823,
+      "q": 2.223231439057088,
+      "d": 1.2259309278231232,
+      "held": 0.554301180640062,
+      "fitted_optimum": 0.5514176727066986
+    },
+    {
+      "model": "GPT Image 2.5 Flare",
+      "cosine_plugin": 0.7646436037901201,
+      "cosine_cross": 0.7661946092142972,
+      "cosine_cross_leave_scene_range": [
+        0.7365020152845505,
+        0.7838381199842199
+      ],
+      "plugin_numerator": 7.731542170036503,
+      "estimated_shared_free_noise": 0.12369063139931229,
+      "g_cross_norm_squared": 5.928415842559854,
+      "c_cross_norm_squared": 16.69384674818162,
+      "centered_repeat_noise_power": 0.4364989230859082,
+      "beta": 0.7716093009745231,
+      "q": 2.2809377037230107,
+      "d": 1.7377191017739642,
+      "held": 0.7406109666090198,
+      "fitted_optimum": 0.738975372988664
+    },
+    {
+      "model": "GPT Image 2.5 Sunburst",
+      "cosine_plugin": 0.8317337963696383,
+      "cosine_cross": 0.8365418006952574,
+      "cosine_cross_leave_scene_range": [
+        0.8237860967390809,
+        0.8478919191833054
+      ],
+      "plugin_numerator": 7.0928092587707585,
+      "estimated_shared_free_noise": 0.07752174820585794,
+      "g_cross_norm_squared": 4.548415105133429,
+      "c_cross_norm_squared": 15.262990168190615,
+      "centered_repeat_noise_power": 0.535120746914019,
+      "beta": 0.8238992717383885,
+      "q": 2.289215720284489,
+      "d": 1.6414171768077117,
+      "held": 0.7061622590714132,
+      "fitted_optimum": 0.7034748608634014
+    },
+    {
+      "model": "Nano Banana 2",
+      "cosine_plugin": 0.857198724036568,
+      "cosine_cross": 0.9301456933790713,
+      "cosine_cross_leave_scene_range": [
+        0.8768743686058793,
+        0.9718454742164004
+      ],
+      "plugin_numerator": 3.4465823978098005,
+      "estimated_shared_free_noise": 0.16990919818543426,
+      "g_cross_norm_squared": 1.7977920365873874,
+      "c_cross_norm_squared": 6.637745413981067,
+      "centered_repeat_noise_power": 2.6660755951592967,
+      "beta": 0.4421266786015433,
+      "q": 0.9937043107671595,
+      "d": 1.1094509535640729,
+      "held": 0.8319161522634811,
+      "fitted_optimum": 0.8032855470051036
+    },
+    {
+      "model": "FLUX.2 Max",
+      "cosine_plugin": 0.8875331024414942,
+      "cosine_cross": 0.9158653835469494,
+      "cosine_cross_leave_scene_range": [
+        0.8991799646845591,
+        0.9682295222322641
+      ],
+      "plugin_numerator": 10.773880626842233,
+      "estimated_shared_free_noise": 0.3854824482439222,
+      "g_cross_norm_squared": 5.592884141077023,
+      "c_cross_norm_squared": 23.145083507262473,
+      "centered_repeat_noise_power": 1.5697589828841427,
+      "beta": 0.4700195848313384,
+      "q": 0.7409673968717873,
+      "d": 0.8009282272091104,
+      "held": 0.7142087103800474,
+      "fitted_optimum": 0.7018513755696998
+    }
+  ],
+  "calibrated_gpt2_minus_flux": {
+    "mean": -0.15990752973998548,
+    "gpt2_lower_folds": 12,
+    "fold_differences": [
+      -0.14997101308751448,
+      -0.4560059229842508,
+      -0.003246520646803641,
+      -0.16005437251724985,
+      -0.08571967183420859,
+      0.2477497191403149,
+      -0.10751414806059967,
+      -0.3283384664939525,
+      -0.03225659840027861,
+      -0.4358625205218832,
+      -0.2541884908189604,
+      -0.3776242697264265,
+      -0.22565511630012103,
+      0.12998197589213767
+    ],
+    "outer_scene_deletion_range": [
+      -0.1885008004482387,
+      -0.13727846491114026
+    ],
+    "interpretation": "Descriptive sensitivity; overlapping folds are not independent replications."
+  },
+  "real_controls": {
+    "pooled_real": {
+      "observed": {
+        "mean": 0.23446741622171846,
+        "median": 0.23307412833206054,
+        "sd": 0.5611951596054578,
+        "range95": [
+          -0.7580706961870243,
+          1.3795239553028946
+        ]
+      },
+      "expected": {
+        "mean": 0.24859814273294228,
+        "median": 0.23617147626360177,
+        "sd": 0.07559788597054896,
+        "range95": [
+          0.1350121902569724,
+          0.42813313457652336
+        ]
+      },
+      "sampling_residual_sd": 0.5557704059482855
+    },
+    "class_real_pooled_target": {
+      "observed": {
+        "mean": 0.7528624970601491,
+        "median": 0.7211547184257165,
+        "sd": 0.7572958472235993,
+        "range95": [
+          -0.554151231062527,
+          2.4000668136572
+        ]
+      },
+      "expected": {
+        "mean": 0.7438710969059669,
+        "median": 0.7310592341106379,
+        "sd": 0.11904783231086613,
+        "range95": [
+          0.5439411815329713,
+          0.9927600539412187
+        ]
+      },
+      "sampling_residual_sd": 0.750266527652745
+    },
+    "class_real_class_target": {
+      "observed": {
+        "mean": 0.7313123812433109,
+        "median": 0.7021564602144412,
+        "sd": 0.5488236811828584,
+        "range95": [
+          -0.24752966616688954,
+          1.945590134528662
+        ]
+      },
+      "expected": {
+        "mean": 0.7204569778126331,
+        "median": 0.7061138669437605,
+        "sd": 0.12040319596286661,
+        "range95": [
+          0.5165678852454484,
+          0.9541777673858778
+        ]
+      },
+      "sampling_residual_sd": 0.5390848599549376
+    }
+  },
+  "interpretation": "Post-result review audit from retained vectors. Conditional expectations refer to finite held pools; no new confirmatory tests or image-level validation.",
+  "source_commit": "d12f726ef331ac6abc567bd5bb7975cd0d17590a",
+  "source_sha256": {
+    "critics/assessment_v1/check_claims.py": "bfe3a83c074789baef6bc3052b912bdd0b3de89165051ebb9a78bd27392648a1",
+    "paper/paper.tex": "e4505d4c6c59a1fa407f178cdca09ef71c51a8b58cde927d4a55ab3225c471a7",
+    "paper/specificity_results.tex": "375e107fd51264ca0bdadfb6d9b4aae83b2831111ec414cf3bddd1f2e9159c4b",
+    "reports/painter_specificity_review_v1/analysis.json": "2fabb78e15dfcc7b027a73170f6ad0c87af0196c754b4e6f45275269c2c961e2",
+    "data/manifests/painter_specificity_v2/psv2-20260911/analysis.json": "c1d21b16f840a10fd253c1d558743a09671acf3d4e48601ddcc96625a5a90be0"
+  }
+}

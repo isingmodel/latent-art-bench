@@ -17,12 +17,14 @@ Sunburst, Nano Banana 2 and FLUX.2 Max. All 1,008 images were collected and
 measured. The [results](reports/painter_specificity_v2/psv2-20260911/REPORT.md)
 show positive reference-aligned responses in every model, but response strength
 does not track pooled-reference agreement. FLUX has the lowest estimated
-geometry error and adjusted advantages over both GPT Image 2.5 variants; the
-other 13 pairwise differences remain unresolved. No model is established to beat
+geometry error; its original adjusted advantage over Sunburst does not survive
+[source-region correction](reports/painter_reference_quality_v1/REPORT.md), while
+the Flare comparison remains separated. No model is established to beat
 the no-contrast benchmark. [Review-driven diagnostics](reports/painter_specificity_review_v1/REPORT.md)
 add content/reference controls, artist-pair analysis and held-scene calibration;
-image inspection also exposes reference calibration strips and a title-class
-mismatch. These limitations preclude a validated ranking of artistic fidelity. The [novelty assessment](studies/painter_specificity_v1/NOVELTY.md)
+[follow-up checks](reports/painter_specificity_review_v2/REPORT.md) correct shared-control
+noise and assess diagnostic stability. An assistant audit covers all 870
+reference/development sources. These analyses do not validate artistic fidelity. The [novelty assessment](studies/painter_specificity_v1/NOVELTY.md)
 identifies close prior work and the limited contribution being tested.
 
 - [Current status](docs/STATUS.md): findings, accounting and outstanding review requests.
@@ -49,6 +51,7 @@ on older interpreters. From the repository root:
 uv sync --locked --extra analysis --extra dev --inexact
 make specificity-check
 make review-check
+make reference-quality-check
 make paper
 ```
 

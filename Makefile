@@ -7,7 +7,7 @@ REVISION := latent_art_bench.painter_distribution_revision_v1
 PAPER_BUILD := tmp/paper/build
 SPECIFICITY := latent_art_bench.painter_specificity_measurement_v1
 
-.PHONY: help check check-all evidence analysis four-painter-analysis plots responsiveness computational-responsiveness palette-check validation-check replication-check geometry-check clause-check clause-successor-check figures figures-check paper specificity-check specificity-audit review-check review-images-check
+.PHONY: help check check-all evidence analysis four-painter-analysis plots responsiveness computational-responsiveness palette-check validation-check replication-check geometry-check clause-check clause-successor-check figures figures-check paper specificity-check specificity-audit review-check review-images-check reference-quality-check reference-quality-images-check
 
 help:
 	@echo 'Paper correction: paper/README.md and docs/AGENT_HANDOVER.md'
@@ -16,6 +16,8 @@ help:
 	@echo 'make check     Ruff and the current analysis/integrity test suite'
 	@echo 'make check-all Ruff and all retained offline tests, including historical workflows'
 	@echo 'make specificity-check  Replay six-model recovery and reference sensitivities'
+	@echo 'make review-check  Replay both versions of post-result diagnostics'
+	@echo 'make reference-quality-check  Replay the source-region and label sensitivity'
 	@echo 'make specificity-audit  Verify the new terminal report and retained raw bytes'
 	@echo 'make evidence  Verify historical evidence bindings and ledgers'
 	@echo 'make analysis  Replay controlled naming and revision numeric results'
@@ -94,6 +96,13 @@ specificity-check:
 review-check:
 	$(PYTHON) -m latent_art_bench.painter_specificity_review_v1 check
 	$(PYTHON) paper/make_review_figures.py --check
+	$(PYTHON) -m latent_art_bench.painter_specificity_review_v2 check
+
+reference-quality-check:
+	$(PYTHON) -m latent_art_bench.painter_reference_quality_v1 check
+
+reference-quality-images-check:
+	$(PYTHON) -m latent_art_bench.painter_reference_quality_v1 check-images
 
 review-images-check:
 	$(PYTHON) paper/make_review_figures.py --check --images

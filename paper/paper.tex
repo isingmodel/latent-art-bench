@@ -24,23 +24,22 @@
 \maketitle
 
 \begin{abstract}
-A detectable response to a painter's name need not reproduce the differences
-between that painter's works and those of other painters. We examine this
-distinction in 31 interpretable digital features using 649 reproductions of
-Monet, Sisley, Pissarro and C\'ezanne. Six generators receive 14 fixed outdoor
-briefs under artist-free, generic-painting and four named-painter conditions,
-with two outputs per cell. Removing the common additive response separates
-reference-aligned contrast strength from repeat-corrected disagreement with
-pooled reference contrasts. All six configurations have positive aligned
-slopes. GPT Image 2 has a slope close to one ($\beta=.999$), but substantial
-contrast error ($D=1.226$). FLUX.2 Max has the lowest estimated primary error
-and adjusted advantages over the two GPT Image 2.5 configurations; no model
-is established to outperform the no-artist-contrast benchmark. Post-result
-diagnostics qualify this ordering: scalar calibration evaluated on held-out
-scenes favors GPT Image 2, and genuine-painting controls expose substantial
-content dependence and reference uncertainty. The study distinguishes detectable
-name effects, response calibration and agreement with a specified reference
-collection. It does not validate this feature-space agreement as artistic fidelity.
+A detectable response to a painter's name need not reproduce differences
+between painters. We test this distinction in 31 digital color, spatial and
+texture features using 649 reproductions of Monet, Sisley, Pissarro and
+C\'ezanne. Six generators receive 14 fixed outdoor briefs under artist-free,
+generic-painting and four named-painter conditions, with two outputs per cell.
+After removing the common additive response, all six configurations have
+positive reference-aligned slopes, but alignment is uneven across artist pairs.
+GPT Image 2 nearly matches aggregate aligned amplitude ($\beta=.999$) while
+retaining substantial error ($D=1.226$). FLUX.2 Max has the lowest primary error
+estimate and adjusted advantages over the two GPT Image 2.5 configurations;
+no model is established to beat the no-artist-contrast benchmark. Scalar
+calibration on other scenes instead gives GPT Image 2 the lowest held-scene
+point estimate. Source-region correction retains FLUX's lowest point estimate
+but removes adjusted separation from Sunburst. The contribution is a controlled separation of name response,
+calibration and agreement with a specified reference collection, rather than
+a validated ranking of artistic fidelity.
 \end{abstract}
 
 \section{Introduction}
@@ -69,66 +68,45 @@ in every respect. A single proximity score or recognition accuracy cannot
 separate these possibilities.
 
 We cross six model configurations with identical scene descriptions and
-artist-free, generic oil-painting and four named-painter clauses. Centering the
-named outputs removes their common additive shift. A reference-aligned slope
-measures response amplitude; an independent-repeat cross-product estimates
-scene-wise disagreement with the pooled reference contrasts without additive
-sampling-noise bias. Paired scene comparisons retain the same target across
-models. This applies established estimation principles to a controlled audit
-of low-level artist contrasts, rather than proposing a new general style metric.
-
-The experiment supports positive reference alignment but not a general ranking
-of artistic fidelity. Review-driven diagnostics reveal two reasons for that
-restriction. First, scene-wise disagreement includes variation in artist
-contrasts across scenes, which can be appropriate rather than erroneous.
-Second, response magnitude influences the primary model ordering: a scalar
-fitted on other scenes changes that ordering. We report these post-result
-checks separately from the declared analysis, alongside artist-pair summaries,
-genuine-painting controls and inspectable image examples. They explain aspects
-of the measured disagreement while leaving its perceptual and causal
-interpretation open.
+artist-free, generic oil-painting and four named-painter clauses. Centering
+removes their common additive shift; a projection measures reference-aligned
+amplitude, and an independent-repeat cross-product estimates scene-wise
+squared disagreement without additive sampling-noise bias. The results reveal
+uneven artist-pair alignment and model orderings that change with response
+calibration and scene dependence. Separate post-result diagnostics examine
+these distinctions and reference quality. The contribution is this controlled
+empirical audit using established estimators.
 
 \section{Related work}
-Artist imitation and computational style measurement are established research
-problems. \citet{somepalli2024style} develop learned style descriptors and study
-style similarity across diffusion models. \citet{su2025prompted} evaluate
-prompted-artist recognition using content-controlled name substitutions; they
-also compare named and artist-free images with real-artist prototypes in CLIP
-space. Their work already establishes that artist names can leave recognizable
-signatures. Our question is whether those signatures recover the \emph{relative
-geometry of the reference painters}, after removing the shared response. Neither
-name substitution nor cross-model comparison is claimed as a new method here.
+\citet{somepalli2024style} develop learned style descriptors and study similarity
+across diffusion models. \citet{su2025prompted} evaluate prompted-artist
+recognition using content-controlled name substitutions and compare named and
+artist-free images with real-artist prototypes in CLIP space. Our question
+concerns the labeled differences among reference painters after removing a
+shared response; neither name substitution nor cross-model comparison is new.
 
-\citet{deliege2025} examine stylistic imitation and stereotyping with expert
-assessments of historical and generated art. AI-Pastiche studies authenticity
-judgments and prompt adherence \citep{asperti2025pastiche}; AI-WikiArt uses
-painting-derived captions and vision-language models to study attribution
-\citep{fu2025aiwikiart}. These studies motivate distinguishing convincing
-imitation, recognizable authorship and distributional recovery. We test
-reference-relative painter differences and summarize full-distribution outcomes
-in explicit digital coordinates, without substituting them for expert judgments.
+\citet{deliege2025} assess stylistic imitation and stereotyping with experts.
+AI-Pastiche studies authenticity judgments and prompt adherence
+\citep{asperti2025pastiche}, while AI-WikiArt uses painting-derived captions and
+vision-language models for attribution \citep{fu2025aiwikiart}. These tasks
+distinguish convincing imitation, recognizable authorship and distributional
+agreement. Here, the evaluation target is explicitly the latter in measured
+color, spatial and texture coordinates.
 
-Quantitative art research has examined color, composition and image statistics
-across painting collections \citep{kim2014,sigaki2018,lee2020}. \citet{kim2026}
-combine formal and contextual representations to study art-historical change,
-including contextual image-to-image experiments. Our intervention instead adds
-painter names to text-only scene prompts, with no original composition supplied
-to the generator. Related content and style remain entangled in our reference
-panel; the common-scene intervention controls the requested content of generated
-images, not the content of historical works.
+Quantitative art research studies color, composition and image statistics
+\citep{kim2014,sigaki2018,lee2020}. \citet{kim2026} combine formal and contextual
+representations for art-historical analysis and contextual image-to-image
+experiments. Our text-only name intervention supplies no original composition;
+its common scenes control requested generated content, not historical subjects.
 
-Generative-model evaluation distinguishes fidelity and diversity
-\citep{naeem2020}, and conditional metrics distinguish variation within conditions
-from relationships among their means \citep{benny2021conditional}. Our
-cross-repeat estimator follows the established principle of estimating squared
-signal differences from independent partitions \citep{diedrichsen2017representational}.
-Energy statistics provide the complementary distributional endpoint
-\citep{szekely2013}. Processing can materially change image comparisons
-\citep{parmar2022}; separation in a learned embedding is likewise not itself
-perceptual validation \citep{asperti2026}. Together, these precedents motivate
-a test of reference-relative artist contrasts with generic controls and
-independent repeats. The contribution is the combined experimental test and
-its findings, rather than a new style metric.
+Generative evaluation separates fidelity and diversity \citep{naeem2020},
+and conditional metrics separate within-condition variation from relationships
+among means \citep{benny2021conditional}. Independent-partition inner products
+provide noise-corrected squared differences \citep{diedrichsen2017representational};
+energy statistics supply a complementary distributional measure \citep{szekely2013}.
+Processing sensitivity \citep{parmar2022} and limits of learned-embedding
+separation \citep{asperti2026} motivate the source-quality checks and the
+restriction to a specified digital reference target.
 
 \section{Design and measurements}\label{sec:design}
 \subsection{Painters and reference images}
@@ -141,18 +119,13 @@ were assembled before the present experiment and had been used in earlier
 analyses. They are explicit, finite comparison panels rather than newly withheld
 samples of each painter's complete oeuvre.
 
-Reference files are linked to recorded work identities and Wikimedia Commons
-source metadata. Commons supports traceable file histories, source and rights
-fields, and institutional collection contributions through its cultural-heritage
-partnerships \citep{commonsglam}. Wikidata supplies structured, reusable work
-and artist identities \citep{vrandecic2014wikidata}. These properties make the
-selection and provenance inspectable; they do not guarantee uniform photography,
-color calibration or conservation state. We therefore call the inputs
-\emph{digital reproductions}, not direct measurements of physical paintings.
-Previous computational art corpora support the use of documented reproductions
-for comparative analysis, but do not authenticate this collection: the Web
-Gallery of Art in \citet{kim2014}, ART500K in \citet{kim2026}, and WikiArt in
-\citet{fu2025aiwikiart} are distinct from Wikimedia Commons.
+Reference files carry Wikimedia Commons source metadata and Wikidata work
+identities \citep{commonsglam,vrandecic2014wikidata}. These support traceable
+selection and rights records, but do not standardize photography, color
+calibration or conservation state. The Web Gallery of Art in \citet{kim2014},
+ART500K in \citet{kim2026} and WikiArt in \citet{fu2025aiwikiart} are different
+corpora, not validations of this collection. We therefore distinguish digital
+reproductions from the physical paintings.
 
 \subsection{A common-scene, six-model experiment}
 We compare GPT Image 1, GPT Image 2, GPT Image 2.5 Flare, GPT Image 2.5 Sunburst,
@@ -345,9 +318,9 @@ artist/class strata assesses the stability of this alternative target.
 \subsection{Generic controls and full distributions}
 The mean change from the free arm to the four named arms separates into a common
 component and centered painter contrasts. We compare the direction and magnitude
-of the common component with the free-to-generic change. Their cosine similarity
-and cross-repeat squared magnitudes test whether a generic painting clause
-reproduces the shared direction. A large common fraction alone cannot show that
+of the common component with the free-to-generic change. Cross-repeat squared magnitudes and alignment
+ratios assess how much of the shared direction a generic painting clause reproduces;
+ordinary cosines are retained as descriptive comparisons. A large common fraction alone cannot show that
 naming fails: these four reference painters also share visual properties.
 Equations~\ref{eq:beta}--\ref{eq:distortion} separately assess reference contrasts.
 
@@ -374,10 +347,11 @@ outputs. This separates repeat dispersion from total variation across briefs.
 The declared endpoints are retained. The following analyses were added in
 response to review, after the primary results were known, and are descriptive.
 We examine artist pairs, reference singular components, label permutations,
-class-specific targets and disjoint real/reference controls. Equal family
-weighting and a covariance metric fitted only to development works examine
-coordinate weighting; simulation probes the interval procedure under explicit
-noise models. Appendix~\ref{app:diagnostics} specifies these choices.
+class-specific targets and disjoint real/reference controls. Subsequent checks
+separate control-sampling noise, correct shared-control alignment, and audit
+reference regions and labels. Weighting sensitivities and explicit noise
+simulations assess numerical stability. Appendix~\ref{app:diagnostics} specifies
+these retrospective analyses; full records accompany the code.
 
 To separate contrast strength from direction, define
 \begin{equation}
@@ -399,107 +373,75 @@ counterfactual concerns feature vectors, not an implemented image transformation
 \FloatBarrier
 
 \section{Discussion}\label{sec:discussion}
-The main finding is a separation between three claims: painter names induce
-reference-aligned variation; a configuration has lower error than another on
-a specified target; and that configuration faithfully reproduces an artist's
-style. The experiment supports the first claim for all six configurations and
-two comparisons under the second. It does not establish the third. Nor does it
-establish that any configuration improves on the no-artist-contrast benchmark
-in absolute squared error. Positive alignment and that absolute benchmark
-answer different questions.
+The experiment separates reference-aligned name response, lower error on a
+specified target, and faithful artistic reproduction. It supports the first
+for all six configurations and two original comparisons under the second;
+the Sunburst comparison loses adjusted separation after source correction. Neither
+positive alignment nor a near-unit slope establishes low total error: GPT
+Image 2's aligned amplitude coexists with substantial additional contrast.
+FLUX's weaker response has lower uncalibrated error, while held-scene scalar
+calibration favors GPT Image 2 in point estimates. Both evaluations are
+coherent; neither defines a uniquely best artistic representation.
 
-The response-strength decomposition explains part of the model ordering.
-GPT Image 2 has a slope close to one, yet the total magnitude of its artist
-contrasts exceeds their reference-aligned component. FLUX has a weaker response
-and lower uncalibrated error. Scalar calibration on other scenes reduces error
-for every configuration and gives GPT Image 2 the smallest calibrated point
-estimate. This is evidence that response calibration influences the ranking,
-not that a feature-space rescaling is a realizable image intervention or that
-GPT Image 2 has the best artistic representation. The unresolved primary
-GPT Image 2--FLUX contrast remains unresolved.
+Aggregate alignment also conceals uneven coverage. The dominant reference
+component receives stronger responses than the other components, and several
+Monet--Sisley slopes are near zero or negative. These are weak measured pair
+contrasts, not evidence of perceptual confusion or an identified art-historical
+hierarchy. The generic clause shares part of the common named direction.
+Shared non-additive transformations, content substitution and reproduction
+processes remain possible explanations; training imbalance, preference
+optimization and guidance were not manipulated. The separate palette and
+fixed-map studies, including their contrary prospective result
+(Appendix~\ref{sec:why}), do not establish a universal mechanism.
 
-Artist-pair analysis also changes the interpretation of positive aggregate
-alignment. The dominant reference contrast receives stronger responses than
-the remaining components in every model. In particular, positive overall
-slopes coexist with near-zero or reversed Monet--Sisley slopes in several
-configurations. A response aligned with a broad separation among the four
-painters is not equivalent to recovering all their distinctions.
+\subsection{Scope and remaining limitations}
+The target is deliberately collection-relative. Scene-wise $D$ measures
+consistency with pooled historical contrasts and can penalize appropriate
+artist-by-content variation. Coarse content classes do not match composition,
+viewpoint, career period or actual generated scene adherence. The source audit
+addresses visible peripheral regions and title/visual-class disagreements; its
+assistant judgments, unresolved boundaries and remaining capture differences
+limit the correction. A single reproduction per work cannot identify effects
+of illumination, sharpening, conservation or digitization source.
 
-A generic painting clause reproduces part of the common named shift; artist-contrast
-magnitude and scene dependence account algebraically for other components.
-These are observable response patterns, not identified internal mechanisms.
-Common non-additive transformations, artist-associated content substitution,
-and differences in reproduction processes remain alternatives to an incorrect
-artist representation. Training imbalance, preference optimization and guidance
-are possible upstream causes, but were not manipulated. The separate palette
-and fixed-map evidence in Appendix~\ref{sec:why}, including the contrary
-prospective result, does not identify a universal mechanism.
+The coordinates measure digital properties, not physical brushwork or perceived
+painter resemblance. The study makes no artistic-fidelity or internal-mechanism
+claim. Weighting sensitivities and successful numerical replay establish neither.
+Likewise, the real-painting control ranges mix finite-reference disagreement
+with sparse sampling noise and do not define an artistic acceptance threshold.
 
-\subsection{What remains unvalidated}
-Genuine class-specific painting contrasts differ from the pooled
-target, and small disjoint real/reference panels yield widely varying corrected
-errors. The present collection cannot define a narrow artistic-fidelity threshold.
-Coarse within-class comparisons reduce one source of mismatch but do not match
-viewpoint, season, composition, career period or actual generated content.
-The rule-selected images expose concrete problems: the Sisley and Pissarro
-reference files include calibration strips retained by the primary full-frame
-measurement, and the C\'ezanne street scene is labeled water-organized from its
-title metadata (Appendix~\ref{app:images}). These examples establish that the
-reference target can contain non-painting content and imperfect subject labels;
-they do not estimate their prevalence or contribution to the reported errors.
-An output could also improve reference agreement by introducing artist-associated
-subjects that depart from the requested scene. The image panels permit inspection;
-they are not a blinded assessment of scene adherence or artist resemblance.
-
-The 31 coordinates are transparent measurements, not a validated perceptual
-instrument. Equal family weighting and development-only covariance weighting
-retain FLUX's lowest primary point estimate, but cannot determine the right
-weighting of artistic properties. A previous processing challenge found that
-resizing and blur materially changed texture measurements; eight-neighbor
-local-binary-pattern entropy accounted for 83.9\% of squared texture displacement
-under the tested blur, not of the present model error. Square windows and
-without-texture analyses do not control photographic illumination, sharpening,
-color correction or conservation state. Independent captures and style-oriented
-representations would provide different, still imperfect, validation routes.
-
-The uncertainty analysis conditions on this reference panel and scaler. Synthetic
-checks illustrate acceptable family coverage under specified independent-error
-models and severe failure under shared-state errors; they do not establish the
-actual generation process. The 14 fixed briefs, two repeats, four related painters
-and one clause template restrict external inference. No independently collected
-replication, human style validation or source-held-out measurement validation
-has been completed. These gaps limit the artistic interpretation even when
-numerical replay succeeds.
+Inference conditions on the reference panel and scaler. Simulations probe
+specified noise models; they cannot verify actual repeat independence. Four
+related painters, 14 authored briefs, two repeats and one clause template
+restrict external inference. The image panels enable inspection, while the
+remaining gap in public exact-pixel access limits independent measurement
+reproduction.
 
 \section{Conclusion}
-Painter names produce detectable, reference-aligned digital contrasts beyond
-a common additive painting response. Their amplitude, scene dependence and
-agreement with pooled painting statistics nevertheless differ. FLUX has lower
-declared error than the two GPT Image 2.5 configurations, while held-scene scalar
-calibration and artist-pair analysis qualify any broader ranking. The contribution
-is a controlled demonstration that response detection, calibration and
-collection-relative agreement are separate evaluation questions. Establishing
-which disagreements represent artistic failure requires validation beyond the
-present feature-space target.
+Painter names produce reference-aligned digital contrasts beyond a common
+additive response, but the alignment is uneven across painter distinctions.
+Response strength, scene dependence and source handling change how configurations
+compare. FLUX retains the lowest error estimate after region correction, but
+its original adjusted Sunburst comparison does not persist; held-scene
+calibration gives GPT Image 2 the lowest point estimate. These
+findings distinguish detection, calibration and collection-relative agreement
+without treating any one as a validated measure of artistic fidelity.
 
 \section*{Data and code availability}
-The \href{https://github.com/isingmodel/latent-art-bench}{project repository}
-contains protocols, exact prompts, request configurations, reference metadata,
-scalers, retained feature vectors and numerical replay code. The primary
-six-model results and the post-result diagnostics have separate records;
-the original inferential family is unchanged. Earlier experiments have
-\href{https://github.com/isingmodel/latent-art-bench/releases}{versioned releases};
-the current addition has not yet been archived as an immutable public release.
+The \href{https://github.com/isingmodel/latent-art-bench}{repository} contains
+protocols, prompts, request settings, source metadata, scalers and feature
+vectors. The primary analysis, diagnostic extensions and source-quality
+sensitivity have separate versioned records with input hashes and replay code.
+The source audit records all work identities, region boxes, label decisions
+and corrected vectors; the original results remain intact.
 
-Appendix~\ref{app:images} supplies 36 generated examples covering all model/clauses
-for one fixed brief, plus four reference reproductions. Stable image identifiers,
-exact prompts, source URLs, recorded rights and byte hashes accompany these
-panels. They support visual inspection but are not the full-resolution measurement
-inputs. Public numerical replay begins with retained vectors; it does not
-independently reproduce feature extraction or acquisition. Full-resolution
-artworks, generated images and response bodies remain outside the compact
-packages. Archiving permissible exact pixels and validating recovery from
-reference source records remain necessary for measurement-level reproducibility.
+Appendix~\ref{app:images} displays 36 generated and four reference examples
+with recorded identities and byte hashes. Public numerical replay begins with
+vectors; independent re-extraction requires the exact source pixels, which
+remain outside the compact repository. Earlier experiments have
+\href{https://github.com/isingmodel/latent-art-bench/releases}{public releases};
+the current experiment and corrections still need a dedicated public archive
+with permissible exact pixels or a verified recovery route.
 
 \bibliographystyle{plainnat}
 \bibliography{references}
@@ -580,16 +522,18 @@ Resampling within artist/class strata conditions on those labels and does not
 account for classification error. The older controlled naming panel used a
 separate three-class visual coding scheme, described below.
 
-The shared-effect diagnostic first averages each arm over scenes within repeat.
-Let $h_{ak}$ be the named-minus-free difference and
-$c_k=\frac14\sum_a h_{ak}$. The cross-repeat common and artist-specific squared
-magnitudes are $4\langle c_1,c_2\rangle$ and
-$\sum_a\langle h_{a1}-c_1,h_{a2}-c_2\rangle$. The common fraction divides
-the first magnitude by their sum and is reported only when that sum is positive;
-finite corrected components can be
-negative, so the ratio is not a probability. Generic/common cosine uses their
-repeat-averaged vectors. This descriptive global statistic is separate from
-the conditional recovery endpoint.
+For the shared-effect diagnostic, average each arm over scenes within repeat.
+With named-minus-free differences $h_{ak}$ and $c_k=\frac14\sum_a h_{ak}$,
+common and specific squared magnitudes are $4\langle c_1,c_2\rangle$ and
+$\sum_a\langle h_{a1}-c_1,h_{a2}-c_2\rangle$. Their common fraction is reported
+when the total is positive; corrected components may be negative.
+Let $g_k$ be the generic-minus-free shift. The ordinary repeat-averaged cosine
+shares a noisy free estimate in both vectors, adding its error covariance trace
+to the expected numerator. A separate diagnostic uses
+$[\langle g_1,c_2\rangle+\langle g_2,c_1\rangle]/
+[2\sqrt{\langle g_1,g_2\rangle\langle c_1,c_2\rangle}]$ when both norm squares
+are positive. The ratio itself is not unbiased or constrained to $[-1,1]$.
+Primary $D$ uses only named arms and is unaffected by shared-free-control noise.
 
 \input{specificity_review_appendix.tex}
 

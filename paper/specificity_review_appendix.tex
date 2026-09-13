@@ -1,9 +1,9 @@
 \section{Post-result target diagnostics}\label{app:diagnostics}
-These analyses use the completed 1,008 generated vectors, existing references
-and unchanged scaler. Their choices were recorded after the primary results
-and reviewer comments were known. They are not new confirmatory experiments.
-The accompanying result contains every scalar fit, artist-pair result, artist
-omission, label assignment, coordinate contribution and control draw.
+These retrospective analyses retain the completed 1,008 generated images and
+the original inferential family. The initial diagnostics use unchanged reference
+vectors and scaling; the subsequent source audit separately varies painting
+regions, development scaling and content labels. Versioned records contain
+all fits, pair results, control draws, audit decisions and input hashes.
 
 \subsection{Content-specific targets and genuine-painting controls}
 The recorded reference classes are water-organized, built-place-organized,
@@ -34,13 +34,15 @@ The random seed is 2026091201. Sampling can repeat a held-out work, but no
 held-out work is used to estimate that split's target. The development scaler
 is fixed throughout.
 
-These controls reveal finite-reference instability and content dependence;
-they do not establish a universal real-art baseline. Training-target estimation,
-held-out mean differences and two-draw noise all contribute to their spread.
-Stratifying on title classes does not hold out capture sources or remove
-classification error. In particular, the class-specific control's median error
-$.702$ and central interval $[-.248,1.946]$ do not justify a perceptual acceptance
-threshold or an assertion that model errors above one indicate artistic failure.
+To separate sparse sampling from changes in the comparison pools, we also
+calculate each split's expected score from its exact held-out means, keeping
+the training target and normalizer fixed. Their central 95\% ranges are
+$[.135,.428]$ for pooled controls, $[.544,.993]$ for class-stratified works
+against pooled targets, and $[.517,.954]$ against class targets. The corresponding
+original two-draw ranges are $[-.758,1.380]$, $[-.554,2.400]$ and $[-.248,1.946]$.
+For pooled controls, SD falls from $.561$ to $.076$ after integrating out
+sampling. These controls still condition on imperfect title classes and a
+single source capture per work; they do not calibrate artistic fidelity.
 
 \input{specificity_review_supplement.tex}
 \FloatBarrier
@@ -53,13 +55,18 @@ finite samples, although its independent-repeat population target is nonnegative
 Scalar calibration fits only the other 13 scenes. All fold denominators $Q$
 are positive. GPT Image 2's fitted scalars range from .438 to .459 and FLUX's
 from .598 to .694; all fold-specific scores are retained. No calibration
-parameter is selected by minimizing its own held-out score.
+parameter is selected by minimizing its own held-out score. The subsequent
+deletion check refits the entire procedure on
+each remaining 13-scene panel, rather than treating overlapping folds as
+independent replications.
 
 For artist pairs, both generated and reference contrasts are direct differences
 between the two artists; the denominator is the squared reference-pair distance.
 Leaving one artist out recenters the remaining three generated and reference
-conditions. Reference singular components use the three rank-one terms of the
-reference-mean matrix, and project onto each such term separately.
+conditions. Reference singular components are the three rank-one terms of the
+centered four-by-31 reference matrix: each combines an artist contrast with a
+feature direction, rather than representing one artist. Slopes project onto
+each term separately.
 Table~\ref{tab:review-components} shows that aggregate positive alignment is
 uneven across those components. The 24 permutations rearrange generated artist
 labels while leaving the reference fixed. Their ranks are not exact permutation
@@ -73,11 +80,8 @@ $[.5\Sigma+.5\operatorname{tr}(\Sigma)I/31]^{-1}$; the shrinkage is fixed,
 without tuning on the evaluated images. These changes address correlated
 coordinate weighting but are not independently validated artistic metrics.
 FLUX retains the smallest point estimate under each of 31 single-coordinate
-deletions. The largest individual primary-error contribution varies by model:
-32-neighbor LBP entropy for GPT Image 1, spectral residual for GPT Image 2,
-wavelet curvature for the two 2.5 variants, and quadrant orientation divergence
-for Nano Banana 2 and FLUX. All contributions, including negative terms, are
-reported rather than selecting a favorable coordinate subset.
+deletions. Every coordinate contribution, including negative terms, is retained
+in the report rather than selecting a favorable subset.
 
 \subsection{A design-aware energy correction}
 The primary energy values use empirical distributions, including their zero
@@ -110,27 +114,41 @@ This explains why it is not a direct estimate of fresh-request variance for
 exactly the fixed panel. It also does not provide an exact coverage guarantee:
 non-Gaussian cross-products and dependence can affect the Student approximation.
 
-We simulate 5,000 repetitions per specified scenario (seed 2026091202), with
-six configurations, 14 scenes, two repeats and the same 21-endpoint family.
-The reference configuration is normalized to unit squared magnitude.
-Synthetic mean contrasts combine fixed reference slopes with orthogonal
-components of magnitudes similar to the reported estimates; random directions
-are artist-centered. Independent centered noise has total expected squared
-magnitude .5. The scenarios use Gaussian errors; variance-standardized Student
-$t_3$ errors with scene-specific scale factors from .5 to 2; Gaussian errors
-with additional fixed artist-by-scene interactions; and a shared-state violation.
-The last allocates half the error variance to a model-specific random component
-shared by both repeats and every scene in a simulated run. These are explicit
-stress models, not estimates of the actual service process.
+The initial 5,000-run scenarios (seed 2026091202) use the six configurations,
+14 scenes, two repeats and 21-endpoint family, with unit reference magnitude.
+Gaussian, variance-standardized $t_3$/heteroskedastic and fixed scene-interaction
+errors give simultaneous coverage 95.96\%, 97.42\% and 99.68\%. Their independent
+centered noise power is $.5$. Allocating half the noise to a model-specific
+state shared by all scenes and both repeats reduces coverage to 0.04\%, with
+mean corrected-error bias near $.25$.
 
-Simultaneous coverage of all 21 known fixed-panel quantities is 95.96\%, 97.42\%
-and 99.68\% in the first three scenarios. It falls to .04\% in the shared-state
-scenario, where mean corrected-error bias is approximately .25, as expected
-from the retained cross-repeat covariance. Monte Carlo standard error for a
-coverage probability is $\sqrt{p(1-p)/5000}$. The simulations show how the
-procedure can succeed or fail under specified assumptions; they cannot verify
-actual repeat independence or calibrate the original intervals from two
-observations per cell. No revised significance threshold is selected from them.
+A subsequent sweep uses independent Gaussian errors at powers $.5$, $1.5$ and
+$3$, with either isotropic or rank-three covariance aligned with the reference
+components (5,000 runs per case). Coverage ranges from 95.06\% to 96.80\%, with
+Monte Carlo SE $.25$--$.31$ percentage points. For comparison, directly centered
+repeat differences estimate observed powers of $.424$--$2.596$ relative to $H$.
+Full noise definitions and results are retained in the versioned report. These
+stress models probe coverage approximations, not actual service independence;
+no significance threshold is selected from them.
+
+\subsection{Source-quality sensitivity}\label{app:reference-quality}
+An assistant visual audit inspects all 649 reference and 221 development
+reproductions using numbered contact sheets and enlarged peripheral regions.
+It records visible calibration targets, photographic frames, margins and labels,
+with normalized rectangular painting-region coordinates. Ambiguous boundaries
+remain unchanged. Reference content is assigned to the four broad classes from
+the image before comparison with the original title label; mixed or unclear
+cases retain that original label. This is source inspection, not a human
+artist-resemblance evaluation or composition matching.
+
+For clearly bounded regions, the same orientation and ICC rules precede crop
+and aspect-preserving Lanczos resizing to a 512-pixel short side without
+upsampling. All 31 feature definitions and all works are retained. We compare
+corrected references first with the original scaler, then with IQR scaling
+refitted on corrected development images and consistently applied to generated
+vectors. A separate comparison changes content labels on the same 11 briefs.
+The audit and new compact vectors are versioned alongside the original results;
+corrections are not chosen by optimizing model scores.
 
 \section{Inspectable image examples}\label{app:images}
 The generated panel uses the first declared brief and first repeat for every
@@ -142,19 +160,13 @@ clauses otherwise follow Section~\ref{sec:design}. Images were not selected by
 visual success, distance or agreement with the paper's claims.
 
 Reference examples are the lexicographically first measured water-class work
-identifier for each painter with recorded public-domain status. They are
-examples from the comparison collection, not matched depictions of the generated
-brief. The Sisley and Pissarro examples visibly retain calibration strips. Their
-primary measurement records have zero crop fraction, so those non-painting
-regions were not masked. The C\'ezanne example, \emph{Crossroad of Rue R\'emy,
-Auvers}, depicts a street despite its title-derived water class. These
-observations concern four selected examples, not a prevalence audit. They are
-retained to expose the source and labeling problems, without recropping,
-reclassifying or recomputing the sealed analysis.
-The accompanying inspection manifest identifies exact source bytes,
-work metadata and generated requests. These reduced display panels permit
-qualitative inspection of content and rendering, not independent feature
-extraction, blinded scene-adherence scoring or artist-fidelity validation.
+identifiers with recorded public-domain status under the original title labels.
+The Sisley and Pissarro reproductions retain calibration strips; the C\'ezanne
+example, \emph{Crossroad of Rue R\'emy, Auvers}, depicts a street. These original
+full-frame examples document the defects motivating the separate source audit
+(Appendix~\ref{app:reference-quality}); they are not matched depictions of the
+generated brief. Source identifiers, exact requests and byte hashes accompany
+the panels, whose reduced images support inspection rather than re-extraction.
 
 \begin{figure}[htbp]
 \centering\includegraphics[width=\linewidth]{specificity_reference_examples.pdf}

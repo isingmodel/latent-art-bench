@@ -11,6 +11,8 @@ paths. For source code, plotting and offline commands, see
 | --- | --- |
 | [Six-model artist specificity](painter_specificity_v2/psv2-20260911/REPORT.md) | Primary slopes, paired model comparisons, all four artists and accounting; full values in sibling CSVs |
 | [Reference-target diagnostics](painter_specificity_review_v1/REPORT.md) | Scene decomposition, calibrated response, artist pairs, reference controls and limitations; [numerical record](painter_specificity_review_v1/analysis.json) |
+| [Diagnostic clarification](painter_specificity_review_v2/REPORT.md) | Shared-control correction, sampling-integrated real controls, calibrated stability and broader noise simulations |
+| [Reference quality](painter_reference_quality_v1/REPORT.md) | Audit of 870 source reproductions; separate region, scaler and visual-class sensitivities, with original measurements preserved |
 | [Image inspection](painter_specificity_review_v1/inspection.json) | Selection rules, prompts, source identities, rights metadata and hashes for the 40 example images |
 
 The [current paper](../paper/paper.pdf) is the scientific synthesis.

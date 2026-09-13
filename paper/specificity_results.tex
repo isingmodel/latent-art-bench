@@ -1,6 +1,6 @@
 \subsection{Reference-aligned responses do not establish low absolute error}
-All 1,008 outputs yield valid measurements. Every aggregate reference-aligned
-slope has a simultaneous interval above zero
+All 1,008 outputs yield valid measurements. With the original full-frame
+reference target, every aggregate aligned slope has a simultaneous interval above zero
 (Table~\ref{tab:specificity-models}). This excludes a purely common additive
 response under the stated inference model. It does not establish agreement
 for every artist pair or low total error. GPT Image 2 has a slope close to one
@@ -46,12 +46,11 @@ The three nonzero reference components account for 66.3\%, 20.6\% and 13.0\%
 of centroid variation. Every model has a larger slope on the dominant component
 than on either remaining component. Omitting C\'ezanne reduces FLUX's aggregate
 slope from $.470$ to $.096$; the corresponding GPT Image 2 slope changes from
-$.999$ to $.651$. The primary response is therefore not equally distributed
-across artist distinctions. Across all 24 label assignments, the correct
-assignment minimizes error for GPT Image 1, GPT Image 2 and FLUX, but ranks
-second for Flare, Sunburst and Nano Banana 2. For each of the latter three,
-swapping Monet and Sisley lowers the point estimate. These permutation ranks
-are descriptive; no label-exchangeability test is claimed.
+$.999$ to $.651$. Across all 24 label assignments, the correct assignment minimizes error
+for GPT Image 1, GPT Image 2 and FLUX, but ranks second for Flare, Sunburst
+and Nano Banana 2: swapping Monet and Sisley lowers their error. This swap
+improvement is algebraically linked to the negative pair slope, not independent
+corroboration. Neither statistic establishes perceptual artist confusion.
 
 \begin{figure}[tbp]
 \centering\includegraphics[width=\linewidth]{specificity_artist_pairs.pdf}
@@ -76,40 +75,42 @@ alignment ratio, $.670$, but generated contrast magnitude $Q=2.223$ relative
 to the reference. FLUX has smaller magnitude, $.741$, and lower alignment,
 $.546$. A nonnegative scalar fitted on 13 scenes and evaluated on the omitted
 scene reduces mean error for every model. The smallest calibrated point
-estimate is GPT Image 2's $.554$, compared with FLUX's $.714$. This held-scene
-feature counterfactual supports a calibration explanation of the primary
-ordering, without changing the declared model comparison or establishing that
-such transformed features can be generated as images.
+estimate is GPT Image 2's $.554$, compared with FLUX's $.714$. GPT Image 2
+has lower scores in 12 of 14 folds; deleting each scene and refitting the entire
+procedure retains its advantage, with mean differences from $-.189$ to $-.137$.
+These dependent-fold sensitivities support stability within this panel, not
+a new superiority test or a realizable image intervention.
 
 \input{specificity_review_table.tex}
 
-The historical target is itself content dependent. Contrasts among the four
-reference title classes differ from the pooled reference configuration by an
-average squared amount equal to $.438H$. On the 11 unambiguously designated
+The observed reference title-class contrasts differ from the pooled target
+by an average squared amount of $.438H$, including finite-sample error and
+possible capture or classification differences. On the 11 unambiguously designated
 water, built and land briefs, FLUX retains the lowest point estimate with a
 class-specific target (Appendix~\ref{app:diagnostics}). These broad labels do
 not match compositions or verify generated scene adherence.
 
-Genuine-painting controls expose the limits of an absolute interpretation.
-Across 1,000 disjoint reference half-splits, two independently sampled works
-per painter and pseudo-scene give median error $.233$ for pooled sampling;
-the central 95\% of simulated estimates span $[-.758,1.380]$. Class-stratified
-sampling against pooled training targets gives median $.721$ and range
-$[-.554,2.400]$. Class-specific training targets give median $.702$ and range
-$[-.248,1.946]$. These are finite-pool control distributions with different
-estimated normalizers, not confidence intervals or direct tests against the
-models. Their width prevents treating the model errors as calibrated degrees
-of artistic failure.
+Genuine-painting controls separate reference disagreement from sampling noise.
+Across 1,000 disjoint reference half-splits, two works per painter and
+pseudo-scene give pooled median error $.233$ and central 95\% range
+$[-.758,1.380]$. Replacing those draws by each held-out pool's exact mean
+narrows the range to $[.135,.428]$: much of the original width comes from sparse
+sampling, not changing reference geometry alone. Class-stratified controls
+retain larger expected errors (Appendix~\ref{app:diagnostics}). These finite-pool
+distributions use split-specific targets and normalizers; they are neither
+confidence intervals nor an absolute artistic-performance threshold.
 
 \subsection{Common shifts and distributional proximity answer other questions}
 The common component accounts for 82.5--95.7\% of global cross-repeat-corrected
 named/free squared change. Computing the same decomposition within scenes
 before averaging gives 88.6--97.2\%. Thus global pooling is not responsible
 for the high common fraction in this experiment. Neither fraction is a
-percentage of images or of artistic style. Generic/common direction cosines
-range from .693 to .888; the generic shift is smaller for every model. The
-generic clause reproduces part of the common direction, without explaining
-all of it or removing possible shared non-additive transformations.
+percentage of images or of artistic style. Ordinary generic/common cosines
+range from .693 to .888. Replacing same-repeat products with cross-repeat
+products avoids the shared-free-control covariance term and yields alignment
+ratios .689--.930, positive after every scene deletion. The generic shift
+therefore shares part of the common named direction; its magnitude is smaller
+for every model.
 
 Naming lowers empirical reference energy relative to the generic clause in
 21 of 24 model--painter cells. A correction respecting the two-repeat scene
@@ -128,3 +129,23 @@ the added weighting diagnostics introduce no new tests. Removing texture leaves
 Flare and Sunburst errors of 1.580 and 1.604. Persistence under these choices
 shows that a single texture family or broad content mixture does not explain
 all measured disagreement; it does not validate a unique artistic metric.
+
+\subsection{Source correction weakens one model comparison}
+The source audit identifies removable peripheral regions in 90 of 649 reference
+and 41 of 221 development reproductions, including ten calibration-strip cases;
+43 uncertain boundaries remain unchanged. Visual content assignments differ
+from 230 title labels, with 42 unclear cases retaining their original labels.
+These are assistant-coded sensitivities, not independent ground truth
+(Appendix~\ref{app:reference-quality}).
+
+After cropping, FLUX retains the lowest error: $.832$ with original scaling,
+or $.872$ after refitting development scaling, compared with original $.801$.
+All six aligned slopes remain positive, and GPT Image 2 retains the lowest
+calibrated estimate ($.579$ with refitted scaling). However, the adjusted
+Sunburst-minus-FLUX interval now includes zero: $.705\;[-.026,1.436]$;
+Flare-minus-FLUX remains $.864\;[.193,1.535]$. The GPT Image 1-minus-FLUX
+interval also moves above zero, $.758\;[.026,1.491]$, as a retrospective
+sensitivity, not a new confirmatory finding. Revised visual classes on the
+same 11 briefs retain FLUX's lowest point estimate. These corrections change
+particular comparisons while preserving the separation of alignment, magnitude
+and target agreement.

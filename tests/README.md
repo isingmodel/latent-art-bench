@@ -1,7 +1,7 @@
 # Test scope
 
 Use `make check` for the current paper's analysis and data-integrity tests. It
-runs Ruff and the **830-case routine suite** selected by
+runs Ruff and the **848-case routine suite** selected by
 [pytest-paper.ini](../pytest-paper.ini). Tests cover the 31-feature calculations,
 four-painter comparisons, weighting and randomization, missing observations,
 palette response, geometry, arithmetic oracles, evidence integrity and the main
@@ -17,7 +17,9 @@ document-formatting tests were added.
 The review diagnostics add seven analytical controls for scene decomposition,
 repeat covariance, held-scene fitting, stratified-energy expectation,
 development weighting, reference splitting and synthetic shared-state bias.
-They do not add formatting or image-layout tests.
+The follow-up diagnostics add ten numerical controls, and the source-quality
+sensitivity adds eight crop-normalization checks, including full-frame equivalence
+and EXIF/ICC handling. They do not add formatting or image-layout tests.
 
 ```sh
 make check                         # Routine analysis and integrity checks
@@ -42,7 +44,8 @@ equivalent coverage of every old implementation.
 
 Another **41 cases were removed from the working tree**, leaving 1,929 at that
 retirement. With the subsequent 15 specificity cases, `make check-all` contains
-1,944 retained cases before the seven review-diagnostic controls (1,951 now). Eight retired unbound files covered obsolete operational paths:
+1,944 retained cases before the seven initial review controls and 18 follow-up
+cases (1,969 now). Eight retired unbound files covered obsolete operational paths:
 
 - `painter_feature_generation_v1/test_collect.py`: the early generic metadata collector.
 - `painter_feature_generation_v2/test_acquisition.py`, `test_renderings.py` and
@@ -84,3 +87,9 @@ offline suite passes all 1,944 cases, including the 823 routine cases, in
 479.82 seconds. Ruff passes. The earlier audit's 2,902 checks cover historical
 evidence; the new experiment has its own four numerical replays and raw-byte
 audit. Passing software tests does not establish measurement or scientific validity.
+
+Verification on 2026-09-13: `make check` passes all 848 routine cases and Ruff.
+Original numerical/presentation replays, both diagnostic versions and the new
+source-quality replay pass. All 870 source hashes and exact re-extraction of
+131 crops pass; the historical evidence audit passes all 2,902 checks. The full
+historical suite was not rerun for this revision.

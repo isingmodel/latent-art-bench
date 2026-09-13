@@ -15,6 +15,8 @@ They remain useful local work. The canonical manuscript is
 | Corrected reference reader and four replay views | [measurement workflow](../src/latent_art_bench/painter_specificity_measurement_v1/workflow.py), [correction record](../studies/painter_specificity_measurement_v1/CORRECTION.md) |
 | Reference-content weighting | [reference protocol](../studies/painter_specificity_reference_v1/PROTOCOL.md) |
 | Post-result target diagnostics | [painter_specificity_review_v1.py](../src/latent_art_bench/painter_specificity_review_v1.py), [recorded plan](../studies/painter_specificity_review_v1/PLAN.md) |
+| Follow-up noise and stability checks | [painter_specificity_review_v2.py](../src/latent_art_bench/painter_specificity_review_v2.py), [report](../reports/painter_specificity_review_v2/REPORT.md) |
+| Source-quality sensitivity | [painter_reference_quality_v1.py](../src/latent_art_bench/painter_reference_quality_v1.py), [report](../reports/painter_reference_quality_v1/REPORT.md) |
 | Primary figures and tables | [make_specificity_figures.py](../paper/make_specificity_figures.py), [make_specificity_tables.py](../paper/make_specificity_tables.py) |
 | Diagnostic tables, artist pairs and optional image panels | [make_review_figures.py](../paper/make_review_figures.py) |
 
@@ -25,9 +27,11 @@ those images. All four primary replay views use this reader. The separate
 
 The added diagnostics distinguish response magnitude, artist-pair alignment,
 scene dependence and reference-target agreement. They are post-result analyses;
-the original six slopes and 15 model comparisons are unchanged. The image
-panels reveal source defects but do not measure or correct their population-wide
-effect. See [STATUS.md](STATUS.md) before claiming a review request is resolved.
+the original six slopes and 15 model comparisons remain preserved. The separate
+870-source audit re-extracts 131 crops and varies development scaling and content
+labels. FLUX retains the lowest error point estimate, but the adjusted Sunburst
+comparison no longer excludes zero. The user explicitly excluded adding human
+evaluation. See [STATUS.md](STATUS.md) for the completed revision and remaining limits.
 
 ## Continue work
 
@@ -43,12 +47,14 @@ Use targeted checks for the files changed:
 ```bash
 make specificity-check  # Four numerical views; compact inputs only
 make review-check       # Separate diagnostics and their numerical presentation
+make reference-quality-check  # Source-region/scaler/label sensitivity
 make figures-check      # Current and supporting figures/tables
 make paper              # Compile after manuscript edits; inspect affected pages
 ```
 
 `make specificity-audit` and `make review-images-check` additionally require
-retained local image/response bytes. A documentation-only change needs link and
+retained local image/response bytes. `make reference-quality-images-check`
+verifies all 870 source hashes and re-extracts the 131 crop features. A documentation-only change needs link and
 dependency checks, not a full Python test run.
 
 ## Preserve

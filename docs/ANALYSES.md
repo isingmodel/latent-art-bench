@@ -3,7 +3,8 @@
 Run commands from the repository root with the recorded Python 3.13.11 runtime
 and locked environment. The [results index](../reports/README.md) links reports;
 this document maps their computation and presentation. All commands below are
-offline checks or manuscript builds, not collection or feature extraction.
+offline checks or manuscript builds. The source-quality image check re-extracts
+features from retained crops; no command acquires or generates images.
 
 ## Current six-model experiment
 
@@ -20,6 +21,8 @@ defines the additional reference sensitivity.
 | Artist contrasts, corrected error and paired model regressions | [analysis.py](../src/latent_art_bench/painter_specificity_v2/analysis.py), [corrected workflow](../src/latent_art_bench/painter_specificity_measurement_v1/workflow.py) | `make specificity-check`: full/square × pooled/content-weighted reference views |
 | Terminal report, collection accounting and raw-byte identity | [report.py](../src/latent_art_bench/painter_specificity_measurement_v1/report.py) | `make specificity-audit`; requires local responses/images |
 | Post-result decomposition, calibration, artist pairs and reference controls | [painter_specificity_review_v1.py](../src/latent_art_bench/painter_specificity_review_v1.py), [plan](../studies/painter_specificity_review_v1/PLAN.md), [numerical record](../reports/painter_specificity_review_v1/analysis.json) | `make review-check` |
+| Shared-control correction, sampling-integrated controls and diagnostic stability | [painter_specificity_review_v2.py](../src/latent_art_bench/painter_specificity_review_v2.py), [report](../reports/painter_specificity_review_v2/REPORT.md) | `make review-check` |
+| Source-region, development-scaler and visual-label sensitivity | [painter_reference_quality_v1.py](../src/latent_art_bench/painter_reference_quality_v1.py), [plan](../studies/painter_reference_quality_v1/PLAN.md), [report](../reports/painter_reference_quality_v1/REPORT.md) | `make reference-quality-check`; `make reference-quality-images-check` additionally re-extracts cropped features from retained pixels |
 
 The direct numerical entry point is:
 
@@ -56,8 +59,9 @@ make review-images-check # Optional: verify image sources and example panels
 ```
 
 Normal builds reuse the committed example PDFs. They do not need full-resolution
-images. Image panels expose calibration strips and a title-class mismatch;
-they do not constitute a full reference audit.
+images. The original image panels expose calibration strips and a title-class
+mismatch. The separate source-quality audit covers all 870 reference and
+development reproductions; its full records remain outside the manuscript.
 
 ## Supporting analyses
 
