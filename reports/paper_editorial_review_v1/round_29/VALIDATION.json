@@ -1,0 +1,12 @@
+{
+  "evaluated_round": 29,
+  "page_count": 22,
+  "abstract_whitespace_words": 154,
+  "pdf_extracted_words": 9578,
+  "pdf_sha256": "2d646b821af9ce3c57bd0b1ca82a9bc4dc4a5dd06f978011e9ca5949312b2484",
+  "build": "Tectonic passed without warnings",
+  "visual_inspection": "All 22 pages rendered. Changed pages 1, 7, 8 and 10 individually inspected; the other 18 PNGs are byte-identical to previously inspected pages. Enlarged geometry details and separated M/S/P labels are readable in the integrated page; shared-change explanation and pair figure fit together. The first prose layout overflowed to 23 pages, then was shortened without changing font, figure size or margins; the final layout remains 22 pages.",
+  "presentation_replay": "Changed specificity figure builder passes exact replay and Ruff. All table bytes and 12 other figure bytes match round 28. A bounded figure agent verified identical 756 scatter offsets, 54 lines and their styles, reference anchors, common limits, equal aspects, tick positions and 6.45 x 4.4 inch size. Details widen 23.8924%, overviews widen 2.0291%; redundant interior tick labels are hidden. All reference letters are within panels, with minimum conservative marker clearance 2.3189 points. Full proof retained in tmp/paper/editorial-review-v1/r29-geometry-legibility/verification.json.",
+  "lint": "git diff --check passed",
+  "scientific_scope": "Editorial prose and figure arrangement only. No scientific input, numerical result, image, inferential procedure, experiment or human evaluation changed."
+}

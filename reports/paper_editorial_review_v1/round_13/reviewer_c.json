@@ -1,0 +1,79 @@
+{
+  "reviewer_id": "editorial_r13_c",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "00a75e622db6b1977049a6848db65fd123a4440c1e6851cb50f503443e214269",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete frozen 22-page PDF, including references and Appendices A–G, using extracted text and visual inspection of every rendered page. Visually inspected Figures 1–5 and Tables 1–10. Consulted frozen paper.tex and specificity_results.tex to resolve notation, wording and cross-references. Treated appendices as optional technical depth and assessed main-text independence. Verified PDF SHA256 directly; the source abstract contains 155 whitespace-delimited words. No earlier manuscripts, reviews, progress records or repository analyses were consulted."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.25,
+    "new_reader_understanding": 9.0,
+    "engagement": 9.0
+  },
+  "overall": 9.125,
+  "score_reasons": {
+    "expression": "Excellent, precise English with manageable sentences and unusually careful distinctions. The opening Monet/Sisley example, the three idealized error values in Section 4.1, and the explanation of scene variation in Section 5.4 communicate difficult ideas economically. Qualifications generally attach to the claim they limit. Only localized terminology and labeling refinements remain, especially unqualified generated means in Figure 2 and painter-pair coverage in the discussion.",
+    "structure": "The manuscript progresses coherently from a concrete evaluation problem through controls, measurements, intuitive score interpretation, computation, declared results and retrospective explanations. Sections 5.1–5.5 have informative finding-based headings. Table 3 makes the two sources of ordering change directly comparable, and Table 4 separates source-sensitive inference from the stable point-estimate ordering. Formula derivations, complete comparisons, historical interventions and provenance are appropriately relegated to appendices. The abstract could mark the retrospective status of calibration more explicitly, but this status is clear in the main text.",
+    "new_reader_understanding": "The main text stands on its own for a graduate-level scientific reader. It specifies all six prompt conditions, the fixed reference collection and scaling panel, the measured feature families, and the difference between the theoretical D=1 predictor and the observed generic-painting arm. The lightness example and 1/0/1 error examples prepare the reader for notation. Tables explain score directions and uncertainty; calibration is explained as a feature-vector operation without image modification. Figure 2 would become more immediately self-contained if generated means and scene/repeat points were explicitly labeled as centered contrasts.",
+    "engagement": "The manuscript sustains a clear question: a visible name response need not reproduce labeled painter differences. Figure 1 invites specific comparisons, Figure 2 makes the compressed Monet/Sisley distinction inspectable, and Figure 3 reveals the uneven pair pattern with readable numerical values. The GPT Image 2/FLUX and Nano Banana 2/FLUX examples explain what changing the evaluation reveals instead of merely reporting ranks. The closing recommendation is useful, though its undefined coverage shorthand slightly blunts an otherwise concrete ending. This is an excellent bounded empirical narrative with localized refinements, rather than substantial remaining editorial work."
+  },
+  "strengths": [
+    "The introduction motivates the exact contrast target with Monet and Sisley, while explicitly distinguishing recorded reproduction differences from perceptually validated style.",
+    "Section 4.1 teaches centering with an actual lightness difference and explains the no-distinction, exact-match and doubled-response errors before presenting formulas.",
+    "Sections 4.2–4.3 distinguish systematic error, repeat noise, scene heterogeneity and approximate interval coverage without suggesting that two repeats establish service independence.",
+    "Figure 1 includes both controls beside all four painter prompts, and its caption states that historical examples are neither generator inputs nor matched compositions.",
+    "Table 3 and its surrounding examples explain why calibration and averaging scenes can change model ordering; the text consistently avoids equating those changes with improved images.",
+    "Table 4 shows the source-correction change in inferential conclusions directly, while the manuscript labels the audit as retrospective and unverified by humans."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Figure 2 caption and legend, p. 7; specificity_results.tex lines 31–35",
+      "issue": "References are explicitly called contrasts, but the plotted generated quantities are called generated means and individual scene/repeat outputs without saying that they have also been centered across painter names.",
+      "reader_effect": "A reader inspecting the figure independently can briefly mistake the plotted generated positions for absolute feature means, obscuring the centering operation that makes the comparison meaningful.",
+      "suggested_change": "Use centered generated mean in the legend and caption, and describe faint dots as centered scene/repeat contrasts. These short substitutions preserve the figure size and all evidence."
+    },
+    {
+      "priority": "low",
+      "location": "Abstract, p. 1; paper.tex lines 36–39",
+      "issue": "Retrospective explicitly modifies the Monet–Sisley diagnostics, whereas the following calibration procedure starts a new sentence without that status label. The main text identifies calibration as retrospective, but the standalone abstract leaves its status slightly less clear.",
+      "reader_effect": "An abstract-only reader may take the calibration ranking as a declared primary comparison, even though the paper carefully distinguishes it from the inferential family.",
+      "suggested_change": "Replace We uniformly rescale with Retrospective calibration uniformly rescales and adjust the possessive construction as needed, or compress the three calibration sentences into one explicitly labeled retrospective sentence. Keep the abstract at or below 155 words; no new caveat paragraph is needed."
+    },
+    {
+      "priority": "low",
+      "location": "Discussion opening, p. 10; paper.tex lines 321–325",
+      "issue": "Painter-pair coverage appears as a recommended reporting item, but coverage is not defined as a measure in the main text. The actual results report pairwise aligned responses and errors.",
+      "reader_effect": "The reader can infer the intent, but the final practical recommendation is less actionable than the concrete pair diagnostics that support it and could suggest a further thresholded coverage statistic.",
+      "suggested_change": "Replace painter-pair coverage with aligned responses and errors for each painter pair, reorganizing the sentence to avoid repeating aligned response. This clarifies the recommendation using already reported quantities without adding analysis or length."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "Excellent communication of a bounded comparison of measured digital-reference contrasts. The main text independently explains the study, its central findings and the limits of the estimators; figures and tables are legible and useful. Remaining improvements concern local labels and terminology, not missing evidence, major restructuring or broader validation."
+}

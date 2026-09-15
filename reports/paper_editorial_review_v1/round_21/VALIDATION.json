@@ -1,0 +1,12 @@
+{
+  "evaluated_round": 21,
+  "page_count": 22,
+  "abstract_whitespace_words": 155,
+  "pdf_extracted_words": 9690,
+  "pdf_sha256": "007831efad0231cf30643e1c3029fbd2326f46deb244e191d379b7efb24b3331",
+  "build": "Tectonic passed without warnings",
+  "visual_inspection": "All 22 pages rendered. Changed pages 1, 7, 8, 9, 19 and 22 inspected individually; the other 16 PNGs are byte-identical to previously inspected renders. New colorbar labels and paired-value table key fit without clipping or overlap. Introduction and conclusion remain complete on their pages.",
+  "presentation_replay": "Both changed builders pass exact replay and Ruff. Pair figure preserves all 72 values, annotations, positions, fonts, dimensions and numeric limits; the D panel is pixel-identical. Beta numeral contrast is at least 4.66:1. All table numerical cells are unchanged and the primary model table is byte-identical.",
+  "lint": "git diff --check passed",
+  "scientific_scope": "Prose/captions, table key and pair color encoding only. Historical-map wording checked against source/protocols read-only. No scientific input, numerical result, source image or inferential procedure changed."
+}

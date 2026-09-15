@@ -1,0 +1,78 @@
+{
+  "reviewer_id": "editorial_r07_c",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "3a000b84e08cfc4973c06372031d753292d7af72bcbe1af3811c9bf8804c0d60",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read all 22 PDF pages, including references and Appendices A–G, using full text extraction; visually inspected every rendered page, all five figures and all ten tables. Re-inspected Figures 2–3 at higher resolution. Consulted frozen paper.tex and included results/table sources to resolve notation and locations. Technical appendices were treated as optional depth when judging main-text accessibility. Abstract source contains 152 whitespace-delimited words. No other reviews, earlier versions, or non-snapshot manuscript were consulted."
+  },
+  "scores": {
+    "expression": 9.0,
+    "structure": 9.0,
+    "new_reader_understanding": 9.0,
+    "engagement": 8.75
+  },
+  "overall": 8.9375,
+  "score_reasons": {
+    "expression": "Excellent, precise prose with only localized opportunities for economy. The introduction gives a concrete Monet–Sisley example; Section 4.1 explains contrasts and the two scores in ordinary language before notation. Results headings state findings rather than generic topics. Qualifications generally sit next to the claims they limit. The conclusion could use its limited space more effectively by replacing its detailed Sunburst recap with the central benchmark result.",
+    "structure": "The question, fixed experiment, feature representation, intuitive comparison, formal estimator, and results form a coherent sequence. Section 5.1 clearly establishes the declared finding before Sections 5.3–5.5 examine retrospective explanations and source sensitivity. Derivations, controls and earlier interventions remain in optional appendices. The original-versus-calibrated distinction is explained well, although Table 3 could visually separate its error decomposition from its calibration comparison. The conclusion gives a secondary sensitivity result more prominence than the principal no-distinction benchmark finding.",
+    "new_reader_understanding": "The main text conveys the study independently of the repository and appendices. The six prompt arms, 14 fixed scenes, repeats, reference population and coordinate scaling are explicit. The lightness example and the 1/0/1 expected-error example make the centering and error scale unusually accessible. Table 2 and Figure 3 provide benchmark interpretations, and the text explains why positive alignment can coexist with large error. Original and corrected comparisons, retrospective analyses and feature-only calibration are carefully distinguished. Remaining refinements concern visual reading aids rather than a missing conceptual explanation.",
+    "engagement": "The paper sustains a clear question and several informative reversals: a near-unit response can have high error, aggregate alignment can conceal Monet–Sisley weakness, and calibration or scene averaging can change the ordering. Figure 1 lets readers inspect the controlled intervention, while Figure 2 provides magnified views and Figure 3 makes pair differences easy to compare. The close is somewhat less memorable than the results because it reiterates a specific adjusted comparison and a general contribution statement instead of foregrounding the strongest central outcome."
+  },
+  "strengths": [
+    "Section 4.1, page 5, connects the actual Monet–Sisley lightness gap to centering, then uses no distinction/exact match/doubled contrast examples to explain the normalized error before presenting equations.",
+    "Sections 4.3 and 5.1, pages 6–7, distinguish positive aligned-response evidence, paired model comparisons, and the unresolved D=1 benchmark; they also explain what the fixed-scene intervals do and do not cover.",
+    "Figure 1, page 4, shows every experimental condition for every model with an explicit fixed example-selection rule, controls adjacent to named outputs, and clear disclosure that the historical paintings are not matched compositions or generator inputs.",
+    "Sections 5.3–5.5 present informative diagnostics without turning them into new confirmatory findings. Calibration is explicitly a rescaling of measured features, and Table 4 exposes the statistical comparison that changes under source correction.",
+    "The main-text/appendix division works: feature definitions, score identities, source-audit details, complete pair comparisons and historical cohorts are available without becoming prerequisites for following the central study."
+  ],
+  "findings": [
+    {
+      "priority": "medium",
+      "location": "Conclusion, pages 10–11; paper.tex lines 353–361",
+      "issue": "The conclusion repeats the specific Sunburst-versus-FLUX sensitivity outcome but omits the more central finding that no model is established to outperform the no-painter-distinction benchmark. That benchmark is a major result in both the abstract and Section 5.1.",
+      "reader_effect": "The final emphasis can leave the reader remembering a changed model comparison more readily than the paper’s clearest distinction between detecting an aligned response and establishing low total error.",
+      "suggested_change": "Replace the sentence about the original adjusted Sunburst comparison with a compact sentence restoring the central result, for example: “All six models show positive aligned responses, but none is established to beat the no-distinction benchmark; FLUX’s lowest uncalibrated estimate survives source correction.” Keep the detailed Sunburst qualification in Section 5.5 and Table 4. This is a replacement, not an addition."
+    },
+    {
+      "priority": "low",
+      "location": "Table 3, page 9; specificity_review_table.tex",
+      "issue": "The table places three columns forming an additive decomposition beside a fourth column from a separate calibration analysis, with equal visual weight and no grouping. The caption explains the distinction, but the table itself does not encode it.",
+      "reader_effect": "A reader scanning the four columns must pause to identify which values add together and which represent a different evaluation procedure.",
+      "suggested_change": "Use a spanning header or a modest column gap to group D, Daggregate and Vscene as the original-error decomposition and separate Dheld as calibrated error. Retain the existing values, explanatory caption and page footprint."
+    },
+    {
+      "priority": "low",
+      "location": "Figure 3, page 8",
+      "issue": "The heatmap color scales do not visually mark the interpretive benchmark at one. In particular, progressively redder slope cells can suggest that values above one are better, although the caption correctly states that one matches the reference strength.",
+      "reader_effect": "Readers inspecting the colors before the caption may conflate stronger aligned response with better agreement, the very distinction developed in the surrounding text.",
+      "suggested_change": "Add a small benchmark marker at 1 on each existing colorbar, labeled “reference strength” for the slope and “no distinction” for the error. Keep the current numerical annotations and avoid enlarging the figure."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "Excellent editorially within the stated digital-reference scope. The main narrative, design and metric interpretation are readily recoverable by a new graduate-level reader, and the manuscript keeps retrospective evidence and perceptual claims appropriately bounded. The remaining work is localized: restore the principal benchmark finding to the conclusion and sharpen the visual hierarchy of two displays. These changes can preserve all evidence and the 22-page limit."
+}

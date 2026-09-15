@@ -1,0 +1,78 @@
+{
+  "reviewer_id": "editorial_r18_c",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "1df79f52d29b89a075865f26ddba548eec92b29e0177d3018860e6db91aff327",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the entire PDF text, including references and Appendices A–G. Visually inspected all 22 rendered PDF pages, all five figures, and all ten tables. Consulted the frozen paper.tex for notation, wording, and source locations. Used only the fixed rubric and frozen manuscript for substantive assessment; no other reviews or previous versions were inspected. Extraction and rendering used isolated tmp/pdfs/editorial_r18_c paths. The PDF has 22 pages."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.25,
+    "new_reader_understanding": 9.0,
+    "engagement": 9.0
+  },
+  "overall": 9.125,
+  "score_reasons": {
+    "expression": "Excellent, precise prose with stable distinctions among shared change, aligned response, total error, and perceptual fidelity. The lightness example and three idealized generators in Section 4.1 explain the mathematics economically. Qualifications usually appear exactly where an inference might otherwise be overstated. Local compression remains possible in the abstract and in the terminology of the supporting appendix.",
+    "structure": "The paper progresses coherently from a concrete evaluation problem to controlled prompt arms, interpretable features, score intuition, primary comparisons, and explicitly retrospective diagnostics. Sections 5.3–5.5 distinguish painter coverage, calibration, scene variation, and source sensitivity, while Tables 3–4 make the changed interpretations inspectable. Technical derivations and earlier cohorts are appropriately optional. The collection-level outcomes at the end of Section 5.2 are a small detour in an otherwise focused results sequence.",
+    "new_reader_understanding": "The abstract supplies the experiment, finite reference target, main findings, and perceptual limit without repository dependence. Table 1 gives useful interpretations of the feature families; Section 4.1 explains centering concretely and anchors D at 0 and 1 before formal notation. The text expressly distinguishes the theoretical no-contrast predictor from the observed generic arm, and Table 3 explains that calibration does not alter images. The abstract’s compressed calibration procedure is the main remaining local burden.",
+    "engagement": "The opening Monet–Sisley example creates a clear reason to care about the comparison. Figure 1 rewards cross-condition inspection, Figure 2 makes labeled mismatch visible, and Figure 3 reveals why positive aggregate alignment can hide a weak pair. The GPT Image 2/FLUX calibration reversal and Nano Banana 2 scene-averaging reversal sustain a discernible narrative without claiming a universal winner. A short excursion into energy and spread slightly interrupts that narrative."
+  },
+  "strengths": [
+    "Section 4.1, page 5: the observed Monet–Sisley lightness gap makes centering tangible, and the no-distinction/exact/doubled examples explain why a stronger response need not lower error.",
+    "Sections 3.1–3.3 and 6.1 consistently identify the target as a finite collection of digital reproductions, including subject mixtures, source processing, scaling units, and limits of perceptual interpretation.",
+    "Figure 1, page 4, presents all six conditions for every generator with clear model and painter labels; its caption distinguishes illustrative historical reproductions from generator inputs and matched compositions.",
+    "Figures 2–3, pages 7–8, connect visible configurations with quantified pairwise results. The magnified M/S/P views make the nearby painter means interpretable, and the heatmap caption explains both score scales and negative corrected error.",
+    "Sections 5.4–5.5 and Tables 3–4 explain what changes under calibration, scene averaging, and source correction, while preserving the distinction between point estimates, primary intervals, and retrospective evidence."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Abstract, page 1; paper.tex lines 36–40",
+      "issue": "The abstract devotes two successive sentences to retrospective status and the 13-scene/omitted-scene fitting procedure immediately before the calibration result. This is accurate but dense relative to the abstract’s otherwise direct account of the question and findings.",
+      "reader_effect": "A reader encountering contrast calibration for the first time must parse its mechanics before reaching the simple conclusion that response magnitude changes the lowest error estimate.",
+      "suggested_change": "Compress these sentences while retaining retrospective status and held-out evaluation, for example: “Retrospective diagnostics find weak Monet–Sisley alignment in five models. Scaling contrasts using other scenes and scoring omitted scenes shifts the lowest error estimate from FLUX.2 Max to GPT Image 2, without altering images.” Retain the exact 13-of-14 procedure in Sections 4.4 and 5.4. This shortens the abstract and stays within 155 words."
+    },
+    {
+      "priority": "low",
+      "location": "Section 5.2, page 8, final paragraph",
+      "issue": "The paragraph introduces two additional collection-level outcomes—21 of 24 energy improvements and lower variance in all 24 collections—between the shared-response result and the return to painter distinctions. Their different target is correctly explained, but they briefly redirect the results narrative.",
+      "reader_effect": "The reader switches from the paper’s central contrast question to proximity and spread, then switches back for the strongest pairwise finding. This modestly reduces momentum rather than creating a comprehension gap.",
+      "suggested_change": "Move the paragraph’s full numerical account to the opening of Appendix E, where Table 9 already preserves all outcomes, and leave a short pointer such as “Collection-level proximity and spread provide complementary context (Appendix E).” Preserve the existing subject-mixture qualification with the relocated paragraph. The change would reduce main-text length without removing evidence."
+    },
+    {
+      "priority": "low",
+      "location": "Appendix F.1, page 21, first paragraph",
+      "issue": "“Trace ratios” is introduced for the earlier cohorts after the main text and Table 9 have taught readers the more transparent phrase “total variance ratio.”",
+      "reader_effect": "Readers choosing the optional supporting evidence may briefly wonder whether this is a new dispersion metric rather than the same total-variance summary.",
+      "suggested_change": "Replace “trace ratios” with “total variance ratios” and use the same terminology for the later named/generic trace ratio in F.1. This is a local wording substitution, with no added analysis or page length."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "Excellent editorial communication for the stipulated graduate-level reader. The main narrative stands alone, the statistical and perceptual limits are clear, and the figures support the central distinctions. Only localized compression, pacing, and terminology refinements remain; no substantive reader-facing overclaim was identified within this editorial review."
+}

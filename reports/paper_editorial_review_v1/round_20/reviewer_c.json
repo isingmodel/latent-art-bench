@@ -1,0 +1,58 @@
+{
+  "reviewer_id": "editorial_r20_c",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "e483e3a9ec6250a97779d588aa25aa817196badeae57011fc0db397b5a15c31d",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
+    "notes": "Read the complete frozen PDF, including abstract, main text, references and Appendices A-G. Visually inspected all 22 rendered pages, including Figures 1-5 and Tables 1-11. Consulted frozen paper.tex and specificity_results.tex to check wording, notation, figure captions and source locations. Independently computed the supplied PDF's SHA256. The abstract contains 155 whitespace-delimited words after normalizing TeX accents and punctuation. Extraction and rendering used the isolated tmp/pdfs/editorial_r20_c directory. Technical appendices were assessed as optional depth; no other reviews, previous drafts, progress records or repository evidence were consulted."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.25,
+    "new_reader_understanding": 9.25,
+    "engagement": 9.0
+  },
+  "overall": 9.1875,
+  "score_reasons": {
+    "expression": "Excellent, precise prose with largely manageable sentences and disciplined terminology. Section 4.1 explains contrasts, aligned response and total error before the notation; Sections 5.1 and 5.4 explain what the numbers reveal rather than merely reporting them. Qualifications usually identify a specific interpretive limit. The abstract's late sequence of retrospective checks, calibration, two model rankings and the unchanged-image qualification is more compressed than the otherwise fluent main text, leaving a localized opportunity to improve emphasis and rhythm.",
+    "structure": "The main narrative proceeds coherently from the Monet/Sisley motivation through the crossed prompt design, interpretable feature families, score intuition, primary comparisons and retrospective explanations. Descriptive headings expose the argument. Table 3 makes the two different ordering changes directly comparable, and Table 4 keeps source-sensitive inference visible. Detailed estimators and earlier cohorts remain optional, explicitly separated appendices. Only a minor hierarchy refinement remains in the abstract, where the calibrated ranking precedes the uncalibrated ranking despite the main text's clearer primary-to-diagnostic progression.",
+    "new_reader_understanding": "The experiment and finite digital reference target are understandable without the repository. The concrete lightness gap, the 1/0/1 error examples, the development-IQR explanation and the distinction between the theoretical no-contrast predictor and the generic-painting arm provide unusually effective entry points. The main text also explains repeat correction, scene variation, calibration and uncertainty in words. Figures and captions define their symbols and benchmarks, with only a small opportunity to make Figure 2's visual reading rule more explicit. The dense technical appendices are not needed to recover the principal findings.",
+    "engagement": "The opening poses a consequential measurement question with a concrete painter-pair example. Figure 1 rewards comparisons across the six conditions, and the manuscript links an observable detail to the measurement question without claiming perceptual validation. The results sustain a narrative: positive alignment can coexist with substantial error, an aggregate can hide weak pairs, and calibration or scene averaging can change an ordering. The source correction is explained through its actual consequence for comparisons. The abstract's compressed diagnostic sequence and a few presentation details leave localized refinements, but there is no substantial loss of momentum in the main story."
+  },
+  "strengths": [
+    "The Introduction's Monet/Sisley example makes clear why moving closer to a reference collection does not by itself establish agreement with painter differences.",
+    "Sections 3.2-3.3 and Figure 1 make the six prompt conditions, common scene text, repeated outputs and measured properties concrete before the statistical comparison begins.",
+    "Section 4.1 combines a real lightness-gap example with three idealized generators whose expected errors are 1, 0 and 1, making the distinction between aligned amplitude and total mismatch readily understandable.",
+    "Section 5.1 interprets GPT Image 2's near-unit aligned response and FLUX's lower error together, while explicitly stating that no model is established to beat the no-distinction benchmark.",
+    "Section 5.4 and Table 3 explain both calibration and scene averaging through actual changes in model ordering, including why those changes occur and why they do not establish improved images.",
+    "Section 5.5 and Table 4 present the source audit's changed intervals directly; the AI-only audit and retrospective status are plainly disclosed.",
+    "The main figures and tables are legible, consistently labeled and free of evident clipping or overlap. Figure 2's common-scale detail panels and Figure 3's printed cell values make close painter distinctions inspectable.",
+    "The manuscript consistently limits its claims to the specified digital feature target and clearly separates primary comparisons, retrospective diagnostics, historical supporting cohorts and perceptual questions."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Abstract, PDF page 1; paper.tex lines 36-40",
+      "issue": "The final results passage introduces the retrospective pair check, a second retrospective procedure and two model rankings in rapid succession. It gives the calibrated ranking before the uncalibrated ranking, making the abstract's hierarchy slightly less immediate than the main text's.",
+      "reader_effect": "An abstract-only reader must briefly reconstruct which ranking describes the original measured contrasts and which depends on the additional rescaling procedure.",
+      "suggested_change": "Move the sentence stating FLUX.2 Max's lowest uncalibrated estimate before the calibration passage, then introduce calibration as the additional check and retain GPT Image 2's held-out result. This is a reordering within the existing 155 words, not a request for more abstract content; retain the retrospective label, uniform rescaling and unchanged-image qualification."
+    },
+    {
+      "priority": "low",
+      "location": "Figure 2 caption, PDF page 7; specificity_results.tex lines 31-37",
+      "issue": "The caption identifies crosses, circles and matching-label lines but leaves the basic visual comparison rule implicit in a figure containing six overviews and six magnified details.",
+      "reader_effect": "A reader unfamiliar with contrast-space plots has to infer that a shorter cross-to-circle connection means smaller mismatch in the displayed projection before using the panels to compare models.",
+      "suggested_change": "Replace 'Lines join matching painter labels' with 'Shorter matching-label lines indicate less projected mismatch.' Retain the existing warning that these two axes do not establish agreement in all 31 features. The replacement preserves the current figure and essentially the same caption length."
+    },
+    {
+      "priority": "low",
+      "location": "Appendix E, Table 10, PDF page 19",
+      "issue": "Each cell combines an energy change and a variance ratio as an unlabeled semicolon-separated pair; the reader must repeatedly recover the pair's order from the caption.",
+      "reader_effect": "This slows scanning of an otherwise compact optional summary, particularly because the two quantities have different favorable directions and benchmarks.",
+      "suggested_change": "Add a compact two-item key immediately beneath the column headings, such as 'energy change ; variance ratio', by moving those same words out of the caption's opening explanation. Keep the numerical cells, caption's interpretation of each metric and table footprint unchanged."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent, self-contained account of a bounded digital-reference comparison. The main question, experimental arms, metrics, primary findings and retrospective qualifications are readily recoverable, and the figures materially support the argument. Remaining improvements concern abstract emphasis and small visual-reading aids rather than missing explanation, excessive main-text technical burden or overstated claims."
+}

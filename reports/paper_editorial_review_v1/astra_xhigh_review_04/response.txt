@@ -1,0 +1,65 @@
+{
+  "reviewer_id": "astra_xhigh_review_04",
+  "rubric_version": "1",
+  "manuscript_pdf_sha256": "4dd19f7d77d63eb17e7708d566607c3c001c7c8bc9afda84a5c297d93e7005b2",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
+    "notes": "Read the full manuscript, references, and Appendices A–G, and inspected all 22 page images, including Figures 1–5 and Tables 1–12. The SHA-256 is the supplied identifier; it was not independently computed. No external sources or repository materials were consulted."
+  },
+  "scores": {
+    "expression": 9,
+    "structure": 8.75,
+    "new_reader_understanding": 8.75,
+    "engagement": 8.75
+  },
+  "overall": 8.8125,
+  "score_reasons": {
+    "expression": "The prose is precise and unusually disciplined about the distinction between measured feature contrasts, perceptual judgments, and claims about artistic fidelity. Section 4.1 provides ordinary-language explanations and a concrete lightness example before the formal estimands. Statistical qualifications generally identify exactly what is and is not established. Remaining weaknesses are localized: the abstract's description of calibration leaves its object slightly ambiguous, and some interpretive cautions recur after their meaning is already secure.",
+    "structure": "The approximately ten-page main argument has a clear progression from design and representation to estimands, primary results, and retrospective diagnostics. Technical derivations, broader sensitivities, historical cohorts, and provenance details are appropriately placed in optional appendices rather than imposed on the main reader. The principal structural friction is the transition among scene-level, scene-averaged, and calibrated errors: their changing point-estimate rankings are explained correctly, but a more explicit organizing sentence would make the relationship among these analyses easier to retain.",
+    "new_reader_understanding": "The manuscript supplies the distinctions a new reader needs: finite digital references rather than a withheld artistic oeuvre, IQR-scaled features rather than perceptual units, aligned amplitude rather than overall fidelity, and a theoretical no-contrast error benchmark rather than the observed generic-painting arm. Tables and captions reinforce these boundaries. The main remaining opportunities are to identify the object of calibration immediately and to carry the artist-free baseline qualification into the conclusion's compressed statement about shared change.",
+    "engagement": "The paper develops an interesting empirical tension rather than merely listing model scores: substantial shared change coexists with detectable painter contrasts, and stronger aligned response does not necessarily imply lower error. Figure 1 makes the experimental arms tangible, Figure 2 shows the reference/generated geometry, and Figure 3 makes pair-specific failures inspectable. The GPT-2 alignment/error contrast and the retrospective calibration results sustain interest. Repeated recapitulation of the same distinctions slightly reduces momentum near the end."
+  },
+  "strengths": [
+    "The scientific scope is consistently bounded to measured contrasts against a finite digital reference panel. The paper does not substitute feature-space results for human judgments, aesthetic quality, or general artistic fidelity.",
+    "The explanation of beta and D is particularly effective. The lightness example, the no-contrast/exact/doubled-response benchmarks, and the explicit warning that beta near one need not imply low error prevent several common misreadings.",
+    "The experimental design and sample accounting are readily recoverable: six configurations, fourteen fixed scenes, six prompt clauses, two outputs per cell, and separate reference and development collections.",
+    "Uncertainty is presented with appropriate distinctions between simultaneous intervals for the specified comparisons and nominal descriptive intervals for absolute error. Lowest point estimates are not promoted into an unsupported unique-winner claim.",
+    "The visual presentation supports the argument rather than decorating it. The control separation in Figure 1, the overview/detail views in Figure 2, and the annotated pairwise heatmaps in Figure 3 each answer a different reader question.",
+    "The appendices preserve consequential qualifications and contrary evidence, including repeat-independence limitations, source-handling sensitivity, earlier transfer failures, and limits on configuration provenance. These details strengthen credibility without making them prerequisites for understanding the main result."
+  ],
+  "findings": [
+    {
+      "priority": "medium",
+      "location": "Section 5.4 and Table 4, in relation to Section 5.1 and Table 2",
+      "issue": "Scene-level error, scene-averaged error, the scene-varying contribution, and held-out rescaled error arrive in fairly quick succession. Their definitions and interpretations are present, but the reader must actively reconstruct why FLUX, Nano Banana 2, and GPT-2 can occupy different point-estimate positions without a contradiction.",
+      "reader_effect": "A reader following the model comparisons more closely than the notation may experience the later results as a changing leaderboard rather than as answers to distinct questions.",
+      "suggested_change": "Lead Section 5.4 with a compact contrast among the three evaluation questions: uncalibrated scene-level matching, matching after scene averaging, and retrospective held-out rescaling of measured contrasts. Use those same labels consistently in the ensuing comparison sentences. Fund this clarification by shortening repeated interpretation, without adding analyses, changing uncertainty statements, or increasing the page count."
+    },
+    {
+      "priority": "low",
+      "location": "Abstract, sentence describing calibration; Section 4.4",
+      "issue": "The abstract's phrase about calibration rescaling model differences is less specific than the later account. It does not immediately identify the rescaled object as the measured painter-contrast vectors.",
+      "reader_effect": "Before reaching Section 4.4, a new reader could briefly interpret calibration as changing generated images, adapting a generator, or directly rescaling between-model performance differences.",
+      "suggested_change": "Replace the ambiguous object with a concise reference to measured painter contrasts, retaining the retrospective character of the procedure. Make this a substitution rather than an expansion and keep the abstract within 155 words."
+    },
+    {
+      "priority": "low",
+      "location": "Conclusion, statement that most squared feature change is shared across names",
+      "issue": "The compressed concluding formulation does not carry the baseline qualification as explicitly as Section 5.2 does. The reported shared fractions concern named-minus-artist-free change and therefore include the painting-clause response.",
+      "reader_effect": "A reader retaining only the conclusion could mistake the percentages for a decomposition of the incremental artist-name effect beyond the generic-painting prompt.",
+      "suggested_change": "Restore the artist-free baseline and inclusion of the painting clause in the concluding formulation, using a short qualifier and trimming adjacent repetition if necessary. Preserve the numerical result and its existing descriptive scope."
+    },
+    {
+      "priority": "low",
+      "location": "Discussion and conclusion, following Sections 5.1, 5.3, and 5.4",
+      "issue": "The distinction between aligned amplitude and overall error, together with several scope cautions, is restated after it has already been established through examples and results.",
+      "reader_effect": "The ending spends some of its limited space rehearsing the interpretation rather than consolidating the paper's distinctive methodological lesson.",
+      "suggested_change": "Trim duplicate interpretive sentences and use the recovered space for the estimand clarification above. Retain caveats that perform a distinct local function, especially qualifications concerning the digital reference target, retrospective calibration, uncertainty, and the shared-change baseline."
+    }
+  ],
+  "claim_fidelity_issues": [
+    "There is a localized scope risk in the conclusion's shorthand for shared change: the percentages describe named-minus-artist-free feature change, including the painting clause, not solely the additional effect of a name relative to generic painting. Section 5.2 states the correct interpretation. Carrying that qualification into the conclusion would resolve the risk; no change to the analysis is indicated."
+  ],
+  "summary": "This is an excellent, carefully bounded empirical manuscript with a clear central distinction, informative visual evidence, and strong separation of primary results from retrospective diagnostics. Its treatment of alignment, error, uncertainty, and reference limitations is especially effective. The remaining improvements are localized editorial refinements: identify the calibration object sooner, make the relationship among the error criteria more immediately visible, preserve the shared-change baseline in the conclusion, and reduce repeated interpretation. These changes can be made without new experiments, additional claims, loss of evidence, or expansion beyond the current length limits."
+}

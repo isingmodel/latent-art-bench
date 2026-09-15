@@ -1,0 +1,72 @@
+{
+  "reviewer_id": "editorial_r23_c",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "1112c59c06596d49ecaae93f3a4544e05de91855548060cce273c89eda02d471",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read all text in the supplied 22-page PDF, including abstract, main Sections 1–7, availability statement, references and Appendices A–G. Visually inspected rendered pages 1–22, including Figures 1–5 and Tables 1–12. Consulted the frozen paper.tex and specificity_results.tex to resolve wording and source locations. Technical appendices were treated as optional depth when assessing main-text accessibility. Extraction and rendering used the isolated directory /tmp/editorial_r23_c.5hK7At. Independently computed the supplied PDF SHA-256. No other reviews, earlier versions or external project records were consulted."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.5,
+    "new_reader_understanding": 9.25,
+    "engagement": 9.25
+  },
+  "overall": 9.3125,
+  "score_reasons": {
+    "expression": "Excellent, precise English with stable distinctions among shared change, aligned response and total error. Sections 4.1–4.2 explain the numerical benchmarks in ordinary language before presenting notation; Sections 5.4–5.5 state exactly what calibration and cropping change. Qualifications are generally attached to the claims they constrain. The main localized economy issue is the duplication of both adjusted difference estimates and their intervals in Section 5.1 and Table 2.",
+    "structure": "The question leads coherently through the fixed scene/condition design, an interpretable feature inventory, score intuition, inference and results. Sections 5.1–5.2 establish the aggregate findings before the explicitly retrospective pair, calibration and source diagnostics. Table 4 puts the two ordering changes into one useful comparison, while Table 5 makes the changed source-correction evidence explicit. Detailed derivations, additional controls and historical cohorts remain in clearly separated appendices, allowing the main text to stand alone.",
+    "new_reader_understanding": "The abstract identifies the intervention, comparison target, principal results and perceptual limit without depending on the repository. Figure 1 makes all six prompt conditions concrete, Table 1 translates the feature families, and the median-lightness example plus the no-distinction/exact/doubled-response examples make contrasts and error interpretable. The paper clearly distinguishes D = 1 from the observed generic arm, describes held-out calibration without implying changed images, and explains fixed-scene uncertainty. Figure 2 retains a small terminology refinement: its axis label switches from the explained reference means to centroid variation.",
+    "engagement": "The opening poses a concrete and consequential evaluation question, and the results develop an informative sequence: detectable alignment can coexist with mismatch, much change is shared, painter pairs differ, and evaluation choices change rankings. Figure 1 rewards direct comparison, Figure 2 makes reference/generated displacements inspectable, and Figure 3 reveals the weak Monet–Sisley responses at a glance. The prose consistently explains what numbers reveal. The interval-heavy middle of Section 5.1 briefly slows that otherwise strong pace."
+  },
+  "strengths": [
+    "Section 4.1 makes the unfamiliar target tangible through the Monet–Sisley lightness gap and the three idealized generators with expected errors 1, 0 and 1.",
+    "Figure 1 shows every named and control condition for all six models, supplies a concrete viewing instruction and explicitly separates displayed reference works from generator inputs and matched compositions.",
+    "Section 5.1 clearly reports positive alignment without converting it into established superiority over the no-distinction benchmark.",
+    "Table 4 and its surrounding text explain why calibration and scene averaging can change the ordering, while explicitly stating that the calibration changes feature contrasts rather than images.",
+    "The source-correction narrative and Table 5 expose the Sunburst interval crossing zero and the retrospective GPT Image 1 comparison instead of hiding their consequences.",
+    "The technical and historical appendices provide optional depth while the main text already states the study design, estimands, numerical meanings and principal limits."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Section 5.1, page 6; specificity_results.tex lines 13–21; Table 2, page 7",
+      "issue": "The prose repeats the two adjusted error differences and both interval endpoints that are immediately available in Table 2, before adding the separate absolute-error interval. This concentrates several differently purposed numerical comparisons in one paragraph.",
+      "reader_effect": "The reader must briefly switch from the central alignment-versus-error finding into numerical bookkeeping; the important difference between a model-pair comparison and the no-distinction benchmark receives less emphasis than it could.",
+      "suggested_change": "Keep FLUX’s error/alignment estimates and its absolute-error interval in the prose. Replace the repeated Flare/Sunburst numerical clause with: “Adjusted comparisons resolve higher error for Flare and Sunburst than for FLUX; the other 13 intervals include zero (Table 2).” Retain every estimate and adjusted interval in Table 2 and preserve the following source-correction qualification. This is a cut within the existing page limit."
+    },
+    {
+      "priority": "low",
+      "location": "Figure 2, page 7, horizontal axis label; Section 5.1, page 6",
+      "issue": "The horizontal axis uses “centroid variation,” whereas the explanation immediately before the figure uses the more accessible “variation among [the four reference] means.” The figure introduces an unnecessary synonym at the point of visual interpretation.",
+      "reader_effect": "A new reader may pause to work out whether the percentage describes historical-image spread, generated-image spread or differences among painter means, even though the preceding prose answers this correctly.",
+      "suggested_change": "Replace “66.3% of centroid variation” with “66.3% of reference-mean variation,” or use “66.3%” on the axis and state in the caption that both percentages refer to variation among the four reference painter means. Preserve the current panels, scales and explanation of projection limits; no extra page space is needed."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent and largely self-sufficient account of a bounded digital-reference comparison. The paper makes its central distinctions understandable, presents the changes in ordering and uncertainty candidly, and uses its appendices appropriately. Remaining changes are localized improvements to numerical economy and figure terminology, not a need to reconstruct the narrative or add evidence."
+}

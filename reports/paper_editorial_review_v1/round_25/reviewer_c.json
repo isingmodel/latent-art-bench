@@ -1,0 +1,72 @@
+{
+  "reviewer_id": "editorial_r25_c",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "0ab7cbe67ddded3f919be3fddad2fa6372c4f5c62c7b26006b10bd4e11ede710",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete frozen 22-page PDF, including abstract, main text, references and Appendices A-G, using extracted text and visual inspection of every rendered page. Inspected Figures 1-5 and Tables 1-12 visually. Consulted frozen paper.tex and specificity_results.tex for wording, equations, captions and source locations. Technical appendices were treated as optional depth when judging main-text accessibility. Independently verified the supplied PDF SHA256. No other reviews, versions, progress records, goals or repository evidence were consulted."
+  },
+  "scores": {
+    "expression": 9.0,
+    "structure": 9.25,
+    "new_reader_understanding": 9.0,
+    "engagement": 9.0
+  },
+  "overall": 9.0625,
+  "score_reasons": {
+    "expression": "Excellent, precise English with consistent distinctions among aligned response, total error, scene averaging and feature-space calibration. Section 4.1 explains contrasts in ordinary language before notation; Section 5.4 explains why shrinking a near-unit aligned response can still reduce error. Qualifications are usually placed next to the inference they constrain. The abstract is dense at its 155-word limit, and its benchmark sentence would benefit from one more precise word choice.",
+    "structure": "The question, reference target, six-arm design, feature representation and two scores develop in a coherent sequence. Results use informative headings and progress from aggregate agreement to the shared response, pair differences, evaluation choices and source sensitivity. The primary 21-comparison family is clearly distinguished from retrospective checks. Derivations, detailed controls and older cohorts are appropriately placed in appendices; the main text stands on its own. Tables 4 and 5 make the two consequential changes in model comparison particularly easy to follow.",
+    "new_reader_understanding": "The intended reader can recover the experimental intervention and finite digital reference target without consulting the repository. The Monet-Sisley lightness example and the no-distinction/exact/doubled-response examples give useful intuition for centering and the error benchmark. Table 1 explains the feature families, and figure captions state axes, normalizers and limits. The abstract should explicitly scope its no-distinction claim to uncalibrated error, and Figure 3 should carry its descriptive status into the caption for readers approaching the figure independently.",
+    "engagement": "The opening makes a consequential evaluation problem concrete: getting closer to a painter collection need not reproduce differences between painters. Figure 1 rewards direct inspection across prompts, and the text points to an identifiable visual difference. Figures 2-3 and the numerical reversals in Section 5.4 turn the central distinction into an intelligible narrative. The paper maintains emphasis without claiming perceptual fidelity or overstating model rankings. The compact abstract requires more concentration than the well-paced main narrative, but this is localized rather than a sustained obstacle."
+  },
+  "strengths": [
+    "Section 4.1, page 5: the measured Monet-Sisley lightness gap provides a concrete bridge from ordinary painter differences to centered feature contrasts; the errors 1, 0 and 1 for absent, exact and doubled contrasts make the benchmark immediately interpretable.",
+    "Sections 3.1-3.3 and Table 1, pages 2-3: reference counts, equal artist weighting, separate development scaling, six prompt conditions and feature interpretations are explicit without requiring repository access.",
+    "Figures 1-3, pages 4, 7 and 8: the image grid, common-axis reference geometry with magnified details, and annotated pair heatmaps provide complementary visual evidence. Labels, legends and captions are legible in the supplied PDF.",
+    "Section 5.4 and Table 4, page 9: the Nano Banana 2/FLUX scene-averaging reversal and the GPT Image 2 calibration result explain what different evaluation choices reveal, rather than merely reporting a leaderboard.",
+    "Section 5.5 and Table 5, pages 9-10: source correction is allowed to change the stated evidence for Sunburst versus FLUX, and the new GPT Image 1 interval is explicitly kept retrospective.",
+    "The finite-reference, fixed-scene, repeat-independence, nonperceptual and public-pixel limitations are candid and connected to their actual inferential consequences. Older interventions remain optional, separately identified evidence."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Abstract, page 1; paper.tex lines 33-36",
+      "issue": "The phrase \"none demonstrates lower total error\" precedes the distinction between uncalibrated and calibrated results. The body makes that distinction carefully, but the standalone abstract leaves the scope of this benchmark sentence slightly less explicit than it could be.",
+      "reader_effect": "A reader encountering the later lower calibrated estimates may momentarily wonder whether the no-distinction statement includes the retrospective calibration analysis. This is an avoidable scope ambiguity, not an established contradiction in the results.",
+      "suggested_change": "Replace \"lower total error\" with \"lower uncalibrated error\" in the abstract. This preserves the evidence and word count, keeping the abstract within 155 words."
+    },
+    {
+      "priority": "low",
+      "location": "Figure 3 caption, page 8; specificity_results.tex lines 75-82",
+      "issue": "The surrounding Section 5.3 explicitly calls pair scores descriptive, but the figure caption does not carry that status. Its explanation of negative alignment as the opposite direction can be read independently of the adjacent caveat.",
+      "reader_effect": "A figure-first reader could attach inferential weight to small signs such as Flare's -0.01 or Nano Banana 2's -0.04 even though no pairwise significance claim is made.",
+      "suggested_change": "Replace the caption opening \"Where aggregate alignment is uneven\" with \"Descriptive painter-pair estimates (no pairwise tests)\" and retain the existing score interpretation. This small substitution can be accommodated within the present caption and 22-page limit."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "Excellent editorial communication of a bounded comparison of measured digital reference contrasts. The main narrative is self-contained, its inferential hierarchy is clear, and figures and numerical examples explain the findings without implying perceptual validation. Only localized clarification of the abstract benchmark and standalone pair-figure caption is needed; no new evidence or additional manuscript length is required."
+}

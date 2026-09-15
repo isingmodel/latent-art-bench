@@ -1,0 +1,78 @@
+{
+  "reviewer_id": "editorial_r16_c",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "c9ea5f1868a5747087a78499ff9e4b1c44df4f46a56d128469cfe66486562bd6",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete extracted text of the frozen 22-page PDF, including references and Appendices A-G. Visually inspected individually rendered pages 1-22, including all five figures and ten tables. Consulted frozen paper.tex and specificity_results.tex to confirm wording, notation and locations. Independently computed the supplied PDF SHA256. No other reviews, prior versions, evaluation records or non-snapshot manuscript were consulted."
+  },
+  "scores": {
+    "expression": 9,
+    "structure": 9.25,
+    "new_reader_understanding": 9,
+    "engagement": 8.75
+  },
+  "overall": 9,
+  "score_reasons": {
+    "expression": "The prose is precise and fluent, with clear distinctions between a shared shift, reference alignment and total error. The median-lightness example and the three idealized generators in Section 4.1 explain the central terminology economically. Qualifications are usually attached to the result they constrain rather than left to a generic limitations paragraph. Remaining friction is localized: the abstract's closing calibration passage is procedurally dense, and the opening Discussion repeats the model comparison just explained in the Results.",
+    "structure": "The manuscript progresses coherently from the motivating distinction to the prompt design, feature interpretation, intuitive score definitions, computation and results. Section 5 has an effective hierarchy: primary agreement, common change, pair diagnostics, calibration/scene decomposition and reference sensitivity. Tables 3 and 4 make the two important changes of interpretation inspectable. Detailed estimators, controls and earlier cohorts are appropriately optional appendices, and the main narrative stands without them. Only the short Discussion could synthesize the findings more fully instead of recapping them.",
+    "new_reader_understanding": "A new reader can reconstruct the six clauses, two repeats, 14 fixed scenes, reference collection and feature units from the main text. Section 4.1 gives both an actual feature gap and interpretable benchmark scores before notation. The distinction between the theoretical D=1 predictor and the observed generic arm is explicit. Calibration is described as a feature-vector operation evaluated on omitted scenes, with no claim of improved images. Figure and table captions explain score direction and limits. The abstract compresses several technical operations into its final sentences, and Figure 2's small inset labels require more inspection than the otherwise accessible presentation.",
+    "engagement": "The motivating Monet-versus-Sisley example gives the question a concrete consequence. Figure 1 makes the intervention visible, while Figures 2 and 3 show why an aggregate aligned response can conceal weak painter distinctions. The GPT Image 2/FLUX calibration reversal and Nano Banana 2 scene-variation reversal are explained through what they reveal about evaluation. Momentum weakens slightly when the Discussion repeats these comparisons and when the small geometry insets require zooming, but there is no pervasive narrative or visual problem."
+  },
+  "strengths": [
+    "Sections 1 and 4.1 make the central question concrete: proximity to Monet can improve without reproducing Monet-Sisley differences, and subtracting the four-painter average preserves an actual lightness gap while removing a shared shift.",
+    "The score explanation gives an unusually useful sequence: no painter distinctions, exact agreement and doubled reference contrasts have expected errors 1, 0 and 1. This prepares readers to understand beta near one alongside substantial D.",
+    "Figure 1 presents all six prompt conditions for the same scene across all six configurations, with a clear distinction between historical references and generated images and a stated non-aesthetic selection rule.",
+    "Sections 5.3-5.5 and Tables 3-4 preserve the distinction between primary comparisons, descriptive diagnostic ordering and retrospective source sensitivity. The revised Sunburst-FLUX interval is explicitly carried into the conclusion.",
+    "The finite digital target, scene-content mismatch, approximate uncertainty, unverified AI source audit and unchanged images under calibration are clearly bounded without requiring the reader to retrieve repository material."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Abstract, page 1; paper.tex lines 36-40",
+      "issue": "The abstract ends with a pair-diagnostic finding, a separate sentence describing the calibration procedure, and another sentence giving its result. The repeated retrospective framing and full procedural sentence make the final part denser than the opening question and principal result.",
+      "reader_effect": "A reader can recover the meaning, but must retain the fitting recipe while waiting for the consequence of calibration. This slightly reduces the prominence of the ordering change.",
+      "suggested_change": "Merge the calibration procedure and result into a shorter passage, retaining that one multiplier per model is fitted on 13 scenes, evaluated on the omitted scene, and leaves images unchanged. For example: 'Retrospective calibration fits one multiplier per model on 13 scenes and scores the omitted scene. Reducing excess contrast size gives GPT Image 2 the lowest error estimate; FLUX.2 Max leads before calibration. Images remain unchanged.' Replace the current two calibration sentences, keeping the full abstract at or below 155 words."
+    },
+    {
+      "priority": "low",
+      "location": "Figure 2, page 7",
+      "issue": "The common-scale detail views are useful, but their tick labels and M/S/P annotations are small at normal page size. The figure contains six overview/detail pairs, so tracing nearby circles, crosses and connecting segments takes deliberate zooming.",
+      "reader_effect": "The reader sees the broad Cézanne separation immediately but has to work harder to inspect the Monet-Sisley distinction that motivates the next result.",
+      "suggested_change": "Increase the inset tick and artist-label sizes and use slightly stronger marker outlines, reclaiming some whitespace around the plot block if needed. Preserve the shared limits and all six model panels within the present page allocation."
+    },
+    {
+      "priority": "low",
+      "location": "Discussion, page 10; paper.tex lines 320-325",
+      "issue": "The first Discussion paragraph principally repeats FLUX's low uncalibrated error and GPT Image 2's excess size/calibrated ranking, already explained in Sections 5.1 and 5.4. It does less to connect the large common response in Section 5.2 with the uneven labeled distinctions in Section 5.3.",
+      "reader_effect": "The final interpretation is clear but feels more like another compact results recap than the payoff to the opening evaluation question.",
+      "suggested_change": "Replace one model-recap sentence with an explicit synthesis of the existing findings, such as: 'A large shared painting response can coexist with weak distinctions between particular painter labels, so collection-level proximity and painter-contrast agreement answer different questions.' Retain the reporting recommendation and calibration qualification; make the replacement without increasing length."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "Excellent communication of a bounded digital-reference comparison. The main text independently explains the experiment, metric intuition, primary findings and diagnostic qualifications, and the figures reward inspection. The remaining changes are localized improvements to abstract pacing, geometry-label legibility and the Discussion's synthesis; no consequential claim-fidelity issue was identified."
+}

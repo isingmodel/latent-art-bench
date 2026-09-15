@@ -1,0 +1,12 @@
+{
+  "evaluated_round": 20,
+  "page_count": 22,
+  "abstract_whitespace_words": 155,
+  "pdf_extracted_words": 9671,
+  "pdf_sha256": "e483e3a9ec6250a97779d588aa25aa817196badeae57011fc0db397b5a15c31d",
+  "build": "Tectonic passed without warnings",
+  "visual_inspection": "All 22 pages rendered. Changed pages 1, 4, 6, 7, 8, 10 and 18 inspected individually; the other 15 PNGs are byte-identical to previously inspected renders. The four painting titles fit in their existing two-line label areas without clipping or overlap. Introduction and conclusion remain complete on their pages.",
+  "presentation_replay": "make example-images-check passed all 40 source hashes and exact PDF/manifest replay. All 40 gallery image arrays, crops, extents, axes positions and limits are unchanged; figure footprint stays 6.7 by 7.4 inches. The separate control PDF is byte-identical. Manifest changes are limited to four display_title fields. Ruff passed for the changed builder.",
+  "lint": "git diff --check passed",
+  "scientific_scope": "Prose/captions, transfer of energy definition to Appendix E and existing-image title labels only. No scientific input, numerical result, image or inferential procedure changed."
+}

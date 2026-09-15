@@ -1,0 +1,12 @@
+{
+  "evaluated_round": 23,
+  "page_count": 22,
+  "abstract_whitespace_words": 152,
+  "pdf_extracted_words": 9672,
+  "pdf_sha256": "1112c59c06596d49ecaae93f3a4544e05de91855548060cce273c89eda02d471",
+  "build": "Tectonic passed without warnings",
+  "visual_inspection": "All 22 pages rendered. Changed pages 1, 5, 9, 10 and 18 individually inspected; other 17 PNGs are byte-identical to previously inspected pages. The rewritten abstract and concrete introductory phrase fit cleanly; added H explanation, calibrated scene-error heading, shorter Discussion and appendix figure pointers have no clipping, collision or broken flow.",
+  "presentation_replay": "Changed review builder passes exact replay and Ruff. All numerical tokens in every generated table and supplement remain identical to round 22. The existing figures are unchanged.",
+  "lint": "git diff --check passed",
+  "scientific_scope": "Editorial wording and one table heading only. No scientific input, numerical result, source image or inferential procedure changed. No human evaluation added."
+}

@@ -1,0 +1,12 @@
+{
+  "evaluated_round": 11,
+  "page_count": 22,
+  "abstract_whitespace_words": 153,
+  "pdf_extracted_words": 9690,
+  "pdf_sha256": "7cdee18a48aa2ec903c23d106e704ceb4f9211d2cd31995e078e7c4471d54cd8",
+  "build": "Tectonic passed without warnings",
+  "visual_inspection": "All22 rendered pages inspected in contact sheets. Introduction now complete onpage1; conclusion intact onpage10; componentdefinition still precedestable; Figure5 caption reflects visibleconcentrationwithoutnewanalysis. No clipping orunresolvedreferences.",
+  "presentation_replay": "Prose-only round; generated tables and allfigurePDFs unchanged fromround10",
+  "lint": "git diff --check passed",
+  "scientific_scope": "Score-scope wording, historicalaside cut withfullevidencepreservedinAppendixF, abstractsentence split and boundedvisualcaption only."
+}

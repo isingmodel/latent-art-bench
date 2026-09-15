@@ -46,7 +46,8 @@ editable manuscript displays.
 | Six-model comparisons, centered contrasts, error/spread and four-painter projections | [make_specificity_figures.py](../paper/make_specificity_figures.py) | Saved specificity results and reference-only projections |
 | Primary numerical tables | [make_specificity_tables.py](../paper/make_specificity_tables.py) | Saved primary and sensitivity results |
 | Diagnostic tables and artist-pair figure | [make_review_figures.py](../paper/make_review_figures.py) | Separate diagnostic `analysis.json` |
-| 36 generated and four reference examples | Same builder with `--images` | Retained source bytes and [inspection manifest](../reports/painter_specificity_review_v1/inspection.json) |
+| Original/generated comparison and control examples | [make_example_figures.py](../paper/make_example_figures.py) | Retained pixels, completed source audit and [presentation manifest](../paper/example_selection.json); `make example-images-check` |
+| Preserved preceding full-frame example panels | `make_review_figures.py --images` | Retained source bytes and [inspection manifest](../reports/painter_specificity_review_v1/inspection.json) |
 | Earlier distribution, control and retrieval figures | [make_figures.py](../paper/make_figures.py) | Exploration coordinates, controlled/revision tables and responsiveness summaries |
 | Palette block display | [replay_palette.py](../paper/replay_palette.py) | Committed chroma outcomes, request schedule and primary estimates |
 | Measurement challenges and geometry displays | [make_validation_figure.py](../paper/make_validation_figure.py), [make_geometry_figure.py](../paper/make_geometry_figure.py) | Saved validation and naming-geometry results |
@@ -55,13 +56,21 @@ editable manuscript displays.
 make figures-check       # Verify current and supporting figures/tables
 make figures             # Rebuild presentation only
 make paper               # Rebuild and compile; see paper/README.md
-make review-images-check # Optional: verify image sources and example panels
+make example-images-check # Optional: verify the current 40 image sources and panels
+make review-images-check  # Optional: verify the preserved preceding panels
 ```
 
 Normal builds reuse the committed example PDFs. They do not need full-resolution
-images. The original image panels expose calibration strips and a title-class
-mismatch. The separate source-quality audit covers all 870 reference and
+images. The main-text panel compares four original paintings and all six models;
+artist-free/generic controls occupy the same model rows. Reference choices use the
+completed audit and its recorded crops. The preceding panels exposing source
+defects remain preserved. The source-quality audit covers all 870 reference and
 development reproductions; its full records remain outside the manuscript.
+
+The [editorial review record](../reports/paper_editorial_review_v1/README.md)
+tracks manuscript assessments and revisions separately from numerical replay.
+Its scores apply to recorded PDF versions; they do not validate scientific
+results or automatically carry forward to the current manuscript.
 
 ## Supporting analyses
 

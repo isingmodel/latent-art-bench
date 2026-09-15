@@ -1,0 +1,21 @@
+{
+  "started_at": "2026-09-14T22:55:40.362Z",
+  "requested_model": "gpt-6-astra",
+  "requested_reasoning": {
+    "effort": "xhigh"
+  },
+  "request_sha256": "327e53a5521e90588b9bb05bcb0da686e7048496a30ae12a8b582eb5e990dd51",
+  "request_bytes": 11061073,
+  "image_count": 22,
+  "status": "streaming",
+  "http_status": 200,
+  "http_request_id": null,
+  "response_id": "resp_06874ddc091a65b2016aa87b6d1bd887d09d077e4de84ae2c5",
+  "reported_model": "gpt-6-astra",
+  "reported_reasoning": {
+    "context": "all_turns",
+    "effort": "xhigh",
+    "mode": "standard",
+    "summary": null
+  }
+}

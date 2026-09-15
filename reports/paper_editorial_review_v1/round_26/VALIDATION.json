@@ -1,0 +1,12 @@
+{
+  "evaluated_round": 26,
+  "page_count": 22,
+  "abstract_whitespace_words": 155,
+  "pdf_extracted_words": 9594,
+  "pdf_sha256": "124379f710f1a63188be56e4ff00d2ba67d51d5dc419216dcc2f99206775f55f",
+  "build": "Tectonic passed without warnings",
+  "visual_inspection": "All 22 pages rendered. Changed pages 1, 3, 8 and 10 individually inspected; the other 18 PNGs are byte-identical to previously inspected pages. Table 1 sits immediately after the compact feature introduction, with processing below it. Design floats finish before the comparison section, so the image gallery does not interrupt its explanation. The abstract, expanded caption scopes and Discussion fit without clipping.",
+  "presentation_replay": "Changed table builder passes exact replay and Ruff after splitting one source-code string without changing its output. Every numerical token in the generated tables and supplements remains identical to round 25; figures are unchanged. All three removed main-text method citations remain with their full methods in Appendix A.",
+  "lint": "git diff --check passed",
+  "scientific_scope": "Editorial wording, captions and float placement only. No scientific input, numerical result, image, inferential procedure, experiment or human evaluation changed."
+}

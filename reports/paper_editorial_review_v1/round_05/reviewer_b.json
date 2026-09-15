@@ -1,0 +1,87 @@
+{
+  "reviewer_id": "editorial_r05_b",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "d125a1642ae63320d9f12b1619700239c30df826eb027047be71de5a46265cff",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read all 22 PDF pages, including the complete main text, references and Appendices A-G. Visually inspected individually rendered pages 1-22, including all five figures and all nine tables. Consulted frozen paper.tex and the included results/model/calibration table TeX to resolve wording, notation and locations. Verified the supplied PDF SHA256 independently. The abstract contains 151 whitespace-delimited words. Technical appendices were treated as optional depth, not as prerequisites for understanding the main narrative. No other reviews, prior versions or external project records were consulted. Extraction and rendering used an isolated temporary directory."
+  },
+  "scores": {
+    "expression": 9.0,
+    "structure": 9.25,
+    "new_reader_understanding": 9.0,
+    "engagement": 8.75
+  },
+  "overall": 9.0,
+  "score_reasons": {
+    "expression": "English is fluent, precise and generally economical. Section 4.1 explains contrasts with an actual lightness comparison and three simple error benchmarks before the equations; Section 5.4 explains shrinkage and scene averaging in connected prose. Qualifications usually occur where their consequences matter. A little repeated scope language in Related work, terse numerical reporting in Section 5.5, and two abbreviated summary/figure labels leave localized refinements rather than a broad editing problem.",
+    "structure": "The question progresses coherently through references and experimental arms, interpretable measurements, two primary scores, primary results and explicitly retrospective diagnostics. Sections 4.4 and 5.3 visibly identify the diagnostic status; Section 5.5 revisits the primary comparisons when source correction changes them. Derivations, coverage checks and older cohorts are appropriately separated into appendices. The main text conveys the study without requiring those appendices, and the 22-page document has no consequential layout obstruction.",
+    "new_reader_understanding": "The abstract supplies the sample sizes, intervention, representation, reference target and principal findings within its length limit. Table 1 translates feature families into image properties; Section 4.1 defines contrasts and gives the no-distinction/exact/doubled-response error examples. Section 4.2 distinguishes the theoretical D=1 predictor from the generic-painting arm. Figures 1-3 and Table 3 have helpful reading instructions. Remaining obstacles are small: the summary ranking wording could retain the point-estimate qualification, and Figure 4 uses an abbreviated legend that can be mistaken for beta itself.",
+    "engagement": "The motivating Monet-Sisley example poses a concrete evaluation problem, Figure 1 makes all six prompt conditions inspectable, and the results develop memorable distinctions: positive alignment with substantial error, uneven painter coverage, and changes of ordering after calibration or scene averaging. The image grid, geometry plot and pair heatmap reward inspection. Momentum softens locally when Section 5.5 lists robustness values without immediately stating their numerical benchmark and when already-established scope qualifications recur."
+  },
+  "strengths": [
+    "The opening example distinguishes moving closer to a collection from reproducing labeled painter differences, giving the entire comparison a clear purpose.",
+    "Section 4.1 provides intuition before notation: the observed lightness gap and expected errors 1, 0 and 1 make the two main scores understandable.",
+    "The manuscript carefully separates the named arms, artist-free arm, generic-painting arm and theoretical no-contrast predictor.",
+    "Figure 1 presents one fixed brief across every model and prompt condition with an explicit selection rule and a clear warning that historical compositions were not matched.",
+    "Sections 5.3-5.5 explain what the additional analyses reveal while preserving their retrospective status, including the loss of the original Sunburst comparison after correction.",
+    "Table 3 and its accompanying prose make calibration and scene dependence concrete without implying that new or improved images were produced.",
+    "The appendices preserve estimator assumptions, source audit limitations, contrary supporting results and provenance without making them necessary to recover the main argument."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Abstract, p. 1, paper.tex lines 37-38; Conclusion, p. 10, paper.tex lines 359-360",
+      "issue": "The compressed phrase \"lowest-error model\" drops the estimate qualification that Section 5.4 carefully retains. The detailed result explicitly says that overlapping-fold checks do not establish statistical superiority.",
+      "reader_effect": "A reader relying on the abstract or conclusion can read the calibration result as a settled change in model superiority rather than a change in the lowest descriptive error estimate.",
+      "suggested_change": "Use \"lowest estimated error\" or \"lowest-error estimate\" in these two summaries, retaining the existing statement that calibration does not alter images. Make this a replacement so the abstract remains at or below 155 words."
+    },
+    {
+      "priority": "low",
+      "location": "Figure 4(a), Appendix E, p. 19",
+      "issue": "The blue-dot legend says \"Aligned amplitude\", although the plotted quantity is aligned-amplitude error. For example, GPT Image 2 has beta near one in Table 2 but its blue dot is near zero here.",
+      "reader_effect": "The abbreviated label momentarily suggests that the appendix contradicts the primary amplitude result; the caption and x-axis resolve it only after rereading.",
+      "suggested_change": "Change the legend to \"Aligned-amplitude error\". Keep the existing values, caption explanation and panel footprint."
+    },
+    {
+      "priority": "low",
+      "location": "Section 5.5, p. 9, specificity_results.tex lines 118-122",
+      "issue": "The sentence giving texture-omitted Flare and Sunburst errors of 1.580 and 1.604 leaves the reader to infer why these two values are singled out immediately after a statement about FLUX retaining the lowest estimate.",
+      "reader_effect": "A brief numerical detour interrupts the otherwise clear robustness narrative: the values are understandable, but their intended comparison is not stated in the sentence.",
+      "suggested_change": "Replace it with \"Without texture, Flare and Sunburst still exceed the no-contrast benchmark (D=1.580 and 1.604).\" Preserve their descriptive status. If needed to hold pagination, cut the nearby bookkeeping sentence \"The original vectors remain preserved\", whose information is already retained in the availability statement and appendix."
+    },
+    {
+      "priority": "low",
+      "location": "Related work, p. 2, paper.tex lines 98-99",
+      "issue": "The closing qualification that common scenes control generated content rather than historical subjects closely repeats the explicit explanation in the Introduction.",
+      "reader_effect": "This adds a small amount of defensive repetition before the reader reaches the design, without changing the distinction already established.",
+      "suggested_change": "End this related-work paragraph after \"Our text-only name intervention supplies no original composition.\" Keep the fuller explanation in the Introduction and the later limitations discussion. This cut preserves scope and creates room for small clarifications elsewhere without increasing length."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent, self-contained editorial presentation of a bounded comparison of measured digital reference contrasts. The main question, design, score meanings and primary-versus-retrospective hierarchy are readily understood, with especially effective worked examples and visual comparisons. Remaining changes concern localized wording, a figure legend and numerical emphasis; no new evidence or expansion beyond 22 pages is needed. These scores are internal editorial judgments, not human-reader evidence or an acceptance rating."
+}

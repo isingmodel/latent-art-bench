@@ -1,0 +1,12 @@
+{
+  "evaluated_round": 15,
+  "page_count": 22,
+  "abstract_whitespace_words": 155,
+  "pdf_extracted_words": 9712,
+  "pdf_sha256": "f0dda9d3aad52f829e49c51758dc2a6bb433a51c79e9738b9753e1aa16f3036e",
+  "build": "Tectonic passed without warnings",
+  "visual_inspection": "All 22 pages rendered. Changed pages 1,6,9,10,19,21,22 inspected individually; the other 15 PNGs are byte-identical to previously inspected renders. Introduction complete on page1; conclusion on page10; palette description ends in a complete sentence on page21.",
+  "presentation_replay": "Specificity table builder and --check passed. All supplementary numerical rows preserved; only the two-value separator and caption changed. All figure bytes unchanged.",
+  "lint": "Scoped Ruff and git diff --check passed",
+  "scientific_scope": "Editorial wording, subsection cross-reference and table separators only; historical model and painter identities independently verified. No scientific records or analyses changed."
+}

@@ -1,0 +1,79 @@
+{
+  "reviewer_id": "editorial_r28_c",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "85c38d48b10f8769377d16a4baea1570dbd5c2467c1383a3e3df892f71adaca2",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete extracted text of all 22 pages, including references and Appendices A–G; visually inspected all 22 rendered PDF pages, Figures 1–5 and Tables 1–12. Consulted the frozen paper.tex and specificity_results.tex to check wording and source locations. Technical appendices were treated as optional depth, not prerequisites for the main narrative. No other reviews, earlier manuscripts, progress records or goals were consulted."
+  },
+  "scores": {
+    "expression": 9.0,
+    "structure": 9.0,
+    "new_reader_understanding": 8.75,
+    "engagement": 8.75
+  },
+  "overall": 8.875,
+  "score_reasons": {
+    "expression": "Excellent, precise English with generally manageable sentences and consistent definitions. Section 4.1 explains contrasts through median lightness and explains the error benchmark with three idealized generators before introducing notation. Sections 5.1 and 5.4 make difficult distinctions concrete through numerical examples. The crowded abstract and some repetition in the closing discussion remain localized opportunities for compression.",
+    "structure": "The main text progresses coherently from the evaluation question to reference panels, experimental clauses, features, estimators and results. The result headings communicate findings, while Sections 4.3–4.4 and 5.3–5.5 visibly distinguish declared inference from retrospective diagnostics. Detailed identities, source auditing, distributional measures and earlier cohorts are appropriately placed in optional appendices. The main conclusions can be recovered without those appendices.",
+    "new_reader_understanding": "The six prompt conditions, repeated-scene design, finite digital target, development scaling and distinction between alignment and total error are explained well. Table 1 translates feature families into ordinary visual properties; Figure 1 supplies a concrete prompt comparison; Figures 2–3 and their captions explain their encodings and benchmarks. Calibration is accurately described as a feature-vector operation, and uncertainty is qualified where it matters. The abstract introduces its two rankings before explaining calibration, and the common named shift could be distinguished more directly from the generic-painting shift.",
+    "engagement": "The opening Monet–Sisley example gives the question a clear consequence, and the paper sustains a discernible story: a large common response, positive but uneven alignment, and changes in error ordering under scene averaging and calibration. Figure 1 rewards close comparison, Figure 2 makes the collapsed distinctions inspectable, and Figure 3 exposes informative pair differences. The short Discussion largely recaps results before another recap in the Conclusion; one more specific synthesis in the existing space would strengthen the ending."
+  },
+  "strengths": [
+    "Section 4.1, page 5, gives both a real lightness contrast and the no-distinction/exact/doubled-response examples, making the central metrics understandable before their equations.",
+    "Sections 5.1 and 5.4 distinguish estimated ordering, adjusted model comparisons, the no-contrast benchmark and retrospective calibration without implying statistical superiority or changed images.",
+    "Figure 1, page 4, presents all six prompt conditions for all six models with a concrete viewing instruction and a transparent, non-matched reference row.",
+    "Figures 2–3, pages 7–8, use consistent scales, magnified painter details and explicit numeric benchmarks to show why overall alignment can conceal weak or reversed pair distinctions.",
+    "Section 5.5 and Table 5 retain the consequential source-correction change to the Sunburst–FLUX interval rather than presenting robustness as uniform.",
+    "The manuscript consistently bounds its claims to measured digital reference contrasts and keeps substantial technical and historical supporting material optional."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Abstract, page 1; paper.tex lines 34–41",
+      "issue": "The abstract introduces calibration, gives two different model rankings, and only then defines the operation. This is the densest part of an otherwise standalone abstract.",
+      "reader_effect": "A new reader has to revisit the ranking sentence to understand why the lowest-error model changes and what was held out.",
+      "suggested_change": "Move the existing one-factor calibration explanation before the ranking sentence, or combine them into one sentence that first states the retrospective rescaling on other scenes and then states the changed lowest estimate. Retain the qualification that images do not change, and shorten the painter-name enumeration if needed to stay within 155 words."
+    },
+    {
+      "priority": "low",
+      "location": "Section 5.2, page 8; specificity_results.tex lines 43–54",
+      "issue": "The shared percentage concerns the mean named-minus-artist-free response, while the generic-painting arm appears only in the following paragraph. The distinction is recoverable, but the phrase that the generic shift “follows the common named shift” leaves their relationship less direct than the rest of the results.",
+      "reader_effect": "A reader may initially attach the 82.5–95.7% share to the generic oil-painting instruction itself, although that arm is smaller and not identical to the shared named response.",
+      "suggested_change": "Replace the last paragraph’s opening with a direct geometric comparison, for example: “The shared named shift is larger than the generic oil-painting shift in every model; the two point in similar directions, with noise-corrected cosine .689–.930.” Preserve the definition that a cosine of one means parallel. This is a same-length clarification using existing results."
+    },
+    {
+      "priority": "low",
+      "location": "Discussion and Conclusion, page 10; paper.tex lines 311–347",
+      "issue": "The Discussion’s opening largely restates the findings, and the Conclusion soon recaps the same pattern again. The sentence about reporting multiple scores is less concrete than the excellent interpretation already provided in Section 5.4.",
+      "reader_effect": "The ending adds relatively little synthesis after an engaging results sequence and briefly reduces momentum.",
+      "suggested_change": "Replace the general sentence about reporting scores with one concrete takeaway linking the existing comparisons: raw scene error favors consistency and restrained contrast magnitude, whereas calibration asks how well the measured painter pattern agrees after adjusting magnitude. Retain the current limitations and conclusion; make this a replacement, not an added paragraph."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent, carefully bounded editorial presentation of the measured-reference comparison. Its core design, metrics and findings are understandable from the main text, and the visual displays support the argument. Remaining improvements are localized: simplify the abstract’s calibration sequence, state the relation between shared named and generic shifts more directly, and sharpen the final synthesis without adding length."
+}

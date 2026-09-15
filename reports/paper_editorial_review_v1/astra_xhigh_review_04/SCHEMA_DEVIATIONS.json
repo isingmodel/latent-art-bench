@@ -1,0 +1,7 @@
+{
+  "deviations": [
+    "Representation only: $.rubric_version string \"1\" -> integer 1"
+  ],
+  "raw_preserved": true,
+  "content_or_scores_changed": false
+}

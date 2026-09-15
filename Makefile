@@ -7,7 +7,7 @@ REVISION := latent_art_bench.painter_distribution_revision_v1
 PAPER_BUILD := tmp/paper/build
 SPECIFICITY := latent_art_bench.painter_specificity_measurement_v1
 
-.PHONY: help check check-all evidence analysis four-painter-analysis plots responsiveness computational-responsiveness palette-check validation-check replication-check geometry-check clause-check clause-successor-check figures figures-check paper specificity-check specificity-audit review-check review-images-check reference-quality-check reference-quality-images-check
+.PHONY: help check check-all evidence analysis four-painter-analysis plots responsiveness computational-responsiveness palette-check validation-check replication-check geometry-check clause-check clause-successor-check figures figures-check paper specificity-check specificity-audit review-check review-images-check reference-quality-check reference-quality-images-check example-images example-images-check editorial-check
 
 help:
 	@echo 'Paper correction: paper/README.md and docs/AGENT_HANDOVER.md'
@@ -17,6 +17,8 @@ help:
 	@echo 'make check-all Ruff and all retained offline tests, including historical workflows'
 	@echo 'make specificity-check  Replay six-model recovery and reference sensitivities'
 	@echo 'make review-check  Replay both versions of post-result diagnostics'
+	@echo 'make example-images-check  Verify original/generated panels from retained pixels'
+	@echo 'make editorial-check  Audit archived review hashes and scores without model calls'
 	@echo 'make reference-quality-check  Replay the source-region and label sensitivity'
 	@echo 'make specificity-audit  Verify the new terminal report and retained raw bytes'
 	@echo 'make evidence  Verify historical evidence bindings and ledgers'
@@ -103,6 +105,15 @@ reference-quality-check:
 
 reference-quality-images-check:
 	$(PYTHON) -m latent_art_bench.painter_reference_quality_v1 check-images
+
+example-images:
+	$(PYTHON) paper/make_example_figures.py
+
+example-images-check:
+	$(PYTHON) paper/make_example_figures.py --check
+
+editorial-check:
+	$(PYTHON) scripts/audit_paper_reviews.py
 
 review-images-check:
 	$(PYTHON) paper/make_review_figures.py --check --images

@@ -1,0 +1,20 @@
+{
+  "source_sha256": {
+    "data/manifests/painter_specificity_v2/psv2-20260911/analysis.json": "c1d21b16f840a10fd253c1d558743a09671acf3d4e48601ddcc96625a5a90be0",
+    "data/manifests/painter_specificity_v2/psv2-20260911/analysis_square.json": "1e34cc4fe000f6499c435542e84c03bc95d43e1d0936f203530535349c48c693"
+  },
+  "uncalibrated_flux_deletion_range": [
+    0.754213896287783,
+    0.8515437599380591
+  ],
+  "uncalibrated_flux_lowest_after_all_14_deletions": true,
+  "central_square_distortions": {
+    "gpt-image-1": 1.4359864569356724,
+    "gpt-image-2": 1.1283623290941684,
+    "gpt-image-2.5-flare": 1.6492372941928315,
+    "gpt-image-2.5-sunburst": 1.5342828915843107,
+    "google/gemini-3.1-flash-image": 1.0241060667579158,
+    "black-forest-labs/flux.2-max": 0.7653367752803518
+  },
+  "scope": "Descriptive retained declared sensitivities; scene means averaged after omission without calibration. Distinct from refitted calibration-deletion diagnostic."
+}

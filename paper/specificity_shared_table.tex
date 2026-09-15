@@ -1,0 +1,12 @@
+\begin{table}[htbp]\centering\small\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\linewidth}{@{}l*{6}{>{\centering\arraybackslash}X}@{}}
+\toprule
+& \shortstack{GPT Image\\1} & \shortstack{GPT Image\\2} & Flare & Sunburst & \shortstack{Nano\\Banana 2} & \shortstack{FLUX.2\\Max}\\\midrule
+Shared (\%) & 82.5 & 85.8 & 84.8 & 83.9 & 88.1 & 95.7\\
+Between-name (\%) & 17.5 & 14.2 & 15.2 & 16.1 & 11.9 & 4.3\\
+\midrule
+Corrected cosine & 0.689 & 0.774 & 0.766 & 0.837 & 0.930 & 0.916\\
+Squared-size ratio & 1.986 & 1.960 & 2.816 & 3.356 & 3.692 & 4.138\\
+\bottomrule\end{tabularx}
+\caption{Shares of scene-averaged, repeat-corrected squared change from artist-free to named prompts, including the painting clause. Shared is the four-name mean shift; between-name is departure from it. The lower rows give retrospective comparisons of the shared named shift with the generic oil-painting shift, using the same artist-free baseline. The noise-corrected cosine measures their directional agreement (1 means parallel); the ratio divides their repeat-corrected squared magnitudes, shared by generic.}
+\label{tab:shared-change}\end{table}

@@ -1,0 +1,83 @@
+{
+  "reviewer_id": "astra_xhigh_review_01",
+  "created_at": "2026-09-14T22:23:57.261067+00:00",
+  "requested_model": "gpt-6-astra",
+  "requested_reasoning_effort": "xhigh",
+  "source_snapshot": "round_33",
+  "pdf_sha256": "3bea311da87d1f2bbec5cb603535e818af1a7f2e1f7784d529674daa99c52e57",
+  "rubric_sha256": "e3c0d44034123bc097ed3a4823c3977e2b7bd13207460aba41bd1e805a3812f3",
+  "prior_scores_and_threshold_disclosed": false,
+  "manuscript_mutation_authorized": false,
+  "render_command": "pdftoppm -scale-to 1600 -png paper.pdf pages/page",
+  "page_png_sha256": {
+    "page-01.png": "33de4bd5006d3d78b6ffe86ddf82ccdadac81fa042273580e635676ce4417e90",
+    "page-02.png": "531ff87bba9cb5304f6081cb07aca4b9131d6745855ebdba89000b769af650e0",
+    "page-03.png": "9bbfe3a5a1c8b61124b2ef784a9ea8edc20e2ac6ed29690e63dc013970d8e594",
+    "page-04.png": "959a70b02e4e329c01631947a4fe37d2de8e8c468cd4eb68bab140dfbd02328a",
+    "page-05.png": "2089caca91c41cfc5ef248eb3bb49aa630129f19e571e7efb78de6619a713431",
+    "page-06.png": "132562c1327c98edfbd20ada82694f1ee020caa9f2185bd86cdebdcdf71f6dfe",
+    "page-07.png": "380cd739d780fd0c1585a4820c01c17bcff1cfa685a742a88a53f61b67172d4a",
+    "page-08.png": "3713ca48812e97eba88881b26dc84b76e78937cd5de263e561cfc7abbe8fd3de",
+    "page-09.png": "97d10a621771f799d2a9be1487759ace5e5219cfc82f37ce72ba10ea0f6adc47",
+    "page-10.png": "a6a8a90e5b390ad949d3e9d0c2c8115dc77618bcb308d326a7a4742bf0818bda",
+    "page-11.png": "22181a855f99d230c51a5d3c13ebc200f96689017dee834903ebea0055d0a600",
+    "page-12.png": "a624307b52e87e9c343a9f389d9a072c5482a8d30aaba00cc92c656f0624f107",
+    "page-13.png": "ab82f377cd13c86d8c486bad884b7b51481bfafd367b6cc39cebc09e47a284db",
+    "page-14.png": "386e9bb447d7d00361773f161f85a9e93c6448f444e7dab60465ab0cb9b014d6",
+    "page-15.png": "6290380d038e3fb955e2c022e1d4d3d60b87457a03aa9e66d165977740c970dd",
+    "page-16.png": "7cd703134381232136e613af075a6d4b7aa808179ca2bcbb5ecb8e3161f1bcec",
+    "page-17.png": "99e3f2e703c0ebbf38900a60986fe84d4e9b598e65424ef87de125d1237df3ae",
+    "page-18.png": "0e6b36caba336031504c45159281da23fdd46dbd1ccc9d54478233328539c46f",
+    "page-19.png": "7af0361e910b1a7261559c613eb12ab4a79d1517ba21fcaeaab8009627db3ae9",
+    "page-20.png": "304485164a3a843a0ef46fbb4233ed2e37aff49c5ad901e0a880aecbd8cbb48e",
+    "page-21.png": "8f476217d67dc2faeef7340efa25991bd0ebdf2cdee684bc6e5bd628bcca181b",
+    "page-22.png": "6a886e71bda82a36f186ccf4b43989ee7a172f0e3b0b16cc497c63841ec7f81f"
+  },
+  "model_reported": "gpt-6-astra",
+  "notes": "Standalone user-requested independent API review; separate from prior editorial stopping rule. Full text, current TeX source and all 22 page images will be sent in one stateless request through the user-specified local OAuth library. No alternate-model fallback.",
+  "attempts": [
+    {
+      "number": 1,
+      "outcome": "HTTP 400 before evaluation: explicit empty context_management rejected; retained in attempt_01."
+    },
+    {
+      "number": 2,
+      "change": "Removed empty context_management override; use existing library default. Model, effort, rubric, manuscript and images unchanged."
+    }
+  ],
+  "transport": "Direct createCodexOAuthClient.request(/responses), through /Users/fred/dev/openai-oauth/packages/openai-oauth-core/src/index.ts; no proxy server started.",
+  "oauth_library_modified": false,
+  "request_hash_scope": "RUN_STATUS.request_sha256 is the JSON body submitted to the core client before its built-in normalization. Transport adds its default compaction setting after the empty override was removed.",
+  "official_model_reference": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+  "transport_source_sha256": {
+    "/Users/fred/dev/openai-oauth/packages/openai-oauth-core/src/transport.ts": "c2470c60bea8c0eb98a7eb247e6d3e8e11cebf726e65c3ff3443c9d9b0be09f4",
+    "/Users/fred/dev/openai-oauth/packages/openai-oauth-core/src/sse.ts": "3eb06365a3f68d9bb396ac414274f18a0eb68b20789bb1a31d4f5d826f9d40d0"
+  },
+  "reasoning_reported": {
+    "context": "all_turns",
+    "effort": "xhigh",
+    "mode": "standard",
+    "summary": null
+  },
+  "usage": {
+    "input_tokens": 86304,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 5213,
+    "output_tokens_details": {
+      "reasoning_tokens": 3622
+    },
+    "total_tokens": 91517
+  },
+  "review_sha256": "b8066c9c4986d5daf6b3fb8fda5dc5e586ef63d0bbc600e2a4ffa48da6d4afcb",
+  "recovery": "Recovered from response.output_item.done after verifying response.completed status, all text deltas and output_text.done agree exactly. No repeat inference.",
+  "response_events_sha256": "5a228202eebb3cb99ee20ea7d93903d8eb64945d22b6d929cb506bcf22a4bb38",
+  "intermediate_compaction_events": 1,
+  "collector_offline_replay": "Existing OAuth collectCompletedResponseFromSse recovered the same complete 8149-character answer from saved events without new inference.",
+  "collector_recovered_text_sha256": "dc3880256462414c6e81524ddca6eeeced49753f99ae22916359fd0309fa0640",
+  "original_runner_sha256": "eb8623a1ffabd99cda040cc7e0fb4f6c1d6b1f7203afd3c8c1edbe10d73b976e",
+  "corrected_runner_sha256": "fc930e402ac6836d2505488b1bb91275ac749ce40813fdeac0448e0079a8be14",
+  "runner_note": "Original request runner retained. Its final-output extraction was corrected after the run to reconstruct completed streamed items when the terminal response output is empty; no new evaluation was performed."
+}

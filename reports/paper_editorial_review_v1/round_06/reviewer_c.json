@@ -1,0 +1,79 @@
+{
+  "reviewer_id": "editorial_r06_c",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "f08ea96fd8caeebfb32bc586c33b462917ac753895c0f9e69031265df64ec3e6",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read all 22 pages, including references and Appendices A–G, from the frozen PDF; visually inspected every rendered page, Figures 1–5 and Tables 1–10. Consulted the frozen paper.tex and included results/table sources to resolve notation and exact wording. Verified the supplied PDF SHA256 independently. Technical appendices were treated as optional depth when scoring main-text accessibility. The abstract contains 152 whitespace-separated words in its source. No other reviews, earlier versions, progress records or external sources were consulted."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.25,
+    "new_reader_understanding": 9.0,
+    "engagement": 9.0
+  },
+  "overall": 9.125,
+  "score_reasons": {
+    "expression": "Excellent, precise English with concrete transitions and economical explanations. The opening Monet–Sisley example distinguishes proximity from labeled agreement, and Section 4.1 explains contrasts and the two scores before notation. Results headings state what each analysis reveals. Terminology is consistent across the main text and captions. A localized ambiguity remains in whether the corrected slopes that “remain positive” are point estimates or intervals (Section 5.5).",
+    "structure": "Excellent progression from the comparison question through the experimental arms, representation, intuitive estimands, primary inference and retrospective explanations. Section 4.4 previews the diagnostic questions; Sections 5.3–5.5 answer them. Calibration and source correction are clearly separated from the declared inferential family. Detailed identities, synthetic checks, historical cohorts and provenance remain in optional appendices, and the main argument is recoverable without them. No consequential section reordering is needed.",
+    "new_reader_understanding": "The abstract independently conveys the design, digital-reference target and principal findings within 155 words. Table 1 translates feature families into visual properties; the actual lightness gap and the 1/0/1 error examples make normalization intelligible. Theoretical no-contrast prediction, the observed generic arm, scene variation and image-free calibration are explicitly distinguished. Local improvements are possible in the standalone benchmark guidance for Table 2 and the smallest inset labels in Figure 2.",
+    "engagement": "The paper sustains a clear question through informative contrasts: detectable alignment without established improvement over no distinctions, weak Monet–Sisley separation, and rankings that change under calibration or scene averaging. Figure 1 makes the experiment inspectable, Figure 3 efficiently locates uneven pair agreement, and Table 3 turns a metric choice into a concrete numerical example. These findings receive interpretation without perceptual hype. Figure 2 rewards inspection but asks more visual effort than necessary at ordinary page size."
+  },
+  "strengths": [
+    "Sections 1 and 4.1 give the reader both a motivating counterexample and a numerical example before introducing the stacked 31-feature geometry.",
+    "The error benchmark is explained with no distinctions, exact agreement and doubled contrasts producing expected errors 1, 0 and 1; this directly supports the otherwise counterintuitive calibration result.",
+    "The 40-image Figure 1 includes every model and prompt condition for one stated scene, with controls adjacent and historical works explicitly identified as neither inputs nor matched compositions.",
+    "Sections 5.1 and 5.5 distinguish original adjusted comparisons, point-estimate orderings and retrospective source corrections, including the loss of the Sunburst comparison.",
+    "Table 3 and its surrounding prose explain both calibration and scene averaging through actual ordering changes, while clearly stating that no images were altered.",
+    "Limitations consistently delimit the finite digital-reference target, source handling, fixed scenes, repeat assumptions and absence of perceptual validation; they do not obscure the bounded empirical contribution."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Section 5.5, p. 9; specificity_results.tex lines 127–129",
+      "issue": "“All six aligned slopes remain positive” does not specify whether this refers to corrected point estimates or to corrected interval lower bounds. Earlier, Section 5.1 explicitly discusses intervals above zero, making the shorter wording easy to read as carrying forward the same inferential statement.",
+      "reader_effect": "A reader may be uncertain whether source correction preserves only the estimated direction or also the interval-based evidence for that direction.",
+      "suggested_change": "If the intended claim concerns estimates, replace it with “All six aligned-response point estimates remain positive.” If interval exclusion is intended, identify the corrected intervals explicitly using the existing results. This is a wording substitution and requires no new analysis or additional page."
+    },
+    {
+      "priority": "low",
+      "location": "Table 2, p. 7; specificity_model_table.tex line 14",
+      "issue": "The caption states that lower D is better but omits its zero and one anchors, while the adjacent difference column calls FLUX the baseline. The prose on pp. 5–6 correctly explains the distinct no-contrast benchmark.",
+      "reader_effect": "A reader consulting the principal results table on its own must look backward to interpret whether a D near one indicates substantial agreement and to distinguish the two kinds of baseline.",
+      "suggested_change": "Replace “Lower D is better” with “Expected D is 0 for exact agreement and 1 for no painter distinctions,” and shorten the final source-correction sentence if needed to preserve the caption footprint. Keep the existing explanation that positive delta D favors FLUX."
+    },
+    {
+      "priority": "low",
+      "location": "Figure 2, p. 7; specificity_results.tex lines 23–37",
+      "issue": "The six overview-plus-detail pairs are coherent, but the M/S/P inset ticks, markers and repeated “Means & refs” headings are substantially smaller than the surrounding body and caption text in the rendered page.",
+      "reader_effect": "The figure requires zooming to inspect the nearby painter distinctions that the magnified details are meant to make easy to compare.",
+      "suggested_change": "Use the caption once to identify the detail contents, remove the repeated “Means & refs” inset headings, and enlarge the inset tick labels and markers within the current footprint. Preserve the common scales and all overview points; no extra panel or page is needed."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent, self-contained account of a bounded digital-reference comparison. The main narrative makes the design and principal findings readily understandable, preserves the distinction between primary inference and retrospective diagnostics, and avoids equating measured agreement with perceptual artistic fidelity. Only localized wording and figure/table accessibility refinements remain; no substantial restructuring or new evidence is needed."
+}

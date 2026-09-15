@@ -1,0 +1,78 @@
+{
+  "reviewer_id": "editorial_r19_a",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "e2bae604c58250091674a82928f0f3a539bcc5dcf0146157475f857ef669fc6d",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete 22-page frozen PDF, including abstract, main text, references, availability statement and Appendices A–G. Visually inspected every rendered PDF page, all five figures and all eleven tables. Consulted frozen paper.tex and specificity_results.tex to resolve wording, notation, figure captions and source locations. The abstract contains 149 whitespace-separated source words. Technical appendices were assessed as optional depth; no external sources, other reviews, previous versions or non-snapshot manuscript were consulted."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.25,
+    "new_reader_understanding": 9.0,
+    "engagement": 9.25
+  },
+  "overall": 9.1875,
+  "score_reasons": {
+    "expression": "Excellent, precise prose with manageable sentences and stable distinctions between aligned response, total error, collection proximity and perceptual fidelity. Section 4.1 explains contrasts in ordinary language before equations, and Section 5.4 explains why shrinking a response can reduce error. Qualifications generally appear where needed. Remaining refinements are local: the abstract introduces FLUX through an implicit prior ranking, and “weaker distinctions” in Section 5.3 is less precise than the surrounding alignment terminology.",
+    "structure": "The main sequence moves coherently from the evaluation problem to the controlled arms, feature interpretation, score intuition, formal definitions and findings. Results 5.1–5.5 have informative headings and distinguish the declared comparisons from retrospective pair, calibration and source analyses. Tables 3 and 4 make the two main qualifications tangible. Detailed derivations, controls and historical cohorts are appropriately optional. Only the compressed ordering of the abstract’s calibration sentences needs a small structural refinement.",
+    "new_reader_understanding": "The main narrative is readily understandable without the repository or appendices. The prompt clauses, reference target and scaling units are explicit; the lightness example and idealized errors 1, 0 and 1 make the two scores interpretable. The theoretical no-contrast predictor is distinguished from the observed generic arm, and uncertainty and source-audit limits are clear. Two small gaps remain for a reader scanning only the abstract or Figure 1: FLUX’s uncalibrated lead is implicit in “displacing,” and the displayed audited reference regions are not explicitly contrasted there with the primary full-frame scoring target.",
+    "engagement": "The opening Monet–Sisley example creates a concrete evaluation question. Figure 1 rewards direct inspection of controlled outputs, Figure 2’s magnified painter details show the geometry, and Figure 3 makes unequal pair alignment visible. The response-strength and scene-averaging reversals supply a clear narrative beyond a ranking table, with restrained interpretation. The abstract’s rapid final switch into calibration slightly compresses that otherwise strong explanatory pace."
+  },
+  "strengths": [
+    "Section 4.1, page 5: the measured Monet–Sisley lightness gap makes centering concrete, followed by a concise three-generator example that separates response strength from error before introducing notation.",
+    "Figures 1–3, pages 4, 7 and 8: the complete scene-by-condition panel, consistently scaled reference-contrast views with M/S/P details, and annotated pair heatmaps each answer a distinct reader question and are legible in the PDF.",
+    "Sections 5.1 and 5.4, pages 6 and 9: the near-unit GPT Image 2 aligned response, FLUX’s lower original error, and the calibrated ordering are explained through what the metrics reward; descriptive stability is not presented as statistical superiority.",
+    "Section 5.5 and Table 4, pages 9–10: source correction is treated as consequential evidence, including the Sunburst comparison becoming unresolved, while the retrospective GPT Image 1 result is explicitly distinguished from confirmatory findings.",
+    "The main text consistently limits the target to measured digital reproductions and explicitly separates noise correction, statistical uncertainty, image alteration and perceptual fidelity. Appendices preserve substantial technical evidence without becoming prerequisites for the central story."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Abstract, page 1; paper.tex lines 37–40",
+      "issue": "“Displacing FLUX.2 Max” assumes that the abstract reader already knows FLUX has the lowest uncalibrated estimate, but that ranking has not been stated. The retrospective procedure is explained, yet its before/after comparison is compressed into an implicit antecedent.",
+      "reader_effect": "A new reader must infer what position FLUX occupied and whether the sentence compares the same error definition before and after calibration.",
+      "suggested_change": "Replace the two calibration sentences with: “Retrospective calibration uniformly rescales each model’s measured differences using other scenes. GPT Image 2 has the lowest held-out error estimate after calibration; FLUX.2 Max has the lowest uncalibrated estimate. Images remain unchanged.” This preserves the result and leaves the abstract within 155 words."
+    },
+    {
+      "priority": "low",
+      "location": "Figure 1 caption, page 4; paper.tex lines 151–154",
+      "issue": "The caption identifies audited peripheral crops, while the primary numerical target uses full frames. A figure-only reader is not explicitly told that these displayed reference regions differ from the original scoring regions; Appendix D also clarifies that only Sisley and Pissarro are cropped.",
+      "reader_effect": "The visible painting region can be mistaken for the region underlying the main scores, making the later source correction slightly harder to connect to the opening example.",
+      "suggested_change": "Replace the relevant caption sentence with: “The top row shows audited reference regions for display; primary scores use full frames. These works were neither generator inputs nor matched compositions.” Keep the individual crop details in Appendix D. This is a caption substitution and requires no extra panel or page."
+    },
+    {
+      "priority": "low",
+      "location": "Section 5.3 opening, page 8; specificity_results.tex lines 63–65",
+      "issue": "“Locate the weaker distinctions” briefly blurs low reference alignment with weak generated separation, although the next sentences and Figure 3 correctly discuss aligned response and error separately.",
+      "reader_effect": "A reader scanning the topic sentence could take low Monet–Sisley alignment to mean that the generated conditions are barely distinguishable, whereas differences in an incorrect direction can also produce low alignment.",
+      "suggested_change": "Use “Retrospective pair diagnostics locate weaker reference alignment” in the opening sentence. This short replacement preserves the measured claim and matches the terminology of the figure and numerical discussion."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent, self-contained account of a bounded digital-reference comparison. The manuscript communicates the intervention, target, metric behavior and uncertainty clearly, with visually useful figures and a disciplined distinction between declared results and retrospective explanation. The suggested changes are localized refinements, not missing experiments or major narrative repairs; they can be made within the existing 22 pages and 155-word abstract limit."
+}

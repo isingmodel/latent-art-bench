@@ -2,14 +2,14 @@
 \centering\small\setlength{\tabcolsep}{4pt}
 \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{.24\linewidth}>{\raggedright\arraybackslash}Xr>{\raggedright\arraybackslash}X@{}}
 \toprule
-Model & Reference slope $\beta$ & Error $D$ & $\Delta D$ versus GPT Image 2\\
+Model & Aligned response $\beta$ & \shortstack{Uncalibrated\\error $D$} & $\Delta D$ versus FLUX\\
 \midrule
-GPT Image 1 & $0.938\;[0.709,1.168]$ & $1.572$ & $0.346\;[-0.400,1.093]$\\[3pt]
-GPT Image 2 & $0.999\;[0.893,1.104]$ & $1.226$ & $0$ (baseline)\\[3pt]
-GPT Image 2.5 Flare & $0.772\;[0.680,0.864]$ & $1.738$ & $0.512\;[-0.126,1.150]$\\[3pt]
-GPT Image 2.5 Sunburst & $0.824\;[0.680,0.968]$ & $1.641$ & $0.415\;[-0.350,1.181]$\\[3pt]
-Nano Banana 2 & $0.442\;[0.256,0.629]$ & $1.109$ & $-0.116\;[-1.155,0.922]$\\[3pt]
-FLUX.2 Max & $0.470\;[0.239,0.701]$ & $0.801$ & $-0.425\;[-1.011,0.161]$\\[3pt]
+GPT Image 1 & $0.938\;[0.709,1.168]$ & $1.572$ & $0.771\;[-0.037,1.580]$\\[3pt]
+GPT Image 2 & $0.999\;[0.893,1.104]$ & $1.226$ & $0.425\;[-0.161,1.011]$\\[3pt]
+GPT Image 2.5 Flare & $0.772\;[0.680,0.864]$ & $1.738$ & $0.937\;[0.256,1.618]$\\[3pt]
+GPT Image 2.5 Sunburst & $0.824\;[0.680,0.968]$ & $1.641$ & $0.840\;[0.058,1.623]$\\[3pt]
+Nano Banana 2 & $0.442\;[0.256,0.629]$ & $1.109$ & $0.309\;[-0.847,1.464]$\\[3pt]
+FLUX.2 Max & $0.470\;[0.239,0.701]$ & $0.801$ & $0$ (baseline)\\[3pt]
 \bottomrule\end{tabularx}
-\caption{Pooled-reference agreement and scene-paired model comparisons. Lower $D$ indicates less scene-wise mismatch with pooled reference contrasts; larger $\beta$ is not necessarily better. Brackets give approximate simultaneous intervals from the fixed family of six slopes and 15 model contrasts. On a complete common panel, model differences equal the scene fixed-effects regression contrasts. Inference uses paired scene differences.}
+\caption{Agreement with the full-frame reference target. $\beta=1$ matches its aligned amplitude; larger is not necessarily better. Expected $D$ is 0 for exact agreement and 1 for no painter distinctions. Positive $\Delta D$ favors FLUX.2 Max. Table brackets give approximate 95\% simultaneous intervals from the prespecified family of six aligned responses and 15 scene-paired model contrasts. FLUX's lowest $D$ estimate has an unadjusted 95\% interval $[0.586,1.016]$, spanning the no-distinction value 1; this interval is descriptive.}
 \label{tab:specificity-models}\end{table}

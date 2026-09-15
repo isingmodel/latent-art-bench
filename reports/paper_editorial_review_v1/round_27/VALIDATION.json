@@ -1,0 +1,12 @@
+{
+  "evaluated_round": 27,
+  "page_count": 22,
+  "abstract_whitespace_words": 154,
+  "pdf_extracted_words": 9620,
+  "pdf_sha256": "30e26d181355eca8f2cc64f9f93a74e654754d2a6faf45e1ab2e65bc8bad462e",
+  "build": "Tectonic passed without warnings",
+  "visual_inspection": "All 22 pages rendered. Changed pages 1, 6, 7, 8, 9 and 10 individually inspected; the other 16 PNGs are byte-identical to previously inspected pages. Abstract, expanded Table 2 caption, operational shared-change explanation, revised heading and Discussion fit without clipping. The gallery and all tables retain their established readable layouts.",
+  "presentation_replay": "Changed table builder passes exact replay and Ruff. All table data cells and all figure bytes match round 26. The newly displayed nominal absolute-error interval is read directly from the frozen analysis JSON; the duplicate numerical sentence was removed from main prose.",
+  "lint": "git diff --check passed",
+  "scientific_scope": "Editorial prose, heading and caption changes only. No scientific input, numerical result, image, inferential procedure, experiment or human evaluation changed."
+}

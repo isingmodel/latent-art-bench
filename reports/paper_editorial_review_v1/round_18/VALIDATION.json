@@ -1,0 +1,12 @@
+{
+  "evaluated_round": 18,
+  "page_count": 22,
+  "abstract_whitespace_words": 152,
+  "pdf_extracted_words": 9686,
+  "pdf_sha256": "1df79f52d29b89a075865f26ddba548eec92b29e0177d3018860e6db91aff327",
+  "build": "Tectonic passed without warnings",
+  "visual_inspection": "All 22 pages rendered. Changed pages 1, 7, 9, 10 and 16 inspected individually; the other 17 PNGs are byte-identical to previously inspected renders. Content-class paragraph is kept together after Table 4. Introduction and conclusion remain complete on their pages.",
+  "presentation_replay": "All specificity figures passed deterministic replay and Ruff. Geometry retains 756 scatter points, 54 lines, 12 axes, numerical limits and equal aspect. All 94 visible text bounds and 121 PDF words lie inside the canvas; detail ticks clear adjacent axes by at least 4.28 points. Other figures are byte-identical to round 17.",
+  "lint": "git diff --check passed",
+  "scientific_scope": "Prose, transfer of existing stability range to Appendix C.2, paragraph flow and geometry presentation only. No scientific inputs, numerical results, source images or inferential procedures changed."
+}

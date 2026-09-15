@@ -1,0 +1,71 @@
+{
+  "reviewer_id": "editorial_r26_c",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "124379f710f1a63188be56e4ff00d2ba67d51d5dc419216dcc2f99206775f55f",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete supplied 22-page PDF, including abstract, main text, references and Appendices A-G. Visually inspected every rendered page, all five figures and all twelve tables. Consulted frozen paper.tex and specificity_results.tex to resolve wording, notation and locations. Technical appendix detail was treated as optional depth when judging main-text accessibility. No other reviews, prior versions, progress records or non-snapshot manuscript were consulted."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.5,
+    "new_reader_understanding": 9.25,
+    "engagement": 9.25
+  },
+  "overall": 9.3125,
+  "score_reasons": {
+    "expression": "Precise, fluent prose makes difficult distinctions economical: Section 4.1 explains contrasts through an actual Monet-Sisley lightness gap, and Sections 5.1 and 5.4 explain why alignment, response magnitude and error can disagree. Terminology remains consistent, and qualifications generally sit beside the claims they limit. The 155-word abstract is effective but slightly compresses the definition of the named prompt arm; the suggested clarification is localized.",
+    "structure": "The progression from the name-versus-proximity question to the controlled design, feature interpretation, intuitive score definitions, primary results and retrospective diagnostics is exceptionally coherent. Section 4.1 precedes the equations, Section 4.4 introduces calibration before its results, and Table 4 organizes the change in ordering. Source correction is integrated into the main findings and conclusion. Derivations, robustness details and earlier cohorts remain optional appendix depth, with their evidential roles explicitly separated. No substantial reorganization is needed.",
+    "new_reader_understanding": "A reader can recover the experiment and its bounded target without the repository: Sections 3.1-3.3 define the panels, six prompt conditions and feature units; Section 4 supplies intuitive benchmarks of D=1 and D=0 and explains repeat correction; captions explain projections and pair scores. Calibration is explicitly a rescaling of feature contrasts, not image improvement. Main-text uncertainty and retrospective status are clear. A small remaining improvement is to place the already reported FLUX absolute-error interval beside the primary table, making the no-distinction benchmark conclusion easier to inspect.",
+    "engagement": "The opening example poses a consequential evaluation problem, Figure 1 makes the actual intervention inspectable, and the lightness example connects measurement to a concrete artist pair. Figures 2 and 3 reward inspection through their detail views and labeled pair estimates. The narrative develops through substantive reversals: strong alignment can coexist with error, averaging changes the ordering, and shrinking contrasts changes it again. The results sustain this narrative without claiming perceptual validation. Table 2 could convey the central uncertainty more immediately, but the pace and emphasis are otherwise excellent."
+  },
+  "strengths": [
+    "Section 4.1, page 5, gives both an observed one-feature contrast (.325 versus .254 development-IQR units) and the no-distinction/exact/doubled examples with errors 1/0/1 before the formal estimators.",
+    "Figure 1, page 4, shows all 36 generated conditions for a fixed scene, includes both controls, and explicitly distinguishes displayed reference crops from the full-frame scoring target.",
+    "Table 4 and Section 5.4, page 9, turn the differences between scene error, averaged error and calibration into an understandable comparison; the text explains why shrinking GPT Image 2 lowers error without changing images.",
+    "Section 5.5 and Table 5, pages 9-10, report the source correction that changes the Sunburst comparison, identify the AI-only audit and preserve the distinction between a stable point-estimate ordering and changed statistical evidence.",
+    "Figure 3 and its caption, page 8, clearly separate aligned response from error and explicitly explain negative repeat-corrected estimates and the descriptive status of painter-pair comparisons."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Abstract, page 1; paper.tex lines 27-33",
+      "issue": "The abstract calls the four named conditions Monet, Sisley, Pissarro or Cézanne prompts, leaving their shared oil-painting clause implicit. The main text and Table 3 correctly make that clause explicit, but the abstract is the place where the large shared-change percentage is most likely to be read alone.",
+      "reader_effect": "A hurried new reader could attribute the entire named-minus-artist-free change to adding an artist name, instead of recognizing that the comparison also adds the oil-painting instruction. This is a small ambiguity, not a substantive overclaim in the full manuscript.",
+      "suggested_change": "Replace the design sentence with: \"Six generators rendered 14 fixed scenes twice under artist-free, generic oil-painting, and Monet, Sisley, Pissarro or Cézanne oil-painting prompts, producing 1,008 images.\" This specifies the intervention without adding words to the current 155-word abstract."
+    },
+    {
+      "priority": "low",
+      "location": "Table 2, page 7, and Section 5.1, page 6; specificity_results.tex lines 13-22",
+      "issue": "The table presents adjusted intervals for alignment and model differences but only point estimates for absolute error. The decisive nominal interval for the lowest D estimate, [.586, 1.016], appears only on the preceding page.",
+      "reader_effect": "The table can be scanned as a ranking while the evidence behind the headline statement that no model is established to beat D=1 requires a return to the prose. The manuscript already explains this correctly; its main display could carry the interpretation more directly.",
+      "suggested_change": "Move the existing sentence about FLUX's nominal absolute-error interval into the Table 2 caption, or use an equivalent compact table note: \"FLUX's lowest D estimate has nominal 95% interval [.586, 1.016], spanning the no-distinction value 1.\" Keep that interval explicitly descriptive and distinct from the adjusted intervals. Remove the duplicate numerical sentence in Section 5.1 so the change remains length-neutral."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent, self-contained account of a bounded digital-reference comparison. Its intuitive score explanations, visible experimental controls, clear result hierarchy and careful handling of retrospective findings make the argument readily understandable. Only localized clarification and display refinements remain; no new experiments, representation changes or manuscript expansion are needed."
+}

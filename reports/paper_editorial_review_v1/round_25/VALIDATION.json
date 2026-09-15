@@ -1,0 +1,12 @@
+{
+  "evaluated_round": 25,
+  "page_count": 22,
+  "abstract_whitespace_words": 155,
+  "pdf_extracted_words": 9639,
+  "pdf_sha256": "0ab7cbe67ddded3f919be3fddad2fa6372c4f5c62c7b26006b10bd4e11ede710",
+  "build": "Tectonic passed without warnings",
+  "visual_inspection": "All 22 pages rendered. Changed pages 1, 6 and 8 individually inspected; the other 19 PNGs are byte-identical to previously inspected pages. The abstract, corrected complete-comparison reference, shared-change explanation, table caption and shortened control paragraph fit without clipping or displaced figures.",
+  "presentation_replay": "Changed table builder passes exact replay and Ruff. All numerical tokens in every generated table and supplement remain identical to round 24; figures are unchanged.",
+  "lint": "git diff --check passed",
+  "scientific_scope": "Wording and one cross-reference corrected. Shared-fraction and beta interpretations checked against retained formulas. No scientific input, numerical result, source image, inferential procedure, experiment or human evaluation changed."
+}

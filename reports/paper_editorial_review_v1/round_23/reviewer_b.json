@@ -1,0 +1,73 @@
+{
+  "reviewer_id": "editorial_r23_b",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "1112c59c06596d49ecaae93f3a4544e05de91855548060cce273c89eda02d471",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete frozen 22-page PDF text, including references and Appendices A–G; visually inspected rendered pages 1–22, all five figures and all twelve tables. Consulted the frozen paper.tex and specificity_results.tex to resolve notation, sequence and source locations. Technical appendices were assessed as optional depth. No other reviews, earlier versions, progress records or non-snapshot manuscript were consulted. PDF SHA256 was independently computed with shasum and Python hashlib. The abstract contains 152 whitespace-delimited words in the source."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.0,
+    "new_reader_understanding": 9.0,
+    "engagement": 9.0
+  },
+  "overall": 9.0625,
+  "score_reasons": {
+    "expression": "The English is precise, fluent and economical. The opening Monet–Sisley example establishes the distinction between collection proximity and painter contrasts without relying on project terminology. Sections 4.1–4.2 introduce contrasts, aligned response and error in plain language before equations, and explain the assumptions without overstating what correction achieves. Qualifications generally resolve a specific possible misunderstanding. Remaining refinements concern emphasis and sequencing rather than recurrent sentence-level problems.",
+    "structure": "The main text forms a coherent question–design–measurement–inference–results–interpretation sequence. Primary adjusted comparisons are visibly separated from retrospective pair, calibration and source diagnostics; older cohorts are appropriately confined to optional appendices. Section 5.5 and Table 5 also carry the changed source-correction conclusion back into the main narrative. The localized weakness is Section 5.4: prose begins with the rightmost calibration column of Table 4 and then returns to the middle decomposition columns, making that otherwise useful comparison less direct to follow.",
+    "new_reader_understanding": "The abstract stands alone, the six experimental conditions and finite digital reference target are explicit, and Table 1 translates feature families into understandable properties. The lightness example and the 1/0/1 error examples give unusually useful intuition for the notation. The theoretical no-contrast benchmark, conditional-mean target, negative estimates and unchanged images under calibration are all explained. A brief verbal interpretation of the pair-error panel would strengthen the last step from the accessible lightness example to the full-feature Monet–Sisley finding.",
+    "engagement": "The consequential question is established immediately and sustained through informative reversals: positive alignment with substantial error, a large shared shift, uneven painter-pair responses, and changes in ordering under calibration or scene averaging. Figure 1 offers an inspectable common-scene example; Figure 2 uses useful magnified details; Figure 3 makes the heterogeneous pairs visible. Results headings state findings and the prose avoids hype. The main remaining opportunity is to explain one contrasting pair-error value explicitly so the reader gets more narrative value from Figure 3’s second panel."
+  },
+  "strengths": [
+    "The first paragraph distinguishes moving toward Monet’s collection from recovering Monet–Sisley differences; this makes the central evaluation problem concrete before any notation.",
+    "Sections 3.2–3.3 specify all prompt arms, configurations, repeat counts and reference scaling while Table 1 explains what the 31 coordinates mean and what they cannot measure.",
+    "Section 4.1 teaches both scores with a measured lightness example and idealized no-distinction, exact and doubled-contrast cases; Section 4.2 then clearly distinguishes the theoretical benchmark from the generic-painting arm.",
+    "The main figures and tables are legible and well captioned. Figure 1 shows all conditions for the same scene, Figure 2 makes nearby painter positions inspectable, and Figure 3 states the meanings of zero, one and negative estimates.",
+    "Section 5.4 explains why shrinking measured contrasts can reduce error without changing images, and explicitly distinguishes overlapping-fold stability from statistical superiority.",
+    "The source audit’s limitations and its effect on particular adjusted comparisons remain visible in Section 5.5, Table 5 and the conclusion; the manuscript does not hide the loss of the Sunburst–FLUX comparison after correction.",
+    "The substantial supporting material is kept in optional appendices, while the main text remains sufficient to understand the study and its bounded conclusions."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Section 5.4 and Table 4, PDF p. 9; specificity_results.tex lines 87–111",
+      "issue": "Table 4 presents uncalibrated error, error after scene averaging, scene variation and finally calibrated error, but the surrounding explanation first follows the rightmost calibration column and subsequently returns to the two middle columns. The two distinct reasons for an ordering change are clear individually, but the reading order requires backtracking through the table.",
+      "reader_effect": "A new reader must alternate between the calibration comparison and the decomposition while learning three additional quantities at once. This slightly weakens an otherwise strong explanation of why evaluation choices change the ordering.",
+      "suggested_change": "Keep the existing table and evidence, but discuss the scene-averaging decomposition first and the calibration result second, matching the column order. Move the existing paragraphs rather than add text, and adjust the two transitions so the section stays within its present length."
+    },
+    {
+      "priority": "low",
+      "location": "Section 5.3 and Figure 3, PDF p. 8; specificity_results.tex lines 59–82",
+      "issue": "The prose interprets the pair-alignment panel in detail, including GPT Image 2’s relatively larger Monet–Sisley response, but leaves the pair-error panel entirely to the reader. That panel contains a particularly useful continuation of the earlier lightness example: GPT Image 2’s Monet–Sisley pair error is 1.16 despite its positive aligned response of 0.40.",
+      "reader_effect": "The reader can understand which pair responses align weakly, but receives less help connecting this concrete pair to the paper’s central distinction between alignment and total disagreement. The largest Monet–Sisley aligned response is more prominent in prose than its remaining mismatch.",
+      "suggested_change": "Use a short replacement sentence to read that existing cell aloud, for example: “Even GPT Image 2’s larger Monet–Sisley alignment leaves pair error at 1.16, above the no-distinction value.” Preserve the descriptive qualification already present and recover the space by shortening the generic concluding sentence or the cross-reference to the lightness example; no additional analysis or figure is needed."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "Excellent communication of a deliberately bounded comparison of digital reference contrasts. The experimental design, score meanings and principal findings are understandable without the repository or technical appendices. Inferential and perceptual limits are handled carefully, and the visible results support the stated distinctions. Remaining improvements are localized changes to reading order and interpretation of existing figure values, achievable without expanding the 22-page paper or its abstract."
+}

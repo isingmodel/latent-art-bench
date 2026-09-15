@@ -1,0 +1,72 @@
+\subsection{Additional score identities}\label{app:score-details}
+Under a shared affine transformation $z\mapsto Az+b$, centering removes
+the additive term $b$ but leaves the transformed contrast $Ad$.
+
+The estimator has an exact decomposition. Write
+$e_{msak}=d_{msak}-\widehat\beta_{msk}r_a$. Then
+\begin{equation}
+ \widehat D_{ms}=
+ (\widehat\beta_{ms1}-1)(\widehat\beta_{ms2}-1)
+ +\frac1H\sum_a\langle e_{msa1},e_{msa2}\rangle.
+ \label{eq:decomposition}
+\end{equation}
+The first term measures reference-aligned amplitude error. The residual is
+orthogonal to the single stacked reference configuration; it is not necessarily
+outside the feature-space span of the reference means, much less outside all
+authentic artistic variation. Both terms can be negative in finite samples.
+
+Let $\theta_s$ stack the four conditional mean contrasts and
+$\bar\theta=S^{-1}\sum_s\theta_s$. The population target decomposes as
+\begin{equation}
+ D_{\rm scene}=\frac{\|\bar\theta-r\|^2}{H}
+ +\frac1{SH}\sum_s\|\theta_s-\bar\theta\|^2
+ =D_{\rm aggregate}+V_{\rm scene}.
+ \label{eq:scene-decomposition}
+\end{equation}
+To separate contrast strength from direction, define
+\begin{equation}
+ \widehat Q_m=\frac1{SH}\sum_{s,a}\langle d_{msa1},d_{msa2}\rangle,
+ \qquad \widehat D_m=1-2\widehat\beta_m+\widehat Q_m.
+ \label{eq:magnitude}
+\end{equation}
+For positive $\widehat Q_m$, $\widehat\beta_m/\sqrt{\widehat Q_m}$ is a
+noise-corrected alignment summary; finite estimates need not lie in $[-1,1]$.
+Scaling every centered generated contrast by $c$ gives
+$\widehat D_m(c)=1-2c\widehat\beta_m+c^2\widehat Q_m$.
+We fit $c=\max(0,\widehat\beta/\widehat Q)$ on the other 13 scenes and evaluate
+it on the held-out scene. The fitting criterion is available only when its
+training $\widehat Q$ is positive, as it is in every observed fold. This
+counterfactual concerns feature vectors, not an implemented image transformation.
+
+\subsection{Paired comparisons and declared sensitivities}\label{app:declared-sensitivities}
+We fit the scene fixed-effects regression
+\begin{equation}
+ \widehat D_{ms}=\alpha_s+\gamma_m+\varepsilon_{ms},
+ \qquad\gamma_{\text{GPT Image 2}}=0.
+ \label{eq:regression}
+\end{equation}
+In the balanced panel, coefficient differences equal the paired scene means
+used for inference. Changing the regression baseline leaves these differences
+unchanged; Table~\ref{tab:specificity-models} presents them relative to FLUX.
+Declared sensitivities delete each scene, resample scenes
+and reference works, examine feature families and omit texture. Central-square
+windows control aspect ratio by discarding peripheral content in generated and
+reference images. FLUX retains the lowest uncalibrated error after every scene
+deletion ($D=.754$--$.852$) and with square windows ($D=.765$; next-lowest
+Nano Banana 2, $1.024$).
+
+\subsection{Distributional proximity and repeat spread}
+For painter $a$, energy discrepancy compares its generated collection $Y_a$
+with reference collection $X_a$:
+\begin{equation}
+ \E(X,Y)=\frac{2}{n_Xn_Y}\sum_{i,j}\|x_i-y_j\|
+ -\frac1{n_X^2}\sum_{i,i'}\|x_i-x_{i'}\|
+ -\frac1{n_Y^2}\sum_{j,j'}\|y_j-y_{j'}\|.
+ \label{eq:energy}
+\end{equation}
+Its finite-sample expectation depends on within-collection spread; equal
+generated sample sizes do not eliminate comparison bias. Appendix~\ref{app:diagnostics}
+gives the correction for the repeated-scene design. Within-scene repeat spread,
+$\frac{1}{2S}\sum_s\|z_{msa1}-z_{msa2}\|^2$, is the mean sample-variance
+trace of the two outputs. It separates repeat dispersion from variation across
+briefs.

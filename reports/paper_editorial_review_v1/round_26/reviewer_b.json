@@ -1,0 +1,78 @@
+{
+  "reviewer_id": "editorial_r26_b",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "124379f710f1a63188be56e4ff00d2ba67d51d5dc419216dcc2f99206775f55f",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete extracted text of all 22 PDF pages, including references and Appendices A–G. Visually inspected every rendered page, including Figures 1–5 and Tables 1–12. Consulted the frozen paper.tex and specificity_results.tex to resolve wording and locations. Confirmed the PDF has 22 pages and the extracted abstract has 155 whitespace-delimited words. Extraction and page renders used isolated /tmp/editorial-r26-b.DI6ZBr. Technical appendices were treated as optional depth when assessing main-text accessibility. No other review records, earlier versions, progress records, goals or non-snapshot manuscript were consulted."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.25,
+    "new_reader_understanding": 9.0,
+    "engagement": 9.0
+  },
+  "overall": 9.125,
+  "score_reasons": {
+    "expression": "The prose is precise, fluent and unusually careful about what each result means. Section 4.1 explains contrasts with an actual Monet–Sisley lightness difference before introducing notation, and its three idealized generators make the error benchmark memorable. Qualifications usually accompany the relevant claim rather than accumulating in one remote disclaimer. The abstract remains grammatically clear at exactly 155 words, although its final sequence of retrospective findings and model orderings is compressed enough to benefit from one localized simplification.",
+    "structure": "The progression from the name-versus-pattern question through design, feature interpretation, intuitive scores, uncertainty and findings is coherent. Sections 5.1–5.5 distinguish the primary agreement result, shared change, painter pairs, calibration and source sensitivity; the latter explicitly revisits the earlier Sunburst comparison. Technical derivations and earlier cohorts are appropriately optional in Appendices A–G. The discussion could synthesize the shared-response and pairwise findings more directly before returning to model orderings, but the main argument requires no reconstruction.",
+    "new_reader_understanding": "A reader can recover the six prompt conditions, fixed-scene design, finite digital reference target, feature units, beta and D benchmarks, repeat correction and calibration without opening the repository. Table 1 interprets feature families; Figure 1 shows both controls; Figure 2 provides readable magnified details; Figure 3 labels the important benchmarks. The distinction between an observed generic arm and the theoretical D=1 predictor is explicit. A short plain-language account of the shared percentage calculation beside Table 3 would reduce the remaining need to translate a compressed statistical label into the actual comparison.",
+    "engagement": "The opening question is concrete, and the visual example, scalar lightness example, weak Monet–Sisley responses and changing error orderings give the paper a discernible narrative. The figures reward comparison and their captions state what to inspect. Results are interpreted through their consequences without claims of perceptual validation. Momentum is strong overall; the abstract’s packed ending and the discussion’s emphasis on orderings leave small opportunities to foreground the central name-response versus painter-pattern insight."
+  },
+  "strengths": [
+    "The introduction explains why approaching a Monet collection is insufficient evidence for distinguishing Monet from Sisley, giving the technical audit a concrete motivation.",
+    "Section 4.1 combines measured lightness values with no-distinction, exact-match and doubled-contrast examples, making the distinction between aligned response and total error understandable before Equations 1–3.",
+    "Figure 1 makes all six arms inspectable for every model; Figure 2 uses common overview and detail scales; Figure 3 combines numerical cells with explicit alignment and error benchmarks. The rendered main figures and tables are legible and unclipped.",
+    "The manuscript consistently distinguishes point-estimate orderings from established comparisons, and Section 5.5 plus Table 5 explicitly show how source correction changes the Sunburst and GPT Image 1 intervals.",
+    "Calibration is explained as rescaling measured contrasts on other scenes, with no image changes or claim of statistical superiority. Historical cohorts and detailed statistical diagnostics remain separate optional material."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Section 5.2 and Table 3, PDF p. 8; specificity_results.tex lines 44–56",
+      "issue": "The leading 82.5–95.7% result is named as a share of scene-averaged, repeat-corrected squared change, but its main-text explanation jumps directly to how beta differs. The caption identifies the mean shift, while the simple operation separating that shift from deviations is left to Appendix B.",
+      "reader_effect": "The reader can understand that most change is common, but must mentally reconstruct exactly what is being partitioned and why this percentage is different from the amount of reference alignment.",
+      "suggested_change": "Replace the opening with a compact operational explanation: after averaging scenes, split each named-minus-artist-free shift into the mean shift across names and departures from that mean; report their repeat-corrected squared shares. Retain the next sentence distinguishing beta. Recover the small space cost by shortening the closing pointer to collection-level proximity and spread; no new formula or analysis is needed."
+    },
+    {
+      "priority": "low",
+      "location": "Section 6 opening paragraph, PDF p. 10",
+      "issue": "The discussion opens with the three lowest-error model estimates and then recommends reporting several scores. Its synthesis gives less emphasis to the equally central combination of a dominant common shift and uneven painter-pair agreement.",
+      "reader_effect": "At the point where readers expect the broader interpretation, attention briefly shifts toward which model leads each score rather than what the audit reveals about interpreting an artist-name response.",
+      "suggested_change": "Replace the generic sentence about the orderings answering different questions with a sentence connecting the shared-shift and painter-pair results: a strong aggregate name response can coexist with weak labeled distinctions, while magnitude and scene variation change its error. Compress the adjacent reporting recommendation to keep the paragraph at its current length."
+    },
+    {
+      "priority": "low",
+      "location": "Abstract, PDF p. 1; paper.tex lines 35–39",
+      "issue": "The abstract’s last five sentences move through painter-pair diagnostics, an uncalibrated leader, the calibration procedure, a calibrated leader and the perceptual boundary. The information is accurate, but the closely packed model names and repeated retrospective labels make the ending denser than the opening.",
+      "reader_effect": "A new reader may retain the changing model order before fully retaining the simple distinction between measured contrast rescaling and an improved image.",
+      "suggested_change": "Merge the adjacent uncalibrated and calibrated ordering statements into one comparison, while retaining the fitted-on-other-scenes detail and the explicit statement that images are unchanged. Use the saved words as breathing room rather than adding another result, and remain at or below 155 words."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "Excellent communication of a bounded digital-reference comparison. The experimental arms, reference target and meaning of the principal scores are readily recoverable; visual evidence and uncertainty language support the narrative. Only localized refinements to the shared-change explanation, abstract pacing and discussion synthesis remain. The findings do not call for new data, perceptual validation or expansion beyond 22 pages."
+}

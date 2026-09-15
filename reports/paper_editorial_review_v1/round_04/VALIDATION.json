@@ -1,0 +1,30 @@
+{
+  "evaluated_round": 4,
+  "page_count": 22,
+  "abstract_whitespace_words": 145,
+  "extracted_pdf_words": 9434,
+  "pdf_sha256": "10707f5ca01a70b5cfd7599bed158f840f5e656e7dfaa3ba4dae89895b52f745",
+  "build": "Tectonic: passed without warnings",
+  "presentation_replay": "Modified table and example builders --check: passed",
+  "lint": "Ruff on modified builders: passed after wrapping one long string literal",
+  "diff_whitespace": "git diff --check: passed",
+  "visual_inspection": "All 22 pages inspected, plus enlarged combined gallery and final main result pages. No clipping or unresolved references. Pair figure fits with its text before next subsection; calibration table accompanies its discussion.",
+  "gallery_invariance": {
+    "source_records_unchanged": 40,
+    "reference_crops_unchanged": 4,
+    "generated_prompts_unchanged": 36,
+    "input_bindings_unchanged": 5,
+    "only_manifest_change": "selection.generated presentation prose",
+    "standalone_control_pdf_unchanged": true,
+    "main_gallery_inches": [
+      6.7,
+      7.4
+    ],
+    "main_pdf_sha256": "7bd1599ae03e0cf244352405a243ec63b1486ee1a8b315841d638afa82035cb5",
+    "control_pdf_sha256": "02a5c5f75c6d2c8b900302a7c68ce80ee55a223d0a5a0ca6a27ab849412a353a",
+    "visual_inspection": "tmp/paper/combined-gallery/main.png"
+  },
+  "coordinate_example": "Preselected lightness/Monet-Sisley/GPT Image 2 example independently verified against canonical loader; exact values and hashes in ../coordinate_example.json.",
+  "aggregation_check": "Read frozen shared_within implementation: average common and specific squared components, then take fraction, rather than averaging scene fractions.",
+  "scientific_scope": "No new collection, feature extraction or human verification; added illustration derives from original frozen vectors; scientific evidence records unchanged."
+}

@@ -1,0 +1,71 @@
+{
+  "reviewer_id": "editorial_r07_b",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "3a000b84e08cfc4973c06372031d753292d7af72bcbe1af3811c9bf8804c0d60",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read all 22 pages, including the abstract, main text, references and Appendices A–G, from the frozen PDF extraction. Visually inspected every PDF page at a 1500-pixel rendered page height, including Figures 1–5 and Tables 1–10. Consulted frozen paper.tex and specificity_results.tex to resolve notation, wording and locations. Verified the supplied PDF SHA256 independently. Technical appendices were treated as optional depth when judging main-text accessibility. No other reviews, earlier versions, progress records or external sources were consulted. The abstract contains 152 whitespace-delimited source words."
+  },
+  "scores": {
+    "expression": 9.0,
+    "structure": 9.0,
+    "new_reader_understanding": 9.0,
+    "engagement": 9.0
+  },
+  "overall": 9.0,
+  "score_reasons": {
+    "expression": "Excellent, precise English with concrete explanations before compressed technical language. The Monet/Sisley lightness example and the no-distinction/exact/doubled-response examples in Section 4.1 make the central terminology usable. Qualifications usually identify a specific interpretive limit rather than merely hedging. Some repetition of the central evaluation distinction across Sections 6, 6.1 and 7 remains a localized opportunity for tightening.",
+    "structure": "The question, reference target, six-arm experiment, measurements, two primary scores and results follow a coherent progression. Result headings state what the findings reveal, and Sections 4.4 and 5.3–5.5 visibly distinguish retrospective diagnostics from the declared comparison family. Appendix placement keeps estimator identities, controls and earlier cohorts from burdening the main narrative. The short concluding passage could be consolidated with adjacent discussion to produce a cleaner ending.",
+    "new_reader_understanding": "The abstract stands alone within its length limit. The reader can recover the experimental arms, equal painter weighting, finite digital reference target, development scaling and meaning of the two main scores without consulting the repository. Tables 2–4 explain benchmarks, comparison signs and retrospective status; Figure 2 supplies magnified detail and Figure 3 exposes pair-specific results. The interpretation of zero and negative pair slopes could be stated explicitly where those values become the main finding.",
+    "engagement": "The opening Monet/Sisley contrast poses a consequential evaluation problem, Figure 1 makes the intervention tangible, and the numerical narrative has discernible turns: positive alignment with substantial error, weak painter pairs, a calibrated ordering change and source-sensitive comparisons. The figures reward inspection and their captions guide it without implying perceptual validation. Only modest compression of the closing repetition and a more explicit reading cue for signed pair slopes are needed to improve pace."
+  },
+  "strengths": [
+    "Section 4.1 (p. 5) connects a real median-lightness contrast (.325 versus .254 development-IQR units) to centering, then uses errors 1, 0 and 1 for no, exact and doubled contrasts. This provides intuition before the equations.",
+    "Sections 5.1 and 5.4 distinguish aligned strength, total error, calibration and scene variation through concrete model comparisons, rather than presenting a single unexplained ranking.",
+    "Figure 1 (p. 4) shows the complete six-condition, six-model comparison for a disclosed scene and repeat; Figure 2 (p. 7) uses magnified Monet/Sisley/Pissarro detail to make crowded positions inspectable.",
+    "Section 5.5 and Table 4 (pp. 9–10) show the original and source-corrected intervals side by side and explicitly identify the corrected GPT Image 1 comparison as retrospective.",
+    "The main text consistently limits the target to measured digital reference contrasts and distinguishes feature calibration from image improvement. Detailed source, uncertainty and earlier-cohort material remains available in optional appendices."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Section 5.3 and Figure 3 caption, p. 8; specificity_results.tex lines 67–85",
+      "issue": "The central pair result includes negative and near-zero slopes, but its immediate explanation gives only the slope-one benchmark. The meaning of negative slopes is left to the reader to infer from the earlier projection definition and the label-swap sentence.",
+      "reader_effect": "A reader without prior familiarity with projection slopes can see that Monet/Sisley values are small but may not immediately distinguish absent alignment from alignment in the opposite direction.",
+      "suggested_change": "Replace the caption instruction to read the first column with a compact signed-scale key: \"Pair slope 0 means no aligned component, 1 matches reference strength, and negative values indicate the opposite direction.\" Retain the error-one benchmark and the descriptive status in the surrounding text. This is a caption substitution within the existing page and abstract limits."
+    },
+    {
+      "priority": "low",
+      "location": "Sections 6–7, pp. 10–11; paper.tex lines 319–361",
+      "issue": "The discussion opening, the final limitations sentences and the conclusion repeat the separation of response strength, reference error and perceptual fidelity in close succession. The conclusion also breaks after \"FLUX’s\" across pp. 10–11.",
+      "reader_effect": "The ending loses some emphasis after the concrete calibration and source-correction results, and the page turn interrupts the final comparison.",
+      "suggested_change": "Cut one repeated contribution statement and consolidate the discussion/conclusion recap. Preserve the finite-reference and perceptual limitations in Section 6.1 and retain the changed Sunburst comparison in the conclusion. Use the recovered lines to keep the short conclusion together without expanding beyond 22 pages."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "Excellent communication of a deliberately bounded digital-reference comparison. The main narrative, primary results and retrospective diagnostics are readily understood; the remaining improvements are localized clarification of signed pair slopes and a tighter, uninterrupted ending. No material claim-fidelity problem was identified within the fixed editorial rubric."
+}

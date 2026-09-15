@@ -1,0 +1,12 @@
+{
+  "evaluated_round": 6,
+  "page_count": 22,
+  "abstract_whitespace_words": 152,
+  "pdf_sha256": "f08ea96fd8caeebfb32bc586c33b462917ac753895c0f9e69031265df64ec3e6",
+  "build": "Tectonic passed without warnings after fixing a shortstack bracket escape in the new table header",
+  "visual_inspection": "All 22 rendered pages inspected, plus enlarged geometry. Source-comparison table fits within text width; all labels, equations and captions intact. No unresolved references.",
+  "presentation_replay": "Both changed builders --check passed; all18 values in new comparison table match frozen original/source-audit results; overview coordinate/style/limit invariance and new18 inset pairs verified; no original observation obscured; six unaffected figure PDFs byte-identical.",
+  "geometry": "Adjacent M/S/P detail boxes at common3.001x scale preserve equal x/y scaling and exact original means/references; canvas unchanged",
+  "lint": "Scoped Ruff and git diff --check passed",
+  "scientific_scope": "No new data, image extraction, human evaluation or altered statistical results; all revisions concern explanation and presentation."
+}

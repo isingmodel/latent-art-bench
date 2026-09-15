@@ -1,0 +1,166 @@
+{
+  "created_at": "2026-09-15T00:03:04.880398+00:00",
+  "pdf_sha256": "9da1bd57fe94d9402ebd6aa8541a137e82a5b06b7c883bee727612613edad9b2",
+  "pages": 23,
+  "abstract_words": 151,
+  "pdftotext_words": 9655,
+  "canonical_matches_final_snapshot": true,
+  "independently_scored": false,
+  "previous_scores_not_reassigned": true,
+  "manuscript_length_cap_lifted": true,
+  "checks": {
+    "make check": "passed: Ruff and 848 routine tests in 247.59 seconds",
+    "make figures-check": "passed: all manuscript/supporting numerical figures and tables",
+    "make example-images-check": "passed: exact panel replay and all 40 source hashes",
+    "make editorial-check": "passed: portable record integrity and score arithmetic",
+    "python scripts/audit_paper_reviews.py --local-snapshots": {
+      "portable_audit": "passed",
+      "original_rounds": 33,
+      "original_unique_reviewers": 99,
+      "round_33_mean": 9.291666666666666,
+      "completed_external_reviews": {
+        "claude_code_review_01": {
+          "scores": {
+            "expression": 8.25,
+            "structure": 8.5,
+            "new_reader_understanding": 8.5,
+            "engagement": 8.0
+          },
+          "overall": 8.3125
+        },
+        "astra_xhigh_review_01": {
+          "scores": {
+            "expression": 9,
+            "structure": 9,
+            "new_reader_understanding": 8.75,
+            "engagement": 9
+          },
+          "overall": 8.9375
+        },
+        "claude_code_review_03": {
+          "scores": {
+            "expression": 8.0,
+            "structure": 8.0,
+            "new_reader_understanding": 8.25,
+            "engagement": 8.0
+          },
+          "overall": 8.0625
+        },
+        "astra_xhigh_review_03": {
+          "scores": {
+            "expression": 8.75,
+            "structure": 9.0,
+            "engagement": 8.75,
+            "new_reader_understanding": 8.75
+          },
+          "overall": 8.8125
+        },
+        "claude_code_review_04": {
+          "scores": {
+            "expression": 8.25,
+            "structure": 8.0,
+            "new_reader_understanding": 8.0,
+            "engagement": 8.0
+          },
+          "overall": 8.0625
+        },
+        "astra_xhigh_review_04": {
+          "scores": {
+            "expression": 9,
+            "structure": 8.75,
+            "new_reader_understanding": 8.75,
+            "engagement": 8.75
+          },
+          "overall": 8.8125
+        }
+      },
+      "cancelled_external_requests": 2,
+      "rubric_sha256": "e3c0d44034123bc097ed3a4823c3977e2b7bd13207460aba41bd1e805a3812f3",
+      "portable_external_files_hashed": 46,
+      "local_bytes_checked": true,
+      "scope": "Record integrity and arithmetic; no new review or validity assessment. Historical scores are not assigned to later canonical edits.",
+      "local": {
+        "snapshots_verified": 36,
+        "missing_snapshots": [],
+        "execution_artifacts_verified": 24,
+        "missing_execution_artifacts": []
+      }
+    },
+    "make paper; final tectonic rebuild": "passed: final build has no warnings",
+    "git diff --check": "passed",
+    "visual_inspection": {
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "method": "1600-pixel page renders and full-document contact sheets; enlarged changed table and closing page",
+      "result": "no clipping, overlaps or broken references observed"
+    },
+    "additional_read_only_agent_fact_check": "12 added table cells match retained values and units; calibration, nonadditivity and caveat preservation checked; no score assigned",
+    "git diff --cached --check": "passed; two exact historical .diff paths exempt required blank context-line spaces via .gitattributes",
+    "documentation_local_link_targets": "269 checked, no missing targets"
+  },
+  "preservation": {
+    "base_commit": "059042d3a6d8a0d77160e4082139325e1767b0ee",
+    "scientific_paths_changed": [],
+    "new_generated_or_acquired_images": 0,
+    "human_evaluation_added": false,
+    "historical_review_snapshots_modified": false,
+    "original_99_reviews_and_six_external_reviews_preserved": true
+  },
+  "log_sha256": {
+    "tmp/paper/final-check.log": "24b4166205ab39579aecf46ed57051a0c42e7a2de9d7d6cb4b5a2f4f7b842d6a",
+    "tmp/paper/final-figures-check.log": "741cfa1bf3ee73378e3508810360ff7b8149423fa2e96dc1eabad1a304888cff",
+    "tmp/paper/final-examples-check.log": "a808dfe74fa35fc92e9744e95c606c85cf2f258128179a2e8a6e6f53544a8e8f",
+    "tmp/paper/final-build.log": "a76454bb64347c20057d067fed16264799a1eea1821520028b489230da95b0ba",
+    "tmp/paper/final-editorial-check.json": "6e8ed7e6c15755d895843c51b94aee97b8ff3b932be25742ad15016301f1f270",
+    "tmp/paper/final-portable-editorial-check.log": "ed186fa2ca4757cffa9c5a2d6318e700e1531d69badecc3d031dad8f49b04701"
+  },
+  "page_png_sha256": {
+    "page-01.png": "4744b572bc143f4bffb17c0fd109899d9df26f8d3fed968416d0a9abc39d8da5",
+    "page-02.png": "7772522094319d0e8b14863aa0205d451e20eb886fe8ec3f14a0881c771cc888",
+    "page-03.png": "7d1a560c14c24ffffc4cb027c7195fd67123c8854de10f75305b4d1798b59ea3",
+    "page-04.png": "959a70b02e4e329c01631947a4fe37d2de8e8c468cd4eb68bab140dfbd02328a",
+    "page-05.png": "2089caca91c41cfc5ef248eb3bb49aa630129f19e571e7efb78de6619a713431",
+    "page-06.png": "17d34f318bcfba09f9d866f72ea3c2e934cdd58d88c9613cdd48923f896bad4a",
+    "page-07.png": "78c20d2d8c8bf1209c47a580db076450bb7dfac48235a622c92c96dfb04898b5",
+    "page-08.png": "685330a196abe1a000e5d6427ff32b41c7fcf3aa5f216364b8f7385c90018610",
+    "page-09.png": "94cd95b1aa6d0478b387fb62f168492488efed404ee627bf27e1a85051634bc9",
+    "page-10.png": "e83d6e43324ba910a4d5a54892c103a31a305fd8709e6ee5b91b0702c6175021",
+    "page-11.png": "4cd173ab8365b10265935c0fe00d992bf2bbee72d63ed1ac5d65a9e2d50f9ef2",
+    "page-12.png": "57930a648dc274b501de57204cae0e3db5517d90c6b4a2fabcd82ad6d54147c5",
+    "page-13.png": "14d6e5083d6dc0506ce113626b4fc739601153cb2a8e374b4734c30a4d82fa63",
+    "page-14.png": "eedd352b44a55aafa773863010b7d773f726d530538a8289130d85a657afa7ce",
+    "page-15.png": "4fcc5819f285e24710e765c923dc766de2b4a7effad7f00463e027ee675bcd64",
+    "page-16.png": "5e13286b3018075423181a193f47b2a02ff54b00c2490a84ea0f7c26874a556d",
+    "page-17.png": "e9800f2744d0970f91a59489fc96113adf6187b9ea458df16562f694bd29a2c0",
+    "page-18.png": "7b7709937195d173eb5e5ee4996c2b96a8954202f66df57b1389a75bee1d6f02",
+    "page-19.png": "84605f448b34d100f82be2af27a8397f1e6e52ea6898bcd43567b732328398e3",
+    "page-20.png": "f62458fcde1722f78d367c6342fa83883b291d1f38ee85f9c01c205d329b935e",
+    "page-21.png": "87a8c719e727a3b7b755a0d64322bf2cc37c1e354fbcabd479f9e10262fa1a83",
+    "page-22.png": "77fbd95f618835535b5574ad881f1739c3769e28be2f56e1c683e30666cfb855",
+    "page-23.png": "484e1f80c2d40482e682f94a445c40439e9d6b155af30bef74b1a557254821d3"
+  },
+  "limits": "Checks validate build, presentation and retained records. They do not constitute a new editorial evaluation, new human evidence or independent replication. The full historical test suite and image-feature re-extraction were not rerun."
+}

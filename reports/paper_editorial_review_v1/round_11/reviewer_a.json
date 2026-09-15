@@ -1,0 +1,71 @@
+{
+  "reviewer_id": "editorial_r11_a",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "7cdee18a48aa2ec903c23d106e704ceb4f9211d2cd31995e078e7c4471d54cd8",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the entire frozen 22-page PDF, including references and Appendices A–G, through extracted text and page renderings. Visually inspected all 22 pages, Figures 1–5 and Tables 1–10. Consulted frozen paper.tex and specificity_results.tex for main-text wording and source locations, and specificity_review_appendix.tex for diagnostic definitions. Technical appendices were treated as optional depth when judging main-text accessibility. The abstract contains 153 whitespace-delimited words after basic TeX normalization. Extraction and rendering used the isolated /tmp/editorial_r11_a_7cdee18a directory. No other reviews, earlier versions or current non-snapshot manuscript were read."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.25,
+    "new_reader_understanding": 9.0,
+    "engagement": 9.0
+  },
+  "overall": 9.125,
+  "score_reasons": {
+    "expression": "Excellent, precise and fluent prose. The opening Monet–Sisley comparison explains why proximity is insufficient; Sections 4.1–4.2 introduce contrasts and score interpretation before equations. Important qualifications are attached to the claims they limit, and the distinction between measured digital features and artistic fidelity is consistent. The abstract’s phrase about fitting a multiplier is a localized opportunity for plainer wording rather than a broader expression problem.",
+    "structure": "The main text progresses coherently from the question and matched prompt arms to measurements, score intuition, inference and interpretable results. Results 5.1–5.5 visibly distinguish the declared comparison from shared effects, retrospective pair diagnostics, calibration and source sensitivity. Technical derivations, complete comparison families and earlier cohorts are appropriately separated in appendices; the main story is recoverable without them. Only the relative emphasis of the closing summary warrants adjustment.",
+    "new_reader_understanding": "The standalone abstract supplies the design, reference size, central outcomes and perceptual boundary. Section 3.2 makes all six prompt arms and the 1,008-image count understandable; Table 1 translates the feature families into visible properties. The lightness example and the no-distinction/exact/doubled examples in Section 4.1 give the unfamiliar metrics useful anchors, including the theoretical D=1 benchmark. Calibration and scene averaging receive concrete numerical interpretations in Section 5.4. The abstract could make the purpose of the fitted multiplier explicit with a small wording replacement.",
+    "engagement": "The question has a clear evaluation consequence, and the paper sustains a discernible story: a large common response can coexist with residual alignment, uneven pair coverage and different model orderings under calibration. Figure 1 gives inspectable image examples; Figure 2’s detail views reward comparison; Figure 3 makes the weak Monet–Sisley distinctions immediately visible. Tables 3 and 4 explain what changes the conclusions without exaggeration. The final paragraph would leave a stronger thematic impression by returning to the dominant common response rather than spending a full sentence on one adjusted pair comparison."
+  },
+  "strengths": [
+    "Section 4.1 connects a real lightness contrast (.325 reference units versus .254 for GPT Image 2) to centering before introducing notation, then anchors expected error with three simple generators.",
+    "The design distinguishes artist-free, generic oil-painting and four named clauses explicitly, with fixed scene text and two separate outputs per cell; Figure 1 makes those controls tangible.",
+    "Figure 2’s common model axes and magnified M/S/P views make close painter positions inspectable, while Figure 3 supplies the complementary all-feature pair results with numerical cells and interpretable score anchors.",
+    "Section 5.4 explains both ordering changes through existing numbers: shrinking GPT Image 2’s excess contrast magnitude and separating Nano Banana 2’s average mismatch from its larger scene variation.",
+    "The manuscript carefully separates original adjusted comparisons from retrospective source correction, explicitly reports the Sunburst change, and avoids interpreting calibration as improved images or digital features as perceptual artistic fidelity."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Abstract, p. 1; paper.tex lines 37–38",
+      "issue": "“We fit each model’s multiplier for generated contrasts” introduces the least intuitive operation in the abstract without saying what the fitting minimizes. The main-text account is clear, but an abstract-only reader has to infer why multiplying those contrasts is useful.",
+      "reader_effect": "A brief terminology hurdle occurs immediately before the model-ordering result, making that result less accessible than the earlier shared-response and alignment findings.",
+      "suggested_change": "Replace the sentence with: “We rescale each model’s painter differences to minimize error on 13 scenes, then evaluate the remaining scene in turn.” Retain the following sentence about the changed lowest error estimate and unchanged images. This replacement adds only one whitespace-delimited word, keeping the abstract below 155 words."
+    },
+    {
+      "priority": "low",
+      "location": "Conclusion, p. 10; paper.tex lines 351–357",
+      "issue": "The conclusion omits the dominant common-response finding, despite its prominence in the title, abstract and Section 5.2, and instead gives a full sentence to the specific Sunburst adjusted-comparison change. That sensitivity is accurately reported, but it receives disproportionate closing emphasis.",
+      "reader_effect": "The reader finishes with a model-pair qualification more salient than the central answer that most measured name-induced change is shared while the remaining painter differences require a separate assessment.",
+      "suggested_change": "Replace or shorten the Sunburst-specific sentence with a compact return to the 82.5–95.7% common-change result. Keep the exact source-correction comparison in Section 5.5 and Table 4, where it is already explicit. Preserve the final distinction between detecting a name response and matching measured painter differences; make this a substitution within the existing length."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent and largely self-contained account of a bounded digital-reference comparison. The manuscript makes its central distinctions intelligible, presents inspectable evidence and maintains unusually clear limits on inference and artistic interpretation. Only localized wording and closing-emphasis refinements are needed; no substantial restructuring or additional evidence is required for the editorial scope."
+}

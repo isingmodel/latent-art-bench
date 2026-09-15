@@ -1,0 +1,12 @@
+{
+  "evaluated_round": 12,
+  "page_count": 22,
+  "abstract_whitespace_words": 155,
+  "pdf_extracted_words": 9697,
+  "pdf_sha256": "3139e82bcf93503a549c9239d228feffadfb453ec32ee208917e3632ce2cd08d",
+  "build": "Tectonic passed without warnings",
+  "visual_inspection": "All 22 rendered pages inspected in contact sheets, with changed opening and closing pages inspected separately. Introduction complete on page 1; conclusion complete on page 10. No clipping or unresolved references.",
+  "presentation_replay": "make figures-check passed all historical and current figure/table presentation replays; make example-images-check passed; all figure bytes unchanged from round 11.",
+  "lint": "Ruff passed for all four edited presentation builders; git diff --check passed",
+  "scientific_scope": "Editorial wording only. Protocol timing independently verified against frozen primary files; none altered."
+}

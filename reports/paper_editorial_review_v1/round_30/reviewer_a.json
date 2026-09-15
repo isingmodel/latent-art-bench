@@ -1,0 +1,72 @@
+{
+  "reviewer_id": "editorial_r30_a",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "bee3b61dba44af33484fa6415b906542e0479fb7ae632b58114793a4008af9d1",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete extracted manuscript, including references and Appendices A–G, and visually inspected rendered PDF pages 1–22, all five figures and all twelve tables. Consulted the frozen paper.tex for the abstract, notation, methods and discussion. Verified the supplied PDF SHA256 directly. The PDF has 22 pages; the source abstract has 152 whitespace-delimited words after normalizing TeX accents and punctuation. Technical appendices were treated as optional depth when assessing standalone main-text comprehension. No other reviews, versions, progress records or repository analyses were read."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.25,
+    "new_reader_understanding": 9.0,
+    "engagement": 9.0
+  },
+  "overall": 9.125,
+  "score_reasons": {
+    "expression": "The prose is precise and fluent, with unusually effective distinctions between aligned response, total error, scene averaging and calibration. Section 4.1 explains contrasts through a lightness example before introducing symbols; Section 5.4 explains why shrinking can lower error while weakening alignment. Qualifications usually identify a specific interpretive limit rather than interrupting every sentence. The abstract’s consecutive retrospective statements and compressed calibration wording are a localized opportunity for smoother, more concrete expression.",
+    "structure": "The main text follows a coherent question–design–measurement–comparison–results–interpretation progression. Sections 4.1–4.4 supply intuition, computation, uncertainty and diagnostic status in a useful order. The results distinguish the declared comparisons from pair diagnostics, scene averaging, calibration and source corrections, with Tables 4–5 preserving the distinctions at the point of use. Technical derivations and earlier cohorts remain optional appendices. The short discussion could make its synthesis more explicit before turning to reporting advice, but the main argument requires no reconstruction.",
+    "new_reader_understanding": "A reader without project knowledge can recover the reference target, six prompt conditions, repeated design, feature units and meaning of the two principal scores from the main text. The three idealized generators in Section 4.1 make the counterintuitive D=1 benchmark memorable, and Section 4.2 explicitly distinguishes it from the measured generic-painting arm. Figure 1 makes the intervention tangible; Figures 2–3 explain their projections, labels, normalizers and benchmark values. Source and inference limits are clearly stated. The abstract is standalone, although its compressed final calibration sequence benefits from the fuller explanation encountered later.",
+    "engagement": "The opening question has a discernible practical consequence: visible naming effects and low overall mismatch can conceal weak particular painter distinctions. The blue-green Cézanne-tree example rewards inspecting Figure 1; the magnified positions in Figure 2 and numeric pair heatmaps in Figure 3 make the later argument observable. The reversals caused by scene averaging and scalar calibration sustain a clear narrative without exaggerating model superiority. The discussion’s generic recommendation language slightly softens the final interpretive payoff; this is a local refinement rather than a pacing problem across the paper."
+  },
+  "strengths": [
+    "The introduction uses Monet versus Sisley to explain why moving nearer an artist collection is insufficient evidence of reproducing labeled painter differences, making the study’s bounded question concrete from page 1.",
+    "Section 4.1 (page 5) pairs a real lightness gap with the no-distinction/exact/doubled-response example. These examples make centering, alignment and squared error understandable before the formal estimators.",
+    "Figure 1 (page 4) shows every model and prompt condition for the same scene, while its caption clearly identifies reference images as contextual examples rather than generator inputs or matched compositions.",
+    "Sections 5.3–5.4 and Figures 2–3 explain what the results reveal: aggregate alignment can hide a weak Monet–Sisley response, and a lower total error can arise from restrained magnitude or scene consistency.",
+    "The calibration and source-correction results retain their retrospective status, name the actual changed comparisons, and distinguish lower point estimates from established advantages. Table 5 is especially effective at making the source sensitivity concrete.",
+    "Appendices provide substantial technical and historical detail without being required to understand the present experiment; the main text clearly discloses the finite digital target, fixed scenes, two-repeat assumptions and lack of perceptual validation."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Abstract, page 1; paper.tex lines 36–40",
+      "issue": "The abstract repeats “Retrospective” in consecutive sentences, then distributes the calibration operation and its consequence across “fits one scale factor,” “Shrinking measured differences,” and “lowest mean error estimate.” The meaning is recoverable, but this is the densest part of an otherwise accessible standalone summary.",
+      "reader_effect": "A new reader has to briefly assemble what is being scaled and connect that measurement operation to the change in the lowest-error model before seeing the much clearer explanation in Sections 4.4 and 5.4.",
+      "suggested_change": "Replace the local sequence with similarly sized wording such as: “Retrospective pair checks find near-zero or reversed Monet–Sisley alignment in five models. Calibration shrinks each model’s measured painter differences using one multiplier fitted on other scenes. The lowest held-out mean error then shifts from FLUX.2 Max to GPT Image 2 without changing images.” Retain the final perceptual-fidelity sentence and the abstract’s 155-word ceiling."
+    },
+    {
+      "priority": "low",
+      "location": "Section 6, page 10; paper.tex lines 312–317",
+      "issue": "The discussion opens with two sentences framed as generic advice about what a recommendation should include. They are sound, but less concrete than the results that motivate them.",
+      "reader_effect": "The paper’s closing interpretation momentarily loses the specific tension between FLUX’s low overall error and its weak Monet–Sisley alignment, reducing the payoff of an otherwise engaging narrative.",
+      "suggested_change": "Replace the first two sentences, rather than adding a paragraph, with a direct result-to-implication bridge: “FLUX’s lowest overall error coexists with near-zero Monet–Sisley alignment. Model comparisons should therefore report the relevant pair’s alignment and error alongside the aggregate score, identifying the reference collection and distinguishing a point estimate from an established advantage.” Keep the separate sentence about calibration. This preserves the evidence and fits the current page budget."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent and largely self-contained scientific narrative about a bounded comparison of digital reference contrasts. The manuscript makes its counterintuitive metrics interpretable, gives the primary findings a clear hierarchy, and handles retrospective diagnostics and uncertainty candidly. Remaining improvements are localized wording and synthesis refinements; no material reader-facing overstatement was identified."
+}

@@ -1,0 +1,79 @@
+{
+  "reviewer_id": "editorial_r06_a",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "f08ea96fd8caeebfb32bc586c33b462917ac753895c0f9e69031265df64ec3e6",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the entire frozen 22-page PDF, including references and Appendices A–G. Visually inspected all pages, Figures 1–5 and Tables 1–10; reinspected Figure 2 at higher resolution. Consulted frozen paper.tex and specificity_results.tex to resolve wording and source locations. The abstract contains 152 whitespace-delimited words after normalizing TeX punctuation. No other reviews, earlier drafts, progress records, or non-snapshot manuscript were consulted."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.25,
+    "new_reader_understanding": 8.75,
+    "engagement": 9.0
+  },
+  "overall": 9.0625,
+  "score_reasons": {
+    "expression": "Excellent, precise English with short explanatory passages alongside the technical language. Section 4.1 explains contrasts using a concrete lightness difference and distinguishes aligned strength from total error using three idealized generators. Numerical results consistently use estimates, intervals, and bounded interpretations. A few avoidable terminology changes, such as “Global distortion” for the already named error after averaging scenes in Appendix B, are localized refinements.",
+    "structure": "Excellent progression from a concrete evaluation problem through the experimental arms, feature interpretation, score intuition, primary findings, and retrospective explanations. Sections 5.1–5.5 have informative headings and keep original inference, calibration, scene variation, and source correction distinct. The main text conveys the study without requiring the technical appendices, which appropriately hold derivations, complete comparison tables, and earlier interventions. The shared-effect subsection could introduce its numerical decomposition more directly, but no structural reconstruction is needed.",
+    "new_reader_understanding": "The standalone abstract, explicit six-clause design, Table 1 interpretations, lightness example, D=1 benchmark, and calibration explanation make a demanding analysis unusually accessible. The distinction between digital-reference agreement and perceptual artistic fidelity is consistently maintained. The main remaining gap is that the headline common-share percentage is presented before the main text explicitly defines its common vector and complementary component in words; its exact construction is left to Appendix B. This is a localized but material obstacle for a reader trying to understand that headline result.",
+    "engagement": "The opening Monet–Sisley example establishes a consequential question, Figure 1 provides an inspectable visual comparison, and the changes in model ordering give the findings a clear narrative. Figure 3 and Table 3 reward close reading by explaining uneven painter coverage and the effects of calibration and scene variation. Figure 2 has useful magnified views, but its accompanying prose mostly explains how to read it rather than naming the concrete visual pattern it reveals, leaving a small opportunity to strengthen momentum."
+  },
+  "strengths": [
+    "Section 4.1 makes the central geometry concrete before introducing notation: the Monet–Sisley lightness gap and the 1/0/1 error example explain both centering and why stronger response need not be better agreement.",
+    "The primary result is stated with appropriate precision: all six aligned-response intervals exceed zero, while no model is established to beat the no-contrast benchmark and only two original model-pair comparisons are resolved.",
+    "Figure 1 places every model and all six prompt conditions in a legible grid, identifies the fixed brief and repeat, and clearly distinguishes historical examples from generator inputs.",
+    "Section 5.4 explains two ordering changes through concrete numbers and identifies exactly what calibration changes: measured contrasts evaluated on omitted scenes, without claiming improved images.",
+    "Section 5.5 and Table 4 make the source-correction consequence visible, including the lost Sunburst comparison and the retrospective status of the newly positive GPT Image 1 comparison.",
+    "The PDF has clean typography and legible tables without clipping or overlapping content; the 22-page manuscript and 152-word abstract satisfy the stated length constraints."
+  ],
+  "findings": [
+    {
+      "priority": "medium",
+      "location": "Section 5.2, page 8; specificity_results.tex lines 43–48; related definition in Appendix B, page 14",
+      "issue": "The main-text headline reports the fraction of squared change attributed to the “common component” without explicitly saying here that this component is the average named-minus-artist-free shift across the four names, and that the complementary component describes differences around that average. The centering method supplies some intuition, but readers must connect separate passages or enter the appendix to recover the percentage’s construction.",
+      "reader_effect": "A new reader can understand that the share is large while still being unsure exactly what is shared and what the remaining percentage represents, especially because the generic-painting control follows immediately afterward.",
+      "suggested_change": "Replace the secondary within-scene percentage sentence with a plain definition: “The common component is the four names’ average shift from the artist-free control; the remaining component measures differences around that average.” Retain the 88.6–97.2% alternative in Appendix B, preserving both analyses without adding length."
+    },
+    {
+      "priority": "low",
+      "location": "Figure 2 and its introductory paragraph, page 7; specificity_results.tex lines 23–37",
+      "issue": "The paragraph and caption both explain crosses, circles, reference-fitted axes, and the M/S/P detail, but neither states a concrete observation from the plotted positions. The interpretive payoff arrives only in the next subsection and Figure 3.",
+      "reader_effect": "Readers can decode the plot but have to formulate its narrative contribution themselves; a central visual receives less interpretive emphasis than the tables.",
+      "suggested_change": "Replace one duplicated reading instruction with a short bounded observation, such as “In these projected coordinates, Cézanne remains visibly separated while the generated Monet and Sisley means often move close together.” Keep the all-31-feature qualification and the subsequent pair analysis; this can be a sentence substitution within the current space."
+    },
+    {
+      "priority": "low",
+      "location": "Appendix B, page 13, second prose paragraph",
+      "issue": "“Global distortion” introduces an additional name for the scene-averaged error already called “error after averaging scenes” and D_aggregate in the main text and Table 3.",
+      "reader_effect": "An optional-depth reader may briefly wonder whether a new score has been introduced rather than a derivation of the existing aggregate error.",
+      "suggested_change": "Replace “Global distortion” with “The aggregate error D_aggregate,” keeping the established terminology and the rest of the paragraph unchanged."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent, self-contained account of a bounded digital-reference comparison. The manuscript explains its main estimands, distinguishes primary inference from retrospective diagnostics, and communicates uncertainty and scope without implying perceptual validation. No high-priority editorial or claim-fidelity issue was found. Local clarification of the shared-change percentage and a more explicit Figure 2 takeaway would further improve accessibility and pace."
+}

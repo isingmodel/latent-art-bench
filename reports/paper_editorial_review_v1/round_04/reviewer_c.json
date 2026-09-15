@@ -1,0 +1,88 @@
+{
+  "reviewer_id": "editorial_r04_c",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "10707f5ca01a70b5cfd7599bed158f840f5e656e7dfaa3ba4dae89895b52f745",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the entire frozen 22-page PDF, including references and Appendices A–G. Visually inspected all 22 rendered pages, all five figures and all nine tables. Used the frozen paper.tex and specificity_results.tex to resolve wording, notation and source locations. Verified the PDF SHA-256 directly. Treated the appendices as optional technical depth when judging whether the main narrative stands alone. No other reviews, versions, progress records, goals or external scientific sources were consulted."
+  },
+  "scores": {
+    "expression": 9.0,
+    "structure": 9.0,
+    "new_reader_understanding": 8.75,
+    "engagement": 8.75
+  },
+  "overall": 8.875,
+  "score_reasons": {
+    "expression": "The prose is fluent, precise and unusually disciplined about what each result means. Sections 4.1 and 5.4 use manageable sentences and concrete comparisons to distinguish response strength, total error and scene variation. Qualifications about digital reproductions, repeat independence and retrospective calibration are attached to the relevant claims. Remaining refinements are localized: the abstract opens with a compressed statistical construction, and Related work briefly calls the primary target distributional agreement despite the later careful distinction between mean contrasts and whole-collection proximity.",
+    "structure": "The progression from the naming question to the experimental arms, feature interpretation, intuitive score examples, formal estimators and findings is coherent. Section 5.1 establishes the primary result before the common-response, pair, calibration and source diagnostics. The source correction is foreshadowed when the original comparisons are reported, and retrospective findings are consistently identified. Appendices retain the derivations, controls and earlier cohorts without making them prerequisites for understanding the main study. Only small presentational refinements remain; no substantial reordering is needed.",
+    "new_reader_understanding": "The intended reader can recover the design and conclusions without the repository. The prompt clauses, finite reference target, equal artist weighting, development-IQR units, lightness example and D = 1 benchmark are explained. The distinction between calibration of measurements and alteration of images is particularly clear. Figure captions tell the reader what to compare. The compressed abstract opening and the Related work terminology mismatch create limited friction, while overlapping reference and generated markers make some Figure 2 comparisons slower than the caption suggests.",
+    "engagement": "The opening Monet–Sisley example gives the question a concrete consequence. Figure 1 rewards comparison across the same scene and prompt conditions, and the results develop a discernible narrative: detectable response, uneven painter coverage, ranking changes after calibration, and sensitivity to source handling. Table 3 turns evaluation choices into understandable numerical examples. The writing sustains attention without claiming artistic fidelity. The principal opportunities are to make the first abstract sentence easier to enter and to make the crowded marker comparisons in Figure 2 more immediately visible."
+  },
+  "strengths": [
+    "The Introduction explains why moving closer to Monet does not establish reproduction of Monet–Sisley differences, giving the central methodological distinction a concrete motivation.",
+    "Section 4.1 supplies intuition before notation: the actual median-lightness comparison explains centering, and the no-distinction/exact/doubled examples make the error scale memorable.",
+    "The six experimental clauses and Figure 1 establish the design clearly. Its caption states that the historical examples were neither generator inputs nor matched compositions, preventing a misleading image-to-image reading.",
+    "Section 5.1 explicitly distinguishes positive aligned response from evidence of beating the no-contrast benchmark, and directs readers to the source correction that changes the Sunburst comparison.",
+    "Section 5.4 and Table 3 explain both ordering changes through their causes: contrast rescaling and the treatment of variation across scenes. The text avoids turning descriptive calibration into a claim of improved images or statistical superiority.",
+    "The appendices preserve technical identities, source-audit limitations and contrary historical evidence while the main text communicates the study independently."
+  ],
+  "findings": [
+    {
+      "priority": "medium",
+      "location": "Section 2, p. 2; paper.tex lines 88–94",
+      "issue": "The paragraph distinguishes imitation, authorship recognition and distributional agreement, then says that the evaluation target is explicitly the latter. The primary target in Sections 4–5 is agreement among labeled painter-mean contrasts; full distributional proximity is a separate secondary comparison.",
+      "reader_effect": "This briefly blurs the very distinction between collection proximity and painter-contrast agreement that motivates the paper, and may lead a new reader to expect D to compare complete distributions.",
+      "suggested_change": "Replace the final sentence with: “Here, the primary target is agreement among labeled painter-mean contrasts in measured color, spatial and texture coordinates.” This is a length-neutral clarification; leave energy discrepancy identified as the complementary distributional measure."
+    },
+    {
+      "priority": "low",
+      "location": "Abstract, p. 1; paper.tex lines 27–30",
+      "issue": "The opening sentence makes the reader unpack “estimated squared feature change,” the artist-free comparison, sharing across names and scene averaging before receiving the experimental setup. The statistic is consequential, but its current syntax makes the entry point harder than the Introduction.",
+      "reader_effect": "A reader encountering the project for the first time must decode the estimator language before seeing the simple common-response finding.",
+      "suggested_change": "Replace the opening with “Most of the measured shift from artist-free to named-painter prompts was shared across names: 82.5–95.7% of squared change after averaging scenes.” Begin the next sentence “For six generators, we hold …”. This retains the squared-change qualification and six-model scope while remaining within the 155-word abstract limit."
+    },
+    {
+      "priority": "low",
+      "location": "Figure 2, p. 7; specificity_results.tex lines 23–36",
+      "issue": "The instructions ask readers to compare each generated circle with its same-colored reference cross, but several Monet, Sisley and Pissarro markers overlap in relatively small panels. The page has substantial space between the preceding prose and plot that does not help this comparison.",
+      "reader_effect": "The main geometric illustration takes more inspection than necessary to connect individual model mismatches to the otherwise clear explanation.",
+      "suggested_change": "Enlarge the plotting panels within the existing page allocation by reducing internal or surrounding whitespace. Add thin, unobtrusive segments between corresponding mean circles and reference crosses if they remain difficult to pair. Retain all observations, the common axes and the 31-feature limitation in the caption."
+    },
+    {
+      "priority": "low",
+      "location": "Figure 4(a), p. 19; paper.tex lines 487–493",
+      "issue": "The axis says “Component of corrected error D” without specifying that the correction concerns repeat noise. By this point, the paper has also introduced corrected source regions and refitted scaling, so “corrected” has two plausible readings.",
+      "reader_effect": "A reader consulting the supplementary plot may incorrectly associate these component values with the source-corrected reference analysis.",
+      "suggested_change": "Change the axis to “Component of repeat-corrected error D” and specify “original reference target” in the caption. This clarifies the analysis identity without adding a new result or page."
+    }
+  ],
+  "claim_fidelity_issues": [
+    "The localized wording in Section 2 that calls the primary target “distributional agreement” is broader than the labeled-mean-contrast target actually used. The main methods and results make the correct distinction; the Related work sentence should be brought into alignment. No other consequential overstatement of artistic fidelity, inferential resolution or image improvement was identified."
+  ],
+  "summary": "An excellent, largely self-contained scientific narrative with strong intuitive explanations and careful claim boundaries. The remaining changes are localized refinements to terminology, the abstract opening and figure interpretation. The technical appendices do not prevent a general graduate-level reader from understanding the main design and findings. Overall editorial score: 8.875/10."
+}

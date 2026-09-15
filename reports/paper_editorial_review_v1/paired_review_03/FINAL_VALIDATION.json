@@ -1,0 +1,67 @@
+{
+  "completed_at": "2026-09-14T23:24:45.328323+00:00",
+  "final_pdf_sha256": "4dd19f7d77d63eb17e7708d566607c3c001c7c8bc9afda84a5c297d93e7005b2",
+  "evaluated_pdf_sha256": "136e17776537dd95e62201522a485b731ced7200c4caa24b5086c59206fc1524",
+  "final_revision_independently_scored": false,
+  "pages": 22,
+  "abstract_words_whitespace_tex": 151,
+  "pdftotext_words": 9593,
+  "round33_pdftotext_words": 9596,
+  "first_revision_pdftotext_words": 9617,
+  "frozen_evaluation_inputs_unchanged": true,
+  "canonical_matches_final_snapshot": true,
+  "rubric_sha256": "e3c0d44034123bc097ed3a4823c3977e2b7bd13207460aba41bd1e805a3812f3",
+  "final_page_png_sha256": {
+    "page-01.png": "d3a65ce5b9d4de66e797695386f183c9ce2c8ce3e7431782d4ee534c660bdcb7",
+    "page-02.png": "7772522094319d0e8b14863aa0205d451e20eb886fe8ec3f14a0881c771cc888",
+    "page-03.png": "9bbfe3a5a1c8b61124b2ef784a9ea8edc20e2ac6ed29690e63dc013970d8e594",
+    "page-04.png": "959a70b02e4e329c01631947a4fe37d2de8e8c468cd4eb68bab140dfbd02328a",
+    "page-05.png": "2089caca91c41cfc5ef248eb3bb49aa630129f19e571e7efb78de6619a713431",
+    "page-06.png": "57715751e3ec3dc724483380a72daec915e9c8b2c37e7e80c47f5d9c8edf67b0",
+    "page-07.png": "78c20d2d8c8bf1209c47a580db076450bb7dfac48235a622c92c96dfb04898b5",
+    "page-08.png": "b176ab72937b39a41f8a8484a1f12c7e3f3a78e15aacf386b9bb84bef302b186",
+    "page-09.png": "e5e0a88adf99a21b139e2743cf00b6cbef828b1ef58c98d6841593dc17da4a7f",
+    "page-10.png": "b484b3250fe5ce95bbeadbcf1cfa4e21d5bb4aff88d837f60a9db7a815372afb",
+    "page-11.png": "22181a855f99d230c51a5d3c13ebc200f96689017dee834903ebea0055d0a600",
+    "page-12.png": "a624307b52e87e9c343a9f389d9a072c5482a8d30aaba00cc92c656f0624f107",
+    "page-13.png": "ab82f377cd13c86d8c486bad884b7b51481bfafd367b6cc39cebc09e47a284db",
+    "page-14.png": "674fe8784379bd68285f65c9c6b285dd73909e953b3716ab77feeb0ddd439a7b",
+    "page-15.png": "802d47ed54dceb3ab8d2b300115f2fd9bc5d4f2e9f001816846ff207ce2e3fd3",
+    "page-16.png": "a1fc031c7a4fdf69709e87df9bec2e00c3df4eed67a739e54a5cc7bb491dcde9",
+    "page-17.png": "7b6560d13a9164f54b0c1fd96fe9f6a0729772d7c1f0cff63e0c2657d8fc3a48",
+    "page-18.png": "854a2bea08b5a96cbd694250d5521bc0c00162eb1c0599a21e12ffdbe07d7022",
+    "page-19.png": "9c12bb84c51c5915222e4da7c3e0ce5fe544595537d3e9823089d46a374a6d36",
+    "page-20.png": "304485164a3a843a0ef46fbb4233ed2e37aff49c5ad901e0a880aecbd8cbb48e",
+    "page-21.png": "3ae6bd38b5cbf864204f5c817090f874abdf7f485c0cd274af3c91a29569fb2f",
+    "page-22.png": "6a886e71bda82a36f186ccf4b43989ee7a172f0e3b0b16cc497c63841ec7f81f"
+  },
+  "visual_qa": {
+    "all_22_pages_contact_sheets_inspected": true,
+    "detail_pages_inspected": [
+      7,
+      18
+    ],
+    "observations": "No overlapping or clipped content; Figure2 overview/detail labels and outlines visible; Figure3 remains with pair results on page8; main narrative ends page10; corrected model pairs legible on page18. Existing fonts and margins retained."
+  },
+  "checks": {
+    "tectonic_build": "passed without layout warnings",
+    "specificity_table_replay": "passed",
+    "review_figure_replay": "passed",
+    "specificity_figure_replay": "passed",
+    "ruff_changed_builders": "passed",
+    "git_diff_check": "passed",
+    "twelve_corrected_error_values_match_existing_record": true,
+    "primary_and_retrospective_claim_fidelity": "independent read-only audit passed",
+    "scientific_tracked_files_unchanged": true,
+    "cross_reference_labels_preserved": true,
+    "fresh_claude_session_ids_distinct": true
+  },
+  "source_corrected_values_record_sha256": "089f636335129d6377328088ccc9fdc763488aba2a88463939322326707052b4",
+  "builder_sha256": {
+    "make_specificity_tables.py": "5c2f48534bd13028e714d766a1bc820aa8cfee75057a7f6ca8a40f0409a210c4",
+    "make_review_figures.py": "a2c2fb8fe94be26376e599b86f394efdd2159c19d188472498657c21f48ff1a4",
+    "make_specificity_figures.py": "29bd17d953bd5dd3eacc0eecbe6e83d6ae3b2ae60993d16f839a221cbfa70be0"
+  },
+  "no_new_human_evaluation_or_experiments": true,
+  "oauth_api_source_modified": false
+}

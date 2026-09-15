@@ -1,0 +1,86 @@
+{
+  "reviewer_id": "editorial_r09_a",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "1e279d3603ac64225506dda00722a395961976b63afa015decdf73eca05fbd01",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the entire 22-page frozen PDF, including the abstract, main text, references and Appendices A–G. Visually inspected every rendered page, all five figures and all ten tables. Consulted the frozen paper.tex and specificity_results.tex to check wording, definitions and locations. Used isolated temporary extraction and rendering paths. Technical appendix detail was treated as optional depth; the accessibility judgment is based on whether the main text stands alone. No other reviews or manuscript versions were consulted."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.5,
+    "new_reader_understanding": 9.25,
+    "engagement": 9.25
+  },
+  "overall": 9.3125,
+  "score_reasons": {
+    "expression": "The main text is fluent, economical and precise. Sections 4.1–4.2 explain contrasts, aligned response and error in plain language before introducing notation; Section 5 repeatedly translates numerical differences into their implications. Qualifications generally appear beside the claims they constrain. Remaining improvements are localized: the abstract compresses calibration into technical shorthand, and Appendix F.1 uses the elliptical phrase “The first four rejected.”",
+    "structure": "The progression from the motivating Monet–Sisley example through the common-scene design, feature interpretation, scores and results is exceptionally coherent. Section 5.1 establishes the primary result before Sections 5.3–5.5 explain pair coverage, calibration, scene variation and source sensitivity. The original and corrected comparisons are explicitly connected in Tables 2 and 4. Derivations, complete comparisons and earlier cohorts are appropriately placed in optional appendices. Only a local appendix float order puts Table 6 ahead of the explanation of its component columns.",
+    "new_reader_understanding": "The abstract states the question, design, reference target, main finding and perceptual limit. The main text supplies the exact clause differences, feature-family interpretations, a numerical lightness example and three idealized generators with errors 1, 0 and 1. It explicitly distinguishes the theoretical no-distinction predictor from the observed generic-painting arm and explains why scene variation contributes to error. Calibration is clearly a feature operation, and the AI source audit is clearly unverified by humans. Small opportunities remain to make the abstract’s calibration wording and Figure 3’s negative error cell immediately interpretable without looking elsewhere.",
+    "engagement": "The manuscript develops a consequential and restrained narrative: a detectable response can still disagree with its target, some painter distinctions contribute much more than others, and two evaluation choices change the model ordering. Figure 1 offers all six conditions with a concrete instruction to inspect the Cézanne trees; Figure 2’s magnified views and Figure 3’s annotated heatmaps reward comparison. Results headings communicate findings rather than merely naming analyses. The abstract’s final diagnostic sentence is less immediate than the corresponding explanation in the body, but the overall pace is excellent."
+  },
+  "strengths": [
+    "The opening Monet–Sisley example makes the distinction between shared movement toward paintings and correct differences among painter labels concrete before introducing any statistical notation.",
+    "Section 4.1 explains why no distinctions and doubled correct distinctions both have expected error 1, while exact agreement has error 0; this provides an effective foundation for the apparently counterintuitive model results.",
+    "Table 3 and its surrounding text explain both calibration and scene averaging through actual ordering changes, while preserving the limits of overlapping held-out folds and avoiding claims of improved images.",
+    "Sections 5.1 and 5.5 and Tables 2 and 4 clearly identify which original comparisons change after source correction, including the retrospective status of the GPT Image 1 result.",
+    "The figures are legible and purposeful: Figure 1 makes the intervention visible, Figure 2 includes common-scale detail views, and Figure 3 prints the values needed to inspect uneven painter-pair alignment.",
+    "The finite digital reference target, subject-mixture mismatch, approximate uncertainty, AI-only audit and incomplete exact-pixel availability are stated candidly without displacing the main finding."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Abstract, page 1; paper.tex lines 37–38",
+      "issue": "“Leave-one-scene-out feature rescaling” compresses both the fitting rule and what is multiplied into a specialist phrase. “Feature rescaling” can also suggest the coordinate standardization described later, although this diagnostic uses one scalar on painter contrasts.",
+      "reader_effect": "A reader can understand that the ranking changes without yet understanding the simple operation responsible for that change; the abstract is slightly less standalone at this point than the body.",
+      "suggested_change": "Replace the sentence with: “Fitting one contrast multiplier per model on other scenes shifts the lowest estimated error from FLUX.2 Max to GPT Image 2, without changing images.” This adds six whitespace-delimited words to the current 149-word abstract, keeping it at 155 words, and preserves the finding."
+    },
+    {
+      "priority": "low",
+      "location": "Figure 3 caption, page 8; specificity_results.tex lines 81–85",
+      "issue": "The caption explains negative aligned responses but does not explain the negative error estimate shown for Nano Banana 2 on Sisley–Pissarro (−0.05). The explanation that cross-repeat error estimates can be negative is present in Section 4.2, three pages earlier.",
+      "reader_effect": "A reader inspecting this otherwise self-contained numerical figure may momentarily interpret the negative error as better than exact agreement or as a plotting mistake.",
+      "suggested_change": "Replace the caption’s final sentence, which repeats the already established use of all pairs and features, with a short reminder such as “Negative error estimates can arise from repeat correction and do not imply better-than-exact agreement.” Keep the estimator explanation in Section 4.2."
+    },
+    {
+      "priority": "low",
+      "location": "Appendix C.2 and Table 6, pages 16–17",
+      "issue": "Table 6 appears before the subsection that explains the component and omission diagnostics; the definition of reference singular components begins at the foot of page 16 and finishes on page 17. The column labels “First,” “Second” and “Third” therefore precede the explanation of what the components represent.",
+      "reader_effect": "An appendix reader must move past the table and across a page break to distinguish these components from individual artists. This does not obstruct the main narrative, but it weakens the local table-to-explanation sequence.",
+      "suggested_change": "Move the existing sentences defining the reference components and separate projections before Table 6, or place the table after those sentences. Reorder existing material rather than adding explanation or pages."
+    },
+    {
+      "priority": "low",
+      "location": "Appendix F.1, page 21; paper.tex lines 549–552",
+      "issue": "“The first four rejected in the original family of eight” omits the object of rejection and reads as compressed statistical notes rather than finished prose.",
+      "reader_effect": "The reader must infer that four corresponding null hypotheses, rather than the contrasts themselves, were rejected.",
+      "suggested_change": "Use “The first four null hypotheses were rejected in the original family of eight.” This is a local wording correction; retain the existing numerical results and family distinction."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "Excellent communication of a bounded comparison of measured digital reference contrasts. The main text independently conveys the intervention, representation, two primary scores, findings and limits; retrospective analyses are clearly labeled and interpreted. Only localized wording, caption and appendix-order refinements are apparent. No consequential claim-fidelity issue was identified within the rubric’s scope."
+}

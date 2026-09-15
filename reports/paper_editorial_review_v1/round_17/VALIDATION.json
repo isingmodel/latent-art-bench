@@ -1,0 +1,12 @@
+{
+  "evaluated_round": 17,
+  "page_count": 22,
+  "abstract_whitespace_words": 152,
+  "pdf_extracted_words": 9682,
+  "pdf_sha256": "38efaac35ba69c280fdba037f0cef0119fbb71a50110ade6b7fc377c0e61bdd8",
+  "build": "Tectonic passed without warnings",
+  "visual_inspection": "All 22 pages rendered. Changed pages 1, 7, 9 and 10 inspected individually; the other 18 PNGs are byte-identical to previously inspected renders. No clipping; introduction and conclusion complete on their pages.",
+  "presentation_replay": "All eight specificity figures passed deterministic replay; Ruff passed. Geometry verification preserves all 756 scatter points, 54 line artists, 12 axes and numerical axis limits within the same figure footprint. Legend remains inside the figure.",
+  "lint": "git diff --check passed",
+  "scientific_scope": "Editorial prose and geometry presentation only. Actual held-out calibration decomposition checked read-only. No scientific input or result, image source or inferential procedure changed."
+}

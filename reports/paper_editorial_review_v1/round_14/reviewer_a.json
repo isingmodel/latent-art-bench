@@ -1,0 +1,72 @@
+{
+  "reviewer_id": "editorial_r14_a",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "f36bbe6c8d69c4ec9814b83164e0c7d14acb89e9f3df5ea5830aadd32783e023",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete 22-page frozen manuscript, including references and Appendices A–G. Visually inspected every rendered PDF page, all five figures and all ten tables; re-rendered page 17 at higher resolution to confirm table legibility. Consulted only the fixed rubric and selected TeX from the supplied snapshot to resolve wording and labels. The abstract contains 155 whitespace-delimited words. No other reviews, earlier manuscripts, progress records or repository analyses were inspected."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.25,
+    "new_reader_understanding": 9.0,
+    "engagement": 9.0
+  },
+  "overall": 9.125,
+  "score_reasons": {
+    "expression": "Excellent, precise English with concrete explanations before technical notation. Section 4.1 introduces contrasts through the Monet–Sisley lightness gap and explains D with the no-distinction/exact/doubled examples; Section 5.4 explains shrinkage without implying image improvement. Terminology and qualifications are generally disciplined. The unframed imperative opening the Discussion and occasional compressed ancillary reporting are localized refinements, not recurrent comprehension problems.",
+    "structure": "The main text progresses coherently from a consequential distinction through controlled prompts, interpretable measurements, score definitions, primary results and separately identified retrospective diagnostics. Sections 5.3–5.5 organize the diagnostics by what they reveal, and Table 4 puts the source-sensitive inference directly in view. Detailed derivations, historical cohorts and provenance are appropriately optional. The Discussion could use its opening more effectively to state the evaluation implication rather than sounding like an instruction before recapitulating the model results.",
+    "new_reader_understanding": "The abstract supplies the question, design, digital target, centering operation, principal findings and perceptual limit within 155 words. The main text defines the controls, feature units, beta and D, the theoretical D=1 benchmark, the repeat correction, scene dependence and retrospective calibration without requiring repository access. Figure 1 and the expanded views in Figure 2 make the experiment and painter contrasts inspectable; figure/table captions explain interpretation and limits. The principal remaining identification gap is confined to the older palette collections in Appendix F.2, where the model and estimate labels are not explicit.",
+    "engagement": "The opening Monet–Sisley example, the six-condition image grid, the pair heatmaps and the two concrete ordering reversals give the paper a clear narrative and reward inspection. Results are interpreted through their implications rather than merely listed, with restrained claims. The short Discussion mostly repeats the named-model findings before moving into limitations; a more direct opening synthesis would sharpen the closing payoff. This is an excellent main narrative with localized opportunities, not a need for additional experiments or a broader claim."
+  },
+  "strengths": [
+    "The Introduction makes the central distinction immediately concrete: a generic painting instruction can improve proximity to both Monet and Sisley without reproducing their difference.",
+    "Sections 4.1–4.2 teach the metric before relying on it, including a real lightness example, benchmark errors of 1/0/1, the reason for cross-repeat products and the distinction between a theoretical no-contrast predictor and the generic-painting arm.",
+    "Figure 1 shows all six prompt conditions across all six models with a clear selection/provenance caption; Figure 2 supplies common-scale Monet/Sisley/Pissarro detail views, and Figure 3 gives directly readable pair scores.",
+    "The primary result is responsibly hierarchical: all six aligned-response intervals exclude zero, but low total mismatch and most model differences are not established. Table 4 explicitly shows which source-corrected comparisons change.",
+    "Table 3 and its prose make both calibration and scene dependence tangible while repeatedly keeping these feature-space diagnostics distinct from altered or perceptually improved images.",
+    "The main account stands alone while mathematical derivations, simulation checks and older interventions remain in clearly labeled appendices."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Section 6, page 10; paper.tex lines 321–326",
+      "issue": "The Discussion begins with the unframed imperative “For this reference target, report overall and pairwise aligned responses and errors alongside each model’s calibrated error.” It briefly sounds like an editorial instruction, and the remainder of the paragraph largely repeats the model comparison already explained in Section 5.4.",
+      "reader_effect": "The transition from results to their practical evaluation implication is less decisive than the otherwise strong narrative; the reader receives a reporting instruction before its status as the authors’ recommendation is clear.",
+      "suggested_change": "Replace the opening sentence with an explicit conclusion such as “These results favor reporting overall and pairwise alignment together with both uncalibrated and calibrated error.” Retain the following model examples as its evidence. This is a same-space replacement, not a request to lengthen the Discussion."
+    },
+    {
+      "priority": "low",
+      "location": "Appendix F.2, pages 21–22; paper.tex lines 565–570 and Table 10",
+      "issue": "The two 192-output palette collections are described without an explicit model label, and the two interaction estimates for each collection are given without inline painter labels. The subsequent reference to “two additional FLUX endpoints” leaves the reader uncertain about the model attached to the main interaction pairs.",
+      "reader_effect": "A reader choosing to consult this optional supporting evidence cannot unambiguously associate its numerical palette findings with the recorded experimental configuration without consulting material outside the manuscript. This does not obstruct the primary six-model story.",
+      "suggested_change": "Use the existing Table 10 comparison cell or the first sentence of F.2 to identify each collection’s recorded model/configuration, and label the interaction pair as Monet/Cézanne where it is first reported. Replace the current generic collection description rather than adding a paragraph or expanding the paper beyond 22 pages."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent, self-contained editorial presentation of a bounded comparison of measured digital painter contrasts. The main study, metrics, result hierarchy and limits are readily recoverable by the intended reader, and the figures are useful and legible. Remaining changes are localized wording and ancillary labeling refinements; no major restructuring, added experiment or claim expansion is warranted."
+}

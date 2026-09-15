@@ -1,0 +1,93 @@
+{
+  "reviewer_id": "editorial_r02_a",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "ee9333ed1fa10779dfa06d1cafd2b844dec927dc2bc0f9b0cc6fd5348f515f67",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read all 22 PDF pages, including the abstract, main text, references and Appendices A-G; visually inspected every rendered page, all six figures and all nine tables. Read frozen paper.tex and specificity_results.tex to resolve wording, notation and cross-references. Technical appendices were evaluated as optional depth. PDF SHA256 was independently computed with shasum and verified again in Python. No earlier manuscript, other review, progress record, repository analysis or external scientific source was consulted."
+  },
+  "scores": {
+    "expression": 9.0,
+    "structure": 8.75,
+    "new_reader_understanding": 8.5,
+    "engagement": 8.75
+  },
+  "overall": 8.75,
+  "score_reasons": {
+    "expression": "Excellent overall: the opening Monet/Sisley example, the three-step definition of contrasts in Section 4.1, and the direct explanations of the GPT Image 2 and FLUX results use fluent, precise English. Qualifications generally state the practical limit of a result rather than merely hedge it. Localized friction remains in the two meanings of alignment ratio, the compressed controls sentence at the end of Section 5.5, and repeated statements that calibration or digital measurements do not establish artistic fidelity.",
+    "structure": "The progression from a concrete evaluation question through arms, features, scores, primary comparisons and explicitly retrospective diagnostics is clear. The main text supplies the essential argument, while derivations, complete comparison tables and earlier cohorts are appropriately placed in appendices. The principal structural opportunity is that the artist-free/generic image controls appear only on page 18 despite supporting the shared-effect result on pages 7-8; a few peripheral diagnostic references also interrupt the otherwise focused closing narrative.",
+    "new_reader_understanding": "The design can be reconstructed without the repository: six clauses, fourteen fixed briefs, two repeats, explicit reference counts and a development-only scaler are all described. Table 1 translates the representation into visible image properties, and the no-distinction/exact/doubled examples give D a useful scale before the equations. The text also distinguishes a theoretical D=1 predictor from the generic arm. Understanding is slightly less complete when Section 5.4 invokes an undefined corrected alignment ratio, when Section 5.5 introduces real-painting controls without explaining their construction, and when Figure 2 makes its key mean-versus-reference comparison with small overlapping marks.",
+    "engagement": "The manuscript sustains a consequential, bounded question through three memorable findings: detected alignment need not mean low error, Monet/Sisley can remain weak despite aggregate alignment, and calibration changes the lowest point estimate. Figure 1 offers an engaging visual entry, Figure 3 makes pair heterogeneity easy to inspect, and Table 3 rewards comparison. The absent main-text control panel, small Figure 2 mean markers, and some repeated boundary statements leave modest opportunities to improve inspection and pace without adding evidence or length."
+  },
+  "strengths": [
+    "The opening comparison between approaching Monet and recovering Monet-versus-Sisley differences gives a new reader a concrete reason for the study before statistical notation appears.",
+    "Section 4.1 introduces both the meaning of contrasts and the 1/0/1 expected-error examples before the formal estimator, while Section 4.2 explains negative estimates and the theoretical no-contrast benchmark.",
+    "Sections 5.1 and 5.4 turn numbers into an interpretable finding: GPT Image 2 can have beta approximately one and substantial total error, whereas a weaker FLUX response has lower original error and GPT Image 2 has lower calibrated error.",
+    "The Figure 3 heatmaps include numerical values and interpretable benchmarks; the Table 3 column labels make scene averaging, scene variation and calibration directly comparable.",
+    "Primary inference, retrospective pair analysis, calibration and source correction are consistently distinguished. The loss of the adjusted Sunburst comparison after cropping is clearly reported rather than concealed by the retained point ordering.",
+    "The manuscript repeatedly and accurately identifies its target as a finite collection of digital reproductions, explains content and capture differences, and does not equate numerical agreement with perceptual artistic fidelity."
+  ],
+  "findings": [
+    {
+      "priority": "medium",
+      "location": "Sections 5.2 and 5.4, pages 8-9; Appendix B.1 and Table 6",
+      "issue": "Cross-repeat alignment ratios in Section 5.2 compare the generic and shared named shifts, whereas the highest corrected alignment ratio in the opening of Section 5.4 is beta/sqrt(Q), comparing painter contrasts with the reference. The second quantity has not been defined in the main text and can be mistaken for either beta or the immediately preceding ratio.",
+      "reader_effect": "A reader who understood the two primary scores now has to consult the appendix to determine what changed in the meaning of alignment and why this additional ratio is relevant to shrinking a near-unit slope.",
+      "suggested_change": "Name the Section 5.2 comparison by its objects, for example agreement in direction between the generic and shared named shifts. In Section 5.4, remove the highest-ratio clause and start with the already interpretable contrast: GPT Image 2 has an aligned slope near one but more than twice the reference squared contrast size (Q=2.223). Retain the ratio ranking in Table 6. This preserves the evidence and shortens the main text."
+    },
+    {
+      "priority": "medium",
+      "location": "Figure 1, page 4; Section 5.2, pages 7-8; Figure 4, page 18",
+      "issue": "The main image panel shows the historical and named conditions, but the artist-free and generic examples that make the large shared shift inspectable are separated from it by fourteen pages and placed in optional appendix depth. Section 5.2 does not direct the reader to that existing control panel.",
+      "reader_effect": "The reader can visually compare painter names early, but the headline common-painting effect remains an abstract percentage during the main narrative even though the necessary illustrative images already exist.",
+      "suggested_change": "Move the existing Figure 4 panel alongside the shared-effect result, keeping its selection and provenance details in Appendix D, and add a short reference from Section 5.2. Reuse the same panel rather than duplicate it; adjust floats or trim repeated qualifications so the manuscript stays within 22 pages."
+    },
+    {
+      "priority": "low",
+      "location": "Figure 2 and its reading instructions, page 7",
+      "issue": "The instructions appropriately ask readers to compare each generated mean circle with its same-colored reference cross, but those two marks are small and often overlap each other and the scene/repeat cloud, especially for Monet, Sisley and Pissarro. The circle-to-cross displacement is less conspicuous than the surrounding scatter.",
+      "reader_effect": "The main comparison takes more effort to recover than the clear caption suggests; a reader may see the separated Cezanne cloud without being able to judge the remaining labeled pattern.",
+      "suggested_change": "Increase the generated-mean marker size and give it a clear outline or hollow center, draw means above the clouds, and reduce the cloud opacity. Preserve the common axes and all observations. This improves the existing figure without new content or page area."
+    },
+    {
+      "priority": "low",
+      "location": "End of Section 5.5 and final paragraph before Section 6.1, page 10",
+      "issue": "The closing main-text paragraphs briefly introduce disjoint real-painting controls and the contrary prospective fixed-map result without enough local explanation of what those designs compare. Their methods and reasons are recoverable in Appendices C.1 and F, but these references momentarily open new analytical stories just as the main narrative is closing.",
+      "reader_effect": "A new reader must either pause for substantial appendix detours or retain conclusions about unnamed comparison procedures; the well-developed primary/calibration/source-correction story loses momentum.",
+      "suggested_change": "Keep the control distributions and the fixed-map counterexample in their present appendices, but cut the compressed real-painting-control summary from Section 5.5. In the Discussion, retain the statement that the prompt intervention does not identify an internal mechanism and shorten the following sentence to a signpost that separate interventions and their limits are documented in Appendix F."
+    },
+    {
+      "priority": "low",
+      "location": "Sections 4.4, 5.4 and Table 3; Discussion and Conclusion, pages 6, 9-11",
+      "issue": "Several immediately related passages restate that calibration changes measured features rather than images, and the Discussion and Conclusion repeat much of the same response/alignment/error sequence. The distinctions are essential, but some repetition now uses space that could support the existing visuals.",
+      "reader_effect": "The end of the paper feels slightly more recap-heavy than its concise result headings, reducing pace without adding a new boundary or interpretation.",
+      "suggested_change": "Keep the operational calibration warning in Section 4.4 and the standalone Table 3 caption, then shorten the repeated prose warning in Section 5.4. Compress the opening Discussion recap so it leads sooner to the useful three-quantity reporting recommendation. Preserve the final perceptual-fidelity boundary in the Conclusion."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "A strong, nearly excellent editorial presentation of a bounded digital-reference comparison. The main argument is understandable without repository access, the numerical examples are unusually helpful, and the paper handles uncertainty and retrospective findings responsibly. Remaining improvements concern a small terminology collision, placement and legibility of existing visual evidence, and trimming compressed side analyses or repetition. They can be made within the existing 22 pages and without expanding the abstract or requiring new scientific evidence."
+}

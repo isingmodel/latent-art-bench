@@ -1,0 +1,80 @@
+{
+  "reviewer_id": "editorial_r16_a",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "c9ea5f1868a5747087a78499ff9e4b1c44df4f46a56d128469cfe66486562bd6",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the full extracted text of all 22 pages, including references and Appendices A–G. Visually inspected every PDF page, all five figures and all ten tables; additionally inspected pages 7–8 at higher resolution. Consulted the frozen paper.tex and specificity_results.tex for exact wording, notation and locations. Technical appendices were treated as optional depth when scoring main-text accessibility. No other review records or manuscript versions were read."
+  },
+  "scores": {
+    "expression": 9.0,
+    "structure": 9.0,
+    "new_reader_understanding": 9.0,
+    "engagement": 8.75
+  },
+  "overall": 8.9375,
+  "score_reasons": {
+    "expression": "Excellent, precise English with short explanatory sentences and consistent distinctions among aligned response, total error, scene averaging and calibration. Section 4.1 explains the scores in words before notation, and the result headings express findings rather than merely name analyses. Qualifications generally prevent specific misunderstandings rather than dilute the claims. The abstract’s adjacent retrospective-diagnostic and calibration sentences, and the repeated model-ranking summary in the discussion, admit localized tightening.",
+    "structure": "The progression from the Monet–Sisley motivation through prompt design, feature interpretation, intuitive score definitions and primary results is coherent. Sections 5.3–5.5 clearly identify retrospective diagnostics and source sensitivity, while technical derivations, complete comparisons and earlier cohorts remain in appendices. Tables 2–4 provide a useful hierarchy of primary agreement, descriptive calibration and source-dependent inference. The opening discussion paragraph adds relatively little beyond Section 5.4 and the nearby conclusion, but this is a localized issue.",
+    "new_reader_understanding": "The main text stands on its own for the stated audience. It explicitly gives all six prompt conditions, the 1,008-image design, the finite 649-reproduction target, equal painter weighting, interpretable feature families and the development-IQR unit. The concrete lightness example and the no-distinction/exact/doubled examples make centering and D accessible. The theoretical benchmark is distinguished from the actual generic-painting arm, and calibration is explained as a feature-level operation with held-out scenes. A dense abstract and the compact geometry panels are the remaining small barriers.",
+    "engagement": "The question has a clear evaluative consequence: recognizing a name response does not establish agreement with painter differences. Figure 1 makes the intervention tangible; the Monet–Sisley diagnostic, excess contrast size and scene-variation reversal sustain a discernible narrative. Figure 3 is particularly easy to inspect because it prints the values and marks meaningful scale benchmarks. The abstract spends substantial attention on calibration procedure, and the discussion largely reprises findings, causing a small loss of pace and interpretive payoff."
+  },
+  "strengths": [
+    "The introduction uses the concrete possibility of moving closer to both Monet and Sisley to explain why collection proximity does not establish painter-specific agreement.",
+    "Section 4.1 provides a measured lightness gap (.325 versus .254 development-IQR units) and three idealized D values (1, 0, 1), so the central estimands can be understood before reading the equations.",
+    "The full-condition image grid has an explicit scene, reproducible selection rule and a caption that prevents readers from treating the historical examples as matched compositions or generator inputs.",
+    "The primary result is carefully framed: all models have positive aligned responses, but no model is established to beat the no-distinction error benchmark. Lowest point estimates are consistently distinguished from statistical superiority.",
+    "Section 5.4 explains why a near-unit aligned response can coexist with excess total contrast size, and separately shows how scene averaging changes the Nano Banana 2–FLUX ordering.",
+    "Source correction is reported as a consequential sensitivity with an explicit before/after table, including the loss of resolution for Sunburst–FLUX, rather than being described as uniformly confirming the initial comparisons.",
+    "The paper clearly states the limits of digital features, historical subject mixtures, AI source auditing and exact-pixel access without requiring the reader to reconstruct these limits from repository records."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Abstract, page 1; paper.tex lines 36–40",
+      "issue": "The final substantive part of the abstract moves from retrospective pair diagnostics to a second, separately labeled retrospective procedure, then gives the calibration ranking change. The procedural sentence about uniform rescaling, 13 training scenes and omitted-scene evaluation is accurate but heavy relative to the short abstract.",
+      "reader_effect": "A new reader must retain several technical operations just when the abstract should consolidate the main distinction between detecting alignment and achieving low mismatch.",
+      "suggested_change": "Compress the two calibration sentences into one that preserves the single multiplier per model, held-out evaluation and ranking change. For example: “Retrospective calibration fits one contrast multiplier per model on 13 scenes and evaluates each omitted scene; shrinking GPT Image 2’s excess contrast size shifts the lowest error estimate from FLUX.2 Max to GPT Image 2 without altering images.” Keep the perceptual-fidelity sentence and remain within 155 words."
+    },
+    {
+      "priority": "low",
+      "location": "Figure 2, page 7",
+      "issue": "The six overview panels and six narrow M/S/P detail panels successfully expose the near-overlapping means, but the detail tick labels and painter letters are small at the final page size. The most important nearby distinctions therefore require more visual effort than the clear numerical heatmap on page 8.",
+      "reader_effect": "The reader can follow the prose takeaway, but inspecting exactly how the Monet and Sisley means move relative to their references is slower than it needs to be.",
+      "suggested_change": "Within the same figure footprint, give the detail panels slightly more width and larger labels by reducing unused horizontal extent in the overview panels or the gap between overview and detail. Preserve common axes and all six models; no additional figure or page is needed."
+    },
+    {
+      "priority": "low",
+      "location": "Discussion, page 10; paper.tex lines 319–325",
+      "issue": "The opening discussion paragraph repeats the FLUX/GPT Image 2 contrast and ranking change already explained in Section 5.4, and the conclusion repeats the same message again shortly afterward.",
+      "reader_effect": "The ending has less interpretive payoff than the results: the reader hears the ranking change again instead of receiving a compact explanation of what each reporting choice helps diagnose.",
+      "suggested_change": "Replace part of this recap with an equal-length explanation of the reporting recommendation: uncalibrated D assesses the response as measured; aligned and pairwise responses show which distinctions support it; held-out scalar calibration shows how much mismatch is attributable to overall response size. Retain the existing restriction to the measured reference target and leave the numerical recap in Results."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent, self-contained editorial presentation of a bounded digital-reference comparison. Its strongest achievement is making positive alignment, low total mismatch and retrospective calibration visibly different claims. Only localized refinements to abstract density, Figure 2 readability and the discussion’s added interpretation are needed within the existing 22-page limit."
+}

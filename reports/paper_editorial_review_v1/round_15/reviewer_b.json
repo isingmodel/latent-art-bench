@@ -1,0 +1,67 @@
+{
+  "reviewer_id": "editorial_r15_b",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "f0dda9d3aad52f829e49c51758dc2a6bb433a51c79e9738b9753e1aa16f3036e",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete 22-page PDF, including references and Appendices A–G. Visually inspected every rendered page, all five figures and all ten tables; re-inspected page 17 at higher resolution. Consulted the frozen paper.tex and included result/table TeX to resolve wording and layout. Technical appendices were treated as optional depth when judging main-text accessibility. Independently verified the PDF SHA256. Read no other review records, earlier versions or non-snapshot manuscript."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.5,
+    "new_reader_understanding": 9.25,
+    "engagement": 9.25
+  },
+  "overall": 9.3125,
+  "score_reasons": {
+    "expression": "Excellent, precise prose with manageable sentences and consistent distinctions among alignment, total error, collection proximity and perceptual fidelity. Section 4.1 explains the central scores in ordinary language before their equations; Sections 5.3–5.5 keep qualifications close to the findings they limit. The localized abstract antecedent identified below is the principal wording refinement.",
+    "structure": "The progression from the Monet/Sisley motivation through the controlled prompt design, interpretable measurements, score construction, primary comparisons and retrospective explanations is exceptionally coherent. Result headings state what each analysis reveals. The full paired-comparison table, estimator identities, source audit and earlier cohorts are appropriately placed in optional appendices; the main text supplies enough information to follow the bounded study without them. Tables 3 and 4 efficiently organize the ordering changes and reference sensitivity.",
+    "new_reader_understanding": "The six conditions and two repeats are explicit in Section 3.2 and visible together in Figure 1. Table 1 translates all three feature families into ordinary visual properties. The numerical lightness example and the no-distinction/exact/doubled-response examples in Section 4.1 make centering and the D benchmark unusually accessible. Captions explain normalization, negative corrected error and projected versus full-feature agreement. The abstract stands alone and meets its 155-word limit, although its diagnostic transition can briefly blur which procedure produced the pair finding.",
+    "engagement": "The opening offers a concrete reason why getting closer to Monet need not distinguish Monet from Sisley. The guided Figure 1 comparison makes the intervention tangible, Figure 2 rewards close inspection with matched detail views, and Figure 3 exposes the weaker pair responses. The FLUX/GPT Image 2 calibration reversal and the Nano Banana 2 scene-averaging reversal are explained as evaluation choices rather than presented as a leaderboard. This gives the results a clear narrative while keeping claims measured."
+  },
+  "strengths": [
+    "Section 4.1 combines a real lightness contrast with three idealized generators, giving a new reader concrete intuition for both centering and the non-monotonic relation between response strength and error.",
+    "The experiment is fully understandable from the main text: four named conditions, two controls, six recorded configurations, 14 fixed scenes and two independent requests per cell are all stated explicitly.",
+    "Figures 1–3 have useful reading instructions and legible encodings. The image grid, the magnified Monet/Sisley/Pissarro positions and the annotated pair heatmap each answer a distinct question.",
+    "Sections 5.4 and 5.5 explain why an ordering or adjusted comparison changes, while preserving the distinction between point estimates, confirmatory comparisons and retrospective diagnostics.",
+    "Limitations are specific to the actual target and design: digital capture, finite reference panels, scene dependence, independence assumptions and AI-only source auditing are described without implying perceptual validation.",
+    "The manuscript preserves substantial technical and historical evidence in appendices while keeping the main scientific story self-contained within ten pages before availability and references."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Abstract, page 1; paper.tex lines 36–38",
+      "issue": "Immediately after reporting that retrospective diagnostics find weak Monet–Sisley alignment, the sentence beginning “These diagnostics uniformly rescale” makes the same diagnostics appear responsible for both the uncalibrated pair result and scalar calibration. Sections 5.3 and 5.4 distinguish those analyses correctly.",
+      "reader_effect": "An abstract-only reader can mistakenly infer that the reported weak pair alignment was assessed after rescaling, or that the calibration operation is how the pair weakness was detected.",
+      "suggested_change": "Replace “These diagnostics uniformly rescale” with “Separate calibration uniformly rescales” and change the later “evaluate” to “evaluates”. This preserves the existing 155-word abstract and separates the two procedures without adding evidence or length."
+    }
+  ],
+  "claim_fidelity_issues": [
+    "The abstract’s “These diagnostics uniformly rescale” has an ambiguous referent that can conflate the uncalibrated painter-pair diagnostic with the separate calibration analysis; see the localized finding. I found no consequential overstatement of perceptual fidelity, statistical superiority or independent validation in the main text."
+  ],
+  "summary": "An excellent editorial presentation of a bounded comparison of measured digital painter contrasts. The main narrative is readily understood, the figures and numerical examples clarify the estimands, and the distinction between primary findings and retrospective diagnostics is maintained. Only a localized abstract transition needs correction; no broader restructuring or new evidence is warranted by this rubric."
+}

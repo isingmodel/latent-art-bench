@@ -1,0 +1,15 @@
+{
+  "pdf_sha256": "4dd19f7d77d63eb17e7708d566607c3c001c7c8bc9afda84a5c297d93e7005b2",
+  "rubric_sha256": "e3c0d44034123bc097ed3a4823c3977e2b7bd13207460aba41bd1e805a3812f3",
+  "exactly_matches_previous_final_snapshot": true,
+  "pages": 22,
+  "abstract_words": 151,
+  "pdftotext_words": 9593,
+  "claude_fresh_session_id": "1d3e12af-8157-4f6e-8890-ca49a83daccc",
+  "claude_session_distinct_from_all_previous": true,
+  "evaluation_only_no_manuscript_edits": true,
+  "source_page_renders": "Copied byte-identical final page renders with all22hashes verified against paired_review_03/FINAL_VALIDATION.json",
+  "prior_scores_or_reviews_disclosed": false,
+  "previous_response_id": null,
+  "responses_state": false
+}

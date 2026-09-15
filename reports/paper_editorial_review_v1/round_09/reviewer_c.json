@@ -1,0 +1,79 @@
+{
+  "reviewer_id": "editorial_r09_c",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "1e279d3603ac64225506dda00722a395961976b63afa015decdf73eca05fbd01",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the entire frozen 22-page PDF, including the abstract, main text, references, and Appendices A-G. Visually inspected every rendered page, including Figures 1-5 and Tables 1-10. Consulted frozen paper.tex and specificity_results.tex to resolve wording, notation and locations. Independently computed the supplied PDF SHA256 twice. The abstract has 149 whitespace-delimited source tokens. Technical appendices were treated as optional depth for assessing main-text accessibility. No other reviews, prior manuscripts, progress records or external scientific sources were consulted."
+  },
+  "scores": {
+    "expression": 9.0,
+    "structure": 9.0,
+    "new_reader_understanding": 9.0,
+    "engagement": 9.0
+  },
+  "overall": 9.0,
+  "score_reasons": {
+    "expression": "Excellent, precise English with manageable sentences and stable central terms. Sections 4.1-4.2 explain contrast, aligned response and error in ordinary language before introducing equations; results paragraphs usually connect numbers directly to their meaning. The remaining refinements are localized: the unqualified word corrected in Section 5.2 and the vague reference to a universal mechanism in the Discussion.",
+    "structure": "The progression from a concrete evaluation problem through reference construction, controlled prompt arms, feature interpretation, estimators and results is readily followed. Section 5 moves from the primary inference to the shared component, painter-pair coverage, calibration and source sensitivity. Retrospective analyses are clearly distinguished from the declared comparison family, and mathematical derivations, complete tables and older cohorts are sensibly placed in optional appendices. Only local signposting improvements remain.",
+    "new_reader_understanding": "The abstract stands alone, the six prompt conditions and finite reference target are explicit, and Table 1 connects measurements with interpretable properties. The Monet-Sisley lightness example and the no-distinction/exact/doubled-response examples make the two main scores understandable without repository access. The theoretical D=1 benchmark, repeat correction, fixed-scene uncertainty and feature-only calibration are all explained in the main text. Figure 3 could make its descriptive status and negative-error convention more self-contained.",
+    "engagement": "The paper poses a consequential, bounded question and sustains a discernible narrative: detectable painter-name responses need not reproduce painter distinctions. Figure 1 rewards comparison across prompt conditions, Figure 2 magnifies the subtle Monet/Sisley/Pissarro region, and Figure 3 reveals uneven pair coverage. The contrasting FLUX/GPT Image 2 and FLUX/Nano Banana 2 examples make the consequences of score choice concrete. The brief Discussion would gain a little force by naming the earlier result it invokes."
+  },
+  "strengths": [
+    "The opening Monet-versus-Sisley example explains why generic proximity and labeled painter differences are distinct questions, then Section 4.1 supplies an actual lightness contrast to make centering concrete.",
+    "The abstract reports the experiment, measurement space, shared-change range, positive alignment, unresolved no-distinction benchmark, retrospective pair finding and calibration reversal within its length limit.",
+    "The D=1 theoretical benchmark is explicitly distinguished from the observed generic-painting arm, and the error interpretation explains both random-repeat correction and the contribution of scene variation.",
+    "Figure 1 shows all six experimental conditions for all six models; its caption gives a usable comparison sequence and clearly states that reference paintings are neither inputs nor matched compositions.",
+    "Tables 2-4 and Sections 5.1, 5.4 and 5.5 distinguish point-estimate rankings, adjusted comparisons, descriptive calibration and changed source-sensitivity intervals without implying improved generated images.",
+    "The reference target, reproduction artifacts, AI-only source audit and absence of perceptual validation are clearly bounded; appendices preserve technical detail without making it necessary to recover the main story."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Section 5.2, p. 8; specificity_results.tex lines 44-46",
+      "issue": "The phrase corrected squared feature change does not specify what was corrected. Later sections use correction for audited painting regions and refitted development scaling, whereas this percentage uses the original vectors with repeat-noise correction.",
+      "reader_effect": "A reader following the later source audit can momentarily misidentify which reference version underlies the headline 82.5-95.7% range.",
+      "suggested_change": "Replace corrected squared feature change with repeat-noise-corrected squared feature change. This is a local clarification requiring no additional result or paragraph."
+    },
+    {
+      "priority": "low",
+      "location": "Figure 3 caption, p. 8; specificity_results.tex lines 81-85",
+      "issue": "The text immediately above correctly identifies these pair analyses as retrospective and descriptive, but the caption itself omits that status and displays a negative D value without recalling the repeat-correction convention.",
+      "reader_effect": "A reader inspecting the figure independently has to return to Sections 4.2 and 5.3 to distinguish these point estimates from the adjusted aggregate findings and to interpret the -0.05 error cell.",
+      "suggested_change": "Replace the final caption sentence with a compact sentence such as: Descriptive pair estimates use all 31 features; negative D can reflect repeat correction. Keep the existing prose specifying both repeats and the absence of artist-level tests."
+    },
+    {
+      "priority": "low",
+      "location": "Discussion, p. 10; paper.tex lines 329-332",
+      "issue": "Earlier interventions also caution against a universal mechanism invokes a mechanism without identifying the earlier result or the relationship that changed. Appendix F explains the contrary transfer result, but the main-text sentence remains abstract.",
+      "reader_effect": "The reader understands that caution is intended but cannot tell what the older evidence contributes to this closing interpretation without opening the optional appendix.",
+      "suggested_change": "Replace that sentence with a similarly short concrete statement, for example: Earlier fitted transformations had opposite effects on reference proximity across cohorts (Appendix F). This preserves the caution while identifying its basis and does not expand the main discussion."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent and self-contained account of a bounded digital-reference comparison. The central distinction between detecting an aligned response and matching painter differences is clear in prose, examples, figures and numerical results. Only localized terminology and caption refinements remain; no new experiment, metric, human evaluation or added pages are needed for these editorial improvements."
+}

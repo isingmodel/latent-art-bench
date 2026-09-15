@@ -1,0 +1,73 @@
+{
+  "reviewer_id": "editorial_r15_a",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "f0dda9d3aad52f829e49c51758dc2a6bb433a51c79e9738b9753e1aa16f3036e",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete frozen PDF, including the abstract, Sections 1–7, availability statement, references and Appendices A–G. Visually inspected all 22 rendered pages, all five figures and all ten tables; enlarged page 17 to verify Table 7 legibility. Consulted frozen paper.tex, specificity_review_appendix.tex and specificity_component_supplement.tex to resolve wording, structure and table layout. The abstract contains 155 whitespace-delimited words in its TeX source. SHA256 was independently computed from the supplied PDF. Used only the fixed rubric and this manuscript snapshot; technical appendices were treated as optional depth, not as prerequisites for main-text understanding."
+  },
+  "scores": {
+    "expression": 9.0,
+    "structure": 9.25,
+    "new_reader_understanding": 9.0,
+    "engagement": 9.25
+  },
+  "overall": 9.125,
+  "score_reasons": {
+    "expression": "Excellent, precise scientific English with manageable sentences and unusually careful distinctions between alignment, error, proximity and perceptual fidelity. Section 4.1 explains the scores in ordinary language before introducing notation, and Sections 5.1–5.5 consistently connect numerical results to their meaning. Remaining friction is localized: the abstract’s “These diagnostics” attaches calibration to the preceding pairwise finding, and the introduction repeats its centering explanation within three paragraphs.",
+    "structure": "The progression from the Monet–Sisley question through reference selection, controlled clauses, interpretable measurements, two primary scores and results is coherent. Section 5.1 establishes the primary finding before the explicitly retrospective pair, calibration and source diagnostics. Tables 3 and 4 make the two consequential changes in interpretation visible. Appendices preserve derivations, complete comparisons, source details and older interventions without making the main narrative depend on them. Only small local tightening is needed.",
+    "new_reader_understanding": "The intended graduate-level reader can recover the experiment, reference target and principal findings without consulting the repository. The three hypothetical errors (1, 0, 1), the measured Monet–Sisley lightness gap and the explicit distinction between the theoretical no-contrast predictor and the observed generic arm are particularly effective. Figure 1 makes all six arms concrete, Table 1 interprets the feature families, and captions define score directions. The abstract is nearly standalone, but its transition from pair diagnostics to rescaling needs a clearer boundary.",
+    "engagement": "The opening gives a consequential evaluation problem rather than a generic claim about AI art. Figure 1 rewards direct comparison, Figure 2 supplies useful magnified detail for the closely spaced painters, and Figure 3 exposes a pattern concealed by aggregate scores. The calibrated ordering change and Nano Banana 2 scene-variation example give the results a clear explanatory arc. The manuscript sustains this narrative without presenting the scores as human judgments; a small amount of repeated setup slightly slows the first page."
+  },
+  "strengths": [
+    "The introduction’s example that proximity to Monet can improve without reproducing the Monet–Sisley difference makes the scientific question concrete on page 1.",
+    "Sections 3.2–3.3 and Figure 1 explain the six prompt conditions, two repeats, 14 fixed scenes and measured representation in enough detail for a new reader to understand what was compared.",
+    "Section 4.1’s measured lightness example and idealized no-distinction/exact/doubled examples explain why aligned response and total error answer different questions.",
+    "Section 5.1 clearly reports positive alignment for all models alongside the lack of an established improvement over the no-contrast benchmark; it does not turn FLUX’s lowest point estimate into a general superiority claim.",
+    "Table 3 and its accompanying prose explain both scalar calibration and scene averaging through concrete ordering changes, while keeping images and inferential status explicit.",
+    "Section 5.5 and Table 4 expose how source correction changes adjusted comparisons, including the loss of the Sunburst result, instead of hiding that dependence.",
+    "The full PDF is legible and visually coherent. The main figures have useful comparison instructions, interpretable encodings and captions that state their limits."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Abstract, page 1; paper.tex lines 36–38",
+      "issue": "“These diagnostics uniformly rescale” immediately follows the finding of weak Monet–Sisley alignment. The demonstrative makes the separate calibration procedure sound like the procedure producing the pairwise finding, although Sections 5.3 and 5.4 distinguish them.",
+      "reader_effect": "A reader using the abstract alone may attribute the weak pairwise alignment to calibrated contrasts, or assume that all retrospective diagnostics share the rescaling step.",
+      "suggested_change": "Replace the sentence with: “A separate calibration uses one multiplier per model, fitted on 13 scenes and evaluated on each omitted scene.” This explicitly separates the analyses and is shorter than the current sentence, preserving the 155-word ceiling."
+    },
+    {
+      "priority": "low",
+      "location": "Introduction, page 1; paper.tex lines 54–56 and 70–73",
+      "issue": "The second paragraph explains subtracting the four-painter average and comparing the resulting differences; the fourth paragraph repeats that same centering explanation before moving to the distinct contribution of repeated outputs.",
+      "reader_effect": "The opening briefly restates an already clear operation instead of continuing the design-to-inference progression.",
+      "suggested_change": "In the fourth paragraph, join “Six model configurations receive the same scenes and prompt clauses” directly to the sentence about repeated outputs, cutting the intervening sentence beginning “Subtracting the four-name average.” The earlier explanation and Section 4 retain the complete method."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "Excellent editorial communication for the stated audience and bounded digital-reference comparison. The main narrative and findings stand on their own; methods and appendices are well divided, uncertainty is visible, and figures add explanatory value. Two localized wording and repetition refinements remain. No substantive overstatement or implied perceptual validation was found."
+}

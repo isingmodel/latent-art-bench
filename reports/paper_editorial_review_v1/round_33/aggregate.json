@@ -1,0 +1,49 @@
+{
+  "round": 33,
+  "pdf_sha256": "3bea311da87d1f2bbec5cb603535e818af1a7f2e1f7784d529674daa99c52e57",
+  "rubric_sha256": "e3c0d44034123bc097ed3a4823c3977e2b7bd13207460aba41bd1e805a3812f3",
+  "reviewers": [
+    {
+      "reviewer_id": "editorial_r33_a",
+      "scores": {
+        "expression": 9.5,
+        "structure": 9.5,
+        "new_reader_understanding": 9.25,
+        "engagement": 9.25
+      },
+      "overall": 9.375,
+      "review_sha256": "900e1b40ebcbe50e0da6a5a3d32bd91f92cc267692864f7f58af54eb380b885d"
+    },
+    {
+      "reviewer_id": "editorial_r33_b",
+      "scores": {
+        "expression": 9.25,
+        "structure": 9.0,
+        "new_reader_understanding": 9.0,
+        "engagement": 9.0
+      },
+      "overall": 9.0625,
+      "review_sha256": "f4c236cf851b166d321b78631c795cda9c62411ac85665595cd268c43653a8cb"
+    },
+    {
+      "reviewer_id": "editorial_r33_c",
+      "scores": {
+        "expression": 9.5,
+        "structure": 9.5,
+        "new_reader_understanding": 9.25,
+        "engagement": 9.5
+      },
+      "overall": 9.4375,
+      "review_sha256": "181c10a30d435f631ee1c58a5d480571482a18f4c8cf87de6bc48f409742e16c"
+    }
+  ],
+  "dimension_means": {
+    "expression": 9.416666666666666,
+    "structure": 9.333333333333334,
+    "new_reader_understanding": 9.166666666666666,
+    "engagement": 9.25
+  },
+  "mean": 9.291666666666666,
+  "required_strictly_above": 9.25,
+  "meets_user_threshold": true
+}

@@ -1,0 +1,12 @@
+{
+  "evaluated_round": 16,
+  "page_count": 22,
+  "abstract_whitespace_words": 155,
+  "pdf_extracted_words": 9692,
+  "pdf_sha256": "c9ea5f1868a5747087a78499ff9e4b1c44df4f46a56d128469cfe66486562bd6",
+  "build": "Tectonic passed without warnings",
+  "visual_inspection": "All 22 pages rendered. Changed pages1 and10 inspected individually; the other20 PNGs are byte-identical to previously inspected renders. No clipping; introduction and conclusion complete on their pages.",
+  "presentation_replay": "Prose-only round: all generated tables and figures byte-identical to round15.",
+  "lint": "git diff --check passed",
+  "scientific_scope": "Abstract antecedent and introductory/concluding wording only. No science or images changed."
+}

@@ -1,0 +1,94 @@
+{
+  "reviewer_id": "editorial_r03_c",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "0e918372ed3c51e138d643818df5ef394a393cbb28ef7d1fc711ea045e45fead",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read all 22 PDF pages, including references and Appendices A-G, using complete text extraction; visually inspected every rendered page, including Figures 1-6 and Tables 1-9. Read frozen paper.tex and included result/diagnostic TeX to resolve notation and cross-references. Treated technical appendices as optional depth when assessing main-text accessibility. Verified the supplied PDF hash directly. Used isolated scratch directory /tmp/editorial-r03-c.OZNkim. Did not inspect other reviews, earlier manuscripts, progress records, or the current non-snapshot paper."
+  },
+  "scores": {
+    "expression": 8.75,
+    "structure": 8.75,
+    "new_reader_understanding": 8.5,
+    "engagement": 8.5
+  },
+  "overall": 8.625,
+  "score_reasons": {
+    "expression": "The English is precise, fluent and unusually careful about what each comparison establishes. The introduction uses an accessible Monet-Sisley example, Section 4.1 defines contrasts before notation, and the results repeatedly translate numbers into their implications. Most sentences are manageable. Local compression remains in the abstract’s “repeat products” and Section 5.3’s undefined component terminology; the Discussion also restates distinctions already established at length. This is close to excellent, with localized rather than pervasive editing needs.",
+    "structure": "The sequence from motivation through controlled prompt design, features, intuitive score definitions, formal methods and results is coherent. Section 5.1 anchors the primary finding, Sections 5.3-5.5 clearly identify retrospective explanations, and derivations, coverage simulations and older cohorts are appropriately placed in appendices. Source correction is flagged at the original comparison and resolved explicitly later. The principal structural friction is that Figures 1 and 3 are four pages apart and transpose the model arrangement despite inviting a direct same-scene comparison.",
+    "new_reader_understanding": "The intended reader can recover the design, finite reference target and findings without repository access. The six clauses and image count are explicit; Table 1 translates features into visual properties; Section 4.1 supplies concrete D=1,0,1 examples and distinguishes D from beta. The no-contrast benchmark, independence assumptions, scene variation and calibration’s feature-only status are explained. The abstract’s estimator shorthand, the abrupt introduction of reference components, and the omission of an explicit confidence level beside the main simultaneous intervals are remaining localized obstacles.",
+    "engagement": "The opening question has a clear consequence for evaluation, and the findings develop a discernible story: positive alignment can coexist with substantial error, artist-pair agreement is uneven, calibration changes the ordering, and source handling changes an inferential comparison. The image matrix, shared-axis geometry and annotated pair heatmaps reward inspection. Momentum is slightly reduced by having to reconstruct the named/control image comparison across distant pages and by a Discussion paragraph that largely repeats the earlier three-way distinction."
+  },
+  "strengths": [
+    "Section 1 motivates the comparison with the concrete possibility that a generic painting instruction moves images closer to both Monet and Sisley without recovering their difference.",
+    "Sections 3.2 and 4.1 let a new reader understand both the intervention and the score benchmarks before encountering the indexed equations.",
+    "Table 1 gives a useful plain-language interpretation for each feature family while the exact coordinate definitions remain in Appendix A.",
+    "The primary result pairs GPT Image 2’s near-unit aligned response with its D=1.226 error, then uses FLUX’s smaller response and D=.801 to explain why response strength and agreement differ.",
+    "Figure 4 makes weak Monet-Sisley alignment inspectable across all six models; Section 5.3 explicitly prevents label swaps from being mistaken for independent evidence of perceptual confusion.",
+    "Table 3 and its adjacent prose explain both calibration and scene averaging through actual changes of ordering, while keeping the retrospective status and lack of an image intervention clear.",
+    "Section 5.5 candidly reports the lost Sunburst comparison and newly positive GPT Image 1 interval after source correction, without promoting the latter to a confirmatory finding."
+  ],
+  "findings": [
+    {
+      "priority": "medium",
+      "location": "Figures 1 and 3, PDF pp. 4 and 8",
+      "issue": "The named-painter matrix and its artist-free/generic controls show the same brief and repeat, but they are separated by four pages and switch models from rows to columns. The captions explicitly invite comparison across these two panels.",
+      "reader_effect": "Inspecting the common painting response requires page switching and mental remapping, weakening the clearest visual route into a central result.",
+      "suggested_change": "Move the control panel immediately after the named-painter matrix and use a consistent model arrangement in both panels. Reallocate the existing figure area rather than adding images or pages; retain the captions’ warning that the historical works are not matched compositions."
+    },
+    {
+      "priority": "medium",
+      "location": "Abstract, PDF p. 1",
+      "issue": "“Repeat products correct noise bias” describes the estimator through an operation that has not yet been explained, while “painter contrasts” also arrives before its plain-language definition.",
+      "reader_effect": "A reader can understand the experimental result but has to leave the standalone abstract to understand why the repeats matter.",
+      "suggested_change": "Replace the methods sentence with: “Subtracting shared shifts isolates painter differences; independent repeats separate systematic error from random variation in expectation, assuming stable means.” This preserves the assumptions and fits within the 155-word abstract limit without adding a second explanation."
+    },
+    {
+      "priority": "low",
+      "location": "Section 5.3, PDF p. 8, sentence beginning “All models have a larger slope on the dominant reference component”",
+      "issue": "“Dominant reference component” and “either remaining component” are introduced without explaining what the three components represent. The preceding geometry discussion describes two displayed axes but does not establish this three-component decomposition.",
+      "reader_effect": "The reader briefly loses the thread between an understandable painter-pair result and the equally understandable leave-Cezanne-out comparison.",
+      "suggested_change": "Keep this component-level detail in Appendix C.2 and Table 5, and remove the sentence here. The surrounding pair and omission results already support the main-text conclusion, preserving all evidence while improving pace."
+    },
+    {
+      "priority": "low",
+      "location": "Section 4.3 and Table 2 caption, PDF pp. 6-7; Table 7 caption, p. 19",
+      "issue": "The main text and table captions identify simultaneous Bonferroni-adjusted intervals but do not explicitly state their familywise confidence level. The .05 level can be recovered from the appendix formula.",
+      "reader_effect": "A reader assessing the main result must infer the interval level or consult technical details, despite the otherwise helpful explanation of the 21-comparison family.",
+      "suggested_change": "Label them “approximate 95% simultaneous intervals, Bonferroni-adjusted across 21 comparisons” in Section 4.3 and the relevant captions. This is a wording clarification, not an additional test."
+    },
+    {
+      "priority": "low",
+      "location": "Discussion, second paragraph, PDF p. 10",
+      "issue": "The paragraph again defines common change, labeled alignment and remaining mismatch, then repeats the restrained-versus-stronger-response distinction already developed in the Introduction, Section 4.1 and Results.",
+      "reader_effect": "At the point where the reader expects the implications, the narrative briefly recapitulates its framework instead of advancing it.",
+      "suggested_change": "Compress this paragraph to a recommendation to report the three quantities together and one sentence tying that recommendation to the observed FLUX/GPT Image 2 ordering change. Keep the subsequent causal and target limitations, which add necessary interpretation. The cut can fund any local clarification while retaining the 22-page ceiling."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "A strong and largely self-contained scientific narrative. The manuscript explains its bounded digital-reference comparison, establishes an interpretable distinction between response and agreement, and marks retrospective findings and limitations clearly. No consequential claim-fidelity problem was identified. Remaining improvements are localized: bring the paired image evidence together, replace a little estimator/component shorthand, state interval coverage explicitly, and tighten repeated interpretation."
+}

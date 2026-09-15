@@ -13,11 +13,20 @@ paths. For source code, plotting and offline commands, see
 | [Reference-target diagnostics](painter_specificity_review_v1/REPORT.md) | Scene decomposition, calibrated response, artist pairs, reference controls and limitations; [numerical record](painter_specificity_review_v1/analysis.json) |
 | [Diagnostic clarification](painter_specificity_review_v2/REPORT.md) | Shared-control correction, sampling-integrated real controls, calibrated stability and broader noise simulations |
 | [Reference quality](painter_reference_quality_v1/REPORT.md) | Audit of 870 source reproductions; separate region, scaler and visual-class sensitivities, with original measurements preserved |
-| [Image inspection](painter_specificity_review_v1/inspection.json) | Selection rules, prompts, source identities, rights metadata and hashes for the 40 example images |
+| [Current image examples](../paper/example_selection.json) | Selection rules, prompts, source identities, rights metadata, crop boxes and hashes for the manuscript's 40 example images |
+| [Historical image inspection](painter_specificity_review_v1/inspection.json) | Preserved full-frame examples before the source-quality corrections; separate from the current presentation |
 
 The [current paper](../paper/paper.pdf) is the scientific synthesis.
 [Status](../docs/STATUS.md) records what remains unresolved. The new six-model
 study does not yet have a dedicated versioned release.
+
+## Editorial assessments
+
+The [editorial review record](paper_editorial_review_v1/README.md) contains the
+fixed rubric, independent assessments and revision decisions. Each score applies
+to its recorded manuscript hash. These AI assessments concern expression,
+structure and reader experience; they are separate from the scientific results
+above. Use [the paper guide](../paper/README.md) for the current revision state.
 
 ## Supporting evidence
 
@@ -70,5 +79,5 @@ cross-platform replay is not claimed where it failed.
 
 Numerical JSON/CSV, report figures, memberships, provenance and release receipts
 remain at their original paths because analyses and verification bind them.
-Superseded reviews and duplicate authored summaries are recoverable from Git;
+Retired reviews and duplicate authored summaries are recoverable from Git;
 see [artifact retention](../docs/ARTIFACTS.md#retired-documentation).

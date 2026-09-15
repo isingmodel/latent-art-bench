@@ -1,0 +1,72 @@
+{
+  "reviewer_id": "editorial_r12_a",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "3139e82bcf93503a549c9239d228feffadfb453ec32ee208917e3632ce2cd08d",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete 22-page frozen PDF, including references and Appendices A–G, through extracted text and visual page inspection. Inspected Figures 1–5 and Tables 1–10; rechecked Table 7 at higher rendering resolution, which resolved an apparent low-resolution spacing problem. Read paper.tex and specificity_results.tex and consulted the included component and calibration table sources. Treated appendix technical detail as optional depth when judging main-text accessibility. Independently computed the supplied PDF SHA256. No other reviews, earlier versions, progress records, or non-snapshot manuscript files were consulted."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.0,
+    "new_reader_understanding": 9.0,
+    "engagement": 9.25
+  },
+  "overall": 9.125,
+  "score_reasons": {
+    "expression": "The English is precise and fluent, with useful interpretive sentences following the numerical results. Section 4.1 explains contrasts through a lightness example and gives the no-distinction/exact/doubled-response error examples before the equations. Terms such as aligned response, error, calibration and digital reference target remain consistent. Qualifications generally identify a concrete interpretive limit. A small amount of repeated calibration explanation in Section 6 can be cut.",
+    "structure": "The main narrative progresses coherently from the common-painting-versus-painter-difference question to the six-arm experiment, feature representation, scores and findings. Results lead with the declared comparison, then explain the common response, uneven painter coverage, calibration and source sensitivity. The numerical methods, control simulations and earlier cohorts are appropriately placed in appendices. The short discussion partially repeats Section 5.4 rather than advancing its interpretation, but no substantial reordering or added section is needed.",
+    "new_reader_understanding": "The abstract is standalone and the supplied source contains 155 whitespace-delimited abstract words. The experimental arms and finite reference collection are explicit. Table 1, the lightness example, the error benchmarks, and the plain explanation of held-out scalar calibration make the principal findings understandable without repository access. Tables 2–4 clearly distinguish point estimates, adjusted intervals and retrospective checks. Figure 3 would be more self-contained if its caption stated that each painter pair has its own reference-distance normalizer; that explanation currently appears in Appendix C.2.",
+    "engagement": "The question has a concrete consequence: visible or detectable name responses need not reproduce the labeled painter differences. Figure 1 rewards comparison across prompts and models, while the reference/mean detail views in Figure 2 and annotated heatmaps in Figure 3 make the distinctions inspectable. The near-unit aligned response with substantial error, the Monet–Sisley weakness, and the calibration and scene-averaging ordering changes give the results a discernible narrative without claiming artistic superiority. Pace is strong overall, with only a modest repeated summary near the end."
+  },
+  "strengths": [
+    "Introduction, page 1: the Monet-versus-Sisley example establishes why collection proximity alone cannot answer the paper’s question.",
+    "Section 4.1, page 5: a measured lightness gap and the 1/0/1 error examples supply intuition before statistical notation.",
+    "Sections 5.1 and 5.4, pages 6 and 9: the text explains why positive alignment, original error and calibrated error can lead to different conclusions.",
+    "Figures 1–3, pages 4, 7 and 8: clear condition labels, common model axes, magnified nearby painter means and printed heatmap values support active inspection.",
+    "Section 5.5 and Table 4, pages 9–10: the source correction’s changed intervals are displayed directly, and the newly resolved GPT Image 1 comparison is explicitly retrospective.",
+    "Scope statements and data availability distinguish measured digital contrast agreement, perceptual fidelity and exact-pixel reproducibility without requiring new evidence to understand the study."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Figure 3 caption and Section 5.3, page 8; pair normalization is explained in Appendix C.2, page 16",
+      "issue": "The main pair heatmap defines the 0 and 1 benchmarks but does not say that every pair is normalized by its own squared reference-pair distance.",
+      "reader_effect": "A new reader can read the within-pair scores correctly, but may mistake their cross-column sizes for absolute contributions to the aggregate response. The relative scale matters when connecting the heatmap to the following discussion of Cézanne’s contribution.",
+      "suggested_change": "Replace the caption phrase “These descriptive estimates use all 31 features” with “Each pair uses all 31 features and its own reference-distance scale.” Retain the benchmark and negative-estimate explanations. This is a caption-level clarification and needs no new analysis or page."
+    },
+    {
+      "priority": "low",
+      "location": "Section 6, first paragraph, page 10; compare Section 5.4, page 9",
+      "issue": "The discussion opens by repeating the original-versus-calibrated ordering and the definition of the strength adjustment immediately after Section 5.4 has explained both concretely.",
+      "reader_effect": "The narrative briefly loses momentum at the point where the reader expects the evaluation implication. The useful recommendation to report complementary summaries is delayed until the paragraph’s final sentence.",
+      "suggested_change": "Compress the paragraph around its implication, for example: “For this reference target, model comparisons should report aligned response, total error and painter-pair coverage together: the original and calibrated orderings show that response strength changes the conclusion.” Keep the finite-target scope and the separate internal-cause limitation; the cut reduces length."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "Excellent communication of a bounded digital-reference comparison. The main study, its metric distinctions and its limits are readily understood; the figures provide useful evidence rather than decoration. Only localized caption and pacing refinements remain, with no consequential claim-fidelity problem identified under this editorial rubric."
+}

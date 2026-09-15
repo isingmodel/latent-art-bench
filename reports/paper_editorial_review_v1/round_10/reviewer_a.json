@@ -1,0 +1,73 @@
+{
+  "reviewer_id": "editorial_r10_a",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "be9e8e5fa26ad554bb235635df61228ffb9df4c3c3eb6f887033927a9d7de382",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the full 22-page frozen PDF, including references and Appendices A–G, through text extraction; visually inspected every rendered page, Figures 1–5 and Tables 1–10, with an additional higher-resolution inspection of page 7. Consulted the frozen paper.tex, specificity_results.tex and specificity_model_table.tex to resolve wording and layout. Treated appendices as optional technical depth. Used only the fixed rubric and supplied snapshot for the editorial assessment; no other reviews or earlier manuscript versions were inspected."
+  },
+  "scores": {
+    "expression": 9.0,
+    "structure": 9.0,
+    "new_reader_understanding": 9.0,
+    "engagement": 8.75
+  },
+  "overall": 8.9375,
+  "score_reasons": {
+    "expression": "Excellent, precise English with generally manageable sentences and consistent terms. Sections 4.1–4.2 explain contrasts, aligned response and error in ordinary language before using notation; Sections 5.1 and 5.4 turn estimates into clear comparative statements. Qualifications usually resolve a concrete possible misreading rather than merely hedging. The broad wording of the opening of Section 5.5 and the unexplained earlier-feature-map sentence in Section 6 are localized refinements.",
+    "structure": "The question, common-scene design, representation, intuitive comparison, estimators and results form a coherent progression. Primary comparisons are visibly separated from retrospective pair, calibration and source diagnostics, and the conclusion retains the source-correction qualification. The main text is sufficient to understand the experiment; the feature definitions, identities, control designs and older cohorts appropriately remain in appendices. The isolated reference to earlier feature maps is the only notable interruption of this hierarchy.",
+    "new_reader_understanding": "The abstract stands alone and names the design, reference collection, central results and perceptual limit. The Monet–Sisley lightness example and the no-distinction/exact/doubled examples establish the meaning of centering and the D scale. Table 1 translates feature families into visible properties; Tables 2–4 and the figure captions explain their scales and comparisons. The distinctions between the theoretical benchmark and generic arm, original and calibrated error, scene variation and average error, and digital reference agreement and artistic fidelity are readily recoverable. Section 5.5 should name its score explicitly so its robustness statement cannot be mistaken for a claim about every ordering just discussed.",
+    "engagement": "The opening Monet-versus-Sisley example establishes a consequential evaluation problem without hype. Figure 1 rewards direct comparison across names and controls, Figure 2 makes the labeled geometry visible, and Figure 3 exposes the uneven painter-pair response. The GPT Image 2/FLUX calibration comparison and Nano Banana 2/FLUX scene-averaging reversal provide a discernible narrative rather than a list of scores. The short Discussion is less effective at sustaining that narrative when it switches to an unexplained historical feature-map aside; this is a modest, localized weakness."
+  },
+  "strengths": [
+    "Section 4.1, page 5, gives both a real one-coordinate contrast (Monet versus Sisley lightness) and idealized generators with expected errors 1, 0 and 1. These examples make the otherwise unfamiliar metrics interpretable before the equations.",
+    "Figure 1, page 4, shows every experimental condition for one fixed brief, with a concrete visual observation in Section 3.2 and an explicit explanation that the historical examples are neither inputs nor composition matches.",
+    "Sections 5.1 and 5.4 explain why positive alignment, low original error, broad painter coverage and low calibrated error can favor different models. The numerical contrasts are tied to the evaluation question rather than presented as an undifferentiated leaderboard.",
+    "Table 4 and Section 5.5 plainly disclose which adjusted model comparison changes after source correction and identify the newly positive GPT Image 1 comparison as retrospective.",
+    "The main narrative repeatedly makes the relevant boundary specific: squared feature change is not a share of artistic style; calibration does not alter images; pair permutations are not perceptual confusion tests; and source corrections are AI-coded sensitivities without human verification."
+  ],
+  "findings": [
+    {
+      "priority": "medium",
+      "location": "Section 5.5, page 9; specificity_results.tex lines 119–120",
+      "issue": "The opening says that FLUX retains the lowest error point estimate across the reported scene, window, target and feature-weighting sensitivities without naming the error being held fixed. Immediately above, Section 5.4 and Table 3 show a scene-averaged error for which Nano Banana 2 is lower and a calibrated error for which GPT Image 2 is lower.",
+      "reader_effect": "A reader scanning the robustness summary can read it as a claim that the FLUX ordering survives all the scene-related comparisons, which would blur the important distinction the previous subsection has just established.",
+      "suggested_change": "Replace the sentence with a version that explicitly retains the original scene-by-scene score: “For the original scene-by-scene error D, FLUX retains the lowest point estimate under the reported scene-deletion, measurement-window, reference-target and feature-weighting checks (Appendix C).” This is a local replacement, not a new analysis."
+    },
+    {
+      "priority": "low",
+      "location": "Section 6, page 10; paper.tex lines 330–332",
+      "issue": "“Earlier feature maps showed opposing effects of scaling on reference proximity across cohorts” introduces feature maps without identifying what was mapped or what the opposing effects were. The current main-text calibration analysis is also a scaling operation, so the aside is easy to attach to the wrong experiment.",
+      "reader_effect": "The reader must consult Appendix F to understand a sentence in the main Discussion, briefly interrupting an otherwise self-contained account and risking confusion between the older fitted named/free maps and the present contrast multiplier.",
+      "suggested_change": "Cut this sentence from the main Discussion and retain the evidence in Appendix F, or replace it with “Separate earlier cohorts also gave inconsistent effects of scaling (Appendix F).” The existing preceding sentence already preserves the limitation on causal interpretation; either edit saves space."
+    }
+  ],
+  "claim_fidelity_issues": [
+    "Section 5.5’s opening robustness claim is potentially overbroad in its use of “error” and “scene” unless explicitly restricted to the original scene-by-scene D. The manuscript itself reports different lowest estimates after scene averaging and calibration. This is a scope ambiguity in wording, not evidence that the reported numerical results are unsupported."
+  ],
+  "summary": "An excellent and largely self-contained editorial presentation of a bounded digital-reference comparison. The motivation, experimental arms, metric intuition and hierarchy of evidence are clear, and the main figures support the story. Two localized wording changes would improve the robustness summary and the transition through the Discussion without increasing length. No new experiments, feature representation or perceptual validation are needed to address these editorial findings."
+}

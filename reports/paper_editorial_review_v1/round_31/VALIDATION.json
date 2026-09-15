@@ -1,0 +1,12 @@
+{
+  "evaluated_round": 31,
+  "page_count": 22,
+  "abstract_whitespace_words": 151,
+  "pdf_extracted_words": 9584,
+  "pdf_sha256": "fa01382124a5b49d4da16998af5f404c4bd5e2b93853414cda2ee92720385424",
+  "build": "Tectonic passed without warnings",
+  "visual_inspection": "All 22 pages rendered. Changed pages 1, 8, 9 and 10 individually inspected; the other 18 PNGs are byte-identical to previously inspected pages. The shorter abstract, quantified control comparison, italic operation labels and concrete Discussion fit without clipping or displaced figures.",
+  "presentation_replay": "All figures, tables and other included sources are byte-identical to round 30. Only main manuscript/results prose changed; no builder changed. A separate factual agent reconstructed control quantities from all 1,008 retained measured rows with zero discrepancy. Root independently verified all six common/generic ratios and primary common_ss=4*common_cross_norm_squared within 2e-14. Source hashes, factors and values are retained in round_30/CONTROL_MAGNITUDE_SUMMARY.json.",
+  "lint": "git diff --check passed",
+  "scientific_scope": "Editorial prose and a compact descriptive quotient of already stored control magnitudes. No scientific record, estimator, input, image, experiment or human evaluation changed. The new range has no inferential test."
+}

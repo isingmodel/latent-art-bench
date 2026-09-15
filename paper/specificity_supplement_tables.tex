@@ -17,18 +17,29 @@ GPT Image 2 & FLUX.2 Max & $0.425\;[-0.161,1.011]$\\
 2.5 Sunburst & FLUX.2 Max & $0.840\;[0.058,1.623]$\\
 Nano Banana 2 & FLUX.2 Max & $0.309\;[-0.847,1.464]$\\
 \bottomrule\end{tabular}
-\caption{All 15 paired model comparisons in the prespecified inferential family. A negative contrast favors model A on the stated feature-geometry target. Flare and Sunburst denote the corresponding GPT Image 2.5 models.}
+\caption{All 15 paired model comparisons in the prespecified inferential family. Intervals are approximate 95\% simultaneous intervals adjusted across all 21 endpoints. A negative contrast favors model A on the stated feature-geometry target.}
 \label{tab:all-specificity-pairs}\end{table}
 
 \begin{table}[htbp]\centering\small
-\begin{tabular}{lrrrr}\toprule
-Model & Monet & Sisley & Pissarro & C\'ezanne\\\midrule
-GPT Image 1 & $-2.515\; /\; 0.479$ & $-2.739\; /\; 0.694$ & $-2.628\; /\; 0.603$ & $-1.336\; /\; 0.598$\\
-GPT Image 2 & $-0.602\; /\; 0.283$ & $-1.092\; /\; 0.312$ & $-0.195\; /\; 0.303$ & $-0.373\; /\; 0.303$\\
-2.5 Flare & $0.962\; /\; 0.269$ & $-0.008\; /\; 0.371$ & $0.429\; /\; 0.321$ & $-1.013\; /\; 0.275$\\
-2.5 Sunburst & $0.267\; /\; 0.248$ & $-0.718\; /\; 0.274$ & $-0.091\; /\; 0.273$ & $-1.653\; /\; 0.318$\\
-Nano Banana 2 & $-0.513\; /\; 0.829$ & $-1.381\; /\; 0.708$ & $-0.741\; /\; 0.572$ & $-1.102\; /\; 0.877$\\
-FLUX.2 Max & $-0.707\; /\; 0.340$ & $-0.886\; /\; 0.416$ & $-1.080\; /\; 0.570$ & $-1.431\; /\; 0.622$\\
+\begin{tabular}{llrrrr}\toprule
+Model & Measure & Monet & Sisley & Pissarro & C\'ezanne\\\midrule
+GPT Image 1 & Energy change & $-2.515$ & $-2.739$ & $-2.628$ & $-1.336$\\
+& Variance ratio & $0.479$ & $0.694$ & $0.603$ & $0.598$\\
+\addlinespace[2pt]
+GPT Image 2 & Energy change & $-0.602$ & $-1.092$ & $-0.195$ & $-0.373$\\
+& Variance ratio & $0.283$ & $0.312$ & $0.303$ & $0.303$\\
+\addlinespace[2pt]
+2.5 Flare & Energy change & $0.962$ & $-0.008$ & $0.429$ & $-1.013$\\
+& Variance ratio & $0.269$ & $0.371$ & $0.321$ & $0.275$\\
+\addlinespace[2pt]
+2.5 Sunburst & Energy change & $0.267$ & $-0.718$ & $-0.091$ & $-1.653$\\
+& Variance ratio & $0.248$ & $0.274$ & $0.273$ & $0.318$\\
+\addlinespace[2pt]
+Nano Banana 2 & Energy change & $-0.513$ & $-1.381$ & $-0.741$ & $-1.102$\\
+& Variance ratio & $0.829$ & $0.708$ & $0.572$ & $0.877$\\
+\addlinespace[2pt]
+FLUX.2 Max & Energy change & $-0.707$ & $-0.886$ & $-1.080$ & $-1.431$\\
+& Variance ratio & $0.340$ & $0.416$ & $0.570$ & $0.622$\\
 \bottomrule\end{tabular}
-\caption{Complementary outcomes for all four painters: each cell gives named-minus-generic reference energy / generated-to-reference total variance. These are descriptive empirical distribution summaries, without additional tests. Lower energy change favors naming over the generic clause; a variance ratio below one indicates a narrower generated feature distribution.}
+\caption{Complementary empirical distribution summaries. Energy change is named-minus-generic reference energy; variance ratios are generated-to-reference. Negative changes favor naming; ratios below one indicate narrower generated feature distributions.}
 \label{tab:artist-distributions}\end{table}

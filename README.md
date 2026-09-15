@@ -7,8 +7,11 @@ This project compares generated images with digital reproductions of paintings
 by Monet, Sisley, Pissarro and Cézanne using 31 interpretable color, spatial and
 texture features. The current experiment separates common appearance from
 reference-aligned painter variation and compares six image models on the same
-scenes. It evaluates agreement with digital reference contrasts, without claiming perceptual
-style validation or an identified internal model mechanism.
+scenes. It measures agreement with digital reference contrasts; perceptual style
+and internal model mechanisms remain unvalidated.
+
+Read the [current paper](paper/paper.pdf), then use the
+[paper guide](paper/README.md) for sources, figures and build instructions.
 
 The [prospective protocol](studies/painter_specificity_v2/PROTOCOL.md) fixes
 **1,008 images**, 14 common scenes, six clauses and two repeated requests per
@@ -17,27 +20,28 @@ Sunburst, Nano Banana 2 and FLUX.2 Max. All 1,008 images were collected and
 measured. The [results](reports/painter_specificity_v2/psv2-20260911/REPORT.md)
 show positive reference-aligned responses in every model, but response strength
 does not track pooled-reference agreement. FLUX has the lowest estimated
-geometry error; its original adjusted advantage over Sunburst does not survive
+uncalibrated geometry error; its original adjusted advantage over Sunburst does not survive
 [source-region correction](reports/painter_reference_quality_v1/REPORT.md), while
 the Flare comparison remains separated. No model is established to beat
-the no-contrast benchmark. [Review-driven diagnostics](reports/painter_specificity_review_v1/REPORT.md)
-add content/reference controls, artist-pair analysis and held-scene calibration;
-[follow-up checks](reports/painter_specificity_review_v2/REPORT.md) correct shared-control
-noise and assess diagnostic stability. An assistant audit covers all 870
-reference/development sources. These analyses do not validate artistic fidelity. The [novelty assessment](studies/painter_specificity_v1/NOVELTY.md)
-identifies close prior work and the limited contribution being tested.
+the no-contrast benchmark before calibration. Retrospective
+[diagnostics](reports/painter_specificity_review_v1/REPORT.md) and
+[follow-up checks](reports/painter_specificity_review_v2/REPORT.md) examine
+artist pairs, shared responses and calibration; GPT Image 2 has the lowest
+held-out calibrated error estimate. An assistant audit covers all 870
+reference/development sources. The [novelty assessment](studies/painter_specificity_v1/NOVELTY.md)
+identifies close prior work and the contribution being tested.
 
-- [Current status](docs/STATUS.md): findings, accounting and outstanding review requests.
-- [Handover](docs/AGENT_HANDOVER.md): implementation entry points and continuation.
+- [Current status](docs/STATUS.md): findings, limitations and revision state.
+- [Handover](docs/AGENT_HANDOVER.md): implementation entry points and maintenance.
 - [Analysis catalog](docs/ANALYSES.md): computation, plotting and replay commands.
 - [Results index](reports/README.md): current reports and supporting evidence.
-- [Manuscript source](paper/paper.tex) and [build guide](paper/README.md).
+- [Editorial review record](reports/paper_editorial_review_v1/README.md): assessments tied to specific manuscript versions.
 - [Artifact retention](docs/ARTIFACTS.md): immutable evidence and unique local bytes.
 
 Earlier studies retain four-painter distributional differences, controlled
 named/free comparisons, generic-clause and palette interventions, and prospective
 fixed-map transfer. Their [versioned public releases](https://github.com/isingmodel/latent-art-bench/releases)
-remain unchanged. The [current paper](paper/paper.pdf) integrates the six-model results, all four
+remain unchanged. The paper integrates the six-model results, all four
 painters, generic/palette controls and the contrary fixed-map transfer result.
 Its new compact experiment has not yet been archived as a public release.
 
@@ -86,7 +90,8 @@ local evidence remain necessary for reproducibility. Read the
 For the current state, read [STATUS.md](docs/STATUS.md). For implementation work,
 read [the handover](docs/AGENT_HANDOVER.md),
 [architecture](docs/ARCHITECTURE.md) and [contributing guidance](CONTRIBUTING.md).
-The [documentation index](docs/INDEX.md) links current guidance. Superseded
-editorial reviews and duplicate summaries remain in Git history. Code is distributed under [the repository license](LICENSE);
+The [documentation index](docs/INDEX.md) links current guidance. Retired reviews
+and duplicate summaries remain in Git history; the current editorial assessment
+record is linked above. Code is distributed under [the repository license](LICENSE);
 full-resolution raw artwork is not redistributed by this repository; the paper
 includes four reduced reference examples with recorded public-domain metadata.

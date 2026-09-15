@@ -1,0 +1,13 @@
+{
+  "status": "cancelled_on_user_correction",
+  "at": "2026-09-14T22:56:11.074735+00:00",
+  "reason": "User clarified required order: revise manuscript first, obtain fresh reviews, then revise again. These just-dispatched requests used the unchanged prior paper and were stopped; they are not scored reviews of a revised paper.",
+  "request_ids": [
+    "claude_code_review_02",
+    "astra_xhigh_review_02"
+  ],
+  "processes_terminated": [
+    48658,
+    48659
+  ]
+}

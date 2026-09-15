@@ -1,0 +1,13 @@
+{
+  "evaluated_round": 2,
+  "page_count": 22,
+  "abstract_whitespace_words": 145,
+  "pdf_sha256": "ee9333ed1fa10779dfa06d1cafd2b844dec927dc2bc0f9b0cc6fd5348f515f67",
+  "build": "make paper: passed without warnings",
+  "presentation_replay": "make figures-check: passed",
+  "lint": "Ruff on three modified paper builders: passed",
+  "diff_whitespace": "git diff --check: passed",
+  "visual_inspection": "All 22 rendered pages inspected in four contact sheets; intact margins, tables, figures and equations; no clipping or blank pages.",
+  "missing_reference_markers": "none in extracted PDF text",
+  "scientific_scope": "Presentation and prose only; no new data collection, human evaluation or scientific recomputation."
+}

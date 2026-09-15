@@ -1,0 +1,12 @@
+{
+  "evaluated_round": 5,
+  "page_count": 22,
+  "abstract_whitespace_words": 151,
+  "pdf_sha256": "d125a1642ae63320d9f12b1619700239c30df826eb027047be71de5a46265cff",
+  "build": "Tectonic passed without warnings",
+  "visual_inspection": "All 22 rendered pages inspected. Enlarged geometry fits on primary table page; intact figure labels, margins, captions and equations. No unresolved references.",
+  "presentation_replay": "All eight specificity figures passed byte replay. Geometry point coordinates, styles, 24 connector endpoints, axis limits and equal scaling unchanged; six other PDFs byte-identical. Diagnostic numeric positions unchanged.",
+  "layout": "Plot boxes each 23.15% wider/taller in identical canvas; main include width .92 to 1.0 text width; total printed linear gain approximately33.9%.",
+  "lint": "Scoped Ruff and git diff --check passed",
+  "scientific_scope": "No new data or altered analysis; noise assumptions remain in main methods after abstract removes compressed bias-correction claim."
+}

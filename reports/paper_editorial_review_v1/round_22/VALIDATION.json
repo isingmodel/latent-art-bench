@@ -1,0 +1,13 @@
+{
+  "evaluated_round": 22,
+  "page_count": 22,
+  "abstract_whitespace_words": 152,
+  "pdf_extracted_words": 9681,
+  "pdf_sha256": "b66477dc350e6b905f2f81fa33ca97c2ef86a53e65d65868e722f42ea1d99c4a",
+  "build": "Tectonic passed without warnings",
+  "visual_inspection": "All 22 pages rendered. Changed pages 1, 6, 8, 9, 10, 15, 16, 17, 18, 19, 20, 21 and 22 individually inspected; the other 9 PNGs are byte-identical to previously inspected pages. The new table and signed heatmap fit page 8. Captions, Discussion/Conclusion and appendix tables/figures fit without clipping. Figure 3 permits in-place placement to avoid an unnecessary page break; fonts, margins and figure dimensions are unchanged.",
+  "presentation_replay": "Both changed builders pass exact replay and Ruff. The new table has 12 cells replayed from frozen scene-averaged components; each column totals 100%. Existing model/supplement numerical cells are unchanged. The heatmap preserves all 72 values, positions, fonts and dimensions, with a symmetric linear beta scale and minimum numeral contrast of 4.81:1. The D data and palette are unchanged.",
+  "final_shared_table_sha256": "c63be3168a1266e64469a641c056654de6ff33809481db58877bcd9ed9b3e892",
+  "lint": "git diff --check passed",
+  "scientific_scope": "Presentation and prose only; no scientific input, result, source image or inferential procedure changed. Frozen-vector replay verifies the new display rather than introducing a new analysis."
+}

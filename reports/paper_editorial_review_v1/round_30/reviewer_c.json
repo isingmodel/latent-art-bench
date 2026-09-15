@@ -1,0 +1,79 @@
+{
+  "reviewer_id": "editorial_r30_c",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "bee3b61dba44af33484fa6415b906542e0479fb7ae632b58114793a4008af9d1",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete 22-page frozen PDF, including abstract, main text, references, and Appendices A-G. Visually inspected every rendered PDF page, all five figures, and all twelve tables at 1500-pixel page height. Read frozen paper.tex and specificity_results.tex passages to resolve notation, abstract wording, and source locations. Technical appendices were assessed as optional depth; the main narrative was judged on its own. Independently verified the supplied PDF SHA256. No other reviews, earlier drafts, progress records, goals, or non-snapshot manuscript were consulted."
+  },
+  "scores": {
+    "expression": 9.0,
+    "structure": 9.25,
+    "new_reader_understanding": 9.0,
+    "engagement": 8.75
+  },
+  "overall": 9.0,
+  "score_reasons": {
+    "expression": "The English is precise, fluent, and unusually careful about what the measurements mean. Sections 4.1-4.2 explain contrasts, aligned strength, error, and repeat correction in manageable steps. Terms remain consistent across results and captions. The 152-word abstract is accurate but locally compressed, with repeated calibration/retrospective labels competing with its findings; this is a refinement rather than a pervasive language problem.",
+    "structure": "The question, controlled arms, feature interpretation, score intuition, formulas, and primary findings form a coherent progression. Sections 5.1-5.5 visibly distinguish the primary comparison from painter-pair, magnitude, and reference diagnostics. Detailed derivations, complete comparisons, earlier cohorts, and provenance are sensibly placed in optional appendices. The main text conveys the study without requiring them. Only the Discussion opening would benefit from a more explicit synthesis before its reporting recommendations.",
+    "new_reader_understanding": "The Monet-Sisley lightness example, the three idealized D benchmarks, Table 1 interpretations, and the explanation of what calibration changes make the central analysis understandable to a scientifically literate newcomer. Figure 1 concretely shows the arms; Figures 2-3 explain the distinction between aggregate and pair agreement. The theoretical no-distinction predictor, uncertainty, full-frame versus corrected targets, and lack of perceptual validation are explicit. A localized omission remains in the generic-control comparison: the reader learns that the shared named shift is larger, but cannot judge by how much.",
+    "engagement": "The opening question is consequential, the full image matrix rewards comparison, and the contrasting behaviors of GPT Image 2, FLUX, and Nano Banana 2 give the results a discernible narrative. The scene-averaging and calibration reversals are explained through what they reveal. Momentum weakens slightly at the Discussion, which starts with reporting advice and then moves rapidly to limitations rather than first drawing the existing findings together. The dense abstract also requires more decoding than the otherwise accessible main text."
+  },
+  "strengths": [
+    "Section 4.1, page 5, uses an actual lightness difference and the 1/0/1 error example to establish intuition before notation; Section 4.2 then defines the symbols and independence assumptions explicitly.",
+    "Figure 1, page 4, presents all six conditions for every model with a concrete scene, visible controls, and a clear distinction between display references and generator inputs.",
+    "Sections 5.1 and 5.3, pages 6-8, make positive overall alignment compatible with high error and weak or reversed individual painter-pair responses; the numerical examples and Figure 3 directly support that distinction.",
+    "Section 5.4 and Table 4, page 9, explain both the Nano Banana 2/FLUX scene-averaging reversal and the GPT Image 2/FLUX calibration reversal without implying that the images improved.",
+    "Section 5.5 and Table 5, pages 9-10, show exactly which source-corrected comparisons change and explicitly preserve their retrospective status.",
+    "Captions, limitations, and the availability statement consistently distinguish measured digital reference agreement, statistical resolution, perceptual resemblance, and exact-pixel reproducibility."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Section 5.2, page 8; specificity_results.tex lines 52-55",
+      "issue": "The generic-control result quantifies directional similarity with a cosine range but states only that the shared named shift is larger in every model. The size of that excess remains unspecified.",
+      "reader_effect": "The generic painting arm is a central part of the motivating distinction, yet the reader cannot tell whether adding names makes the common measured change slightly or substantially larger. The shared percentages in Table 3 answer a different question and cannot supply this missing comparison.",
+      "suggested_change": "Replace the two-sentence paragraph with an equally compact statement giving one descriptive range of shared-to-generic shift magnitude ratios from the already computed control shifts, explicitly identifying lengths or squared lengths, alongside the cosine range. No new images or tests are needed; retain the distinction between the painting clause and any common naming response."
+    },
+    {
+      "priority": "low",
+      "location": "Section 6 opening, page 10; paper.tex lines 312-321",
+      "issue": "The Discussion opens immediately with what a recommendation should report, leaving the reader to integrate the painter-pair, amplitude, and model-ordering findings across the preceding subsections.",
+      "reader_effect": "The narrative payoff is slightly weaker than the results warrant: the practical reporting advice arrives before a concise explanation of what these particular generators reveal about using aggregate error.",
+      "suggested_change": "Replace the first two recommendation sentences with a synthesis using existing evidence: FLUX has the lowest uncalibrated error estimate despite weak Monet-Sisley alignment, while GPT Image 2 has stronger overall aligned response and gains more from shrinking contrast magnitude. Then retain a shortened recommendation to report pair scores and calibration separately. This can fit within the present paragraph without adding pages or claims."
+    },
+    {
+      "priority": "low",
+      "location": "Abstract, page 1; paper.tex lines 34-40",
+      "issue": "The abstract uses \"Before calibration,\" \"Retrospective pair checks,\" and \"Retrospective calibration\" in successive sentences. Those status labels are accurate but add local verbal overhead at the point where several distinct findings are introduced.",
+      "reader_effect": "A new reader must repeatedly switch between analysis status and scientific finding within an already dense, 152-word abstract.",
+      "suggested_change": "Group the two post-result findings under one \"Retrospective diagnostics\" lead-in, then describe the pair result and the scale fit in separate short clauses or sentences. Preserve the held-out-scene qualification and the statement that images do not change; shorten rather than expand the abstract beyond its 155-word limit."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "Excellent communication of a carefully bounded comparison of measured digital reference contrasts. The main story is independently understandable, the visual evidence is legible and useful, and primary versus retrospective conclusions remain clear. The remaining changes are localized improvements to quantification and narrative emphasis, not requests for new experiments or broader scientific claims."
+}

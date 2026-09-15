@@ -1,0 +1,78 @@
+{
+  "reviewer_id": "editorial_r03_a",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "0e918372ed3c51e138d643818df5ef394a393cbb28ef7d1fc711ea045e45fead",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete frozen 22-page PDF, including references and Appendices A–G, from extracted text and rendered pages. Visually inspected every page, all six figures and all nine tables. Consulted frozen paper.tex, specificity_results.tex and the included source-audit TeX to resolve notation and locations. Technical appendices were treated as optional depth when assessing main-text accessibility. No earlier manuscripts, other reviews, progress records or external sources were consulted. Independently computed the PDF SHA256 from its bytes."
+  },
+  "scores": {
+    "expression": 8.75,
+    "structure": 9.0,
+    "new_reader_understanding": 8.5,
+    "engagement": 8.75
+  },
+  "overall": 8.75,
+  "score_reasons": {
+    "expression": "The English is precise and fluent, with useful interpretive sentences rather than a bare catalogue of estimates. Section 4.1 explains contrasts before notation, Section 5.4 explains why shrinking a near-unit aligned response can help, and qualifications generally occur where their consequences matter. The abstract compresses an unusually technical estimator description into one sentence, and the undefined kind of assistant in the audit is a localized precision problem. These are refinements to strong prose rather than pervasive rewriting needs.",
+    "structure": "The progression from the Monet–Sisley motivation through the controlled arms, interpretable feature families, score intuition, primary comparisons and explanatory diagnostics is excellent. Result subheadings state discoveries; original-reference comparisons are explicitly distinguished from retrospective calibration and correction. Tables 2 and 3 support that hierarchy, while derivations, coverage simulations, complete pair comparisons and historical cohorts are sensibly optional. The main argument remains recoverable without following repository links or reading the appendices.",
+    "new_reader_understanding": "The reader is told exactly what is varied, what the finite reference target represents, why the generic arm differs from the theoretical no-contrast benchmark, and what beta and D mean. The 1/0/1 idealized-generator example and Table 1 are particularly effective. Figure captions explain how to inspect the images, projections and pair scores. Two localized gaps remain: Section 5.2 leaves the first percentage range’s across-scene averaging implicit, and the source audit’s human-versus-automated provenance remains ambiguous even in Appendix C.5.",
+    "engagement": "The question has a concrete consequence: a model can respond strongly to painter names yet recover labeled reference differences poorly. Figures 1 and 3 make the intervention inspectable; Figure 4 rewards comparison across artist pairs; and the GPT Image 2/FLUX calibration and Nano Banana 2 scene-averaging reversals provide a clear narrative payoff without hype. The shared-effect result is less concrete than these later model-specific examples because its central percentages and cosine values are presented only as unattributed ranges."
+  },
+  "strengths": [
+    "The opening Monet–Sisley example distinguishes movement toward paintings from recovery of painter differences before introducing any statistical machinery (p. 1).",
+    "Section 4.1 explains the score geometry through no contrasts, exact contrasts and doubled contrasts, with expected D values 1, 0 and 1; this makes the main finding intelligible before the equations (p. 5).",
+    "The manuscript consistently separates declared inferential comparisons from descriptive pair, calibration and source diagnostics, including the loss of the original Sunburst comparison after correction (pp. 6–10).",
+    "The figure set supplies the actual intervention examples, a common-axis reference-pattern display and explicitly numbered painter-pair scores; captions give readers concrete instructions and appropriate limits (pp. 4, 7–9).",
+    "The discussion translates the numerical results into a practical reporting principle while retaining the finite digital-reference target and avoiding claims of demonstrated perceptual fidelity (pp. 10–11)."
+  ],
+  "findings": [
+    {
+      "priority": "medium",
+      "location": "Section 5.2, p. 8; specificity_results.tex lines 42–55; Appendix B, p. 14",
+      "issue": "The opening 82.5–95.7% range does not say that shifts have first been averaged across scenes. Only the following contrast with a within-scene calculation hints at this, while the explicit definition appears in Appendix B. Neither this range nor the cosine range identifies the models at its endpoints.",
+      "reader_effect": "The headline shared-effect finding is harder to interpret than the later model-specific results: a reader must reconstruct why there are two percentage ranges and cannot connect their spread to the displayed model examples.",
+      "suggested_change": "Replace the first two sentences with an explicit averaging-order statement, for example: “After averaging shifts across scenes, the common component accounts for 82.5–95.7% of corrected squared feature change across models. Computing the share within each scene before averaging gives 88.6–97.2%.” Identify the endpoint models from the already computed results, using a few parenthetical words in place of existing prose. Preserve the qualification that these are squared-feature shares; no new analysis or figure is needed."
+    },
+    {
+      "priority": "medium",
+      "location": "Section 5.5, p. 10, specificity_results.tex lines 135–141; Appendix C.5, p. 18, specificity_review_appendix.tex lines 137–147",
+      "issue": "“An assistant audit” and “assistant-coded sensitivities” do not identify whether the inspection was performed by a human research assistant, an AI assistant, or a combined process. The same ambiguity persists in the limitations.",
+      "reader_effect": "Because these crop and classification decisions change an adjusted model comparison, readers need to know what kind of judgment produced them to interpret the correction’s evidential status. The statement that the coding is not independent ground truth helps, but does not resolve its provenance.",
+      "suggested_change": "Replace “assistant audit” at first mention with the unambiguous type of assistance supported by the existing audit record, and briefly state whether any human verification occurred. Use the same term in Appendix C.5 and the limitations. This is a terminology/provenance clarification, not a request for a new audit or human evaluation."
+    },
+    {
+      "priority": "low",
+      "location": "Abstract, p. 1; paper.tex lines 33–35",
+      "issue": "“Repeat products correct noise bias under stable-mean and independence assumptions” is compressed estimator jargon in an otherwise mostly standalone abstract. A new reader has not yet learned what is multiplied or which means must remain stable.",
+      "reader_effect": "The abstract briefly shifts from the understandable experiment and question to terminology whose meaning arrives only in Section 4.2, slowing first-pass comprehension.",
+      "suggested_change": "Use a shorter explanation of purpose, such as: “Removing shared shifts isolates painter differences; independent repeats correct output-noise bias when expected outputs remain stable.” Keep the exact cross-product definition and conditional-mean assumptions in Section 4.2. The replacement is shorter and preserves the abstract limit."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "A strong, nearly excellent editorial presentation of a deliberately bounded comparison. The main experiment and its counterintuitive results are understandable without the appendices, the visuals are legible and useful, and the claims consistently stop short of perceptual artistic fidelity or universal model superiority. Clarifying the shared-effect aggregation and audit provenance, plus one abstract simplification, would remove the most concrete remaining friction within the existing 22-page scope."
+}

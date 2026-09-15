@@ -1,0 +1,12 @@
+{
+  "evaluated_round": 8,
+  "page_count": 22,
+  "abstract_whitespace_words": 152,
+  "pdf_extracted_words": 9634,
+  "pdf_sha256": "b5a5f6ad9c5c188f69b0d704f7052c92ab075e93cff4e320d6536555f5f2be02",
+  "build": "Tectonic passed without warnings",
+  "visual_inspection": "All11 changed pages5\u201315 inspected; remaining11 page renders byte-identical to inspected round7. Conclusion now fits on page10; table grouping and both colorbarbenchmarklabels fit without overlap or clipping.",
+  "presentation_replay": "Both changed table/figure builders --check passed;72 heatmapvalues and24 calibrationtablevalues unchanged.",
+  "lint": "Scoped Ruff and git diff --check passed",
+  "scientific_scope": "No underlying numerical changes. One-use bar_mu symbol inlined algebraically; affine identity retained in appendix; no data, tests of scientific hypotheses or humanratings added."
+}

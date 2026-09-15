@@ -1,0 +1,79 @@
+{
+  "data_and_scientific_source_unchanged": true,
+  "only_artist_geometry_function_changed": true,
+  "input_sha256": "30e0b01bb74230273d298cb64b28e9ee5e6043b950cf0340b362801fcfddd32f",
+  "plotted_contents_sha256_before": "84bebd0d2c01b7e525896c822157c7f8a29622e98d2daf8037f20a7f7257a801",
+  "plotted_contents_sha256_after": "84bebd0d2c01b7e525896c822157c7f8a29622e98d2daf8037f20a7f7257a801",
+  "identical_plotted_properties": [
+    "all scatter offsets, marker paths/sizes/colors/alpha/linewidths",
+    "all connecting and zero-line coordinates/colors/linewidths",
+    "all reference annotation anchors",
+    "all overview and detail axis limits, equal aspect, tick positions",
+    "figure dimensions"
+  ],
+  "figure_dimensions_inches": [
+    6.45,
+    4.4
+  ],
+  "model_count": 6,
+  "painter_count_overview": 4,
+  "painter_count_detail": 3,
+  "scatter_collections": 108,
+  "scatter_offsets": 756,
+  "line_count": 54,
+  "overview_limits": [
+    [
+      -2.584060353203374,
+      4.163338290236546
+    ],
+    [
+      -3.1636060688351666,
+      4.685558722132723
+    ]
+  ],
+  "detail_limits": [
+    [
+      -1.1833468237158895,
+      0.0
+    ],
+    [
+      -0.8876002098843601,
+      1.0219815542286492
+    ]
+  ],
+  "detail_width_inches_before": 0.6950995009737099,
+  "detail_width_inches_after": 0.6950995009737099,
+  "detail_width_increase_percent": 0.0,
+  "overview_width_inches_before": 0.9731393013631938,
+  "overview_width_inches_after": 0.9731393013631938,
+  "tick_label_change": "None; all tick positions and labels retained.",
+  "overview_title_added": "Overview",
+  "outline_and_detail_frame_before": {
+    "color": "#aaaaaa",
+    "linewidth_points": 0.5
+  },
+  "outline_and_detail_frame_after": {
+    "color": "#777777",
+    "linewidth_points": 0.8
+  },
+  "all_reference_labels_inside_detail_panels": true,
+  "minimum_conservative_letter_to_marker_gap_points": 2.3188987385300424,
+  "baseline_pdf_replay_identical": true,
+  "revised_pdf_replay_identical": true,
+  "visual_inspection": "Inspected final 1600-pixel render: overview/detail labels distinguish paired views without collisions; outlines remain subordinate to scientific marks; painter letters remain readable; all points visible. No other layout changes.",
+  "limitations": "True near-coincident means and references remain near-coincident because data and common scales are fixed.",
+  "all_overview_points_bounds": [
+    [
+      -2.0694282532799906,
+      -2.56494095765965
+    ],
+    [
+      3.6487061903131623,
+      4.086893610957206
+    ]
+  ],
+  "all_scatter_points_inside_panel_bounds": true,
+  "all_six_zoom_rectangles_match_detail_axis_bounds": true,
+  "changes": "Added six Overview titles; matched rectangle and detail border darkened from #aaaaaa to #777777 and thickened from 0.5 to 0.8 points. No other changes.",
+  "figure_pdf_sha256": "cb9127e1d26a4d961aefc81a4b7495b10576b20678687a1d80824235e2752ee8"
+}

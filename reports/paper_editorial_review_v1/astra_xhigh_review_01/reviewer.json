@@ -1,0 +1,78 @@
+{
+  "reviewer_id": "astra_xhigh_review_01",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "3bea311da87d1f2bbec5cb603535e818af1a7f2e1f7784d529674daa99c52e57",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete supplied manuscript, including references and Appendices A–G, and visually inspected all 22 page images, including every figure and table. This review uses only the supplied materials. The PDF hash is reproduced as supplied, not independently computed."
+  },
+  "scores": {
+    "expression": 9,
+    "structure": 9,
+    "new_reader_understanding": 8.75,
+    "engagement": 9
+  },
+  "overall": 8.9375,
+  "score_reasons": {
+    "expression": "The prose is precise, restrained, and unusually consistent about distinctions that could otherwise become misleading: shared shifts versus between-name contrasts, alignment versus total error, numerical calibration versus changed images, and digital-reference agreement versus perceptual fidelity. Equations receive useful verbal explanations, and captions generally carry the qualifications needed to interpret their displays. A small amount of statistical shorthand remains less accessible than the surrounding exposition.",
+    "structure": "The manuscript follows a strong explanatory sequence: the motivating distinction, bounded reference and generation design, interpretable measurements, estimands and uncertainty, principal results, retrospective diagnostics, and limitations. The main argument concludes before the detailed appendices, which provide genuinely optional derivations and supporting checks rather than withholding essential reasoning. One historical model-identity qualification would work better before the earlier-cohort results it qualifies.",
+    "new_reader_understanding": "A reader new to the project receives substantial help from the concrete lightness example, the plain-language feature-family table, the no-distinction/exact-match/doubled-contrast benchmarks for D, and the explicit explanation that the generic-painting arm is not the D = 1 baseline. The remaining friction is localized: the uncertainty terminology requires more statistical fluency than the basic estimand explanations, and Figure 2's overview/detail relationship takes some caption-led decoding.",
+    "engagement": "The Monet–Sisley motivation, the fixed-scene image gallery, the pairwise heatmaps, and the reversal of the lowest-error model after scalar calibration give the technical analysis a clear narrative payoff. Results are generally interpreted rather than merely listed. The manuscript sustains interest without treating model rankings as a competition or presenting diagnostic findings as perceptual validation; minor visual decoding demands occasionally interrupt that flow."
+  },
+  "strengths": [
+    "The central question is both accessible and consequential within the stated scope: detecting an artist-name response does not establish that the response reproduces the distinctions in the selected reference panel.",
+    "The explanation of beta and D is particularly effective. The numerical lightness example and the three D benchmarks establish intuition before the full notation, while the repeat-cross-product explanation makes negative estimates understandable without presenting them as exceptional fidelity.",
+    "The displays have complementary roles. Figure 1 makes the outputs concrete; Figure 2 connects generated contrasts to reference geometry; Figure 3 exposes pair-specific behavior; and Table 4 separates aggregate mismatch, scene variation, and held-out calibration. The visible layouts are readable and do not show consequential clipping or collisions.",
+    "The manuscript maintains a careful evidence hierarchy. It distinguishes the declared inferential family from descriptive absolute errors and retrospective checks, explains the algebraic dependence of the label-swap diagnostic, and does not turn the calibrated point ranking into a claim of statistical superiority or improved images.",
+    "Limitations and provenance are substantive rather than formulaic. The finite reference panel, capture and content effects, two-repeat assumptions, AI-assisted crop audit, unavailable exact pixels, and historical endpoint uncertainty are disclosed. Supporting negative and non-transferring earlier results are retained without being pooled into the principal experiment."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Section 4.3, page 6; Table 2, page 7; Table 5, page 10",
+      "issue": "The uncertainty hierarchy is stated correctly, but terms such as 'inferential family', 'simultaneous', and 'nominal' arrive in a compact cluster. Their practical distinction is less directly explained than the meanings of beta and D.",
+      "reader_effect": "A generally scientifically literate reader may understand the point estimates yet need to reread the methods to determine which interval statements are jointly adjusted and why an absolute-D interval or retrospective crop result has a different evidential status.",
+      "suggested_change": "Replace one existing technical sentence in Section 4.3 with a short plain-language gloss explaining that the adjustment concerns the 21 declared comparisons jointly, whereas absolute-D intervals are unadjusted descriptive summaries and retrospective checks do not become new confirmatory tests. Preserve the approximation and assumption caveats, and use the same concise terminology in the table captions."
+    },
+    {
+      "priority": "low",
+      "location": "Figure 2 and caption, page 7",
+      "issue": "The caption explains the magnified Monet/Sisley/Pissarro detail, but the relationship between each overview and its adjacent detail depends more on caption reading than on a direct visual link.",
+      "reader_effect": "Readers can briefly mistake visual displacement across the two scales for a directly comparable distance, or pause to reconstruct which region has been magnified.",
+      "suggested_change": "Within the existing figure footprint, mark the detail region in each overview with a light outline or another unobtrusive overview-to-detail cue. Retain the shared-scale conventions and the warning that the displayed axes summarize reference-mean variation rather than all 31-dimensional error; replace redundant caption wording if space is needed."
+    },
+    {
+      "priority": "low",
+      "location": "Appendix F opening and Table 12, page 21; Appendix G, page 22",
+      "issue": "The strongest qualification that historical labels identify recorded request configurations rather than verified underlying models comes after several earlier-cohort numerical comparisons.",
+      "reader_effect": "An appendix reader may initially interpret those historical labels as authenticated model identities and only revise that interpretation on reaching the provenance discussion.",
+      "suggested_change": "Move a compact version of the existing historical-identity qualification to the opening of Appendix F, before Table 12. Keep the endpoint example and detailed provenance explanation in Appendix G. This is a relocation of existing information, not a request for additional verification or length."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "This is an excellent, carefully bounded presentation of a technically demanding digital-reference comparison. Its strongest achievement is making several easily conflated quantities intelligible while consistently limiting what they establish. The full manuscript and appendices support the main narrative without converting retrospective diagnostics, calibration, or earlier cohorts into stronger evidence than warranted. The remaining improvements are localized: translate the uncertainty hierarchy into plainer language, strengthen one overview-to-detail visual cue, and bring a historical provenance qualification forward. These changes can be made by substitution or relocation within the existing page and abstract limits; no expansion of the study is needed."
+}

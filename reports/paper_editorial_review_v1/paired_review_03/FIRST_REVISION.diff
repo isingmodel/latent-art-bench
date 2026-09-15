@@ -1,0 +1,216 @@
+--- round_33/paper.tex
++++ first_revision/paper.tex
+@@ -25,19 +25,20 @@
+ 
+ \begin{abstract}
+ A painter's name can change images without reproducing painter differences.
+-Six generators rendered 14 fixed scenes twice under artist-free, generic
++Six generators rendered 14 fixed scenes twice with artist-free, generic
+ oil-painting, and Monet, Sisley, Pissarro or C\'ezanne oil-painting prompts,
+-producing 1,008 images. We measure 31 color, spatial and texture features
+-in generated images and 649 reference reproductions, subtracting the four-painter mean
+-separately in references and each generated scene. After scene averaging and
+-repeat-noise correction, 82.5--95.7\% of squared feature change from artist-free
+-to named prompts is shared across names. Before calibration, every model partly aligns with reference differences,
+-but none is shown to have lower mismatch than a predictor making no painter
+-distinctions. Retrospective diagnostics find near-zero or reversed Monet--Sisley
+-alignment in five models. Calibration shrinks each model's measured differences
+-using one factor fitted on other scenes. The lowest held-out mean error estimate
+-then shifts from FLUX.2 Max to GPT Image 2 without changing images.
+-These measurements do not establish perceptual fidelity.
++producing 1,008 images. We compare 31 color, spatial and texture measurements
++from generated images and 649 reproductions, subtracting four-painter means
++in references and each generated scene. After averaging scenes
++and correcting repeat noise, 82.5--95.7\% of squared change from artist-free
++to named prompts is shared across names, including the oil-painting clause's
++contribution. Before calibration, every model partly aligns with reference
++differences, but none is shown to beat a predictor making no painter
++distinctions. Retrospective diagnostics find near-zero or reversed
++Monet--Sisley alignment in five models. Calibration rescales each model's
++differences using a factor fitted on other scenes. FLUX.2 Max has the lowest
++uncalibrated error estimate; GPT Image 2 has the lowest held-out calibrated
++estimate, without changing images. These measurements do not establish perceptual fidelity.
+ \end{abstract}
+ 
+ \section{Introduction}
+@@ -95,10 +96,10 @@
+ experiments. Our text-only name intervention supplies no original composition.
+ 
+ Generative evaluation separates fidelity and diversity \citep{naeem2020},
+-and conditional metrics separate within-condition variation from relationships
+-among means \citep{benny2021conditional}. Independent-partition inner products
+-provide noise-corrected squared differences \citep{diedrichsen2017representational};
+-energy statistics supply a complementary distributional measure \citep{szekely2013}.
++while conditional metrics distinguish within-condition variation from relationships
++among means \citep{benny2021conditional}. We use independent-partition inner products
++as the primary noise-corrected squared-difference estimator \citep{diedrichsen2017representational}
++and energy statistics as a complementary distributional measure \citep{szekely2013}.
+ Processing sensitivity \citep{parmar2022} and limits of learned-embedding
+ separation \citep{asperti2026} motivate the source-quality checks and the
+ restriction to a specified digital reference target.
+@@ -108,7 +109,7 @@
+ The primary panel covers four related painters through 649 distinct reproductions: 297 Monet,
+ 106 Sisley, 141 Pissarro and 105 C\'ezanne. Artist means receive equal weight,
+ so the larger Monet collection does not dominate the between-artist target.
+-A separate development panel of 221 works supplies feature scaling; no primary
++A separate 221-work development panel sets common feature units; no primary
+ reference or generated image is used to fit that transformation. Both panels
+ were assembled before the present experiment and had been used in earlier
+ analyses. They are explicit, finite comparison panels rather than newly withheld
+@@ -121,8 +122,9 @@
+ reproductions, whose capture conditions can affect the comparison.
+ 
+ \subsection{A common-scene, six-model experiment}
+-We compare GPT Image 1, GPT Image 2, GPT Image 2.5 Flare, GPT Image 2.5 Sunburst,
+-Nano Banana 2 and FLUX.2 Max. Fourteen authored outdoor scenes span water,
++We compare GPT Image 1, GPT Image 2, GPT Image 2.5 Flare (Flare),
++GPT Image 2.5 Sunburst (Sunburst), Nano Banana 2 and FLUX.2 Max (FLUX).
++Fourteen authored outdoor scenes span water,
+ built, land and mixed compositions. Each scene is crossed with six clauses:
+ no painting instruction; ``Render as an oil painting''; and ``Render as an oil
+ painting in the style of [painter]'' for each of the four painters. The scene
+@@ -270,12 +272,11 @@
+ This controls for the common brief; features, painters and individual images
+ are not treated as independent replicates.
+ 
+-Before inspecting the new feature outcomes, we specified six aligned responses
+-and 15 model-pair error differences as one inferential family. Paired-scene Student
+-intervals give approximate 95\% simultaneous intervals, with Bonferroni
+-adjustment across these 21 comparisons. An interval
+-excluding zero resolves a comparison. Nominal 95\%
+-intervals for absolute $D$ are descriptive.
++Before inspecting new feature outcomes, we declared six aligned responses and
++15 model-pair error differences. Paired-scene Student intervals use Bonferroni
++adjustment for these 21 comparisons together, giving approximate 95\%
++simultaneous coverage. Intervals excluding zero resolve their comparisons.
++Absolute-$D$ intervals are nominal 95\% summaries: they are unadjusted and descriptive.
+ 
+ The intervals reflect variation across the 14 fixed briefs, combining generation
+ noise with real scene differences. They neither isolate fresh-request uncertainty for this exact
+@@ -308,6 +309,7 @@
+ \input{specificity_results.tex}
+ 
+ \section{Discussion}\label{sec:discussion}
++Detecting a name response and matching painter differences are distinct achievements.
+ FLUX's lowest uncalibrated error estimate coexists with weak Monet--Sisley alignment.
+ Model comparisons should therefore report overall and pairwise scores together
+ for the stated reference target, distinguishing estimates from resolved comparisons.
+@@ -342,7 +344,8 @@
+ Most squared feature change, after averaging over scenes, is shared across names.
+ All six models nevertheless show reference-aligned painter differences, yet none
+ is established to beat the no-distinction error benchmark before calibration.
+-Detecting a name response and matching painter differences remain distinct.
++Uneven painter-pair agreement and the changed error ordering after calibration
++show why a single overall score is insufficient.
+ 
+ \clearpage
+ \section*{Data and code availability}
+@@ -500,7 +503,9 @@
+ \section{Supporting interventions}\label{sec:why}\label{app:cohorts}
+ These earlier cohorts address related but different questions
+ (Table~\ref{tab:cohorts}). They are not pooled with the six-model experiment
+-or treated as independent-investigator replications.
++or treated as independent-investigator replications. Historical model labels
++identify recorded request configurations, not verified underlying models
++(Appendix~\ref{app:provenance}).
+ 
+ \begin{table}[htbp]
+ \centering\small
+--- round_33/specificity_alignment_supplement.tex
++++ first_revision/specificity_alignment_supplement.tex
+@@ -9,5 +9,5 @@
+ Nano Banana 2 & 0.994 & 0.444\\
+ FLUX.2 Max & 0.741 & 0.546\\
+ \bottomrule\end{tabular}
+-\caption{Magnitude and alignment of painter contrasts. $Q=1$ equals the reference squared size, and $D=1-2\beta+Q$. The alignment ratio can fall outside $[-1,1]$ in finite samples. These are descriptive summaries.}
++\caption{Descriptive magnitude and alignment of painter contrasts. $Q=1$ equals the reference squared size, and $D=1-2\beta+Q$. The alignment ratio can fall outside $[-1,1]$ in finite samples.}
+ \label{tab:review-alignment}\end{table}
+--- round_33/specificity_component_supplement.tex
++++ first_revision/specificity_component_supplement.tex
+@@ -9,5 +9,5 @@
+ Nano Banana 2 & 0.513 & 0.371 & 0.195 & 0.569 & 0.446 & 0.388 & 0.276\\
+ FLUX.2 Max & 0.666 & 0.021 & 0.183 & 0.539 & 0.511 & 0.527 & 0.096\\
+ \bottomrule\end{tabular}
+-\caption{Artist coverage of the aligned response. Reference components account for 66.3\%, 20.6\% and 13.0\% of centroid variation. Each omission recomputes the target and recenters the other three artists. These responses are descriptive, not artist-level significance tests.}
++\caption{Descriptive artist coverage of the aligned response. Reference components account for 66.3\%, 20.6\% and 13.0\% of centroid variation. Each omission recomputes the target and recenters the other three artists.}
+ \label{tab:review-components}\end{table}
+--- round_33/specificity_model_table.tex
++++ first_revision/specificity_model_table.tex
+@@ -11,5 +11,5 @@
+ Nano Banana 2 & $0.442\;[0.256,0.629]$ & $1.109$ & $0.309\;[-0.847,1.464]$\\[3pt]
+ FLUX.2 Max & $0.470\;[0.239,0.701]$ & $0.801$ & $0$ (baseline)\\[3pt]
+ \bottomrule\end{tabularx}
+-\caption{Agreement with the full-frame reference target. $\beta=1$ matches its aligned amplitude; larger is not necessarily better. Expected $D$ is 0 for exact agreement and 1 for no painter distinctions. Positive $\Delta D$ favors FLUX.2 Max. Table brackets give approximate 95\% simultaneous intervals from the prespecified family of six aligned responses and 15 scene-paired model contrasts. FLUX's lowest $D$ estimate has nominal 95\% interval $[0.586,1.016]$, spanning the no-distinction value 1; this interval is descriptive.}
++\caption{Agreement with the full-frame reference target. $\beta=1$ matches its aligned amplitude; larger is not necessarily better. Expected $D$ is 0 for exact agreement and 1 for no painter distinctions. Positive $\Delta D$ favors FLUX.2 Max. Table brackets give approximate 95\% simultaneous intervals from the prespecified family of six aligned responses and 15 scene-paired model contrasts. FLUX's lowest $D$ estimate has an unadjusted 95\% interval $[0.586,1.016]$, spanning the no-distinction value 1; this interval is descriptive.}
+ \label{tab:specificity-models}\end{table}
+--- round_33/specificity_results.tex
++++ first_revision/specificity_results.tex
+@@ -32,8 +32,8 @@
+ open circles average generated contrasts over all 14 scenes and both repeats.
+ Shorter matching-label lines indicate less projected mismatch;
+ faint dots show centered scene/repeat contrasts.
+-The adjacent detail shows Monet (M), Sisley (S) and Pissarro (P)
+-at a common magnified scale; C\'ezanne
++The outlined region is enlarged in the adjacent Monet (M), Sisley (S) and
++Pissarro (P) detail at a common scale; C\'ezanne
+ remains in the overview. Each view uses common axes across models. Agreement
+ in these two projected axes does not establish agreement in all 31 features.}
+ \label{fig:specificity-geometry}
+@@ -65,9 +65,8 @@
+ GPT Image 2's from $.999$ to $.651$.
+ 
+ Swapping Monet and Sisley lowers error for Flare, Sunburst and Nano Banana 2.
+-This is the algebraic counterpart of their negative pair responses, not independent
+-corroboration or a test of perceptual confusion. Pair scores and label
+-permutations are descriptive.
++The swap reverses their negatively aligned pair difference without changing
++its size; the reduction is therefore not independent evidence of perceptual confusion.
+ 
+ \begin{figure}[!htbp]
+ \centering\includegraphics[width=\linewidth]{specificity_artist_pairs.pdf}
+@@ -95,7 +94,7 @@
+ \input{specificity_review_table.tex}
+ 
+ \emph{Rescaling contrasts.} GPT Image 2's aligned response is near one, but its
+-squared contrast size exceeds twice the reference's ($Q=2.223$;
++squared contrast size exceeds twice the reference's ($Q=2.223$, where 1 matches the reference size;
+ Appendix~\ref{app:magnitude-coverage}).
+ Shrinking weakens its reference-aligned component, but reduces off-target
+ differences enough to lower the total error estimate. The fitted multipliers
+--- round_33/specificity_review_table.tex
++++ first_revision/specificity_review_table.tex
+@@ -9,5 +9,5 @@
+ Nano Banana 2 & 1.109 & \textbf{0.723} & 0.387 & 0.832\\
+ FLUX.2 Max & \textbf{0.801} & 0.761 & 0.040 & 0.714\\
+ \bottomrule\end{tabularx}
+-\caption{Error decomposition and calibration against full-frame references. $D=D_{\rm aggregate}+V_{\rm scene}$. Calibration rescales centered generated contrasts using the other 13 scenes and evaluates them on the omitted scene; it does not produce new images. Bold marks each error column's minimum, not significance. Retrospective descriptive comparisons.}
++\caption{Retrospective error decomposition and calibration against full-frame references. $D=D_{\rm aggregate}+V_{\rm scene}$. Calibration rescales centered generated contrasts using the other 13 scenes and evaluates them on the omitted scene; it does not produce new images. Bold marks each error column's minimum, not significance.}
+ \label{tab:review-calibration}\end{table}
+--- round_33/specificity_source_comparison.tex
++++ first_revision/specificity_source_comparison.tex
+@@ -1,6 +1,6 @@
+ \begin{table}[!htbp]\centering\small
+ \begin{tabularx}{\linewidth}{@{}Xcc@{}}\toprule
+-Model comparison & \shortstack{Full-frame difference\\{[adjusted interval]}} & \shortstack{Crop-corrected difference\\{[adjusted interval]}}\\\midrule
++Model comparison & \shortstack{Full-frame difference\\{[adjusted interval]}} & \shortstack{Crop + scaling correction\\Difference [adjusted interval]}\\\midrule
+ GPT Image 1 $-$ FLUX & $0.771\;[-0.037,1.580]$ & $0.758\;[0.026,1.491]$\\[2pt]
+ 2.5 Flare $-$ FLUX & $0.937\;[0.256,1.618]$ & $0.864\;[0.193,1.535]$\\[2pt]
+ 2.5 Sunburst $-$ FLUX & $0.840\;[0.058,1.623]$ & $0.705\;[-0.026,1.436]$\\[2pt]
+--- round_33/specificity_supplement_tables.tex
++++ first_revision/specificity_supplement_tables.tex
+@@ -17,7 +17,7 @@
+ 2.5 Sunburst & FLUX.2 Max & $0.840\;[0.058,1.623]$\\
+ Nano Banana 2 & FLUX.2 Max & $0.309\;[-0.847,1.464]$\\
+ \bottomrule\end{tabular}
+-\caption{All 15 paired model comparisons in the prespecified inferential family. Intervals are approximate 95\% simultaneous intervals adjusted across all 21 endpoints. A negative contrast favors model A on the stated feature-geometry target. Flare and Sunburst denote the corresponding GPT Image 2.5 models.}
++\caption{All 15 paired model comparisons in the prespecified inferential family. Intervals are approximate 95\% simultaneous intervals adjusted across all 21 endpoints. A negative contrast favors model A on the stated feature-geometry target.}
+ \label{tab:all-specificity-pairs}\end{table}
+ 
+ \begin{table}[htbp]\centering\small
+@@ -41,5 +41,5 @@
+ FLUX.2 Max & Energy change & $-0.707$ & $-0.886$ & $-1.080$ & $-1.431$\\
+ & Variance ratio & $0.340$ & $0.416$ & $0.570$ & $0.622$\\
+ \bottomrule\end{tabular}
+-\caption{Complementary empirical distribution summaries. Energy change is named-minus-generic reference energy; variance ratios are generated-to-reference. Negative changes favor naming; ratios below one indicate narrower generated feature distributions. These descriptive outcomes add no tests.}
++\caption{Complementary empirical distribution summaries. Energy change is named-minus-generic reference energy; variance ratios are generated-to-reference. Negative changes favor naming; ratios below one indicate narrower generated feature distributions.}
+ \label{tab:artist-distributions}\end{table}

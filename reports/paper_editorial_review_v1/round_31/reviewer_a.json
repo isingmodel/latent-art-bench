@@ -1,0 +1,72 @@
+{
+  "reviewer_id": "editorial_r31_a",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "fa01382124a5b49d4da16998af5f404c4bd5e2b93853414cda2ee92720385424",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete extracted text of all 22 pages, including references and Appendices A–G, and visually inspected every rendered PDF page. Inspected Figures 1–5 and Tables 1–12. Consulted frozen paper.tex and specificity_results.tex to resolve definitions, wording and cross-references. Technical appendices were treated as optional depth; scores chiefly assess whether the main narrative stands alone. Verified the PDF SHA256 directly. The abstract contains 151 whitespace-separated words. No earlier drafts, other reviews, evaluation goals, current non-snapshot manuscript or external scientific sources were consulted."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.25,
+    "new_reader_understanding": 9.0,
+    "engagement": 9.0
+  },
+  "overall": 9.125,
+  "score_reasons": {
+    "expression": "The English is precise and fluent, with economical topic sentences and consistent distinctions among aligned response, error, scene averaging and calibration. Section 4.1 explains contrasts with an actual lightness difference before introducing symbols, and Section 5.4 explains why shrinking can lower error. Qualifications generally appear where readers need them. A few compressed numerical passages, especially the final paragraph of Section 5.2 and the supporting-study summaries, still require the reader to supply an interpretive sentence.",
+    "structure": "The main text proceeds coherently from the Monet–Sisley motivation through the fixed design, interpretable feature families, score intuition, inference and a clear sequence of results. Sections 4.3–4.4 distinguish the declared inferential family from retrospective diagnostics before either is reported. Detailed derivations, historical cohorts and supplementary distributional metrics remain in appendices, allowing the ten-page main narrative to stand alone. The progression from aggregate agreement to pair differences, calibration and source sensitivity is particularly effective. Only localized signposting refinements remain.",
+    "new_reader_understanding": "The abstract is standalone and within its length limit. The six experimental clauses, digital reference target, development scaling and theoretical D = 1 benchmark are explained concretely; the text explicitly distinguishes that benchmark from the observed generic-painting arm. The three idealized generators make the error scale memorable, and Figure 2 provides magnified views while Figure 3 labels meaningful score values. The main residual friction is that the generic-control comparison ends at magnitudes and a cosine without stating their implication for the headline shared effect. An appendix figure also relies on an earlier equation for the meaning of its residual label.",
+    "engagement": "The opening question has a clear consequence: recognizable or strong name responses can fail to reproduce measured painter differences. Figure 1 provides a substantial visual comparison, and the later figures reward inspection with a specific Monet–Sisley story. The FLUX/GPT Image 2 contrast and the Nano Banana scene-averaging reversal turn statistical choices into concrete findings without claiming improved pictures. Pace is strong through the main results. The remaining opportunity is to make the generic-painting control result as interpretive as the surrounding result paragraphs."
+  },
+  "strengths": [
+    "The opening Monet–Sisley example explains why absolute proximity to a painter collection cannot answer the paper’s question about labeled differences.",
+    "Section 4.1 pairs an observed lightness gap with the no-distinction/exact/doubled-response examples, giving both centering and the D scale an accessible meaning before the equations.",
+    "Figures 1–3 are readable and complementary: actual images establish the intervention, the projected contrasts reveal geometric relationships, and the heatmaps expose unequal pair responses in all 31 features.",
+    "Sections 5.1 and 5.5 keep point-estimate ordering separate from resolved comparisons and explicitly show how source correction changes the Sunburst–FLUX interval.",
+    "Calibration is clearly described as rescaling feature contrasts on other scenes; the abstract, methods, results and table caption do not imply that any images were improved.",
+    "The reference collection’s finite scope, source artifacts, AI-only audit and absence of perceptual validation are disclosed without making the main argument depend on repository access."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Section 5.2, final paragraph, p. 8; specificity_results.tex lines 52–55",
+      "issue": "The generic-control comparison reports 1.96–4.14 times the squared magnitude and a cosine of .689–.930, then stops after defining parallel. It does not explicitly connect these numbers to the distinction between the shared named response and the generic oil-painting response.",
+      "reader_effect": "A new reader can understand that most change is shared across names yet remain unsure whether the generic clause accounts for that common response. The measurements needed to answer this are present, but their narrative consequence is left implicit.",
+      "suggested_change": "Replace the paragraph in place with a short interpretive lead such as “The common named response resembles the generic-painting response but is larger and not identical,” followed by the existing squared-magnitude and cosine ranges and the common-baseline qualification. Keep the paragraph at approximately its current length and retain “squared” so the magnitude comparison is not changed."
+    },
+    {
+      "priority": "low",
+      "location": "Figure 4(a) caption and legend, p. 20; explanation in Appendix B.1, p. 14",
+      "issue": "The figure labels one component “Orthogonal residual,” while its caption only says that the two components sum to D and points to Equation 4. The helpful explanation that this is orthogonal to the single stacked reference configuration appears six pages earlier.",
+      "reader_effect": "Readers entering this optional summary figure from Appendix E must retrieve the earlier definition to distinguish deviations from the overall labeled reference pattern from deviations outside the reference feature span or authentic artistic variation.",
+      "suggested_change": "Replace the first panel-description sentence with a compact gloss, for example “Amplitude error and residual differences not parallel to the overall labeled reference pattern sum to D (Equation 4).” Preserve the existing technical derivation in Appendix B.1 and keep the caption within its current footprint."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent, coherent account of a bounded digital-reference comparison. The main question, design and findings are readily recoverable by the intended reader, and the manuscript carefully separates alignment, total error, descriptive diagnostics and perceptual claims. Remaining improvements are localized explanation and figure-caption refinements that can be made by replacement within the existing 22-page and abstract limits."
+}

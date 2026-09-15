@@ -1,0 +1,12 @@
+{
+  "evaluated_round": 30,
+  "page_count": 22,
+  "abstract_whitespace_words": 152,
+  "pdf_extracted_words": 9589,
+  "pdf_sha256": "bee3b61dba44af33484fa6415b906542e0479fb7ae632b58114793a4008af9d1",
+  "build": "Tectonic passed without warnings",
+  "visual_inspection": "All 22 pages rendered. Changed pages 1 and 10 individually inspected; the other 20 PNGs are byte-identical to previously inspected pages. The shorter abstract and practical Discussion paragraph fit cleanly, with no clipping or displaced conclusion.",
+  "presentation_replay": "All figures, tables and other included sources are byte-identical to round 29. Only main manuscript prose changed; no builder changed. A separate factual agent reconstructed all 84 retrospective factors and held scores, verified every factor lies strictly between zero and one, and verified the factor-one held-scene comparator equals original scene D. Root independently checked all 84 recorded factors and saved their bounds in tmp/paper/editorial-review-v1/r30-shrinkage-verification.json.",
+  "lint": "git diff --check passed",
+  "scientific_scope": "Editorial abstract and Discussion only. No scientific input, numerical result, image, inferential procedure, experiment or human evaluation changed."
+}

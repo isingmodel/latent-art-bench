@@ -1,0 +1,79 @@
+{
+  "reviewer_id": "editorial_r23_a",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "1112c59c06596d49ecaae93f3a4544e05de91855548060cce273c89eda02d471",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete 22-page PDF, including abstract, main text, availability statement, references and Appendices A–G. Visually inspected all 22 rendered pages, all five figures and all twelve tables. Consulted frozen paper.tex and included results/table TeX to resolve wording, notation and locations. Technical appendices were treated as optional depth rather than prerequisites for understanding the main narrative. Text extraction and page rendering used the isolated directory /tmp/editorial_r23_a_review. Independently computed the supplied PDF SHA256; no other reviews, versions or progress records were consulted."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.25,
+    "new_reader_understanding": 9.0,
+    "engagement": 9.25
+  },
+  "overall": 9.1875,
+  "score_reasons": {
+    "expression": "Excellent, precise English with short explanatory transitions and consistent use of contrasts, aligned response and error. The introduction explains the central distinction without hype; Section 4.1 gives an actual lightness example and interprets error values before equations. Qualifications about repeat correction, historical subjects, calibration and source correction are attached to the relevant claims. The abstract remains somewhat compressed as it switches among three secondary results, a localized refinement rather than recurrent obscurity.",
+    "structure": "The main text has a clear progression from the name-versus-painter-difference question through the six-arm design, understandable features, metric intuition, primary comparisons and explicitly retrospective diagnostics. Section 5.4 links both ordering changes to evaluation choices, and Section 5.5 reports the consequence of source correction before the conclusion. Derivations, full comparisons, earlier cohorts and provenance details are appropriately optional appendices; the main story stands on its own. Only small refinements to the abstract hierarchy and supplementary display organization remain.",
+    "new_reader_understanding": "The reference target, common scene intervention and distinction between a theoretical no-contrast predictor and the generic-painting arm are explained directly. Table 1 supplies useful feature interpretations; Section 4.1 explains the zero/one error anchors; the 36-image grid and the common-scale detail views in Figure 2 make the comparison inspectable. The fixed-scene uncertainty and the fact that calibration changes vectors rather than images are unusually clear. A brief cue for the opposing alignment/error ordering within Figure 3 and a less compressed Table 11 would further reduce the remaining decoding effort.",
+    "engagement": "The opening poses a consequential, concrete evaluation problem, and Figure 1 rewards comparing names and controls. Results headings state findings, while the GPT Image 2 versus FLUX example, weak Monet–Sisley response and changes in model ordering give the paper a discernible narrative. The source-correction result has a clearly explained consequence. Attention is maintained without claims of perceptual validation. A slightly tighter abstract and one more interpretive cue in the pair figure would sharpen emphasis further."
+  },
+  "strengths": [
+    "Section 4.1, page 5, moves from the measured Monet–Sisley lightness gap to the full contrast comparison, then uses no distinction, exact matching and doubled matching to make the error scale intuitive before notation.",
+    "Figure 1, page 4, presents all six prompt conditions for every model with a clear reference row, and its caption states the fixed example-selection rule and the absence of composition matching.",
+    "Sections 4.2–4.3 and 5.1 distinguish noise-corrected expected error, descriptive absolute intervals and adjusted paired comparisons, including the unresolved no-distinction benchmark.",
+    "Figure 2, page 7, uses common axes and magnified Monet/Sisley/Pissarro views, making nearby painter means inspectable while explicitly limiting conclusions from the projection.",
+    "Section 5.4, page 9, explains why shrinking GPT Image 2 lowers measured error and why scene averaging changes the Nano Banana 2/FLUX ordering; the text makes clear that neither operation establishes better images.",
+    "Section 5.5 and Table 5, pages 9–10, show exactly which model comparisons change after source correction and preserve the distinction between a stable lowest point estimate and unstable evidence for particular differences."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Abstract, page 1; paper.tex lines 36–40",
+      "issue": "The closing abstract sequence separately announces the lowest uncalibrated model, weak Monet–Sisley alignment and the lowest calibrated model. These are accurate, but the rapid switching gives the diagnostic ordering change nearly the same rhetorical status as the central detected-response versus total-error result. The calibration sentence says only \"A separate calibration\", whereas its retrospective status is explicit in the main text.",
+      "reader_effect": "An abstract-only reader has to reconstruct the hierarchy of the secondary results and may retain the two model names more readily than why their ordering changes.",
+      "suggested_change": "Use \"Retrospective calibration\" in place of \"A separate calibration\" and, if revising the closing sentences, place the uncalibrated/calibrated ordering change together. Preserve the other-scene fitting, unchanged-images qualification and central no-distinction result; make the revision by substitution within the existing abstract word budget, not expansion."
+    },
+    {
+      "priority": "low",
+      "location": "Section 5.3 and Figure 3, page 8; specificity_results.tex lines 59–82",
+      "issue": "The prose guides the reader through weak Monet–Sisley aligned responses, but does not point out the immediately adjacent error pattern: GPT Image 2 has stronger Monet–Sisley alignment than GPT Image 1 (.40 versus .07), while GPT Image 1 has lower pair error (.56 versus 1.16). This is an especially useful concrete instance of the paper’s central distinction, currently left for readers to discover unaided.",
+      "reader_effect": "A reader may interpret GPT Image 2’s strongest Monet–Sisley alignment as the best overall matching of that pair, despite the earlier general explanation that alignment and error differ.",
+      "suggested_change": "Replace a generic interpretive phrase in the paragraph or caption with a short cue such as \"For Monet–Sisley, GPT Image 2 aligns more strongly, but GPT Image 1 has lower error.\" The numbers are already in the figure; no new analysis, added figure or page growth is needed."
+    },
+    {
+      "priority": "low",
+      "location": "Appendix E, Table 11, page 19; specificity_supplement_tables.tex lines 23–35",
+      "issue": "Each painter cell contains two different outcomes separated only by a semicolon. The shared header explains the ordering, but the dense paired numbers make it harder to follow either energy change or variance ratio down a column.",
+      "reader_effect": "Readers checking the supplementary distributional results must repeatedly decode which number answers which question, although the underlying findings and caption are clear.",
+      "suggested_change": "Use two explicitly labeled subrows per model, one for energy change and one for variance ratio, retaining the four painter columns and every reported value. The substantial unused vertical space on page 19 can accommodate this rearrangement without exceeding 22 pages."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent, self-contained account of a bounded digital-reference comparison. Its question, design, metrics and principal findings are readily recoverable by the intended reader, with careful distinctions between detectable alignment, total mismatch, retrospective calibration and perceptual fidelity. Remaining editorial work is localized: sharpen the abstract’s diagnostic hierarchy, guide interpretation of one revealing pair-score contrast, and improve a supplementary table’s scanability."
+}

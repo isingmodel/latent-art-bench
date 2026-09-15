@@ -1,0 +1,12 @@
+{
+  "evaluated_round": 19,
+  "page_count": 22,
+  "abstract_whitespace_words": 149,
+  "pdf_extracted_words": 9689,
+  "pdf_sha256": "e2bae604c58250091674a82928f0f3a539bcc5dcf0146157475f857ef669fc6d",
+  "build": "Tectonic passed without warnings",
+  "visual_inspection": "All 22 pages rendered. Changed pages 1, 6, 8, 15, 16, 17, 18, 19 and 21 inspected individually; the other 13 PNGs are byte-identical to previously inspected renders. New control table and all renumbered cross-references fit. Introduction and conclusion remain complete on their pages.",
+  "presentation_replay": "All figures and pre-existing generated table files are byte-identical to round 18. New Table 5 preserves all six control ranges exactly, once each, and their original control/target mapping. The df specification remains in the unchanged Appendix B Student formula.",
+  "lint": "git diff --check passed",
+  "scientific_scope": "Prose, paragraph division, transfer of existing collection-level findings to Appendix E and tabulation of existing control ranges only. No scientific input, numerical result, image or inferential procedure changed."
+}

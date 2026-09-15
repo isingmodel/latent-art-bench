@@ -2,8 +2,7 @@
 These retrospective analyses retain the completed 1,008 generated images and
 the original inferential family. The initial diagnostics use unchanged reference
 vectors and scaling; the subsequent source audit separately varies painting
-regions, development scaling and content labels. Versioned records contain
-all fits, pair results, control draws, audit decisions and input hashes.
+regions, development scaling and content labels.
 
 \subsection{Content-specific targets and genuine-painting controls}
 The recorded reference classes are water-organized, built-place-organized,
@@ -16,7 +15,7 @@ of observed reference means that includes finite-sample error.
 
 For the generated comparison, the four water, four built and three land briefs
 use the corresponding class means; the three mixed briefs are excluded.
-We divide the summed class-specific cross-product error by
+We average the class-specific cross-product error over these $S=11$ scenes and divide by
 $H_c=S^{-1}\sum_s\sum_a\|r_{a,c(s)}\|^2=7.413$, compared with pooled $H=5.915$.
 Each column of Table~\ref{tab:review-targets} therefore has its own denominator.
 The unchanged 11-scene pooled comparison isolates the scene-subset choice.
@@ -36,10 +35,25 @@ is fixed throughout.
 
 To separate sparse sampling from changes in the comparison pools, we also
 calculate each split's expected score from its exact held-out means, keeping
-the training target and normalizer fixed. Their central 95\% ranges are
-$[.135,.428]$ for pooled controls, $[.544,.993]$ for class-stratified works
-against pooled targets, and $[.517,.954]$ against class targets. The corresponding
-original two-draw ranges are $[-.758,1.380]$, $[-.554,2.400]$ and $[-.248,1.946]$.
+the training target and normalizer fixed (Table~\ref{tab:painting-control-ranges}).
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{llcc}
+\toprule
+Control sampling & Reference target & Two draws & Exact held-out means\\
+\midrule
+Pooled & Pooled & $[-.758,1.380]$ & $[.135,.428]$\\
+Class-stratified & Pooled & $[-.554,2.400]$ & $[.544,.993]$\\
+Class-stratified & Class-specific & $[-.248,1.946]$ & $[.517,.954]$\\
+\bottomrule
+\end{tabular}
+\caption{Central 95\% ranges of genuine-painting control scores across 1,000
+splits. Exact means integrate out sampling within each split; these finite-pool
+ranges are not confidence intervals.}
+\label{tab:painting-control-ranges}
+\end{table}
+
 For pooled controls, SD falls from $.561$ to $.076$ after integrating out
 sampling. These controls still condition on imperfect title classes and a
 single source capture per work; they do not calibrate artistic fidelity.
@@ -47,7 +61,7 @@ single source capture per work; they do not calibrate artistic fidelity.
 \input{specificity_review_supplement.tex}
 \FloatBarrier
 
-\subsection{Magnitude, artist coverage and coordinate weighting}
+\subsection{Magnitude, artist coverage and coordinate weighting}\label{app:magnitude-coverage}
 The cross-repeat version of Equation~\ref{eq:scene-decomposition} is exact for
 the retained vectors. Its variation term replaces squared deviations with
 cross-products between scene-centered repeats. The term can be negative in
@@ -58,30 +72,38 @@ from .598 to .694; all fold-specific scores are retained. No calibration
 parameter is selected by minimizing its own held-out score. The subsequent
 deletion check refits the entire procedure on
 each remaining 13-scene panel, rather than treating overlapping folds as
-independent replications.
+independent replications. Its mean GPT Image 2-minus-FLUX error differences
+range from $-.189$ to $-.137$.
+
+\input{specificity_alignment_supplement.tex}
 
 For artist pairs, both generated and reference contrasts are direct differences
 between the two artists; the denominator is the squared reference-pair distance.
 Leaving one artist out recenters the remaining three generated and reference
 conditions. Reference singular components are the three rank-one terms of the
 centered four-by-31 reference matrix: each combines an artist contrast with a
-feature direction, rather than representing one artist. Slopes project onto
-each term separately.
-Table~\ref{tab:review-components} shows that aggregate positive alignment is
-uneven across those components. The 24 permutations rearrange generated artist
-labels while leaving the reference fixed. Their ranks are not exact permutation
-$p$-values: the named conditions are not exchangeable under an established null.
+feature direction, rather than representing one artist. Component aligned
+responses project onto each term separately.
 
-Equal-family weighting gives each coordinate a weight inversely proportional
-to its family's size (11, 8 or 12). The covariance sensitivity uses the
-221 development works with equal total mass per painter. For their weighted
-covariance $\Sigma$, the metric matrix is
-$[.5\Sigma+.5\operatorname{tr}(\Sigma)I/31]^{-1}$; the shrinkage is fixed,
-without tuning on the evaluated images. These changes address correlated
-coordinate weighting but are not independently validated artistic metrics.
-FLUX retains the smallest point estimate under each of 31 single-coordinate
-deletions. Every coordinate contribution, including negative terms, is retained
-in the report rather than selecting a favorable subset.
+\input{specificity_component_supplement.tex}
+
+Table~\ref{tab:review-components} shows that aggregate positive alignment is
+uneven across those components.
+
+Equal-family weighting assigns each coordinate inverse family size (11, 8 or 12).
+The covariance sensitivity uses 221 development works with equal painter mass.
+For their weighted covariance $\Sigma$, the metric is
+$[.5\Sigma+.5\operatorname{tr}(\Sigma)I/31]^{-1}$, with fixed shrinkage and no
+tuning on evaluated images. These weighting choices are not independently
+validated artistic metrics.
+
+\begin{samepage}
+FLUX retains the lowest point estimate under all
+31 single-coordinate deletions; the report retains every coordinate contribution,
+including negative terms.
+Without texture, Flare and Sunburst still have error estimates above the
+no-contrast value of one (1.580 and 1.604).
+\end{samepage}
 
 \subsection{A design-aware energy correction}
 The primary energy values use empirical distributions, including their zero
@@ -127,64 +149,49 @@ $3$, with either isotropic or rank-three covariance aligned with the reference
 components (5,000 runs per case). Coverage ranges from 95.06\% to 96.80\%, with
 Monte Carlo SE $.25$--$.31$ percentage points. For comparison, directly centered
 repeat differences estimate observed powers of $.424$--$2.596$ relative to $H$.
-Full noise definitions and results are retained in the versioned report. These
-stress models probe coverage approximations, not actual service independence;
+These stress models probe coverage approximations, not actual service independence;
 no significance threshold is selected from them.
 
 \subsection{Source-quality sensitivity}\label{app:reference-quality}
-An assistant visual audit inspects all 649 reference and 221 development
-reproductions using numbered contact sheets and enlarged peripheral regions.
-It records visible calibration targets, photographic frames, margins and labels,
-with normalized rectangular painting-region coordinates. Ambiguous boundaries
-remain unchanged. Reference content is assigned to the four broad classes from
-the image before comparison with the original title label; mixed or unclear
-cases retain that original label. This is source inspection, not a human
-artist-resemblance evaluation or composition matching.
+AI assistants inspect all 649 reference and 221 development reproductions
+using contact sheets and enlarged peripheral regions, recording removable
+calibration targets, frames, margins and labels. Uncertain boundaries remain
+unchanged. Reference content is visually classified before comparison with the
+title label; mixed or unclear cases retain that label.
 
-For clearly bounded regions, the same orientation and ICC rules precede crop
-and aspect-preserving Lanczos resizing to a 512-pixel short side without
-upsampling. All 31 feature definitions and all works are retained. We compare
-corrected references first with the original scaler, then with IQR scaling
-refitted on corrected development images and consistently applied to generated
-vectors. A separate comparison changes content labels on the same 11 briefs.
-The audit and new compact vectors are versioned alongside the original results;
-corrections are not chosen by optimizing model scores.
+The audit selects crops for 90 reference and 41 development images, including
+ten calibration-strip cases; 43 uncertain boundaries remain unchanged. Visual
+classes differ from 230 title assignments, while 42 mixed or unclear cases
+retain their original labels. These AI-coded sensitivities did not undergo human verification and are not
+independent ground truth.
 
-\section{Inspectable image examples}\label{app:images}
-The generated panel uses the first declared brief and first repeat for every
-model and clause, selected by this fixed rule after numerical analysis. The
-brief reads: ``A broad river bends past a gravel bank. Three tall trees stand
-on the far bank, with a low hill behind them under a pale overcast sky.''
-Every prompt ends with ``No text or frame.'' Artist-free, generic and named
-clauses otherwise follow Section~\ref{sec:design}. Images were not selected by
-visual success, distance or agreement with the paper's claims.
+Audited rectangular crops follow the original orientation and ICC rules, before
+aspect-preserving Lanczos resizing to a 512-pixel short side without upsampling.
+All 31 features and all works are retained. We compare corrected references with
+original scaling, then refit development IQR scaling and consistently transform
+generated vectors. Label sensitivity uses the same 11 briefs. Versioned records
+preserve audit decisions, new vectors and original results; model scores do not
+select corrections.
+All six aligned-response intervals remain above zero with either scaler.
+With original scaling, corrected regions give FLUX $D=0.832$.
+After refitting, (uncalibrated, held-out calibrated) errors are:
+GPT Image 1 $(1.631,0.693)$, GPT Image 2 $(1.259,0.579)$,
+Flare $(1.737,0.760)$, Sunburst $(1.577,0.711)$, Nano Banana 2 $(1.121,0.846)$
+and FLUX $(0.872,0.762)$. FLUX and GPT Image 2 retain the respective minima.
 
-Reference examples are the lexicographically first measured water-class work
-identifiers with recorded public-domain status under the original title labels.
-The Sisley and Pissarro reproductions retain calibration strips; the C\'ezanne
-example, \emph{Crossroad of Rue R\'emy, Auvers}, depicts a street. These original
-full-frame examples document the defects motivating the separate source audit
-(Appendix~\ref{app:reference-quality}); they are not matched depictions of the
-generated brief. Source identifiers, exact requests and byte hashes accompany
-the panels, whose reduced images support inspection rather than re-extraction.
+\section{Image selection and provenance}\label{app:images}
+The generated examples use the first declared brief and first repeat, selected
+after analysis without appearance- or score-based curation. The brief reads:
+``A broad river bends past a gravel bank. Three tall trees stand on the far bank,
+with a low hill behind them under a pale overcast sky.'' Every prompt ends with
+``No text or frame.'' Only the clauses in Section~\ref{sec:design} change.
 
-\begin{figure}[htbp]
-\centering\includegraphics[width=\linewidth]{specificity_reference_examples.pdf}
-\caption{Rule-selected reference examples. Columns identify painters and recorded
-Wikidata work identifiers. Calibration strips are visible beside the Sisley
-and Pissarro reproductions; the C\'ezanne example reveals a title-class mismatch.
-Source URLs and public-domain metadata are retained
-with the inspection manifest. The works are not exact content matches to the
-common generated brief.}
-\label{fig:reference-examples}
-\end{figure}
-\begin{figure}[p]
-\centering\includegraphics[width=\linewidth]{specificity_image_examples.pdf}
-\caption{One common brief across all six models and clauses, first repeat.
-Every thumbnail carries its stable request identifier. Rows compare recorded
-configurations; columns compare clauses. Selection is deterministic and
-post-result, without appearance-based curation. No human evaluation is inferred
-from this panel.}
-\label{fig:image-examples}
-\end{figure}
+References in Figure~\ref{fig:original-generated} are the lexicographically first
+measured work IDs per painter classified as water-organized in the completed
+audit, with recorded public-domain status. The Sisley and Pissarro reproductions
+use audited crops removing calibration strips; Monet and C\'ezanne retain their
+full regions. The manifest records image identities, provenance, crop boxes
+and exact prompts. The paintings are not matched to the generated brief.
+
+
 \FloatBarrier

@@ -1,0 +1,72 @@
+{
+  "reviewer_id": "editorial_r28_b",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "85c38d48b10f8769377d16a4baea1570dbd5c2467c1383a3e3df892f71adaca2",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete extracted manuscript, including references and Appendices A–G, and visually inspected every rendered PDF page. Inspected Figures 1–5 and Tables 1–12 in their page layouts. Consulted the frozen paper.tex for the abstract, main-text wording, notation and inclusion structure. The PDF has 22 pages; the abstract has 155 whitespace-delimited words. Used only the assigned rubric and frozen manuscript; extraction and rendering were isolated under /tmp/editorial_r28_b."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.5,
+    "new_reader_understanding": 9.25,
+    "engagement": 9.25
+  },
+  "overall": 9.3125,
+  "score_reasons": {
+    "expression": "The English is precise and fluent, with short interpretive sentences that explain the consequences of the numbers. Terminology remains consistent across the main text: shared shifts, centered contrasts, aligned response and total error are distinguished carefully. The densely packed end of the abstract and a little repeated summary language are localized opportunities for greater economy.",
+    "structure": "The main text provides a coherent route from the Monet–Sisley question through the six prompt conditions and feature meanings to intuitive score examples, inference and results. Sections 5.1–5.5 visibly distinguish the primary result from retrospective pair, calibration and source checks. Necessary derivations and the earlier cohorts are genuinely optional appendix material; the study and its principal limits are recoverable without them.",
+    "new_reader_understanding": "The median-lightness example and the three idealized generators on page 5 make centering, aligned strength and the no-distinction benchmark understandable before detailed notation. Table 1 translates features into observable properties, while the Figure 2 details and Figure 3 benchmark labels aid numerical interpretation. The manuscript repeatedly makes the fixed digital target, scene averaging and feature-only calibration explicit. The abstract asks the first-time reader to absorb several distinct diagnostic results in quick succession, but this does not prevent understanding the main study.",
+    "engagement": "The opening question is consequential and concrete, and Figure 1 lets the reader inspect the prompt effect directly. The results sustain a clear narrative: positive alignment can coexist with high error, painter distinctions are uneven, and changing magnitude or scene averaging changes the ordering. The last interpretive paragraph could make that synthesis more concrete instead of relying largely on another general summary; this is a small refinement to an already engaging account."
+  },
+  "strengths": [
+    "Pages 1 and 5 establish the central distinction with an accessible Monet–Sisley example and then an actual lightness gap (.325 reference units versus .254 generated units). The transition from motivation to measurement is unusually effective.",
+    "Section 4.1 explains D through no distinctions, exact matching and doubled distinctions, with expected values 1, 0 and 1. This prepares the reader for the otherwise counterintuitive GPT Image 2 versus FLUX results.",
+    "Figure 1 provides all six conditions for all six generators in a legible common-scene panel. Its caption gives a useful inspection sequence and clearly distinguishes illustrative reference reproductions from generator inputs and matched compositions.",
+    "Figure 2 supplements the full overview with common-scale Monet/Sisley/Pissarro details, while Figure 3 displays numerical pair estimates and clearly marked interpretation anchors. Both figures reward inspection rather than merely duplicating prose.",
+    "Sections 5.4–5.5 explain exactly what calibration and source correction change, retain uncertainty and retrospective status, and avoid presenting lower numerical error as improved images or perceptual fidelity.",
+    "The main narrative ends by page 10, with transparent data-access limits and substantial technical details kept in separately labeled appendices. The full 22-page document has no consequential visual-layout defect."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Abstract, page 1; paper.tex lines 34–41",
+      "issue": "The final half of the abstract moves rapidly from the primary uncertainty result to pair alignment, two different model rankings and the calibration procedure. Calibration is named twice before the final sentence explains its operation, so the most technical part of the abstract takes a second reading.",
+      "reader_effect": "A new reader can briefly lose track of why the second model has a different lowest estimate and whether held-out refers to new images or rescaled measurements. The final explanation resolves this, but the reading order could be smoother.",
+      "suggested_change": "Replace the two calibration/ranking sentences with a single operation-first passage, for example: “FLUX.2 Max has the lowest uncalibrated scene error estimate. Retrospectively scaling each model’s contrasts on other scenes gives GPT Image 2 the lowest held-out estimate, without changing images.” Keep the existing perceptual-fidelity boundary and the other findings. This replacement is shorter and preserves the 155-word limit."
+    },
+    {
+      "priority": "low",
+      "location": "Discussion, page 10; paper.tex lines 312–315",
+      "issue": "The discussion opens with the same common-shift/painter-distinction summary used elsewhere, followed by the abstract statement that reporting several scores reveals magnitude and scene effects. The results have supplied a more concrete synthesis than this closing interpretive sentence conveys.",
+      "reader_effect": "The ending remains clear, but its momentum weakens slightly as it restates the reporting framework instead of crystallizing what the contrasting model results teach the reader.",
+      "suggested_change": "Replace the sentence beginning “Reporting overall and pairwise alignment” with an evidence-linked synthesis of comparable length, such as: “FLUX’s restrained response lowers raw error, while GPT Image 2’s calibrated result shows how excess contrast magnitude can obscure agreement.” Retain the following limits and the precise scene-dependence explanation in Section 5.4; no additional analysis or page space is needed."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent, self-contained communication of a deliberately bounded digital-reference comparison. The primary result, retrospective diagnostics and limits are readily distinguished, and the principal figures support the argument well. Remaining improvements concern local abstract pacing and the specificity of the closing synthesis, not a missing explanatory section or an unsupported scientific claim."
+}

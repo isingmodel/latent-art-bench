@@ -1,0 +1,80 @@
+{
+  "reviewer_id": "editorial_r25_a",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "0ab7cbe67ddded3f919be3fddad2fa6372c4f5c62c7b26006b10bd4e11ede710",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete 22-page frozen PDF, including the abstract, main text, data availability, references and Appendices A-G. Visually inspected rendered pages 1-22, including Figures 1-5 and Tables 1-12. Consulted the frozen paper.tex and specificity_results.tex to resolve wording, notation and source locations. Independently checked the PDF SHA256 before reading and again before writing. The abstract contains 155 whitespace-delimited words after normalizing TeX escapes. Technical appendices were treated as optional depth when judging main-text accessibility. No other reviews, versions, progress files or repository material were consulted."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.25,
+    "new_reader_understanding": 9.0,
+    "engagement": 9.0
+  },
+  "overall": 9.125,
+  "score_reasons": {
+    "expression": "Excellent, precise English with well-managed qualifications. Section 4.1 explains contrasts through the Monet-Sisley lightness gap before giving notation; Sections 5.1 and 5.4 explain why alignment, total error and shrinking can disagree rather than merely naming metrics. Terms and inferential status remain consistent. The compressed centering clause in the 155-word abstract and some repetition in the opening Discussion leave localized refinements rather than recurrent friction.",
+    "structure": "The question progresses coherently through reference construction, experimental arms, feature meaning, score intuition, inference and results. Section 5.1 clearly establishes the primary result before Sections 5.3-5.5 introduce painter-pair, calibration and source diagnostics. The source correction that changes an adjusted comparison is visible in the main text and Table 5. Detailed identities, controls and earlier cohorts are appropriately in appendices; the main argument does not depend on reading them.",
+    "new_reader_understanding": "The main text supplies the six prompt conditions, fixed-scene design, separate scaling panel, equal painter weighting, measured feature families and finite digital reference target. The no-distinction benchmark and examples D=1,0,1 make the error scale intelligible. Figure 2 explains its reference-fitted axes and magnifies the nearby painter positions, while Figure 3 gives explicit numerical benchmarks. Calibration is plainly a feature-vector rescaling, and uncertainty and source correction are explained without implying perceptual validation. Only localized compression in the abstract and missing aggregation qualifiers in Table 3 itself impede effortless standalone reading.",
+    "engagement": "The motivating Monet-versus-Sisley example creates a consequential distinction, and the image grid, geometry panels and pair heatmap reward inspection. The near-unit GPT Image 2 response with substantial error, the Nano Banana 2/FLUX scene-averaging reversal, and the calibrated ordering give the results a discernible narrative without hype. The Discussion could synthesize those three evaluation choices more concretely instead of restating distinctions already established in the Results."
+  },
+  "strengths": [
+    "The introduction makes the central problem concrete: becoming closer to Monet and Sisley together does not establish the difference between them (p. 1).",
+    "The lightness example and the three idealized errors in Section 4.1 provide useful intuition before the cross-repeat estimator and its assumptions (p. 5).",
+    "Figure 1 displays all six prompt conditions for all six models, with a specific viewing instruction and a clearly separated, non-input reference row (p. 4).",
+    "Figure 2 uses consistent model views and magnified Monet/Sisley/Pissarro details; Figure 3 makes the uneven pair response immediately inspectable and explicitly explains negative corrected error (pp. 7-8).",
+    "Table 4 and its surrounding prose explain the scene-averaging and calibration reversals through numerical examples while keeping the held-out comparisons descriptive (p. 9).",
+    "The manuscript places the changed Sunburst-FLUX inference after source correction in the main narrative and distinguishes retrospective intervals from confirmatory tests (pp. 9-10).",
+    "The finite reference target, lack of perceptual validation, AI-only source audit and incomplete exact-pixel archive are candidly stated without being used to obscure the reported comparison."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Abstract, p. 1; paper.tex lines 29-31",
+      "issue": "The phrase \"subtracting four-painter means separately\" compresses the operation before the reader knows which groups are being centered. The full explanation in Section 4.1 is clear, but the standalone abstract momentarily requires reconstruction.",
+      "reader_effect": "A new reader can miss that reference and generated painter differences are each measured relative to their own four-painter average, rather than subtracting a reference mean directly from generated images.",
+      "suggested_change": "Replace the measurement sentence with: \"We measure 31 color, spatial and texture features in generated images and 649 reference reproductions, subtracting each group’s four-painter average to isolate painter differences.\" This fits within the current abstract word budget and preserves the evidence."
+    },
+    {
+      "priority": "low",
+      "location": "Table 3 caption, p. 8; Section 5.2",
+      "issue": "The table caption states the squared-change denominator and the painting-clause inclusion, but leaves scene averaging and repeat correction solely to the preceding prose. Those operations materially distinguish these percentages from the within-scene percentages in Appendix B.",
+      "reader_effect": "A reader consulting the headline percentage table on its own cannot immediately tell whether changes were squared before or after averaging scenes or whether random repeat variation contributes to the shares.",
+      "suggested_change": "Replace the caption with: \"Shares of scene-averaged, repeat-corrected squared change from artist-free to named prompts, including the painting clause. Shared denotes the four-painter mean shift.\" This is a compact caption substitution, not an additional methods paragraph."
+    },
+    {
+      "priority": "low",
+      "location": "Opening of Section 6 Discussion, p. 10",
+      "issue": "The opening repeats the shared-response, scene-averaging and calibration distinctions already explained in Sections 4 and 5, but does not gather the three different lowest-error models in Table 4 into one explicit synthesis.",
+      "reader_effect": "The ending loses a small opportunity to make the practical consequence of evaluation choice memorable after a quantitatively rich Results section.",
+      "suggested_change": "Replace the initial recap with a compact synthesis such as: \"The lowest error estimate belongs to FLUX for scene-level agreement, Nano Banana 2 after averaging scenes, and GPT Image 2 after adjusting response strength. These orderings answer different evaluation questions.\" Retain the existing recommendation to report alignment, original and calibrated error, and the treatment of scenes; do not add a new paragraph or enlarge the paper."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent, self-contained account of a bounded comparison of digital reference contrasts. The main findings are readily understood, the figures are informative, and distinctions between primary results, retrospective diagnostics, feature-space agreement and perceptual fidelity are maintained. Remaining improvements are localized wording, caption and synthesis refinements; they require neither new evidence nor additional pages."
+}

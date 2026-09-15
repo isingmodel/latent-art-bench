@@ -1,0 +1,82 @@
+{
+  "reviewer_id": "editorial_r10_c",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "be9e8e5fa26ad554bb235635df61228ffb9df4c3c3eb6f887033927a9d7de382",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the full extracted text of all 22 supplied PDF pages, including the abstract, main text, references and Appendices A–G. Visually inspected all 22 rendered pages, including Figures 1–5 and Tables 1–10; re-inspected page 9 at higher resolution. Consulted the frozen paper.tex and specificity_results.tex to resolve wording, notation and source locations. The abstract contains 154 whitespace-delimited words in the extracted PDF. Used only the assigned rubric and frozen manuscript; no other reviews, previous drafts or repository analysis records were consulted."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.25,
+    "new_reader_understanding": 9.0,
+    "engagement": 9.0
+  },
+  "overall": 9.125,
+  "score_reasons": {
+    "expression": "Excellent, precise English with short explanatory paragraphs and consistent distinctions among shared change, aligned response, total error and collection proximity. The three idealized generators in Section 4.1 explain a potentially counterintuitive metric economically. Qualifications generally identify a specific interpretive limit rather than merely hedging. The unexplained reference to earlier feature maps in the discussion and the broad opening of Section 5.5 require only localized wording refinements.",
+    "structure": "The progression from a concrete question to the reference panel, six experimental arms, feature interpretation, score intuition, formulas and results is coherent. Result headings state findings, and the original comparisons are visibly separated from retrospective pair, calibration and source diagnostics. Appendix placement lets the main narrative stand on its own while retaining technical depth and the earlier cohorts. The brief discussion contains one tangential historical reference that would fit more naturally entirely within Appendix F.",
+    "new_reader_understanding": "A reader can identify what was generated, what is being compared, why artist centering matters and how to interpret the two principal scores without consulting the repository. Table 1, the Monet–Sisley lightness example, the 0/1 error benchmarks and the distinction between the theoretical no-contrast predictor and the generic arm are particularly effective. Figure 2 provides useful magnified views and Figure 3 states its numerical benchmarks. A scope qualifier is still useful in Section 5.5 because the preceding paragraph has just shown a different ordering when scenes are averaged first.",
+    "engagement": "The paper sustains a discernible scientific story: visible naming responses can be common, aligned responses can retain substantial mismatch, painter coverage is uneven, and model orderings reveal evaluation choices. Figure 1 makes the prompt intervention concrete, while Figures 2–3 and Table 3 reward comparison. The tone avoids hype. The appendix distribution figure would reward inspection more readily with a brief stated visual takeaway, and the discussion could end its short interpretation more directly before the limitations."
+  },
+  "strengths": [
+    "The introduction uses the concrete Monet/Sisley proximity example to explain why an apparent naming benefit need not recover differences between painters.",
+    "Section 4.1 teaches the contrast and error ideas before introducing multi-index notation; the lightness example and the no-distinction/exact/doubled examples make the quantities interpretable.",
+    "Figure 1 shows all six prompt conditions for each model with readable row and column labels, identifies the reference images as neither inputs nor matched compositions, and gives an explicit visual observation in Section 3.2.",
+    "Figures 2 and 3 give complementary views of painter coverage; the magnified M/S/P views prevent the dominant Cézanne separation from hiding smaller distinctions.",
+    "The calibration result is explained as a rescaling of measured contrasts learned on other scenes, with no implication that images or perceptual fidelity improved.",
+    "Section 5.5 and Table 4 state exactly which original comparisons change after source correction, and explicitly distinguish the retrospective GPT Image 1 result from confirmatory findings.",
+    "The manuscript stays within 22 pages, and its standalone abstract stays within the 155-word limit."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Section 5.5, page 9; specificity_results.tex lines 118–120",
+      "issue": "The opening statement that FLUX retains the lowest error across the reported scene sensitivities is broader than the immediately preceding discussion, which has shown Nano Banana 2 below FLUX when painter contrasts are averaged over scenes first.",
+      "reader_effect": "A reader can momentarily read the two adjacent paragraphs as contradictory, or mistake the robustness statement as covering both scene-level error and error of the average.",
+      "suggested_change": "Scope the existing sentence to its actual quantity: \"For uncalibrated scene-level error D, FLUX retains the lowest point estimate across the reported scene-subset, window, target and feature-weighting sensitivities.\" Replace the current sentence rather than adding a paragraph; retain the distinct Daggregate result in Section 5.4."
+    },
+    {
+      "priority": "low",
+      "location": "Section 6, page 10; paper.tex lines 328–332",
+      "issue": "The sentence about earlier feature maps showing opposing effects of scaling introduces an undefined analysis from the historical cohorts during an otherwise self-contained interpretation of the current experiment.",
+      "reader_effect": "The reader must either leave the main discussion for Appendix F or pass over a sentence whose connection to the current mechanism claim is unclear. It also interrupts the concise conclusion that prompt effects do not identify internal causes.",
+      "suggested_change": "Delete this one main-text sentence and keep the complete evidence in Appendix F, or replace it with a short explicit connection such as \"Earlier fitted transformations also gave inconsistent proximity effects across cohorts (Appendix F).\" Either choice preserves the evidence without increasing length."
+    },
+    {
+      "priority": "low",
+      "location": "Figure 5 caption, page 20; paper.tex lines 494–500",
+      "issue": "The caption explains selection, axes and interpretive limits, but does not identify the visual pattern that makes this optional distribution figure useful.",
+      "reader_effect": "The reader has to infer the intended comparison among four dense scatterplots, despite the compact named clusters being a useful visual counterpart to the reported spread results.",
+      "suggested_change": "Replace the opening descriptive sentence with a brief takeaway, for example: \"Named outputs form compact feature clusters relative to the broad reference scatter in this GPT Image 2.5 Sunburst illustration.\" Retain the existing different-axis and different-content qualifications and the fact that numerical summaries use all 31 coordinates."
+    }
+  ],
+  "claim_fidelity_issues": [
+    "Localized scope ambiguity only: Section 5.5 says FLUX is lowest across reported scene sensitivities immediately after Section 5.4 reports a lower Daggregate for Nano Banana 2. Explicitly limiting that robustness sentence to uncalibrated scene-level D avoids an overbroad reading. I found no substantive claim that the measured results establish perceptual artistic fidelity, improved images, or retrospective statistical superiority."
+  ],
+  "summary": "An excellent, coherent editorial presentation of a bounded comparison of digital reference contrasts. The main question, intervention, metrics and substantive findings are readily recoverable by the intended reader. Remaining changes are localized wording and caption refinements, not a need to restructure the study or add evidence."
+}

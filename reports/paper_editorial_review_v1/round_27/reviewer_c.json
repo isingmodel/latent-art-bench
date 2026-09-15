@@ -1,0 +1,78 @@
+{
+  "reviewer_id": "editorial_r27_c",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "30e26d181355eca8f2cc64f9f93a74e654754d2a6faf45e1ab2e65bc8bad462e",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete 22-page frozen PDF, including references and Appendices A-G, using extracted page text and visual page inspection. Inspected all five figures and all twelve tables in the PDF. Read paper.tex and specificity_results.tex to resolve wording and notation. Evaluated technical appendices as optional depth. The abstract contains 154 whitespace-delimited words in the supplied TeX. Used isolated temporary extraction/rendering paths; did not inspect other reviews, prior drafts, progress records, goals, or the non-snapshot manuscript."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.5,
+    "new_reader_understanding": 9.25,
+    "engagement": 9.25
+  },
+  "overall": 9.3125,
+  "score_reasons": {
+    "expression": "Excellent, precise English with manageable sentences and economical explanations of qualifications. Section 4.1 gives both a measured lightness example and the no-distinction/exact/doubled examples before the equations. The distinction between numerical agreement and perceptual fidelity is consistently expressed without overclaiming. Small opportunities remain to replace an ambiguous abstract shorthand and stabilize the names of the three error summaries.",
+    "structure": "The main argument progresses coherently from a concrete evaluation problem through the reference panel and controlled arms to contrast measurement, primary results, pair diagnostics, calibration and source sensitivity. The primary inferential family is visibly distinguished from retrospective checks. Detailed identities, source audit procedures, full comparison tables and historical cohorts are appropriately placed in optional appendices. Tables 2-5 and their surrounding text give the main narrative sufficient evidence without requiring repository consultation.",
+    "new_reader_understanding": "The abstract is standalone and within its length limit, the six experimental conditions are explicit, and the finite digital-reference target is explained early. Table 1 translates feature families into observable properties; Section 4.1 explains centering and score benchmarks; the main tables and figure captions explain normalization, signs and uncertainty. Calibration is clearly described as scaling measured contrasts without changing images. Only localized precision and an omitted model identity in an optional historical comparison impede otherwise ready understanding.",
+    "engagement": "The opening Monet/Sisley example makes the question consequential, and Figure 1 provides an inspectable example rather than merely decorative artwork. Figure 2 rewards inspection with matching-label segments and magnified M/S/P views; Figure 3 makes uneven pair behavior immediately visible. Results headings state findings, and the changing error orderings create a clear narrative about what the measurements reward. The exposition is dense in places but sustains its bounded scientific story without hype."
+  },
+  "strengths": [
+    "Pages 1 and 5 turn the abstract distinction between a common shift and painter-specific agreement into a concrete Monet/Sisley lightness example, then explain why errors of 1, 0 and 1 correspond to no distinction, exact matching and doubled contrasts.",
+    "Pages 6-10 consistently distinguish positive aligned response, total error, descriptive point-estimate rankings and resolved adjusted comparisons; the source-correction table explicitly shows the Sunburst-FLUX interval crossing zero.",
+    "Figure 1 identifies its controls and unmapped reference examples, Figure 2 makes nearby painter positions inspectable, and Figure 3 prints numerical estimates and benchmark annotations directly in the visual display.",
+    "Section 5.4 and Table 4 explain both the Nano Banana 2/FLUX ordering reversal after scene averaging and why shrinking GPT Image 2 contrasts can reduce error despite weakening its aligned component.",
+    "Technical and historical detail remains available in Appendices A-G while the ten-page main narrative conveys the design, primary findings and interpretive boundaries on its own."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Abstract, page 1, paper.tex lines 34-36",
+      "issue": "The phrase \"subtracting each group's four-painter mean\" does not identify what constitutes a generated group. The later methods correctly specify centering within each generated scene and repeat, whereas the abstract can initially suggest a single pooled centering operation per model.",
+      "reader_effect": "A new reader may not immediately distinguish the construction of scene-level contrasts from the later scene averaging used for the shared-change percentage. The main text resolves this, so this is a localized abstract precision issue.",
+      "suggested_change": "Replace the shorthand with a compact phrase such as \"centering references and each generated scene across painters.\" Preserve the later statement that the shared-change result averages scenes; make the substitution within the existing 155-word limit."
+    },
+    {
+      "priority": "low",
+      "location": "Section 5.4 and Table 4, page 9; Discussion opening, page 10, paper.tex lines 313-316",
+      "issue": "The three error summaries acquire several near-synonymous labels: \"uncalibrated scene error,\" \"scene-level estimate,\" \"error after averaging scenes,\" \"averaged estimate,\" and \"calibrated estimate.\" Each usage is recoverable, but the shorthand in the discussion drops the operation that distinguishes the scores.",
+      "reader_effect": "Readers comparing the three different lowest estimates must translate the discussion back to Table 4 instead of immediately recognizing the same three quantities.",
+      "suggested_change": "Use the same short names in the results and discussion: \"uncalibrated scene error,\" \"scene-averaged error,\" and \"calibrated scene error.\" Replace the existing phrases rather than adding definitions or extending the paper."
+    },
+    {
+      "priority": "low",
+      "location": "Appendix F, Table 12 and Section F.1, page 21",
+      "issue": "The \"Generic-clause comparison\" row and the paragraph beginning \"A standalone 96-output Cézanne comparison\" identify the painter, scenes and output count but omit the generator model. Adjacent historical comparisons name their model configurations.",
+      "reader_effect": "A reader following this optional supporting result cannot tell which recorded generator exhibited the reported proximity gain, and could mistakenly generalize the result across the preceding three-model cohort.",
+      "suggested_change": "Insert the recorded model name in the existing Table 12 comparison cell or replace the paragraph opening with a model-specific formulation, such as \"The 96-output [model]/Cézanne comparison...\" No additional analysis or longer exposition is needed."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent and unusually self-contained account of a bounded digital-reference comparison. The central distinction between detecting a name response and matching painter differences is readily understood, supported by informative visuals, and maintained through uncertainty, calibration and source sensitivity. Remaining improvements are localized wording and labeling changes; no major reorganization, new experiment or perceptual-validation claim is needed."
+}

@@ -1,0 +1,9 @@
+\begin{table}[!htbp]\centering\small
+\begin{tabularx}{\linewidth}{@{}Xcc@{}}\toprule
+Model comparison & \shortstack{Full-frame difference\\{[adjusted interval]}} & \shortstack{Crop + scaling correction\\Difference [adjusted interval]}\\\midrule
+GPT Image 1 $-$ FLUX & $0.771\;[-0.037,1.580]$ & $0.758\;[0.026,1.491]$\\[2pt]
+2.5 Flare $-$ FLUX & $0.937\;[0.256,1.618]$ & $0.864\;[0.193,1.535]$\\[2pt]
+2.5 Sunburst $-$ FLUX & $0.840\;[0.058,1.623]$ & $0.705\;[-0.026,1.436]$\\[2pt]
+\bottomrule\end{tabularx}
+\caption{Uncalibrated error differences before and after source correction, using audited painting regions and refitted development scaling. Positive differences favor FLUX.2 Max. Full-frame intervals use the 95\% simultaneous procedure across 21 endpoints; corrected intervals reuse that procedure retrospectively and add no confirmatory tests.}
+\label{tab:source-comparison}\end{table}

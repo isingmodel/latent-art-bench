@@ -1,0 +1,78 @@
+{
+  "reviewer_id": "editorial_r26_a",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "124379f710f1a63188be56e4ff00d2ba67d51d5dc419216dcc2f99206775f55f",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the entire frozen 22-page PDF, including references and Appendices A-G; visually inspected rendered versions of every page, all five figures and all twelve tables. Read paper.tex and specificity_results.tex to check wording, notation and locations. Independently computed the PDF SHA256. The abstract contains 155 whitespace-delimited words in its TeX source. Used only the supplied manuscript snapshot and fixed rubric for substantive assessment; technical appendices were treated as optional depth."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.5,
+    "new_reader_understanding": 9.0,
+    "engagement": 9.0
+  },
+  "overall": 9.1875,
+  "score_reasons": {
+    "expression": "Precise, fluent English explains difficult distinctions without routinely forcing long sentences. The lightness example and the no-distinction/exact/doubled examples in Section 4.1 make the terminology concrete. Qualifications usually occur where a reader might otherwise overinterpret a result, especially the calibration and source-audit passages. A small amount of vocabulary tightening around response strength, aligned strength and total contrast size would improve an already clear account.",
+    "structure": "The main text progresses coherently from the Monet-Sisley motivation to the experimental arms, features, contrast construction, uncertainty and five result questions. Sections 5.1-5.5 build an argument rather than inventorying analyses: positive alignment, a dominant shared shift, uneven pair distinctions, changing orderings and source sensitivity. Retrospective status is explicit, while derivations, controls and older cohorts remain in clearly marked appendices. The study and its principal findings can be understood without reading those appendices.",
+    "new_reader_understanding": "The abstract specifies the design, digital reference target, common-shift result, uncertainty and calibration without unexplained mathematical symbols. Table 1 supplies plain-language interpretations; Section 4.1 introduces intuition before the indexed equations; Sections 4.2-4.4 distinguish a theoretical no-contrast predictor, scene averaging and calibration of vectors. Figures 1-3 are legible and explanatory, including common-scale detail views and numerical heatmap cells. One localized improvement is to make the absolute-error uncertainty behind the D=1 conclusion visible within Table 2 itself.",
+    "engagement": "The consequential question is immediately understandable, and the river-scene panel gives the reader something concrete to inspect. The contrast between GPT Image 2's near-unit aligned response and its larger total mismatch, followed by the change in ordering under calibration, creates a discernible narrative. The pair heatmaps reward inspection. The abstract compresses several separate result statements into a short space, so linking the uncalibrated and calibrated rankings more directly would improve its pace."
+  },
+  "strengths": [
+    "The opening Monet-Sisley example distinguishes collection proximity from correctly labeled painter differences without relying on prior project knowledge.",
+    "Section 4.1 teaches both scores through a measured lightness gap and three idealized generators before presenting notation; the theoretical D=1 benchmark is explicitly distinguished from the generic-painting arm.",
+    "The main results explain what the numbers reveal: near-unit alignment can coexist with large off-target mismatch, and scene averaging or scalar calibration can change the lowest error estimate.",
+    "Figure 1 makes all six experimental conditions inspectable; Figure 2 supplies magnified Monet/Sisley/Pissarro views; Figure 3 makes pair alignment and pair error directly comparable through printed values and annotated scales.",
+    "The manuscript consistently separates point estimates from resolved comparisons, declares retrospective analyses, acknowledges the AI-only source audit, and avoids treating measured feature agreement as perceptual validation."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Table 2, p. 7, and Section 5.1, p. 6",
+      "issue": "Table 2 explains the no-distinction benchmark and displays FLUX's D=.801, but the absolute-error interval that prevents establishing D<1 appears only in the preceding prose. The displayed intervals concern beta and model differences, so a table-only reading does not show the uncertainty supporting a central conclusion.",
+      "reader_effect": "A reader returning to the main summary table can remember FLUX as beating the benchmark rather than merely having an estimate below it.",
+      "suggested_change": "Replace the caption's final source-correction cross-reference, which is already given in Section 5.1, with a compact sentence such as: \"FLUX's nominal absolute-D interval is [.586, 1.016], so its estimate below one does not establish an improvement over no distinction.\" Keep nominal absolute-D uncertainty explicitly separate from the simultaneous intervals already shown. This is a caption substitution, not an additional analysis or page."
+    },
+    {
+      "priority": "low",
+      "location": "Sections 4.4 and 5.4, pp. 6 and 9; specificity_results.tex lines 87-102",
+      "issue": "The phrase \"response strength\" labels the calibration diagnostic, while closely related phrases elsewhere refer to the aligned response beta. Section 5.4 correctly explains that GPT Image 2 has beta near one but total squared contrast size Q=2.223, yet the umbrella vocabulary briefly blurs those two quantities.",
+      "reader_effect": "The reader must pause to reconcile an apparently correct response strength with the benefit of shrinking it; the subsequent paragraph resolves the issue, but the heading and diagnostic label could prepare that distinction more cleanly.",
+      "suggested_change": "Reserve \"aligned response\" or \"aligned strength\" for beta, and call the scalar-calibration diagnostic a \"contrast-magnitude check.\" For example, change the Section 5.4 heading to \"Scene averaging and contrast magnitude change the ordering,\" retaining its existing explanatory paragraph and numerical evidence."
+    },
+    {
+      "priority": "low",
+      "location": "Abstract, p. 1, final three sentences; paper.tex lines 36-39",
+      "issue": "The lowest uncalibrated estimate and the lowest calibrated estimate are reported in separate consecutive statements. Their relationship is a useful narrative turn, but the short abstract currently reads somewhat like a sequence of result entries.",
+      "reader_effect": "The reader has to connect the two rankings while also absorbing the calibration procedure, slightly weakening the final emphasis.",
+      "suggested_change": "Combine the FLUX and calibration statements into an explicit before/after sentence, for example: \"The lowest error estimate shifts from FLUX.2 Max to GPT Image 2 after retrospective calibration fits one scale factor per model on other scenes, shrinking measured differences without changing images.\" Retain the final perceptual-fidelity limitation. This shortens the existing 155-word abstract and preserves its evidence."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent and largely self-contained account of a bounded comparison in digital feature space. Its strongest editorial achievement is making alignment, total error, scene averaging and scalar calibration understandable as different questions. Main figures and tables are clear, and the limitations preserve the claims' scope. Only localized wording, caption and abstract-emphasis refinements are warranted; no new experiments, representation changes or expansion beyond 22 pages are needed."
+}

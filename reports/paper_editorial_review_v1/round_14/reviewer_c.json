@@ -1,0 +1,80 @@
+{
+  "reviewer_id": "editorial_r14_c",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "f36bbe6c8d69c4ec9814b83164e0c7d14acb89e9f3df5ea5830aadd32783e023",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the full extracted text of all 22 PDF pages, including references and Appendices A–G; visually inspected every rendered page, all five figures and all ten tables. Consulted frozen paper.tex and specificity_results.tex for notation, wording and cross-reference locations. Applied only rubric version 1 to the supplied snapshot; did not consult previous manuscripts, other reviews, progress records, repository analyses or external sources. Rendered and extracted only in an isolated /tmp/editorial-r14-c.lHGV93 directory. Independently verified the supplied PDF SHA256. Technical appendices were treated as optional depth, not as material that a new reader must master to follow the main narrative."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.25,
+    "new_reader_understanding": 9.0,
+    "engagement": 9.0
+  },
+  "overall": 9.125,
+  "score_reasons": {
+    "expression": "Excellent, precise English with consistent distinctions among shared change, aligned response, total error and distributional proximity. Sections 4.1–4.3 explain a fairly technical estimator in manageable sentences, and numerical conclusions consistently distinguish estimates from resolved comparisons. The remaining edits are local: the abstract gives calibration mechanics more space than its rationale, and the imperative opening of Discussion sounds briefly like an instruction to an author rather than an interpretation of results.",
+    "structure": "The progression from the Monet–Sisley motivation through the six-arm design, feature meanings, intuitive score examples and results is coherent. Sections 5.1–5.5 give the primary comparison priority and then explain common response, pair coverage, calibration and source sensitivity. Derivations, historical cohorts and implementation depth are appropriately optional in appendices. Broad appendix pointers could be made more exact, particularly where the calibration formula is in B.1 but the main-text pointer directs readers to C.",
+    "new_reader_understanding": "The abstract stands alone on the question, panel, intervention, measured target, main findings and perceptual limitation. Table 1 translates feature families into observable properties; the lightness example and the idealized D values of 1, 0 and 1 make centering and error interpretable before equations. The text explicitly distinguishes the D=1 predictor from the generic-painting arm, scene error from error after averaging, and calibration from image improvement. A reader understands why calibration changes the ordering by Section 5.4, but a brief indication of excess contrast size in the abstract would make that result more meaningful on first encounter.",
+    "engagement": "The question is consequential within the stated digital-reference scope, and the paper sustains it through concrete contrasts: proximity can improve without correct painter differences; near-unit alignment can coexist with high error; calibration and scene averaging change the leading estimate. Figure 1 rewards comparison of the same scene across all conditions, Figure 2 makes the labeled geometry inspectable, and Figure 3 efficiently exposes weak Monet–Sisley alignment. Table 3 connects the ordering changes to their numerical causes. The ending is clear but its opening imperative and brief recap leave a small opportunity for a smoother interpretive landing."
+  },
+  "strengths": [
+    "The Introduction uses Monet and Sisley to explain why approaching a painter collection is different from recovering the distinctions among painters; this motivates the chosen target without requiring prior project knowledge.",
+    "Section 4.1 gives both a real single-coordinate example (.325 versus .254 lightness gaps) and transparent idealized error benchmarks before presenting vector notation.",
+    "The six-arm design is plainly specified, and Figure 1 visibly includes both controls for every model. Its caption explains that the historical reproductions were neither inputs nor matched compositions.",
+    "The results repeatedly translate numerical differences into interpretation: GPT Image 2 has aligned strength near one but additional mismatch, whereas FLUX has lower uncalibrated error with weaker painter distinctions.",
+    "Table 3 separates averaging, scene variation and calibration in one readable display, and the accompanying prose explains both ordering reversals without claiming statistical superiority or improved images.",
+    "The source-correction comparison is unusually clear about what changes and what survives: Table 4 shows interval changes, and Section 5.5 explicitly treats the newly positive GPT Image 1 comparison as retrospective.",
+    "Scope statements are faithful to the evidence: digital reproductions, finite reference panels, unverified AI source auditing, approximate fixed-scene inference and incomplete exact-pixel access are disclosed without requiring readers to visit the repository."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Abstract, p. 1; paper.tex lines 37–39",
+      "issue": "The calibration result supplies the 13-scene fitting procedure and changed leading model, but omits the explanatory fact that makes the reversal interesting: GPT Image 2 has excess contrast size that can be reduced. That reason appears clearly in Section 5.4.",
+      "reader_effect": "An abstract-only reader can recover what was computed but is less likely to understand what the reversal reveals about alignment versus total mismatch.",
+      "suggested_change": "Condense the fitting description to “rescaling fitted on the other scenes and evaluated on the omitted scene,” and use the saved words to identify reduction of GPT Image 2’s excess contrast size. Retain that the analysis is retrospective and changes measured contrasts rather than images; replace existing wording so the abstract remains at or below 155 words."
+    },
+    {
+      "priority": "low",
+      "location": "Discussion opening, p. 10; paper.tex lines 321–326",
+      "issue": "“For this reference target, report ...” opens the Discussion as an imperative without explicitly identifying it as the implication drawn from the study. The following model comparison supplies that rationale, but the initial shift in voice is abrupt.",
+      "reader_effect": "The reader momentarily encounters something resembling an editorial instruction just where the paper should consolidate its interpretation.",
+      "suggested_change": "Replace the opening with a short declarative recommendation, for example: “These results support reporting overall and pairwise agreement together with calibrated error for this reference target.” Keep the following FLUX/GPT Image 2 example as the justification, trimming the existing recap if needed to preserve the page budget."
+    },
+    {
+      "priority": "low",
+      "location": "Section 4.4, p. 6, paper.tex lines 314–315; Section 5.4, p. 9, specificity_results.tex line 95",
+      "issue": "The broad pointer saying the diagnostics’ “formulas, controls, fits and source audit” appear in Appendix C obscures that the scalar calibration formula and the Q/error identity are actually introduced in Appendix B.1. C.2 then supplies fits and the descriptive magnitude table.",
+      "reader_effect": "A reader who chooses the optional mathematical detail can land several pages away from the definition needed to connect Q, the fitted multiplier and the main-text interpretation.",
+      "suggested_change": "Change the formula pointer to “Appendices B.1 and C,” and direct the Section 5.4 magnitude-table pointer specifically to C.2. Use existing cross-reference space; no new methodological exposition is needed."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent, self-contained editorial presentation of a bounded measured-reference comparison. The main argument and numerical results are readily understood, the figures are useful and legible, and the distinctions between primary inference and retrospective diagnostics are explicit. Remaining improvements concern local emphasis, voice and navigation, not a missing main-text explanation or a need for new evidence."
+}

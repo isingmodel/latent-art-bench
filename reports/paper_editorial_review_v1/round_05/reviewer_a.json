@@ -1,0 +1,80 @@
+{
+  "reviewer_id": "editorial_r05_a",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "d125a1642ae63320d9f12b1619700239c30df826eb027047be71de5a46265cff",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the entire frozen 22-page PDF, including references and Appendices A-G, through extracted text and page renders. Visually inspected every page, Figures 1-5 and Tables 1-9. Consulted the frozen paper.tex and specificity_results.tex to resolve notation, framing and locations. Independently computed the supplied PDF SHA256 with shasum. Technical appendices were treated as optional depth when judging main-text accessibility. No previous versions, other reviews, progress records or non-snapshot manuscript were consulted."
+  },
+  "scores": {
+    "expression": 9.0,
+    "structure": 9.0,
+    "new_reader_understanding": 8.75,
+    "engagement": 8.75
+  },
+  "overall": 8.875,
+  "score_reasons": {
+    "expression": "The prose is fluent, precise and generally economical. Section 4.1 introduces contrasts in ordinary language, then uses the concrete Monet-Sisley lightness gap and three idealized generators to explain the scores. Results paragraphs state findings before qualifications, and terms such as alignment, error, calibration and digital reference target remain consistent. The main localized precision issue is the broad phrase 'The ordering persists' in Section 5.5, when the displayed sensitivity evidence supports persistence of FLUX's lowest estimate rather than every model's rank.",
+    "structure": "The manuscript moves coherently from the evaluation question through the crossed prompt design, feature interpretation, score intuition, formal computation and findings. Section 5.1 gives the primary result before the explicitly retrospective pair and calibration diagnostics. Source correction is signposted at the original comparison and reported again with its changed intervals. The derivations, synthetic checks, detailed source decisions and earlier cohorts are appropriately optional appendices; the main narrative stands without reading them. The structure needs localized refinement rather than reorganization.",
+    "new_reader_understanding": "The abstract identifies the experiment, reference collection, measurement families and bounded conclusion without relying on repository knowledge. Sections 3.2 and 4.1 make the six arms, centering, beta and D understandable; the theoretical D=1 benchmark is explicitly distinguished from the observed generic arm. Table 3 explains both calibration and scene aggregation numerically. Accessibility falls slightly short of excellent because the relationship of the selected painter panel is introduced only in the late limitation, and Figure 2 leaves both its combined-feature axes and closely overlapping painter markers somewhat demanding to interpret.",
+    "engagement": "The opening Monet-Sisley example establishes a consequential evaluation problem, Figure 1 provides a concrete visual encounter with all six generators and conditions, and the result headings form a discernible narrative. The near-unit slope with substantial error, weak pair distinctions and calibration-induced ordering change are explained through what they reveal. Figure 3 and Table 3 reward comparison. The principal remaining opportunity is to make Figure 2's small clustered centroid comparisons as immediately inspectable as the other main displays and to orient the reader to the related-painter scope earlier."
+  },
+  "strengths": [
+    "The Introduction's example of a generic painting instruction improving proximity to both Monet and Sisley makes the central distinction concrete before technical terminology appears.",
+    "Section 4.1 supplies both an observed one-feature example (.325 versus .254 development-IQR units) and a simple no-response/exact-response/doubled-response benchmark, giving the formal scores an intelligible interpretation.",
+    "Figure 1 displays the same scene across all models and prompt conditions, identifies the two controls, and clearly states that historical examples were neither inputs nor composition matches.",
+    "Sections 5.1 and 5.4 distinguish detecting alignment from achieving low total error and distinguish feature calibration from improved images; the substantive ordering changes are supported by readily readable numbers.",
+    "The manuscript consistently identifies retrospective diagnostics, approximate inference, AI-only source judgments and the finite digital reference target, without asking the reader to discover those limits in the repository."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Section 5.5, p. 9, specificity_results.tex lines 118-122; Table 4, p. 15",
+      "issue": "The sentence 'The ordering persists under these particular measurement and coarse subject-target changes' is broader than the preceding claim that FLUX retains the lowest point estimate. Table 4's covariance weighting changes the relative order of GPT Image 1, Flare and Sunburst compared with Table 2.",
+      "reader_effect": "A reader can carry away the claim that the entire six-model ranking is robust, although the evidence being summarized establishes stability of the lowest point estimate.",
+      "suggested_change": "Replace the sentence with 'FLUX retains the lowest point estimate under these particular measurement and coarse subject-target changes.' Alternatively delete it, since the paragraph's first sentence already states that result. Either change saves or preserves space."
+    },
+    {
+      "priority": "low",
+      "location": "Section 3.1, p. 2, paper.tex lines 112-119; Section 6.1, p. 10, lines 351-352",
+      "issue": "The design introduces four painter names and collection sizes but only the late limitations explicitly call them 'four related painters.' A reader without art-historical background receives the panel's counts earlier than its comparative scope.",
+      "reader_effect": "The reader can follow the experiment but has less immediate context for why distinctions such as Monet-Sisley are central, or for how narrowly to interpret this particular artist panel.",
+      "suggested_change": "Move the existing related-painter characterization into the opening of Section 3.1, for example 'The primary panel covers four related painters, represented by 649 distinct painting reproductions.' Retain the existing counts and finite-panel qualification; no expanded historical account or new evidence is needed."
+    },
+    {
+      "priority": "low",
+      "location": "Figure 2 and its introductory paragraph/caption, p. 7; specificity_results.tex lines 23-37",
+      "issue": "The central Monet/Sisley/Pissarro crosses, circles and short connectors are tightly clustered in several small panels, while substantial upper plotting space is unused by the mean/reference markers. The axes are called 'reference-contrast' and 'reference-fitted' without a plain-language statement that they combine the measured features.",
+      "reader_effect": "The instructed same-color circle-to-cross comparison is less rewarding at ordinary page scale than the caption suggests, and a new reader may not know what an axis displacement represents even though the variance percentages are supplied.",
+      "suggested_change": "Within the existing figure footprint, strengthen the connecting segments and provide clearly marked centroid-only zoom insets using the unused plotting area, retaining the full scatter and common scales. Replace part of the caption with a brief explanation that these axes are linear combinations of the 31 standardized features fitted to the reference painter means. Preserve the existing warning that the projection does not establish agreement in all features."
+    }
+  ],
+  "claim_fidelity_issues": [
+    "Localized scope ambiguity in Section 5.5: 'The ordering persists' can imply preservation of the full ranking, whereas Table 4 shows other model ranks changing under covariance weighting. State specifically that FLUX's lowest error point estimate persists. Otherwise the main claims carefully distinguish measured digital agreement, descriptive diagnostics and unestablished perceptual fidelity."
+  ],
+  "summary": "An excellent and substantially self-contained account of a bounded digital-reference comparison. The concrete score explanations, visual prompt matrix and explicit separation of primary results from retrospective diagnostics make the main findings readily recoverable. Remaining improvements are localized wording and figure-accessibility refinements, achievable without new analyses, additional pages or a longer abstract."
+}

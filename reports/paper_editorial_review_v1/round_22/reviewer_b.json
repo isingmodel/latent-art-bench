@@ -1,0 +1,79 @@
+{
+  "reviewer_id": "editorial_r22_b",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "b66477dc350e6b905f2f81fa33ca97c2ef86a53e65d65868e722f42ea1d99c4a",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the full frozen PDF, including the abstract, main text, availability statement, references and Appendices A–G. Visually inspected rendered pages 1–22, including all five figures and all twelve tables. Consulted the frozen paper.tex and specificity_results.tex to check wording, notation and figure references. The abstract contains 152 whitespace-delimited source tokens. Technical appendices were treated as optional depth when judging main-text accessibility. PDF SHA256 was independently verified with shasum and Python hashlib. Extraction and rendering used an isolated temporary directory. No other reviews, earlier manuscripts or project progress records were read."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.25,
+    "new_reader_understanding": 9.25,
+    "engagement": 9.25
+  },
+  "overall": 9.25,
+  "score_reasons": {
+    "expression": "The English is precise, fluent and economical for a technically qualified scientific report. Sections 4.1 and 5.4 translate mathematical distinctions into ordinary-language examples before interpreting numbers. Terms such as contrasts, aligned response and error are introduced and then used consistently. The remaining repetition is localized, particularly the two statements about scene averaging in the opening Discussion paragraph.",
+    "structure": "The main narrative moves coherently from the practical confusion between proximity and painter distinctions, through the six-condition experiment and measurement scheme, to agreement, common change, uneven pair responses, calibration and source sensitivity. Result headings state findings rather than merely naming procedures. Derivations, synthetic checks, full comparisons and historical cohorts are appropriately placed in optional appendices. The main text stands on its own. Minor improvements remain in labeling the two different operations juxtaposed in Table 4 and signposting the final appendix figures.",
+    "new_reader_understanding": "The abstract states the question, sample, representation, central results and perceptual limit without unexplained statistical symbols. Section 3 identifies the finite digital reference target and all prompt arms; Table 1 supplies meaningful feature interpretations. The Monet–Sisley lightness example and the three idealized generators in Section 4.1 make centering, alignment and the D = 1 benchmark intelligible. Calibration is clearly described as changing measured contrasts rather than images. Table 4 could make the scene-wise target of its calibrated column explicit at the point of reading, but this is a local refinement rather than a missing explanation.",
+    "engagement": "The opening Monet/Sisley example establishes a consequential evaluation problem, and Figure 1 makes the intervention immediately inspectable. Figures 2 and 3 reward attention with complementary projected and full-feature views of uneven painter distinctions. The calibrated GPT Image 2/FLUX ordering and the Nano Banana 2 scene-averaging reversal are explained through what they reveal about evaluation choices. These concrete contrasts sustain the main narrative without hype. The discussion can finish more sharply by removing a nearby repeated point, and the appendix plots would benefit from one concise textual signpost."
+  },
+  "strengths": [
+    "Section 4.1 gives both an observed one-coordinate example (.325 versus .254 lightness gaps) and an idealized 1/0/1 error example; together they explain why removing a common shift, detecting alignment and achieving low error are different tasks.",
+    "The main figures are legible and purposeful: Figure 1 preserves all six prompt conditions, Figure 2 uses common reference-fitted axes with magnified Monet/Sisley/Pissarro details, and Figure 3 annotates every pair score and marks the no-distinction error benchmark.",
+    "Sections 4.3 and 5.1 distinguish simultaneous model comparisons from descriptive absolute-error intervals, and report the unresolved no-distinction benchmark without turning it into evidence of equivalence.",
+    "Section 5.4 explains both ordering changes with concrete numbers and explicitly limits overlapping-fold checks to stability within the panel; it does not imply better images or statistical superiority after calibration.",
+    "Section 5.5 and Table 5 make the changed source-correction conclusions visible in the main text, while clearly labeling the correction and its new interval crossings as retrospective.",
+    "The paper consistently bounds its claims to finite digital reproductions and measured coordinates. Appendix F retains the contrary prospective transfer result and separates historical cohorts from the current experiment."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Table 4, page 9, final column heading",
+      "issue": "The heading “Error after calibration” is less specific than the neighboring “Uncalibrated scene error” and “Error after averaging scenes.” Because the table juxtaposes a decomposition with a separate calibration analysis, the heading alone does not show which scene treatment the calibrated error uses.",
+      "reader_effect": "A reader scanning the table may momentarily read its columns as successive processing steps, or assume the final column calibrates the aggregate error. The caption and surrounding prose resolve this, but the comparison can be understood faster directly from the header.",
+      "suggested_change": "Replace the final heading with “Calibrated scene error” or “Held-out scene error after calibration,” retaining D_held and the existing caption. This preserves all evidence and needs no additional page space."
+    },
+    {
+      "priority": "low",
+      "location": "Section 6, page 10, opening paragraph",
+      "issue": "The paragraph says that averaging scenes can cancel scene-specific differences, then returns two sentences later to the point that averaging first and scoring each scene reward different agreement. Section 5.4 has already demonstrated this distinction concretely.",
+      "reader_effect": "The repetition slightly slows the final synthesis instead of letting its recommendation carry the emphasis.",
+      "suggested_change": "Cut the final sentence beginning “The treatment of scenes also belongs in that account” and integrate its useful prescription into the preceding sentence: “These results support reporting overall and pairwise alignment alongside original and calibrated error, with the treatment of scenes stated explicitly.” Keep the initial explanation of cancellation. This shortens the manuscript."
+    },
+    {
+      "priority": "low",
+      "location": "Appendix E opening, page 18; Figures 4–5, page 20",
+      "issue": "Appendix E introduces Tables 10 and 11 but does not point the reader to Figures 4 and 5, which appear on a later page. Their captions are informative, yet their place in the appendix’s reading sequence is implicit.",
+      "reader_effect": "A reader consulting the supplemental summaries has a weaker route to the useful error-component and distribution plots than to the numerical tables.",
+      "suggested_change": "Replace the opening two sentences with a compact signpost such as “Tables 10–11 and Figures 4–5 summarize model comparisons, error components and collection-level proximity and spread.” Preserve the existing explanatory paragraph and captions; the replacement can be shorter than the current introduction."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent and largely self-contained account of a bounded digital-reference comparison. Its central distinctions and strongest numerical findings are readily understood, and the main-text/appendix division is effective. The remaining changes are local labeling, signposting and compression refinements, all feasible within the existing 22 pages and abstract limit. No consequential claim-fidelity problem was identified under this editorial rubric."
+}

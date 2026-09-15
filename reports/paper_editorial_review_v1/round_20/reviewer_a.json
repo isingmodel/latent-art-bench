@@ -1,0 +1,78 @@
+{
+  "reviewer_id": "editorial_r20_a",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "e483e3a9ec6250a97779d588aa25aa817196badeae57011fc0db397b5a15c31d",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete 22-page frozen PDF, including references and Appendices A–G. Visually inspected rendered pages 1–22, Figures 1–5, and Tables 1–11. Consulted frozen paper.tex and specificity_results.tex to resolve exact wording, notation and locations. Technical appendices were treated as optional depth, not prerequisites for understanding the main narrative. Verified the PDF SHA256 independently with shasum and hashlib. The extracted abstract contains 155 whitespace-delimited words after joining line-break hyphenation. No other reviews, versions, progress records, goals or live manuscript were read."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.5,
+    "new_reader_understanding": 9.25,
+    "engagement": 9.0
+  },
+  "overall": 9.25,
+  "score_reasons": {
+    "expression": "Excellent, precise English with manageable sentences and consistent distinctions among contrasts, aligned response and total error. Section 4.1 explains centering through an actual Monet–Sisley lightness gap before introducing notation; Section 5.4 plainly explains why shrinking also weakens the aligned component. Qualifications generally explain an actual interpretive boundary. The remaining wording refinements are local, especially the abstract’s broad “excess response” and Section 5.5’s “peripheral crops.”",
+    "structure": "The main text supplies a nearly exemplary progression: a concrete evaluation problem, reference and experimental design, interpretable feature families, intuitive score definitions, declared results, and separately identified retrospective diagnostics. The opening of Section 5.1 establishes the central alignment/error distinction before pair, calibration and source analyses elaborate it. Complete comparisons and earlier cohorts are appropriately optional in Appendices E–G. The reader does not need the appendices or repository to recover the central study and findings.",
+    "new_reader_understanding": "Excellent accessibility for the specified graduate reader. The abstract states the design, measured target, main findings and perceptual boundary within 155 words. Section 3.2 spells out all six prompt conditions; Table 1 connects feature families to visible properties; Section 4.1 supplies both a measured example and the 1/0/1 error benchmarks. Figures 1–3 and Table 3 make the important distinctions inspectable. The small remaining opportunities concern the standalone interpretation of “excess response” and the semantic use of color in Figure 3.",
+    "engagement": "The introduction presents a consequential, concrete question, and the Results headings communicate discoveries rather than analysis names. Figure 1 rewards close comparison, Figure 2’s detail panels expose the Monet–Sisley issue, and the calibration/scene-averaging ordering changes give the narrative a clear payoff. The paper sustains attention without overstating perceptual conclusions. Some visual emphasis could better match the score meanings in Figure 3; the supporting-cohort appendix is necessarily denser and less immediately rewarding than the main narrative."
+  },
+  "strengths": [
+    "The introduction’s Monet-versus-Sisley example establishes why collection proximity and correct painter distinctions are different questions, without relying on specialist notation.",
+    "Section 4.1 gives intuition before equations, including a measured lightness contrast and idealized generators whose expected errors are 1, 0 and 1. Section 4.2 explicitly distinguishes the theoretical no-contrast predictor from the observed generic-painting arm.",
+    "Figures 1 and 2 provide useful inspection instructions and disclose their limits. The main figures and tables are legible and free of visible clipping or overlaps.",
+    "Sections 5.3–5.5 carefully separate descriptive pair/calibration/source diagnostics from the declared inferential family. Table 4 makes changed source-sensitive comparisons visible rather than hiding them behind a blanket robustness statement.",
+    "The treatment of calibration is especially clear: shrinking can reduce off-target error while weakening reference-aligned strength, the images remain unchanged, and overlapping held-out folds do not establish superiority."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Abstract, page 1; paper.tex lines 38–40",
+      "issue": "“Shrinking GPT Image 2’s excess response” compresses two different notions of magnitude. Its aligned response is approximately one, while its total contrast magnitude exceeds the reference magnitude. The main text explains this well, but the standalone abstract does not specify which response is excessive.",
+      "reader_effect": "A reader scanning only the abstract can initially understand the result as correction of an overstrong reference-aligned response, rather than reduction of total measured contrasts that also contain off-target differences.",
+      "suggested_change": "Replace “Shrinking GPT Image 2’s excess response” with “Shrinking GPT Image 2’s measured contrasts.” This preserves the finding and word count; retain the existing clarification that images remain unchanged."
+    },
+    {
+      "priority": "low",
+      "location": "Figure 3(a), page 8",
+      "issue": "The blue–white–red aligned-response scale places its neutral color between the two meaningful values, zero and one. White therefore has no defined interpretation, while reference-strength and exaggerated responses are both warm. The numerical annotations and caption resolve this, but the color does not reinforce the score semantics.",
+      "reader_effect": "The reader must rely on the printed numbers to distinguish absent, matched and exaggerated alignment; rapid visual scanning is less informative than it could be.",
+      "suggested_change": "Use a sequential magnitude palette with explicit zero/one marks, or center the diverging palette on a stated benchmark such as zero while retaining a clearly marked reference-strength value of one. Keep the existing cells, values, dimensions and caption explanation."
+    },
+    {
+      "priority": "low",
+      "location": "Section 5.5, page 9; specificity_results.tex lines 122–124",
+      "issue": "“Selecting peripheral crops” can describe crops of the periphery, whereas the audit retains painting regions by excluding peripheral artifacts. The earlier processing paragraph and Appendix C.5 establish the intended operation, so this is a local wording ambiguity.",
+      "reader_effect": "The main-text account of the source sensitivity briefly requires the reader to infer which pixels were retained before interpreting the changed comparisons.",
+      "suggested_change": "Replace “selecting peripheral crops in” with “selecting crops that exclude peripheral artifacts in.” Offset the few added words by shortening the adjacent sentence to “The audit lacked human verification.” No new explanation or page is needed."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent, coherent manuscript whose main study and findings are readily understood without optional appendices. The visual and numerical narrative consistently separates a shared painting effect, painter-contrast alignment, total mismatch and retrospective recalibration. Only localized wording and color-encoding refinements remain; no consequential overstatement or missing main-text explanation was identified under this editorial rubric."
+}

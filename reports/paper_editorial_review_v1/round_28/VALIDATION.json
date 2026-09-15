@@ -1,0 +1,12 @@
+{
+  "evaluated_round": 28,
+  "page_count": 22,
+  "abstract_whitespace_words": 155,
+  "pdf_extracted_words": 9596,
+  "pdf_sha256": "85c38d48b10f8769377d16a4baea1570dbd5c2467c1383a3e3df892f71adaca2",
+  "build": "Tectonic passed without warnings",
+  "visual_inspection": "All 22 pages rendered. Changed pages 1, 8, 9, 10, 20, 21 and 22 individually inspected; the other 15 PNGs are byte-identical to previously inspected pages. Abstract, shared-change row/caption, shorter Discussion, component caption and historical model name fit without clipping. Appendix F.2 starts cleanly on page 22.",
+  "presentation_replay": "Changed table builder passes exact replay and Ruff. All table data cells and all figure bytes match round 27. All six plotted aligned-amplitude and orthogonal-residual component sums match the existing D estimates to 1e-12. A separate factual agent verified all 96 historical successor requests name gpt-image-2, and its original results match the quoted values; Appendix G retains the requested-alias qualification.",
+  "lint": "git diff --check passed",
+  "scientific_scope": "Editorial prose, row label and captions only. No scientific input, numerical result, image, inferential procedure, experiment or human evaluation changed."
+}

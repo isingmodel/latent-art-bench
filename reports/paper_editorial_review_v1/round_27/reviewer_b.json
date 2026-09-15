@@ -1,0 +1,72 @@
+{
+  "reviewer_id": "editorial_r27_b",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "30e26d181355eca8f2cc64f9f93a74e654754d2a6faf45e1ab2e65bc8bad462e",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the entire frozen 22-page PDF, including references and Appendices A-G, using extracted text and the supplied TeX to resolve notation. Visually inspected every PDF page, all five figures and all twelve tables; additionally inspected page 20 at higher resolution. Read paper.tex and the included results, estimator and diagnostic source text. Used only the fixed rubric and this frozen manuscript for evaluation. Extraction and rendering used the isolated directory /tmp/editorial_r27_b.pcF03t. Independently computed the PDF SHA256. The abstract contains 154 whitespace-delimited words in the supplied TeX."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.25,
+    "new_reader_understanding": 9.0,
+    "engagement": 9.0
+  },
+  "overall": 9.125,
+  "score_reasons": {
+    "expression": "The English is precise and fluent, with useful concrete formulations such as the Monet-Sisley lightness example and the three idealized error benchmarks in Section 4.1. The explanations of repeat correction, fixed-scene uncertainty and retrospective calibration state their limits economically and accurately. A little repetition remains in the closing discussion and conclusion, and the abstract could name the particular uncalibrated error more precisely, but these are localized refinements rather than recurrent comprehension problems.",
+    "structure": "The main text moves coherently from the distinction motivating the study, through the experimental arms and feature families, to intuitive score definitions, primary inference and explanatory diagnostics. Section 4.4 prepares the reader for the later calibration and source checks, while Sections 5.3-5.5 visibly distinguish retrospective analyses from the declared comparisons. Technical derivations and earlier cohorts remain optional appendix depth; the main story stands without them. The only notable tightening opportunity is the repeated results recap in Sections 6 and 7.",
+    "new_reader_understanding": "The finite digital reference target, the artist-free and generic controls, the meaning of centering, and the difference between aligned response and total error are all explained without repository dependence. The lightness example and the D=1,0,1 examples provide intuition before notation. Figure 2 has useful common-scale detail views; Figure 3 and Tables 2-5 define their benchmarks and delimit inference. The 154-word abstract is substantially standalone, although its lowest uncalibrated error wording omits the scene-level qualifier that distinguishes that result from the averaged-contrast ordering later shown in Table 4.",
+    "engagement": "The opening poses a consequential and readily grasped problem: an obvious prompt effect can fail to recover differences among painters. Figure 1 rewards comparison across all six conditions, and the subsequent geometry and pair plots develop that question rather than merely displaying output. The narrative explains the apparently surprising combination of near-unit alignment and substantial error, and why averaging or shrinking contrasts changes the ordering. Pace is sustained across the main text; the duplicated closing recap slightly weakens the finish."
+  },
+  "strengths": [
+    "Section 4.1 uses an actual one-coordinate Monet-Sisley comparison and three idealized generators to establish the meaning of centering, alignment and normalized error before the equations.",
+    "Figure 1 provides all six conditions for all six models for a transparently selected brief; its caption explicitly prevents treating the reference paintings as matched compositions or generator inputs.",
+    "Figure 2 separates the broad reference geometry from the nearby Monet/Sisley/Pissarro positions, while Figure 3 checks all 31 coordinates and clearly labels the diagnostic status of pair results.",
+    "Section 5.4 and Table 4 make the distinction among scene-level error, error after scene averaging and calibrated error concrete, including the changes in the lowest point estimate.",
+    "Section 5.5 and Table 5 report the source-correction change in the Sunburst-FLUX comparison directly, retaining the distinction between point estimates and resolved comparisons.",
+    "The manuscript consistently limits claims to measured digital reference contrasts and distinguishes feature-vector calibration, perceptual fidelity, model superiority and image improvement."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Abstract, page 1; compare Section 5.4 and Table 4, page 9",
+      "issue": "The abstract says FLUX.2 Max has the lowest uncalibrated error estimate without identifying this as scene-level error. Table 4 later shows that the uncalibrated error after averaging contrasts instead has its lowest estimate for Nano Banana 2. The intended primary endpoint is clear in the main text, but the abstract leaves this distinction implicit.",
+      "reader_effect": "A reader relying on the abstract can interpret uncalibrated as covering both original error summaries and be surprised by the different averaged-contrast ordering.",
+      "suggested_change": "Replace \"the lowest uncalibrated error estimate\" with \"the lowest uncalibrated scene-level error estimate\" in the abstract. This adds one word under the manuscript's existing whitespace-delimited count, bringing the abstract from 154 to 155 words without adding a result or changing the evidence."
+    },
+    {
+      "priority": "low",
+      "location": "Section 6 opening paragraph and Section 7, page 10",
+      "issue": "The discussion opening recaps the common shift, weak Monet-Sisley response and changing error orderings immediately after the results, and the conclusion then reiterates these same points on the same page. The three-model ranking sentence in the discussion is especially close to the account in Section 5.4 and Table 4.",
+      "reader_effect": "The final page spends some of its emphasis repeating the result inventory instead of delivering a clean closing interpretation; this slightly slows an otherwise well-paced narrative.",
+      "suggested_change": "Cut the discussion sentence beginning \"Error orderings also depend on the question\" and retain the surrounding interpretation and the conclusion. Table 4 and Section 5.4 preserve all three rankings, and the cut creates space without expanding the 22-page manuscript."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent and self-contained account of a bounded digital-reference comparison. Its main question, experimental arms, score meanings, principal findings and inferential limits are readily recoverable by the intended reader. The figures support the argument and the appendices supply optional depth. Only localized precision and economy edits are warranted; no new experiments, representation changes or expansion are needed."
+}

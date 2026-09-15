@@ -1,0 +1,72 @@
+{
+  "reviewer_id": "editorial_r29_b",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "2d646b821af9ce3c57bd0b1ca82a9bc4dc4a5dd06f978011e9ca5949312b2484",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the entire extracted manuscript, including references and Appendices A–G, and visually inspected all 22 rendered PDF pages, including Figures 1–5 and Tables 1–12. Consulted the frozen paper.tex to resolve wording and source locations. Treated the technical appendices as optional depth when judging main-text accessibility. Read only the assigned rubric and frozen manuscript materials for this assessment; no other reviews or prior versions were consulted. Independently computed the supplied PDF SHA-256."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.25,
+    "new_reader_understanding": 9.0,
+    "engagement": 9.0
+  },
+  "overall": 9.125,
+  "score_reasons": {
+    "expression": "Excellent, precise English with useful explanatory sentences rather than unexplained qualifications. Section 4.1 defines contrasts through a lightness example and distinguishes aligned response from error using the 1/0/1 idealized cases. Sections 5.3–5.5 consistently distinguish estimates, resolved comparisons and retrospective checks. The remaining friction is localized: the abstract compresses several operations and a change in model ordering into a small space, and the discussion partly repeats the vocabulary of the results.",
+    "structure": "The progression from the motivating Monet–Sisley question through the experimental arms, feature interpretation, score intuition and primary result is coherent. Section 4.4 prepares the retrospective diagnostics, while Section 5.1 gives the declared comparison before Sections 5.2–5.5 explain common change, pair coverage, magnitude and source sensitivity. Technical derivations and earlier cohorts stay in clearly labeled appendices and are unnecessary for recovering the main finding. Table 5 gives the source-correction qualification a visible place rather than burying it.",
+    "new_reader_understanding": "The main text supplies the reference target, all six clauses, the role of both repeats, feature units, benchmark meanings and the limits of inference without requiring repository access. Table 1 translates the feature families, Figure 1 makes the intervention concrete, and Figures 2–3 provide interpretable views of painter distinctions. The source target is consistently distinguished from perceived style. The abstract is standalone but its final calibration sentence would be easier for a first reader if it stated the observed shrinkage in plain terms.",
+    "engagement": "The opening establishes a consequential evaluation problem, and the results develop it through memorable contrasts: GPT Image 2 has near-unit alignment but substantial error; the weak Monet–Sisley response survives a positive aggregate response; scene averaging and calibration change the ordering. Figure 1 rewards close comparison, Figure 2 makes nearby painter positions visible with detail panels, and Figure 3 gives a readily scannable pair pattern. The short discussion could end the argument more decisively by articulating an evaluation implication instead of mainly recapping score definitions."
+  },
+  "strengths": [
+    "The introductory Monet-versus-Sisley example explains why closeness to one artist collection does not establish correct labeled painter differences (page 1).",
+    "Sections 3.2–4.2 make the experimental arms, development scaling, centered contrasts, aligned response and repeat-corrected error understandable in the main text; the idealized 1/0/1 benchmark example is particularly effective (pages 2–5).",
+    "Figures 1–3 are legible and purposeful: a complete condition matrix grounds the intervention, common projection axes and M/S/P detail panels expose the pattern, and labeled heatmaps show pair-specific alignment and error (pages 4, 7–8).",
+    "The results explain why apparently conflicting rankings are compatible, using concrete numbers and preserving the distinction between fitted feature calibration and changed images (Section 5.4, page 9).",
+    "Source correction is reported with its actual consequences: the Sunburst–FLUX comparison becomes unresolved, the GPT Image 1 comparison changes retrospectively, and the AI audit is explicitly unverified by humans (Section 5.5 and Table 5, pages 9–10).",
+    "The paper repeatedly bounds claims to measured digital reference contrasts and clearly separates descriptive diagnostics, historical cohorts and the prespecified inferential family. No perceptual validation is implied."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Abstract, page 1; paper.tex lines 38–41",
+      "issue": "The last result introduces retrospective calibration as rescaling contrasts and immediately switches the lowest-error model, without naming the observed direction of the rescaling. The sentence is accurate, but the compressed technical wording makes this reversal harder to interpret on a first reading than the other abstract findings.",
+      "reader_effect": "A reader understands that images do not change, but must wait until Section 5.4 to learn that reducing the strength of measured painter differences is what changes the error ordering.",
+      "suggested_change": "Replace “rescales each model’s measured contrasts” with “shrinks each model’s painter differences,” retaining the one-factor, other-scenes and unchanged-images qualifications. This uses the same word count and reflects the reported fitted multipliers without expanding the 155-word abstract."
+    },
+    {
+      "priority": "low",
+      "location": "Discussion opening, page 10; paper.tex lines 312–316",
+      "issue": "The discussion opens by restating what overall alignment, pair checks, scene error and calibration measure. Those distinctions have already been explained and illustrated in Sections 4.1 and 5.3–5.4, so this paragraph adds relatively little interpretation before the limitations begin.",
+      "reader_effect": "The narrative briefly loses momentum at the point where the reader is ready for the practical lesson of the comparison.",
+      "suggested_change": "Replace, rather than extend, part of this paragraph with an explicit implication tied to the existing results, for example: “These results support reporting total contrast error alongside aligned response and painter-pair checks: the lowest-error model can still reproduce particular distinctions weakly, and changing contrast magnitude can change the ordering.” Retain the sentence explaining that lower error can reflect consistency or reduced magnitude. No new evidence or additional page space is needed."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent, self-contained presentation of a bounded digital-reference comparison. The main narrative, numerical interpretations and figures make the distinction between name response and matching painter differences readily recoverable. The remaining changes are localized refinements to abstract wording and the interpretive payoff of the discussion, not substantial restructuring."
+}

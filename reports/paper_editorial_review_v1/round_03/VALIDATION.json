@@ -1,0 +1,14 @@
+{
+  "evaluated_round": 3,
+  "page_count": 22,
+  "abstract_whitespace_words": 147,
+  "pdf_sha256": "0e918372ed3c51e138d643818df5ef394a393cbb28ef7d1fc711ea045e45fead",
+  "build": "Tectonic: passed without warnings",
+  "presentation_replay": "Modified geometry and review builders --check: passed; complete figures-check passed before this round",
+  "lint": "Ruff on modified builders: passed",
+  "diff_whitespace": "git diff --check: passed",
+  "visual_inspection": "All 22 rendered pages inspected; geometry no longer interrupts next subsection, complete controls accompany shared-response results, calibration table accompanies interpretation; no clipping or blank pages.",
+  "missing_reference_markers": "none",
+  "numeric_fidelity": "Geometry: all 720 coordinates, 36 line arrays, limits, palette and dimensions unchanged. Source-correction interval variant verified against the frozen audit report.",
+  "scientific_scope": "Presentation and prose only; no new data collection or human evaluation."
+}

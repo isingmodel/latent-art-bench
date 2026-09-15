@@ -1,0 +1,79 @@
+{
+  "reviewer_id": "editorial_r21_b",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "007831efad0231cf30643e1c3029fbd2326f46deb244e191d379b7efb24b3331",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the entire frozen 22-page PDF, including references and Appendices A–G, and inspected every rendered page. Visually examined Figures 1–5 and Tables 1–11. Consulted the frozen paper.tex and specificity_results.tex for wording, notation and locations. Technical appendices were treated as optional depth rather than required knowledge for the main story. The abstract has 155 whitespace-delimited words after normalizing its TeX accents and percent signs. No other reviews, earlier versions, progress records or non-snapshot manuscript were consulted."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.25,
+    "new_reader_understanding": 9.0,
+    "engagement": 9.0
+  },
+  "overall": 9.125,
+  "score_reasons": {
+    "expression": "Excellent, precise prose with consistent distinctions among shared change, aligned response and total error. The concrete lightness comparison and the three idealized generators in Section 4.1 explain difficult ideas economically before notation. Qualifications usually occur where they prevent a specific misreading. The final abstract sentences remain slightly compressed and repetitive, and the Discussion briefly shifts into an abrupt imperative register; these are localized refinements, not recurrent comprehension problems.",
+    "structure": "The progression from motivation to controlled design, interpretable features, score intuition, primary results and diagnostic explanations is clear. Sections 5.3–5.5 identify retrospective work and explain why each check changes interpretation. Detailed identities, coverage simulations, provenance and older cohorts are appropriately separated into appendices. The primary conclusion stands without those appendices. A small opportunity remains to give the title-level shared-response finding a more inspectable presentation alongside the well-presented alignment and error findings.",
+    "new_reader_understanding": "A reader can recover the six conditions, fixed scenes, reference target, feature units and two score meanings from the main text alone. Section 4.1 supplies concrete anchors for D=0 and D=1; Section 4.2 explicitly distinguishes the no-contrast predictor from the generic-painting arm. Figure captions explain projection, normalization and uncertainty without repository dependence. Calibration and source correction are accurately bounded. The abstract introduces its calibration vocabulary somewhat faster than it explains the fitting/evaluation split, and the shared-change result is only given as an endpoint range.",
+    "engagement": "The opening Monet–Sisley example establishes a consequential evaluation problem. Figure 1 makes the prompt intervention visible, Figure 2 rewards inspection through its M/S/P details, and Figure 3 makes uneven pair agreement readily apparent. The two ranking reversals in Section 5.4 give the measurement choices a memorable consequence. Pace is strong for the technical scope. The dominant shared-change finding has less visual emphasis than the secondary diagnostics, and the Discussion could connect its reporting advice more smoothly to the reader-facing consequence."
+  },
+  "strengths": [
+    "Section 4.1, page 5, explains contrasts through the observed Monet–Sisley lightness gap and explains total error with no-distinction, exact-match and doubled-response examples before presenting equations.",
+    "Sections 5.1 and 5.4, pages 6 and 9, turn the apparent paradox of near-unit alignment with substantial error into a clear story about off-target differences, calibration and scene variation.",
+    "Figure 1, page 4, presents the full six-condition experiment for all six models, labels the reference examples as unmatched compositions, and provides a concrete visual observation in Section 3.2.",
+    "Figures 2 and 3, pages 7–8, are legible and complementary: the magnified painter positions show the geometry, while explicitly numbered pair heatmaps show the all-feature diagnostic.",
+    "The manuscript consistently distinguishes point estimates, adjusted comparisons and retrospective sensitivities; Table 4 and Section 5.5 state exactly how source correction changes the Sunburst and GPT Image 1 comparisons.",
+    "The appendix division preserves a standalone main narrative while retaining estimator assumptions, negative estimates, source-audit limitations, contrary earlier results and access limitations."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Abstract, page 1; paper.tex lines 36–41",
+      "issue": "The ending introduces uncalibrated, calibration and held-out calibrated estimates in quick succession, repeats retrospective, and postpones the concrete meaning of using other scenes until the methods. Its meaning is recoverable, but this is the densest part of an otherwise standalone abstract.",
+      "reader_effect": "A new reader has to hold the ranking reversal in mind before knowing what was fitted and what was evaluated; the repeated calibration wording also reduces the force of the result.",
+      "suggested_change": "Replace the three sentences beginning Separate retrospective calibration with a shorter concrete formulation, for example: Retrospectively fitting one multiplier on 13 scenes and testing on the remaining scene gives GPT Image 2 the lowest calibrated error; its measured differences shrink while images stay unchanged. Retain the perceptual-fidelity limit and keep the abstract at or below 155 words."
+    },
+    {
+      "priority": "low",
+      "location": "Section 5.2, page 8; comparison with the displays in Sections 5.1, 5.3 and 5.4",
+      "issue": "The dominant shared-change result receives an endpoint range in prose, whereas alignment, pair distinctions and ordering changes all receive directly inspectable displays. A reader cannot inspect how the shared and specific components compare as readily as the other central results.",
+      "reader_effect": "The title-level result is less visually memorable and less easy to revisit than the later diagnostics, despite being one of the abstract and conclusion’s leading findings.",
+      "suggested_change": "Within the existing Section 5.2 footprint, replace part of the range-only prose with a compact shared-versus-specific display using the already reported endpoint estimates, or a compact row of the existing model-wise shares if available in the retained analysis. Label these as scene-averaged, repeat-corrected squared feature change. Do not add an experiment or increase the 22-page length."
+    },
+    {
+      "priority": "low",
+      "location": "Discussion, page 10; paper.tex lines 317–322",
+      "issue": "The sentences Report overall and pairwise alignment and State whether scenes are scored separately abruptly change from interpreting the study to addressing the reader as instructions.",
+      "reader_effect": "The Discussion momentarily reads like an editorial checklist rather than a connected argument about what the findings imply for evaluation.",
+      "suggested_change": "Integrate the same advice into one connected sentence, for example: These results support reporting overall and pairwise alignment alongside original and calibrated error, with an explicit distinction between averaging scenes first and scoring them separately. This preserves the implication while slightly shortening the paragraph."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent, coherent account of a bounded digital-reference comparison. The main study, score interpretations and substantive findings are readily understood without consulting technical appendices or the repository. Remaining improvements concern localized compression, emphasis and transitions; no consequential overstatement or perceptual-validation implication was identified."
+}

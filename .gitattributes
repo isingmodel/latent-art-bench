@@ -1,0 +1,4 @@
+# Unified-diff context lines contain a required leading space, even when blank.
+# Preserve these historical patches byte-for-byte; check other whitespace normally.
+/reports/paper_editorial_review_v1/paired_review_03/FIRST_REVISION.diff whitespace=-blank-at-eol
+/reports/paper_editorial_review_v1/paired_review_03/SECOND_REVISION.diff whitespace=-blank-at-eol

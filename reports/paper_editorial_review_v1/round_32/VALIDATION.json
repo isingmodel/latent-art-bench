@@ -1,0 +1,12 @@
+{
+  "evaluated_round": 32,
+  "page_count": 22,
+  "abstract_whitespace_words": 151,
+  "pdf_extracted_words": 9581,
+  "pdf_sha256": "139aaf99e9eb292a1d6d53703d10a6cf806dfc2ace128ff837d77644b34f1a4c",
+  "build": "Tectonic passed without warnings",
+  "visual_inspection": "All 22 pages rendered. Changed pages 8, 10 and 20 individually inspected; the other 19 PNGs are byte-identical to previously inspected pages. The interpretive comparison retains Figure 3 on its page; the shorter closing text and expanded residual caption fit without clipping or displacement. An initial 23-page draft was shortened before freezing; font and figure sizes were unchanged.",
+  "presentation_replay": "All figures, tables and other included sources are byte-identical to round 31. No builder changed; prior replay checks remain applicable. Only main manuscript/results prose and a caption changed.",
+  "lint": "git diff --check passed",
+  "scientific_scope": "Editorial interpretation and compression only. All numbers, images, estimators and scientific records remain unchanged. No experiment or human evaluation added."
+}

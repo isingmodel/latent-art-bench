@@ -1,0 +1,1045 @@
+{
+  "purpose": "Finite, deterministic illustration of one coordinate using original full-frame frozen measurements; no new experiment or extraction.",
+  "selection": {
+    "rule": "Preselected before examining coordinate values: first color coordinate (median lightness), first painter pair (Monet minus Sisley), and GPT Image 2. No alternate coordinates or pairs searched.",
+    "feature_name": "lightness_median",
+    "feature_index_zero_based": 0,
+    "feature_raw_unit": "CIELAB L* pixel median (D65, 2-degree observer), then image-level values averaged across images",
+    "model": "gpt-image-2",
+    "painter_pair": [
+      "claude_monet",
+      "alfred_sisley"
+    ],
+    "original_full_frame": true,
+    "content_reweighting": false,
+    "feature_space_calibration": false
+  },
+  "sources": [
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/confirmation_features.jsonl",
+      "sha256": "01cc5167c09b88eab6a86885b72040f76fc8a7ca8a62acd56d85a8b16b2f7717"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/scaler.json",
+      "sha256": "71f511235081dfc1e9846976320c69477bcbd04dd43fc9a2e271f7b0375497b9"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v2/psv2-20260911/requests.jsonl",
+      "sha256": "0aa60f491be08dbd48f1f018e225b22bcae2aacd724abf3371a6312d59acc679"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v2/psv2-20260911/measurements.jsonl",
+      "sha256": "5db95709f48a25e31ef212b588c2aa3e0f7af4fb5dbaf413cfc16690de60cac1"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v2/psv2-20260911/measurement_receipt.json",
+      "sha256": "e71a1a7c64ba6d443e899f7913d4e97ee5db4e15cda132955fd2b41243d31c06"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v2/psv2-20260911/analysis.json",
+      "sha256": "c1d21b16f840a10fd253c1d558743a09671acf3d4e48601ddcc96625a5a90be0"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_measurement_v1/workflow.py",
+      "sha256": "7ce26e70d7db3768a80764405c3c764342c94a3dee0fc18fbbdc6664dbbe2d07"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/statistics.py",
+      "sha256": "20830e7a90bc49666f0937ef7bc2ae3f11206f986c72eb8f80ad30cc24fcdaa8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/features.py",
+      "sha256": "b295c2de1a8501e8ab335d88ed56ab8f2dc8b3ca704141b92e02ef586d48d172"
+    }
+  ],
+  "source_keys": {
+    "reference": "confirmation_features.jsonl: retain status == measured; group painter_id; values[0]",
+    "generated": "measurements.jsonl: status == measured; values[0]; join id to requests.jsonl and select model == gpt-image-2 plus arm in the four painter IDs; index by scene and repeat",
+    "scaler": "scaler.json: center[0], scale[0]; equal_painter_weighted_empirical_inverse_cdf",
+    "summary": "analysis.json: models[model == gpt-image-2].beta.mean and .distortion.mean"
+  },
+  "scaling": {
+    "center": 55.136924684611415,
+    "scale": 16.32804830951678,
+    "formula": "z = (image lightness_median - center[0]) / scale[0]",
+    "development_counts": {
+      "alfred_sisley": 36,
+      "camille_pissarro": 48,
+      "claude_monet": 101,
+      "paul_cezanne": 36
+    },
+    "quantile_rule": "equal_painter_weighted_empirical_inverse_cdf",
+    "pair_difference_formula": "mean(z_Monet) - mean(z_Sisley) = (mean(raw_Monet)-mean(raw_Sisley))/scale[0]"
+  },
+  "averaging": {
+    "reference": "Equal weight per reference within each painter; no pooling across painters for painter means.",
+    "generated": "Arithmetic mean over 14 fixed scenes and two repeats for each painter (28 images per painter).",
+    "centering": "Subtract the equal-weight mean of all four painter means. For generated data this equals centering within every scene/repeat then averaging, by linearity."
+  },
+  "reference": {
+    "counts": {
+      "claude_monet": 297,
+      "alfred_sisley": 106,
+      "camille_pissarro": 141,
+      "paul_cezanne": 105
+    },
+    "raw_mean": {
+      "claude_monet": 56.26045758017264,
+      "alfred_sisley": 61.56153308142295,
+      "camille_pissarro": 60.04428835169323,
+      "paul_cezanne": 49.91408486165754
+    },
+    "scaled_mean": {
+      "claude_monet": 0.06880999334785001,
+      "alfred_sisley": 0.39347068767961507,
+      "camille_pissarro": 0.30054808597189026,
+      "paul_cezanne": -0.3198692044480142
+    },
+    "four_painter_equal_weight_mean": 0.1107398906378353,
+    "centered_mean": {
+      "claude_monet": -0.04192989728998529,
+      "alfred_sisley": 0.2827307970417798,
+      "camille_pissarro": 0.18980819533405496,
+      "paul_cezanne": -0.4306090950858495
+    },
+    "monet_minus_sisley": -0.32466069433176503
+  },
+  "generated": {
+    "scenes": 14,
+    "repeats_per_scene": 2,
+    "images_per_painter": 28,
+    "raw_mean": {
+      "claude_monet": 57.142547833503315,
+      "alfred_sisley": 61.296909722147326,
+      "camille_pissarro": 54.27501598366712,
+      "paul_cezanne": 45.36870357785205
+    },
+    "scaled_mean": {
+      "claude_monet": 0.12283299944200451,
+      "alfred_sisley": 0.377264013479527,
+      "camille_pissarro": -0.05278700090824275,
+      "paul_cezanne": -0.5982479302848444
+    },
+    "four_painter_equal_weight_mean": -0.03773447956788889,
+    "centered_mean": {
+      "claude_monet": 0.1605674790098934,
+      "alfred_sisley": 0.4149984930474159,
+      "camille_pissarro": -0.015052521340353862,
+      "paul_cezanne": -0.5605134507169555
+    },
+    "monet_minus_sisley": -0.25443101403752244,
+    "coordinate_rows": [
+      {
+        "id": "psv2-0536",
+        "scene": 0,
+        "repeat": 0,
+        "painter_id": "claude_monet",
+        "raw_value": 63.799901348644944,
+        "scaled_value": 0.5305580005532152
+      },
+      {
+        "id": "psv2-0527",
+        "scene": 0,
+        "repeat": 0,
+        "painter_id": "alfred_sisley",
+        "raw_value": 67.77476600755065,
+        "scaled_value": 0.7739958311841403
+      },
+      {
+        "id": "psv2-0575",
+        "scene": 0,
+        "repeat": 0,
+        "painter_id": "camille_pissarro",
+        "raw_value": 62.02446456545559,
+        "scaled_value": 0.42182260551187734
+      },
+      {
+        "id": "psv2-0526",
+        "scene": 0,
+        "repeat": 0,
+        "painter_id": "paul_cezanne",
+        "raw_value": 51.197821403855535,
+        "scaled_value": -0.24124764981617425
+      },
+      {
+        "id": "psv2-0541",
+        "scene": 0,
+        "repeat": 1,
+        "painter_id": "claude_monet",
+        "raw_value": 66.76241757971057,
+        "scaled_value": 0.7119952534880274
+      },
+      {
+        "id": "psv2-0519",
+        "scene": 0,
+        "repeat": 1,
+        "painter_id": "alfred_sisley",
+        "raw_value": 68.42225307089717,
+        "scaled_value": 0.8136507275362739
+      },
+      {
+        "id": "psv2-0516",
+        "scene": 0,
+        "repeat": 1,
+        "painter_id": "camille_pissarro",
+        "raw_value": 58.232396379178944,
+        "scaled_value": 0.18958001813133643
+      },
+      {
+        "id": "psv2-0532",
+        "scene": 0,
+        "repeat": 1,
+        "painter_id": "paul_cezanne",
+        "raw_value": 52.0095413174471,
+        "scaled_value": -0.1915344263981337
+      },
+      {
+        "id": "psv2-0797",
+        "scene": 1,
+        "repeat": 0,
+        "painter_id": "claude_monet",
+        "raw_value": 53.784397847255214,
+        "scaled_value": -0.08283456857289447
+      },
+      {
+        "id": "psv2-0827",
+        "scene": 1,
+        "repeat": 0,
+        "painter_id": "alfred_sisley",
+        "raw_value": 57.660079871399724,
+        "scaled_value": 0.15452889034617143
+      },
+      {
+        "id": "psv2-0844",
+        "scene": 1,
+        "repeat": 0,
+        "painter_id": "camille_pissarro",
+        "raw_value": 50.77241016147863,
+        "scaled_value": -0.2673016664575234
+      },
+      {
+        "id": "psv2-0805",
+        "scene": 1,
+        "repeat": 0,
+        "painter_id": "paul_cezanne",
+        "raw_value": 39.196244808753235,
+        "scaled_value": -0.9762758888070644
+      },
+      {
+        "id": "psv2-0831",
+        "scene": 1,
+        "repeat": 1,
+        "painter_id": "claude_monet",
+        "raw_value": 50.72504767561634,
+        "scaled_value": -0.27020234907215585
+      },
+      {
+        "id": "psv2-0825",
+        "scene": 1,
+        "repeat": 1,
+        "painter_id": "alfred_sisley",
+        "raw_value": 54.174594615156536,
+        "scaled_value": -0.05893723800988426
+      },
+      {
+        "id": "psv2-0824",
+        "scene": 1,
+        "repeat": 1,
+        "painter_id": "camille_pissarro",
+        "raw_value": 48.60132018562855,
+        "scaled_value": -0.4002685670138295
+      },
+      {
+        "id": "psv2-0807",
+        "scene": 1,
+        "repeat": 1,
+        "painter_id": "paul_cezanne",
+        "raw_value": 37.80392536218913,
+        "scaled_value": -1.061547528146384
+      },
+      {
+        "id": "psv2-0874",
+        "scene": 2,
+        "repeat": 0,
+        "painter_id": "claude_monet",
+        "raw_value": 48.68615173617619,
+        "scaled_value": -0.39507311750635854
+      },
+      {
+        "id": "psv2-0885",
+        "scene": 2,
+        "repeat": 0,
+        "painter_id": "alfred_sisley",
+        "raw_value": 53.72494704552065,
+        "scaled_value": -0.08647559171341962
+      },
+      {
+        "id": "psv2-0891",
+        "scene": 2,
+        "repeat": 0,
+        "painter_id": "camille_pissarro",
+        "raw_value": 49.47160987237316,
+        "scaled_value": -0.34696827844000416
+      },
+      {
+        "id": "psv2-0869",
+        "scene": 2,
+        "repeat": 0,
+        "painter_id": "paul_cezanne",
+        "raw_value": 44.65713077038946,
+        "scaled_value": -0.6418277136106845
+      },
+      {
+        "id": "psv2-0864",
+        "scene": 2,
+        "repeat": 1,
+        "painter_id": "claude_monet",
+        "raw_value": 48.49308267830082,
+        "scaled_value": -0.40689749811912534
+      },
+      {
+        "id": "psv2-0930",
+        "scene": 2,
+        "repeat": 1,
+        "painter_id": "alfred_sisley",
+        "raw_value": 49.11266171997882,
+        "scaled_value": -0.36895180920804627
+      },
+      {
+        "id": "psv2-0918",
+        "scene": 2,
+        "repeat": 1,
+        "painter_id": "camille_pissarro",
+        "raw_value": 47.061804955497806,
+        "scaled_value": -0.49455511008055
+      },
+      {
+        "id": "psv2-0871",
+        "scene": 2,
+        "repeat": 1,
+        "painter_id": "paul_cezanne",
+        "raw_value": 38.65982206023432,
+        "scaled_value": -1.009128728188135
+      },
+      {
+        "id": "psv2-1124",
+        "scene": 3,
+        "repeat": 0,
+        "painter_id": "claude_monet",
+        "raw_value": 69.25685115810825,
+        "scaled_value": 0.8647651088383327
+      },
+      {
+        "id": "psv2-1102",
+        "scene": 3,
+        "repeat": 0,
+        "painter_id": "alfred_sisley",
+        "raw_value": 74.52734368051948,
+        "scaled_value": 1.1875527698314308
+      },
+      {
+        "id": "psv2-1149",
+        "scene": 3,
+        "repeat": 0,
+        "painter_id": "camille_pissarro",
+        "raw_value": 71.49923058519727,
+        "scaled_value": 1.0020980824174255
+      },
+      {
+        "id": "psv2-1117",
+        "scene": 3,
+        "repeat": 0,
+        "painter_id": "paul_cezanne",
+        "raw_value": 60.12191717516241,
+        "scaled_value": 0.30530240945242043
+      },
+      {
+        "id": "psv2-1088",
+        "scene": 3,
+        "repeat": 1,
+        "painter_id": "claude_monet",
+        "raw_value": 69.29796131756619,
+        "scaled_value": 0.8672828720564867
+      },
+      {
+        "id": "psv2-1116",
+        "scene": 3,
+        "repeat": 1,
+        "painter_id": "alfred_sisley",
+        "raw_value": 71.99594399437842,
+        "scaled_value": 1.0325189508375443
+      },
+      {
+        "id": "psv2-1113",
+        "scene": 3,
+        "repeat": 1,
+        "painter_id": "camille_pissarro",
+        "raw_value": 69.13194600935289,
+        "scaled_value": 0.8571153795879262
+      },
+      {
+        "id": "psv2-1119",
+        "scene": 3,
+        "repeat": 1,
+        "painter_id": "paul_cezanne",
+        "raw_value": 53.40758389096631,
+        "scaled_value": -0.10591227811576008
+      },
+      {
+        "id": "psv2-0353",
+        "scene": 4,
+        "repeat": 0,
+        "painter_id": "claude_monet",
+        "raw_value": 54.73036134435619,
+        "scaled_value": -0.024899689941403482
+      },
+      {
+        "id": "psv2-0317",
+        "scene": 4,
+        "repeat": 0,
+        "painter_id": "alfred_sisley",
+        "raw_value": 58.58003921874119,
+        "scaled_value": 0.21087116285189833
+      },
+      {
+        "id": "psv2-0296",
+        "scene": 4,
+        "repeat": 0,
+        "painter_id": "camille_pissarro",
+        "raw_value": 52.77920688268581,
+        "scaled_value": -0.1443967923925978
+      },
+      {
+        "id": "psv2-0312",
+        "scene": 4,
+        "repeat": 0,
+        "painter_id": "paul_cezanne",
+        "raw_value": 41.877841613948995,
+        "scaled_value": -0.8120433513743576
+      },
+      {
+        "id": "psv2-0299",
+        "scene": 4,
+        "repeat": 1,
+        "painter_id": "claude_monet",
+        "raw_value": 55.41599260935067,
+        "scaled_value": 0.017091321598834162
+      },
+      {
+        "id": "psv2-0337",
+        "scene": 4,
+        "repeat": 1,
+        "painter_id": "alfred_sisley",
+        "raw_value": 60.70210311047658,
+        "scaled_value": 0.34083549487182163
+      },
+      {
+        "id": "psv2-0304",
+        "scene": 4,
+        "repeat": 1,
+        "painter_id": "camille_pissarro",
+        "raw_value": 53.87098868988318,
+        "scaled_value": -0.07753137244151766
+      },
+      {
+        "id": "psv2-0331",
+        "scene": 4,
+        "repeat": 1,
+        "painter_id": "paul_cezanne",
+        "raw_value": 43.41138212543345,
+        "scaled_value": -0.7181227258094129
+      },
+      {
+        "id": "psv2-1057",
+        "scene": 5,
+        "repeat": 0,
+        "painter_id": "claude_monet",
+        "raw_value": 55.811265117422366,
+        "scaled_value": 0.04129951235004077
+      },
+      {
+        "id": "psv2-1076",
+        "scene": 5,
+        "repeat": 0,
+        "painter_id": "alfred_sisley",
+        "raw_value": 61.299246231452315,
+        "scaled_value": 0.3774071113722268
+      },
+      {
+        "id": "psv2-1019",
+        "scene": 5,
+        "repeat": 0,
+        "painter_id": "camille_pissarro",
+        "raw_value": 56.81894490944754,
+        "scaled_value": 0.10301416268200037
+      },
+      {
+        "id": "psv2-1058",
+        "scene": 5,
+        "repeat": 0,
+        "painter_id": "paul_cezanne",
+        "raw_value": 45.96396433688659,
+        "scaled_value": -0.5617915977366613
+      },
+      {
+        "id": "psv2-1049",
+        "scene": 5,
+        "repeat": 1,
+        "painter_id": "claude_monet",
+        "raw_value": 58.69866185080056,
+        "scaled_value": 0.21813612372234306
+      },
+      {
+        "id": "psv2-1032",
+        "scene": 5,
+        "repeat": 1,
+        "painter_id": "alfred_sisley",
+        "raw_value": 60.97275469526106,
+        "scaled_value": 0.3574113635643911
+      },
+      {
+        "id": "psv2-1078",
+        "scene": 5,
+        "repeat": 1,
+        "painter_id": "camille_pissarro",
+        "raw_value": 54.375980150737014,
+        "scaled_value": -0.04660352048510816
+      },
+      {
+        "id": "psv2-1025",
+        "scene": 5,
+        "repeat": 1,
+        "painter_id": "paul_cezanne",
+        "raw_value": 48.76540706858735,
+        "scaled_value": -0.3902191796131834
+      },
+      {
+        "id": "psv2-0609",
+        "scene": 6,
+        "repeat": 0,
+        "painter_id": "claude_monet",
+        "raw_value": 54.7564932314107,
+        "scaled_value": -0.023299260633555332
+      },
+      {
+        "id": "psv2-0614",
+        "scene": 6,
+        "repeat": 0,
+        "painter_id": "alfred_sisley",
+        "raw_value": 67.58678858803285,
+        "scaled_value": 0.7624832844330234
+      },
+      {
+        "id": "psv2-0594",
+        "scene": 6,
+        "repeat": 0,
+        "painter_id": "camille_pissarro",
+        "raw_value": 58.729269725991216,
+        "scaled_value": 0.22001068182080324
+      },
+      {
+        "id": "psv2-0638",
+        "scene": 6,
+        "repeat": 0,
+        "painter_id": "paul_cezanne",
+        "raw_value": 49.09498829329827,
+        "scaled_value": -0.3700342059737543
+      },
+      {
+        "id": "psv2-0620",
+        "scene": 6,
+        "repeat": 1,
+        "painter_id": "claude_monet",
+        "raw_value": 61.759557390345684,
+        "scaled_value": 0.4055985492077627
+      },
+      {
+        "id": "psv2-0586",
+        "scene": 6,
+        "repeat": 1,
+        "painter_id": "alfred_sisley",
+        "raw_value": 66.04544712831492,
+        "scaled_value": 0.6680848952011911
+      },
+      {
+        "id": "psv2-0580",
+        "scene": 6,
+        "repeat": 1,
+        "painter_id": "camille_pissarro",
+        "raw_value": 52.341702575181344,
+        "scaled_value": -0.1711914404246881
+      },
+      {
+        "id": "psv2-0626",
+        "scene": 6,
+        "repeat": 1,
+        "painter_id": "paul_cezanne",
+        "raw_value": 48.7393760346436,
+        "scaled_value": -0.39181343224217524
+      },
+      {
+        "id": "psv2-0217",
+        "scene": 7,
+        "repeat": 0,
+        "painter_id": "claude_monet",
+        "raw_value": 51.95455002190157,
+        "scaled_value": -0.1949023301734724
+      },
+      {
+        "id": "psv2-0280",
+        "scene": 7,
+        "repeat": 0,
+        "painter_id": "alfred_sisley",
+        "raw_value": 60.96991440651633,
+        "scaled_value": 0.3572374120491281
+      },
+      {
+        "id": "psv2-0283",
+        "scene": 7,
+        "repeat": 0,
+        "painter_id": "camille_pissarro",
+        "raw_value": 45.984114277105306,
+        "scaled_value": -0.5605575286160445
+      },
+      {
+        "id": "psv2-0230",
+        "scene": 7,
+        "repeat": 0,
+        "painter_id": "paul_cezanne",
+        "raw_value": 43.176326430578605,
+        "scaled_value": -0.7325185488985595
+      },
+      {
+        "id": "psv2-0246",
+        "scene": 7,
+        "repeat": 1,
+        "painter_id": "claude_monet",
+        "raw_value": 51.257456247863374,
+        "scaled_value": -0.2375953551342017
+      },
+      {
+        "id": "psv2-0248",
+        "scene": 7,
+        "repeat": 1,
+        "painter_id": "alfred_sisley",
+        "raw_value": 64.7963650798491,
+        "scaled_value": 0.5915857310152426
+      },
+      {
+        "id": "psv2-0285",
+        "scene": 7,
+        "repeat": 1,
+        "painter_id": "camille_pissarro",
+        "raw_value": 55.5364485706385,
+        "scaled_value": 0.02446856344699943
+      },
+      {
+        "id": "psv2-0245",
+        "scene": 7,
+        "repeat": 1,
+        "painter_id": "paul_cezanne",
+        "raw_value": 44.149806005485694,
+        "scaled_value": -0.6728984671561692
+      },
+      {
+        "id": "psv2-0071",
+        "scene": 8,
+        "repeat": 0,
+        "painter_id": "claude_monet",
+        "raw_value": 60.62346804835816,
+        "scaled_value": 0.33601954500274983
+      },
+      {
+        "id": "psv2-0031",
+        "scene": 8,
+        "repeat": 0,
+        "painter_id": "alfred_sisley",
+        "raw_value": 65.25259350846602,
+        "scaled_value": 0.6195271248651746
+      },
+      {
+        "id": "psv2-0062",
+        "scene": 8,
+        "repeat": 0,
+        "painter_id": "camille_pissarro",
+        "raw_value": 53.35529742094165,
+        "scaled_value": -0.1091145267270763
+      },
+      {
+        "id": "psv2-0068",
+        "scene": 8,
+        "repeat": 0,
+        "painter_id": "paul_cezanne",
+        "raw_value": 44.92640332839716,
+        "scaled_value": -0.625336302457108
+      },
+      {
+        "id": "psv2-0050",
+        "scene": 8,
+        "repeat": 1,
+        "painter_id": "claude_monet",
+        "raw_value": 57.084062850477636,
+        "scaled_value": 0.1192511271987929
+      },
+      {
+        "id": "psv2-0013",
+        "scene": 8,
+        "repeat": 1,
+        "painter_id": "alfred_sisley",
+        "raw_value": 62.45790265939773,
+        "scaled_value": 0.44836822111307045
+      },
+      {
+        "id": "psv2-0034",
+        "scene": 8,
+        "repeat": 1,
+        "painter_id": "camille_pissarro",
+        "raw_value": 57.046246101769256,
+        "scaled_value": 0.1169350666389807
+      },
+      {
+        "id": "psv2-0041",
+        "scene": 8,
+        "repeat": 1,
+        "painter_id": "paul_cezanne",
+        "raw_value": 45.392577908609574,
+        "scaled_value": -0.5967857634474514
+      },
+      {
+        "id": "psv2-0470",
+        "scene": 9,
+        "repeat": 0,
+        "painter_id": "claude_monet",
+        "raw_value": 61.772293985358075,
+        "scaled_value": 0.4063785931402006
+      },
+      {
+        "id": "psv2-0432",
+        "scene": 9,
+        "repeat": 0,
+        "painter_id": "alfred_sisley",
+        "raw_value": 59.34979076316766,
+        "scaled_value": 0.2580140625931871
+      },
+      {
+        "id": "psv2-0493",
+        "scene": 9,
+        "repeat": 0,
+        "painter_id": "camille_pissarro",
+        "raw_value": 50.38441189918408,
+        "scaled_value": -0.29106435106866624
+      },
+      {
+        "id": "psv2-0441",
+        "scene": 9,
+        "repeat": 0,
+        "painter_id": "paul_cezanne",
+        "raw_value": 45.72823592881042,
+        "scaled_value": -0.5762286206807187
+      },
+      {
+        "id": "psv2-0492",
+        "scene": 9,
+        "repeat": 1,
+        "painter_id": "claude_monet",
+        "raw_value": 62.887242120534125,
+        "scaled_value": 0.47466281878927613
+      },
+      {
+        "id": "psv2-0472",
+        "scene": 9,
+        "repeat": 1,
+        "painter_id": "alfred_sisley",
+        "raw_value": 60.94686246515068,
+        "scaled_value": 0.3558256118799545
+      },
+      {
+        "id": "psv2-0454",
+        "scene": 9,
+        "repeat": 1,
+        "painter_id": "camille_pissarro",
+        "raw_value": 57.479440445106,
+        "scaled_value": 0.14346575390331576
+      },
+      {
+        "id": "psv2-0440",
+        "scene": 9,
+        "repeat": 1,
+        "painter_id": "paul_cezanne",
+        "raw_value": 44.49374636527843,
+        "scaled_value": -0.6518340782425062
+      },
+      {
+        "id": "psv2-0777",
+        "scene": 10,
+        "repeat": 0,
+        "painter_id": "claude_monet",
+        "raw_value": 54.362629169363956,
+        "scaled_value": -0.047421192084308214
+      },
+      {
+        "id": "psv2-0770",
+        "scene": 10,
+        "repeat": 0,
+        "painter_id": "alfred_sisley",
+        "raw_value": 56.895174981695774,
+        "scaled_value": 0.10768282061362872
+      },
+      {
+        "id": "psv2-0787",
+        "scene": 10,
+        "repeat": 0,
+        "painter_id": "camille_pissarro",
+        "raw_value": 49.57033648567453,
+        "scaled_value": -0.34092183544633475
+      },
+      {
+        "id": "psv2-0732",
+        "scene": 10,
+        "repeat": 0,
+        "painter_id": "paul_cezanne",
+        "raw_value": 42.94542482712622,
+        "scaled_value": -0.7466599575394077
+      },
+      {
+        "id": "psv2-0736",
+        "scene": 10,
+        "repeat": 1,
+        "painter_id": "claude_monet",
+        "raw_value": 51.400010722334514,
+        "scaled_value": -0.22886470516496732
+      },
+      {
+        "id": "psv2-0782",
+        "scene": 10,
+        "repeat": 1,
+        "painter_id": "alfred_sisley",
+        "raw_value": 55.46590073766298,
+        "scaled_value": 0.020147910320660857
+      },
+      {
+        "id": "psv2-0741",
+        "scene": 10,
+        "repeat": 1,
+        "painter_id": "camille_pissarro",
+        "raw_value": 50.17647110924105,
+        "scaled_value": -0.3037995406027291
+      },
+      {
+        "id": "psv2-0751",
+        "scene": 10,
+        "repeat": 1,
+        "painter_id": "paul_cezanne",
+        "raw_value": 38.64433091886539,
+        "scaled_value": -1.0100774724027082
+      },
+      {
+        "id": "psv2-0675",
+        "scene": 11,
+        "repeat": 0,
+        "painter_id": "claude_monet",
+        "raw_value": 53.43803359857108,
+        "scaled_value": -0.10404740688145425
+      },
+      {
+        "id": "psv2-0715",
+        "scene": 11,
+        "repeat": 0,
+        "painter_id": "alfred_sisley",
+        "raw_value": 55.663503292434164,
+        "scaled_value": 0.03224994180816048
+      },
+      {
+        "id": "psv2-0688",
+        "scene": 11,
+        "repeat": 0,
+        "painter_id": "camille_pissarro",
+        "raw_value": 48.17936349251926,
+        "scaled_value": -0.42611101218000147
+      },
+      {
+        "id": "psv2-0659",
+        "scene": 11,
+        "repeat": 0,
+        "painter_id": "paul_cezanne",
+        "raw_value": 44.35548333584099,
+        "scaled_value": -0.6603019016355115
+      },
+      {
+        "id": "psv2-0649",
+        "scene": 11,
+        "repeat": 1,
+        "painter_id": "claude_monet",
+        "raw_value": 55.44608834352679,
+        "scaled_value": 0.018934513975879044
+      },
+      {
+        "id": "psv2-0681",
+        "scene": 11,
+        "repeat": 1,
+        "painter_id": "alfred_sisley",
+        "raw_value": 60.43423077519877,
+        "scaled_value": 0.32442983938869335
+      },
+      {
+        "id": "psv2-0653",
+        "scene": 11,
+        "repeat": 1,
+        "painter_id": "camille_pissarro",
+        "raw_value": 49.14994243795154,
+        "scaled_value": -0.36666857747905934
+      },
+      {
+        "id": "psv2-0664",
+        "scene": 11,
+        "repeat": 1,
+        "painter_id": "paul_cezanne",
+        "raw_value": 41.40246631370491,
+        "scaled_value": -0.8411573821043505
+      },
+      {
+        "id": "psv2-0962",
+        "scene": 12,
+        "repeat": 0,
+        "painter_id": "claude_monet",
+        "raw_value": 55.43300355369565,
+        "scaled_value": 0.018133145093137945
+      },
+      {
+        "id": "psv2-0999",
+        "scene": 12,
+        "repeat": 0,
+        "painter_id": "alfred_sisley",
+        "raw_value": 57.88549885654514,
+        "scaled_value": 0.1683345198293983
+      },
+      {
+        "id": "psv2-0991",
+        "scene": 12,
+        "repeat": 0,
+        "painter_id": "camille_pissarro",
+        "raw_value": 56.86080248653406,
+        "scaled_value": 0.10557770097470176
+      },
+      {
+        "id": "psv2-0937",
+        "scene": 12,
+        "repeat": 0,
+        "painter_id": "paul_cezanne",
+        "raw_value": 41.369116040068675,
+        "scaled_value": -0.8431998964945608
+      },
+      {
+        "id": "psv2-0963",
+        "scene": 12,
+        "repeat": 1,
+        "painter_id": "claude_monet",
+        "raw_value": 58.441274003699434,
+        "scaled_value": 0.20237258344967554
+      },
+      {
+        "id": "psv2-1001",
+        "scene": 12,
+        "repeat": 1,
+        "painter_id": "alfred_sisley",
+        "raw_value": 62.080601919369656,
+        "scaled_value": 0.42526069883754125
+      },
+      {
+        "id": "psv2-0969",
+        "scene": 12,
+        "repeat": 1,
+        "painter_id": "camille_pissarro",
+        "raw_value": 54.84397521767002,
+        "scaled_value": -0.01794148702822302
+      },
+      {
+        "id": "psv2-0986",
+        "scene": 12,
+        "repeat": 1,
+        "painter_id": "paul_cezanne",
+        "raw_value": 45.388538082073225,
+        "scaled_value": -0.5970331798232343
+      },
+      {
+        "id": "psv2-0182",
+        "scene": 13,
+        "repeat": 0,
+        "painter_id": "claude_monet",
+        "raw_value": 55.49427350095415,
+        "scaled_value": 0.02188558054023244
+      },
+      {
+        "id": "psv2-0145",
+        "scene": 13,
+        "repeat": 0,
+        "painter_id": "alfred_sisley",
+        "raw_value": 57.654741593000196,
+        "scaled_value": 0.15420195118612398
+      },
+      {
+        "id": "psv2-0180",
+        "scene": 13,
+        "repeat": 0,
+        "painter_id": "camille_pissarro",
+        "raw_value": 51.549153310092564,
+        "scaled_value": -0.219730570764402
+      },
+      {
+        "id": "psv2-0191",
+        "scene": 13,
+        "repeat": 0,
+        "painter_id": "paul_cezanne",
+        "raw_value": 44.56138242416736,
+        "scaled_value": -0.6476917547016389
+      },
+      {
+        "id": "psv2-0211",
+        "scene": 13,
+        "repeat": 1,
+        "painter_id": "claude_monet",
+        "raw_value": 58.418810286389544,
+        "scaled_value": 0.200996808655036
+      },
+      {
+        "id": "psv2-0187",
+        "scene": 13,
+        "repeat": 1,
+        "painter_id": "alfred_sisley",
+        "raw_value": 63.881422203990454,
+        "scaled_value": 0.5355506888280285
+      },
+      {
+        "id": "psv2-0150",
+        "scene": 13,
+        "repeat": 1,
+        "painter_id": "camille_pissarro",
+        "raw_value": 53.873168640162646,
+        "scaled_value": -0.07739786289780821
+      },
+      {
+        "id": "psv2-0193",
+        "scene": 13,
+        "repeat": 1,
+        "painter_id": "paul_cezanne",
+        "raw_value": 48.88291600905498,
+        "scaled_value": -0.3830224260122561
+      }
+    ]
+  },
+  "checks": {
+    "canonical_load_includes_frozen_input_and_receipt_hash_verification": true,
+    "manual_generated_coordinate_exactly_equal_to_canonical_load": true,
+    "manual_reference_mean_max_absolute_difference": 5.551115123125783e-17,
+    "manual_generated_mean_max_absolute_difference": 0.0,
+    "all_31_coordinate_beta_recomputed": 0.9986502556169823,
+    "stored_beta": 0.9986502556169824,
+    "all_31_coordinate_D_recomputed": 1.2259309278231234,
+    "stored_D": 1.2259309278231234,
+    "pair_differences_unchanged_after_four_painter_centering": true,
+    "mean_of_scene_centered_coordinates_equals_centered_grand_means": true
+  },
+  "interpretation": "On this single coordinate and finite panels, both Monet means are lower than the corresponding Sisley means; the generated mean gap has smaller absolute magnitude. This does not establish overall painter fidelity or any perceptual or art-historical judgment.",
+  "suggested_two_sentence_illustration": "In median lightness, the Monet–Sisley mean difference is −0.325 development-IQR units in the references and −0.254 for GPT Image 2 across all 14 scenes and both repeats. Subtracting each set’s four-painter mean leaves these gaps unchanged, so this coordinate compares painter differences independently of a shared brightness shift.",
+  "reproducible_core": "from latent_art_bench.painter_specificity_measurement_v1.workflow import load\nfrom latent_art_bench.painter_specificity_v2 import study as s\nfrom latent_art_bench.painter_feature_generation_v2.features import NAMES\nimport numpy as np\nx, refs = load()\nj = NAMES.index('lightness_median')\nm = s.MODELS.index('gpt-image-2')\nreference = np.array([a[:,j].mean() for a in refs])\ngenerated = x[m,:,:,2:,j].mean(axis=(0,1))\nprint(reference, generated)\nprint(reference[0]-reference[1], generated[0]-generated[1])\nprint(reference-reference.mean(), generated-generated.mean())\n"
+}

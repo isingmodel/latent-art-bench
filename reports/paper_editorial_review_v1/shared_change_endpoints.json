@@ -1,0 +1,148 @@
+{
+  "purpose": "Read-only endpoint lookup of existing frozen diagnostics; no recomputation or new analysis.",
+  "metrics": {
+    "across_scene_common_squared_change_share": {
+      "source_path": "data/manifests/painter_specificity_v2/psv2-20260911/analysis.json",
+      "source_sha256": "c1d21b16f840a10fd253c1d558743a09671acf3d4e48601ddcc96625a5a90be0",
+      "minimum": {
+        "model": "gpt-image-1",
+        "value": 0.8254761233031015,
+        "json_pointer": "/models/0/shared/common_fraction"
+      },
+      "maximum": {
+        "model": "black-forest-labs/flux.2-max",
+        "value": 0.9571059702896184,
+        "json_pointer": "/models/5/shared/common_fraction"
+      },
+      "all_model_values": [
+        {
+          "model": "gpt-image-1",
+          "value": 0.8254761233031015,
+          "json_pointer": "/models/0/shared/common_fraction"
+        },
+        {
+          "model": "gpt-image-2",
+          "value": 0.8578600162826008,
+          "json_pointer": "/models/1/shared/common_fraction"
+        },
+        {
+          "model": "gpt-image-2.5-flare",
+          "value": 0.8478171338400338,
+          "json_pointer": "/models/2/shared/common_fraction"
+        },
+        {
+          "model": "gpt-image-2.5-sunburst",
+          "value": 0.838743819490315,
+          "json_pointer": "/models/3/shared/common_fraction"
+        },
+        {
+          "model": "google/gemini-3.1-flash-image",
+          "value": 0.880910743809025,
+          "json_pointer": "/models/4/shared/common_fraction"
+        },
+        {
+          "model": "black-forest-labs/flux.2-max",
+          "value": 0.9571059702896184,
+          "json_pointer": "/models/5/shared/common_fraction"
+        }
+      ]
+    },
+    "within_scene_common_squared_change_share": {
+      "source_path": "reports/painter_specificity_review_v1/analysis.json",
+      "source_sha256": "2fabb78e15dfcc7b027a73170f6ad0c87af0196c754b4e6f45275269c2c961e2",
+      "minimum": {
+        "model": "GPT Image 1",
+        "value": 0.88631750818579,
+        "json_pointer": "/models/0/shared_within/fraction"
+      },
+      "maximum": {
+        "model": "FLUX.2 Max",
+        "value": 0.972236606539184,
+        "json_pointer": "/models/5/shared_within/fraction"
+      },
+      "all_model_values": [
+        {
+          "model": "GPT Image 1",
+          "value": 0.88631750818579,
+          "json_pointer": "/models/0/shared_within/fraction"
+        },
+        {
+          "model": "GPT Image 2",
+          "value": 0.901030299350104,
+          "json_pointer": "/models/1/shared_within/fraction"
+        },
+        {
+          "model": "GPT Image 2.5 Flare",
+          "value": 0.8977461665994613,
+          "json_pointer": "/models/2/shared_within/fraction"
+        },
+        {
+          "model": "GPT Image 2.5 Sunburst",
+          "value": 0.9018183782595321,
+          "json_pointer": "/models/3/shared_within/fraction"
+        },
+        {
+          "model": "Nano Banana 2",
+          "value": 0.9011233380334445,
+          "json_pointer": "/models/4/shared_within/fraction"
+        },
+        {
+          "model": "FLUX.2 Max",
+          "value": 0.972236606539184,
+          "json_pointer": "/models/5/shared_within/fraction"
+        }
+      ]
+    },
+    "generic_common_cross_repeat_directional_ratio": {
+      "source_path": "reports/painter_specificity_review_v2/analysis.json",
+      "source_sha256": "92f2c74c92232b1fae03ab195a8c81749a0a4b9676fd737e2e5741dc67571a16",
+      "minimum": {
+        "model": "GPT Image 1",
+        "value": 0.6890412259161443,
+        "json_pointer": "/models/0/alignment/ratio"
+      },
+      "maximum": {
+        "model": "Nano Banana 2",
+        "value": 0.9301456933790713,
+        "json_pointer": "/models/4/alignment/ratio"
+      },
+      "all_model_values": [
+        {
+          "model": "GPT Image 1",
+          "value": 0.6890412259161443,
+          "json_pointer": "/models/0/alignment/ratio"
+        },
+        {
+          "model": "GPT Image 2",
+          "value": 0.774234144177636,
+          "json_pointer": "/models/1/alignment/ratio"
+        },
+        {
+          "model": "GPT Image 2.5 Flare",
+          "value": 0.7661946092142972,
+          "json_pointer": "/models/2/alignment/ratio"
+        },
+        {
+          "model": "GPT Image 2.5 Sunburst",
+          "value": 0.8365418006952574,
+          "json_pointer": "/models/3/alignment/ratio"
+        },
+        {
+          "model": "Nano Banana 2",
+          "value": 0.9301456933790713,
+          "json_pointer": "/models/4/alignment/ratio"
+        },
+        {
+          "model": "FLUX.2 Max",
+          "value": 0.9158653835469494,
+          "json_pointer": "/models/5/alignment/ratio"
+        }
+      ]
+    }
+  },
+  "interpretation_notes": [
+    "The common share uses named-minus-artist-free changes; named arms include an oil-painting clause. It is not an isolated effect of artist names versus a generic oil-painting prompt.",
+    "The first metric averages feature changes across scenes before forming cross-repeat squared quantities; the second computes these quantities within scenes before averaging.",
+    "The directional ratio is a symmetric cross-repeat moment ratio, not a finite-sample unbiased or necessarily bounded cosine."
+  ]
+}

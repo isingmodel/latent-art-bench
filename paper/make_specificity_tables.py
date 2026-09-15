@@ -32,30 +32,36 @@ def build():
         r"\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{.24\linewidth}"
         r">{\raggedright\arraybackslash}Xr>{\raggedright\arraybackslash}X@{}}",
         r"\toprule",
-        r"Model & Reference slope $\beta$ & Error $D$ & $\Delta D$ versus GPT Image 2\\",
+        r"Model & Aligned response $\beta$ & \shortstack{Uncalibrated\\error $D$} "
+        r"& $\Delta D$ versus FLUX\\",
         r"\midrule",
     ]
     for m, row in enumerate(data["models"]):
         baseline = r"$0$ (baseline)"
-        if m != 1:
+        if row["model"] != s.MODELS[-1]:
             pair = next(
                 c
                 for c in data["comparisons"]
-                if {c["model_a"], c["model_b"]} == {row["model"], s.MODELS[1]}
+                if {c["model_a"], c["model_b"]} == {row["model"], s.MODELS[-1]}
             )
             baseline = estimate(pair, reverse=pair["model_a"] != row["model"])
         rows.append(
             f"{s.TITLES[m]} & {estimate(row['beta'])} & "
             f"${fmt(row['distortion']['mean'])}$ & {baseline}\\\\[3pt]"
         )
+    flux = next(row for row in data["models"] if row["model"] == s.MODELS[-1])
+    absolute_lo, absolute_hi = flux["distortion"]["ci95"]
     rows += [
         r"\bottomrule\end{tabularx}",
-        r"\caption{Pooled-reference agreement and scene-paired model comparisons. "
-        r"Lower $D$ indicates less scene-wise mismatch with pooled reference contrasts; "
-        r"larger $\beta$ is not necessarily better. Brackets give approximate simultaneous "
-        r"intervals from the fixed family of six slopes and 15 model contrasts. "
-        r"On a complete common panel, model differences equal the scene fixed-effects "
-        r"regression contrasts. Inference uses paired scene differences.}",
+        r"\caption{Agreement with the full-frame reference target. "
+        r"$\beta=1$ matches its aligned amplitude; larger is not necessarily better. "
+        r"Expected $D$ is 0 for exact agreement and 1 for no painter distinctions. "
+        r"Positive $\Delta D$ favors FLUX.2 Max. "
+        r"Table brackets give approximate 95\% simultaneous intervals from the prespecified family "
+        r"of six aligned responses and 15 scene-paired model contrasts. "
+        r"FLUX's lowest $D$ estimate has an unadjusted 95\% interval "
+        f"$[{fmt(absolute_lo)},{fmt(absolute_hi)}]$, "
+        r"spanning the no-distinction value 1; this interval is descriptive.}",
         r"\label{tab:specificity-models}\end{table}",
     ]
     pairs = [
@@ -81,39 +87,82 @@ def build():
     pairs += [
         r"\bottomrule\end{tabular}",
         r"\caption{All 15 paired model comparisons in the prespecified inferential family. "
-        r"A negative contrast favors model A on the stated feature-geometry target. "
-        r"Flare and Sunburst denote the corresponding GPT Image 2.5 models.}",
+        r"Intervals are approximate 95\% simultaneous intervals adjusted across all 21 endpoints. "
+        r"A negative contrast favors model A on the stated feature-geometry target.}",
         r"\label{tab:all-specificity-pairs}\end{table}",
     ]
     artists = [
         r"\begin{table}[htbp]\centering\small",
-        r"\begin{tabular}{lrrrr}\toprule",
-        r"Model & Monet & Sisley & Pissarro & C\'ezanne\\\midrule",
+        r"\begin{tabular}{llrrrr}\toprule",
+        r"Model & Measure & Monet & Sisley & Pissarro & C\'ezanne\\\midrule",
     ]
-    for row in data["models"]:
+    for m, row in enumerate(data["models"]):
         lookup = {a["artist"]: a for a in row["artists"]}
-        cells = []
+        energy_cells = []
+        variance_cells = []
         for a in s.ARTISTS:
             v = lookup.get(a)
             if v and v["generic_energy"] is not None:
-                cells.append(
-                    rf"${v['energy'] - v['generic_energy']:.3f}\; /\; {v['trace_ratio']:.3f}$"
-                )
+                energy_cells.append(f"${v['energy'] - v['generic_energy']:.3f}$")
+                variance_cells.append(f"${v['trace_ratio']:.3f}$")
             else:
-                cells.append("unavailable")
-        artists.append(short[row["model"]] + " & " + " & ".join(cells) + r"\\")
+                energy_cells.append("unavailable")
+                variance_cells.append("unavailable")
+        artists.append(
+            short[row["model"]] + " & Energy change & " + " & ".join(energy_cells) + r"\\"
+        )
+        artists.append("& Variance ratio & " + " & ".join(variance_cells) + r"\\")
+        if m < len(data["models"]) - 1:
+            artists.append(r"\addlinespace[2pt]")
     artists += [
         r"\bottomrule\end{tabular}",
-        r"\caption{Complementary outcomes for all four painters: each cell gives "
-        r"named-minus-generic reference energy / generated-to-reference total variance. "
-        r"These are descriptive empirical distribution summaries, without additional tests. "
-        r"Lower energy change favors naming over the generic clause; a variance ratio below "
-        r"one indicates a narrower generated feature distribution.}",
+        r"\caption{Complementary empirical distribution summaries. Energy change is "
+        r"named-minus-generic reference energy; variance ratios are generated-to-reference. "
+        r"Negative changes favor naming; ratios below one indicate narrower generated "
+        r"feature distributions.}",
         r"\label{tab:artist-distributions}\end{table}",
+    ]
+    # These retained components average feature changes over scenes before
+    # taking cross-repeat products; they are not the within-scene diagnostic.
+    shared_percent = [100 * row["shared"]["common_fraction"] for row in data["models"]]
+    diagnostics = s.read(s.ROOT / "reports/painter_specificity_review_v2/analysis.json")
+    alignment = {row["model"]: row["alignment"] for row in diagnostics["models"]}
+    controls = [alignment[title] for title in s.TITLES]
+    shared = [
+        r"\begin{table}[htbp]\centering\small\setlength{\tabcolsep}{3pt}",
+        r"\begin{tabularx}{\linewidth}{@{}l*{6}{>{\centering\arraybackslash}X}@{}}",
+        r"\toprule",
+        r"& \shortstack{GPT Image\\1} & \shortstack{GPT Image\\2} "
+        r"& Flare & Sunburst & \shortstack{Nano\\Banana 2} "
+        r"& \shortstack{FLUX.2\\Max}\\\midrule",
+        r"Shared (\%) & " + " & ".join(f"{value:.1f}" for value in shared_percent) + r"\\",
+        r"Between-name (\%) & "
+        + " & ".join(f"{100 - value:.1f}" for value in shared_percent)
+        + r"\\",
+        r"\midrule",
+        r"Corrected cosine & "
+        + " & ".join(fmt(row["ratio"]) for row in controls)
+        + r"\\",
+        r"Squared-size ratio & "
+        + " & ".join(
+            fmt(row["common_cross_norm_squared"] / row["generic_cross_norm_squared"])
+            for row in controls
+        )
+        + r"\\",
+        r"\bottomrule\end{tabularx}",
+        r"\caption{Shares of scene-averaged, repeat-corrected squared change "
+        r"from artist-free to named prompts, including the painting clause. "
+        r"Shared is the four-name mean shift; between-name is departure from it. "
+        r"The lower rows give retrospective comparisons of the shared named shift with "
+        r"the generic oil-painting shift, using the same artist-free baseline. "
+        r"The noise-corrected cosine measures their directional agreement (1 means parallel); "
+        r"the ratio divides their repeat-corrected squared magnitudes, shared by generic.}",
+        r"\label{tab:shared-change}\end{table}",
     ]
     return {
         "specificity_model_table.tex": "\n".join(rows) + "\n",
         "specificity_supplement_tables.tex": "\n".join(pairs + [""] + artists) + "\n",
+        "specificity_shared_table.tex": "\n".join(shared) + "\n",
     }
 
 

@@ -1,0 +1,12 @@
+{
+  "evaluated_round": 9,
+  "page_count": 22,
+  "abstract_whitespace_words": 149,
+  "pdf_extracted_words": 9666,
+  "pdf_sha256": "1e279d3603ac64225506dda00722a395961976b63afa015decdf73eca05fbd01",
+  "build": "Tectonic passed without warnings",
+  "visual_inspection": "All8 changed pages1,4,6,7,10,13,16,17 inspected; remaining14 page renders byte-identical to inspected round8. Conclusion intact onpage10, Table6 headers fit, new M/S/P labels clear, gallerylabel fits.",
+  "presentation_replay": "Review displays, all8 specificityfigures, and40image gallerycheck passed; gallerydiff onlytop-leftlabel;72heatmapvalues andallgeometrycoords/lines/axes unchanged.",
+  "lint": "Scoped Ruff and git diff --check passed",
+  "scientific_scope": "Calibration scalar, objective andholdoutprocedure explicitly described withoutchangingimplementation; only terminology/presentation/source-rowlabel changed."
+}

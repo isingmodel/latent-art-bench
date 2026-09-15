@@ -1,0 +1,15 @@
+{
+  "started_at": "2026-09-14T22:25:42.894Z",
+  "requested_model": "gpt-6-astra",
+  "requested_reasoning": {
+    "effort": "xhigh"
+  },
+  "request_sha256": "07ff85feccb4e07faa2981e625700abd797d5c077440511e79518449584f22ac",
+  "request_bytes": 11061097,
+  "image_count": 22,
+  "status": "failed",
+  "http_status": 400,
+  "http_request_id": null,
+  "finished_at": "2026-09-14T22:25:44.938Z",
+  "error": "Upstream HTTP 400; details retained separately"
+}

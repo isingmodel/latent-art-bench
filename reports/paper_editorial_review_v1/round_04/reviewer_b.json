@@ -1,0 +1,79 @@
+{
+  "reviewer_id": "editorial_r04_b",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "10707f5ca01a70b5cfd7599bed158f840f5e656e7dfaa3ba4dae89895b52f745",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete frozen 22-page PDF, including references and Appendices A–G. Visually inspected every rendered PDF page, all five figures and all nine tables. Consulted the frozen paper.tex for notation, section order and abstract wording; its abstract contains 145 whitespace-delimited words. Extraction and rendering used an isolated temporary directory. No other reviews, prior versions, progress records or non-snapshot manuscript were consulted."
+  },
+  "scores": {
+    "expression": 9.0,
+    "structure": 9.0,
+    "new_reader_understanding": 8.75,
+    "engagement": 8.75
+  },
+  "overall": 8.875,
+  "score_reasons": {
+    "expression": "Excellent, precise English with clear topic sentences and controlled claims. Sections 4.1 and 5.4 explain the central distinctions in ordinary language before relying on notation or numerical comparisons. Qualifications generally specify a real interpretive boundary rather than merely interrupting the prose. The abstract is more compressed than the body, particularly its opening statistical phrase and cross-repeat explanation; this is a localized refinement rather than recurrent difficulty.",
+    "structure": "The progression from motivation to experimental arms, representation, score intuition, primary results and retrospective explanations is coherent. Sections 5.1–5.5 have informative finding-based headings, and the primary comparison family remains distinguishable from calibration, pair diagnostics and source sensitivities. Appendices carry the derivations, complete comparisons and earlier cohorts without becoming prerequisites for the main argument. Within Section 3.3, the preprocessing-first order is a minor mismatch with its explanatory heading.",
+    "new_reader_understanding": "The paper establishes the finite digital-reference target, the six prompt conditions and the role of the generic arm clearly. The lightness example and the no-distinction/exact/doubled-response examples make centering and the D benchmark unusually accessible. The text distinguishes D=1 from the observed generic arm, explains negative estimates, and tells readers what calibration changes. The abstract asks the reader to decode a qualified squared-change statistic before orienting them to the design, and Figure 2 makes its closer painter comparisons harder to inspect than necessary.",
+    "engagement": "The question has clear evaluative consequences, and the findings develop a discernible story: large shared change, detectable but uneven labeled alignment, and a ranking that depends on response strength and scene treatment. Figure 1 offers a useful complete condition grid; Figure 3 and Table 3 reward comparison and are explicitly interpreted. The body sustains attention without converting numerical agreement into artistic fidelity. Figure 2 has less visual payoff than its role warrants because the relevant clustered symbols occupy small plotting areas."
+  },
+  "strengths": [
+    "The introduction uses the Monet–Sisley example to explain why proximity to an artist collection does not establish recovery of artist differences (p. 1).",
+    "Section 4.1 gives a concrete measured lightness gap, then three idealized D outcomes, before presenting the equations; the reader can understand both scores without following the appendix derivations (p. 5).",
+    "Figure 1 presents all six model rows and six prompt conditions with consistent placement, a specific scene brief and an explicit distinction between historical examples and generator inputs (p. 4).",
+    "The results pair useful estimates with their implications: GPT Image 2 has near-unit aligned strength but D above one, while FLUX has lower error despite weaker alignment; the unresolved no-contrast benchmark is stated directly (pp. 6–7).",
+    "The source audit is treated as a retrospective sensitivity, and the changed Sunburst comparison is disclosed in the results and conclusion rather than hidden behind a broad robustness claim (pp. 9–10).",
+    "Pair diagnostics, scalar calibration and earlier intervention cohorts are consistently labeled as descriptive or separate, protecting the hierarchy of evidence (pp. 8–10 and 21–22)."
+  ],
+  "findings": [
+    {
+      "priority": "medium",
+      "location": "Figure 2, PDF p. 7",
+      "issue": "The six plotting boxes are small relative to their horizontal gutters and surrounding figure space. The Monet, Sisley and Pissarro mean circles and reference crosses overlap in a compact region, making the requested same-color comparison substantially harder than inspecting the separated Cézanne symbols.",
+      "reader_effect": "Readers must zoom to recover several of the comparisons the caption asks them to make. Figure 3 supplies the numerical pair results, but the main geometric illustration contributes less immediate understanding than it could.",
+      "suggested_change": "Enlarge the six plotting boxes within the existing figure allocation by reducing inter-panel gutters and unused space around the legend. Preserve the common axis limits and every scene/repeat point; scale symbols and labels for the final printed size. This changes layout only and requires no additional page."
+    },
+    {
+      "priority": "low",
+      "location": "Abstract, PDF p. 1; paper.tex lines 27–35",
+      "issue": "The abstract opens with the qualified statistic “estimated squared feature change ... after scene averaging” before explaining the prompt comparison. It then compresses centering, cross-repeat estimation, expectation and two assumptions into one sentence. The content is accurate, but the entry is less immediately accessible than the introduction.",
+      "reader_effect": "A new reader has to hold the percentage and its qualifications in memory before learning what was varied and why. The central response-versus-agreement finding emerges later than necessary.",
+      "suggested_change": "Move the existing design sentence ahead of the percentage sentence and shorten the latter to “After scene averaging, 82.5–95.7% of the estimated squared change from artist-free to named-painter prompts is shared across names.” Keep “feature” or the 31-feature description adjacent so the measured quantity stays explicit. Use the words saved to divide the centering and cross-repeat explanation into two short sentences, preserving the expectation and independence qualifications. Keep the abstract at or below 155 words."
+    },
+    {
+      "priority": "low",
+      "location": "Section 3.3, PDF p. 3; paper.tex lines 163–185",
+      "issue": "The subsection titled “What the features measure” begins with orientation, embedded color profiles, resizing, masking and scaling. The intuitive feature explanation and Table 1 follow this processing detail.",
+      "reader_effect": "The reader encounters several pipeline terms before having the simple color/spatial/texture framework that would make those details easier to organize.",
+      "suggested_change": "Move the feature-family explanation and Table 1 to the start of Section 3.3, then give the existing preprocessing and scaling paragraph. Retain all processing and metric qualifications; this is a within-section reorder with no added content."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent and self-contained account of a bounded digital-reference comparison. The main argument, score interpretation and evidence hierarchy are readily recoverable, and the paper avoids implying perceptual validation or a definitive model ranking. Remaining editorial work is localized to abstract entry, feature-section sequencing and the plotting space of Figure 2; no new experiment or expansion is needed."
+}

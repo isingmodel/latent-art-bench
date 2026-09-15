@@ -1,0 +1,78 @@
+{
+  "reviewer_id": "editorial_r11_c",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "7cdee18a48aa2ec903c23d106e704ceb4f9211d2cd31995e078e7c4471d54cd8",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the entire frozen 22-page PDF, including references and Appendices A-G, using extracted text and rendered pages. Visually inspected every PDF page, all five figures and all ten tables. Read paper.tex and its included TeX files to resolve notation and cross-references. Independently verified the PDF SHA256. The extracted abstract contains 153 whitespace-delimited words. Used isolated temporary extraction/rendering paths; did not inspect prior versions, other reviews, progress records, evaluation goals or the live manuscript. Technical appendices were treated as optional depth when judging main-text accessibility."
+  },
+  "scores": {
+    "expression": 9.0,
+    "structure": 9.0,
+    "new_reader_understanding": 9.0,
+    "engagement": 9.0
+  },
+  "overall": 9.0,
+  "score_reasons": {
+    "expression": "Excellent, precise English with useful interpretive sentences after the quantitative claims. Section 4.1 explains both the lightness contrast and the 1/0/1 error examples economically; Sections 5.3-5.5 distinguish descriptive diagnostics from inferential comparisons without overstating them. Remaining refinements concern compressed wording in the abstract and the first use of declared inferential family, rather than recurrent comprehension obstacles.",
+    "structure": "The main text follows a coherent question-design-representation-score-results-interpretation progression. The five result headings state findings, and the manuscript makes the original-reference analysis, retrospective calibration and source correction visibly distinct. Detailed identities, controls, simulations and earlier cohorts are appropriately placed in appendices. The very brief discussion could provide slightly more synthesis rather than repeating score definitions.",
+    "new_reader_understanding": "The abstract is standalone and within the word limit. Exact prompt arms, the fixed scene design, the finite digital reference target and development-IQR units are explained in the main text. The worked lightness example, three benchmark generators, Table 1 interpretations and clear Table 2 caption make the unfamiliar feature geometry recoverable without the repository. Figures 1-3 are legible and well explained. A few phrases can be made more explicit, but there is no important missing conceptual step.",
+    "engagement": "The opening Monet-Sisley example establishes a consequential evaluation problem. Figure 1 makes the intervention inspectable; Figure 2 supplies magnified detail; Figure 3 makes uneven painter-pair response immediately visible. The change from FLUX to GPT Image 2 after calibration and the Nano Banana 2 scene-variation example create a clear narrative about what rankings measure. The closing discussion has room for a stronger interpretive sentence within its existing space."
+  },
+  "strengths": [
+    "Section 4.1, page 5, introduces contrasts with an actual Monet-Sisley lightness gap before giving notation, then explains why no distinction, exact agreement and doubled contrasts have expected errors 1, 0 and 1.",
+    "Figure 1, page 4, shows all six prompt conditions across all six generators with a fixed selection rule, a concrete scene and explicit separation between reference illustrations and generator inputs.",
+    "Sections 5.1 and 5.4 and Tables 2-3 explain the difference between positive aligned response, total error, scalar calibration and scene variation with numerical examples that reveal what each comparison rewards.",
+    "Section 5.5 and Table 4 place the original and source-corrected intervals side by side and explicitly prevent the newly positive GPT Image 1 comparison from becoming a confirmatory claim.",
+    "Limitations consistently concern measured digital reference contrasts: the paper does not equate feature agreement with perceived style, label swaps with perceptual confusion, reduced spread with mode collapse, or calibrated vectors with improved images."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Abstract, page 1, sentence beginning We fit each model’s multiplier",
+      "issue": "The phrase fit each model’s multiplier for generated contrasts is more compressed than the otherwise concrete abstract: the fitting objective is left implicit and contrasts has not been explicitly introduced as a term there.",
+      "reader_effect": "A new reader can understand that a numerical adjustment changes the ranking but must infer what is adjusted and what the fitting optimizes.",
+      "suggested_change": "Replace the opening of that sentence with We rescale each model’s painter differences to minimize error, retaining on 13 scenes and evaluate the remaining scene in turn. This adds only one word to the 153-word extracted abstract and preserves both the held-out evaluation and the later statement that images are unchanged."
+    },
+    {
+      "priority": "low",
+      "location": "Section 4.3, page 6, first use of declared inferential family; Table 2 caption, page 7",
+      "issue": "The main text introduces declared inferential family without explicitly saying when the family was specified; the particularly clear before-inspecting-feature-outcomes language appears in Appendix B. The Table 2 caption calls the family unchanged before the reader has encountered a changed analysis.",
+      "reader_effect": "Readers unfamiliar with statistical protocol terminology may not immediately grasp why these comparisons have a different evidential status from the retrospective diagnostics.",
+      "suggested_change": "At first use, say that the six aligned responses and 15 model-pair differences were specified before feature analysis as one inferential family. In Table 2, replace unchanged family with prespecified family. Offset the small increase by shortening the adjacent sentence about a zero-excluding interval; retain the full procedural details."
+    },
+    {
+      "priority": "low",
+      "location": "Section 6, page 10, opening paragraph",
+      "issue": "The discussion opens by repeating the definitions of original and calibrated error, followed by the imperative Report both. Those definitions are already clear in Sections 4.4 and 5.4 and Table 3, leaving little new synthesis before the limitations.",
+      "reader_effect": "The narrative reaches its interpretation stage but briefly returns to method explanation, weakening the emphasis on what the observed ranking reversal reveals.",
+      "suggested_change": "Replace the opening paragraph with a similarly sized synthesis tied to the existing findings: FLUX’s lower original error and GPT Image 2’s lower calibrated error show that the ranking combines the pattern of painter differences with its overall strength. Reporting both, alongside painter-pair coverage, exposes which aspect drives the comparison. Keep the next paragraph on unidentified internal causes and the existing limitations."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "Excellent communication of a bounded digital-reference comparison. The study, metrics and main findings are understandable without consulting the repository, and the figures support an engaging distinction between detectable name response and agreement with painter contrasts. The remaining changes are localized wording and synthesis refinements; no new evidence, experiments, feature representation or additional pages are needed."
+}

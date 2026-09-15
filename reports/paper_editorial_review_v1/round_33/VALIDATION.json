@@ -1,0 +1,12 @@
+{
+  "evaluated_round": 33,
+  "page_count": 22,
+  "abstract_whitespace_words": 151,
+  "pdf_extracted_words": 9596,
+  "pdf_sha256": "3bea311da87d1f2bbec5cb603535e818af1a7f2e1f7784d529674daa99c52e57",
+  "build": "Tectonic passed without warnings",
+  "visual_inspection": "All 22 pages rendered. Changed pages 8, 9, 10 and 13\u201319 individually inspected; the other 12 PNGs are byte-identical to previously inspected pages. Figure 3 remains with its results; the shorter Conclusion and the relocated control table fit. The declared sensitivity outcomes and all equations remain legible, without clipping or overlaps.",
+  "presentation_replay": "All figures and tables are byte-identical to round 32. No builder changed. Only main manuscript/results/estimator prose and labels changed. A separate factual agent and root independently verified the newly displayed, already retained uncalibrated sensitivity outcomes; source hashes and values appear in round_32/SENSITIVITY_POINTER_VERIFICATION.json.",
+  "lint": "git diff --check passed",
+  "scientific_scope": "Editorial clarification, compression and presentation of existing sensitivity results. No experiment, human evaluation, image, estimator or scientific record changed."
+}

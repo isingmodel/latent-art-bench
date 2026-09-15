@@ -1,0 +1,12 @@
+{
+  "evaluated_round": 14,
+  "page_count": 22,
+  "abstract_whitespace_words": 155,
+  "pdf_extracted_words": 9707,
+  "pdf_sha256": "f36bbe6c8d69c4ec9814b83164e0c7d14acb89e9f3df5ea5830aadd32783e023",
+  "build": "Tectonic passed without warnings",
+  "visual_inspection": "All 22 pages rendered. Changed pages 1,6,7,8,9,10 inspected at full preview size; the other 16 PNGs are byte-identical to the fully inspected round13 renders. No clipping; introduction and conclusion remain intact.",
+  "presentation_replay": "Eight specificity figures replayed exactly. Geometry change preserves all 756 scatter points, 54 line artists and 12 axes; expanded legend fits the figure. All other figures and table bytes unchanged.",
+  "lint": "Scoped Ruff and git diff --check passed",
+  "scientific_scope": "Abstract/interpretive wording and figure labels only. No analyses, evidence, images or inferential procedures altered."
+}

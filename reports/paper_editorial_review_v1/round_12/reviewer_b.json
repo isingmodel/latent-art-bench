@@ -1,0 +1,72 @@
+{
+  "reviewer_id": "editorial_r12_b",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "3139e82bcf93503a549c9239d228feffadfb453ec32ee208917e3632ce2cd08d",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the entire frozen 22-page PDF, including abstract, main text, references and Appendices A-G, through extracted text and page images. Visually inspected every page, all five figures and all ten tables; reinspected page 9 at higher resolution. Consulted the frozen paper.tex and specificity_results.tex to resolve wording, notation and locations. Independently computed the supplied PDF SHA256. The abstract contains 155 whitespace-delimited words in the PDF extraction. No earlier manuscript, review, progress record or repository analysis was consulted."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.5,
+    "new_reader_understanding": 9.0,
+    "engagement": 9.25
+  },
+  "overall": 9.25,
+  "score_reasons": {
+    "expression": "Excellent, precise English with mostly manageable sentences. The opening Monet/Sisley example distinguishes proximity from painter discrimination in ordinary language; Section 4.1 then introduces contrasts and the two scores before their formulas. Terminology and qualifications remain consistent across results and captions. A few inherited phrases in Appendix F.2, especially 'generated-only moment maps' and 'review-driven artist-contrast scalar counterfactual,' are less economical and immediate than the rest of the paper.",
+    "structure": "The question-to-design-to-measurement-to-results progression is exceptionally clear. Sections 4.1-4.4 distinguish the primary comparison, its uncertainty and the retrospective diagnostics before results are reported. Results move coherently from aggregate alignment and error to the common shift, artist coverage, calibration, scene variation and source sensitivity. Table 3 makes the two ordering changes easy to follow; Table 4 immediately shows which source-corrected comparisons change. Technical derivations and earlier cohorts are correctly optional, and the main argument is complete by page 10.",
+    "new_reader_understanding": "Excellent overall accessibility for a graduate scientific reader without project knowledge. The abstract is standalone and within the word limit; the six prompt conditions, fixed scenes, finite reference target and feature units are explicit. The lightness example, the 1/0/1 idealized error examples and captions explaining the zero and one benchmarks make the metrics interpretable. The one localized gap is that Section 5.5's final visual-label result does not itself say that the 11 briefs use corresponding class-specific reference targets; readers must connect it to Appendix C and distinguish it from the earlier four-class equalization sensitivity.",
+    "engagement": "The paper sustains a consequential narrative without exaggeration: a name response can be measurable while painter distinctions remain weak, and changing response strength can change the model ordering. Figure 1 provides a concrete scene and visible differences; Figure 2's detail panels reward inspection of the close Monet/Sisley positions, and Figure 3 makes uneven pair coverage immediately visible. Numerical findings are repeatedly explained through their implications rather than merely listed. The short excursion into source-label sensitivity and the denser historical vocabulary in Appendix F introduce only localized friction."
+  },
+  "strengths": [
+    "The introduction's Monet/Sisley example makes the motivating distinction concrete without presuming that measured reference differences constitute perceptually validated style.",
+    "Section 4.1 teaches the score interpretation before notation: a generator with no painter distinctions, exact reference contrasts or doubled contrasts has expected error 1, 0 or 1. This directly prepares readers for GPT Image 2's near-unit aligned response and substantial total error.",
+    "The primary results consistently distinguish positive alignment, lowest point estimate and resolved model differences. FLUX's interval crossing the no-distinction benchmark is explained directly, and corrected comparisons are explicitly retrospective.",
+    "The visual sequence is well chosen and legible: all six conditions for one scene, magnified nearby painter contrasts, pairwise heatmaps and compact decomposition/calibration tables each answer a different narrative question.",
+    "The calibration procedure is understandable in the main text, including its single multiplier, fitting on the other 13 scenes and absence of an image transformation. The scene-average versus scene-specific ordering change is illustrated with concrete Nano Banana 2 and FLUX values.",
+    "The paper describes finite digital references, source corrections, AI audit limitations, inferential assumptions and incomplete exact-pixel availability candidly, without allowing those qualifications to replace the central empirical story."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Section 5.5, pp. 9-10; specificity_results.tex lines 140-143, read against Section 4.3 and Appendix C.1",
+      "issue": "The final paragraph reports that replacing title-derived labels with visual labels preserves FLUX's lowest error on 11 briefs, but does not state what those labels now construct. The main text previously introduced equal weighting of four title classes; the reported 11-brief comparison instead uses reference targets matched to each brief's coarse content class.",
+      "reader_effect": "A reader following the main text alone can mistake the result for a relabeling of the earlier four-class equalization check and cannot tell why the comparison excludes mixed briefs. This is a localized ambiguity in a diagnostic, not a gap in the primary study.",
+      "suggested_change": "Replace the paragraph, at roughly its present length, with: 'A separate content sensitivity compares 11 water, built and land briefs with reference means from the corresponding class, excluding three mixed briefs. Using visual rather than title-derived labels retains FLUX's lowest error estimate. These coarse classes do not match compositions; Appendix C gives the controls and audit.'"
+    },
+    {
+      "priority": "low",
+      "location": "Appendix F.2, p. 22; paper.tex lines 576-589",
+      "issue": "The transfer paragraph opens with 'Historical generated-only moment maps' and ends with 'review-driven artist-contrast scalar counterfactual.' These phrases are more specialized or tied to editorial history than the otherwise plain descriptions of translation, scaling and calibration.",
+      "reader_effect": "Even readers choosing the optional technical depth must briefly decode whether these maps are a new mathematical object and how the final comparison relates to Table 3. The surrounding sentences already contain a clearer explanation.",
+      "suggested_change": "Use 'Translation and scaling maps fitted only to historical generated images' for the opening noun phrase, and replace the final sentence with 'These named/free maps differ from the retrospective calibration of painter contrasts in Table 3.' Retain the numerical evidence and the contrary transfer result."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent editorial presentation of a bounded digital-reference comparison. The main study and its surprising ordering changes are readily understandable without the repository or technical appendices. Only localized clarification of the class-specific sensitivity and simplification of historical-appendix terminology remain; the existing 22-page and 155-word limits can be preserved."
+}

@@ -1,0 +1,55 @@
+{
+  "source": "reports/painter_specificity_review_v2/analysis.json",
+  "source_sha256": "92f2c74c92232b1fae03ab195a8c81749a0a4b9676fd737e2e5741dc67571a16",
+  "primary_source": "data/manifests/painter_specificity_v2/psv2-20260911/analysis.json",
+  "primary_source_sha256": "c1d21b16f840a10fd253c1d558743a09671acf3d4e48601ddcc96625a5a90be0",
+  "definition": "Average 14 scenes within each repeat. C=<c1,c2> for the four-name mean named-minus-artist-free shift; G=<g1,g2> for generic-minus-artist-free shift. Report C/G, a descriptive ratio of repeat-corrected squared magnitudes. Primary common_ss=4*C; Table 3 shared/total is a different ratio.",
+  "range": [
+    1.9600907846541995,
+    4.138309130574162
+  ],
+  "models": [
+    {
+      "model": "GPT Image 1",
+      "common_cross_norm_squared": 14.801791631487708,
+      "generic_cross_norm_squared": 7.453037193443391,
+      "common_over_generic_squared_magnitude": 1.9860080189200164,
+      "corrected_cosine": 0.6890412259161443
+    },
+    {
+      "model": "GPT Image 2",
+      "common_cross_norm_squared": 18.21681420650537,
+      "generic_cross_norm_squared": 9.293862482864125,
+      "common_over_generic_squared_magnitude": 1.9600907846541995,
+      "corrected_cosine": 0.774234144177636
+    },
+    {
+      "model": "GPT Image 2.5 Flare",
+      "common_cross_norm_squared": 16.69384674818162,
+      "generic_cross_norm_squared": 5.928415842559854,
+      "common_over_generic_squared_magnitude": 2.8159034709301562,
+      "corrected_cosine": 0.7661946092142972
+    },
+    {
+      "model": "GPT Image 2.5 Sunburst",
+      "common_cross_norm_squared": 15.262990168190615,
+      "generic_cross_norm_squared": 4.548415105133429,
+      "common_over_generic_squared_magnitude": 3.3556722100769805,
+      "corrected_cosine": 0.8365418006952574
+    },
+    {
+      "model": "Nano Banana 2",
+      "common_cross_norm_squared": 6.637745413981067,
+      "generic_cross_norm_squared": 1.7977920365873874,
+      "common_over_generic_squared_magnitude": 3.6921653221809776,
+      "corrected_cosine": 0.9301456933790713
+    },
+    {
+      "model": "FLUX.2 Max",
+      "common_cross_norm_squared": 23.145083507262473,
+      "generic_cross_norm_squared": 5.592884141077023,
+      "common_over_generic_squared_magnitude": 4.138309130574162,
+      "corrected_cosine": 0.9158653835469494
+    }
+  ]
+}

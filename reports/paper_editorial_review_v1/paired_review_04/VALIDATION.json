@@ -1,0 +1,26 @@
+{
+  "pair": "paired_review_04",
+  "pdf_sha256": "4dd19f7d77d63eb17e7708d566607c3c001c7c8bc9afda84a5c297d93e7005b2",
+  "rubric_sha256": "e3c0d44034123bc097ed3a4823c3977e2b7bd13207460aba41bd1e805a3812f3",
+  "manuscript_remains_unchanged": true,
+  "claude": {
+    "scores": {
+      "expression": 8.25,
+      "structure": 8.0,
+      "new_reader_understanding": 8.0,
+      "engagement": 8.0
+    },
+    "overall": 8.0625
+  },
+  "astra": {
+    "scores": {
+      "expression": 9,
+      "structure": 8.75,
+      "new_reader_understanding": 8.75,
+      "engagement": 8.75
+    },
+    "overall": 8.8125
+  },
+  "mean_overall": 8.4375,
+  "source": "Host-derived arithmetic only; raw assessments are retained separately."
+}

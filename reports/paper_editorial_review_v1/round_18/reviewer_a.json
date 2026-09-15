@@ -1,0 +1,72 @@
+{
+  "reviewer_id": "editorial_r18_a",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "1df79f52d29b89a075865f26ddba548eec92b29e0177d3018860e6db91aff327",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete frozen 22-page PDF, including abstract, main text, availability statement, references and Appendices A–G. Visually inspected every PDF page, all five figures and all ten tables using isolated renders in /tmp/editorial-r18-a-hgAYfz. Consulted frozen paper.tex and specificity_results.tex for exact wording, notation and source locations. Applied only RUBRIC.md version 1; optional technical appendices were assessed as optional depth. Did not inspect other reviews, earlier manuscripts, progress records or the live paper. Independently computed the PDF SHA256 using shasum and verified it again with hashlib."
+  },
+  "scores": {
+    "expression": 9.0,
+    "structure": 9.25,
+    "new_reader_understanding": 9.0,
+    "engagement": 9.0
+  },
+  "overall": 9.0625,
+  "score_reasons": {
+    "expression": "Excellent, precise English with mostly manageable sentences and consistent distinctions between aligned response, total error, collection proximity and perceptual fidelity. The median-lightness example and the no-distinction/exact/doubled-response example on page 5 make difficult concepts economical. Remaining refinements are localized: the abstract’s calibration language is more abstract than necessary, and the long uncertainty paragraph on page 6 compresses several different interpretive tasks.",
+    "structure": "The narrative progresses coherently from the evaluation problem to panels and intervention, feature meaning, intuitive scores, formal estimation and findings. Sections 5.1–5.5 visibly separate primary inference from retrospective pair, calibration and source diagnostics. Table 3 makes the two ordering changes intelligible, and Table 4 separates original from corrected comparisons. The complete main argument concludes on page 10; derivations, controls and earlier cohorts are appropriately optional. This is comfortably beyond the strong-overall anchor and close to exemplary organization.",
+    "new_reader_understanding": "The abstract identifies the design, reference target, central findings and perceptual limit. Section 3 explains all six arms and the finite development/reference panels; Table 1 gives practical feature interpretations and the text defines the standardized units. Section 4 introduces contrasts through an actual lightness difference before notation and clearly explains the D=1 benchmark. Figures and captions explain symbols, scales and projection limits. Only localized effort remains in parsing the abstract’s multiplier terminology and the several uncertainty distinctions packed into Section 4.3.",
+    "engagement": "The opening Monet–Sisley comparison poses a concrete evaluation problem, Figure 1 makes the intervention inspectable, and the results explain what apparent contradictions reveal: positive alignment with considerable error, uneven painter coverage, and ordering changes under calibration or scene averaging. Figure 2’s detail views and Figure 3’s numerical heatmaps reward inspection. The restrained discussion preserves these implications without turning them into a style-fidelity ranking. The qualification-heavy uncertainty paragraph briefly slows an otherwise sustained narrative."
+  },
+  "strengths": [
+    "Pages 1 and 5 distinguish movement toward a painting collection from reproducing labeled painter differences, using both a Monet–Sisley motivation and a measured lightness example.",
+    "The explicit expected-error examples of 1, 0 and 1 for no distinctions, exact agreement and doubled contrasts give the no-contrast benchmark an intuitive meaning before the cross-repeat formula.",
+    "Figure 1 presents the four named conditions and both controls for every model, identifies the fixed example-selection rule and plainly states that the historical paintings were neither inputs nor matched compositions.",
+    "Sections 5.3–5.5 explain diagnostic findings through their implications while consistently marking them as retrospective. Table 3 and its prose make calibration and scene-averaging reversals understandable without claiming improved images or statistical superiority.",
+    "Table 4 and the conclusion openly retain the unresolved Sunburst–FLUX comparison after source correction; the paper also discloses the AI audit’s lack of human verification and the limits of exact-pixel availability.",
+    "The main text stands on its own while Appendices A–G preserve definitions, estimator assumptions, diagnostic controls, complete results and historical-cohort provenance. No clipped text, overlapping tables or broken mathematical rendering was observed."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Abstract, page 1; frozen paper.tex lines 37–40",
+      "issue": "The phrase “fits one contrast multiplier per model” makes the calibration step unnecessarily technical at the first encounter. The surrounding abstract has already explained painter differences in plain language, but this phrase briefly asks the reader to reconstruct what object is being multiplied.",
+      "reader_effect": "A new reader can recover the ranking-change result, but must work harder to connect the procedure to changing the strength of measured painter differences while leaving images fixed.",
+      "suggested_change": "Replace “Separate retrospective calibration fits one contrast multiplier per model on 13 scenes and scores each omitted scene” with “Retrospective calibration rescales each model’s measured painter differences using 13 scenes and scores the omitted scene.” Retain the next sentence’s excess-size explanation and unchanged-images qualification. This replacement is shorter and keeps the abstract within 155 words."
+    },
+    {
+      "priority": "low",
+      "location": "Section 4.3, page 6, paragraph beginning “Before inspecting the new feature outcomes”",
+      "issue": "One long paragraph moves from the prespecified 21-endpoint family and interval construction to descriptive absolute-error intervals, fixed-scene interpretation, and the limits of two repeats. All of these distinctions are relevant, but the construction and interpretation are crowded together.",
+      "reader_effect": "The reader has to hold several kinds of uncertainty in mind immediately before the first results. This briefly reduces the pace and makes the practical meaning of the intervals less immediate than the preceding score explanations.",
+      "suggested_change": "Insert a paragraph break after “Nominal 95% intervals for absolute D are descriptive.” Start the remaining paragraph with “The intervals reflect variation across the 14 fixed briefs, combining generation noise with real scene differences.” Preserve the existing fixed-panel, unseen-scene and independence qualifications. Offset any added paragraph space by shortening “Paired-scene Student intervals use 13 degrees of freedom to give approximate” to “Paired-scene Student intervals give approximate”; the degrees of freedom remain specified by the formula in Appendix B. Keep the full PDF at 22 pages."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent editorial presentation of a bounded digital-reference comparison. The main narrative and quantitative findings are readily understood, with appropriate separation of primary and retrospective evidence and no material claim-fidelity issue found. Only localized language and paragraphing refinements are warranted; no new experiment, representation, model panel or perceptual validation is needed to address them."
+}

@@ -1,0 +1,79 @@
+{
+  "reviewer_id": "editorial_r05_c",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "d125a1642ae63320d9f12b1619700239c30df826eb027047be71de5a46265cff",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the entire 22-page frozen PDF, including abstract, main text, references and Appendices A–G. Visually inspected every rendered page, Figures 1–5 and Tables 1–9. Consulted the frozen paper.tex and specificity_results.tex to resolve notation, locations and exact wording. Technical appendices were treated as optional depth when judging main-text accessibility. Verified the PDF SHA256 directly; the PDF has 22 pages and the abstract has 151 whitespace-delimited words after resolving its simple TeX escapes. No other review, earlier manuscript or repository material was consulted."
+  },
+  "scores": {
+    "expression": 9.0,
+    "structure": 9.0,
+    "new_reader_understanding": 9.0,
+    "engagement": 8.75
+  },
+  "overall": 8.9375,
+  "score_reasons": {
+    "expression": "The English is fluent, precise and usually economical. Sections 4.1–4.2 explain contrasts, aligned response and total error in ordinary language before giving the estimators; result paragraphs generally lead with an interpretable finding. Qualifications are unusually specific about what the design supports. The remaining friction is localized, especially the succession of numerical cases in Section 5.5 and its unexplained emphasis on the two no-texture error values.",
+    "structure": "The progression from the evaluation problem to controls, feature interpretation, scores, declared results and retrospective explanations is coherent. The main results have informative headings and the supporting interventions remain in an explicitly separate appendix. Sections 4.4 and 5.3–5.5 clearly identify retrospective work, while Section 5.1 flags the later source correction at the point of the original claim. The reference-sensitivity subsection would benefit from a more directly comparable presentation of its multiple original/corrected cases, but no substantial reorganization is needed.",
+    "new_reader_understanding": "The abstract stands alone, the six clauses and two repeats are concrete, and Table 1 explains the measurement families without requiring repository access. The Monet–Sisley lightness example and the no-distinction/exact/doubled response examples make the metric scale recoverable. The paper expressly distinguishes the theoretical D=1 benchmark from the generic-painting arm, explains why scene variation contributes to error, and describes calibration as rescaling measured features. Figure captions give useful reading instructions and preserve the digital-reference scope. The few residual obstacles concern local comparison and visual scanning, rather than a missing explanation of the study.",
+    "engagement": "The consequential question is clear immediately, and the strongest findings form a discernible narrative: positive alignment can coexist with substantial mismatch; Monet–Sisley differences can be weak; calibration and scene averaging can change orderings. Figure 1 makes the intervention tangible and Figure 3 rewards inspection with pair-specific values. Momentum is slightly reduced by the numerical accumulation in Section 5.5, and Figure 2 asks readers to trace some connectors that are difficult to distinguish in the tightly clustered non-Cézanne marks. These are refinements to an already engaging scientific account."
+  },
+  "strengths": [
+    "Section 4.1 (page 5) supplies both a real scalar example—reference and generated Monet–Sisley lightness gaps—and three idealized D values. This gives intuition before the multivariate notation.",
+    "Sections 3.2–3.3 and Figure 1 (pages 2–4) make the experimental arms and image-level intervention concrete; the figure keeps all six generators and both controls visible, with a reproducible selection rule and an explicit warning that the historical compositions were not inputs.",
+    "Section 5.1 (page 6) explains the contrast between GPT Image 2’s near-unit aligned response and its larger total error, and immediately separates FLUX’s lowest point estimate from evidence against the D=1 benchmark.",
+    "Sections 5.3–5.4 (pages 8–9) turn diagnostics into explanations: the Cézanne omission, Monet–Sisley comparisons, calibration and scene decomposition each reveal why an aggregate ranking can be misleading.",
+    "The main text accurately preserves the limits of retrospective calibration, approximate intervals, AI source auditing and digital-reference agreement. The source correction that removes one adjusted comparison is stated in both the results and conclusion.",
+    "The manuscript has a clean 22-page rendering, legible tables and a concise 151-word abstract. The technical details and earlier cohorts can be skipped without losing the main argument."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Section 5.5, page 9; specificity_results.tex lines 124–139",
+      "issue": "The source-sensitivity account puts original scaling, refitted scaling, a calibrated score and three adjusted model comparisons into consecutive numerical prose. The scientific interpretation is stated, but the reader must retain several labels and revisit Table 2 to compare the original and corrected cases.",
+      "reader_effect": "This is the one part of the main results that reads more like a numerical inventory than a direct comparison, slowing the otherwise clear account of what source correction changes.",
+      "suggested_change": "Replace the paragraph containing the three corrected model-pair intervals with a compact original-versus-corrected display using the already reported Table 2 and Section 5.5 values. Keep a short lead stating that the Sunburst interval crosses zero, Flare remains resolved and the GPT Image 1 change is retrospective. Replace existing prose rather than adding a new block so the manuscript stays within 22 pages."
+    },
+    {
+      "priority": "low",
+      "location": "Figure 2, page 7",
+      "issue": "The Monet, Sisley and Pissarro reference crosses and generated circles cluster tightly, and some thin connecting segments are obscured by endpoint marks. The accompanying instruction to follow the segment is consequently harder to carry out for precisely the closer painter distinctions.",
+      "reader_effect": "Readers can see the prominent Cézanne separation immediately, but extracting the labeled correspondence among the other painters requires zooming or repeated legend checking.",
+      "suggested_change": "Increase connector contrast or line weight modestly and use consistent white halos or an improved drawing order for reference crosses and generated circles. Preserve all coordinates, scene points, shared axes and the existing qualification about the 31-feature scores; this requires no added page area."
+    },
+    {
+      "priority": "low",
+      "location": "Section 5.5, page 9; specificity_results.tex lines 120–122",
+      "issue": "The sentence beginning “Even removing texture” reports errors of 1.580 and 1.604 without saying why those particular values matter. Its position after a sentence about FLUX’s ordering leaves unclear whether it is illustrating persistence of that ordering or persistence of mismatch relative to the no-contrast benchmark.",
+      "reader_effect": "A reader has to supply the intended comparison and recall the D scale to understand the purpose of these two numbers.",
+      "suggested_change": "Use an explicit replacement such as: “Without texture, Flare and Sunburst still have error estimates above the no-contrast value of one (1.580 and 1.604).” This preserves the reported evidence, avoids implying an additional significance result and is approximately length-neutral."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent, self-contained account of a bounded digital-reference comparison. Its setup, metrics and main findings are readily understood, and its claim boundaries remain clear without sending the reader to the repository. Only localized improvements to numerical comparison and figure readability are apparent; no new experiment, feature representation or expansion of the manuscript is needed."
+}

@@ -1,0 +1,95 @@
+{
+  "reviewer_id": "editorial_r02_b",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "ee9333ed1fa10779dfa06d1cafd2b844dec927dc2bc0f9b0cc6fd5348f515f67",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the entire frozen 22-page PDF, including references and Appendices A–G. Visually inspected every PDF page and all six figures and nine tables; inspected page 7 again at higher resolution. Consulted frozen paper.tex, specificity_results.tex and included TeX matches to resolve notation and source-correction wording. Technical appendices were treated as optional depth, not as a requirement to reconstruct the main argument. No external material, other reviews or earlier manuscript versions were consulted."
+  },
+  "scores": {
+    "expression": 8.75,
+    "structure": 8.75,
+    "new_reader_understanding": 8.5,
+    "engagement": 8.5
+  },
+  "overall": 8.625,
+  "score_reasons": {
+    "expression": "The English is fluent, precise and largely economical. The opening Monet–Sisley example, the plain-language contrast definition in Section 4.1 and the concrete interpretation of the two ordering changes in Section 5.4 are especially effective. Terminology is mostly stable and qualifications usually sit next to the claim they limit. A few localized phrases still require translation: the newly introduced corrected alignment ratio, the backward reference to the fixed-map result, and the overly categorical explanation claim in Section 5.5.",
+    "structure": "The progression from the question through experimental arms, feature interpretation, metric intuition, estimation and results is coherent. The five results subsections have informative headings, and Table 3 keeps the original error, scene decomposition and retrospective calibration together. The main text conveys the study independently; the technical appendices appropriately retain derivations and complete comparisons. The final discussion briefly imports an unexplained earlier intervention, and the source-correction paragraph could identify its two scaling variants more cleanly.",
+    "new_reader_understanding": "The abstract stands alone, Section 3 explains all six clauses and the finite reference target, and Table 1 translates the 31 coordinates into interpretable properties. The no-distinction/exact/doubled examples make D=1,0,1 memorable, and the manuscript explicitly separates the theoretical benchmark from the generic arm. Readers are also told what the inferential intervals do and do not cover. Remaining friction is localized to the unintroduced alignment ratio, ambiguity about which corrected scaling yields the reported intervals, and difficulty following the mean-versus-reference markers in Figure 2 at its printed size.",
+    "engagement": "The central question is consequential and concrete, with a useful image grid and a clear result sequence: a large shared shift, positive but uneven alignment, and changes in model ordering when strength or scene variation is treated differently. Figure 3 rewards inspection and the numerical examples in Section 5.4 reveal why the distinctions matter. Figure 2 offers less immediate visual payoff because its principal markers overlap, and the unexplained prior-intervention sentence interrupts an otherwise focused discussion. These are refinements rather than a need to reconstruct the narrative."
+  },
+  "strengths": [
+    "Sections 1 and 4.1 explain why moving toward a painter collection differs from recovering labeled painter contrasts, using Monet–Sisley and the D=1,0,1 thought experiment before presenting notation.",
+    "The experimental arms, repeat count, fixed scene panel, model configurations, finite reference collection and feature scaling are understandable without consulting the repository.",
+    "Figure 1 supplies a concrete common-scene comparison across every model and painter, while its caption clearly states that the historical paintings were neither inputs nor matched compositions.",
+    "The results distinguish positive aligned response from total error and from beating the no-contrast benchmark; the retrospective pair and calibration analyses are explicitly separated from the declared testing family.",
+    "Table 3 and its surrounding text make both calibration and scene averaging interpretable, including the important point that neither operation demonstrates better images.",
+    "The source correction that removes the original Sunburst comparison is retained prominently, and the limitations accurately bound inference to digital reference measurements rather than perceptual artistic fidelity."
+  ],
+  "findings": [
+    {
+      "priority": "medium",
+      "location": "Section 5.5, page 9; specificity_results.tex lines 124–135",
+      "issue": "The paragraph introduces two corrected analyses, cropping with original scaling and cropping with refitted development scaling, but the next paragraph reports the changed model-pair intervals only as happening \"now.\" It does not explicitly identify which scaling produced those intervals.",
+      "reader_effect": "A reader cannot unambiguously associate the paper’s consequential changed comparison with the corrected target/metric that produced it. This matters because source correction is carried into the conclusion.",
+      "suggested_change": "Replace \"However, the adjusted ... interval now includes zero\" with a sentence naming the relevant scaling variant explicitly, and make clear that the following two intervals use the same variant. This needs only a short replacement phrase and no additional table or analysis."
+    },
+    {
+      "priority": "medium",
+      "location": "Figure 2 and reading instructions, page 7",
+      "issue": "The requested circle-to-cross comparison is harder than the caption suggests: several generated means overlap the dense cluster of scene/repeat dots and reference markers around the origin. The reader can readily see Cézanne’s separation, but the other mean positions are difficult to track at the figure’s printed size.",
+      "reader_effect": "The main geometric explanation becomes a search task, weakening the visual distinction between the average labeled pattern and its scene-to-scene spread.",
+      "suggested_change": "Give the four generated means a more prominent outline or a distinct hollow shape, draw them above the raw points, and reduce raw-point prominence. Preserve the shared axes, data and figure footprint; no extra panel is necessary."
+    },
+    {
+      "priority": "low",
+      "location": "Section 5.5, page 9; specificity_results.tex lines 117–122",
+      "issue": "\"The ordering is therefore not explained by a single texture family or coarse subject mixture\" is broader than the stated sensitivity evidence. The checks show persistence under the particular texture omission and coarse target changes; they do not identify which factors explain the ordering.",
+      "reader_effect": "This briefly turns robustness to selected measurement choices into an explanatory exclusion, despite the appropriately narrower qualifications elsewhere.",
+      "suggested_change": "Use \"The ordering persists when texture is omitted and under these coarse subject-target changes.\" This is shorter and states exactly what the existing evidence shows."
+    },
+    {
+      "priority": "low",
+      "location": "Section 5.4, page 9; specificity_results.tex lines 89–94",
+      "issue": "\"Highest corrected alignment ratio\" introduces a new summary without explaining how it differs from the aligned response beta that the main text has taught the reader. Its definition is deferred to Appendix C.",
+      "reader_effect": "A new reader can reasonably interpret the ratio as another name for beta and miss the intended distinction between direction and magnitude.",
+      "suggested_change": "Replace the opening with a brief gloss such as \"After accounting for contrast size, GPT Image 2 has the strongest directional alignment (Appendix C), yet its squared contrast size is more than twice the reference’s (Q=2.223).\" Keep the exact ratio and derivation in the appendix."
+    },
+    {
+      "priority": "low",
+      "location": "Section 6, final paragraph before Section 6.1, page 10",
+      "issue": "The sentence about \"separate palette and fixed-map experiments\" and \"its earlier ordering\" introduces an undefined historical result at the end of an otherwise self-contained interpretation. The reader must open Appendix F to know what ordering failed to transfer.",
+      "reader_effect": "It interrupts the closing argument and makes optional historical material appear necessary to understand the main discussion.",
+      "suggested_change": "Move the sentence’s specific transfer-result wording into the opening of Appendix F, or replace it in the discussion with \"Earlier interventions provide additional reasons not to infer a universal mechanism (Appendix F).\" Preserve the complete contrary result in the appendix."
+    }
+  ],
+  "claim_fidelity_issues": [
+    "Section 5.5’s \"not explained by ... coarse subject mixture\" overstates what persistence under the specified sensitivity targets establishes. The narrower replacement in the findings preserves the supported result. I found no broader confusion of feature-space agreement with demonstrated perceptual artistic fidelity; those boundaries are consistently stated."
+  ],
+  "summary": "A strong, coherent and unusually careful account of a bounded digital-reference comparison. The main study and its central findings are understandable without the appendices, with compelling examples of why aligned response and total agreement differ. The remaining work is localized clarification and visual emphasis, not restructuring or additional experiments. All suggested revisions can be made by replacement or within existing figure space, preserving the 22-page and 155-word abstract limits."
+}

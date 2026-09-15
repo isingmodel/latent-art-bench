@@ -1,151 +1,142 @@
-\subsection{Reference-aligned responses do not establish low absolute error}
-All 1,008 outputs yield valid measurements. With the original full-frame
-reference target, every aggregate aligned slope has a simultaneous interval above zero
-(Table~\ref{tab:specificity-models}). This excludes a purely common additive
-response under the stated inference model. It does not establish agreement
-for every artist pair or low total error. GPT Image 2 has a slope close to one
-($\beta=.999$, simultaneous interval $[.893,1.104]$), while $D=1.226$.
-Its orthogonal residual contributes 1.229; the corrected amplitude-error term
-is $-.003$. No amplitude-equivalence test was specified.
+\subsection{A response in the right direction can still miss the target}
+All 1,008 outputs yield valid measurements. With the full-frame
+reference target, every model's aligned-response interval lies above zero
+(Table~\ref{tab:specificity-models}). A purely common additive response is
+therefore insufficient to explain the named conditions under the stated
+inference model. Yet positive alignment does not ensure low error. GPT Image 2
+nearly matches the reference-aligned strength, $\beta=.999\;[.893,1.104]$,
+while its total error is $D=1.226$: it adds substantial differences beyond
+that aligned component.
 
 \input{specificity_model_table.tex}
 
-FLUX.2 Max has the smallest estimated primary error, $.801$, with a weaker
-aligned slope, $.470$. The fixed 21-comparison procedure resolves Flare minus
-FLUX at $.937\;[.256,1.618]$ and Sunburst minus FLUX at
-$.840\;[.058,1.623]$. The other 13 pairwise intervals include zero.
-These comparisons favor FLUX on the declared endpoint and scene panel; they
-do not identify a uniquely best generator. Five of six error point estimates
-exceed the no-contrast benchmark of one, and even FLUX's nominal interval,
-$[.586,1.016]$, includes one. No configuration is established to beat that
-benchmark. Absolute-error intervals were not part of the fixed inferential family.
+FLUX.2 Max has the lowest error estimate, $.801$, despite a smaller aligned
+response, $.470$. Adjusted comparisons resolve higher error for Flare and Sunburst
+than for FLUX; the other 13 intervals include zero (Appendix~\ref{app:results},
+Table~\ref{tab:all-specificity-pairs}).
+These use full-frame references;
+the Sunburst result changes after source correction
+(Section~\ref{sec:source-correction}). No model is established to beat the
+no-contrast benchmark of one. Thus the study detects a
+reference-aligned response more clearly than it establishes low total mismatch.
 
-Figure~\ref{fig:specificity-geometry} illustrates the generated contrasts and
-their labeled reference target. These reference-only axes display 86.99\% of
-reference-centroid variation; all numerical comparisons use 31 coordinates.
+In Figure~\ref{fig:specificity-geometry}, C\'ezanne remains visibly separated,
+while generated Monet and Sisley means often lie close together. The M/S/P detail
+boxes magnify the nearby positions. The axes combine the 31 standardized features, with directions fitted
+only to the four reference means. Together they show 86.99\% of variation among
+those means; the pair analysis below checks all 31 features.
 
 \begin{figure}[tbp]
-\centering\includegraphics[width=.92\linewidth]{specificity_geometry.pdf}
-\caption{Centered painter contrasts. Colors identify painters; faint points are
-generated contrasts, circles their means, and crosses the reference contrasts.
-All panels share axes fitted to the four reference centroids. Separation of
-named conditions does not establish agreement with their labeled reference
-configuration or validate that configuration as a measure of artistic style.}
+\centering\includegraphics[width=\linewidth]{specificity_geometry.pdf}
+\caption{Matching the labeled painter pattern. Crosses mark reference contrasts;
+open circles average generated contrasts over all 14 scenes and both repeats.
+Shorter matching-label lines indicate less projected mismatch;
+faint dots show centered scene/repeat contrasts.
+The outlined region is enlarged in the adjacent Monet (M), Sisley (S) and
+Pissarro (P) detail at a common scale; C\'ezanne
+remains in the overview. Each view uses common axes across models. Agreement
+in these two projected axes does not establish agreement in all 31 features.}
 \label{fig:specificity-geometry}
 \end{figure}
+\FloatBarrier
 
-\subsection{Aggregate alignment masks uneven artist distinctions}
-Post-result artist-pair diagnostics show why the six positive slopes should not
-be interpreted as recovery of every painter distinction
-(Figure~\ref{fig:artist-pairs}). Monet--Sisley slopes are $.074$ for GPT Image 1,
-$-.011$ for Flare, $-.249$ for Sunburst, $-.044$ for Nano Banana 2 and $.129$
-for FLUX; GPT Image 2 has a larger estimate, $.402$. These are descriptive
-projections, not additional artist-level rejection tests.
+\subsection{Most scene-averaged change is common to the painter names}\label{sec:shared-change}
+After averaging scenes, named-minus-artist-free shifts comprise a four-name mean
+and painter-specific departures. The mean includes the oil-painting clause and
+any common naming response: 82.5--95.7\% of repeat-corrected squared change
+(Table~\ref{tab:shared-change}). Averaging emphasizes consistent shifts;
+splitting within scenes retains scene-specific variation and gives 88.6--97.2\%
+(Appendix~\ref{app:estimation}). $\beta$ measures departures along the reference contrasts.
 
-The three nonzero reference components account for 66.3\%, 20.6\% and 13.0\%
-of centroid variation. Every model has a larger slope on the dominant component
-than on either remaining component. Omitting C\'ezanne reduces FLUX's aggregate
-slope from $.470$ to $.096$; the corresponding GPT Image 2 slope changes from
-$.999$ to $.651$. Across all 24 label assignments, the correct assignment minimizes error
-for GPT Image 1, GPT Image 2 and FLUX, but ranks second for Flare, Sunburst
-and Nano Banana 2: swapping Monet and Sisley lowers their error. This swap
-improvement is algebraically linked to the negative pair slope, not independent
-corroboration. Neither statistic establishes perceptual artist confusion.
+\input{specificity_shared_table.tex}
 
-\begin{figure}[tbp]
+The shared named shift points broadly along the generic oil-painting shift
+(noise-corrected cosine $.689$--$.930$; 1 means parallel), but its repeat-corrected
+squared magnitude is 1.96--4.14 times as large. Both use scene averages and the
+same artist-free baseline; Table~\ref{tab:shared-change} lists each model's values.
+Thus, a response shared across painter names need not be identical to the response
+to a generic painting instruction. The generic shift and the additional shared
+naming shift can reinforce or oppose one another, so their squared magnitudes
+do not add as independent contributions (Appendix~\ref{app:estimation}).
+\FloatBarrier
+
+\subsection{The aggregate response conceals uneven painter distinctions}
+Retrospective pair diagnostics extend the lightness example in
+Section~\ref{sec:contrast-intuition} to all 31 features (Figure~\ref{fig:artist-pairs}).
+Monet--Sisley aligned responses range from $-.249$ to $.129$ in five models,
+versus $.402$ for GPT Image 2. Yet GPT Image 1 has lower estimated error for this pair
+($.56$ versus $1.16$): stronger alignment does not ensure lower mismatch.
+Omitting C\'ezanne lowers FLUX's overall response from $.470$ to $.096$ and
+GPT Image 2's from $.999$ to $.651$.
+
+Swapping Monet and Sisley lowers error for Flare, Sunburst and Nano Banana 2.
+Reversing a negatively aligned pair difference lowers error without changing its size.
+
+\begin{figure}[!htbp]
 \centering\includegraphics[width=\linewidth]{specificity_artist_pairs.pdf}
-\caption{All six artist-pair contrasts, assessed after the primary results.
-M, S, P and C denote Monet, Sisley, Pissarro and C\'ezanne. Each pair uses its
-own reference difference: slope 1 matches its aligned amplitude, and expected
-error 1 denotes no difference between the two named conditions. Slopes and
-errors use both repeats and all 31 features. Positive model-level alignment
-can coexist with weak or reversed alignment for individual pairs.}
+\caption{Descriptive painter-pair estimates (no pairwise tests). M, S, P and C denote Monet, Sisley,
+Pissarro and C\'ezanne. Pair aligned response 0 means no aligned component,
+1 matches reference strength, values above 1 exaggerate it, and negative values
+indicate the opposite direction.
+Expected error is 0 for exact agreement and 1 for no distinction. Each pair uses
+all 31 features and is normalized by its squared reference distance.
+Negative error can arise from repeat correction,
+not better-than-exact agreement.}
 \label{fig:artist-pairs}
 \end{figure}
+\FloatBarrier
 
-\subsection{Scene dependence and response magnitude qualify model rankings}
-Table~\ref{tab:review-calibration} separates aggregate mismatch from scene
-variation. Nano Banana 2 has lower aggregate error than FLUX ($.723$ versus
-$.761$), but a larger scene-variation component ($.387$ versus $.040$), reversing
-the primary point ordering. This is a difference between evaluation targets;
-it is not evidence that all canceled scene variation is inappropriate.
+\subsection{Scene averaging and contrast magnitude change the ordering}
+We compare fit scene by scene, after averaging scenes, and after held-out
+rescaling of painter contrasts (Table~\ref{tab:review-calibration}).
 
-Response magnitude also matters. GPT Image 2 has the highest corrected
-alignment ratio, $.670$, but generated contrast magnitude $Q=2.223$ relative
-to the reference. FLUX has smaller magnitude, $.741$, and lower alignment,
-$.546$. A nonnegative scalar fitted on 13 scenes and evaluated on the omitted
-scene reduces mean error for every model. The smallest calibrated point
-estimate is GPT Image 2's $.554$, compared with FLUX's $.714$. GPT Image 2
-has lower scores in 12 of 14 folds; deleting each scene and refitting the entire
-procedure retains its advantage, with mean differences from $-.189$ to $-.137$.
-These dependent-fold sensitivities support stability within this panel, not
-a new superiority test or a realizable image intervention.
+\emph{Averaging scenes.} Nano Banana 2's mean painter contrasts have lower error than FLUX's
+($.723$ versus $.761$). Evaluating each scene adds a larger variation component
+for Nano Banana 2 ($.387$ versus $.040$), reversing that order.
+$D$ penalizes variation around the pooled historical target; averaging can
+cancel scene-dependent differences.
 
 \input{specificity_review_table.tex}
 
-The observed reference title-class contrasts differ from the pooled target
-by an average squared amount of $.438H$, including finite-sample error and
-possible capture or classification differences. On the 11 unambiguously designated
-water, built and land briefs, FLUX retains the lowest point estimate with a
-class-specific target (Appendix~\ref{app:diagnostics}). These broad labels do
-not match compositions or verify generated scene adherence.
+\emph{Rescaling contrasts.} GPT Image 2's aligned response is near one, but its
+squared contrast size exceeds twice the reference's ($Q=2.223$, where 1 matches the reference size;
+Appendix~\ref{app:magnitude-coverage}).
+Shrinking weakens its reference-aligned component, but reduces off-target
+differences enough to lower the total error estimate. GPT Image 2's fitted multipliers
+scale every contrast coordinate by about 0.45, using only the other 13 scenes each time.
 
-Genuine-painting controls separate reference disagreement from sampling noise.
-Across 1,000 disjoint reference half-splits, two works per painter and
-pseudo-scene give pooled median error $.233$ and central 95\% range
-$[-.758,1.380]$. Replacing those draws by each held-out pool's exact mean
-narrows the range to $[.135,.428]$: much of the original width comes from sparse
-sampling, not changing reference geometry alone. Class-stratified controls
-retain larger expected errors (Appendix~\ref{app:diagnostics}). These finite-pool
-distributions use split-specific targets and normalizers; they are neither
-confidence intervals nor an absolute artistic-performance threshold.
+After calibration, GPT Image 2 has the lowest error estimate, $.554$,
+compared with FLUX's $.714$; it has lower scores in 12 of 14 held-out folds.
+Deleting any scene and refitting the entire procedure preserves the mean
+advantage (Appendix~\ref{app:magnitude-coverage}).
+The folds overlap, so their win count does not establish statistical superiority.
 
-\subsection{Common shifts and distributional proximity answer other questions}
-The common component accounts for 82.5--95.7\% of global cross-repeat-corrected
-named/free squared change. Computing the same decomposition within scenes
-before averaging gives 88.6--97.2\%. Thus global pooling is not responsible
-for the high common fraction in this experiment. Neither fraction is a
-percentage of images or of artistic style. Ordinary generic/common cosines
-range from .693 to .888. Replacing same-repeat products with cross-repeat
-products avoids the shared-free-control covariance term and yields alignment
-ratios .689--.930, positive after every scene deletion. The generic shift
-therefore shares part of the common named direction; its magnitude is smaller
-for every model.
+\subsection{Which comparisons survive reference changes?}\label{sec:source-correction}
+For the uncalibrated scene error $D$, FLUX retains the lowest point
+estimate across scene deletions, measurement windows, reference targets and
+feature-weighting sensitivities (Appendices~\ref{app:declared-sensitivities}
+and~\ref{app:diagnostics}).
 
-Naming lowers empirical reference energy relative to the generic clause in
-21 of 24 model--painter cells. A correction respecting the two-repeat scene
-strata retains these 21 signs. The exceptions remain Flare for Monet and
-Pissarro, and Sunburst for Monet. Energy and primary contrast error give
-different point orderings: Sunburst has the lowest named energy for Sisley
-and C\'ezanne, whereas FLUX has the lowest for Monet and Pissarro. All 24
-generated/reference variance ratios are below one ($.248$--$.877$), but these
-compare a fixed brief panel with broader historical collections. Complete
-four-painter tables and distributions appear in Appendix~\ref{app:results}.
+Source handling has a more consequential effect on statistical comparisons.
+AI assistants inspected all reference and development reproductions, selecting
+crops that exclude peripheral artifacts in 90 reference and 41 development images.
+The audit used no human verification. After cropping and refitting development scaling,
+FLUX's error estimate changes from $.801$ to $.872$. Corrected aligned-response
+intervals remain above zero for all six models, and GPT Image 2 retains the lowest
+calibrated estimate.
 
-FLUX's point estimate remains lowest after each scene deletion and under the
-square-window, reference-class, family-weight and covariance sensitivities.
-The original square and class-weighted analyses retain both resolved comparisons;
-the added weighting diagnostics introduce no new tests. Removing texture leaves
-Flare and Sunburst errors of 1.580 and 1.604. Persistence under these choices
-shows that a single texture family or broad content mixture does not explain
-all measured disagreement; it does not validate a unique artistic metric.
+Table~\ref{tab:source-comparison} makes the changed comparisons explicit. With
+corrected regions and refitted scaling, the Sunburst interval crosses zero,
+Flare still has higher error than FLUX and the GPT Image 1 interval moves above zero. The latter
+is a retrospective sensitivity, not a new confirmatory finding. Source correction
+preserves FLUX's lowest point estimate while changing the evidence for particular
+model differences.
 
-\subsection{Source correction weakens one model comparison}
-The source audit identifies removable peripheral regions in 90 of 649 reference
-and 41 of 221 development reproductions, including ten calibration-strip cases;
-43 uncertain boundaries remain unchanged. Visual content assignments differ
-from 230 title labels, with 42 unclear cases retaining their original labels.
-These are assistant-coded sensitivities, not independent ground truth
-(Appendix~\ref{app:reference-quality}).
+\input{specificity_source_comparison.tex}
 
-After cropping, FLUX retains the lowest error: $.832$ with original scaling,
-or $.872$ after refitting development scaling, compared with original $.801$.
-All six aligned slopes remain positive, and GPT Image 2 retains the lowest
-calibrated estimate ($.579$ with refitted scaling). However, the adjusted
-Sunburst-minus-FLUX interval now includes zero: $.705\;[-.026,1.436]$;
-Flare-minus-FLUX remains $.864\;[.193,1.535]$. The GPT Image 1-minus-FLUX
-interval also moves above zero, $.758\;[.026,1.491]$, as a retrospective
-sensitivity, not a new confirmatory finding. Revised visual classes on the
-same 11 briefs retain FLUX's lowest point estimate. These corrections change
-particular comparisons while preserving the separation of alignment, magnitude
-and target agreement.
+\begin{samepage}
+A separate check uses class-specific reference means for 11 water, built and
+land briefs, excluding three mixed briefs. Replacing title-derived reference
+labels with visual labels retains FLUX's lowest error estimate.
+Appendix~\ref{app:diagnostics} gives the controls and audit.\par
+\end{samepage}

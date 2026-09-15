@@ -1,0 +1,12 @@
+{
+  "evaluated_round": 10,
+  "page_count": 22,
+  "abstract_whitespace_words": 154,
+  "pdf_extracted_words": 9698,
+  "pdf_sha256": "be9e8e5fa26ad554bb235635df61228ffb9df4c3c3eb6f887033927a9d7de382",
+  "build": "Tectonic passed without warnings; extra float-barrier page resolved before evaluation",
+  "visual_inspection": "All14 changed pages1,6,8\u201318,21 inspected;8remainingpage renders identical to inspectedround9. Definitions precedecomponenttable onpage16. Source table precedesDiscussion andconclusion stayspage10. No clipping or unresolvedreferences.",
+  "presentation_replay": "Review builder --check passed; splitcomponent/targettables concatenatebyte-identically to previouscombinedtable. AllscientificfigurePDFs unchanged fromround9.",
+  "lint": "Scoped Ruff andgitdiffcheckpassed",
+  "scientific_scope": "Only wording,tableplacement,and movingsecondarynumbers toappendix. Sharedfractionandcalibration scopes clarified; no newexperimental orhuman evidence."
+}

@@ -1,0 +1,100 @@
+{
+  "reviewer_id": "editorial_r01_a",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "29fe9ef6e0fe2a1802e5a6f3edba3ae397f5f11957add570a6bdc50653f53724",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete 22-page PDF through layout-preserving text extraction and visually inspected rendered pages 1–22, including all six figures and eight tables. Consulted the supplied snapshot paper.tex for abstract length, metric notation, captions and cross-references. The abstract has 155 whitespace-delimited words. No other reviews, earlier assessments, working-tree manuscript, or progress/goal records were consulted."
+  },
+  "scores": {
+    "expression": 8.0,
+    "structure": 7.75,
+    "new_reader_understanding": 7.5,
+    "engagement": 7.5
+  },
+  "overall": 7.6875,
+  "score_reasons": {
+    "expression": "The English is fluent and unusually precise about what the observations establish. The opening Monet–Sisley example, the interpretation of beta=0 and beta=1, and the explanation of why a weaker response can have lower error are effective. The principal remaining expression weakness is cumulative: repeated statements about absent perceptual validation, non-independence, and what each diagnostic is not repeatedly interrupt otherwise clear findings, particularly across Sections 5.2–6.1. Dense noun phrases such as “global cross-repeat-corrected named/free squared change” also demand avoidable decoding.",
+    "structure": "The question, experimental arms, representation, estimators, results and interpretation follow a coherent order. Primary and retrospective analyses are explicitly distinguished, and the appendix holds appropriate implementation and historical detail. However, the methods introduce several secondary mathematical constructions before the reader reaches any result. Results 5.3 mixes ranking explanations with detailed genuine-painting control distributions, while the final paragraph of 5.4 discusses robustness rather than the common-shift/distributional topic in its heading. These are material but repairable hierarchy and placement problems.",
+    "new_reader_understanding": "A newcomer can recover the experiment, its finite reference target, its central findings and its limits without the repository. Table 1 and the expected-error benchmarks are particularly helpful. Understanding the central geometry still requires substantial concentration: the introduction uses “labeled, centered mean configuration” before a plain-language explanation, and Section 4 starts with multi-index notation rather than first describing the subtraction and two questions in ordinary language. Table 3 is almost entirely symbolic, and Figure 2 explains plotting conventions without guiding readers to a concrete pattern. These obstacles keep the paper below an excellent standalone newcomer exposition.",
+    "engagement": "The initial question is consequential and concrete, Figure 1 rewards inspection, and the weak Monet–Sisley response plus calibration-dependent ordering provide a discernible story. Figure 3 makes uneven pair responses immediately visible. Momentum slows through the long sequence of estimators, diagnostic inventories, numerical sensitivity ranges and repeated qualifications. The main figures and tables could do more of the explanatory work, allowing the prose to emphasize discoveries rather than repeatedly enumerate analytical safeguards."
+  },
+  "strengths": [
+    "The opening Monet–Sisley example makes the difference between absolute proximity and painter-specific contrast intuitive before presenting the experiment.",
+    "The six prompt conditions, fixed scene text, two repeats, model configurations, reference counts and separate scaling panel are described clearly in Sections 3.1–3.3.",
+    "The metric interpretation supplies genuine reading aids: beta=1 matches aligned amplitude; expected D=0 matches the target; expected D=1 is a theoretical no-contrast predictor; the 0, r, 2r example explains why larger response is not automatically better.",
+    "The manuscript consistently preserves the difference between original inference and retrospective diagnostics, and reports the loss of the Sunburst comparison after source correction rather than hiding it.",
+    "Figure 1 offers legible side-by-side images, Figure 3 exposes the pair-level pattern, and Table 1 translates technical feature families into image properties.",
+    "The limitations are specific to the actual design: pooled historical targets, scene variation, imperfect reproductions, fixed briefs and feature-vector calibration are explained without claiming perceptual or mechanistic validation."
+  ],
+  "findings": [
+    {
+      "priority": "high",
+      "location": "Introduction p. 1 and Sections 4.1–4.2 pp. 5–6; paper.tex lines 52–77 and 212–290",
+      "issue": "The most important conceptual operation is introduced as a “labeled, centered mean configuration,” then formalized through several indexed vectors before a newcomer receives the simplest account of what is compared. The useful 0, r, 2r example comes after both the estimator and its residual decomposition.",
+      "reader_effect": "Readers must learn the notation while simultaneously reconstructing the scientific target. A graduate reader without this project background may conflate overall painting change, artist separation and matching the historical differences until well into the methods.",
+      "suggested_change": "Replace the abstract geometric phrase in the introduction with a concrete account: compare each painter’s average measurements with the four-painter average, do the same within each generated scene, and ask whether the corresponding differences agree. Open Section 4 with two short questions—how much response points along the reference differences, and how much disagreement remains—and move the existing 0, r, 2r illustration before the residual decomposition. Retain the operational centering and primary estimator equations; move the detailed residual identity to Appendix B if space is needed. Make these substitutions within the current page budget."
+    },
+    {
+      "priority": "medium",
+      "location": "Sections 4.3–4.5 pp. 6–7 and Results 5.3–5.5 pp. 9–11",
+      "issue": "Secondary detail weakens the hierarchy of the main story. Equation 6 restates the paired comparison in regression form, Equation 7 fully specifies a complementary endpoint, Section 4.5 lists many diagnostics before the primary results, and Section 5.3 devotes a full paragraph of numerical ranges to genuine-painting controls. The final robustness paragraph in 5.4 is also outside that subsection’s common-shift/distributional topic.",
+      "reader_effect": "The reader repeatedly changes analytical questions and has to decide which details explain the headline findings. The important source-correction result arrives after a dense inventory of sensitivities rather than as the culmination of a clearly grouped robustness argument.",
+      "suggested_change": "Keep the paired-scene inference description and an intuitive definition of energy in the main text, placing their redundant/full formulas with existing appendix details. Replace the diagnostic catalogue with a short purpose-based roadmap. Reduce the genuine-painting-control paragraph in 5.3 to its finding that sparse sampling explains much of the control range, with its detailed numbers retained in Appendix C.1. Move the final paragraph of 5.4 next to 5.5 under a combined target/source-sensitivity heading. Preserve the original-versus-retrospective labels and all evidence while shortening the main narrative."
+    },
+    {
+      "priority": "medium",
+      "location": "Table 3 p. 10 and Figure 2 p. 8",
+      "issue": "Table 3 uses five symbolic column headings and its caption repeats identities, leaving the reader to recall the meaning and direction of each quantity. Figure 2 describes colors, points and axes but offers no concrete reading example; the prose only adds the percentage of centroid variation displayed.",
+      "reader_effect": "Two displays central to the calibration and coverage story require repeated backtracking to the methods. The figures convey less insight at a glance than their information could support.",
+      "suggested_change": "Use short plain-language Table 3 headings alongside symbols, such as aggregate mismatch, scene variation, squared contrast size, alignment and calibrated error; state that Q=1 matches the reference squared size and that lower error is preferable. Add a concise Figure 2 reading cue grounded in the displayed projection, for example that the largest visible reference separation places Cézanne apart from the other three painters, then direct readers to Figure 3 for the individual pair distinctions. Replace existing explanatory repetition in the captions rather than enlarging the displays."
+    },
+    {
+      "priority": "medium",
+      "location": "Sections 5.2–6.1 pp. 9–11 and Conclusion p. 12",
+      "issue": "Necessary boundaries are reiterated with similar wording after nearly every result and again in both Discussion and Scope. Examples include separate warnings against perceptual artist confusion, a uniquely valid artistic metric, artistic-performance thresholds, and realizable image interventions.",
+      "reader_effect": "The accumulated qualifications slow the pace and can make the reader remember a list of disallowed interpretations more readily than the positive empirical findings. Some paragraphs finish by revisiting a boundary already made explicit nearby.",
+      "suggested_change": "Keep the first definition-specific caution and the complete Scope account, but cut repeated generic fidelity disclaimers from later paragraphs and captions when no new risk of confusion is introduced. Preserve the crucial distinct cautions: pair results are retrospective, the pooled target can penalize content variation, scalar calibration is performed only on feature vectors, and source correction changes one adjusted comparison. Use recovered space for a short explanation of what each principal finding reveals."
+    },
+    {
+      "priority": "medium",
+      "location": "Figure 1 p. 4 and Appendix D/Figure 4 p. 18",
+      "issue": "The main image panel supplies named examples but calls the prompt only “the first river brief.” Its exact concrete scene and both control arms appear fourteen pages later. Consequently the visual evidence for the experiment’s fixed-scene intervention and shared painting effect is divided between distant displays.",
+      "reader_effect": "A newcomer sees striking images but must consult an appendix to know exactly which objects and composition were requested, or to inspect the generic/free comparison highlighted in the abstract.",
+      "suggested_change": "Include the short scene brief or a faithful compact quotation in Figure 1’s caption. Bring one clearly identified model’s artist-free/generic pair into the main experimental illustration, retaining the complete six-model control grid in Appendix D; this is an illustrative aid, not selected evidence of model superiority. If layout prevents adding cells, include a small inset by reallocating existing figure/caption space. Preserve the selection rule and the warning that historical examples were not matched compositions or generator inputs."
+    },
+    {
+      "priority": "low",
+      "location": "Data and code availability p. 12; paper.tex lines 455–456",
+      "issue": "“Appendix D displays 36 generated and four reference examples” is an inaccurate locator. Appendix D displays the 12 generated controls in Figure 4; the other 24 generated examples and four references are in main-text Figure 1. Byte hashes are also not visibly displayed in those panels.",
+      "reader_effect": "Readers following the availability statement cannot find the promised complete set or hashes at the cited location.",
+      "suggested_change": "Replace the sentence with an accurate division, for example: “Figures 1 and 4 display 36 generated and four reference examples; the accompanying manifest records their identities and byte hashes.” Use the actual manifest locator if one is available in the manuscript."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "A strong, careful manuscript with a clear bounded empirical contribution and good visual material. Its main editorial limitation is the cognitive cost of the exposition: metric intuition, diagnostic hierarchy and display interpretation need more emphasis, while repeated qualifications and secondary formulas can be compressed. These improvements require rearrangement and substitution, not new experiments or more than the current 22 pages; the 155-word abstract already meets its limit."
+}

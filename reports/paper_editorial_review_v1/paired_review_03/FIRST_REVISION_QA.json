@@ -1,0 +1,38 @@
+{
+  "pdf_sha256": "136e17776537dd95e62201522a485b731ced7200c4caa24b5086c59206fc1524",
+  "pages": 22,
+  "abstract_words": 151,
+  "main_text_pages": 10,
+  "page_images": {
+    "page-01.png": "776125e98218db03276ec478a520292f03e699127697d3265d0543447760390c",
+    "page-02.png": "0d691693d3a437c99707c010dbf2a0c20b55b2e23f3256181c78b9a8ebdceeaa",
+    "page-03.png": "9bbfe3a5a1c8b61124b2ef784a9ea8edc20e2ac6ed29690e63dc013970d8e594",
+    "page-04.png": "959a70b02e4e329c01631947a4fe37d2de8e8c468cd4eb68bab140dfbd02328a",
+    "page-05.png": "2089caca91c41cfc5ef248eb3bb49aa630129f19e571e7efb78de6619a713431",
+    "page-06.png": "57715751e3ec3dc724483380a72daec915e9c8b2c37e7e80c47f5d9c8edf67b0",
+    "page-07.png": "4bc2b5e55e0f25ee42a79cd937874a1dca0c42c7822d1b236815f965f67aad8b",
+    "page-08.png": "eed8da08e30c542f75e1a4b5d2dda7c9af0d8528b5e0fb57769c69813e25308f",
+    "page-09.png": "db4c3e1e99178c063bbb06b18b8c1d90214e51bb32fe24f86cd1e658b42b94f5",
+    "page-10.png": "ae4ab5b0f7f88357b0a94a269f52a7de835005a453f4b75ef994c6384d7b2fe4",
+    "page-11.png": "22181a855f99d230c51a5d3c13ebc200f96689017dee834903ebea0055d0a600",
+    "page-12.png": "a624307b52e87e9c343a9f389d9a072c5482a8d30aaba00cc92c656f0624f107",
+    "page-13.png": "ab82f377cd13c86d8c486bad884b7b51481bfafd367b6cc39cebc09e47a284db",
+    "page-14.png": "386e9bb447d7d00361773f161f85a9e93c6448f444e7dab60465ab0cb9b014d6",
+    "page-15.png": "6290380d038e3fb955e2c022e1d4d3d60b87457a03aa9e66d165977740c970dd",
+    "page-16.png": "5238c88c65a901558ac92d63f972ae9416137f913b4367d091ceef8b7a33e666",
+    "page-17.png": "cb5bd533dbfc28204b89e277ecc206fd1839a80b0930164e0ed589b2a970d1c3",
+    "page-18.png": "634c024cdcebc7369b010b012f36b312827b478194a3a09958800ab8c2e9902f",
+    "page-19.png": "f0c1c7f812796a5e045789f55e4b56d210e9c684f6b5785b55dc54b1607ef031",
+    "page-20.png": "304485164a3a843a0ef46fbb4233ed2e37aff49c5ad901e0a880aecbd8cbb48e",
+    "page-21.png": "3ae6bd38b5cbf864204f5c817090f874abdf7f485c0cd274af3c91a29569fb2f",
+    "page-22.png": "6a886e71bda82a36f186ccf4b43989ee7a172f0e3b0b16cc497c63841ec7f81f"
+  },
+  "visual_inspection": "Host inspected contact sheets covering all 22 pages and Figure 2/page 7 at 1600 pixels. Page 6 re-rendered and all page images refreshed after a one-word timing clarification. No clipping, overlap, missing figure or page-count growth observed.",
+  "build": "Tectonic completed without layout warnings",
+  "generated_assets_checks": [
+    "specificity_tables",
+    "review_figures",
+    "specificity_figures"
+  ],
+  "ruff_and_diff_check": "passed"
+}

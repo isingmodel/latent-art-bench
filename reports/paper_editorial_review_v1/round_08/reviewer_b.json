@@ -1,0 +1,79 @@
+{
+  "reviewer_id": "editorial_r08_b",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "b5a5f6ad9c5c188f69b0d704f7052c92ab075e93cff4e320d6536555f5f2be02",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete supplied 22-page PDF, including references and Appendices A-G, using page-preserving text extraction. Visually inspected all 22 rendered PDF pages, including Figures 1-5 and Tables 1-10. Consulted the frozen paper.tex and specificity_results.tex to resolve notation, wording and source locations. Independently verified the supplied PDF SHA256 with shasum. The abstract contains 152 whitespace-delimited source words. Technical appendix depth was treated as optional for the intended main-text reader. No other reviews, prior versions, progress records or non-snapshot manuscript were consulted."
+  },
+  "scores": {
+    "expression": 9.0,
+    "structure": 9.0,
+    "new_reader_understanding": 8.75,
+    "engagement": 8.75
+  },
+  "overall": 8.875,
+  "score_reasons": {
+    "expression": "Excellent, precise English with manageable sentences and consistent definitions of contrasts, aligned response and error. Sections 4.1-4.2 explain the geometry before formalizing it, and the results generally interpret numbers in the same paragraph. Qualifications identify concrete limits rather than suggesting perceptual validation. A few compressed formulations, particularly the calibration fitting sentence and the statement that original and calibrated contrasts answer different questions, could say their meaning more explicitly.",
+    "structure": "The question, controlled design, representation, intuitive score explanation, primary results and retrospective diagnostics form a coherent progression. Results headings state findings rather than analysis names. Table 4 makes the source-correction change visible without silently replacing the original inference; Appendices A-G retain substantial optional depth. The short discussion could contribute a more explicit synthesis instead of announcing that the two orderings answer different questions and moving immediately to mechanism limits.",
+    "new_reader_understanding": "The main text stands on its own: the six prompt conditions and sample count are clear, Table 1 translates feature families, the Monet-Sisley lightness example makes centering concrete, and the 1/0/1 idealized-error example explains why stronger responses need not perform better. Benchmark, uncertainty, finite reference target and post-result status are consistently distinguished. The main localized gap is that the central calibration result is introduced without explicitly stating what objective chooses the multiplier or that one multiplier per model applies to every contrast coordinate.",
+    "engagement": "The central tension between a visible name response and correct painter distinctions is consequential and sustained by concrete contrasts among GPT Image 2, FLUX and Nano Banana 2. Figure 1 permits direct inspection, Figure 2 adds useful magnified painter views, and Figure 3 makes uneven coverage immediately visible. The figures and tables are clean and legible. The discussion is less rewarding than the results because its practical interpretation is compressed; direct painter labels in the Figure 2 detail views would also reduce repeated legend lookup."
+  },
+  "strengths": [
+    "The opening Monet/Sisley proximity example immediately establishes why a generic painting response and correct labeled painter contrasts are different questions.",
+    "Section 4.1 gives both an observed one-coordinate example and the no-distinction/exact/doubled-contrast errors of 1, 0 and 1 before presenting equations. This is effective intuition for a graduate reader unfamiliar with the representation.",
+    "The primary result is communicated as positive aligned response without established superiority over the no-contrast benchmark. The text does not mistake GPT Image 2 beta near one for low total error.",
+    "The original-versus-corrected Table 4 and its accompanying text make the changed Sunburst comparison and retrospective GPT Image 1 comparison easy to identify.",
+    "All five figures and ten tables render cleanly. The complete prompt-condition panel, common projection scales with magnified detail, and numerically annotated pair heatmap provide complementary ways to inspect the story.",
+    "The manuscript consistently distinguishes measured digital references from perceptual artistic fidelity, feature calibration from image improvement, and fixed-scene stability checks from statistical superiority."
+  ],
+  "findings": [
+    {
+      "priority": "medium",
+      "location": "Section 4.4, p. 6, paper.tex lines 307-312; Section 5.4, p. 9",
+      "issue": "The main text says that one nonnegative multiplier is fitted on 13 scenes, but does not explicitly say that it minimizes contrast error or that it is a single model-specific scalar shared across all painter/feature contrasts. The optimizing formula is left to Appendix B.1 even though calibration drives a headline ordering change.",
+      "reader_effect": "A new reader can follow the holdout procedure but may interpret calibration as matching aligned amplitude, rather than minimizing total disagreement; that distinction is particularly relevant when beta is already approximately one.",
+      "suggested_change": "Replace the existing fitting sentence with: \"For each model, we choose one nonnegative multiplier, shared by all painter contrasts and coordinates, to minimize error on 13 scenes, then evaluate the omitted scene; we repeat this for all 14 scenes.\" Keep the equation in the appendix. This is a local replacement rather than an additional methods paragraph."
+    },
+    {
+      "priority": "low",
+      "location": "Section 6 opening, p. 10, paper.tex lines 322-324",
+      "issue": "The discussion states that original and calibrated contrasts answer different questions but stops before naming those questions. Most of the remaining discussion is limitations, so the strongest interpretive result is left chiefly in the results section.",
+      "reader_effect": "The reader remembers that the model ordering changes but receives less help articulating what each ordering evaluates and how to read such comparisons in another study.",
+      "suggested_change": "Rewrite the opening paragraph to name the distinction directly: uncalibrated error evaluates the delivered contrast magnitudes and pattern together; calibrated error evaluates the remaining disagreement after a single response-strength adjustment learned on other scenes. End by connecting that distinction to reporting amplitude, total error and pair coverage together. Use the space occupied by the current general recommendation and repeated \"different questions\" sentence, retaining the existing limitations and 22-page limit."
+    },
+    {
+      "priority": "low",
+      "location": "Figure 2, p. 7",
+      "issue": "The M/S/P magnified views effectively reveal the close means, but painter identity within those small views is conveyed only by color and the shared legend.",
+      "reader_effect": "Inspecting the key Monet-Sisley distinction requires repeated color-to-name lookup, especially where reference crosses and generated circles are close together.",
+      "suggested_change": "Add small M, S and P labels beside the three reference crosses in each detail view, with consistent offsets that avoid the connecting segments. Preserve the current common axes, markers and overview/detail arrangement; no additional panel or page is needed."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent, substantially self-contained editorial presentation of a bounded digital-reference comparison. The paper communicates the central distinction, primary evidence and uncertainty without perceptual overclaiming. Remaining changes are local improvements to calibration transparency, interpretive synthesis and figure navigation; they do not require new evidence or a longer manuscript."
+}

@@ -1,0 +1,72 @@
+{
+  "reviewer_id": "editorial_r24_b",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "e8cc395376773a8aaae9ace5ccf3d0a74c9a732a0819fa7394ba93a004381bc0",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read all 22 PDF pages, including the abstract, main text, availability statement, references and Appendices A–G. Visually inspected rendered versions of every page, including Figures 1–5 and Tables 1–12. Checked the frozen paper.tex abstract and section/input locations. Extraction and rendering used the isolated directory /tmp/editorial_r24_b_9xu34fxc. Technical appendices were treated as optional depth when assessing main-text accessibility. No external scientific-validity check, other reviews or manuscript versions were consulted."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.25,
+    "new_reader_understanding": 9.0,
+    "engagement": 9.0
+  },
+  "overall": 9.125,
+  "score_reasons": {
+    "expression": "Excellent, precise English with consistently useful distinctions. Sections 4.1–4.2 explain contrasts, aligned response and error in plain language before introducing the estimators, and Section 5.4 explains shrinking through its practical effect on off-target differences. Qualifications usually occur where they prevent a particular misunderstanding, rather than interrupting every claim. The abstract has one localized piece of opaque shorthand, “repeat correction”; the otherwise fluent narrative does not need general rewriting.",
+    "structure": "The sequence from the concrete Monet/Sisley question to the controlled arms, feature interpretation, score intuition and results is coherent. The results distinguish the declared comparison from retrospective pair, calibration and source checks, with Tables 4–5 making changes of target explicit. Exact feature scales, identities, controls and historical cohorts are appropriately available as optional appendices. The main text reaches a clear conclusion without requiring those appendices; remaining refinements concern connections between nearby summaries rather than section order.",
+    "new_reader_understanding": "The experiment and finite digital reference target are recoverable without the repository. Table 1 explains what the coordinates mean; the lightness example and idealized errors of 1, 0 and 1 make the two primary scores interpretable. The no-distinction predictor is explicitly separated from the generic-painting arm, and calibration is repeatedly identified as a feature calculation that does not change images. Figure 2 provides genuinely useful magnified painter detail and Figure 3 labels the numerical benchmarks. The abstract shorthand and the implicit change of denominator between the shared percentage and aligned response leave small, localized opportunities for greater accessibility.",
+    "engagement": "The opening question is consequential and concrete, and Figure 1 lets readers inspect a complete common-scene intervention rather than take the name response on trust. Results are organized around revealing contrasts: near-unit alignment with high error, weak Monet–Sisley responses, and changed ordering after scene averaging or calibration. The captions guide inspection and the conclusion keeps these implications bounded. The numerical narrative remains demanding in the shared-change subsection, where one explicit link between the percentage and the primary scores would improve the payoff for a new reader."
+  },
+  "strengths": [
+    "The opening Monet/Sisley example immediately explains why proximity to one painter and reproduction of differences between painters are different evaluation questions (p. 1).",
+    "Section 4.1 introduces centering through a measured lightness gap, then gives memorable no-distinction, exact-match and doubled-response error benchmarks before the equations (p. 5).",
+    "Figure 1 shows all six prompt conditions for all six generators on one explicitly described scene, while clearly separating unmatched historical references from generator inputs (p. 4).",
+    "Figure 2 uses common overview axes and consistent M/S/P detail panels, and Figure 3 supplies direct numerical pair scores with explained zero and unit benchmarks (pp. 7–8).",
+    "Tables 4 and 5 reveal what changes under scene averaging, calibration and source handling; the text carefully distinguishes lowest point estimates, adjusted comparisons and retrospective sensitivities (pp. 9–10).",
+    "The paper consistently limits its claims to measured digital-reference contrasts, including transparent statements about fixed scenes, repeat assumptions, AI source auditing, absent perceptual validation and incomplete exact-pixel access."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Abstract, p. 1; paper.tex abstract",
+      "issue": "“Repeat correction” is the only unexplained procedural shorthand in an otherwise standalone abstract. The two repeats have been mentioned, but their purpose is not yet apparent to a general scientific reader.",
+      "reader_effect": "The reader can understand the headline percentage but may not know whether the correction addresses duplicate requests, sampling counts or stochastic output noise.",
+      "suggested_change": "Replace “repeat correction” with “correction for repeat noise.” This preserves the methodological claim and adds only two words to the 152-word source abstract, keeping it below 155 words."
+    },
+    {
+      "priority": "low",
+      "location": "Section 5.2 and Table 3, p. 8",
+      "issue": "The common-share percentage is correctly defined, but the transition from Table 2 leaves its different denominator from aligned response implicit. The section states that 82.5–95.7% is shared immediately after readers have learned that every model has positive reference alignment.",
+      "reader_effect": "A new reader has to combine the earlier normalization formula with the table caption to see why a very large shared fraction and a substantial aligned response are compatible. This slightly weakens the explanatory payoff of a headline finding.",
+      "suggested_change": "Rework the existing paragraph/caption rather than add a new passage, using a sentence such as: “The shared percentage divides total name-induced change; aligned response instead compares the painter-specific differences with historical differences.” Retain the numeric range, scene averaging, repeat correction and the restriction to measured features while using the existing space."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent and substantially self-contained account of a bounded measured-reference comparison. The manuscript explains its central estimators and changing model orderings clearly, gives readers inspectable visual evidence, and preserves the distinction between statistical alignment and perceptual fidelity. Only localized wording and linkage refinements are apparent; no new evidence or expansion beyond 22 pages is needed."
+}

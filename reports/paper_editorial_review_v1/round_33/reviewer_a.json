@@ -1,0 +1,72 @@
+{
+  "reviewer_id": "editorial_r33_a",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "3bea311da87d1f2bbec5cb603535e818af1a7f2e1f7784d529674daa99c52e57",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete 22-page frozen PDF, including abstract, main text, references, and Appendices A-G. Visually inspected every rendered page, all five figures, and all twelve tables. Consulted frozen paper.tex to verify the abstract, definitions, and main-text wording. Technical appendices were assessed as optional depth. No previous drafts, other reviews, progress records, or external scientific sources were consulted."
+  },
+  "scores": {
+    "expression": 9.5,
+    "structure": 9.5,
+    "new_reader_understanding": 9.25,
+    "engagement": 9.25
+  },
+  "overall": 9.375,
+  "score_reasons": {
+    "expression": "Excellent, precise English with short interpretive sentences alongside the necessary technical language. The lightness example and the three idealized generators in Section 4.1 make otherwise abstract distinctions economical and memorable. Terminology remains consistent, and qualifications generally state a concrete limit at the point where it matters. The abstract is necessarily compressed, but there is no consequential fluency problem.",
+    "structure": "The paper moves coherently from the name-versus-painter-difference question to a fully specified common-scene experiment, understandable measurements, score intuition, primary comparisons, and clearly labeled diagnostics. Detailed estimators, historical cohorts, and stress checks are appropriately optional. The primary and retrospective findings remain distinguishable throughout. The very short conclusion could better retain the evaluation-choice lesson already established in Section 5.4.",
+    "new_reader_understanding": "A new reader can recover the experimental arms, finite digital reference target, development scaling, centering operation, and meanings of beta and D from the main text alone. The D=0/1 examples, explicit distinction between the no-contrast predictor and generic-painting arm, and Table 4 decomposition are particularly effective. Figures and captions explain their reading conventions and inferential limits. One local table heading abbreviates a combined intervention to cropping, although its caption correctly supplies the scaling change.",
+    "engagement": "The motivating Monet/Sisley example leads to a discernible empirical story: a large shared shift can coexist with aligned differences, alignment can conceal missed pairs, and the lowest-error model depends on the evaluation choice. Figure 1 makes the intervention tangible, Figure 2 rewards label-by-label inspection, and Figure 3 exposes the uneven pair response directly. The source-correction comparison adds a consequential robustness result without overstating it. A slightly more synthetic closing sentence would preserve the strongest diagnostic lesson at the end."
+  },
+  "strengths": [
+    "The abstract states the intervention, sample sizes, measurement target, principal numerical result, diagnostic ordering change, and perceptual limit without requiring repository context.",
+    "Section 4.1 anchors contrast centering in an actual median-lightness difference before introducing notation, then uses errors 1, 0, and 1 for no distinctions, exact agreement, and doubled contrasts.",
+    "Section 5.1 distinguishes positive reference alignment from low total mismatch and resolved pairwise comparisons from the lowest point estimate; the FLUX interval spanning D=1 is explicitly reported.",
+    "Table 4 and its surrounding text explain both scene averaging and calibration through concrete ordering changes, with an explicit statement that calibration changes measured vectors rather than images.",
+    "The source audit is communicated candidly: AI judgments, lack of human verification, refitted scaling, changed intervals, and retrospective status are all visible in the main narrative.",
+    "All figures and tables render cleanly. The six-condition image grid, common-scale reference projections with detail views, and annotated pair heatmaps supply complementary ways to inspect the argument."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Table 5, page 10, right-hand column heading",
+      "issue": "The heading says \"Crop-corrected difference\", while the displayed sensitivity changes both reference regions and development scaling. The caption and Section 5.5 explain this correctly, but the heading alone compresses away one of the two changes.",
+      "reader_effect": "A reader scanning the numerical comparison can initially attribute the interval changes to cropping alone, then must use the caption to recover the combined intervention.",
+      "suggested_change": "Replace the heading with \"Cropped references + refitted scaling\" above \"difference [adjusted interval]\", or an equally explicit compact label. Keep the existing values and the caption distinction between primary and retrospective intervals; this needs no additional analysis or page."
+    },
+    {
+      "priority": "low",
+      "location": "Section 7, page 10, final sentence",
+      "issue": "The conclusion restates the name-response versus painter-matching distinction but leaves behind the finding that scene averaging and calibration change the ordering, despite that being one of the paper's most useful interpretive results.",
+      "reader_effect": "The final takeaway is narrower than the narrative developed in Sections 5.3-5.4 and the Discussion; the reader is less likely to retain why these separate evaluation choices matter.",
+      "suggested_change": "Replace the final sentence with a compact synthesis such as \"Overall alignment, pairwise agreement and calibrated error answer different questions about the same images.\" This preserves the bounded claim and can be accommodated by a few words of trimming in the same paragraph, without extending the paper."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "Excellent editorial execution for the stated graduate-level audience. The main narrative stands on its own, the figures make the distinctions inspectable, and the paper consistently limits claims to measured digital reference contrasts. Only localized labeling and closing-emphasis refinements remain; no substantial restructuring or additional evidence is needed for communication."
+}

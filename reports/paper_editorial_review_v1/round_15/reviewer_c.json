@@ -1,0 +1,72 @@
+{
+  "reviewer_id": "editorial_r15_c",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "f0dda9d3aad52f829e49c51758dc2a6bb433a51c79e9738b9753e1aa16f3036e",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete extracted PDF text, including main text, references and Appendices A-G; visually inspected every PDF page, all five figures and all ten tables. Consulted frozen paper.tex for notation, the abstract and conclusion wording. Technical appendices were assessed as optional depth rather than prerequisites for the main narrative. Independently computed the supplied PDF SHA256. PDF has 22 pages; the abstract has 155 whitespace-delimited words after joining words broken across lines. Extraction and rendering used an isolated /tmp/editorial_r15_c.qIRiw2 directory. No other reviews, earlier versions, progress records or nonsnapshot manuscript were consulted."
+  },
+  "scores": {
+    "expression": 9,
+    "structure": 9.25,
+    "new_reader_understanding": 9,
+    "engagement": 9
+  },
+  "overall": 9.0625,
+  "score_reasons": {
+    "expression": "Excellent, precise English with manageable sentences and useful interpretive transitions. Sections 4.1 and 5.4 explain why stronger aligned response can coexist with greater error, while qualifications are attached to the claims they limit. Two localized wording issues remain: the abstract antecedent conflates separate retrospective diagnostics, and the conclusion compresses the source-correction result into the ambiguous phrase \"its adjusted Sunburst comparison does not.\" Neither requires broad rewriting.",
+    "structure": "The progression from the opening Monet/Sisley example through the crossed experiment, feature interpretation, score intuition, primary results and retrospective diagnostics is especially coherent. Sections 5.1-5.5 have informative headings and visibly distinguish alignment, common change, pair differences, calibration and reference sensitivity. The main text reaches its conclusion on page 10; estimator identities, controls, provenance and earlier cohorts are appropriately optional appendix material. The narrative is readily recoverable without those details.",
+    "new_reader_understanding": "The intended reader receives concrete prompt clauses, sample counts, reference weights, feature-family interpretations, development-IQR units and a measured lightness example before the main notation. The no-distinction benchmark is explicitly separated from the generic-painting arm, and the 1/0/1 idealized-error example makes the metric understandable. Tables 2-4 explain benchmarks and the status of intervals; Figure 3 explains negative estimates. The abstract is standalone in substance but its transition between pair analysis and calibration warrants the localized clarification identified below.",
+    "engagement": "The question has a clear consequence for evaluating artist-name prompts, and the manuscript sustains that question through findings that explain what a ranking hides. Figure 1 rewards inspection across both names and controls, Figure 2 provides magnified detail for the close painter means, and Figure 3 makes uneven pair response immediately inspectable. The GPT Image 2/FLUX calibration reversal and Nano Banana 2 scene-averaging reversal are explained as changes in what the evaluation rewards. The narrative remains measured and concrete rather than claiming perceptual imitation or general model superiority."
+  },
+  "strengths": [
+    "The opening Monet/Sisley proximity example and the measured median-lightness comparison in Section 4.1 translate the central statistical distinction into a concrete painter comparison.",
+    "Sections 4.1-4.2 introduce both aligned response and total error with interpretable benchmarks, explain repeat correction in ordinary language, and explicitly distinguish D=1 from the observed generic-painting condition.",
+    "The main visual sequence is purposeful: Figure 1 shows the intervention, Figure 2 exposes the labeled reference pattern, and Figure 3 makes weak painter-pair alignment easy to identify. Tables remain legible and captions identify what their numbers can establish.",
+    "Section 5.4 makes the calibration and scene-averaging ordering changes understandable through specific numerical examples, while stating that calibration changes measured vectors and supplies no new images.",
+    "Section 5.5 and Table 4 transparently show which comparisons change after source correction, including the loss of the Sunburst contrast and the retrospective status of the GPT Image 1 result.",
+    "The paper consistently bounds its claims to the finite digital reference target and recorded configurations, with primary inference, descriptive diagnostics, source-audit limitations and earlier cohorts clearly distinguished."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Abstract, PDF page 1; paper.tex lines 36-38",
+      "issue": "The sentence reporting weak Monet-Sisley alignment is immediately followed by \"These diagnostics uniformly rescale each model's painter differences.\" The antecedent makes the painter-pair diagnostic and the separate calibration diagnostic sound like one procedure, although Sections 5.3 and 5.4 report them separately.",
+      "reader_effect": "An abstract-only reader may infer that the weak pair alignment was measured after the fitted rescaling, obscuring which result concerns the original contrasts and which is the retrospective calibration counterfactual.",
+      "suggested_change": "Replace the two sentences with: \"Retrospective pair diagnostics find weak Monet-Sisley alignment in five models. Separately, calibration uniformly rescales each model's painter differences, fitting 13 scenes and evaluating the omitted scene.\" This preserves the evidence and shortens the passage, keeping the abstract within 155 words."
+    },
+    {
+      "priority": "low",
+      "location": "Conclusion, PDF page 10; paper.tex lines 356-357",
+      "issue": "\"FLUX's lowest uncalibrated estimate survives source correction, but its adjusted Sunburst comparison does not\" is compressed shorthand. It leaves the reader to infer that \"does not\" means the interval now includes zero and that \"adjusted\" refers to the multiple-comparison procedure.",
+      "reader_effect": "The conclusion momentarily blurs a preserved point-estimate ordering with lost statistical resolution, precisely the distinction Table 4 otherwise communicates well.",
+      "suggested_change": "Replace that sentence with: \"FLUX retains the lowest uncalibrated estimate after source correction; the Sunburst-FLUX error difference is then unresolved.\" This is shorter and states the consequence directly."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "Excellent communication of a bounded digital-reference comparison. The main narrative, experimental arms, score meanings and principal findings are understandable without consulting the appendices or repository. The two recommended edits are localized clarifications, not evidence of substantive overclaiming or a need to expand the study."
+}

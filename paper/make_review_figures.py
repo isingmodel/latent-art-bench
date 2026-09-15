@@ -42,27 +42,53 @@ def figure(path, fig, check):
 
 def tables(result, check):
     lines = [
-        r"\begin{table}[tbp]\centering\small",
-        r"\begin{tabular}{@{}lrrrrr@{}}\toprule",
-        r"Model & $D_{\rm aggregate}$ & $V_{\rm scene}$ & $Q$ & $\beta/\sqrt Q$ & $D_{\rm held}$\\",
-        r"\midrule",
+        r"\begin{table}[!htbp]\centering\small",
+        r"\begin{tabularx}{\linewidth}{@{}l*{3}{>{\centering\arraybackslash}X}"
+        r"@{\hspace{2em}}>{\centering\arraybackslash}X@{}}\toprule",
+        r"Model & \shortstack{Uncalibrated\\scene error\\$D$} "
+        r"& \shortstack{Error after\\averaging scenes\\$D_{\rm aggregate}$} "
+        r"& \shortstack{Scene\\variation\\$V_{\rm scene}$} "
+        r"& \shortstack{Calibrated\\scene error\\$D_{\rm held}$}\\",
+        r"\cmidrule(r){1-4}\cmidrule(l){5-5}",
     ]
+    error_keys = ("d", "aggregate_d", "held_out_d")
+    minima = {k: min(row[k] for row in result["models"]) for k in error_keys}
     for name, row in zip(SHORT, result["models"]):
-        vals = [
-            row[k]
-            for k in ("aggregate_d", "scene_variation", "q", "corrected_alignment", "held_out_d")
-        ]
-        lines.append(name + " & " + " & ".join(f"{v:.3f}" for v in vals) + r"\\")
+        vals = []
+        for key in ("d", "aggregate_d", "scene_variation", "held_out_d"):
+            value = f"{row[key]:.3f}"
+            if key in minima and row[key] == minima[key]:
+                value = r"\textbf{" + value + "}"
+            vals.append(value)
+        lines.append(name + " & " + " & ".join(vals) + r"\\")
     lines += [
-        r"\bottomrule\end{tabular}",
-        r"\caption{Post-result decomposition and scalar calibration. "
-        r"$D=D_{\rm aggregate}+V_{\rm scene}$, whereas $D=1-2\beta+Q$ separates "
-        r"alignment and response magnitude. $D_{\rm held}$ evaluates a scalar "
-        r"fitted on the other 13 scenes. These are descriptive feature-space "
-        r"counterfactuals, without new significance tests or realizability claims.}",
+        r"\bottomrule\end{tabularx}",
+        r"\caption{Retrospective error decomposition and calibration "
+        r"against full-frame references. "
+        r"$D=D_{\rm aggregate}+V_{\rm scene}$. Calibration rescales centered generated contrasts "
+        r"using the other 13 scenes and evaluates them on the omitted scene; "
+        r"it does not produce new images. Bold marks each error column's minimum, "
+        r"not significance.}",
         r"\label{tab:review-calibration}\end{table}",
     ]
     save(ROOT / "specificity_review_table.tex", ("\n".join(lines) + "\n").encode(), check)
+    lines = [
+        r"\begin{table}[htbp]\centering\small",
+        r"\begin{tabular}{@{}lrr@{}}\toprule",
+        r"Model & Squared contrast magnitude $Q$ & Alignment ratio $\beta/\sqrt Q$\\",
+        r"\midrule",
+    ]
+    for name, row in zip(SHORT, result["models"]):
+        vals = (row["q"], row["corrected_alignment"])
+        lines.append(name + " & " + " & ".join(f"{v:.3f}" for v in vals) + r"\\")
+    lines += [
+        r"\bottomrule\end{tabular}",
+        r"\caption{Descriptive magnitude and alignment of painter contrasts. "
+        r"$Q=1$ equals the reference squared size, and $D=1-2\beta+Q$. "
+        r"The alignment ratio can fall outside $[-1,1]$ in finite samples.}",
+        r"\label{tab:review-alignment}\end{table}",
+    ]
+    save(ROOT / "specificity_alignment_supplement.tex", ("\n".join(lines) + "\n").encode(), check)
     lines = [
         r"\begin{table}[htbp]\centering\small",
         r"\begin{tabular}{@{}lrrrr@{}}\toprule",
@@ -86,10 +112,13 @@ def tables(result, check):
         r"normalizer; absolute values across columns are not directly comparable. "
         r"Covariance is fitted only on development works, with fixed 50\% shrinkage.}",
         r"\label{tab:review-targets}\end{table}",
+    ]
+    save(ROOT / "specificity_review_supplement.tex", ("\n".join(lines) + "\n").encode(), check)
+    lines = [
         r"\begin{table}[htbp]\centering\small",
         r"\begin{tabular}{@{}lrrr|rrrr@{}}\toprule",
-        r" & \multicolumn{3}{c}{Reference-component slopes} "
-        r"& \multicolumn{4}{c}{Slope after omitting}\\",
+        r" & \multicolumn{3}{c}{Component aligned response} "
+        r"& \multicolumn{4}{c}{Aligned response after omitting}\\",
         r"Model & First & Second & Third & Monet & Sisley & Pissarro & C\'ezanne\\\midrule",
     ]
     for name, row in zip(SHORT, result["models"]):
@@ -97,29 +126,32 @@ def tables(result, check):
         lines.append(name + " & " + " & ".join(f"{v:.3f}" for v in vals) + r"\\")
     lines += [
         r"\bottomrule\end{tabular}",
-        r"\caption{Artist coverage of the aligned response. Reference components "
+        r"\caption{Descriptive artist coverage of the aligned response. Reference components "
         r"account for 66.3\%, 20.6\% and 13.0\% of centroid variation. "
-        r"Each omission recomputes the target and recenters the other three artists. "
-        r"These slopes are descriptive, not artist-level significance tests.}",
+        r"Each omission recomputes the target and recenters the other three artists.}",
         r"\label{tab:review-components}\end{table}",
     ]
-    save(ROOT / "specificity_review_supplement.tex", ("\n".join(lines) + "\n").encode(), check)
+    save(ROOT / "specificity_component_supplement.tex", ("\n".join(lines) + "\n").encode(), check)
 
 
 def pairs(result, check):
     fig, axes = plt.subplots(1, 2, figsize=(6.7, 3.35))
     labels = ("M–S", "M–P", "M–C", "S–P", "S–C", "P–C")
     for ax, field, title, lim in zip(
-        axes, ("beta", "d"), ("(a) Pair slope β", "(b) Pair error D"), ((-0.3, 1.5), (0, 4))
+        axes,
+        ("beta", "d"),
+        ("(a) Pair aligned response β", "(b) Pair error D"),
+        ((-0.3, 1.5), (0, 4)),
     ):
         values = np.array([[v[field] for v in m["artist_pairs"]] for m in result["models"]])
         im = ax.imshow(
             values,
             aspect="auto",
             cmap="coolwarm" if field == "beta" else "Blues",
-            vmin=lim[0],
+            vmin=-lim[1] if field == "beta" else lim[0],
             vmax=lim[1],
         )
+        dark_text = "black" if field == "beta" else "#111111"
         for (i, j), val in np.ndenumerate(values):
             ax.text(
                 j,
@@ -127,15 +159,89 @@ def pairs(result, check):
                 f"{val:.2f}",
                 ha="center",
                 va="center",
-                fontsize=6.4,
-                color="white" if (val > (1.2 if field == "beta" else 2.3)) else "#111111",
+                fontsize=8.5,
+                color="white" if (val > (1.25 if field == "beta" else 2.3)) else dark_text,
             )
-        ax.set_xticks(range(6), labels, fontsize=7)
-        ax.set_yticks(range(6), SHORT if field == "beta" else [""] * 6, fontsize=7)
-        ax.set_title(title, fontsize=9)
-        fig.colorbar(im, ax=ax, orientation="horizontal", pad=0.15, fraction=0.06)
-    fig.subplots_adjust(left=0.15, right=0.985, top=0.87, bottom=0.13, wspace=0.15)
+        ax.set_xticks(range(6), labels, fontsize=8.5)
+        ax.set_yticks(range(6), SHORT if field == "beta" else [""] * 6, fontsize=8.5)
+        ax.set_title(title, fontsize=9.5)
+        colorbar = fig.colorbar(im, ax=ax, orientation="horizontal", pad=0.12, fraction=0.06)
+        colorbar.ax.tick_params(labelsize=8.5)
+        if field == "beta":
+            # A symmetric linear color scale gives equal strength to either sign;
+            # show only the data range on the colorbar without renormalizing it.
+            colorbar.set_ticks([-0.25, 0, 0.5, 1, 1.5], labels=["-0.25", "0", "0.5", "1", "1.5"])
+            colorbar.ax.set_xlim(lim)
+            colorbar.ax.axvline(0, color="#222222", linewidth=1.2)
+            colorbar.ax.annotate(
+                "no alignment",
+                xy=(0, 0),
+                xycoords=("data", "axes fraction"),
+                xytext=(0, -20),
+                textcoords="offset points",
+                ha="center",
+                va="top",
+                fontsize=7.5,
+            )
+        colorbar.ax.axvline(1, color="#222222", linewidth=1.2 if field == "beta" else 1.6)
+        if field == "d":
+            colorbar.ax.plot(
+                1,
+                1,
+                marker="v",
+                markersize=4,
+                color="#222222",
+                transform=colorbar.ax.get_xaxis_transform(),
+                clip_on=False,
+            )
+        colorbar.ax.annotate(
+            "reference strength" if field == "beta" else "no distinction",
+            xy=(1, 0),
+            xycoords=("data", "axes fraction"),
+            xytext=(0, -20),
+            textcoords="offset points",
+            ha="center",
+            va="top",
+            fontsize=7.5,
+        )
+    fig.subplots_adjust(left=0.155, right=0.985, top=0.9, bottom=0.13, wspace=0.15)
     figure(ROOT / "figures/specificity_artist_pairs.pdf", fig, check)
+
+
+def source_comparisons(check):
+    original = s.read(s.DATA / "analysis.json")["comparisons"]
+    audit = s.read(s.ROOT / "reports/painter_reference_quality_v1/analysis.json")
+    corrected = audit["views"]["regions_refitted_scaler"]["comparisons"]
+    lines = [
+        r"\begin{table}[!htbp]\centering\small",
+        r"\begin{tabularx}{\linewidth}{@{}Xcc@{}}\toprule",
+        r"Model comparison & \shortstack{Full-frame difference\\{[adjusted interval]}} "
+        r"& \shortstack{Crop + scaling correction\\Difference [adjusted interval]}\\\midrule",
+    ]
+    for index in (0, 2, 3):
+        before = next(
+            row for row in original
+            if row["model_a"] == s.MODELS[index] and row["model_b"] == s.MODELS[-1]
+        )
+        after = next(
+            row for row in corrected
+            if row["model_a"] == s.TITLES[index] and row["model_b"] == s.TITLES[-1]
+        )
+        cells = []
+        for row in (before, after):
+            lo, hi = row["simultaneous_ci"]
+            cells.append(f"${row['mean']:.3f}\\;[{lo:.3f},{hi:.3f}]$")
+        lines.append(SHORT[index] + r" $-$ FLUX & " + " & ".join(cells) + r"\\[2pt]")
+    lines += [
+        r"\bottomrule\end{tabularx}",
+        r"\caption{Uncalibrated error differences before and after source correction, "
+        r"using audited painting regions and refitted development scaling. "
+        r"Positive differences favor FLUX.2 Max. Full-frame intervals use the "
+        r"95\% simultaneous procedure across 21 endpoints; corrected intervals reuse "
+        r"that procedure retrospectively and add no confirmatory tests.}",
+        r"\label{tab:source-comparison}\end{table}",
+    ]
+    save(ROOT / "specificity_source_comparison.tex", ("\n".join(lines) + "\n").encode(), check)
 
 
 def inspectable_images(check):
@@ -242,6 +348,7 @@ def main():
     result = s.read(OUT / "analysis.json")
     plt.rcParams.update({"font.family": "DejaVu Sans", "pdf.fonttype": 42})
     tables(result, args.check)
+    source_comparisons(args.check)
     pairs(result, args.check)
     if args.images:
         inspectable_images(args.check)

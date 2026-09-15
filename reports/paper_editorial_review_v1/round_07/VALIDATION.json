@@ -1,0 +1,12 @@
+{
+  "evaluated_round": 7,
+  "page_count": 22,
+  "abstract_whitespace_words": 152,
+  "pdf_extracted_words": 9653,
+  "pdf_sha256": "3a000b84e08cfc4973c06372031d753292d7af72bcbe1af3811c9bf8804c0d60",
+  "build": "Tectonic passed without warnings",
+  "visual_inspection": "All22 pages inspected as contact sheets; pages7\u20138 inspected at full render size. Larger figure labels and new table caption fit; no clipping, overlaps or unresolved references.",
+  "presentation_replay": "Specificity tables, all8 specificity figures and review figure/table replay passed. All72 heatmap annotations unchanged; all720 geometry overview coordinates,36 detail duplicates,54 line artists and axes unchanged.",
+  "lint": "Scoped Ruff and git diff --check passed",
+  "scientific_scope": "No data or scientific analysis changes. Twelve corrected aligned-response simultaneous intervals verified against frozen source-quality analysis."
+}

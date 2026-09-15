@@ -1,0 +1,85 @@
+{
+  "reviewer_id": "editorial_r17_c",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "38efaac35ba69c280fdba037f0cef0119fbb71a50110ade6b7fc377c0e61bdd8",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete frozen 22-page PDF, including references and Appendices A–G, and the supplied paper.tex and all included TeX files. Visually inspected every page, Figures 1–5 and Tables 1–10; additionally inspected page 7 at higher resolution. Technical appendices were assessed as optional supporting depth. Used only the fixed rubric and the frozen manuscript; no other reviews, versions, progress records or repository analyses were consulted. Independently computed the PDF SHA256."
+  },
+  "scores": {
+    "expression": 9.0,
+    "structure": 9.25,
+    "new_reader_understanding": 9.0,
+    "engagement": 9.0
+  },
+  "overall": 9.0625,
+  "score_reasons": {
+    "expression": "The prose is precise, fluent and unusually disciplined about the difference between reference alignment, total mismatch and perceptual fidelity. Sections 4.1 and 5.4 explain their numerical examples in ordinary language, and qualifications normally appear next to the claims they constrain. Remaining refinements are local: the abstract compresses calibration procedure and its result into one long sentence, and the adjacent uses of squared contrast size and 45% of measured size in Section 5.4 could be more explicit.",
+    "structure": "The manuscript progresses coherently from a concrete evaluation problem through the reference panel, experimental arms, interpretable features, score definitions and primary results. Sections 5.3–5.5 visibly introduce retrospective diagnostics rather than presenting them as additional primary discoveries. Detailed derivations, controls and earlier cohorts are appropriately optional in Appendices A–G. The short Discussion and Conclusion slightly repeat the same evaluation-choice lesson and source-sensitivity outcome, but there is no important structural gap.",
+    "new_reader_understanding": "The main text is self-sufficient for the intended graduate-level reader: the scene clauses and sample counts are clear, Table 1 explains the representation, and the Monet–Sisley lightness example precedes notation. The 1/0/1 idealized error example, distinction between the theoretical D=1 predictor and the generic arm, and worked calibration and scene-averaging reversals make the findings interpretable. The principal residual friction is the dense abstract calibration sentence and the linear-versus-squared size wording; neither requires reconstruction of the study.",
+    "engagement": "The opening Monet-versus-Sisley example gives a consequential reason to distinguish movement toward painting collections from matching painter differences. Figure 1 rewards direct comparison across actual prompt conditions; Figure 3 makes the weak Monet–Sisley response immediately visible. Results headings state what is learned, and the two ordering changes provide a discernible narrative without overstating model superiority. Figure 2 remains somewhat compact at ordinary page size, and the final sensitivity recap slightly diffuses the otherwise clean ending."
+  },
+  "strengths": [
+    "Section 4.1, page 5, teaches centering with the actual Monet–Sisley lightness gaps before introducing vectors, then explains why no distinctions, exact agreement and doubled contrasts yield expected errors of 1, 0 and 1.",
+    "Sections 5.1 and 5.4 connect estimates to distinct interpretations: GPT Image 2 can have beta near one yet substantial residual mismatch; shrinking its contrasts lowers error without improving or changing any image.",
+    "The figure-and-table sequence supports the story: the complete six-condition example grid on page 4, matching-reference geometry on page 7, pair heatmaps on page 8 and decomposition/calibration table on page 9 each answer a different reader question.",
+    "Uncertainty and claim scope remain visible throughout: fixed briefs, independent-repeat assumptions, retrospective calibration, AI-only source coding, changed adjusted intervals and incomplete exact-pixel availability are stated explicitly without turning the main text into an appendix.",
+    "Appendices retain technical and contrary supporting evidence while the main text independently conveys the design and findings."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Abstract, page 1; paper.tex lines 37–40",
+      "issue": "The calibration sentence combines retrospective status, the fitted parameter, the 13-scene training split, omitted-scene scoring, excess contrast size, a change in the minimum-error model and unchanged images. This is the abstract’s most compressed passage.",
+      "reader_effect": "A reader can recover the result, but must hold the validation procedure in memory before learning why calibration matters. The abstract otherwise provides a clear standalone account.",
+      "suggested_change": "Replace that sentence with two shorter, result-first sentences, for example: “Retrospective rescaling shifts the lowest error estimate from FLUX.2 Max to GPT Image 2 by shrinking its excess painter differences. Each scene is scored with a scale fitted on the other 13; images are unchanged.” This is slightly shorter than the current passage and preserves the procedure and bounded claim within the 155-word limit."
+    },
+    {
+      "priority": "low",
+      "location": "Figure 2, page 7",
+      "issue": "The six overview-and-detail pairs fit into a compact area. The small detail labels and tightly clustered overview markers require close inspection at ordinary page size, despite the useful magnification and correct common axes.",
+      "reader_effect": "The figure conveys the broad Cézanne separation readily, but following the Monet/Sisley/Pissarro correspondences takes more effort than the surrounding prose suggests.",
+      "suggested_change": "Reclaim some internal vertical whitespace above and between the plot rows to enlarge tick labels and detail markers while keeping the same figure footprint, all six models and common axes. Retain the magnified panels and full-feature caveat."
+    },
+    {
+      "priority": "low",
+      "location": "Section 5.4, page 9; specificity_results.tex lines 94–98",
+      "issue": "“Squared contrast size (Q=2.223)” is followed by “about 45% of their measured size” without explicitly distinguishing the linear multiplier from the squared magnitude.",
+      "reader_effect": "A new reader may momentarily interpret 45% as a percentage of Q, obscuring what the calibration actually changes.",
+      "suggested_change": "Replace the latter clause with “The fitted multipliers scale every contrast coordinate by about 0.45, using only the other 13 scenes each time.” This clarifies the operation without adding notation or length."
+    },
+    {
+      "priority": "low",
+      "location": "Conclusion, page 10",
+      "issue": "The conclusion repeats the particular Sunburst–FLUX sensitivity result immediately before its general closing distinction, and its opening “Most measured change” abbreviates the more precise squared, scene-averaged quantity reported earlier.",
+      "reader_effect": "The ending briefly shifts attention back to one model-pair decision rather than consolidating the main measurement lesson; the opening is also less self-contained than the abstract.",
+      "suggested_change": "Specify “Most squared feature change, after averaging over scenes, is shared across names.” Condense the two source-correction sentences to “Source correction preserves the lowest uncalibrated estimate while changing some model-pair comparisons.” Keep the exact Sunburst result in Section 5.5 and Table 4. The combined edit can shorten the conclusion."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "Excellent communication of a bounded digital-reference comparison. The main narrative is readily understood without consulting the repository or technical appendices, and primary evidence is separated from retrospective diagnostics. Only localized refinements to abstract density, figure readability and calibration wording remain; no consequential claim overstatement was identified."
+}

@@ -1,0 +1,8 @@
+{
+  "deviations": [
+    "Representation only: exact observed Claude prefatory sentence removed from JSON extraction; complete raw response.txt retained",
+    "Structure only: one missing closing brace for score_reasons inserted immediately before the unique ,\"strengths\": boundary after native JSON failed at end of input; no score, prose or opinion changed"
+  ],
+  "raw_preserved": true,
+  "content_or_scores_changed": false
+}

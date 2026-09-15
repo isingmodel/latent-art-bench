@@ -1,0 +1,98 @@
+{
+  "rubric_version": 1,
+  "reviewer_id": "astra_xhigh_review_03",
+  "read_scope": {
+    "full_manuscript": true,
+    "notes": "Read the complete supplied manuscript, references, and Appendices A–G; inspected all 22 rendered pages, Figures 1–5, Tables 1–12, and the supplied TeX and bibliography. This is an editorial communication assessment, not an independent validation of the results. The SHA-256 value is supplied metadata and was not independently computed.",
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ]
+  },
+  "scores": {
+    "expression": 8.75,
+    "structure": 9.0,
+    "engagement": 8.75,
+    "new_reader_understanding": 8.75
+  },
+  "overall": 8.8125,
+  "score_reasons": {
+    "expression": "The prose is precise and unusually disciplined about distinctions that could otherwise produce misleading conclusions: aligned response versus discrepancy, nominal versus multiplicity-adjusted intervals, primary versus retrospective analyses, and numerical calibration versus changed images. Section 4.1 introduces the estimands through an intelligible numerical example before presenting the equations. Remaining weaknesses are local: the abstract compresses several conceptual transitions, and Appendix C.1 could state its scene normalization more explicitly.",
+    "structure": "The manuscript establishes the design and measurement space, defines the primary estimands, reports primary comparisons, and then develops the shared-shift and retrospective explanations. This preserves the evidential hierarchy even when the diagnostic results are more striking. Table 4 provides an effective synthesis of quantities that otherwise could become difficult to track. The appendices are appropriately supplementary and clearly distinguish technical derivations, sensitivity analyses, historical cohorts, and provenance limitations; their length is not itself a communication problem.",
+    "engagement": "The paper sustains interest through informative contrasts rather than exaggerated claims: a model can have reference-strength alignment without low discrepancy; aggregate agreement can conceal scene variation; and scalar calibration can change numerical rankings without improving images. The image grid, pairwise heatmaps, and decomposition table make these contrasts concrete. The presentation is generally legible and restrained. Figure 2's small overview/detail pairs impose avoidable visual navigation effort.",
+    "new_reader_understanding": "A scientifically literate newcomer receives substantial help: concrete centering intuition, interpretable benchmark cases for discrepancy, explanations of negative estimates, feature-unit definitions, and explicit warnings that measured reference agreement is not perceptual or oeuvre-wide fidelity. The distinction between the theoretical no-distinction benchmark and the generic-painting arm is particularly valuable. The abstract is less approachable than the body, and the changing scene subset in Appendix C.1 warrants one local notation clarification."
+  },
+  "strengths": [
+    {
+      "location": "Section 4.1 and Equations 1–3",
+      "description": "The centering example and the no-distinction/exact/doubled-response benchmark cases give readers a conceptual model for the estimands before asking them to follow the algebra. This is effective technical exposition without sacrificing precision."
+    },
+    {
+      "location": "Sections 4.3–4.4 and 5.1; Table 2",
+      "description": "The manuscript keeps adjusted primary comparisons, descriptive absolute-discrepancy intervals, and retrospective diagnostics visibly separate. It also explains why an aligned-response estimate near one is not evidence of an exact reference match."
+    },
+    {
+      "location": "Sections 5.2–5.4; Tables 3–4",
+      "description": "The results develop a coherent explanatory sequence: a large shared painting shift, uneven painter differentiation, and distinct contributions from aggregate mismatch and scene variation. The calibration discussion explicitly preserves the distinction between transforming feature vectors and changing generated images."
+    },
+    {
+      "location": "Figures 1 and 3; Appendix D",
+      "description": "The qualitative grid and annotated pairwise heatmaps provide complementary access to the argument. Disclosure of image-selection rules, unmatched reference compositions, and display-only cropping helps readers understand what the illustrations can and cannot demonstrate."
+    },
+    {
+      "location": "Discussion, availability statement, and Appendices C, F, and G",
+      "description": "Limitations are specific rather than ceremonial: finite digital references, content confounding, unverified request independence, AI-assisted source auditing, historical cohort separation, and model-route uncertainty are all connected to the relevant evidence. The distinction between vector-level replay and unavailable exact-pixel archiving is especially clear."
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "low",
+      "criterion": "new_reader_accessibility",
+      "location": "Abstract",
+      "evidence": "The abstract moves rapidly from the experimental design to subtracting four-painter means, aligned response, discrepancy, pairwise diagnostics, and calibration.",
+      "reader_impact": "Readers encounter several analysis-specific distinctions before receiving the intuitive explanation that makes Section 4.1 effective. In particular, the purpose of centering is easier to understand in the body than in the abstract.",
+      "recommendation": "Replace the compressed centering phrase with a short purpose-led description, such as comparing each painter with the four-painter average to separate shared change from painter differences. Fund this clarification by shortening a later diagnostic clause rather than adding sentences. Preserve the primary/retrospective distinction and the abstract's 155-word limit."
+    },
+    {
+      "id": "F2",
+      "severity": "low",
+      "criterion": "engagement",
+      "location": "Figure 2, page 7",
+      "evidence": "Each model has an overview and a narrow Monet/Sisley/Pissarro detail panel. The overview's pale zoom-region outline and the compact alternating layout make the correspondence less immediate than the underlying comparison deserves.",
+      "reader_impact": "Readers must spend additional effort identifying which detail belongs to which overview and remembering that the adjacent panels use different scales. This can interrupt the otherwise clear demonstration of painter separation.",
+      "recommendation": "Within the existing figure footprint, strengthen each overview/detail grouping and darken the zoom-region outline. Add concise overview/detail labels if needed. Retain the existing data, projection qualification, and scale information; no additional panel or analysis is necessary."
+    },
+    {
+      "id": "F3",
+      "severity": "low",
+      "criterion": "expression",
+      "location": "Appendix C.1, class-matched reference-target paragraph, page 15",
+      "evidence": "The prose describes a 'summed class-specific cross-product error' while defining H_c with a scene-average factor. This diagnostic also restricts the analysis to 11 eligible scenes rather than the primary 14.",
+      "reader_impact": "A reader checking the normalization must infer whether the numerator is also scene-averaged and whether S has been redefined for the restricted analysis. This is a local exposition ambiguity, not a demonstrated numerical error.",
+      "recommendation": "State explicitly how the numerator and H_c use the same eligible-scene set and normalization, and define S locally for this diagnostic. If the numerator is the mean scene-wise cross-product error, use that wording instead of 'summed.' Preserve the calculation and reported values."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "manuscript_pdf_sha256": "136e17776537dd95e62201522a485b731ced7200c4caa24b5086c59206fc1524"
+}

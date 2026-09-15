@@ -1,0 +1,12 @@
+{
+  "evaluated_round": 24,
+  "page_count": 22,
+  "abstract_whitespace_words": 152,
+  "pdf_extracted_words": 9648,
+  "pdf_sha256": "e8cc395376773a8aaae9ace5ccf3d0a74c9a732a0819fa7394ba93a004381bc0",
+  "build": "Tectonic passed without warnings",
+  "visual_inspection": "All 22 pages rendered. Changed pages 1, 6, 7, 8, 9, 10 and 19 individually inspected; the other 15 PNGs are byte-identical to previously inspected pages. Pair interpretation and Figure 3 fit together on page 8. Table 4 and its explanation follow the same order. Table 11 uses the existing vertical space with legible labeled subrows. The full Conclusion stays on page 10 and availability begins on page 11, avoiding a split introductory paragraph. Fonts, margins and figure dimensions remain unchanged.",
+  "presentation_replay": "Both changed builders pass exact replay and Ruff. Table 11 preserves all 48 numerical cells and model/painter order; other generated tables are byte-identical. Geometry preserves all 756 scatter points, 54 lines, 12 axes and every position/font/limit; only the axis wording changes and all other specificity figures are byte-identical.",
+  "lint": "git diff --check passed",
+  "scientific_scope": "Presentation and prose only. Pair error estimates already appeared in the existing figure; interval endpoints removed from prose remain in the primary table. No scientific input, numerical result, image or inferential procedure changed. No human evaluation added."
+}

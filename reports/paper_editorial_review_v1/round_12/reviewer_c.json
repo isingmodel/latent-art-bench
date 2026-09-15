@@ -1,0 +1,78 @@
+{
+  "reviewer_id": "editorial_r12_c",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "3139e82bcf93503a549c9239d228feffadfb453ec32ee208917e3632ce2cd08d",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the entire 22-page frozen PDF, including abstract, main text, references and Appendices A-G, using full text extraction and individual page renders. Visually inspected all five figures and all ten tables. Consulted the frozen paper.tex for notation and abstract wording. The abstract contains 155 whitespace-separated words. Applied the fixed rubric only; did not read other reviews, earlier versions, progress records or the current non-snapshot manuscript. Treated technical appendices as optional depth rather than required reading for the main argument."
+  },
+  "scores": {
+    "expression": 9.5,
+    "structure": 9.25,
+    "new_reader_understanding": 9.25,
+    "engagement": 9.0
+  },
+  "overall": 9.25,
+  "score_reasons": {
+    "expression": "Exceptionally clear and controlled scientific prose. Section 4.1 introduces contrasts through an actual Monet-Sisley lightness comparison before presenting notation, and the no-distinction/exact-match/doubled-response example explains the error scale economically. Results use concrete numerical comparisons followed by their interpretation. Qualifications generally identify the precise limitation rather than merely hedging. The main localized terminology refinement is to distinguish uncalibrated contrasts from original full-frame references more consistently.",
+    "structure": "The question, reference collection, controlled prompt design, feature representation, score intuition, inference and findings form a coherent progression. The result headings make the hierarchy visible: positive alignment, the shared response, incomplete painter coverage, calibration and reference sensitivity. Technical derivations, historical supporting cohorts and provenance are appropriately placed in appendices. Table 4 explicitly separates the original comparisons from retrospective source correction. A few float placements interrupt otherwise well-formed paragraphs, but there is no substantive structural gap.",
+    "new_reader_understanding": "The abstract is standalone within its 155-word limit. The six prompt conditions, two repeats, 14 fixed scenes and finite digital reference target are understandable without repository access. Table 1 translates the feature families into measurable image properties; Section 4 explains score benchmarks, noise correction and the distinction between the theoretical D=1 predictor and the generic-painting arm. Calibration is described as rescaling measured contrasts without changing images. Figure captions explain projections and descriptive status. The remaining refinements concern making reference treatment and contrast calibration easier to distinguish while scanning the results.",
+    "engagement": "The opening Monet-Sisley example poses a clear evaluation problem. Figure 1 permits direct comparison across all six conditions and models, with a specific visual observation in the text; Figure 2 makes nearby painter means inspectable through magnified detail views, and Figure 3 exposes the uneven pair coverage. The two ordering changes in Section 5.4 give the numerical findings a discernible narrative. Some comparison work in the central tables still relies on scanning rows and returning to the prose, so selective visual emphasis would improve an already strong reading experience."
+  },
+  "strengths": [
+    "Section 4.1, p. 5, provides both a measured one-feature example and the expected-error sequence 1, 0, 1 for no distinctions, exact agreement and doubled contrasts. This makes the distinction between aligned strength and total error understandable before the equations.",
+    "Figure 1, p. 4, presents all 36 generated examples with the two control columns and four named columns clearly organized. Its caption explains both the requested scene and why the historical images are neither inputs nor matched compositions.",
+    "The results distinguish positive aggregate alignment from weak Monet-Sisley coverage, and distinguish lower point estimates from statistically resolved model differences. Figure 3 and the accompanying text make those distinctions concrete.",
+    "Section 5.4 and Table 3 explain how amplitude calibration and scene averaging can each change an ordering, while explicitly preserving the difference between feature-space diagnostics and image improvement.",
+    "Section 5.5 and Table 4 disclose which source-corrected comparisons change, including the loss of the Sunburst comparison and the retrospective status of the GPT Image 1 comparison. Limitations and data availability remain explicit without displacing the main narrative."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Tables 2-4 and Sections 5.4-5.5, pp. 7-10",
+      "issue": "The results use original error, original scene error and uncalibrated error alongside original and corrected reference targets. These refer to two different choices: whether generated contrasts are rescaled and whether reference images/scaling are corrected. The prose resolves the distinction, but the short labels make a scanning reader recover it repeatedly.",
+      "reader_effect": "The reader can momentarily confuse the calibration change in Table 3 with the reference correction in Table 4, although both are central to interpreting the model ordering.",
+      "suggested_change": "Reserve uncalibrated/calibrated for the generated contrasts and full-frame/crop-corrected for the reference treatment. For example, use Uncalibrated error D in Tables 2-3 and state once in Table 3 that every column uses the full-frame reference target. Replace labels within the existing space rather than adding a new explanation paragraph."
+    },
+    {
+      "priority": "low",
+      "location": "Section 5.5 across pp. 9-10; Appendix C.2 across pp. 16-17",
+      "issue": "A floating table separates the last paragraph of Section 5.5 after the word These, leaving classes do not match compositions below Table 4 on the next page. Appendix C.2 similarly splits contribution as contribu-/tion around the page break and intervening Table 7.",
+      "reader_effect": "These isolated fragments require readers to look back past a table to recover a sentence and slightly diminish the otherwise polished visual flow.",
+      "suggested_change": "Keep the final two-sentence paragraph of Section 5.5 together below Table 4, or shorten it enough to remain on p. 9. Keep the final Appendix C.2 sentence intact by moving it after Table 7 or tightening the preceding paragraph. Both changes can be made without exceeding 22 pages."
+    },
+    {
+      "priority": "low",
+      "location": "Table 3, p. 9",
+      "issue": "The table contains the two ordering changes highlighted in the prose, but gives every numerical entry identical emphasis. The reader must scan six rows in several columns to locate the relevant minima and the FLUX/Nano Banana reversal.",
+      "reader_effect": "The table is legible and accurate, but the central result is slower to retrieve visually than the painter-pair result in Figure 3.",
+      "suggested_change": "Bold the lowest point estimates in the original-error, scene-averaged-error and calibrated-error columns, with a short caption phrase explaining that bold denotes a column minimum, not significance. Keep the scene-variation column unranked. This requires no new analysis, figure or page."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "Excellent editorial execution for the stated graduate-level audience. The manuscript explains the bounded digital-reference comparison, its counterintuitive score behavior and its findings without requiring the technical appendices. I found no consequential claim-fidelity problem. Remaining improvements are localized terminology, page-flow and table-emphasis refinements; they can preserve all evidence and the current 22-page/155-word limits."
+}

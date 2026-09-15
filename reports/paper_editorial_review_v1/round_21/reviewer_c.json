@@ -1,0 +1,79 @@
+{
+  "reviewer_id": "editorial_r21_c",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "007831efad0231cf30643e1c3029fbd2326f46deb244e191d379b7efb24b3331",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete 22-page frozen manuscript, including references and Appendices A–G. Visually inspected all 22 rendered PDF pages, including Figures 1–5 and Tables 1–11. Consulted the frozen paper.tex and specificity_results.tex to resolve notation, links and locations. Technical appendices were assessed as optional depth; the main narrative was assessed independently. No other reviews, previous drafts, progress records or external scientific sources were consulted. The abstract contains 155 whitespace-delimited words in the source."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.5,
+    "new_reader_understanding": 9.25,
+    "engagement": 9.0
+  },
+  "overall": 9.25,
+  "score_reasons": {
+    "expression": "Excellent, precise prose with consistent distinctions among a common response, reference alignment and total error. The lightness example and the three idealized generators in Section 4.1 explain technical ideas in ordinary language before equations. Qualifications generally identify a specific interpretive limit. The abstract compresses several retrospective findings into its final sentences, and a few repeated descriptive-status qualifications slightly interrupt the otherwise fluent pace.",
+    "structure": "The progression from the motivating Monet–Sisley example to the common-scene design, feature interpretation, score intuition, primary comparisons and retrospective diagnostics is exceptionally coherent. Section 5.1 establishes the primary finding before Sections 5.3–5.5 investigate pair coverage, calibration and source sensitivity. Tables 3 and 4 place the consequential ordering and interval changes beside their explanations. Appendices carry derivations, full comparisons and earlier cohorts without being required to recover the main argument.",
+    "new_reader_understanding": "The reader can identify all six prompt conditions, the finite digital reference target, the scaling units, the theoretical no-contrast benchmark and the meaning of calibration from the main text. Section 4.1 gives numerical and idealized examples; Table 1 explains what feature families capture; the figure captions explain the encodings and limitations. The abstract is standalone but its compressed transition into retrospective calibration requires more concentration than the rest of the introduction. The pair heatmap would benefit from stronger visual cues around its interpretive thresholds.",
+    "engagement": "The paper sustains a clear question: can an apparent artist response reproduce the differences between reference painters? Figure 1 supplies concrete images, Figure 2 makes the labeled pattern inspectable, and the calibration and scene-averaging reversals give the numbers a reason to matter. The source correction also has a clear consequence rather than being a list of robustness checks. Small losses of momentum come from qualification repetition and from the heatmap requiring readers to decode thresholds primarily through its numbers and caption."
+  },
+  "strengths": [
+    "Section 4.1, page 5, connects an actual Monet–Sisley lightness difference (.325 versus .254 development-IQR units) to centering, then explains D with no distinction, exact agreement and doubled contrasts. This makes the subsequent equations interpretable without appendix reading.",
+    "Sections 4.2–4.3 explicitly distinguish the D = 1 theoretical predictor from the generic-painting arm and explain what the fixed-scene intervals do and do not represent.",
+    "Figure 1, page 4, shows the complete six-condition, six-generator comparison for one declared scene, with readable labels and a caption that states the unmatched status of the reference paintings. The tree-outline example provides an honest visual entry point without claiming perceptual validation.",
+    "Section 5.4 and Table 3 explain both ordering changes concretely: GPT Image 2 after calibration, and Nano Banana 2 versus FLUX after averaging scenes. Calibration is repeatedly and correctly described as a feature-vector operation that does not alter images.",
+    "Section 5.5 and Table 4 report the source sensitivity in terms of changed intervals, explicitly retaining the unresolved Sunburst comparison and the retrospective status of the GPT Image 1 change.",
+    "The main text and appendices consistently distinguish digital-reference agreement from perceived painter resemblance, disclosed AI source auditing from ground truth, and earlier request-group comparisons from the current experiment."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Abstract, page 1; paper.tex lines 37–42",
+      "issue": "The final six sentences introduce pair diagnostics, repeat the word retrospective, define calibration, report the calibrated ordering, state that images are unchanged and delimit perceptual interpretation. All are relevant, but the calibration definition and outcome are split into several short, terminology-heavy steps at the abstract word limit.",
+      "reader_effect": "A first-time reader can recover the result, but the ending reads more like a compressed inventory than the clear causal explanation offered in Section 5.4.",
+      "suggested_change": "Merge the three calibration sentences, for example: “Retrospective calibration fits one multiplier per model on other scenes; shrinking GPT Image 2’s measured differences gives it the lowest held-out error, without changing images.” Retain the separate pair finding and final perceptual limit. This shortens the abstract while preserving the retrospective, held-out and unchanged-image distinctions."
+    },
+    {
+      "priority": "low",
+      "location": "Figure 3, page 8",
+      "issue": "The aligned-response heatmap uses a continuous yellow-to-blue scale across negative, zero and positive values; its strongest distinction is conveyed by printed numbers rather than a visual boundary at zero. In the error panel, the key no-distinction value of one is labeled below the color bar but has no visually distinct threshold within the map.",
+      "reader_effect": "The important separation between reversed or negligible alignment and positive alignment, and between error below or above the benchmark, takes additional decoding. This mildly reduces the figure’s immediate explanatory value despite the clear caption.",
+      "suggested_change": "Use a neutral color at zero and a distinct hue for negative aligned responses, retaining the printed values and the reference-strength label at one. Add a clear marker at D = 1 on the error color bar, or a subtle cell outline for benchmark crossings. Keep the existing layout and data; no extra panel or text is needed."
+    },
+    {
+      "priority": "low",
+      "location": "Sections 4.4 and 5.3–5.4, pages 6, 8–9; Table 3 caption",
+      "issue": "Retrospective and descriptive status is properly stated, but nearby sentences repeatedly say that the diagnostics add no significance tests, no artist-level rejection tests, or no statistical superiority. The different limitations are valid; some of the wording duplicates the general status already established in Section 4.4.",
+      "reader_effect": "The reader occasionally pauses on procedural qualifications immediately after grasping an empirical finding. This is a small pacing issue rather than a claim-fidelity problem.",
+      "suggested_change": "Keep the general retrospective-status statement and the specific overlapping-fold limitation. Shorten the last sentence of Section 5.3 to “Pair scores and label permutations are descriptive,” and shorten Table 3’s final sentence to “Retrospective descriptive comparisons.” Preserve its separate warning that boldface denotes minima rather than significance. These cuts preserve evidence and reduce repetition without increasing page count."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent editorial presentation of a deliberately bounded digital-reference comparison. The main question, experimental arms, metrics, primary finding and consequential diagnostic changes are understandable without the repository or technical appendices. The remaining improvements are localized compression and visual emphasis, not missing evidence or a need to expand the study. Overall score: 9.25/10."
+}

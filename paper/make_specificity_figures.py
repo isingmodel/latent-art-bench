@@ -17,6 +17,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 import numpy as np  # noqa: E402
 from matplotlib.lines import Line2D  # noqa: E402
+from matplotlib.patches import Rectangle  # noqa: E402
+from matplotlib.patheffects import Normal, Stroke  # noqa: E402
 
 from latent_art_bench.painter_specificity_measurement_v1.workflow import load  # noqa: E402
 from latent_art_bench.painter_specificity_v1.analysis import centered  # noqa: E402
@@ -86,41 +88,193 @@ def artist_geometry(x, refs):
     values = np.concatenate([d.reshape(-1, 2), target])
     lo, hi = np.nanmin(values, axis=0), np.nanmax(values, axis=0)
     pad = (hi - lo) * 0.09
-    fig, axes = plt.subplots(2, 3, figsize=(6.45, 4.4), sharex=True, sharey=True)
-    for m, ax in enumerate(axes.flat):
+    means = np.full((6, 4, 2), np.nan)
+    for m in range(6):
+        for a in range(4):
+            cloud = d[m, :, :, a].reshape(-1, 2)
+            good = np.isfinite(cloud).all(axis=1)
+            if good.any():
+                means[m, a] = cloud[good].mean(axis=0)
+    detail_points = np.concatenate([means[:, :3].reshape(-1, 2), target[:3]])
+    detail_lo = np.nanmin(detail_points, axis=0) - 0.16
+    detail_hi = np.nanmax(detail_points, axis=0) + 0.16
+    fig = plt.figure(figsize=(6.45, 4.4))
+    grid = fig.add_gridspec(
+        2, 3, left=0.09, right=0.94, bottom=0.10, top=0.88, wspace=0.08, hspace=0.28
+    )
+    for m in range(6):
+        cell = grid[m // 3, m % 3]
+        pair = cell.subgridspec(1, 2, width_ratios=(1.4, 1), wspace=0.08)
+        ax = fig.add_subplot(pair[0])
+        detail = fig.add_subplot(pair[1])
+        ax.set_gid(f"overview-{m}")
+        detail.set_gid(f"centroid-detail-{m}")
         for a, color in enumerate(COLORS):
             cloud = d[m, :, :, a].reshape(-1, 2)
             good = np.isfinite(cloud).all(axis=1)
             if good.any():
-                ax.scatter(*cloud[good].T, color=color, alpha=0.23, s=10, linewidths=0)
-                mean = cloud[good].mean(axis=0)
-                ax.plot([target[a, 0], mean[0]], [target[a, 1], mean[1]], color=color, lw=0.8)
-                ax.scatter(*mean, color=color, s=35, marker="o", edgecolors="white", linewidths=0.5)
+                ax.scatter(*cloud[good].T, color=color, alpha=0.13, s=10, linewidths=0, zorder=1)
+                mean = means[m, a]
+                ax.plot(
+                    [target[a, 0], mean[0]], [target[a, 1], mean[1]], color=color, lw=0.8, zorder=2
+                )
+                ax.scatter(
+                    *mean,
+                    s=70,
+                    marker="o",
+                    facecolors="white",
+                    edgecolors=color,
+                    linewidths=1.4,
+                    zorder=4,
+                )
             ax.scatter(
-                *target[a], color=color, s=50, marker="X", edgecolors="#333333", linewidths=0.4
+                *target[a],
+                color=color,
+                s=50,
+                marker="X",
+                edgecolors="#333333",
+                linewidths=0.5,
+                zorder=5,
             )
-        ax.set_title(SHORT[m])
+            if a < 3:
+                mean = means[m, a]
+                detail.plot(
+                    [target[a, 0], mean[0]],
+                    [target[a, 1], mean[1]],
+                    color=color,
+                    lw=1.3,
+                    path_effects=[Stroke(linewidth=2.7, foreground="white"), Normal()],
+                    zorder=2,
+                )
+                detail.scatter(
+                    *mean,
+                    s=58,
+                    marker="o",
+                    facecolors="white",
+                    edgecolors=color,
+                    linewidths=1.5,
+                    zorder=4,
+                )
+                detail.scatter(
+                    *target[a],
+                    color=color,
+                    s=38,
+                    marker="X",
+                    edgecolors="#333333",
+                    linewidths=0.6,
+                    zorder=5,
+                )
+                label_dx, label_dy = ((-8, 0), (11, -6), (-11, -2))[a]
+                detail.annotate(
+                    ("M", "S", "P")[a],
+                    target[a],
+                    xytext=(label_dx, label_dy),
+                    textcoords="offset points",
+                    ha="right" if label_dx < 0 else "left",
+                    va="center",
+                    fontsize=8,
+                    fontweight="bold",
+                    color="#333333",
+                    zorder=6,
+                    gid=f"reference-label-{m}-{a}",
+                )
+        bounds = cell.get_position(fig)
+        fig.text(
+            (bounds.x0 + bounds.x1) / 2,
+            bounds.y1 + 0.013,
+            SHORT[m],
+            ha="center",
+            va="bottom",
+            fontsize=9,
+        )
         ax.set_aspect("equal", adjustable="box")
         ax.set_xlim(lo[0] - pad[0], hi[0] + pad[0])
         ax.set_ylim(lo[1] - pad[1], hi[1] + pad[1])
-        ax.axhline(0, color="#dedede", lw=0.5)
-        ax.axvline(0, color="#dedede", lw=0.5)
+        ax.set_title("Overview", fontsize=8, pad=4)
+        ax.axhline(0, color="#dedede", lw=0.5, zorder=0)
+        ax.axvline(0, color="#dedede", lw=0.5, zorder=0)
+        ax.set_xticks([-2, 0, 2, 4])
+        ax.set_yticks([-2, 0, 2, 4])
+        ax.tick_params(labelsize=7.5, length=3, pad=2)
+        if m % 3:
+            ax.tick_params(labelleft=False)
+        if m < 3:
+            ax.tick_params(labelbottom=False)
+        detail.set_aspect("equal", adjustable="box")
+        detail.set_xlim(detail_lo[0], detail_hi[0])
+        detail.set_ylim(detail_lo[1], detail_hi[1])
+        detail.set_title("M/S/P detail", fontsize=8, pad=4)
+        detail.set_xticks([-1, 0])
+        detail.set_yticks([-0.5, 0.5])
+        detail.tick_params(labelsize=8, length=2, pad=1.5)
+        detail.yaxis.tick_right()
+        detail.tick_params(labelright=m % 3 == 2, labelbottom=m >= 3)
+        for spine in detail.spines.values():
+            spine.set_visible(True)
+            spine.set_color("#777777")
+            spine.set_linewidth(0.8)
+        # Ticks can expand view limits; mark the final detail bounds beneath the data.
+        detail_x0, detail_x1 = detail.get_xlim()
+        detail_y0, detail_y1 = detail.get_ylim()
+        ax.add_patch(
+            Rectangle(
+                (detail_x0, detail_y0),
+                detail_x1 - detail_x0,
+                detail_y1 - detail_y0,
+                fill=False,
+                edgecolor="#777777",
+                linewidth=0.8,
+                zorder=1.5,
+                gid=f"detail-region-{m}",
+            )
+        )
     explained = singular[:2] ** 2 / np.sum(singular**2)
     fig.supxlabel(
-        f"Reference-contrast axis 1 ({100 * explained[0]:.1f}% of centroid variation)", fontsize=8
+        f"Reference-contrast axis 1 ({100 * explained[0]:.1f}% of reference-mean variation)",
+        fontsize=8,
     )
     fig.supylabel(f"Reference-contrast axis 2 ({100 * explained[1]:.1f}%)", fontsize=8)
     handles = [
-        Line2D([], [], marker="o", color=c, linestyle="", label=p) for c, p in zip(COLORS, PAINTERS)
+        Line2D([], [], marker="o", color=c, linestyle="", markersize=5, label=p)
+        for c, p in zip(COLORS, PAINTERS)
     ]
     handles += [
-        Line2D([], [], marker="X", color="#555555", linestyle="", label="Reference contrast"),
-        Line2D([], [], marker="o", color="#555555", linestyle="", label="Generated mean"),
+        Line2D(
+            [],
+            [],
+            marker="X",
+            color="#555555",
+            linestyle="",
+            markersize=5,
+            label="Reference contrast",
+        ),
+        Line2D(
+            [],
+            [],
+            marker="o",
+            color="#555555",
+            markerfacecolor="white",
+            markeredgewidth=1.4,
+            markersize=6.5,
+            linestyle="",
+            label="Centered generated mean",
+        ),
     ]
     fig.legend(
-        handles=handles, loc="upper center", ncol=3, frameon=False, bbox_to_anchor=(0.52, 1.015)
+        handles=handles,
+        loc="upper center",
+        ncol=6,
+        frameon=False,
+        bbox_to_anchor=(0.53, 1.002),
+        fontsize=7.3,
+        handlelength=1,
+        handletextpad=0.35,
+        columnspacing=0.9,
     )
-    fig.subplots_adjust(left=0.12, right=0.99, bottom=0.12, top=0.82, wspace=0.17, hspace=0.32)
+    # Outer scale labels free space for larger details without shrinking the
+    # overview plots. Separate detail axes preserve the entire observation cloud.
+    # All overviews share their original limits; all centroid details share a
+    # second set of limits, with equal x/y scaling in both views.
     return fig
 
 
@@ -128,7 +282,7 @@ def diagnostics(result):
     fig, axes = plt.subplots(1, 2, figsize=(6.45, 3.1))
     y = np.arange(6)
     for field, label, color in (
-        ("amplitude_error", "Aligned amplitude", "#0072B2"),
+        ("amplitude_error", "Aligned-amplitude error", "#0072B2"),
         ("off_axis_error", "Orthogonal residual", "#D55E00"),
     ):
         vals = [r[field] for r in result["models"]]
@@ -137,7 +291,7 @@ def diagnostics(result):
     axes[0].set(
         yticks=y,
         yticklabels=SHORT,
-        xlabel="Component of corrected error D",
+        xlabel="Component of repeat-corrected error D",
         title="(a) Reference-mismatch components",
     )
     axes[0].axvline(0, color="#888888", lw=0.7)

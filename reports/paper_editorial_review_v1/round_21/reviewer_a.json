@@ -1,0 +1,79 @@
+{
+  "reviewer_id": "editorial_r21_a",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "007831efad0231cf30643e1c3029fbd2326f46deb244e191d379b7efb24b3331",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete supplied 22-page PDF, including abstract, main text, availability statement, references and Appendices A–G. Inspected rendered pages 1–22, all five figures and all eleven tables. Consulted only the frozen paper.tex to resolve wording, notation and source locations. Technical appendices were assessed as optional depth. Independently computed the supplied PDF SHA256. Did not inspect other assessments, earlier versions, progress records or the working manuscript."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.25,
+    "new_reader_understanding": 9.0,
+    "engagement": 9.0
+  },
+  "overall": 9.125,
+  "score_reasons": {
+    "expression": "Excellent, precise English with unusually effective distinctions between a shared shift, aligned contrast strength and total mismatch. The concrete lightness example and the 1/0/1 benchmark example in Section 4.1 explain the terminology before equations. Results prose consistently distinguishes estimates from resolved comparisons. Only localized tightening is needed, especially the abstract’s short, successive calibration statements.",
+    "structure": "The progression from question and design through representation, intuitive score definitions, estimation and results is coherent. Section 5.1 establishes the primary finding before Sections 5.3–5.5 explain pair coverage, calibration and source sensitivity. Equations, source controls and older cohorts are appropriately divided between main text and optional appendices. The three-question introduction to Section 4.4 needs a small transition identifying the subsequent fitting procedure as the response-strength diagnostic.",
+    "new_reader_understanding": "The main text stands on its own for a graduate-level reader: exact prompt arms, finite reference target, feature units, repeat correction and the theoretical no-contrast benchmark are explained. Table 1 translates feature families into observable image properties. Tables 2–4 explain scale, direction and inferential status. Figure 1 and the numeric lightness example provide concrete entry points. Figure 3’s numbers are interpretable, but its color treatment does less than it could to distinguish opposite-direction pair responses from weak positive ones.",
+    "engagement": "The opening Monet–Sisley example gives a clear reason to care about the evaluation distinction. The named/control image grid invites inspection, the detail panels in Figure 2 make nearby painter positions visible, and Sections 5.3–5.4 explain what pair failures and ordering reversals reveal. The narrative remains restrained without losing its central tension. The abstract’s final sequence is more compressed and procedural than the otherwise well-paced main text."
+  },
+  "strengths": [
+    "Section 4.1, page 5, explains centering through an actual Monet–Sisley lightness gap (.325 in references versus .254 for GPT Image 2), then uses the no-distinction/exact/doubled examples to make D=1,0,1 intuitive.",
+    "Section 5.1, page 6, clearly distinguishes GPT Image 2’s nearly unit aligned response from its larger total error and separates FLUX’s lowest point estimate from evidence of superiority. The no-contrast benchmark is explicitly theoretical rather than the generic-painting arm.",
+    "Figure 1, page 4, displays every model and prompt condition for the same brief, with readable row/column organization and a caption that states the reference paintings were neither matched compositions nor generator inputs.",
+    "Table 3 and Section 5.4, page 9, turn two changes in ordering into useful explanations of what calibration and scene averaging reward; they explicitly avoid claiming better images or statistical superiority.",
+    "Section 5.5 and Table 4 expose the changed Sunburst and GPT Image 1 comparisons after source correction, while clearly preserving the retrospective status of the sensitivity.",
+    "The manuscript consistently confines its claims to measured digital reference contrasts, acknowledges source and content mixtures, and keeps optional historical cohorts separate from the six-model experiment."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Abstract, page 1; paper.tex lines 37–42",
+      "issue": "The ending switches from weak pair alignment to three consecutive statements about calibration and unchanged images. All are relevant, but the repeated “retrospective” and “measured differences,” followed by the very short “Images remain unchanged,” produce a compressed, procedural cadence at the abstract’s conclusion.",
+      "reader_effect": "A first-time reader has to assemble the relation between the retrospective fit, the changed ordering and the unchanged images from several adjacent statements, reducing the emphasis on the main finding.",
+      "suggested_change": "Combine the calibration explanation and outcome into two sentences, for example: “Separate retrospective calibration fits one multiplier per model using other scenes. Rescaling measured contrasts leaves images unchanged and gives GPT Image 2 the lowest held-out error estimate.” Keep the perceptual-fidelity limit and the primary findings, and maintain the 155-word cap."
+    },
+    {
+      "priority": "low",
+      "location": "Section 4.4, page 6; paper.tex lines 302–307",
+      "issue": "After listing three retrospective questions, the paragraph moves directly to “For each model, we choose one nonnegative multiplier” without identifying which question this procedure answers.",
+      "reader_effect": "For a moment, readers can mistake scalar fitting for the general method behind all three diagnostics, including painter-pair and reference-choice checks.",
+      "suggested_change": "Replace “For each model, we choose” with “For the response-strength check, we choose for each model” or an equally short explicit transition. This needs no additional analysis or substantive expansion."
+    },
+    {
+      "priority": "low",
+      "location": "Figure 3(a), page 8",
+      "issue": "Negative aligned responses and small positive responses share nearby yellow shades, and the labeled color-bar ticks start at zero although negative values are central to the label-swap interpretation. The printed cell values and caption are correct.",
+      "reader_effect": "The figure communicates weak Monet–Sisley alignment clearly, but the distinction between weak alignment and reversal is recovered mainly by reading the minus signs rather than visually.",
+      "suggested_change": "Within the existing panel size, make zero a visually identifiable reference point and mark negative cells distinctly, for example with a restrained outline or sign-sensitive color treatment; include a negative color-bar tick. Retain the printed values and explanatory caption."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "Excellent editorial communication overall. The central study and its qualified findings are understandable without the repository or technical appendices. The distinctions among shared response, contrast alignment, total mismatch and retrospective calibration are especially effective. Only localized improvements to abstract cadence, a methods transition and visual sign encoding remain; no major restructuring or added evidence is warranted."
+}

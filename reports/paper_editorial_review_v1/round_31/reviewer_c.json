@@ -1,0 +1,72 @@
+{
+  "reviewer_id": "editorial_r31_c",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "fa01382124a5b49d4da16998af5f404c4bd5e2b93853414cda2ee92720385424",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete frozen 22-page PDF, including abstract, main text, references and Appendices A–G. Visually inspected rendered pages 1–22, all five figures and all twelve tables. Consulted the frozen paper.tex for main-text wording and notation. Extraction and rendering used isolated /tmp/editorial_r31_c.h55Qk4 paths. No previous reviews, other reviewers, earlier manuscripts or non-snapshot manuscript files were consulted."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.25,
+    "new_reader_understanding": 9.25,
+    "engagement": 9.0
+  },
+  "overall": 9.1875,
+  "score_reasons": {
+    "expression": "English is precise and fluent throughout the main narrative. Section 4.1 explains contrasts with a concrete lightness example and gives the 1/0/1 error examples before equations; Section 5.4 explains why shrinking can lower error even when aligned response is near one. Qualifications generally specify the actual limit rather than interrupting every claim. Only localized compression remains useful, especially the numerical closing paragraph of Section 5.2 and repeated closing comparisons.",
+    "structure": "The progression from the motivating Monet/Sisley distinction to experimental arms, features, score intuition, primary comparisons and retrospective explanations is coherent. Sections 4.3–4.4 and the captions visibly separate the declared inferential family from diagnostics. The source correction that changes a comparison appears in the main results, while derivations, controls, historical cohorts and provenance remain optional appendix depth. The adjacent Discussion and Conclusion could divide their work more economically, but no substantial reorganization is needed.",
+    "new_reader_understanding": "The abstract communicates the design, finite reproduction target, main findings, calibration operation and perceptual limit without relying on the repository. Table 1 translates feature families into recognizable image properties. Section 4 distinguishes positive alignment from low total error, explains repeat correction and explicitly separates the D=1 predictor from the generic-painting arm. Figures 2–3 and Tables 2–5 explain scales, benchmarks and retrospective status. The generic-control ratio/cosine paragraph leaves a small amount of interpretation to the reader, but the core study is independently understandable.",
+    "engagement": "The question has a concrete consequence: visibly different named images need not reproduce the labeled differences in the reference collection. Figure 1 supplies a useful comparison of every condition, Figure 2 provides readable magnified views of the nearby painter means, and Figure 3 makes uneven pair responses immediately inspectable. The numerical reversals in Section 5.4 reveal why evaluation choices matter without claiming improved images. A more explicit payoff for the generic control and less repeated closing recap would sharpen the pace; these are localized refinements."
+  },
+  "strengths": [
+    "The opening Monet/Sisley example identifies the central inferential distinction in ordinary language before introducing the feature geometry.",
+    "Section 4.1 teaches the scores with both an observed lightness difference and three idealized generators; this gives the subsequent formulas usable meaning.",
+    "The main results consistently distinguish lowest point estimates from resolved comparisons, and Table 5 exposes the source correction that changes the Sunburst comparison.",
+    "Figure 1 shows all six prompt arms for all six generators with a transparent selection rule; Figures 2 and 3 reward inspection with painter-level structure beyond aggregate scores.",
+    "Calibration is explained as a change to centered feature contrasts, with other-scene fitting and unchanged images; the main text does not imply a perceptual or generative improvement.",
+    "The extensive appendices preserve technical and historical evidence while the main narrative remains self-contained."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Section 5.2, page 8, final paragraph after Table 3",
+      "issue": "The generic-control comparison ends with a squared-magnitude ratio and a cosine range, but does not state their joint takeaway in words. This is the one result paragraph where the numerical report does most of the explanatory work.",
+      "reader_effect": "A new reader must work out that the response shared by the named prompts is larger than the generic-painting response and broadly follows its direction. This slightly weakens the payoff for including the generic arm.",
+      "suggested_change": "Replace the two sentences with an equally short interpretation-led version, for example: “The shared named response was larger than, and pointed broadly along, the generic-painting response: its repeat-corrected squared magnitude was 1.96–4.14 times as large and its cosine .689–.930 (1 means parallel; Appendix B).” Preserve the scene-averaging context already established in the subsection."
+    },
+    {
+      "priority": "low",
+      "location": "Sections 6 and 7, page 10",
+      "issue": "The Discussion opening and Conclusion both recap the distinction between aggregate alignment and error, the change of ordering after calibration, and the need to keep evaluation choices separate. The result sections have already made those points concretely.",
+      "reader_effect": "The paper closes with some repetition rather than giving each short closing section a distinct purpose. This affects pace more than comprehension.",
+      "suggested_change": "Keep the evaluation advice and causal boundary in the Discussion, compressing its opening numerical-comparison recap. Retain the main empirical summary and source-sensitive Sunburst result in the Conclusion. This can be done by cutting or replacing existing sentences and does not require additional pages or evidence."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "Excellent communication of a bounded comparison of measured digital reference contrasts. The experiment, score meanings, primary findings and retrospective diagnostics are readily understood, and the figures are effective. Remaining improvements are localized interpretation and economy edits; no major reader-facing claim-fidelity problem was identified."
+}

@@ -1,0 +1,78 @@
+{
+  "reviewer_id": "editorial_r19_c",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "e2bae604c58250091674a82928f0f3a539bcc5dcf0146157475f857ef669fc6d",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete frozen 22-page PDF, including references and Appendices A–G. Visually inspected every page, all five figures and all eleven tables; re-rendered page 17 at higher resolution to resolve a low-resolution display artifact. Consulted frozen paper.tex, specificity_results.tex, and included appendix/table source to resolve notation and cross-references. Optional technical appendices were assessed as supporting depth, not as prerequisites for understanding the main narrative. Independently computed the supplied PDF SHA256 with shasum. No other reviews, earlier versions, progress records, goals, or non-snapshot manuscript were consulted."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.25,
+    "new_reader_understanding": 9.0,
+    "engagement": 9.25
+  },
+  "overall": 9.1875,
+  "score_reasons": {
+    "expression": "Excellent precision and generally fluent, economical prose. Sections 4.1 and 5.4 explain alignment, error and calibration with concrete examples instead of relying on notation alone. The manuscript consistently distinguishes estimates from resolved comparisons and digital measurements from perceptual fidelity. A few sentences, especially the reporting recommendation in Section 6, pack several operations into a single list and can be simplified locally.",
+    "structure": "The question, common-scene design, feature representation, intuitive score definitions and results form a coherent progression. Section 5 leads with the declared alignment/error result, then explains the common response, painter-pair unevenness, ordering changes and source sensitivity. Technical derivations and earlier cohorts are appropriately placed in optional appendices. The brief main-text introduction of energy discrepancy is a small detour because its numerical outcomes appear only in Appendix E.",
+    "new_reader_understanding": "The abstract is standalone, the six conditions are concrete, and Table 1 translates feature families into visual properties. The Monet–Sisley lightness example and the expected errors 1, 0 and 1 for absent, exact and doubled contrasts make the central distinction accessible. Benchmark meaning, fixed-scene uncertainty and the limited interpretation of calibration are explicit. Figure 2 would be still easier to connect to the scene-level error if its caption directly identified the averaging behind the open circles.",
+    "engagement": "The opening Monet/Sisley example poses a clear evaluation problem, Figure 1 makes the intervention inspectable, and Figure 3 turns aggregate alignment into a readable painter-pair pattern. Section 5.4 explains why two different evaluation choices reverse point-estimate orderings, giving the numerical results a discernible narrative. The tone sustains interest without claiming perceptual validation. A small amount of main-text diagnostic setup and a dense discussion sentence slightly soften the otherwise strong pace."
+  },
+  "strengths": [
+    "Section 4.1, page 5, uses the observed lightness gap and three idealized generators to explain why a positive or near-unit aligned response does not ensure low total error.",
+    "Sections 5.1 and 5.5, pages 6–10, clearly distinguish FLUX’s lowest uncalibrated point estimate from statistical evidence, including the unresolved no-distinction benchmark and the source-sensitive Sunburst comparison.",
+    "Figure 1, page 4, presents every condition for a fixed scene with an explicit selection rule and a caption that distinguishes reference illustrations from matched compositions or generator inputs.",
+    "Section 5.4 and Table 3, page 9, explain both calibration and scene averaging through their actual numerical ordering changes, while keeping the unchanged-image and overlapping-fold limitations visible.",
+    "Retrospective status, AI source-audit limitations, digital-reproduction scope and exact-pixel access limitations are stated where they affect interpretation. The appendix carries the necessary technical depth without making the main findings depend on repository inspection."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Figure 2 caption, page 7; specificity_results.tex lines 31–36",
+      "issue": "The caption identifies open circles as centered generated means without stating explicitly that these means average over all scenes and repeats. The nearby primary table reports an error that evaluates scenes separately.",
+      "reader_effect": "A new reader can treat the distances between circles and crosses as a direct picture of the primary scene-by-scene error, missing the scene-variation contribution explained in Sections 4.2 and 5.4.",
+      "suggested_change": "Replace the opening caption sentences with: “Crosses mark reference contrasts; open circles average generated contrasts over all 14 scenes and both repeats. Lines join matching painter labels.” Keep the faint-dot explanation and projection limitation. This is a caption clarification using existing information, with no new figure or analysis."
+    },
+    {
+      "priority": "low",
+      "location": "Section 4.4, page 6; paper.tex lines 297–303, and Appendix E opening, page 18",
+      "issue": "The main text introduces energy discrepancy and its finite-sample correction, but Section 5.2 sends its outcomes directly to Appendix E. This briefly opens a secondary measurement branch immediately before the primary results.",
+      "reader_effect": "The reader has to retain an additional metric that does not contribute to the ensuing main-text numerical argument.",
+      "suggested_change": "Keep the sentence explaining the artist-free and generic arms, then use a short pointer such as “Collection-level proximity and spread provide complementary diagnostics (Appendix E).” Move the existing plain-language energy definition into Appendix E’s opening. Preserve the formulas and correction in Appendices B and C; this shortens the main text without losing evidence or increasing page count."
+    },
+    {
+      "priority": "low",
+      "location": "Section 6 opening paragraph, page 10; paper.tex lines 323–325",
+      "issue": "The sentence beginning “Reporting overall and pairwise alignment” nests the reporting quantities and scene-aggregation choice in one long grammatical subject.",
+      "reader_effect": "The practical implication is clear after rereading but lands less directly than the numerical examples that precede it.",
+      "suggested_change": "Replace that sentence with two shorter sentences: “Report overall and pairwise alignment alongside original and calibrated error. State whether scenes are scored separately or averaged first: these choices determine which agreement the evaluation rewards.” This preserves the recommendation and reduces its syntactic load within the existing space."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent, self-contained account of a bounded comparison of measured digital painter contrasts. The main findings, competing interpretations and uncertainty are readily understood. Only localized refinements in figure aggregation labels and main-text pacing remain; no substantial claim-fidelity problem was identified."
+}

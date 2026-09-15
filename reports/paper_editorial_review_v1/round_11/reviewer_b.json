@@ -1,0 +1,79 @@
+{
+  "reviewer_id": "editorial_r11_b",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "7cdee18a48aa2ec903c23d106e704ceb4f9211d2cd31995e078e7c4471d54cd8",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read the complete 22-page frozen PDF, including references, all captions, and Appendices A–G. Visually inspected every rendered PDF page, including Figures 1–5 and Tables 1–10. Read frozen paper.tex and specificity_results.tex to resolve wording and locations. Technical appendices were treated as optional depth when assessing main-text accessibility. Verified SHA-256 directly from the supplied PDF. The abstract has 153 whitespace-delimited words after resolving its TeX accent and percentage markup. No other review, prior manuscript, progress record, repository analysis, or external source was consulted."
+  },
+  "scores": {
+    "expression": 9.25,
+    "structure": 9.0,
+    "new_reader_understanding": 9.0,
+    "engagement": 9.0
+  },
+  "overall": 9.0625,
+  "score_reasons": {
+    "expression": "The English is precise, fluent and economical across the main argument. Section 4.1 explains contrasts with a real lightness comparison before introducing notation, and Sections 5.1 and 5.4 explain numerical differences through their consequences. Terminology consistently distinguishes aligned response, total error, collection proximity and calibration. Qualifications generally identify a specific interpretive limit rather than interrupting the prose gratuitously. Only small wording refinements remain, particularly the abstract’s compressed introduction of generated contrasts and the subject-label sentence in Section 5.5.",
+    "structure": "The paper progresses coherently from the evaluation question through experimental arms, feature interpretation, score intuition, computation and findings. The result subsections have informative headings and develop a clear sequence: detectable alignment, a dominant shared shift, uneven pair coverage, changes after calibration and scene averaging, and reference sensitivity. The main text supplies the needed interpretation while detailed identities, controls and earlier cohorts remain in appendices. The conclusion could better recover the shared-response finding that motivates the title; this is a localized emphasis issue.",
+    "new_reader_understanding": "A graduate-level reader can recover the design and central result without the repository. The abstract identifies the sample sizes, controls, reference painters, main outcomes and perceptual limit. Table 1 translates the feature families into ordinary visual properties; Section 4.1 gives the no-distinction/exact/doubled-response error examples; Section 4.2 explicitly separates the theoretical D=1 benchmark from the generic-painting arm. Figure 2’s detail views and Figure 3’s numeric cells make painter-pair patterns inspectable. The uncertainty discussion and the source-correction comparison are unusually clear. Minor abstract terminology and the referent of the visual subject labels can be made easier.",
+    "engagement": "The opening Monet–Sisley example gives the evaluation question a concrete stake, and Figure 1 rewards comparisons across prompt conditions and models. The lightness example links measurement to an observable property. Results explain why near-unit aligned response can still mean high error and why changing response strength or scene aggregation changes rankings. Figures 2 and 3 support that narrative with readable details and explicit benchmarks. The ending could place the dominant shared response ahead of the individual Sunburst comparison to strengthen the paper’s final emphasis."
+  },
+  "strengths": [
+    "Section 4.1, page 5, makes the metric understandable before the equations: the Monet–Sisley lightness gap gives centering a concrete purpose, and the expected errors 1, 0 and 1 explain why a stronger response need not be a better match.",
+    "Sections 3.1–3.3 and Table 1 clearly define the finite digital reference target, the six prompt conditions, development-panel scaling and the visual meaning of all three feature families.",
+    "Figures 1–3 are legible and complementary: the image grid exposes the intervention, the common-scale detail plots make nearby painter means distinguishable, and the annotated heatmaps show the full-feature pair results.",
+    "Section 5.1 distinguishes positive alignment from demonstrated improvement on the no-distinction benchmark, while Section 5.5 and Table 4 explicitly show the Sunburst comparison crossing zero after correction.",
+    "Section 5.4 and Table 3 turn the two ordering changes into understandable evaluation choices, and explicitly state that scalar calibration changes neither the images nor the status of the descriptive comparisons.",
+    "Appendices preserve technical evidence and contrary historical results without making them prerequisites for understanding the main study."
+  ],
+  "findings": [
+    {
+      "priority": "low",
+      "location": "Abstract, page 1; paper.tex lines 37–39",
+      "issue": "The phrase “each model’s multiplier for generated contrasts” compresses the operation just when the abstract introduces calibration. “Contrasts” has not yet been explicitly equated with the painter differences described earlier in the abstract.",
+      "reader_effect": "A new reader can understand that the ordering changes but has to infer what the multiplier acts on and why no image changes are involved.",
+      "suggested_change": "Recast these two sentences using “rescales each model’s painter differences” and retain the 13-scene fitting/remaining-scene evaluation and unchanged-images qualifications. For example: “A single multiplier, fitted on 13 scenes and evaluated on the remaining scene, rescales each model’s painter differences and shifts the lowest estimated error from FLUX.2 Max to GPT Image 2 without altering images.” This can replace the existing two sentences without increasing their word count; keep the complete abstract at or below 155 words."
+    },
+    {
+      "priority": "low",
+      "location": "Conclusion, page 10; paper.tex lines 352–357",
+      "issue": "The conclusion reprises alignment, pair coverage, calibration and the Sunburst sensitivity but does not explicitly reprise the dominant shared component, despite its prominence in the title, abstract and Section 5.2.",
+      "reader_effect": "The final emphasis falls somewhat more on model ordering and one interval change than on the shared-versus-painter-specific distinction that gives the paper its narrative.",
+      "suggested_change": "Rebalance the existing paragraph so that “Most measured change is shared across names” leads into the positive-alignment result. Shorten the existing ranking and source-correction sentences to preserve the Sunburst qualification and the current paragraph length; no additional evidence or page is needed."
+    },
+    {
+      "priority": "low",
+      "location": "Section 5.5, page 10; specificity_results.tex lines 140–143",
+      "issue": "“Visual subject classes ... on the 11 water, built and land briefs” followed by “These replace title-derived labels” does not immediately say that the labels being replaced belong to the reference reproductions.",
+      "reader_effect": "A reader following only the main text may briefly confuse relabeling the historical reference collection with reclassifying the generated briefs.",
+      "suggested_change": "Replace the opening with “Replacing title-derived reference labels with visual labels also leaves FLUX with the lowest error point estimate on the 11 water, built and land briefs.” Retain the exclusion of mixed briefs and the composition-matching limitation while shortening the subsequent sentence to keep the passage within its existing space."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent and largely self-contained account of a bounded digital-reference comparison. The manuscript makes its central measurement distinction clear, separates primary and retrospective findings, and supports the narrative with interpretable figures. The remaining editorial work is localized wording and emphasis, not a need for new experiments or a longer paper."
+}

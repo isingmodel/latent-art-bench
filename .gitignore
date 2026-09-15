@@ -46,3 +46,12 @@ research_workspace/
 !/reports/painter_distribution_study_v1/*/*.png
 # Preserve this terminal raw ledger locally; its portable view is committed.
 /data/manifests/painter_capture_audit_v1/pcav1-20260910/attempts.jsonl
+
+# Editorial review transport artifacts remain local; retain compact assessments,
+# provenance, validation receipts and the digest inventory in ARCHIVE.md.
+/reports/paper_editorial_review_v1/claude_code_review_*/claude_stream.jsonl
+/reports/paper_editorial_review_v1/claude_code_review_*/claude_stderr.log
+/reports/paper_editorial_review_v1/astra_xhigh_review_*/run_review*.ts
+/reports/paper_editorial_review_v1/astra_xhigh_review_*/request*.json
+/reports/paper_editorial_review_v1/astra_xhigh_review_*/response_events.jsonl
+/reports/paper_editorial_review_v1/astra_xhigh_review_*/completed_response.json

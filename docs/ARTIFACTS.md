@@ -69,3 +69,10 @@ Manuscript builds, rendered-page previews under `tmp/paper/`, test/lint caches,
 bytecode and operating-system metadata are reproducible disposable state when
 unused. Inspect exact targets before deleting them; do not extend this rule to
 an entire ignored directory.
+
+Frozen reviewed PDF/source snapshots under `tmp/paper/` are an exception: they
+preserve the exact manuscript bytes assessed in earlier rounds. Keep those
+snapshot directories and their local execution evidence. The
+[editorial archive guide](../reports/paper_editorial_review_v1/ARCHIVE.md)
+distinguishes portable review records from unique local evidence and documents
+their checksum inventory; `make editorial-check` audits the portable record.

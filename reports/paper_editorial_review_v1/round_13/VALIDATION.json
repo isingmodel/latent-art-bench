@@ -1,0 +1,12 @@
+{
+  "evaluated_round": 13,
+  "page_count": 22,
+  "abstract_whitespace_words": 155,
+  "pdf_extracted_words": 9690,
+  "pdf_sha256": "00a75e622db6b1977049a6848db65fd123a4440c1e6851cb50f503443e214269",
+  "build": "Tectonic passed without warnings",
+  "visual_inspection": "All 22 rendered pages inspected. Main tables and page transitions inspected at full preview size. Previously interrupted content-target and coordinate-deletion paragraphs now intact; conclusion remains complete on page 10.",
+  "presentation_replay": "Specificity table and review presentation builders and --check passed. All numerical table rows unchanged after removing bold markup; exactly three column minima emphasized. All figure bytes identical to round 12.",
+  "lint": "Scoped Ruff and git diff --check passed",
+  "scientific_scope": "Editorial wording, captions, three bold minima and paragraph flow only. Reference/class and pair-normalizer descriptions independently checked against retained analyses."
+}

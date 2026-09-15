@@ -1,0 +1,173 @@
+--- first_revision/paper.tex
++++ second_revision/paper.tex
+@@ -28,15 +28,15 @@
+ Six generators rendered 14 fixed scenes twice with artist-free, generic
+ oil-painting, and Monet, Sisley, Pissarro or C\'ezanne oil-painting prompts,
+ producing 1,008 images. We compare 31 color, spatial and texture measurements
+-from generated images and 649 reproductions, subtracting four-painter means
+-in references and each generated scene. After averaging scenes
++from generated images and 649 reproductions. Comparing painters with their
++four-painter average separates shared change from painter differences. After averaging scenes
+ and correcting repeat noise, 82.5--95.7\% of squared change from artist-free
+ to named prompts is shared across names, including the oil-painting clause's
+-contribution. Before calibration, every model partly aligns with reference
++contribution. Before calibration, every model aligns with reference
+ differences, but none is shown to beat a predictor making no painter
+ distinctions. Retrospective diagnostics find near-zero or reversed
+-Monet--Sisley alignment in five models. Calibration rescales each model's
+-differences using a factor fitted on other scenes. FLUX.2 Max has the lowest
++Monet--Sisley alignment in five models. Calibration rescales model differences
++with factors fitted on other scenes. FLUX.2 Max has the lowest
+ uncalibrated error estimate; GPT Image 2 has the lowest held-out calibrated
+ estimate, without changing images. These measurements do not establish perceptual fidelity.
+ \end{abstract}
+@@ -72,7 +72,6 @@
+ disagreement without counting random output variation as systematic error, under
+ the stated independence assumptions. Separate post-result checks examine
+ painter-pair differences, contrast magnitude, scene dependence and reference quality.
+-This controlled empirical audit uses established estimators.
+ 
+ \section{Related work}
+ \citet{somepalli2024style} develop learned style descriptors and study similarity
+@@ -124,7 +123,7 @@
+ \subsection{A common-scene, six-model experiment}
+ We compare GPT Image 1, GPT Image 2, GPT Image 2.5 Flare (Flare),
+ GPT Image 2.5 Sunburst (Sunburst), Nano Banana 2 and FLUX.2 Max (FLUX).
+-Fourteen authored outdoor scenes span water,
++Fourteen fixed outdoor scene descriptions (briefs) span water,
+ built, land and mixed compositions. Each scene is crossed with six clauses:
+ no painting instruction; ``Render as an oil painting''; and ``Render as an oil
+ painting in the style of [painter]'' for each of the four painters. The scene
+--- first_revision/specificity_estimator_details.tex
++++ second_revision/specificity_estimator_details.tex
+@@ -46,7 +46,9 @@
+  \label{eq:regression}
+ \end{equation}
+ In the balanced panel, coefficient differences equal the paired scene means
+-used for inference. Declared sensitivities delete each scene, resample scenes
++used for inference. Changing the regression baseline leaves these differences
++unchanged; Table~\ref{tab:specificity-models} presents them relative to FLUX.
++Declared sensitivities delete each scene, resample scenes
+ and reference works, examine feature families and omit texture. Central-square
+ windows control aspect ratio by discarding peripheral content in generated and
+ reference images. FLUX retains the lowest uncalibrated error after every scene
+--- first_revision/specificity_results.tex
++++ second_revision/specificity_results.tex
+@@ -40,12 +40,13 @@
+ \end{figure}
+ \FloatBarrier
+ 
+-\subsection{Most measured change is common to the painter names}\label{sec:shared-change}
+-After averaging scenes, we split named-minus-artist-free shifts into their
+-four-name mean and departures from it. The mean reflects the painting clause
+-and any common naming response, accounting for 82.5--95.7\% of repeat-corrected
+-squared feature change (Table~\ref{tab:shared-change}). Departures can still align: $\beta$ measures
+-aligned strength against reference contrasts, not total generated change.
++\subsection{Most scene-averaged change is common to the painter names}\label{sec:shared-change}
++After averaging scenes, named-minus-artist-free shifts comprise a four-name mean
++and painter-specific departures. The mean includes the oil-painting clause and
++any common naming response: 82.5--95.7\% of repeat-corrected squared change
++(Table~\ref{tab:shared-change}). Averaging emphasizes consistent shifts;
++splitting within scenes retains scene-specific variation and gives 88.6--97.2\%
++(Appendix~\ref{app:estimation}). $\beta$ measures departures along the reference contrasts.
+ 
+ \input{specificity_shared_table.tex}
+ 
+@@ -65,8 +66,7 @@
+ GPT Image 2's from $.999$ to $.651$.
+ 
+ Swapping Monet and Sisley lowers error for Flare, Sunburst and Nano Banana 2.
+-The swap reverses their negatively aligned pair difference without changing
+-its size; the reduction is therefore not independent evidence of perceptual confusion.
++Reversing a negatively aligned pair difference lowers error without changing its size.
+ 
+ \begin{figure}[!htbp]
+ \centering\includegraphics[width=\linewidth]{specificity_artist_pairs.pdf}
+@@ -87,9 +87,7 @@
+ ($.723$ versus $.761$; Table~\ref{tab:review-calibration}). Evaluating each scene adds a larger variation component
+ for Nano Banana 2 ($.387$ versus $.040$), reversing that order. This makes the
+ evaluation choice concrete: $D$ rewards consistency with one pooled historical
+-target across scenes, whereas error of the average can cancel scene-dependent
+-differences. Neither interpretation determines whether such variation is
+-artistically appropriate.
++target across scenes, whereas error of the average can cancel scene-dependent differences.
+ 
+ \input{specificity_review_table.tex}
+ 
+@@ -97,15 +95,14 @@
+ squared contrast size exceeds twice the reference's ($Q=2.223$, where 1 matches the reference size;
+ Appendix~\ref{app:magnitude-coverage}).
+ Shrinking weakens its reference-aligned component, but reduces off-target
+-differences enough to lower the total error estimate. The fitted multipliers
++differences enough to lower the total error estimate. GPT Image 2's fitted multipliers
+ scale every contrast coordinate by about 0.45, using only the other 13 scenes each time.
+ 
+ After calibration, GPT Image 2 has the lowest error estimate, $.554$,
+ compared with FLUX's $.714$; it has lower scores in 12 of 14 held-out folds.
+ Deleting any scene and refitting the entire procedure preserves the mean
+ advantage (Appendix~\ref{app:magnitude-coverage}).
+-These overlapping-fold checks assess stability within this panel; they do not
+-establish statistical superiority or improved images.
++The folds overlap, so their win count does not establish statistical superiority.
+ 
+ \subsection{Which comparisons survive reference changes?}\label{sec:source-correction}
+ For the uncalibrated scene error $D$, FLUX retains the lowest point
+--- first_revision/specificity_review_appendix.tex
++++ second_revision/specificity_review_appendix.tex
+@@ -2,8 +2,7 @@
+ These retrospective analyses retain the completed 1,008 generated images and
+ the original inferential family. The initial diagnostics use unchanged reference
+ vectors and scaling; the subsequent source audit separately varies painting
+-regions, development scaling and content labels. Versioned records contain
+-all fits, pair results, control draws, audit decisions and input hashes.
++regions, development scaling and content labels.
+ 
+ \subsection{Content-specific targets and genuine-painting controls}
+ The recorded reference classes are water-organized, built-place-organized,
+@@ -16,7 +15,7 @@
+ 
+ For the generated comparison, the four water, four built and three land briefs
+ use the corresponding class means; the three mixed briefs are excluded.
+-We divide the summed class-specific cross-product error by
++We average the class-specific cross-product error over these $S=11$ scenes and divide by
+ $H_c=S^{-1}\sum_s\sum_a\|r_{a,c(s)}\|^2=7.413$, compared with pooled $H=5.915$.
+ Each column of Table~\ref{tab:review-targets} therefore has its own denominator.
+ The unchanged 11-scene pooled comparison isolates the scene-subset choice.
+@@ -89,9 +88,7 @@
+ \input{specificity_component_supplement.tex}
+ 
+ Table~\ref{tab:review-components} shows that aggregate positive alignment is
+-uneven across those components. The 24 permutations rearrange generated artist
+-labels while leaving the reference fixed. Their ranks are not exact permutation
+-$p$-values: the named conditions are not exchangeable under an established null.
++uneven across those components.
+ 
+ Equal-family weighting assigns each coordinate inverse family size (11, 8 or 12).
+ The covariance sensitivity uses 221 development works with equal painter mass.
+@@ -152,8 +149,7 @@
+ components (5,000 runs per case). Coverage ranges from 95.06\% to 96.80\%, with
+ Monte Carlo SE $.25$--$.31$ percentage points. For comparison, directly centered
+ repeat differences estimate observed powers of $.424$--$2.596$ relative to $H$.
+-Full noise definitions and results are retained in the versioned report. These
+-stress models probe coverage approximations, not actual service independence;
++These stress models probe coverage approximations, not actual service independence;
+ no significance threshold is selected from them.
+ 
+ \subsection{Source-quality sensitivity}\label{app:reference-quality}
+@@ -176,10 +172,12 @@
+ generated vectors. Label sensitivity uses the same 11 briefs. Versioned records
+ preserve audit decisions, new vectors and original results; model scores do not
+ select corrections.
+-Corrected regions give FLUX $D=.832$ with original scaling and $.872$ with
+-refitted scaling. All six aligned-response intervals remain above zero under
+-both choices; GPT Image 2 retains the lowest calibrated estimate ($.579$ after
+-refitting).
++All six aligned-response intervals remain above zero with either scaler.
++With original scaling, corrected regions give FLUX $D=0.832$.
++After refitting, (uncalibrated, held-out calibrated) errors are:
++GPT Image 1 $(1.631,0.693)$, GPT Image 2 $(1.259,0.579)$,
++Flare $(1.737,0.760)$, Sunburst $(1.577,0.711)$, Nano Banana 2 $(1.121,0.846)$
++and FLUX $(0.872,0.762)$. FLUX and GPT Image 2 retain the respective minima.
+ 
+ \section{Image selection and provenance}\label{app:images}
+ The generated examples use the first declared brief and first repeat, selected

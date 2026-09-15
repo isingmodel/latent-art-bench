@@ -1,0 +1,71 @@
+{
+  "reviewer_id": "editorial_r04_a",
+  "rubric_version": 1,
+  "manuscript_pdf_sha256": "10707f5ca01a70b5cfd7599bed158f840f5e656e7dfaa3ba4dae89895b52f745",
+  "read_scope": {
+    "full_manuscript": true,
+    "pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "notes": "Read all 22 PDF pages, including the abstract, main text, references and Appendices A–G. Visually inspected every rendered page, all five figures and all nine tables. Consulted the frozen paper.tex, specificity_results.tex and table source files to resolve wording and notation. Appendix detail was treated as optional depth when assessing main-text accessibility. All extraction and rendering used the isolated directory /tmp/editorial_r04_a.nRMdhG. No other reviews, versions, progress records, repository evidence or external sources were consulted."
+  },
+  "scores": {
+    "expression": 9.0,
+    "structure": 9.0,
+    "new_reader_understanding": 8.75,
+    "engagement": 8.75
+  },
+  "overall": 8.875,
+  "score_reasons": {
+    "expression": "Excellent, precise English with only localized compression to relieve. The introduction explains the distinction through Monet versus Sisley, Section 4.1 defines contrasts in ordinary language, and the results usually attach an interpretation directly to each numerical comparison. Terminology and qualifications are consistent, especially the distinction between numerical agreement and perceptual fidelity. The abstract compresses the centering operation, repeat correction and assumptions into one difficult sentence; this is a local issue rather than a recurrent prose problem.",
+    "structure": "Excellent progression from the question through controlled arms, interpretable feature families, intuitive score definitions, formal estimation and findings. Sections 5.1–5.5 have meaningful finding-led titles and distinguish the original inferential comparisons from retrospective pair, calibration and source diagnostics. Derivations, complete comparisons, source audit detail and earlier cohorts are appropriately placed in optional appendices. The discussion and conclusion accurately reunite the central distinctions without requiring appendix reconstruction.",
+    "new_reader_understanding": "Very strong main-text accessibility. The exact prompt clauses, image counts, finite digital reference target, feature units and equal painter weighting are explicit. The lightness example and the no-distinction/exact/doubled-response examples make beta and D interpretable before the formulas. The theoretical D=1 benchmark is expressly distinguished from the generic-painting arm. The abstract still asks an unfamiliar reader to unpack several operations rapidly, and Figure 2 makes its three closely grouped painter matches visually demanding despite its useful reading instructions.",
+    "engagement": "The manuscript has a consequential and sustained narrative: a shared painting response can coexist with detectable yet uneven painter contrasts, and the apparent model ordering depends on what is scored. Figure 1 supplies concrete, directly inspectable examples across all six generators; Figure 3 and Table 3 repay inspection with the Monet–Sisley weakness and the two ordering changes. The pace is generally strong and restrained. Figure 2 offers less immediate visual reward because the crowded central markers are small at page scale, and the abstract foregrounds compressed machinery before establishing the question."
+  },
+  "strengths": [
+    "The first introduction paragraph supplies a concrete reason that proximity to Monet alone cannot establish agreement with the Monet–Sisley distinction.",
+    "Section 4.1 explains centering through measured lightness and explains the error scale with three idealized generators before introducing indexed equations.",
+    "Figure 1 makes the experimental arms tangible: the same scene appears under four painter names and both controls for every model, while the caption clearly separates historical examples from generator inputs.",
+    "The results distinguish detection from low error, point estimates from resolved comparisons, and feature-space calibration from improved images; the source correction that weakens the Sunburst comparison remains visible.",
+    "The main text stands on its own, while the appendices preserve the exact estimators, sensitivity details, full numerical summaries and separately identified earlier interventions."
+  ],
+  "findings": [
+    {
+      "priority": "medium",
+      "location": "Abstract, p. 1; paper.tex lines 27–39",
+      "issue": "The opening gives the squared-change percentage before stating the question, and the sentence beginning “Removing shared shifts” compresses centering, noise correction, expectation and two assumptions. The later statement that calibration changes the lowest-error model also withholds the names that would make this result concrete. The abstract is informative and within its limit, but it takes more unpacking than the much clearer introduction.",
+      "reader_effect": "A reader unfamiliar with the project can recover the design and findings, but must infer the purpose of the first percentage and mentally separate several measurement operations before reaching the central response-versus-agreement result.",
+      "suggested_change": "Within the 155-word limit, lead with a short question or purpose clause about whether painter names reproduce differences among the four reference collections, then give the percentage. Replace the compressed methods sentence with, for example, “After subtracting each four-painter mean, we combine repeat discrepancies to estimate systematic mismatch under independent errors and stable expected outputs.” Use the saved words to name the calibration change from FLUX.2 Max to GPT Image 2. Retain the descriptive status and digital-reference limitation."
+    },
+    {
+      "priority": "low",
+      "location": "Figure 2 and its reading paragraph, p. 7; specificity_results.tex lines 23–37",
+      "issue": "At the displayed page scale, Monet, Sisley and Pissarro crosses and circles overlap near the origin in several small panels. The instruction to compare each circle with its same-colored cross is sound, but those particular matches are hard to follow; Cézanne dominates the immediately visible geometry.",
+      "reader_effect": "The figure demonstrates the separated Cézanne position readily, but provides a weaker visual explanation of the remaining labeled mismatches than the caption promises. The reader must rely on the later pair heatmap for much of that comparison.",
+      "suggested_change": "Use the existing figure footprint more efficiently to enlarge the central configurations, and add short unobtrusive connectors between each reference cross and its generated mean, or a small magnified central inset. Preserve the common axes, all plotted observations and the warning that the projection omits part of the 31-feature comparison; no additional page is needed."
+    }
+  ],
+  "claim_fidelity_issues": [],
+  "summary": "An excellent, coherent bounded empirical audit whose main findings are understandable without technical appendices. Its strongest communication choices are the concrete score examples, inspectable image panel, finding-led results and careful separation of response, agreement and inference. Only localized abstract and figure refinements are needed; no additional experiments or perceptual claims are required."
+}
