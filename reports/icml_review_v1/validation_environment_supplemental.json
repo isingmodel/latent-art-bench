@@ -1,0 +1,1041 @@
+{
+  "bound_bytes_unchanged": true,
+  "claim": "Supplemental offline verification with a declared sufficient-storage fixture; this is not a vanilla make check pass.",
+  "destination": "/Users/fred/dev/generative_art_diff/reports/icml_review_v1/validation_environment_supplemental.json",
+  "effective_exitstatus": 1,
+  "end_utc": "2026-09-18T15:18:47.622321+00:00",
+  "failed_or_error": 1,
+  "fake_free_bytes": 10737418240,
+  "invocation": [
+    "-c",
+    "pytest-paper.ini",
+    "-q",
+    "-m",
+    "not live",
+    "-p",
+    "no:cacheprovider",
+    "-p",
+    "storage_fixture",
+    "--basetemp",
+    "/private/tmp/icml-storage-supplement-20260918T152000",
+    "--storage-fixture-receipt",
+    "reports/icml_review_v1/validation_environment_supplemental.json",
+    "tests/painter_naming_replication_v1/test_replication.py",
+    "tests/painter_map_validation_v2/test_operations.py"
+  ],
+  "network_calls_blocked": 0,
+  "passed": 84,
+  "pytest_exitstatus": 1,
+  "python": "3.13.11",
+  "real_workspace_disk_after": {
+    "free": 275365888,
+    "total": 245107195904,
+    "used": 244831830016
+  },
+  "real_workspace_disk_before": {
+    "free": 331984896,
+    "total": 245107195904,
+    "used": 244775211008
+  },
+  "resource_observations": [
+    {
+      "collection_receipts": [],
+      "fake_disk_queries": 0,
+      "nodeid": "tests/painter_naming_replication_v1/test_replication.py::test_exact_prompts_all_scenes_assignment_and_counts[1]",
+      "real_disk_before": {
+        "free": 331956224,
+        "total": 245107195904,
+        "used": 244775239680
+      },
+      "real_disk_queries_outside_scope": 1,
+      "temporary_root": "/private/tmp/icml-storage-supplement-20260918T152000/test_exact_prompts_all_scenes_0"
+    },
+    {
+      "collection_receipts": [],
+      "fake_disk_queries": 0,
+      "nodeid": "tests/painter_naming_replication_v1/test_replication.py::test_exact_prompts_all_scenes_assignment_and_counts[4]",
+      "real_disk_before": {
+        "free": 331784192,
+        "total": 245107195904,
+        "used": 244775411712
+      },
+      "real_disk_queries_outside_scope": 1,
+      "temporary_root": "/private/tmp/icml-storage-supplement-20260918T152000/test_exact_prompts_all_scenes_1"
+    },
+    {
+      "collection_receipts": [],
+      "fake_disk_queries": 0,
+      "nodeid": "tests/painter_naming_replication_v1/test_replication.py::test_independent_energy_and_four_endpoint_inference",
+      "real_disk_before": {
+        "free": 331747328,
+        "total": 245107195904,
+        "used": 244775448576
+      },
+      "real_disk_queries_outside_scope": 1,
+      "temporary_root": "/private/tmp/icml-storage-supplement-20260918T152000/test_independent_energy_and_fo0"
+    },
+    {
+      "collection_receipts": [],
+      "fake_disk_queries": 0,
+      "nodeid": "tests/painter_naming_replication_v1/test_replication.py::test_missing_component_preserves_other_and_family[naming-indexes0]",
+      "real_disk_before": {
+        "free": 331698176,
+        "total": 245107195904,
+        "used": 244775497728
+      },
+      "real_disk_queries_outside_scope": 1,
+      "temporary_root": "/private/tmp/icml-storage-supplement-20260918T152000/test_missing_component_preserv0"
+    },
+    {
+      "collection_receipts": [],
+      "fake_disk_queries": 0,
+      "nodeid": "tests/painter_naming_replication_v1/test_replication.py::test_missing_component_preserves_other_and_family[palette-indexes1]",
+      "real_disk_before": {
+        "free": 331665408,
+        "total": 245107195904,
+        "used": 244775530496
+      },
+      "real_disk_queries_outside_scope": 1,
+      "temporary_root": "/private/tmp/icml-storage-supplement-20260918T152000/test_missing_component_preserv1"
+    },
+    {
+      "collection_receipts": [],
+      "fake_disk_queries": 0,
+      "nodeid": "tests/painter_naming_replication_v1/test_replication.py::test_measurement_fail_closed[duplicate]",
+      "real_disk_before": {
+        "free": 331632640,
+        "total": 245107195904,
+        "used": 244775563264
+      },
+      "real_disk_queries_outside_scope": 1,
+      "temporary_root": "/private/tmp/icml-storage-supplement-20260918T152000/test_measurement_fail_closed_d0"
+    },
+    {
+      "collection_receipts": [],
+      "fake_disk_queries": 0,
+      "nodeid": "tests/painter_naming_replication_v1/test_replication.py::test_measurement_fail_closed[missing]",
+      "real_disk_before": {
+        "free": 331595776,
+        "total": 245107195904,
+        "used": 244775600128
+      },
+      "real_disk_queries_outside_scope": 1,
+      "temporary_root": "/private/tmp/icml-storage-supplement-20260918T152000/test_measurement_fail_closed_m0"
+    },
+    {
+      "collection_receipts": [],
+      "fake_disk_queries": 0,
+      "nodeid": "tests/painter_naming_replication_v1/test_replication.py::test_measurement_fail_closed[nan]",
+      "real_disk_before": {
+        "free": 331563008,
+        "total": 245107195904,
+        "used": 244775632896
+      },
+      "real_disk_queries_outside_scope": 1,
+      "temporary_root": "/private/tmp/icml-storage-supplement-20260918T152000/test_measurement_fail_closed_n0"
+    },
+    {
+      "collection_receipts": [],
+      "fake_disk_queries": 0,
+      "nodeid": "tests/painter_naming_replication_v1/test_replication.py::test_measurement_fail_closed[identity]",
+      "real_disk_before": {
+        "free": 331522048,
+        "total": 245107195904,
+        "used": 244775673856
+      },
+      "real_disk_queries_outside_scope": 1,
+      "temporary_root": "/private/tmp/icml-storage-supplement-20260918T152000/test_measurement_fail_closed_i0"
+    },
+    {
+      "collection_receipts": [],
+      "fake_disk_queries": 0,
+      "nodeid": "tests/painter_naming_replication_v1/test_replication.py::test_unselected_live_allocation_is_rejected",
+      "real_disk_before": {
+        "free": 331481088,
+        "total": 245107195904,
+        "used": 244775714816
+      },
+      "real_disk_queries_outside_scope": 1,
+      "temporary_root": "/private/tmp/icml-storage-supplement-20260918T152000/test_unselected_live_allocatio0"
+    },
+    {
+      "collection_receipts": [],
+      "fake_disk_queries": 0,
+      "nodeid": "tests/painter_naming_replication_v1/test_replication.py::test_credit_shortfall_and_queued_retry_not_reported_as_post[1]",
+      "real_disk_before": {
+        "free": 331448320,
+        "total": 245107195904,
+        "used": 244775747584
+      },
+      "real_disk_queries_outside_scope": 1,
+      "temporary_root": "/private/tmp/icml-storage-supplement-20260918T152000/test_credit_shortfall_and_queu0"
+    },
+    {
+      "collection_receipts": [
+        {
+          "attempts": 2,
+          "posted_attempts": 2,
+          "reason": "authentication_quota_or_contract_error",
+          "relative_path": "data/manifests/painter_naming_replication_v1/pnrv1-20260910/collection_receipt.json",
+          "slot_counts": {
+            "http_error": 2,
+            "not_attempted_collection_stopped": 262
+          },
+          "status": "stopped"
+        }
+      ],
+      "fake_disk_queries": 3,
+      "nodeid": "tests/painter_naming_replication_v1/test_replication.py::test_credit_shortfall_and_queued_retry_not_reported_as_post[10]",
+      "real_disk_before": {
+        "free": 331411456,
+        "total": 245107195904,
+        "used": 244775784448
+      },
+      "real_disk_queries_outside_scope": 1,
+      "temporary_root": "/private/tmp/icml-storage-supplement-20260918T152000/test_credit_shortfall_and_queu1"
+    },
+    {
+      "collection_receipts": [
+        {
+          "attempts": 264,
+          "posted_attempts": 264,
+          "reason": null,
+          "relative_path": "data/manifests/painter_naming_replication_v1/pnrv1-20260910/collection_receipt.json",
+          "slot_counts": {
+            "image_returned": 264
+          },
+          "status": "complete"
+        }
+      ],
+      "fake_disk_queries": 264,
+      "nodeid": "tests/painter_naming_replication_v1/test_replication.py::test_full_mocked_collection_measurement_analysis_replay",
+      "real_disk_before": {
+        "free": 331137024,
+        "total": 245107195904,
+        "used": 244776058880
+      },
+      "real_disk_queries_outside_scope": 1,
+      "temporary_root": "/private/tmp/icml-storage-supplement-20260918T152000/test_full_mocked_collection_me0"
+    },
+    {
+      "collection_receipts": [
+        {
+          "attempts": 240,
+          "posted_attempts": 240,
+          "reason": null,
+          "relative_path": "data/manifests/painter_map_validation_v2/pmv2-20260910/collection_receipt.json",
+          "slot_counts": {
+            "image_returned": 240
+          },
+          "status": "complete"
+        }
+      ],
+      "fake_disk_queries": 240,
+      "nodeid": "tests/painter_map_validation_v2/test_operations.py::test_complete_240_transport_accounting_and_one_shot",
+      "real_disk_before": {
+        "free": 325976064,
+        "total": 245107195904,
+        "used": 244781219840
+      },
+      "real_disk_queries_outside_scope": 1,
+      "temporary_root": "/private/tmp/icml-storage-supplement-20260918T152000/test_complete_240_transport_ac0"
+    },
+    {
+      "collection_receipts": [
+        {
+          "attempts": 1,
+          "posted_attempts": 1,
+          "reason": "required_slot_unavailable",
+          "relative_path": "data/manifests/painter_map_validation_v2/pmv2-20260910/collection_receipt.json",
+          "slot_counts": {
+            "not_attempted_collection_stopped": 239,
+            "refused": 1
+          },
+          "status": "stopped"
+        }
+      ],
+      "fake_disk_queries": 1,
+      "nodeid": "tests/painter_map_validation_v2/test_operations.py::test_first_unavailable_or_unknown_slot_stops_and_drains[refused]",
+      "real_disk_before": {
+        "free": 323346432,
+        "total": 245107195904,
+        "used": 244783849472
+      },
+      "real_disk_queries_outside_scope": 1,
+      "temporary_root": "/private/tmp/icml-storage-supplement-20260918T152000/test_first_unavailable_or_unkn0"
+    },
+    {
+      "collection_receipts": [
+        {
+          "attempts": 1,
+          "posted_attempts": 1,
+          "reason": "unrecognized_backend_error",
+          "relative_path": "data/manifests/painter_map_validation_v2/pmv2-20260910/collection_receipt.json",
+          "slot_counts": {
+            "http_error": 1,
+            "not_attempted_collection_stopped": 239
+          },
+          "status": "stopped"
+        }
+      ],
+      "fake_disk_queries": 1,
+      "nodeid": "tests/painter_map_validation_v2/test_operations.py::test_first_unavailable_or_unknown_slot_stops_and_drains[server500]",
+      "real_disk_before": {
+        "free": 322990080,
+        "total": 245107195904,
+        "used": 244784205824
+      },
+      "real_disk_queries_outside_scope": 1,
+      "temporary_root": "/private/tmp/icml-storage-supplement-20260918T152000/test_first_unavailable_or_unkn1"
+    },
+    {
+      "collection_receipts": [
+        {
+          "attempts": 1,
+          "posted_attempts": 1,
+          "reason": "uncertain_or_unsupported_delivery",
+          "relative_path": "data/manifests/painter_map_validation_v2/pmv2-20260910/collection_receipt.json",
+          "slot_counts": {
+            "not_attempted_collection_stopped": 239,
+            "outcome_uncertain": 1
+          },
+          "status": "stopped"
+        }
+      ],
+      "fake_disk_queries": 1,
+      "nodeid": "tests/painter_map_validation_v2/test_operations.py::test_first_unavailable_or_unknown_slot_stops_and_drains[timeout]",
+      "real_disk_before": {
+        "free": 322699264,
+        "total": 245107195904,
+        "used": 244784496640
+      },
+      "real_disk_queries_outside_scope": 1,
+      "temporary_root": "/private/tmp/icml-storage-supplement-20260918T152000/test_first_unavailable_or_unkn2"
+    },
+    {
+      "collection_receipts": [
+        {
+          "attempts": 1,
+          "posted_attempts": 1,
+          "reason": "uncertain_or_unsupported_delivery",
+          "relative_path": "data/manifests/painter_map_validation_v2/pmv2-20260910/collection_receipt.json",
+          "slot_counts": {
+            "not_attempted_collection_stopped": 239,
+            "unsupported_success": 1
+          },
+          "status": "stopped"
+        }
+      ],
+      "fake_disk_queries": 1,
+      "nodeid": "tests/painter_map_validation_v2/test_operations.py::test_first_unavailable_or_unknown_slot_stops_and_drains[wrong_model]",
+      "real_disk_before": {
+        "free": 322404352,
+        "total": 245107195904,
+        "used": 244784791552
+      },
+      "real_disk_queries_outside_scope": 1,
+      "temporary_root": "/private/tmp/icml-storage-supplement-20260918T152000/test_first_unavailable_or_unkn3"
+    },
+    {
+      "collection_receipts": [
+        {
+          "attempts": 1,
+          "posted_attempts": 1,
+          "reason": "unknown_paid_cost",
+          "relative_path": "data/manifests/painter_map_validation_v2/pmv2-20260910/collection_receipt.json",
+          "slot_counts": {
+            "image_returned": 1,
+            "not_attempted_collection_stopped": 239
+          },
+          "status": "stopped"
+        }
+      ],
+      "fake_disk_queries": 1,
+      "nodeid": "tests/painter_map_validation_v2/test_operations.py::test_first_unavailable_or_unknown_slot_stops_and_drains[unknown_success]",
+      "real_disk_before": {
+        "free": 322113536,
+        "total": 245107195904,
+        "used": 244785082368
+      },
+      "real_disk_queries_outside_scope": 1,
+      "temporary_root": "/private/tmp/icml-storage-supplement-20260918T152000/test_first_unavailable_or_unkn4"
+    },
+    {
+      "collection_receipts": [
+        {
+          "attempts": 1,
+          "posted_attempts": 1,
+          "reason": "reported_cost_exceeds_reservation",
+          "relative_path": "data/manifests/painter_map_validation_v2/pmv2-20260910/collection_receipt.json",
+          "slot_counts": {
+            "image_returned": 1,
+            "not_attempted_collection_stopped": 239
+          },
+          "status": "stopped"
+        }
+      ],
+      "fake_disk_queries": 1,
+      "nodeid": "tests/painter_map_validation_v2/test_operations.py::test_first_unavailable_or_unknown_slot_stops_and_drains[overcharge]",
+      "real_disk_before": {
+        "free": 321818624,
+        "total": 245107195904,
+        "used": 244785377280
+      },
+      "real_disk_queries_outside_scope": 1,
+      "temporary_root": "/private/tmp/icml-storage-supplement-20260918T152000/test_first_unavailable_or_unkn5"
+    },
+    {
+      "collection_receipts": [
+        {
+          "attempts": 241,
+          "posted_attempts": 241,
+          "reason": null,
+          "relative_path": "data/manifests/painter_map_validation_v2/pmv2-20260910/collection_receipt.json",
+          "slot_counts": {
+            "image_returned": 240
+          },
+          "status": "complete"
+        }
+      ],
+      "fake_disk_queries": 241,
+      "nodeid": "tests/painter_map_validation_v2/test_operations.py::test_exact_429_retries_same_payload_once",
+      "real_disk_before": {
+        "free": 321523712,
+        "total": 245107195904,
+        "used": 244785672192
+      },
+      "real_disk_queries_outside_scope": 1,
+      "temporary_root": "/private/tmp/icml-storage-supplement-20260918T152000/test_exact_429_retries_same_pa0"
+    },
+    {
+      "fake_disk_queries": 0,
+      "nodeid": "tests/painter_map_validation_v2/test_operations.py::test_second_technical_failure_permanently_closes",
+      "real_disk_before": {
+        "free": 313270272,
+        "total": 245107195904,
+        "used": 244793925632
+      },
+      "real_disk_queries_outside_scope": 1,
+      "temporary_root": "/private/tmp/icml-storage-supplement-20260918T152000/test_second_technical_failure_0"
+    },
+    {
+      "collection_receipts": [
+        {
+          "attempts": 240,
+          "posted_attempts": 240,
+          "reason": "reported_cost_exceeds_reservation",
+          "relative_path": "data/manifests/painter_map_validation_v2/pmv2-20260910/collection_receipt.json",
+          "slot_counts": {
+            "image_returned": 240
+          },
+          "status": "stopped"
+        }
+      ],
+      "fake_disk_queries": 240,
+      "nodeid": "tests/painter_map_validation_v2/test_operations.py::test_last_success_overcharge_is_ineligible",
+      "real_disk_before": {
+        "free": 313667584,
+        "total": 245107195904,
+        "used": 244793528320
+      },
+      "real_disk_queries_outside_scope": 1,
+      "temporary_root": "/private/tmp/icml-storage-supplement-20260918T152000/test_last_success_overcharge_i0"
+    },
+    {
+      "collection_receipts": [
+        {
+          "attempts": 240,
+          "posted_attempts": 240,
+          "reason": "final_identity_check_failed_ValueError",
+          "relative_path": "data/manifests/painter_map_validation_v2/pmv2-20260910/collection_receipt.json",
+          "slot_counts": {
+            "image_returned": 240
+          },
+          "status": "stopped"
+        }
+      ],
+      "fake_disk_queries": 240,
+      "nodeid": "tests/painter_map_validation_v2/test_operations.py::test_final_identity_failure_overrides_complete_grid",
+      "real_disk_before": {
+        "free": 310190080,
+        "total": 245107195904,
+        "used": 244797005824
+      },
+      "real_disk_queries_outside_scope": 1,
+      "temporary_root": "/private/tmp/icml-storage-supplement-20260918T152000/test_final_identity_failure_ov0"
+    },
+    {
+      "collection_receipts": [
+        {
+          "attempts": 240,
+          "posted_attempts": 240,
+          "reason": null,
+          "relative_path": "data/manifests/painter_map_validation_v2/pmv2-20260910/collection_receipt.json",
+          "slot_counts": {
+            "image_returned": 240
+          },
+          "status": "complete"
+        }
+      ],
+      "fake_disk_queries": 240,
+      "nodeid": "tests/painter_map_validation_v2/test_operations.py::test_full_240_measure_and_replay_with_artificial_extraction",
+      "real_disk_before": {
+        "free": 308228096,
+        "total": 245107195904,
+        "used": 244798967808
+      },
+      "real_disk_queries_outside_scope": 1,
+      "temporary_root": "/private/tmp/icml-storage-supplement-20260918T152000/test_full_240_measure_and_repl0"
+    },
+    {
+      "collection_receipts": [
+        {
+          "attempts": 240,
+          "posted_attempts": 240,
+          "reason": null,
+          "relative_path": "data/manifests/painter_map_validation_v2/pmv2-20260910/collection_receipt.json",
+          "slot_counts": {
+            "image_returned": 240
+          },
+          "status": "complete"
+        }
+      ],
+      "fake_disk_queries": 240,
+      "nodeid": "tests/painter_map_validation_v2/test_operations.py::test_low_total_final_overcharge_cannot_forge_complete_receipt",
+      "real_disk_before": {
+        "free": 294621184,
+        "total": 245107195904,
+        "used": 244812574720
+      },
+      "real_disk_queries_outside_scope": 1,
+      "temporary_root": "/private/tmp/icml-storage-supplement-20260918T152000/test_low_total_final_overcharg0"
+    },
+    {
+      "collection_receipts": [
+        {
+          "attempts": 248,
+          "posted_attempts": 248,
+          "reason": null,
+          "relative_path": "data/manifests/painter_map_validation_v2/pmv2-20260910/collection_receipt.json",
+          "slot_counts": {
+            "image_returned": 240
+          },
+          "status": "complete"
+        }
+      ],
+      "fake_disk_queries": 248,
+      "nodeid": "tests/painter_map_validation_v2/test_operations.py::test_eight_retries_are_allowed_but_ninth_needed_stops[8-True]",
+      "real_disk_before": {
+        "free": 290308096,
+        "total": 245107195904,
+        "used": 244816887808
+      },
+      "real_disk_queries_outside_scope": 1,
+      "temporary_root": "/private/tmp/icml-storage-supplement-20260918T152000/test_eight_retries_are_allowed0"
+    },
+    {
+      "collection_receipts": [
+        {
+          "attempts": 209,
+          "posted_attempts": 209,
+          "reason": "technical_retry_limit",
+          "relative_path": "data/manifests/painter_map_validation_v2/pmv2-20260910/collection_receipt.json",
+          "slot_counts": {
+            "http_error": 1,
+            "image_returned": 200,
+            "not_attempted_collection_stopped": 39
+          },
+          "status": "stopped"
+        }
+      ],
+      "fake_disk_queries": 209,
+      "nodeid": "tests/painter_map_validation_v2/test_operations.py::test_eight_retries_are_allowed_but_ninth_needed_stops[9-False]",
+      "real_disk_before": {
+        "free": 277417984,
+        "total": 245107195904,
+        "used": 244829777920
+      },
+      "real_disk_queries_outside_scope": 1,
+      "temporary_root": "/private/tmp/icml-storage-supplement-20260918T152000/test_eight_retries_are_allowed1"
+    },
+    {
+      "collection_receipts": [
+        {
+          "attempts": 0,
+          "posted_attempts": 0,
+          "reason": "storage_reserve",
+          "relative_path": "data/manifests/painter_map_validation_v2/pmv2-20260910/collection_receipt.json",
+          "slot_counts": {
+            "not_attempted_collection_stopped": 240
+          },
+          "status": "stopped"
+        }
+      ],
+      "fake_disk_queries": 0,
+      "nodeid": "tests/painter_map_validation_v2/test_operations.py::test_storage_stop_is_terminal_without_network",
+      "real_disk_before": {
+        "free": 275648512,
+        "total": 245107195904,
+        "used": 244831547392
+      },
+      "real_disk_queries_outside_scope": 1,
+      "temporary_root": "/private/tmp/icml-storage-supplement-20260918T152000/test_storage_stop_is_terminal_0"
+    }
+  ],
+  "selected_modules": [
+    "tests/painter_naming_replication_v1/test_replication.py",
+    "tests/painter_map_validation_v2/test_operations.py"
+  ],
+  "sha256_after": {
+    "pytest-paper.ini": "fe59a3fbfc7f2b0ece41d6dc31d9d36508b9972ee7250103dd4946a407c770da",
+    "reports/icml_review_v1/storage_fixture.py": "18fa773f2efe33468e2e94697367f6eada05681f56d3d3668c324e13ebf05045",
+    "reports/icml_review_v1/validation_environment_first.json": "54565ef34c23039e07444b1d99391edf2ef9ac36ee2791f2a5f0623b22949f5d",
+    "src/latent_art_bench/painter_map_validation_v2/collection.py": "019c8df4fcc7f3ff9852fd457b389d0e7dd7389b21fab468a22421d690f1564c",
+    "src/latent_art_bench/painter_map_validation_v2/common.py": "d5cc5410d00c91c627c78fb2f540b7f1ca027976fb426750a4d3fba329c6b119",
+    "src/latent_art_bench/painter_naming_replication_v1/collection.py": "a3f0459264d4bb75cbbad47a4b3f1b3ec51d900dbdeafbc780caeba3f85d1907",
+    "src/latent_art_bench/painter_naming_replication_v1/common.py": "0396169bd60dec27050830445f841f9cc9b11e4becb599362810ec7de00a1c37",
+    "tests/painter_map_validation_v2/test_operations.py": "ce58975358166d2b14af5880296e15cc2d7f8fcf2a5b2b27ce3ff5fc553065ea",
+    "tests/painter_naming_replication_v1/test_replication.py": "207f33361d5ec0c8322d59ec357f1a092a02cee1575f96d340f7b1d3aa7fc773",
+    "uv.lock": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+  },
+  "sha256_before": {
+    "pytest-paper.ini": "fe59a3fbfc7f2b0ece41d6dc31d9d36508b9972ee7250103dd4946a407c770da",
+    "reports/icml_review_v1/storage_fixture.py": "18fa773f2efe33468e2e94697367f6eada05681f56d3d3668c324e13ebf05045",
+    "reports/icml_review_v1/validation_environment_first.json": "54565ef34c23039e07444b1d99391edf2ef9ac36ee2791f2a5f0623b22949f5d",
+    "src/latent_art_bench/painter_map_validation_v2/collection.py": "019c8df4fcc7f3ff9852fd457b389d0e7dd7389b21fab468a22421d690f1564c",
+    "src/latent_art_bench/painter_map_validation_v2/common.py": "d5cc5410d00c91c627c78fb2f540b7f1ca027976fb426750a4d3fba329c6b119",
+    "src/latent_art_bench/painter_naming_replication_v1/collection.py": "a3f0459264d4bb75cbbad47a4b3f1b3ec51d900dbdeafbc780caeba3f85d1907",
+    "src/latent_art_bench/painter_naming_replication_v1/common.py": "0396169bd60dec27050830445f841f9cc9b11e4becb599362810ec7de00a1c37",
+    "tests/painter_map_validation_v2/test_operations.py": "ce58975358166d2b14af5880296e15cc2d7f8fcf2a5b2b27ce3ff5fc553065ea",
+    "tests/painter_naming_replication_v1/test_replication.py": "207f33361d5ec0c8322d59ec357f1a092a02cee1575f96d340f7b1d3aa7fc773",
+    "uv.lock": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+  },
+  "start_utc": "2026-09-18T15:18:08.667779+00:00",
+  "tests": {
+    "tests/painter_map_validation_v2/test_operations.py::test_complete_240_transport_accounting_and_one_shot": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_conditional_credit_forecast_and_reservation_are_distinct": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_eight_retries_are_allowed_but_ninth_needed_stops[8-True]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_eight_retries_are_allowed_but_ninth_needed_stops[9-False]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_exact_429_retries_same_payload_once": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_exact_plan_and_no_rendering_seed_or_size": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_exact_retained_budget_schema_and_input_lineage": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_explicit_rejection_convention_and_usage_precedence[400]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_explicit_rejection_convention_and_usage_precedence[401]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_explicit_rejection_convention_and_usage_precedence[402]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_explicit_rejection_convention_and_usage_precedence[403]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_explicit_rejection_convention_and_usage_precedence[404]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_explicit_rejection_convention_and_usage_precedence[422]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_explicit_rejection_convention_and_usage_precedence[429]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_final_identity_failure_overrides_complete_grid": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_first_unavailable_or_unknown_slot_stops_and_drains[overcharge]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_first_unavailable_or_unknown_slot_stops_and_drains[refused]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_first_unavailable_or_unknown_slot_stops_and_drains[server500]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_first_unavailable_or_unknown_slot_stops_and_drains[timeout]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_first_unavailable_or_unknown_slot_stops_and_drains[unknown_success]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_first_unavailable_or_unknown_slot_stops_and_drains[wrong_model]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_full_240_measure_and_replay_with_artificial_extraction": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_last_success_overcharge_is_ineligible": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_low_total_final_overcharge_cannot_forge_complete_receipt": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_metadata_exact_two_gets_precision_and_create_once": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_metadata_unavailable_or_changed_is_not_authorization[echo]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_metadata_unavailable_or_changed_is_not_authorization[insufficient]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_metadata_unavailable_or_changed_is_not_authorization[malformed]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_metadata_unavailable_or_changed_is_not_authorization[redirect]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_metadata_unavailable_or_changed_is_not_authorization[wrong_endpoint]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_minimal_real_git_prepare_verify_gate": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_no_heuristic_free_unknown_response[value0-500]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_no_heuristic_free_unknown_response[value1-429]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_no_heuristic_free_unknown_response[value2-429]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_no_heuristic_free_unknown_response[value3-429]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_no_heuristic_free_unknown_response[value4-429]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_no_heuristic_free_unknown_response[value5-200]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_no_heuristic_free_unknown_response[value6-200]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_no_heuristic_free_unknown_response[value7-200]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_no_metadata_before_exact_source_commit": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_real_live_gate_precedes_source_or_key": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_second_technical_failure_permanently_closes": {
+      "setup": "failed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_storage_stop_is_terminal_without_network": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_timing_invalid_numeric_fields_fail[latency_seconds--1]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_timing_invalid_numeric_fields_fail[latency_seconds-True]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_timing_invalid_numeric_fields_fail[latency_seconds-inf]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_timing_invalid_numeric_fields_fail[latency_seconds-nan]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_timing_invalid_numeric_fields_fail[post_started-1]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_timing_invalid_numeric_fields_fail[transport_started_monotonic-True]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_timing_invalid_numeric_fields_fail[transport_started_monotonic-inf]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_timing_invalid_numeric_fields_fail[transport_started_monotonic-nan]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_timing_records_spacing_and_overlap": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_budget_reserves_pending_and_unknown_and_dynamic_worker": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_container_opacity_and_known_error_rules": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_contract_status_stops[400]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_contract_status_stops[401]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_contract_status_stops[402]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_contract_status_stops[403]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_contract_status_stops[404]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_contract_status_stops[422]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_credit_gate_distinct_from_cumulative_reserve": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_credit_shortfall_and_queued_retry_not_reported_as_post[10]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_credit_shortfall_and_queued_retry_not_reported_as_post[1]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_duration_contract_reaches_primary_claims": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_exact_prompts_all_scenes_assignment_and_counts[1]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_exact_prompts_all_scenes_assignment_and_counts[4]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_executor_stops_before_draining": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_full_mocked_collection_measurement_analysis_replay": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_independent_energy_and_four_endpoint_inference": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_measurement_fail_closed[duplicate]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_measurement_fail_closed[identity]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_measurement_fail_closed[missing]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_measurement_fail_closed[nan]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_missing_component_preserves_other_and_family[naming-indexes0]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_missing_component_preserves_other_and_family[palette-indexes1]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_retry_after_honored[-5-60]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_retry_after_honored[120-120]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_retry_after_honored[None-60]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_staged_input_is_not_clean": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_start_gate_deadline_cancels_without_post": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_start_gate_later_worker_arrives_first": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_unselected_live_allocation_is_rejected": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_unsupported_retry_after_stops[301]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_unsupported_retry_after_stops[nan]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_naming_replication_v1/test_replication.py::test_unsupported_retry_after_stops[nonsense]": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    }
+  },
+  "zero_storage_override_verified": true
+}

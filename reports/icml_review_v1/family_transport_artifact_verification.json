@@ -1,0 +1,67 @@
+{
+  "bindings_verified": 14,
+  "candidate_path": "reports/painter_family_controls_v1/old_transport_candidate_v1.json",
+  "candidate_sha256": "fd6e80de75b7578059ecaee602b4ea5fc9e74f06d7711e52e8bd532cddbabac2",
+  "complete_study_freeze": false,
+  "encoders": {
+    "clip": {
+      "all_parameters_exactly_equal": true,
+      "max_absolute_difference": 0.0,
+      "old_array_digest_matches": true,
+      "old_array_shape": [
+        6,
+        14,
+        2,
+        4,
+        768
+      ],
+      "parameter_arrays_compared": [
+        "raw_reference_means",
+        "reference_prototypes",
+        "old_generated_class_means",
+        "old_generated_grand_mean",
+        "translation",
+        "generated_prototypes"
+      ],
+      "reference_array_digest_matches": true,
+      "source_npz_sha256": "d6e3d49bde6ca7d75fb3603cf7f3ecf7d46ea979b21a3b1e75435a504acd9945"
+    },
+    "csd": {
+      "all_parameters_exactly_equal": true,
+      "max_absolute_difference": 0.0,
+      "old_array_digest_matches": true,
+      "old_array_shape": [
+        6,
+        14,
+        2,
+        4,
+        768
+      ],
+      "parameter_arrays_compared": [
+        "raw_reference_means",
+        "reference_prototypes",
+        "old_generated_class_means",
+        "old_generated_grand_mean",
+        "translation",
+        "generated_prototypes"
+      ],
+      "reference_array_digest_matches": true,
+      "source_npz_sha256": "65f428ed866916dca12ea0bc8148f1e0b9122343d19181e56f03543b5506085b"
+    }
+  },
+  "expected_sha256": "fd6e80de75b7578059ecaee602b4ea5fc9e74f06d7711e52e8bd532cddbabac2",
+  "live_authorization": false,
+  "loader_sha256": "7f2787e801d485178654da3ec266ec613a105cc76a92dc9073cd4d8672dd4639",
+  "manifest_sha256": "bd9cb00279fffb741b3579e3234ad034bb593884925ea40893c717612eccca57",
+  "new_observations": 0,
+  "old_named_count": 672,
+  "oracle_script_sha256": "c7912f6111509b9a55b5358cec015c2a6f97310661169d76529cb15294e1306a",
+  "reference_counts": [
+    297,
+    106,
+    141,
+    105
+  ],
+  "scientific_outcome_metrics_computed": false,
+  "scope": "old-only candidate provenance and independent parameter equality"
+}

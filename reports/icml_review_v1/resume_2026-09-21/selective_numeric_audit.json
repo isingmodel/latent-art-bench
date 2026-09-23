@@ -1,0 +1,176 @@
+{
+  "all_setting_joint_usefulness": {
+    "clip/audited_region/development": false,
+    "clip/audited_region/primary": false,
+    "clip/original/development": false,
+    "clip/original/primary": false,
+    "csd/audited_region/development": false,
+    "csd/audited_region/primary": false,
+    "csd/original/development": false,
+    "csd/original/primary": false
+  },
+  "atol": 1e-12,
+  "audit_kind": "independent numerical verification after frozen real execution; not scientific rating",
+  "bindings": [
+    {
+      "path": "reports/painter_selective_attribution_v1/inputs.json",
+      "sha256": "f9d6b94e19d8004463f7b0524dd72865e22c18b0786cf48387cb9257e0528826"
+    },
+    {
+      "path": "reports/icml_review_v1/resume_2026-09-21/selective_preoutcome_audit.json",
+      "sha256": "e3f26efb7286ad592e5ec30a50dd937690c29852d690c94b3baf09f31ae22569"
+    },
+    {
+      "path": "reports/painter_learned_audit_v1/inputs.json",
+      "sha256": "bd9cb00279fffb741b3579e3234ad034bb593884925ea40893c717612eccca57"
+    },
+    {
+      "path": "reports/painter_learned_audit_v1/embeddings_clip.npz",
+      "sha256": "d6e3d49bde6ca7d75fb3603cf7f3ecf7d46ea979b21a3b1e75435a504acd9945"
+    },
+    {
+      "path": "reports/painter_learned_audit_v1/embeddings_csd.npz",
+      "sha256": "65f428ed866916dca12ea0bc8148f1e0b9122343d19181e56f03543b5506085b"
+    },
+    {
+      "path": "reports/painter_selective_attribution_v1/analysis.json",
+      "sha256": "f725b32b91f38fa8afd85454b3a6f0c8eb7464f5337b18373ce8c8f53e39fa2c"
+    },
+    {
+      "path": "reports/icml_review_v1/resume_2026-09-21/selective_numeric_replay.py",
+      "sha256": "845fd46116fc1e0cc27c976d8082640e210059ddd11f39e779729156b4847f19"
+    }
+  ],
+  "compared_values": 435066,
+  "configurations_per_setting": 6,
+  "errors": [],
+  "limitations": [
+    "Retrospective standard selective classification; no generated-image conformal guarantee.",
+    "Numerical agreement is not a scientific rating, evidence of perceptual fidelity, or fresh-session replication.",
+    "Primary failures and every adverse sensitivity remain part of the result."
+  ],
+  "max_absolute_difference": 1.1102230246251565e-16,
+  "max_relative_difference": 8.346269638959364e-14,
+  "method": "raw retained archives and manifest; independent prototype/calibration, Python-count gate/comparator aggregation and every scene deletion; no study implementation import",
+  "primary_by_model": [
+    {
+      "accepted_painter_counts": [
+        1,
+        0,
+        1,
+        28
+      ],
+      "baseline_minus_gate": 0.2767857142857143,
+      "baseline_risk": 0.2767857142857143,
+      "coverage": 0.26785714285714285,
+      "gate_risk": 0.0,
+      "margin_minus_gate": 0.0,
+      "margin_risk": 0.0,
+      "model": "gpt-image-1"
+    },
+    {
+      "accepted_painter_counts": [
+        1,
+        1,
+        8,
+        27
+      ],
+      "baseline_minus_gate": 0.21404440154440155,
+      "baseline_risk": 0.24107142857142858,
+      "coverage": 0.33035714285714285,
+      "gate_risk": 0.02702702702702703,
+      "margin_minus_gate": 0.0,
+      "margin_risk": 0.02702702702702703,
+      "model": "gpt-image-2"
+    },
+    {
+      "accepted_painter_counts": [
+        0,
+        0,
+        2,
+        25
+      ],
+      "baseline_minus_gate": 0.375,
+      "baseline_risk": 0.375,
+      "coverage": 0.24107142857142858,
+      "gate_risk": 0.0,
+      "margin_minus_gate": 0.0,
+      "margin_risk": 0.0,
+      "model": "gpt-image-2.5-flare"
+    },
+    {
+      "accepted_painter_counts": [
+        0,
+        0,
+        2,
+        28
+      ],
+      "baseline_minus_gate": 0.38392857142857145,
+      "baseline_risk": 0.38392857142857145,
+      "coverage": 0.26785714285714285,
+      "gate_risk": 0.0,
+      "margin_minus_gate": 0.0,
+      "margin_risk": 0.0,
+      "model": "gpt-image-2.5-sunburst"
+    },
+    {
+      "accepted_painter_counts": [
+        6,
+        9,
+        8,
+        28
+      ],
+      "baseline_minus_gate": 0.23616946778711484,
+      "baseline_risk": 0.49107142857142855,
+      "coverage": 0.45535714285714285,
+      "gate_risk": 0.2549019607843137,
+      "margin_minus_gate": 0.0784313725490196,
+      "margin_risk": 0.3333333333333333,
+      "model": "google/gemini-3.1-flash-image"
+    },
+    {
+      "accepted_painter_counts": [
+        8,
+        17,
+        22,
+        17
+      ],
+      "baseline_minus_gate": 0.0758928571428571,
+      "baseline_risk": 0.6071428571428571,
+      "coverage": 0.5714285714285714,
+      "gate_risk": 0.53125,
+      "margin_minus_gate": -0.046875,
+      "margin_risk": 0.484375,
+      "model": "black-forest-labs/flux.2-max"
+    }
+  ],
+  "primary_joint_usefulness": false,
+  "primary_summary": {
+    "adverse_baseline_configurations": [],
+    "adverse_margin_configurations": [
+      "black-forest-labs/flux.2-max"
+    ],
+    "configuration_count": 6,
+    "criteria": {
+      "every_configuration_coverage_at_least_half": false,
+      "every_painter_accepted_in_every_configuration": false,
+      "positive_mean_baseline_minus_gate": true,
+      "positive_mean_margin_minus_gate": true
+    },
+    "failed_criteria": [
+      "every_configuration_coverage_at_least_half",
+      "every_painter_accepted_in_every_configuration"
+    ],
+    "joint_usefulness": false,
+    "mean_baseline_minus_gate_risk": 0.2603035020314432,
+    "mean_coverage": 0.35565476190476186,
+    "mean_gate_accepted_error": 0.1355298313018901,
+    "mean_margin_minus_gate_risk": 0.005259395424836601,
+    "missing_means": []
+  },
+  "query_rows_per_setting": 1008,
+  "rtol": 1e-10,
+  "scene_deletions_per_setting": 14,
+  "settings": 8,
+  "status": "passed"
+}

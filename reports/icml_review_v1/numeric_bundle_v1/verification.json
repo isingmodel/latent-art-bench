@@ -1,0 +1,135 @@
+{
+  "status": "passed",
+  "archive": {
+    "bytes": 59716929,
+    "file_count": 306,
+    "path": "/Users/fred/dev/generative_art_diff/output/artifacts/icml_numeric_round03_final.tar.gz",
+    "sha256": "892a35046f11b70cdc1d74fb0aead95eb46422e869d204d3ec2edcf18d67da4b",
+    "status": "local; not publicly released",
+    "uncompressed_payload_bytes": 217449989
+  },
+  "relocated_fixed_checks": 16,
+  "original_checkout_source_or_data_reads": 0,
+  "integrity_rejection_probes": [
+    {
+      "case": "changed embedding bytes",
+      "exit_code": 1,
+      "rejected": true
+    },
+    {
+      "case": "missing declared member",
+      "exit_code": 1,
+      "rejected": true
+    },
+    {
+      "case": "extra member",
+      "exit_code": 1,
+      "rejected": true
+    },
+    {
+      "case": "symlink outside bundle",
+      "exit_code": 1,
+      "rejected": true
+    }
+  ],
+  "traces": [
+    {
+      "path": "reports/icml_review_v1/numeric_bundle_v1/relocation_trace_00.json",
+      "sha256": "429a9f511fdc1a18d9f7d67ebcab8560cb76c7713e987482f9b5e7da7a9a92ea",
+      "opened_bundle_inputs": 56,
+      "external_runtime_reads": 889
+    },
+    {
+      "path": "reports/icml_review_v1/numeric_bundle_v1/relocation_trace_01.json",
+      "sha256": "aa8a974ff529c804e0702e6d108d8f8251e3af1f2de2d30d4c837a0048821d5b",
+      "opened_bundle_inputs": 56,
+      "external_runtime_reads": 889
+    },
+    {
+      "path": "reports/icml_review_v1/numeric_bundle_v1/relocation_trace_02.json",
+      "sha256": "6895ba134f9cd34acf2433ca4cf0ffdd9a5ff7a48672078353e11a09d3cda595",
+      "opened_bundle_inputs": 56,
+      "external_runtime_reads": 889
+    },
+    {
+      "path": "reports/icml_review_v1/numeric_bundle_v1/relocation_trace_03.json",
+      "sha256": "ad27a61587f02cb4b899f38adc3dee540e72cde816ac366fdbebaf6453298d5b",
+      "opened_bundle_inputs": 56,
+      "external_runtime_reads": 889
+    },
+    {
+      "path": "reports/icml_review_v1/numeric_bundle_v1/relocation_trace_04.json",
+      "sha256": "6ca499a5c20f5c289c2477e3b5d9332d42f98d4a3fd38e8babcc075cf22375f0",
+      "opened_bundle_inputs": 60,
+      "external_runtime_reads": 889
+    },
+    {
+      "path": "reports/icml_review_v1/numeric_bundle_v1/relocation_trace_05.json",
+      "sha256": "ceba0aeaf03d4daa36f92413a9a829cee81e9e41d730992fd1a62749cef983b8",
+      "opened_bundle_inputs": 65,
+      "external_runtime_reads": 889
+    },
+    {
+      "path": "reports/icml_review_v1/numeric_bundle_v1/relocation_trace_06.json",
+      "sha256": "f9b1af690f6e2071ff8f51321ad315cc13476049fcf0e1fa468462bf58d9ba13",
+      "opened_bundle_inputs": 65,
+      "external_runtime_reads": 889
+    },
+    {
+      "path": "reports/icml_review_v1/numeric_bundle_v1/relocation_trace_07.json",
+      "sha256": "7f3da938d691a5629241e6eff5af33b9beab57589dc2ceb263b7e655da61e64f",
+      "opened_bundle_inputs": 60,
+      "external_runtime_reads": 889
+    },
+    {
+      "path": "reports/icml_review_v1/numeric_bundle_v1/relocation_trace_08.json",
+      "sha256": "1e0e465a45833a7a624e93ee12ab0aed783b193428495fa8508e3e09042eea8e",
+      "opened_bundle_inputs": 61,
+      "external_runtime_reads": 889
+    },
+    {
+      "path": "reports/icml_review_v1/numeric_bundle_v1/relocation_trace_09.json",
+      "sha256": "3f04af82cb713bd4d8db5f49d5402395415bea5259f1d7d96d6f680bd3dabf0d",
+      "opened_bundle_inputs": 38,
+      "external_runtime_reads": 890
+    },
+    {
+      "path": "reports/icml_review_v1/numeric_bundle_v1/relocation_trace_10.json",
+      "sha256": "498f1d9bdaf73144b2bd39e3ce35d579d4afcfc5acb0b52eb2f322431070ddf5",
+      "opened_bundle_inputs": 13,
+      "external_runtime_reads": 2
+    },
+    {
+      "path": "reports/icml_review_v1/numeric_bundle_v1/relocation_trace_11.json",
+      "sha256": "d59fd44b266e2e7aafc57478c1945066f13e569ad7a38de1e050e47ca84a11fa",
+      "opened_bundle_inputs": 12,
+      "external_runtime_reads": 2
+    },
+    {
+      "path": "reports/icml_review_v1/numeric_bundle_v1/relocation_trace_12.json",
+      "sha256": "60030f523bef11a40593782ca56a89cbacdcb20d8c72841edc1b01ad7a200d9b",
+      "opened_bundle_inputs": 24,
+      "external_runtime_reads": 104
+    },
+    {
+      "path": "reports/icml_review_v1/numeric_bundle_v1/relocation_trace_13.json",
+      "sha256": "ce4bb2243de3268433e6dd0611371ea24da46e46672ac9c2c2b10d7c06afa324",
+      "opened_bundle_inputs": 25,
+      "external_runtime_reads": 101
+    },
+    {
+      "path": "reports/icml_review_v1/numeric_bundle_v1/relocation_trace_14.json",
+      "sha256": "56c4bd849e09d7058e6ece553d742f9926134d6edac5ec601001279d15ee5d55",
+      "opened_bundle_inputs": 73,
+      "external_runtime_reads": 889
+    },
+    {
+      "path": "reports/icml_review_v1/numeric_bundle_v1/relocation_trace_15.json",
+      "sha256": "51b0d18318169476546d7aca91ccbccd11e332ebb4841869fcd147cae883d835",
+      "opened_bundle_inputs": 60,
+      "external_runtime_reads": 2
+    }
+  ],
+  "environment_scope": "same machine and installed runtime; clean extracted directory with no symlinks to checkout",
+  "scientific_scope": "numerical portability only; no new empirical observations, pixel extraction, public release or scientific score"
+}

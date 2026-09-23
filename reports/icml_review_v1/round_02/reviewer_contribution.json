@@ -1,0 +1,181 @@
+{
+  "reviewer": "contribution",
+  "review_type": "Independent ICLR-style local AI scientific review simulation; not a conference decision",
+  "manuscript_title": "Artist-Name Responses beyond a Shared Painting Effect in Text-to-Image Generation",
+  "inspected_pdf_sha256": "ad4377767c0d442617b9a6dff49eb1231e1c359072daf3e317ba87c20f206e14",
+  "pdf_pages_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "pdf_pages_visually_inspected": [
+    5,
+    7,
+    8,
+    17,
+    19,
+    20,
+    23
+  ],
+  "summary": "The paper audits 1,008 outputs from six requested generator configurations, 14 scenes, six prompt conditions and two repeats against four finite historical painter collections. It separates common naming movement from centered labeled painter contrasts, uses cross-repeat error estimates, and compares hand-designed features with CLIP and CSD on the same images. Common movement supplies most additional naming change and most learned prototype gain; Monet–Sisley alignment and model orderings depend on representation and metric. These are measurements of finite digital targets, not validated perceptual fidelity.",
+  "strengths": [
+    {
+      "location": "Sections 5.2 and 5.6; Tables 2 and 5; Appendix J",
+      "text": "The same-image common/labeled decomposition gives useful quantitative information about what prototype proximity gains contain, including beyond a generic oil-painting clause."
+    },
+    {
+      "location": "Sections 4.1–4.3; Appendices B–C",
+      "text": "The paper carefully distinguishes amplitude, direction, mismatch, scene variation, and repeat noise; the estimators and counterfactual feature calibration are appropriately bounded."
+    },
+    {
+      "location": "Sections 5.5–5.6; Appendix F",
+      "text": "Conflicting representation results, changed source-corrected comparisons, unresolved no-contrast comparisons, and a contrary transfer result are retained."
+    },
+    {
+      "location": "Appendices J–K and retained hash-bound evidence",
+      "text": "Extensive identities, manifests, encoder validation records, and successful numerical replay support the reported computation. All numbered figures were visually inspected and were legible."
+    }
+  ],
+  "weaknesses": [
+    {
+      "id": "W1",
+      "type": "evidence/significance",
+      "location": "Introduction; Section 3.1; Sections 5.2 and 5.6; Conclusion; Appendices I–J",
+      "text": "The four painters are closely related, while the generic oil-painting control does not specify their shared school. Common movement can be expected and appropriate. The experiment establishes majority-common change within this panel but does not show how much is due to painter-set/control choice or establish a consequential evaluation failure. The reference and encoder sensitivities keep the same four-name intervention. A targeted panel or shared-school control would address the significance question; caveats alone do not."
+    },
+    {
+      "id": "W2",
+      "type": "evidence/target usefulness",
+      "location": "Sections 4.2, 5.3–5.6 and 6; Table 3; Appendix C.1 Table 7",
+      "text": "The pooled reference target mixes subjects and reproductions and is imposed on each generated scene. Genuine-painting exact held-out class-stratified controls already have errors around .5–1. The paper demonstrates disagreement between non-equivalent metrics but has no independent criterion showing which disagreement is consequential for an evaluator. Perceptual judgments are not mandatory for the restricted claim, but a controlled task or better matched reference criterion could establish usefulness."
+    },
+    {
+      "id": "W3",
+      "type": "evidence/repeatability",
+      "location": "Section 4.3; Section 5.6; Table 5; Appendices C.4, J.4–J.5, K.5",
+      "text": "The learned comparisons are descriptive points from one collection with two repeats per cell. Scene deletion does not assess new-request uncertainty and the linear time diagnostic does not establish independent repeat blocks. This limits the weight of ranking reversals and a CSD common-gain share as close to half as 54.2%, without making their descriptive reporting incorrect."
+    },
+    {
+      "id": "W4",
+      "type": "reproducibility/access",
+      "location": "Reproducibility section; Appendices J.4 and K.3–K.6",
+      "text": "The compact artifact supports replay but does not supply a verified public recovery route for all original pixels. Independent encoder extraction, source-region inspection and alternative measurements remain limited. Local hashes cannot substitute for accessible pixels."
+    },
+    {
+      "id": "W5",
+      "type": "presentation/prior-work positioning",
+      "location": "Section 2; Section 5.6 Table 5; Appendix J.3",
+      "text": "The closest prior metrics should be described precisely: CSD General Style Similarity already uses generated-to-artist-prototype dot products, and Su et al. compare artist-free and real-prototype similarities. The novelty is auditing common versus labeled contributions. The PDF also says development-work recognition is retained but omits its numeric baseline and confusion matrix. Hand/learned comparisons should continue to identify preprocessing differences explicitly."
+    }
+  ],
+  "questions": [
+    "What substantive evaluation error does the common fraction prevent here, and when is the shared part a legitimate fidelity gain?",
+    "How much does majority-common movement depend on related painter selection and a generic oil-painting baseline?",
+    "How should model contrast errors be interpreted relative to the substantial genuine-painting control errors in Table 7?",
+    "Can the paper report development-work recognition, per-painter confusions and raw common/labeled gain terms without treating them as perceptual ground truth?",
+    "What complete, verified pixel artifact or recovery route will support independent re-extraction and provide usable credits and crop records?"
+  ],
+  "revision_priorities": [
+    {
+      "priority": 1,
+      "kind": "new evidence",
+      "text": "Establish practical evaluation importance through a targeted artist-panel/control comparison or an independent criterion demonstrating a consequential evaluator error."
+    },
+    {
+      "priority": 2,
+      "kind": "new evidence",
+      "text": "Obtain independent request evidence for the principal descriptive comparisons using a fixed uncertainty analysis, without retrospectively turning this audit into a confirmatory study."
+    },
+    {
+      "priority": 3,
+      "kind": "artifact release",
+      "text": "Provide verified, attribution-complete exact pixels or a complete verified recovery route."
+    },
+    {
+      "priority": 4,
+      "kind": "writing",
+      "text": "Link Eq. 4/11 directly to the closest prior prototype metrics; report real-work recognition and confusion baselines; foreground the strongest limited empirical finding."
+    }
+  ],
+  "soundness": 3,
+  "soundness_justification": "The restricted estimands are coherent and inspected implementation and replay agree. There is no demonstrated computational failure. Repeat assumptions and the usefulness of the target remain important limitations.",
+  "presentation": 3,
+  "presentation_justification": "Readable, precise and visually legible, but the many diagnostics and caveats obscure the core contribution; precise prior-metric positioning and real-work score context need improvement.",
+  "contribution": 2,
+  "contribution_justification": "A credible empirical case study and useful decomposition, but one closely related four-painter setting and disagreement between deliberately non-equivalent measures do not yet establish a sufficiently consequential evaluation result.",
+  "overall_rating": 4,
+  "overall_rating_label": "marginally below acceptance",
+  "confidence": 4,
+  "confidence_justification": "Full frozen manuscript read; relevant primary prior work, scientific implementation, bound evidence and numerical replay inspected. No independent full source-pixel inference, service authentication or art-historical expert assessment.",
+  "overall_justification": "The strongest contribution is the same-image finding that common movement dominates learned prototype gain, alongside a representation-dependent related-painter result. I value the careful empirical work and do not require a new algorithm. My reservation is significance: the manuscript has not established how the decomposition changes a scientifically grounded evaluation judgment beyond this fixed collection. Its accurate caveats prevent overclaiming but cannot replace evidence of that importance. I therefore rate it marginally below acceptance rather than rejecting its restricted numerical findings.",
+  "ethics_concerns": {
+    "concrete_violation_identified": false,
+    "assessment": "No concrete ethical violation is established. The study discloses AI assistance, studies deceased historical painters, and has no human-participant evaluation.",
+    "release_issue": "Appendix J.4 records 84 CC BY/BY-SA source files and two without a separate artist-text field. Complete usable attribution before distributing an archive; this is an unresolved release task, not demonstrated infringement."
+  },
+  "evidence_inspection": {
+    "manifest": "reports/icml_review_v1/round_02/evidence_manifest.json",
+    "all_9_manifest_hashes_match": true,
+    "learned_analysis_bindings_verified": 8,
+    "learned_input_bindings_verified": 10,
+    "commands_passed": [
+      "make icml-evidence-check"
+    ],
+    "checks_passed": [
+      "direct-naming exact replay",
+      "request-time exact replay",
+      "learned-vector exact replay",
+      "learned-table bindings and exact TeX replay"
+    ],
+    "scientific_code_inspected": [
+      "src/latent_art_bench/painter_learned_analysis_v1.py",
+      "src/latent_art_bench/painter_learned_audit_v1.py arrays/analyze/check"
+    ],
+    "limits": "Checked schemas, counts, validation summaries and relevant numeric fields; did not independently reproduce full pixel extraction or authenticate served weights."
+  },
+  "primary_external_sources": [
+    {
+      "title": "Identifying Prompted Artist Names from Generated Images",
+      "authors": "Su et al.",
+      "year": 2025,
+      "url": "https://arxiv.org/html/2507.18633v1",
+      "sections_inspected": "Introduction and Sections 3–4, especially Section 3.5"
+    },
+    {
+      "title": "Investigating Style Similarity in Diffusion Models",
+      "authors": "Somepalli et al.",
+      "year": 2024,
+      "url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/08294.pdf",
+      "sections_inspected": "Abstract, introduction and Section 2 prototype/GSS evaluation"
+    }
+  ],
+  "independence_statement": "No prior-round reviews, reviewer outputs, historical scores or target score were consulted. Proposed future work receives no credit."
+}

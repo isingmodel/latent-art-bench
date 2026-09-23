@@ -1,0 +1,80 @@
+{
+  "status": "pre-outcome lexical wording check",
+  "algorithm": "difflib.SequenceMatcher on lowercase full scene text; no performance-based selection",
+  "comparisons": [
+    {
+      "new_id": "W1",
+      "closest_old_scene": 5,
+      "character_sequence_ratio": 0.541095890410959,
+      "exact_duplicate": false
+    },
+    {
+      "new_id": "W2",
+      "closest_old_scene": 0,
+      "character_sequence_ratio": 0.48951048951048953,
+      "exact_duplicate": false
+    },
+    {
+      "new_id": "W3",
+      "closest_old_scene": 8,
+      "character_sequence_ratio": 0.5095057034220533,
+      "exact_duplicate": false
+    },
+    {
+      "new_id": "B1",
+      "closest_old_scene": 5,
+      "character_sequence_ratio": 0.4280701754385965,
+      "exact_duplicate": false
+    },
+    {
+      "new_id": "B2",
+      "closest_old_scene": 2,
+      "character_sequence_ratio": 0.46886446886446886,
+      "exact_duplicate": false
+    },
+    {
+      "new_id": "B3",
+      "closest_old_scene": 5,
+      "character_sequence_ratio": 0.38661710037174724,
+      "exact_duplicate": false
+    },
+    {
+      "new_id": "L1",
+      "closest_old_scene": 3,
+      "character_sequence_ratio": 0.48120300751879697,
+      "exact_duplicate": false
+    },
+    {
+      "new_id": "L2",
+      "closest_old_scene": 11,
+      "character_sequence_ratio": 0.4892086330935252,
+      "exact_duplicate": false
+    },
+    {
+      "new_id": "L3",
+      "closest_old_scene": 5,
+      "character_sequence_ratio": 0.4460431654676259,
+      "exact_duplicate": false
+    },
+    {
+      "new_id": "M1",
+      "closest_old_scene": 13,
+      "character_sequence_ratio": 0.42402826855123676,
+      "exact_duplicate": false
+    },
+    {
+      "new_id": "M2",
+      "closest_old_scene": 11,
+      "character_sequence_ratio": 0.5050505050505051,
+      "exact_duplicate": false
+    },
+    {
+      "new_id": "M3",
+      "closest_old_scene": 3,
+      "character_sequence_ratio": 0.4108527131782946,
+      "exact_duplicate": false
+    }
+  ],
+  "maximum_character_sequence_ratio": 0.541095890410959,
+  "interpretation": "No exact duplicates. These remain authored outdoor scenes with shared subject categories; lexical distance does not prove semantic independence or generalization. All12 prespecified scenes retained."
+}

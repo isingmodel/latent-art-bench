@@ -1,0 +1,1616 @@
+{
+  "commands": [
+    [
+      "-m",
+      "latent_art_bench.painter_specificity_measurement_v1.workflow",
+      "analyze",
+      "--check"
+    ],
+    [
+      "-m",
+      "latent_art_bench.painter_specificity_measurement_v1.workflow",
+      "analyze",
+      "--square",
+      "--check"
+    ],
+    [
+      "-m",
+      "latent_art_bench.painter_specificity_measurement_v1.workflow",
+      "analyze",
+      "--reference",
+      "--check"
+    ],
+    [
+      "-m",
+      "latent_art_bench.painter_specificity_measurement_v1.workflow",
+      "analyze",
+      "--reference",
+      "--square",
+      "--check"
+    ],
+    [
+      "-m",
+      "latent_art_bench.painter_specificity_review_v1",
+      "check"
+    ],
+    [
+      "-m",
+      "latent_art_bench.painter_specificity_review_v2",
+      "check"
+    ],
+    [
+      "-m",
+      "latent_art_bench.painter_reference_quality_v1",
+      "check"
+    ],
+    [
+      "-m",
+      "latent_art_bench.painter_specificity_review_v3",
+      "check"
+    ],
+    [
+      "-m",
+      "latent_art_bench.painter_request_timing_v1",
+      "check"
+    ],
+    [
+      "-m",
+      "latent_art_bench.painter_learned_audit_v1",
+      "check"
+    ],
+    [
+      "paper/make_icml_learned_tables.py",
+      "--check"
+    ],
+    [
+      "paper/make_icml_learned_calibration_tables.py",
+      "--check"
+    ],
+    [
+      "-m",
+      "latent_art_bench.painter_prototype_transfer_v1",
+      "check",
+      "--execute-real"
+    ],
+    [
+      "paper/make_icml_transfer_tables.py",
+      "--check"
+    ],
+    [
+      "-m",
+      "latent_art_bench.painter_repeat_covariance_v1",
+      "check",
+      "--execute-real"
+    ],
+    [
+      "paper/make_icml_covariance_tables.py",
+      "--check"
+    ]
+  ],
+  "files": [
+    {
+      "bytes": 1084,
+      "path": "LICENSE",
+      "sha256": "9c623de0d41e44d26cf54436e02834563a83ee09ee1cdbd59be292d56277907b"
+    },
+    {
+      "bytes": 5782,
+      "path": "README.md",
+      "sha256": "cb2b6eaba99a589b28416d2b8cfe6f9b6b866ad6f8d4c3a747c1b9e5628e15c9"
+    },
+    {
+      "bytes": 6811,
+      "path": "critics/assessment_v1/check_claims.py",
+      "sha256": "bfe3a83c074789baef6bc3052b912bdd0b3de89165051ebb9a78bd27392648a1"
+    },
+    {
+      "bytes": 1471482,
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-frame-20260905/frame.jsonl",
+      "sha256": "43c71972635421645b276051feaefc62ee6845d3807fcad352aaa72926e9bed2"
+    },
+    {
+      "bytes": 779053,
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/confirmation_features.jsonl",
+      "sha256": "01cc5167c09b88eab6a86885b72040f76fc8a7ca8a62acd56d85a8b16b2f7717"
+    },
+    {
+      "bytes": 374315,
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/development_features.jsonl",
+      "sha256": "6001964b6f6d0a4958f4f546d48d81120b43c6587d55e248fd48b99dee3c821b"
+    },
+    {
+      "bytes": 2029,
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/scaler.json",
+      "sha256": "71f511235081dfc1e9846976320c69477bcbd04dd43fc9a2e271f7b0375497b9"
+    },
+    {
+      "bytes": 1516501,
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-renderings-r2-20260905/acquisitions.jsonl",
+      "sha256": "3933e1627a0e7182baf899917cf651530f86c04b8e92b0312f7ada15dae98f5e"
+    },
+    {
+      "bytes": 1238,
+      "path": "data/manifests/painter_specificity_measurement_v1/psmv1-20260911/freeze.json",
+      "sha256": "c6c89dd1fdca14bb47a20dfb761c224176b8507acf204772bb11164b689ba571"
+    },
+    {
+      "bytes": 29596,
+      "path": "data/manifests/painter_specificity_reference_v1/psrv1-20260911/analysis.json",
+      "sha256": "8b8aad91d726ee28549ea56363d1b5656f8fd4170cbdf85c6cfb4e9607b7f6d5"
+    },
+    {
+      "bytes": 29618,
+      "path": "data/manifests/painter_specificity_reference_v1/psrv1-20260911/analysis_square.json",
+      "sha256": "2496b4de0b74f67b53f994cef1591034711efa0b06a07cd05719dfd92af1cb1b"
+    },
+    {
+      "bytes": 1370,
+      "path": "data/manifests/painter_specificity_reference_v1/psrv1-20260911/freeze.json",
+      "sha256": "662947f7c0758de6b315fb44752ba5b080cb4c2eee6b79313a37f00c4ee09523"
+    },
+    {
+      "bytes": 7746,
+      "path": "data/manifests/painter_specificity_v1/openai_provider_quotes.json",
+      "sha256": "afc7da39c3890858484a5ee152e550cb2fd907d77c7e982038b354e4a62fef92"
+    },
+    {
+      "bytes": 4817,
+      "path": "data/manifests/painter_specificity_v1/provider_quotes.json",
+      "sha256": "ba4473c151a89bed18f04831bff9c376d4ae467489d598930a93a2386d5605f7"
+    },
+    {
+      "bytes": 26688,
+      "path": "data/manifests/painter_specificity_v1/psv1-20260910/collection.json",
+      "sha256": "5e105c1f1ccb8af9a43c29a9121dc392297d45228470a7329cba3696aaccfca9"
+    },
+    {
+      "bytes": 2268,
+      "path": "data/manifests/painter_specificity_v2/medium_cost_pilots.jsonl",
+      "sha256": "ddb78ef482917f1f31564ead9d447e81406d01a4d58bd00f9aa1d6ee93191adb"
+    },
+    {
+      "bytes": 4109,
+      "path": "data/manifests/painter_specificity_v2/pilot.jsonl",
+      "sha256": "26fbb3e920e02453c4e6c9748130637bd09fa301b7595cce41af03c0d14a7280"
+    },
+    {
+      "bytes": 50154,
+      "path": "data/manifests/painter_specificity_v2/psv2-20260911/analysis.json",
+      "sha256": "c1d21b16f840a10fd253c1d558743a09671acf3d4e48601ddcc96625a5a90be0"
+    },
+    {
+      "bytes": 50227,
+      "path": "data/manifests/painter_specificity_v2/psv2-20260911/analysis_square.json",
+      "sha256": "1e34cc4fe000f6499c435542e84c03bc95d43e1d0936f203530535349c48c693"
+    },
+    {
+      "bytes": 863960,
+      "path": "data/manifests/painter_specificity_v2/psv2-20260911/attempts.jsonl",
+      "sha256": "b131798cd2b803d6d60569def72700bb35daacdd2c5602e0dc854b7bd77a3ffd"
+    },
+    {
+      "bytes": 803844,
+      "path": "data/manifests/painter_specificity_v2/psv2-20260911/collection.json",
+      "sha256": "3491468b0dc6875d28e530595341d2a5a659a5aec175e5f6f7999f05b5851480"
+    },
+    {
+      "bytes": 4855,
+      "path": "data/manifests/painter_specificity_v2/psv2-20260911/freeze.json",
+      "sha256": "2f32de5182357e960eb4520b45e90f23e6fe812168679cba9072a435675cdf27"
+    },
+    {
+      "bytes": 602,
+      "path": "data/manifests/painter_specificity_v2/psv2-20260911/measurement_receipt.json",
+      "sha256": "e71a1a7c64ba6d443e899f7913d4e97ee5db4e15cda132955fd2b41243d31c06"
+    },
+    {
+      "bytes": 1716240,
+      "path": "data/manifests/painter_specificity_v2/psv2-20260911/measurements.jsonl",
+      "sha256": "5db95709f48a25e31ef212b588c2aa3e0f7af4fb5dbaf413cfc16690de60cac1"
+    },
+    {
+      "bytes": 1130505,
+      "path": "data/manifests/painter_specificity_v2/psv2-20260911/reference_windows.jsonl",
+      "sha256": "2fa580f51f63c2d15aa9cae058b2c073939f029224cc90fba96243f2efb7c42b"
+    },
+    {
+      "bytes": 540600,
+      "path": "data/manifests/painter_specificity_v2/psv2-20260911/requests.jsonl",
+      "sha256": "0aa60f491be08dbd48f1f018e225b22bcae2aacd724abf3371a6312d59acc679"
+    },
+    {
+      "bytes": 4265,
+      "path": "paper/icml_covariance_results.tex",
+      "sha256": "7d9fa2bb12d2358a4bafa7754ad159c0c12d955b96f9b99cea436280ea1c7e27"
+    },
+    {
+      "bytes": 12809,
+      "path": "paper/icml_learned_calibration.tex",
+      "sha256": "2a68a829aaf84dde79af2a9ce357742b96d99ff660f194f7931ae4d0ee9272c0"
+    },
+    {
+      "bytes": 9779,
+      "path": "paper/icml_learned_results.tex",
+      "sha256": "abdfc01f75be11dd9bc8eb38b1c49a198bf7b19f76d5c7cd124ecbb1992288cb"
+    },
+    {
+      "bytes": 3077,
+      "path": "paper/icml_learned_table.tex",
+      "sha256": "0649fbcd2be38577c619c93cb841ace531b2f316f3e382462e9ee0bb7502a1d9"
+    },
+    {
+      "bytes": 37889,
+      "path": "paper/icml_transfer_results.tex",
+      "sha256": "db8083976fc06ba7d1e2b2ddfe0cae54e1d4df4ce0bf91f4420b7deefbe4be8c"
+    },
+    {
+      "bytes": 4273,
+      "path": "paper/icml_transfer_table.tex",
+      "sha256": "4036c3aaf6419201876ec12b9a455580f1b7345d769283a57b80a16d5ada685d"
+    },
+    {
+      "bytes": 6700,
+      "path": "paper/make_icml_covariance_tables.py",
+      "sha256": "f92a8bf51c4c49a25c579189b4f9fb1333bcaca44a6fa40934e9cba52dd820c9"
+    },
+    {
+      "bytes": 16234,
+      "path": "paper/make_icml_learned_calibration_tables.py",
+      "sha256": "5f1bfec80ff0d5b7e16d2a4b586a214591bc0be887c2da07ea87418a5e62f6b5"
+    },
+    {
+      "bytes": 14570,
+      "path": "paper/make_icml_learned_tables.py",
+      "sha256": "ab27c7aaa92a17e69a5e5d0ff2948671c374e39a140f39ed252cb5609be9fe57"
+    },
+    {
+      "bytes": 21274,
+      "path": "paper/make_icml_transfer_tables.py",
+      "sha256": "eaefcdefea1cc8681bcd4c093a317222df52b46da74ce138b75b04270f4a4481"
+    },
+    {
+      "bytes": 1207,
+      "path": "pyproject.toml",
+      "sha256": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8"
+    },
+    {
+      "bytes": 437,
+      "path": "pytest.ini",
+      "sha256": "da9df3b6b780c4dd7646c7d23262442950fa6c5b3bde96ba2ef69d6de8dd22d2"
+    },
+    {
+      "bytes": 3090938,
+      "path": "reports/icml_review_v1/artifact_attribution.json",
+      "sha256": "f4e468db427dbbd756bdcfac7686ed16cb587e487680d9e0b2bb4ce2cf4f4574"
+    },
+    {
+      "bytes": 1070231,
+      "path": "reports/icml_review_v1/artifact_inventory.json",
+      "sha256": "492ebd715d6e394244f00cbf98aa5d93a76c204e5c2fd1c7dce01c3d34320558"
+    },
+    {
+      "bytes": 30225,
+      "path": "reports/icml_review_v1/covariance_independent_audit.json",
+      "sha256": "151580aafa0e4c140237ef2bb2c73ae58f96bed864bd0228fefdf689c02657a6"
+    },
+    {
+      "bytes": 8353,
+      "path": "reports/icml_review_v1/covariance_independent_audit.md",
+      "sha256": "892455f4705f3bb3c8f4a7e62b8e55a0f46c183734c3bdd51f9fbb91e9ae95ef"
+    },
+    {
+      "bytes": 6983,
+      "path": "reports/icml_review_v1/covariance_independent_audit.py",
+      "sha256": "bb3fbf5f8bfe140e273fa6d6a4dc159bab1f66fba008236d8a060020445c163b"
+    },
+    {
+      "bytes": 2834,
+      "path": "reports/icml_review_v1/round_03/evidence_manifest.json",
+      "sha256": "4879a4c121a8b70a47893b38c436183ffdcf35d2d483abf3486e946c31172394"
+    },
+    {
+      "bytes": 4945584,
+      "path": "reports/icml_review_v1/round_03/input/manuscript.pdf",
+      "sha256": "bbcc12901427538ed0938cdea510f848a0999d0edd08b4bc707c5b6fb8051472"
+    },
+    {
+      "bytes": 2805,
+      "path": "reports/icml_review_v1/round_03/inputs.json",
+      "sha256": "761959b8eb20f4013df96a0af1887522cde3e640ead989bf81187ec2c6c8f1b6"
+    },
+    {
+      "bytes": 6040,
+      "path": "reports/icml_review_v1/transfer_independent_audit.json",
+      "sha256": "ec8489c784ee54eb5fd16a75c6cb64e1ff22ad8ac28b6fc4c5828d77ba34b844"
+    },
+    {
+      "bytes": 10896,
+      "path": "reports/icml_review_v1/transfer_independent_audit.md",
+      "sha256": "b45d6e979f74431a08c6c06463766f459ce7ef93255f59cf2fddf6980e37671b"
+    },
+    {
+      "bytes": 11353,
+      "path": "reports/icml_review_v1/transfer_independent_audit.py",
+      "sha256": "e5f986ea700d54ffb9e493aa33b7c9058da8b6b5e5d76abe3af2883583a492d3"
+    },
+    {
+      "bytes": 2358645,
+      "path": "reports/painter_learned_audit_v1/analysis.json",
+      "sha256": "06c77de4be133afc203dda122b2816d4f866e1389999f18bc94b3d9c668f28f7"
+    },
+    {
+      "bytes": 1918,
+      "path": "reports/painter_learned_audit_v1/csd_adapter_inputs_v2.json",
+      "sha256": "29107601907b257798a24bc01615c86e5984e11de0843c3dc8b4eb7685cf2567"
+    },
+    {
+      "bytes": 5739711,
+      "path": "reports/painter_learned_audit_v1/embeddings_clip.npz",
+      "sha256": "d6e3d49bde6ca7d75fb3603cf7f3ecf7d46ea979b21a3b1e75435a504acd9945"
+    },
+    {
+      "bytes": 5733706,
+      "path": "reports/painter_learned_audit_v1/embeddings_csd.npz",
+      "sha256": "65f428ed866916dca12ea0bc8148f1e0b9122343d19181e56f03543b5506085b"
+    },
+    {
+      "bytes": 146417,
+      "path": "reports/painter_learned_audit_v1/extraction_clip.json",
+      "sha256": "30a2aa7f93fcaa2e23413837ba3f75cf79b7ca3fca3f450a7b5ff4cddb7a22d5"
+    },
+    {
+      "bytes": 146590,
+      "path": "reports/painter_learned_audit_v1/extraction_csd.json",
+      "sha256": "5a55e4337b9588ef45bce46037dbe7ed123f89113d92da1e8d1c738eee0d6945"
+    },
+    {
+      "bytes": 896482,
+      "path": "reports/painter_learned_audit_v1/inputs.json",
+      "sha256": "bd9cb00279fffb741b3579e3234ad034bb593884925ea40893c717612eccca57"
+    },
+    {
+      "bytes": 8889,
+      "path": "reports/painter_learned_audit_v1/validation_clip.json",
+      "sha256": "f298280c15d0801c0918a85e1e82c889e03bda90249e1a1072e227064fcf049d"
+    },
+    {
+      "bytes": 9064,
+      "path": "reports/painter_learned_audit_v1/validation_csd.json",
+      "sha256": "40024de26abeb12a40381f00392c6e94019c5ef056218cd4704079984b023978"
+    },
+    {
+      "bytes": 50296,
+      "path": "reports/painter_prototype_transfer_v1/REPORT.md",
+      "sha256": "9e7546198fd04c047f1b8a44f6575e957ef331282a6b879b32ddf900d2e0b81e"
+    },
+    {
+      "bytes": 176665174,
+      "path": "reports/painter_prototype_transfer_v1/analysis.json",
+      "sha256": "e1d1fbb924feb797f67e0907677511ed7c745335a4f2827e99d2f286e6be5448"
+    },
+    {
+      "bytes": 3279,
+      "path": "reports/painter_prototype_transfer_v1/inputs.json",
+      "sha256": "bdcf38bb09da53c890a1a62ce268c0336824ccadfb6ba90ee711bdaf1a6f1baf"
+    },
+    {
+      "bytes": 142403,
+      "path": "reports/painter_reference_quality_v1/analysis.json",
+      "sha256": "089f636335129d6377328088ccc9fdc763488aba2a88463939322326707052b4"
+    },
+    {
+      "bytes": 313848,
+      "path": "reports/painter_reference_quality_v1/audit_monet.json",
+      "sha256": "c766b8fa01e2124a425317852e29a427c28fd43cf425a7be8964530800f69b70"
+    },
+    {
+      "bytes": 461813,
+      "path": "reports/painter_reference_quality_v1/audit_others.json",
+      "sha256": "1500166f21dfa5061c04999a146ca7fd2243a1a59b3df14efb2ed437802fb9b1"
+    },
+    {
+      "bytes": 976278,
+      "path": "reports/painter_reference_quality_v1/measurements.json",
+      "sha256": "3aae4c346f94f7df722d68d0b9bdb16753af9ac802503b1a8d22b8bb6e323427"
+    },
+    {
+      "bytes": 7196,
+      "path": "reports/painter_repeat_covariance_v1/REPORT.md",
+      "sha256": "7ebb75099602bd091e61c2c1b51cd4b1fa6f68fc6f5e51d8e33a4fe86f8d58a9"
+    },
+    {
+      "bytes": 34160,
+      "path": "reports/painter_repeat_covariance_v1/analysis.json",
+      "sha256": "e5031ccad955b289b0d8dec110e8ee6b2ec39b43dfd8a6f2e150cc1dea1ce0c9"
+    },
+    {
+      "bytes": 7822,
+      "path": "reports/painter_repeat_covariance_v1/inputs.json",
+      "sha256": "43a44d769700b1a8fd0122d9a4e4d8e34726c121313641d892aa85b843bf2346"
+    },
+    {
+      "bytes": 2420,
+      "path": "reports/painter_request_timing_v1/REPORT.md",
+      "sha256": "3b8e42d27f40dd04135571e54fb1f17692435a2bc79fc55aadb6b69c32943308"
+    },
+    {
+      "bytes": 237231,
+      "path": "reports/painter_request_timing_v1/analysis.json",
+      "sha256": "80807c9ce3167ee853c354899a3fc750d8d330e17e5569135eb46e627819cceb"
+    },
+    {
+      "bytes": 173189,
+      "path": "reports/painter_specificity_review_v1/analysis.json",
+      "sha256": "2fabb78e15dfcc7b027a73170f6ad0c87af0196c754b4e6f45275269c2c961e2"
+    },
+    {
+      "bytes": 378879,
+      "path": "reports/painter_specificity_review_v2/analysis.json",
+      "sha256": "92f2c74c92232b1fae03ab195a8c81749a0a4b9676fd737e2e5741dc67571a16"
+    },
+    {
+      "bytes": 328224,
+      "path": "reports/painter_specificity_review_v3/analysis.json",
+      "sha256": "79fa5ca28900e852c072e2a52d35f3cb400ee053935d857729b4ad4aa3bc542c"
+    },
+    {
+      "bytes": 11139,
+      "path": "reports/painter_specificity_review_v3/report.md",
+      "sha256": "4a4b589854325d32b232abc5e627026274797a4c0c3287f34ee4d41f27a824f9"
+    },
+    {
+      "bytes": 13357,
+      "path": "scripts/icml_numeric_bundle.py",
+      "sha256": "f9fb24b62e2fb51ddfb33e8e8ed7b0659eaa7f3c71170b855d86b5b9e067e50f"
+    },
+    {
+      "bytes": 78,
+      "path": "src/latent_art_bench/__init__.py",
+      "sha256": "3a5d2006e1557187a3585cbe17af183fd7d2f170a32eb96b00c43b00d137c660"
+    },
+    {
+      "bytes": 3612,
+      "path": "src/latent_art_bench/cli.py",
+      "sha256": "ca4ac63abf6003296df6e961278424b2d09b17a221d395690cd22fc6018a4d1d"
+    },
+    {
+      "bytes": 16165,
+      "path": "src/latent_art_bench/config.py",
+      "sha256": "13939c9175af4d85c13687e8818023ba2f5d7920881c3fad9a97f2ebe42e933b"
+    },
+    {
+      "bytes": 31072,
+      "path": "src/latent_art_bench/evidence.py",
+      "sha256": "993f17351337ab60d4d7b1684521e53baf4711ee76061a687421127a5f87c2ef"
+    },
+    {
+      "bytes": 2666,
+      "path": "src/latent_art_bench/io.py",
+      "sha256": "13e6372aa9814495a45700eb9e65d099c56bb1bb3032d72f7f9e00e6ba91a9b8"
+    },
+    {
+      "bytes": 67,
+      "path": "src/latent_art_bench/painter_clause_successor_v1/__init__.py",
+      "sha256": "988e3adc27bc592ff3e0908bf363cadf334b7e540d8239ea7f21a953ec9b0224"
+    },
+    {
+      "bytes": 1618,
+      "path": "src/latent_art_bench/painter_clause_successor_v1/__main__.py",
+      "sha256": "3f36f3705e71d8684ed629720983ed61aadfc5f219358195e736b342fbedf7fa"
+    },
+    {
+      "bytes": 18720,
+      "path": "src/latent_art_bench/painter_clause_successor_v1/analysis.py",
+      "sha256": "cf40a3f92601bd3a1822964fad78b35b19b2a016d6db3000af11d5384b792e44"
+    },
+    {
+      "bytes": 20379,
+      "path": "src/latent_art_bench/painter_clause_successor_v1/collection.py",
+      "sha256": "cb03b96aeaa3fc15017be7749031266656d7c8c94ad6fcc415e6c626c7365766"
+    },
+    {
+      "bytes": 4559,
+      "path": "src/latent_art_bench/painter_clause_successor_v1/common.py",
+      "sha256": "bd1c1bf25cb72b32aa928947952f60b092e1780a6ec00f9bfe53d3301ca701e9"
+    },
+    {
+      "bytes": 26264,
+      "path": "src/latent_art_bench/painter_clause_successor_v1/workflow.py",
+      "sha256": "5c7b1723b73ae4857411456785a06f490ad9c21c11fb91fccc07e00b159cb427"
+    },
+    {
+      "bytes": 77,
+      "path": "src/latent_art_bench/painter_clause_validation_v1/__init__.py",
+      "sha256": "b6a2f0797f35a3307a847ab8edc211134cb73ff0d502676b237cd6efe0bf0c43"
+    },
+    {
+      "bytes": 1625,
+      "path": "src/latent_art_bench/painter_clause_validation_v1/__main__.py",
+      "sha256": "b5b741cd54a693422d1129491ebbc9a9106888deae63c02aab8e61c6dd2f5e98"
+    },
+    {
+      "bytes": 20769,
+      "path": "src/latent_art_bench/painter_clause_validation_v1/analysis.py",
+      "sha256": "c5a8049bddb586b861f62a207399a63dcd1838ac8135f9ea5349e84f5335b35c"
+    },
+    {
+      "bytes": 19976,
+      "path": "src/latent_art_bench/painter_clause_validation_v1/collection.py",
+      "sha256": "fa40aa9b5bf58d76507be92379fc116bc02833a61e41c4c6474b30111cdfe823"
+    },
+    {
+      "bytes": 6198,
+      "path": "src/latent_art_bench/painter_clause_validation_v1/common.py",
+      "sha256": "9972fb640f8f36b88079a4368ec45c267bcdfac0245e51aa8303587a1d4a725a"
+    },
+    {
+      "bytes": 26727,
+      "path": "src/latent_art_bench/painter_clause_validation_v1/precision.py",
+      "sha256": "a3ba7a21d46dee06efe28177a6a279a773e79b406a0120abb4f00f17c7939cec"
+    },
+    {
+      "bytes": 21356,
+      "path": "src/latent_art_bench/painter_clause_validation_v1/workflow.py",
+      "sha256": "f97ca52dd6acc64c883e05bb7486bf89d2a1ce874f7e7a36c2dbe9b451f30ad0"
+    },
+    {
+      "bytes": 79,
+      "path": "src/latent_art_bench/painter_distribution_exploration_v1/__init__.py",
+      "sha256": "d4e2662af04338131f3cf8433dec142060de43e4ea3ad02acc2ebf95392f8984"
+    },
+    {
+      "bytes": 10393,
+      "path": "src/latent_art_bench/painter_distribution_exploration_v1/analysis.py",
+      "sha256": "4e5c37ba52f9ff9e8993e74301f3305362ac5eb2ddad34470f36309386bf1b4f"
+    },
+    {
+      "bytes": 19638,
+      "path": "src/latent_art_bench/painter_distribution_exploration_v1/report.py",
+      "sha256": "cdce74cd1d49c9904c6f88a17188366bce967fb03b52184445bc09f1a721c58c"
+    },
+    {
+      "bytes": 5685,
+      "path": "src/latent_art_bench/painter_distribution_exploration_v1/statistics.py",
+      "sha256": "ea87fe5a72050eb85b28f81dd0e32e1d5e355ab0980b83f46ae58bf0f0e316fc"
+    },
+    {
+      "bytes": 83,
+      "path": "src/latent_art_bench/painter_distribution_revision_v1/__init__.py",
+      "sha256": "c856a4499e82583e9066d76a48efab6a0fe35e238110cc5ac33dc08466ee6718"
+    },
+    {
+      "bytes": 8729,
+      "path": "src/latent_art_bench/painter_distribution_revision_v1/analysis.py",
+      "sha256": "52b8fa6d569791bc65386558d37b58156183df2c4b4eba24e2989c2c133279d2"
+    },
+    {
+      "bytes": 7800,
+      "path": "src/latent_art_bench/painter_distribution_revision_v1/common.py",
+      "sha256": "6f150de38ef7dce1eedde03918dd14b2232809dabe74f1a8482f6d7e199be15d"
+    },
+    {
+      "bytes": 24693,
+      "path": "src/latent_art_bench/painter_distribution_revision_v1/diagnostics.py",
+      "sha256": "64e070f3810192b17b383034cc1b0961cefd29117c033c80497da7b215d23caf"
+    },
+    {
+      "bytes": 29133,
+      "path": "src/latent_art_bench/painter_distribution_revision_v1/metrics.py",
+      "sha256": "927b37eeab9a059e99da38107c0907d67b2cbdceae28e369c96dc6ff0220c45c"
+    },
+    {
+      "bytes": 49752,
+      "path": "src/latent_art_bench/painter_distribution_revision_v1/report.py",
+      "sha256": "54f2e6a0d12108970e8496bc0c338ef4ac9331f1f6418b62f3768c6f8184b783"
+    },
+    {
+      "bytes": 5348,
+      "path": "src/latent_art_bench/painter_distribution_revision_v1/report_publication.py",
+      "sha256": "64a1a1f51a88a657dd0cf4b72818665eb85d4c9cbf895bc5bd573dd4758d8793"
+    },
+    {
+      "bytes": 4522,
+      "path": "src/latent_art_bench/painter_distribution_revision_v1/timing.py",
+      "sha256": "2c1461734e66826694472cc71b0c1fc550f5d978f2b81ad63ded5b518432c4e2"
+    },
+    {
+      "bytes": 88,
+      "path": "src/latent_art_bench/painter_distribution_study_v1/__init__.py",
+      "sha256": "8f3b5db80cd2b3e8a7ed507c400dcacde713c0aa860b5083bd8161e17125f180"
+    },
+    {
+      "bytes": 23524,
+      "path": "src/latent_art_bench/painter_distribution_study_v1/analysis.py",
+      "sha256": "1bceedc888cabd93a82cf77616cfc41173b0f6345362704e2c605edbc307f36c"
+    },
+    {
+      "bytes": 4790,
+      "path": "src/latent_art_bench/painter_distribution_study_v1/analysis_publication.py",
+      "sha256": "fa97e510c515bb8c9e0f66c3e76f300625477a14d4fbd1922b8cdde08dcc8a04"
+    },
+    {
+      "bytes": 13353,
+      "path": "src/latent_art_bench/painter_distribution_study_v1/collection.py",
+      "sha256": "4e99a43f36946f3c23916e3284ebfaf1dc474cbf17d3ed7a2ef16a3f41cd5c85"
+    },
+    {
+      "bytes": 21998,
+      "path": "src/latent_art_bench/painter_distribution_study_v1/continuation.py",
+      "sha256": "3aec67eefe8a80a2338c3a7f4fe45a9c1736ccf8b1c05ae5256972fbae5e8658"
+    },
+    {
+      "bytes": 11279,
+      "path": "src/latent_art_bench/painter_distribution_study_v1/continuation_results.py",
+      "sha256": "c07e86ae9d86cf02a75db54efb853b7c22058f4d6a973d40bb555c09f71d027c"
+    },
+    {
+      "bytes": 30177,
+      "path": "src/latent_art_bench/painter_distribution_study_v1/diagnostics.py",
+      "sha256": "1745be65fadbcd959eb47c7e6d3ee09e89ebdd6dfa0357227eff1956843656c4"
+    },
+    {
+      "bytes": 11217,
+      "path": "src/latent_art_bench/painter_distribution_study_v1/discovery.py",
+      "sha256": "211fe3d93077aec9861915b58fa57b2e8954dd17cdc291fdc1e5d33072d1d0eb"
+    },
+    {
+      "bytes": 21482,
+      "path": "src/latent_art_bench/painter_distribution_study_v1/immediate.py",
+      "sha256": "258e8dcf903f1bb304bd504d3bd8e855858b5d2c92fd9e1f24e2639305ace5a9"
+    },
+    {
+      "bytes": 11980,
+      "path": "src/latent_art_bench/painter_distribution_study_v1/immediate_results.py",
+      "sha256": "445eccb3498735fe229bca02dd08d18d739149e81779ee18d2287af93af30b6c"
+    },
+    {
+      "bytes": 8824,
+      "path": "src/latent_art_bench/painter_distribution_study_v1/inference.py",
+      "sha256": "a038dfa9f042c85314ad9760e3c50a1c99dbd576a1a9a5a7fb00c20777ec5509"
+    },
+    {
+      "bytes": 20660,
+      "path": "src/latent_art_bench/painter_distribution_study_v1/main_report.py",
+      "sha256": "7eb5e67527d6a55c34f47ea2bcf0fdbb264b1df3f02ace79b6fe4dee7c52ed06"
+    },
+    {
+      "bytes": 11736,
+      "path": "src/latent_art_bench/painter_distribution_study_v1/measurement.py",
+      "sha256": "30508b79aac37aa78b0875027dd6bef92ad5c14af968361649d7fe472bd9a387"
+    },
+    {
+      "bytes": 19884,
+      "path": "src/latent_art_bench/painter_distribution_study_v1/parallel_collection.py",
+      "sha256": "928d9d7ac2b0b9024b7ce1f036daad8bf4b525511bbb6be8e79a3f19beb5fd30"
+    },
+    {
+      "bytes": 9283,
+      "path": "src/latent_art_bench/painter_distribution_study_v1/parallel_results.py",
+      "sha256": "eeb4353bcd62a70a66dca26323c36850363cf19199ce5a30337d8bbad4b9a375"
+    },
+    {
+      "bytes": 3723,
+      "path": "src/latent_art_bench/painter_distribution_study_v1/pilot.py",
+      "sha256": "4e4dd17539994098ea5a74a275d633eb7c753c759402043a7553be1cb8fd6f52"
+    },
+    {
+      "bytes": 9039,
+      "path": "src/latent_art_bench/painter_distribution_study_v1/pilot_summary.py",
+      "sha256": "c78080510337a83687feee41b76c323876b3b2a8a7f3e885009cbf2aff26d453"
+    },
+    {
+      "bytes": 23911,
+      "path": "src/latent_art_bench/painter_distribution_study_v1/recovery.py",
+      "sha256": "810a1ddc74713fcbc2f4e5a4870cb1ef211c9d111932d90ef66633aa1e89e724"
+    },
+    {
+      "bytes": 13833,
+      "path": "src/latent_art_bench/painter_distribution_study_v1/recovery_results.py",
+      "sha256": "84f9ba7b1c5172c3b50049b370b0658e9373b5390473caadd0e7225678d2fec4"
+    },
+    {
+      "bytes": 13176,
+      "path": "src/latent_art_bench/painter_distribution_study_v1/reference_delivery.py",
+      "sha256": "1a120b116a88803187e172d550524091b47429c9206a3977f445b25efcc93e99"
+    },
+    {
+      "bytes": 16787,
+      "path": "src/latent_art_bench/painter_distribution_study_v1/references.py",
+      "sha256": "414c228aa1ea3628fe34ef3ee91d7bbc1904d2af52552f01d53e55965c7cbcd1"
+    },
+    {
+      "bytes": 4945,
+      "path": "src/latent_art_bench/painter_distribution_study_v1/statistics.py",
+      "sha256": "2744febc02a00b3f24a49bfafacd9f7a178c271178df96768e67088ea6473a62"
+    },
+    {
+      "bytes": 11992,
+      "path": "src/latent_art_bench/painter_distribution_study_v1/study.py",
+      "sha256": "2e00d657c937ae231838077ecedbfb2063ae5deed532dfe8d8b7d17e98b4ae9e"
+    },
+    {
+      "bytes": 16533,
+      "path": "src/latent_art_bench/painter_distribution_study_v1/transport.py",
+      "sha256": "aa45db0e9b4b72dba62ec3d69c8d7ac1baf2473de86db625756823e83b281ffc"
+    },
+    {
+      "bytes": 83,
+      "path": "src/latent_art_bench/painter_feature_distance_v1/__init__.py",
+      "sha256": "a707075809d8efb068c193a77a87dad3c3d286b8ea847abea898105c6820be30"
+    },
+    {
+      "bytes": 13984,
+      "path": "src/latent_art_bench/painter_feature_distance_v1/analysis.py",
+      "sha256": "22d7b1bf8b55e916d5210bf19a636674cba86fdf35783ce8456682c784a98cb6"
+    },
+    {
+      "bytes": 7207,
+      "path": "src/latent_art_bench/painter_feature_distance_v1/cli.py",
+      "sha256": "6d7529c5783a9d37f0a51de4cdf2a3d65e0757c225dbce212eea0d84a9a60116"
+    },
+    {
+      "bytes": 24547,
+      "path": "src/latent_art_bench/painter_feature_distance_v1/report.py",
+      "sha256": "36bb382b1939e09b662e3ad9142a33052c507780d6ed34231edecaed45ad7517"
+    },
+    {
+      "bytes": 69,
+      "path": "src/latent_art_bench/painter_feature_generation_v1/__init__.py",
+      "sha256": "7bc8796c4b0dc4bf095669e6911cba541e30e9778437e0df0cc5b3e71918fed1"
+    },
+    {
+      "bytes": 50014,
+      "path": "src/latent_art_bench/painter_feature_generation_v1/aic_metadata.py",
+      "sha256": "4a18cdbf3e9346226a0181f06d001a9972413c68c3df2e468036c1fd392bb90f"
+    },
+    {
+      "bytes": 57252,
+      "path": "src/latent_art_bench/painter_feature_generation_v1/aic_metadata_r2.py",
+      "sha256": "cd8cd6622dad71d5c96ab22b9679247cc40f032f66b8d50eea2804bff6956e09"
+    },
+    {
+      "bytes": 1915,
+      "path": "src/latent_art_bench/painter_feature_generation_v1/artifact_cli.py",
+      "sha256": "fd1e1210850c555e53372608c401efbab29e462fdb4012787fa0446a20f0fc16"
+    },
+    {
+      "bytes": 60088,
+      "path": "src/latent_art_bench/painter_feature_generation_v1/broad_media_followup.py",
+      "sha256": "a2cba97443c9087d7927d3d3b6589814b90b66c79d17b566901424dc82ee2769"
+    },
+    {
+      "bytes": 66927,
+      "path": "src/latent_art_bench/painter_feature_generation_v1/broad_media_followup_r2.py",
+      "sha256": "943afa916e0666d31c232fa872bc4270609e6c4ad73abcf9f0ba0acdc4f6303b"
+    },
+    {
+      "bytes": 33268,
+      "path": "src/latent_art_bench/painter_feature_generation_v1/broad_wikidata.py",
+      "sha256": "110840b7daab595c571b850326301c74178ac1610003ef7f5db49a98d2f531d5"
+    },
+    {
+      "bytes": 37761,
+      "path": "src/latent_art_bench/painter_feature_generation_v1/broad_wikidata_retry.py",
+      "sha256": "44d63b6e0bd4b79f401f1902a364655176c8575b84d096fbc278959b9567fe6b"
+    },
+    {
+      "bytes": 46808,
+      "path": "src/latent_art_bench/painter_feature_generation_v1/census_engine.py",
+      "sha256": "efd7a164610456d84cb328f548bbdaea9796705100e3f6b5b792d40e2b84f580"
+    },
+    {
+      "bytes": 13999,
+      "path": "src/latent_art_bench/painter_feature_generation_v1/cleveland_metadata.py",
+      "sha256": "c9f2f210b77ba0cbcab2f4951514c39a97a9735ee10592060a3ea3e98b597957"
+    },
+    {
+      "bytes": 13430,
+      "path": "src/latent_art_bench/painter_feature_generation_v1/collect.py",
+      "sha256": "60e712139447ca5ea0d1e44e3cd9efb369c9ea2999740fd570e2251c470c5e3d"
+    },
+    {
+      "bytes": 12403,
+      "path": "src/latent_art_bench/painter_feature_generation_v1/content_lexicon.py",
+      "sha256": "7dd6d9a3a2195e9444933cb267fe5fe84175c7411c3c0626b277eca5728ede17"
+    },
+    {
+      "bytes": 13444,
+      "path": "src/latent_art_bench/painter_feature_generation_v1/determine.py",
+      "sha256": "fba5ea7fcbb1dc2d0ab9626b404f0495acc58d46dfc180452a321e4a02c02a9a"
+    },
+    {
+      "bytes": 12015,
+      "path": "src/latent_art_bench/painter_feature_generation_v1/exposure_denylist.py",
+      "sha256": "cae3d6dad455878f1c87a1c6b3f7ae217345e489a082398d2010d886aeb9fd72"
+    },
+    {
+      "bytes": 106461,
+      "path": "src/latent_art_bench/painter_feature_generation_v1/federated_census.py",
+      "sha256": "850625276c8e516664d67d52402e1f684d15ca7f6b7974339e86bad0a47d0432"
+    },
+    {
+      "bytes": 1192,
+      "path": "src/latent_art_bench/painter_feature_generation_v1/panel.py",
+      "sha256": "b878fe3438c1006767c1d8ca608c1d57b64ed2bb2dff418864fd25c8c2d216b8"
+    },
+    {
+      "bytes": 7769,
+      "path": "src/latent_art_bench/painter_feature_generation_v1/prompt_library.py",
+      "sha256": "b9fc03e33e4d18c36ae7b9688763f340ec899f98ae8b3783c7371109180057d4"
+    },
+    {
+      "bytes": 27912,
+      "path": "src/latent_art_bench/painter_feature_generation_v1/scene_prescreen.py",
+      "sha256": "3f683318195308d342fec3076fe47d65bbff3f9def88b043c9eb8072fec24804"
+    },
+    {
+      "bytes": 78,
+      "path": "src/latent_art_bench/painter_feature_generation_v2/__init__.py",
+      "sha256": "5c35fc3d97950af1fe5bc23954c3463d244c5d48763ed92e06f278072f9c99bd"
+    },
+    {
+      "bytes": 9959,
+      "path": "src/latent_art_bench/painter_feature_generation_v2/acquire.py",
+      "sha256": "1f7a9010bf55cc8dd7f5001a9e4fbd9a87c5cd0e2fb9e6fcd7a77391eb37017f"
+    },
+    {
+      "bytes": 3752,
+      "path": "src/latent_art_bench/painter_feature_generation_v2/artifacts.py",
+      "sha256": "8b48f0cfb433ac1769786aba366501b69ba1bec540a1a2f9e35e93ce45e9b0d7"
+    },
+    {
+      "bytes": 4927,
+      "path": "src/latent_art_bench/painter_feature_generation_v2/assessment_diagnostics.py",
+      "sha256": "2af8656c50c1a92f5daf9ef6b1fe445843aeee21a6906c99d0f2365f905a0083"
+    },
+    {
+      "bytes": 10498,
+      "path": "src/latent_art_bench/painter_feature_generation_v2/audit.py",
+      "sha256": "fc00909d8c83c3f437d9c8960d3a019fe38ae03ee0fa3b3e465aecdeea97e66c"
+    },
+    {
+      "bytes": 8017,
+      "path": "src/latent_art_bench/painter_feature_generation_v2/calibration.py",
+      "sha256": "929fa0552a374539e25976bb9fcca7190602be06a0b5e53e8fca80ceb8ea6bf5"
+    },
+    {
+      "bytes": 3926,
+      "path": "src/latent_art_bench/painter_feature_generation_v2/cli.py",
+      "sha256": "17b2809fc53a59c34a59576be18c7a07bf140517aa892aebf94d7a2ed5d71a99"
+    },
+    {
+      "bytes": 8467,
+      "path": "src/latent_art_bench/painter_feature_generation_v2/corpus.py",
+      "sha256": "90031958bfd212ef856fc87a24b47cde701e6f609e1eb7a8f8dd11a389c34a50"
+    },
+    {
+      "bytes": 16647,
+      "path": "src/latent_art_bench/painter_feature_generation_v2/empirical.py",
+      "sha256": "c5ed9f4f7f390de7087222d6b780744bb33eaf279ccedfbbeb706510336655a9"
+    },
+    {
+      "bytes": 10698,
+      "path": "src/latent_art_bench/painter_feature_generation_v2/features.py",
+      "sha256": "b295c2de1a8501e8ab335d88ed56ab8f2dc8b3ca704141b92e02ef586d48d172"
+    },
+    {
+      "bytes": 10403,
+      "path": "src/latent_art_bench/painter_feature_generation_v2/generate.py",
+      "sha256": "3436153be32a03033ef6af46a71fb46dc34bfac38f89be27fd19acc3183566d4"
+    },
+    {
+      "bytes": 13038,
+      "path": "src/latent_art_bench/painter_feature_generation_v2/model_assessment.py",
+      "sha256": "bd460259a4282df10e9e57d65c54e0ff1cf89a3a72ffb68a29fa0bb9086888ed"
+    },
+    {
+      "bytes": 14544,
+      "path": "src/latent_art_bench/painter_feature_generation_v2/oauth_generate.py",
+      "sha256": "ac5957ebbc9d7a0b7e6361671b58bb021e88fae200b1260538db499376e2b32f"
+    },
+    {
+      "bytes": 18936,
+      "path": "src/latent_art_bench/painter_feature_generation_v2/pipeline.py",
+      "sha256": "f2edadc329b2b0a5490c5e1d8f542d5b3bc0bff7fb83ac82fe90d6389f7db37b"
+    },
+    {
+      "bytes": 18164,
+      "path": "src/latent_art_bench/painter_feature_generation_v2/renderings.py",
+      "sha256": "de4de89556cbb25c3bc8c4b726d5136a48519920c83fd93cccceafaa897bf06e"
+    },
+    {
+      "bytes": 11630,
+      "path": "src/latent_art_bench/painter_feature_generation_v2/renderings_r2.py",
+      "sha256": "c267900276759af4af05fe2436aeabeaa010dbeb003f2ade102699b0123ccea5"
+    },
+    {
+      "bytes": 24932,
+      "path": "src/latent_art_bench/painter_feature_generation_v2/report.py",
+      "sha256": "6a7977b2c61b66447a666c9c00d4d784835eb312ed57822833357e1c1a2b73ff"
+    },
+    {
+      "bytes": 12301,
+      "path": "src/latent_art_bench/painter_feature_generation_v2/robustness.py",
+      "sha256": "87d68cf290f41ac5023881775ca87042e5de897d6626e3ce57807f6118a5d932"
+    },
+    {
+      "bytes": 9872,
+      "path": "src/latent_art_bench/painter_feature_generation_v2/statistics.py",
+      "sha256": "20830e7a90bc49666f0937ef7bc2ae3f11206f986c72eb8f80ad30cc24fcdaa8"
+    },
+    {
+      "bytes": 19737,
+      "path": "src/latent_art_bench/painter_learned_analysis_v1.py",
+      "sha256": "d4b083896d7439a7018aa474969d588d0aaaf6eb170bfd26d477d1d31eb9eb46"
+    },
+    {
+      "bytes": 14327,
+      "path": "src/latent_art_bench/painter_learned_audit_v1.py",
+      "sha256": "156750d6d7099fb0a87b6ca789f5892d555ebca04fc58195aec85a8ea2a1c0c8"
+    },
+    {
+      "bytes": 7015,
+      "path": "src/latent_art_bench/painter_learned_csd_v1.py",
+      "sha256": "787b95697b6c48910a880c66961af4ea21c05d77184ddd0e8e7d2ff27395fb3e"
+    },
+    {
+      "bytes": 78,
+      "path": "src/latent_art_bench/painter_map_validation_v1/__init__.py",
+      "sha256": "cade714d66ac5ba8924ddd9cc1ecb9c62bd06ecc7f37d416bd44fbe5491558db"
+    },
+    {
+      "bytes": 23593,
+      "path": "src/latent_art_bench/painter_map_validation_v1/precision.py",
+      "sha256": "971d909e63346cea64a1b7dd7b695ec8c112dc16562230d9d5dd7d968bd0b44d"
+    },
+    {
+      "bytes": 70,
+      "path": "src/latent_art_bench/painter_map_validation_v2/__init__.py",
+      "sha256": "ca187b0bac15fb697372b37585dc86f9ba6dcc3c6cccf76173237f5fe1904040"
+    },
+    {
+      "bytes": 1703,
+      "path": "src/latent_art_bench/painter_map_validation_v2/__main__.py",
+      "sha256": "09d58f1b54df17b320c799c2478fd44b54f2735b991a80177589e33ba2e0ff73"
+    },
+    {
+      "bytes": 15557,
+      "path": "src/latent_art_bench/painter_map_validation_v2/analysis.py",
+      "sha256": "7e06025be026312174a5335238233b42a3da2082ba88490e96b97d9316b64209"
+    },
+    {
+      "bytes": 25302,
+      "path": "src/latent_art_bench/painter_map_validation_v2/collection.py",
+      "sha256": "019c8df4fcc7f3ff9852fd457b389d0e7dd7389b21fab468a22421d690f1564c"
+    },
+    {
+      "bytes": 6390,
+      "path": "src/latent_art_bench/painter_map_validation_v2/common.py",
+      "sha256": "d5cc5410d00c91c627c78fb2f540b7f1ca027976fb426750a4d3fba329c6b119"
+    },
+    {
+      "bytes": 5568,
+      "path": "src/latent_art_bench/painter_map_validation_v2/metadata.py",
+      "sha256": "c43b0311928e8ee21a5b97043378022cbe31d4c2bc737f631ba4d85d27fe0e27"
+    },
+    {
+      "bytes": 10838,
+      "path": "src/latent_art_bench/painter_map_validation_v2/precision.py",
+      "sha256": "0ed0cd14e5e2c925f63311136eb8ba7960ee50e12ac5b8c81dda263c84602c7a"
+    },
+    {
+      "bytes": 31008,
+      "path": "src/latent_art_bench/painter_map_validation_v2/workflow.py",
+      "sha256": "e3ed2ed6b7e0479c5247955603ef7a275eeae465aee14ce0ca965a848b8d7b17"
+    },
+    {
+      "bytes": 91,
+      "path": "src/latent_art_bench/painter_measurement_validation_v1/__init__.py",
+      "sha256": "9f6ee2ea50131d2d0e46d287e8566087c1a8a343abb92cdaf8cf2c8e820ec828"
+    },
+    {
+      "bytes": 691,
+      "path": "src/latent_art_bench/painter_measurement_validation_v1/__main__.py",
+      "sha256": "3ecb3ff227a2b13567aaf0ae9ba24f9b0d88c7fc262485bb68a658c7a7886cf0"
+    },
+    {
+      "bytes": 13486,
+      "path": "src/latent_art_bench/painter_measurement_validation_v1/pipeline.py",
+      "sha256": "4e800704b9e421f9a775d98a81d15ee03e7e9e0022cbdaf6cf4c9fda330a99a0"
+    },
+    {
+      "bytes": 8621,
+      "path": "src/latent_art_bench/painter_measurement_validation_v1/report.py",
+      "sha256": "74a283404362737768771b27289309048545f471cb64a662fb69ea4f32ec1de3"
+    },
+    {
+      "bytes": 11011,
+      "path": "src/latent_art_bench/painter_measurement_validation_v1/statistics.py",
+      "sha256": "41d740512975e53a6ce030fad3cdb17222d793ee5eed0bab4f7fae280949ad06"
+    },
+    {
+      "bytes": 4306,
+      "path": "src/latent_art_bench/painter_measurement_validation_v1/transforms.py",
+      "sha256": "74037960ef2ef68ba44948e9c7d063311fcec193939f63d7d613f5adf3ffb13a"
+    },
+    {
+      "bytes": 88,
+      "path": "src/latent_art_bench/painter_naming_centering_v1/__init__.py",
+      "sha256": "720102934ebfb6b377402b42956fc42f7ebd6fcbac44a99d2eae6e3d6f82b696"
+    },
+    {
+      "bytes": 5969,
+      "path": "src/latent_art_bench/painter_naming_centering_v1/__main__.py",
+      "sha256": "a18937261cdcfa1fe3ceba1915f8369711111db5080852534d8eb3c05574b0ad"
+    },
+    {
+      "bytes": 10047,
+      "path": "src/latent_art_bench/painter_naming_centering_v1/analysis.py",
+      "sha256": "87aad6e1cb2fc285f13d96deb0d89720b9200a2d3f2f4ab93dd8716dd98ba820"
+    },
+    {
+      "bytes": 87,
+      "path": "src/latent_art_bench/painter_naming_geometry_v1/__init__.py",
+      "sha256": "612bbab3fb691596541625bf7e2e0a89c9d98db1d93aaea5215c5685caf4f1ee"
+    },
+    {
+      "bytes": 4730,
+      "path": "src/latent_art_bench/painter_naming_geometry_v1/__main__.py",
+      "sha256": "876ca9f9914feafe5b82453ad623ba247bb20b08c493496179f8769457cf6287"
+    },
+    {
+      "bytes": 8692,
+      "path": "src/latent_art_bench/painter_naming_geometry_v1/analysis.py",
+      "sha256": "7a1b6c34ef078c32822f2a9a25d06815275d9386412354197fcc04e142b775b0"
+    },
+    {
+      "bytes": 7069,
+      "path": "src/latent_art_bench/painter_naming_geometry_v1/geometry.py",
+      "sha256": "69ddb22d6c38ef979079e0743b61b6bf57a007bc366b58648546ceac46547b12"
+    },
+    {
+      "bytes": 6844,
+      "path": "src/latent_art_bench/painter_naming_geometry_v1/inputs.py",
+      "sha256": "41a8c52900e7177a0608cc28e0c2c73fdd65fb5a8c4cc538d14fb5ca573f2262"
+    },
+    {
+      "bytes": 8329,
+      "path": "src/latent_art_bench/painter_naming_geometry_v1/report.py",
+      "sha256": "1c369f18fb78d436235d8123153768c1dd3adbe7c702ee9cda1e2ff4da2a4704"
+    },
+    {
+      "bytes": 9106,
+      "path": "src/latent_art_bench/painter_naming_geometry_v1/variance.py",
+      "sha256": "740c020cd66fe3c0fbb7c0ed2f0e72e8e7129167f8de92f188a4d91f842bb243"
+    },
+    {
+      "bytes": 80,
+      "path": "src/latent_art_bench/painter_naming_replication_v1/__init__.py",
+      "sha256": "584adb7794b111991ff311dd5540e7c48faa6eddef98c76f4092d806eea5ca03"
+    },
+    {
+      "bytes": 1591,
+      "path": "src/latent_art_bench/painter_naming_replication_v1/__main__.py",
+      "sha256": "ee456b463b140f890d5bab8145a3fa133260108dc04f64b6f72a4b3d043393c6"
+    },
+    {
+      "bytes": 10765,
+      "path": "src/latent_art_bench/painter_naming_replication_v1/analysis.py",
+      "sha256": "a6d2c535d9d554e1a0ea626c36dbaa91f4386d795f1dc781df7cb39c89313c32"
+    },
+    {
+      "bytes": 22823,
+      "path": "src/latent_art_bench/painter_naming_replication_v1/collection.py",
+      "sha256": "a3f0459264d4bb75cbbad47a4b3f1b3ec51d900dbdeafbc780caeba3f85d1907"
+    },
+    {
+      "bytes": 6058,
+      "path": "src/latent_art_bench/painter_naming_replication_v1/common.py",
+      "sha256": "0396169bd60dec27050830445f841f9cc9b11e4becb599362810ec7de00a1c37"
+    },
+    {
+      "bytes": 18328,
+      "path": "src/latent_art_bench/painter_naming_replication_v1/workflow.py",
+      "sha256": "472e166b3e3cb85934f7b75a93fa88246dc00c22cdfad25011db9916f4f7c137"
+    },
+    {
+      "bytes": 5287,
+      "path": "src/latent_art_bench/painter_prompt_retry_report_v2.py",
+      "sha256": "03f65e99c58374263e60d4bbc85d47362ec403fb4514c7b433fa8f70caa3daed"
+    },
+    {
+      "bytes": 26488,
+      "path": "src/latent_art_bench/painter_prompt_retry_v1.py",
+      "sha256": "8f8365003d9f9d276c3ea7fabc2bab5a78f595905f5c73a9f1c1ad013ff89fbf"
+    },
+    {
+      "bytes": 86,
+      "path": "src/latent_art_bench/painter_prompt_study_v1/__init__.py",
+      "sha256": "db507448d5134974ca1b407fd4396413b2b4a9b1bd8d8011b74dee30f8128683"
+    },
+    {
+      "bytes": 17777,
+      "path": "src/latent_art_bench/painter_prompt_study_v1/analysis.py",
+      "sha256": "c78239d3c331fb99f6f33e2f171cf3794373a033b6438a251102b8ff6962b60a"
+    },
+    {
+      "bytes": 18255,
+      "path": "src/latent_art_bench/painter_prompt_study_v1/audit.py",
+      "sha256": "3aeeb3a4a73aebb73723a21af44afa0a8601dfd66ca081be67b8c41965e96603"
+    },
+    {
+      "bytes": 15628,
+      "path": "src/latent_art_bench/painter_prompt_study_v1/calibration.py",
+      "sha256": "7624c44d3de1eda939e761e055e04b5066013758c379e758cb42dcfec0076567"
+    },
+    {
+      "bytes": 16427,
+      "path": "src/latent_art_bench/painter_prompt_study_v1/calibration_record.py",
+      "sha256": "e83406887a6e9657953a4f99055acd051e94d504f98db20d3b553453cf585167"
+    },
+    {
+      "bytes": 8208,
+      "path": "src/latent_art_bench/painter_prompt_study_v1/cli.py",
+      "sha256": "9adeac0b6530a25050ce7025ee47a86ab89b1e832bb0c8cffd4ea7b135a3fb86"
+    },
+    {
+      "bytes": 906,
+      "path": "src/latent_art_bench/painter_prompt_study_v1/common.py",
+      "sha256": "8f399eb26069a283209437de51885ce38ca28a21759b359afc506d263107ec4f"
+    },
+    {
+      "bytes": 9545,
+      "path": "src/latent_art_bench/painter_prompt_study_v1/design.py",
+      "sha256": "e744bb0792ab59e7f8196bafc5ba47f9643872769d6dad887410aa1a60b2c961"
+    },
+    {
+      "bytes": 29416,
+      "path": "src/latent_art_bench/painter_prompt_study_v1/generation.py",
+      "sha256": "8bc7db4904d3bbbf6048767125002b9c07047a2be9b63168eb536eaccc30bc8b"
+    },
+    {
+      "bytes": 10392,
+      "path": "src/latent_art_bench/painter_prompt_study_v1/measurement.py",
+      "sha256": "5a85a5e983d021f1006be9363c660b7167989918c55e5f140c2aba34dfcfa1af"
+    },
+    {
+      "bytes": 7540,
+      "path": "src/latent_art_bench/painter_prompt_study_v1/prompts.py",
+      "sha256": "cff027af709ab49c4442e929f0cbcc63931f6ff0468908c39d3367df39fd4c10"
+    },
+    {
+      "bytes": 11182,
+      "path": "src/latent_art_bench/painter_prompt_study_v1/randomization.py",
+      "sha256": "fec27f7a55ef75d2b7cbf66b6086696f83e051a3dd59f67faae596df1d043e5e"
+    },
+    {
+      "bytes": 9225,
+      "path": "src/latent_art_bench/painter_prompt_study_v1/randomization_record.py",
+      "sha256": "b27eb93a4c4a456f1ef77bf906a4689144afe09c3856de76b69a2de5039443a0"
+    },
+    {
+      "bytes": 36501,
+      "path": "src/latent_art_bench/painter_prompt_study_v1/report.py",
+      "sha256": "c549aa0a49aaba4f964143cb902a4c398befe8f2fd89245b84e414bc2547210c"
+    },
+    {
+      "bytes": 4360,
+      "path": "src/latent_art_bench/painter_prompt_study_v1/reproduction.py",
+      "sha256": "2c334d9db83e7a65e42ed2d1d49ad2f16a895bb75ccf074fc00a5a2dd94855b4"
+    },
+    {
+      "bytes": 5787,
+      "path": "src/latent_art_bench/painter_prompt_study_v1/statistics.py",
+      "sha256": "ea1f00990bfb647dea61b69418ac0f88c18a06814a9801c0f5a1d41020344654"
+    },
+    {
+      "bytes": 84,
+      "path": "src/latent_art_bench/painter_prompt_supplement_v1/__init__.py",
+      "sha256": "4c880914048d20613bfbd3cebd67e613962e50fa75669c47e6fd64f84a1d2bf6"
+    },
+    {
+      "bytes": 30519,
+      "path": "src/latent_art_bench/painter_prompt_supplement_v1/artifacts.py",
+      "sha256": "8d53828996f6aa0f95f0483d912bddd2e07ba93f9cbfaa5eb8264b2e878b9fe0"
+    },
+    {
+      "bytes": 1442,
+      "path": "src/latent_art_bench/painter_prompt_supplement_v1/cli.py",
+      "sha256": "2724dc28a534f9faf024fa4932664b546a2a8d0317cab56d5c3b3232458df09b"
+    },
+    {
+      "bytes": 25283,
+      "path": "src/latent_art_bench/painter_prompt_supplement_v1/report.py",
+      "sha256": "25b4ee9ed4d91aae972093a7eded071e350240019066d9ab1821914327949960"
+    },
+    {
+      "bytes": 21191,
+      "path": "src/latent_art_bench/painter_prompt_supplement_v1/statistics.py",
+      "sha256": "37ca07180a102d90afa8b8eebeccb5262e4d9ea22a458547b91b2d6713a648b9"
+    },
+    {
+      "bytes": 16376,
+      "path": "src/latent_art_bench/painter_prompt_supplement_v1/validation.py",
+      "sha256": "206a29e5cd20378d6d67a6e3e1e6903b8c54395b86067384bbc5755fe60f134c"
+    },
+    {
+      "bytes": 24602,
+      "path": "src/latent_art_bench/painter_prototype_transfer_v1.py",
+      "sha256": "4a8f78bf438615c86cdce687469904bc5c191c13187e40e5d12be3e4747bb2e2"
+    },
+    {
+      "bytes": 16476,
+      "path": "src/latent_art_bench/painter_reference_quality_v1.py",
+      "sha256": "2b193199293c5e36b222e57dcf21dc9ba65c6e9f01a219056dfe1662561a621b"
+    },
+    {
+      "bytes": 16184,
+      "path": "src/latent_art_bench/painter_repeat_covariance_v1.py",
+      "sha256": "5ce3a32c6637d4d6f4d58cf33ea5e0e55cbb206880621d4e27efcde0a1ef932b"
+    },
+    {
+      "bytes": 12044,
+      "path": "src/latent_art_bench/painter_request_timing_v1.py",
+      "sha256": "a0e2a023da22958bec5331ffded6c2341baf6d33c7c9e8c67aa8ae24858cb663"
+    },
+    {
+      "bytes": 19201,
+      "path": "src/latent_art_bench/painter_responsiveness_quantiles_v1.py",
+      "sha256": "2e378a244564dcb57c12e671db4ad38b89af2c33026adb26f24105af48e31d70"
+    },
+    {
+      "bytes": 85,
+      "path": "src/latent_art_bench/painter_responsiveness_recovery_v1/__init__.py",
+      "sha256": "c66040d83d1cdce4cbeec4b10a748877734d810b59850886a3ee2e7bcced0352"
+    },
+    {
+      "bytes": 5132,
+      "path": "src/latent_art_bench/painter_responsiveness_recovery_v1/__main__.py",
+      "sha256": "ea48051af7e7e502c38289c4b582d09ad4973aee8721241735937289b152727b"
+    },
+    {
+      "bytes": 16110,
+      "path": "src/latent_art_bench/painter_responsiveness_recovery_v1/collection.py",
+      "sha256": "3d01b1417999340f0a93e29145b687c80e2baaf45d45f4542a61c3769f176fcf"
+    },
+    {
+      "bytes": 85,
+      "path": "src/latent_art_bench/painter_responsiveness_v1/__init__.py",
+      "sha256": "6a8efb679de795a89da98c1fd9879858bec7b0402f10dc48921e1ce21e72f222"
+    },
+    {
+      "bytes": 2994,
+      "path": "src/latent_art_bench/painter_responsiveness_v1/__main__.py",
+      "sha256": "f575587d250c1d3b2a5acc0440d07aa316a550012f2142cfcc82a28fe562794b"
+    },
+    {
+      "bytes": 17526,
+      "path": "src/latent_art_bench/painter_responsiveness_v1/analysis.py",
+      "sha256": "5ca71480ce58592847785202c9d66f6f9f164bfd4b17396a48a7a5cb3afd4bfb"
+    },
+    {
+      "bytes": 28125,
+      "path": "src/latent_art_bench/painter_responsiveness_v1/collection.py",
+      "sha256": "228640fea51622e7242e6c15d16ec8d1334541ac17ae8e903cb86e250e73a109"
+    },
+    {
+      "bytes": 3492,
+      "path": "src/latent_art_bench/painter_responsiveness_v1/common.py",
+      "sha256": "80488f585538bec0eb3b020aadc94cac436dbc41859e8e2c12a9492ee0c5caca"
+    },
+    {
+      "bytes": 4280,
+      "path": "src/latent_art_bench/painter_responsiveness_v1/design.py",
+      "sha256": "c42a140ba7b1aeec300b998647ce26dd9bc4d20ab4d4d16ecf2e468ac4b192ae"
+    },
+    {
+      "bytes": 12021,
+      "path": "src/latent_art_bench/painter_responsiveness_v1/generation_prepare.py",
+      "sha256": "dfcc231c41d902052b393740b7eae159b1125094670fb3825e5ca57e0602afa1"
+    },
+    {
+      "bytes": 14767,
+      "path": "src/latent_art_bench/painter_responsiveness_v1/human.py",
+      "sha256": "f17f776401168f8b109bc138ae150cad2c42fc6663353beb7a2adee8357b994c"
+    },
+    {
+      "bytes": 15928,
+      "path": "src/latent_art_bench/painter_responsiveness_v1/human_package.py",
+      "sha256": "5608472f3397fde444530c65d4ae8056d5178a467d86bef433c7da2f22ac2a9d"
+    },
+    {
+      "bytes": 22239,
+      "path": "src/latent_art_bench/painter_responsiveness_v1/inference.py",
+      "sha256": "2a03e8b148519a39c87df86f56bcbb3c009f69f0378579a350d6565290684e1b"
+    },
+    {
+      "bytes": 23996,
+      "path": "src/latent_art_bench/painter_responsiveness_v1/measurement.py",
+      "sha256": "915f2f5fbc0283262e56d52c46dd5d4ccb0d4bba4160f47cf881ba2c4452d3c2"
+    },
+    {
+      "bytes": 9061,
+      "path": "src/latent_art_bench/painter_responsiveness_v1/preflight.py",
+      "sha256": "c1c2061829aa5624fc7050ecaa0d22a59e45cd8794f556fb165d24201e9561af"
+    },
+    {
+      "bytes": 10387,
+      "path": "src/latent_art_bench/painter_responsiveness_v1/reference_validation.py",
+      "sha256": "ad61230a0b74bbd306ef10a8db70318852996115efb68a5d461c68bb95543fc5"
+    },
+    {
+      "bytes": 17605,
+      "path": "src/latent_art_bench/painter_responsiveness_v1/report.py",
+      "sha256": "f9cacff7fa28640b84922313ce55e6667d48a755038ebaae133ef3c4aed3abc1"
+    },
+    {
+      "bytes": 6646,
+      "path": "src/latent_art_bench/painter_responsiveness_v1/workflow.py",
+      "sha256": "bafac61e4c636cc59afda35cf8bb33a171dc69575e647cf78849cfca040530f4"
+    },
+    {
+      "bytes": 83,
+      "path": "src/latent_art_bench/painter_responsiveness_v2/__init__.py",
+      "sha256": "cc6b0b53b9f0a2e5aceba9c7b6c0b04646873983f8d24967df5f39e47d91389f"
+    },
+    {
+      "bytes": 1743,
+      "path": "src/latent_art_bench/painter_responsiveness_v2/__main__.py",
+      "sha256": "b8b30166edff63b6f65ab9579a2226256353547317adc6d72592030f0f7e8eed"
+    },
+    {
+      "bytes": 19602,
+      "path": "src/latent_art_bench/painter_responsiveness_v2/analysis.py",
+      "sha256": "28bb1a57ecf62f0d0b2168266fa8eeb756212861ab95fd8983bb827e977c89c2"
+    },
+    {
+      "bytes": 20282,
+      "path": "src/latent_art_bench/painter_responsiveness_v2/collection.py",
+      "sha256": "7f4a23e48da954e3c962f2d6b3f458d29af2f80e907fc5463fa0a27967c56c5c"
+    },
+    {
+      "bytes": 2801,
+      "path": "src/latent_art_bench/painter_responsiveness_v2/common.py",
+      "sha256": "6b2b76d3827897863ceb23b0703b737482c05b7f6f36200d7db4184e390c442b"
+    },
+    {
+      "bytes": 17575,
+      "path": "src/latent_art_bench/painter_responsiveness_v2/diagnostics.py",
+      "sha256": "9c6685641397272768b3ebd89daf67bfa06ca735997b0d60531e84572ed48000"
+    },
+    {
+      "bytes": 24485,
+      "path": "src/latent_art_bench/painter_responsiveness_v2/report.py",
+      "sha256": "67a757b9496a5b35688bf4cde235b6d40942df146b4a21d45a4fe9d5fab76678"
+    },
+    {
+      "bytes": 25314,
+      "path": "src/latent_art_bench/painter_responsiveness_v2/workflow.py",
+      "sha256": "357f1be248bff71dcaf938844de185d83dcac11dac56524703e82f8a62786d2c"
+    },
+    {
+      "bytes": 81,
+      "path": "src/latent_art_bench/painter_specificity_measurement_v1/__init__.py",
+      "sha256": "8ff0fce6f89ecbdfc2c1c22f1d2f7a52b4ed7d959b7594a78fe0ede6332491a7"
+    },
+    {
+      "bytes": 17111,
+      "path": "src/latent_art_bench/painter_specificity_measurement_v1/report.py",
+      "sha256": "fec1aec24092b82ae045ce30f4d26098dc49bcce669597d3c25763f5b2e37dea"
+    },
+    {
+      "bytes": 8344,
+      "path": "src/latent_art_bench/painter_specificity_measurement_v1/workflow.py",
+      "sha256": "7ce26e70d7db3768a80764405c3c764342c94a3dee0fc18fbbdc6664dbbe2d07"
+    },
+    {
+      "bytes": 77,
+      "path": "src/latent_art_bench/painter_specificity_reference_v1/__init__.py",
+      "sha256": "05622cb37c92695c6450463de650e2507578b482c09ccc635a3f0d80e53866cc"
+    },
+    {
+      "bytes": 6392,
+      "path": "src/latent_art_bench/painter_specificity_reference_v1/analysis.py",
+      "sha256": "505cee3dc82907b6b543d974ccd10c0e71f64237a577d948e7c2db6f563c4e53"
+    },
+    {
+      "bytes": 17733,
+      "path": "src/latent_art_bench/painter_specificity_review_v1.py",
+      "sha256": "6abfa4d2cc25d38cd8ba2c1cb47d6b3beb15686caff43e92e85711ef905b179b"
+    },
+    {
+      "bytes": 16132,
+      "path": "src/latent_art_bench/painter_specificity_review_v2.py",
+      "sha256": "4b4882624bbde54d19aa900035d6764a11d4b18b56285712e15cfae8ac2e4bd4"
+    },
+    {
+      "bytes": 14152,
+      "path": "src/latent_art_bench/painter_specificity_review_v3.py",
+      "sha256": "0c7752720ee24981475a33c6460b49c2311d7fa856cf326e90bbcf03530ed8cc"
+    },
+    {
+      "bytes": 66,
+      "path": "src/latent_art_bench/painter_specificity_v1/__init__.py",
+      "sha256": "5b6b6fdec0b62d962c14323a847c3d76b40b02232745296bd469bc4bd3810fc9"
+    },
+    {
+      "bytes": 12169,
+      "path": "src/latent_art_bench/painter_specificity_v1/analysis.py",
+      "sha256": "ac5df333a8768dc66b84be0d2c1403f9dba3b229f101de8d65ad6cdb27bce06c"
+    },
+    {
+      "bytes": 6499,
+      "path": "src/latent_art_bench/painter_specificity_v1/study.py",
+      "sha256": "e2da0d39e65f7f069c3b05cc959b0ee7dfd771944cabf7966baad573d6d84688"
+    },
+    {
+      "bytes": 16529,
+      "path": "src/latent_art_bench/painter_specificity_v1/workflow.py",
+      "sha256": "504c87bf7d4161d537d0cdf59f2015a42e2a63224ebab83e3a1db1c9927fc018"
+    },
+    {
+      "bytes": 77,
+      "path": "src/latent_art_bench/painter_specificity_v2/__init__.py",
+      "sha256": "43e1d704341f2a29df5930bae839ffb4870e9b399e9be8fb7c268dea1f4024f5"
+    },
+    {
+      "bytes": 6565,
+      "path": "src/latent_art_bench/painter_specificity_v2/analysis.py",
+      "sha256": "bdfe4691d4b956bceab2b3a286b415df60a762c5a12fdbafcdc3d85818279b7e"
+    },
+    {
+      "bytes": 2337,
+      "path": "src/latent_art_bench/painter_specificity_v2/study.py",
+      "sha256": "cfd1c0ea94951db592945745137a609400f31d2c1b12a56da5bc1b9feb19e46b"
+    },
+    {
+      "bytes": 14221,
+      "path": "src/latent_art_bench/painter_specificity_v2/workflow.py",
+      "sha256": "d7a2cf481115e95bf99fe950f05b8a0dc421c180882494fa1b3cfa6733c6358e"
+    },
+    {
+      "bytes": 17739,
+      "path": "src/latent_art_bench/schemas.py",
+      "sha256": "904498cb1b7ede2ca4e532f59fe80b8033a9701bc39941d1a75a5af5ff3cdcb7"
+    },
+    {
+      "bytes": 7142,
+      "path": "studies/painter_learned_audit_v1/PLAN.md",
+      "sha256": "c4af957b1922853b9541c02041d3a1b887a2f660dff709d3efb70710025766c0"
+    },
+    {
+      "bytes": 6786,
+      "path": "studies/painter_prototype_transfer_v1/PLAN.md",
+      "sha256": "c7f02a6d65910bc6c8e1a1e79bac0f6c16143d0ba4176e69dc4455d3bf89e459"
+    },
+    {
+      "bytes": 5845,
+      "path": "studies/painter_prototype_transfer_v1/PLAN_pre_design_qa.md",
+      "sha256": "d5b9a549bc960215473eb13b838907a9389c81f6a73b7d4a7268d815571d2aaa"
+    },
+    {
+      "bytes": 3417,
+      "path": "studies/painter_reference_quality_v1/PLAN.md",
+      "sha256": "0df354a133988c305c0d411f74a84225dab81f58d8bef4796459844dc90ea876"
+    },
+    {
+      "bytes": 7624,
+      "path": "studies/painter_repeat_covariance_v1/PLAN.md",
+      "sha256": "0598dae9c139d4f4fcab7327485a4a2371c9b20465a5bb19efd09cba86486510"
+    },
+    {
+      "bytes": 4220,
+      "path": "studies/painter_request_timing_v1/PLAN.md",
+      "sha256": "a1611b888a9843cc299d7a5850ba34ccc9e96361d94fcd00b575273a08cd3f72"
+    },
+    {
+      "bytes": 2553,
+      "path": "studies/painter_specificity_measurement_v1/CORRECTION.md",
+      "sha256": "b30623fb8889b5e8ad86fb694822d2a6bf24b050d8beff79c51a120c33a93fe9"
+    },
+    {
+      "bytes": 2733,
+      "path": "studies/painter_specificity_reference_v1/PROTOCOL.md",
+      "sha256": "b8f74092a7fa5566b3b777344e097b1cb1e2ee63e3c94d2a78c2ce6b565b9090"
+    },
+    {
+      "bytes": 3997,
+      "path": "studies/painter_specificity_review_v1/PLAN.md",
+      "sha256": "1464d663857f3600fc48c88d22f0e7bb75ee6e294575ca289742561a53ef1160"
+    },
+    {
+      "bytes": 3650,
+      "path": "studies/painter_specificity_review_v2/PLAN.md",
+      "sha256": "7b53f42dd4837fe1debfb74866598ec045f135876eb4560e4b812991a9333a85"
+    },
+    {
+      "bytes": 4974,
+      "path": "studies/painter_specificity_review_v3/PLAN.md",
+      "sha256": "57ca293a590dc52768b34e516445ae462e9c3cd03bd949b0fda4c188f506d70a"
+    },
+    {
+      "bytes": 9451,
+      "path": "studies/painter_specificity_v1/PROTOCOL.md",
+      "sha256": "292514599bd88f06c011b7fc8f1354a4c274335c5dc79b4a68b35ab51c63c5dc"
+    },
+    {
+      "bytes": 1702,
+      "path": "studies/painter_specificity_v2/DECISION.md",
+      "sha256": "88b865f3e674a018640e7cb307ffd287549917f5ba27d197daa545ae589838a5"
+    },
+    {
+      "bytes": 6476,
+      "path": "studies/painter_specificity_v2/PROTOCOL.md",
+      "sha256": "ce374c9d56e4d5bc5bf1cbbc44abd931516820321839b9768260741528ca69b2"
+    },
+    {
+      "bytes": 9179,
+      "path": "tests/painter_prototype_transfer_v1/test_membership_protocol.py",
+      "sha256": "8145e5c258f27f7ecb33f338edc34c7ee531cab563d15eb8aba5752413ccadb1"
+    },
+    {
+      "bytes": 14367,
+      "path": "tests/painter_prototype_transfer_v1/test_rules.py",
+      "sha256": "43fc8cc7c92f6b09484cfb5cebe064262f6341400ff5284d753c2c39f7047573"
+    },
+    {
+      "bytes": 2262,
+      "path": "tests/painter_reference_quality_v1/test_regions.py",
+      "sha256": "1c49afa6a7d6f8df9d7f490d222fcb1dc0982025cc2735f13aced02a90a1a010"
+    },
+    {
+      "bytes": 4243,
+      "path": "tests/painter_repeat_covariance_v1/test_provenance.py",
+      "sha256": "13d30e53ad45c29868108feaa5356cb9442bcf15ce227ee43fd4e4963b0e2cfa"
+    },
+    {
+      "bytes": 6787,
+      "path": "tests/painter_repeat_covariance_v1/test_sensitivity.py",
+      "sha256": "1edb7885eeaf40be5e98f16af3318c8b35ebb4ad9a08e87916652be0aa780dca"
+    },
+    {
+      "bytes": 1788,
+      "path": "tests/painter_request_timing_v1/test_timing.py",
+      "sha256": "50ef247f8a52a9f9dd6cf319b7f96c942416ce85572d9a25d71f6035bc67d43e"
+    },
+    {
+      "bytes": 548,
+      "path": "tests/painter_specificity_measurement_v1/test_membership.py",
+      "sha256": "0c86e5bedc321300846265bfcbcf2b4580f1b71c9f1127c6abcc7981190b2367"
+    },
+    {
+      "bytes": 811,
+      "path": "tests/painter_specificity_reference_v1/test_reference.py",
+      "sha256": "f495215aadbdf4f21cae250dae1ba5362c5e6848bfc6e13152dd4c18c017442c"
+    },
+    {
+      "bytes": 6033,
+      "path": "tests/painter_specificity_review_v2/test_diagnostics.py",
+      "sha256": "5de5e142d01fca352f55d1ae9058fb6d0dbc0e25d6544988f28cc35e3773ddf2"
+    },
+    {
+      "bytes": 6684,
+      "path": "tests/painter_specificity_review_v3/test_decomposition.py",
+      "sha256": "22bc4a476e0502bb1b4e237fc6ccc358d248562130b5802eaa85063492c23709"
+    },
+    {
+      "bytes": 5736,
+      "path": "tests/painter_specificity_v1/test_analysis.py",
+      "sha256": "8577989bcf88574832d8fadf1e76e889f234cbb4a47870481eb7560393bad43e"
+    },
+    {
+      "bytes": 3047,
+      "path": "tests/painter_specificity_v2/test_routes.py",
+      "sha256": "fce946d3fc1cb01d7d4cff0ec47434eaf6218eafb75d22b901878102e7f3dd20"
+    },
+    {
+      "bytes": 964138,
+      "path": "uv.lock",
+      "sha256": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+    }
+  ],
+  "python": "3.13.11",
+  "schema": "icml-numeric-discovery/1.0",
+  "scope": "numerical replay, not pixel re-extraction",
+  "total_bytes": 217444905
+}

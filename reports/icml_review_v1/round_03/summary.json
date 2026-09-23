@@ -1,0 +1,34 @@
+{
+  "round": 3,
+  "created_utc": "2026-09-18T16:34:59.906226+00:00",
+  "review_type": "Independent ICLR-style scientific review simulation",
+  "pdf_sha256": "bbcc12901427538ed0938cdea510f848a0999d0edd08b4bc707c5b6fb8051472",
+  "main_pages": 8,
+  "total_pages": 46,
+  "reviewers": [
+    {
+      "reviewer": "method",
+      "overall_rating": 4,
+      "review_sha256": "41232fb1b68f84b39213c1e575631456671e5fe458872c1aa98640010f0d2ced",
+      "prose_sha256": "eec0451602dd8047c36241cd47ede3e941ae551e1f6f522b31df421540dea35c",
+      "inspected_pdf_sha256": "bbcc12901427538ed0938cdea510f848a0999d0edd08b4bc707c5b6fb8051472"
+    },
+    {
+      "reviewer": "empirical",
+      "overall_rating": 4,
+      "review_sha256": "542b6ea3f333fded8024d0e112c2b15d332b61f70b6ab245e2a22371e0fcfc49",
+      "prose_sha256": "6a29df4bd2a45d93f7defdbefc6e36c806df36e5fbef331b68185c0e87c351e3",
+      "inspected_pdf_sha256": "bbcc12901427538ed0938cdea510f848a0999d0edd08b4bc707c5b6fb8051472"
+    },
+    {
+      "reviewer": "contribution",
+      "overall_rating": 4,
+      "review_sha256": "ef220d5d3e71d5abadacf62a00e7510c311984f54b77699f4bbbd346b1debda1",
+      "prose_sha256": "c804bdcf25f24834396b37eaaa2eba40cf11894fa31de0d59c7bd5c37e09b5ec",
+      "inspected_pdf_sha256": "bbcc12901427538ed0938cdea510f848a0999d0edd08b4bc707c5b6fb8051472"
+    }
+  ],
+  "mean_overall_rating": 4.0,
+  "aggregation": "Unweighted mean of all three completed recommendations under unchanged 0/2/4/6/8/10 scale; no exclusions or reviewer replacement.",
+  "interpretation": "Scientific score goal not met. Independent reviewers credit the decision experiment and covariance analysis but find contribution significance limited by reused four-painter, single-session data, absent shared-family control and incomplete external pixel access. A missing related CSD-diagnostic preprint must also be addressed. Offline packaging and editing cannot substitute for independent evidence."
+}

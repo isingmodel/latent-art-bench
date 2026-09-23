@@ -1,0 +1,8 @@
+Command: PYTHONPATH=reports/icml_review_v1 uv run --locked pytest -c pytest-paper.ini -q -m "not live" -p no:cacheprovider -p storage_fixture --basetemp /private/tmp/icml-storage-supplement-20260918T152000 --storage-fixture-receipt reports/icml_review_v1/validation_environment_supplemental.json tests/painter_naming_replication_v1/test_replication.py tests/painter_map_validation_v2/test_operations.py
+
+84 passed, 1 error in 38.95s
+ERROR at setup of tests/painter_map_validation_v2/test_operations.py::test_second_technical_failure_permanently_closes
+New supplemental fixture self-check compared two changing real disk snapshots:
+assert proxy.disk_usage(ROOT) == shutil.disk_usage(ROOT)
+First reading free=313270272; second reading free=313266176.
+No frozen test assertion failed in this run. Full per-node outcomes are in validation_environment_supplemental.json.

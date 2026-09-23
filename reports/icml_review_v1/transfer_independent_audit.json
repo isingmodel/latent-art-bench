@@ -1,0 +1,303 @@
+{
+  "status": "PASS",
+  "finished_utc": "2026-09-18T15:58:55.627593+00:00",
+  "checks": 8732,
+  "max_numeric_error": 3.219646771412954e-15,
+  "max_score_error": 2.886579864025407e-15,
+  "input_sha256": "bdcf38bb09da53c890a1a62ce268c0336824ccadfb6ba90ee711bdaf1a6f1baf",
+  "analysis_sha256": "e1d1fbb924feb797f67e0907677511ed7c745335a4f2827e99d2f286e6be5448",
+  "report_sha256": "9e7546198fd04c047f1b8a44f6575e957ef331282a6b879b32ddf900d2e0b81e",
+  "audit_script_sha256": "e5f986ea700d54ffb9e493aa33b7c9058da8b6b5e5d76abe3af2883583a492d3",
+  "bindings_checked": 20,
+  "configurations": 48,
+  "folds": 672,
+  "predictions": 16128,
+  "scores": 64512,
+  "primary_predictions": 4032,
+  "ties": 0,
+  "zero_queries": 0,
+  "translated_query_norm_range": [
+    0.7572531206889677,
+    1.1111372620694808
+  ],
+  "primary": [
+    {
+      "rep": "clip",
+      "model": "gpt-image-1",
+      "correct": [
+        68,
+        62,
+        90
+      ],
+      "delta": -0.0535714285714286,
+      "corrected": 1,
+      "harmed": 7,
+      "scene_win_tie_loss": [
+        1,
+        9,
+        4
+      ]
+    },
+    {
+      "rep": "clip",
+      "model": "gpt-image-2",
+      "correct": [
+        77,
+        74,
+        84
+      ],
+      "delta": -0.0267857142857143,
+      "corrected": 1,
+      "harmed": 4,
+      "scene_win_tie_loss": [
+        1,
+        9,
+        4
+      ]
+    },
+    {
+      "rep": "clip",
+      "model": "gpt-image-2.5-flare",
+      "correct": [
+        67,
+        67,
+        87
+      ],
+      "delta": 0.0,
+      "corrected": 4,
+      "harmed": 4,
+      "scene_win_tie_loss": [
+        2,
+        10,
+        2
+      ]
+    },
+    {
+      "rep": "clip",
+      "model": "gpt-image-2.5-sunburst",
+      "correct": [
+        66,
+        70,
+        78
+      ],
+      "delta": 0.0357142857142857,
+      "corrected": 6,
+      "harmed": 2,
+      "scene_win_tie_loss": [
+        4,
+        8,
+        2
+      ]
+    },
+    {
+      "rep": "clip",
+      "model": "google/gemini-3.1-flash-image",
+      "correct": [
+        58,
+        67,
+        71
+      ],
+      "delta": 0.08035714285714302,
+      "corrected": 15,
+      "harmed": 6,
+      "scene_win_tie_loss": [
+        8,
+        5,
+        1
+      ]
+    },
+    {
+      "rep": "clip",
+      "model": "black-forest-labs/flux.2-max",
+      "correct": [
+        46,
+        60,
+        80
+      ],
+      "delta": 0.125,
+      "corrected": 24,
+      "harmed": 10,
+      "scene_win_tie_loss": [
+        10,
+        3,
+        1
+      ]
+    },
+    {
+      "rep": "csd",
+      "model": "gpt-image-1",
+      "correct": [
+        81,
+        82,
+        95
+      ],
+      "delta": 0.008928571428571508,
+      "corrected": 3,
+      "harmed": 2,
+      "scene_win_tie_loss": [
+        3,
+        9,
+        2
+      ]
+    },
+    {
+      "rep": "csd",
+      "model": "gpt-image-2",
+      "correct": [
+        85,
+        86,
+        106
+      ],
+      "delta": 0.008928571428571397,
+      "corrected": 4,
+      "harmed": 3,
+      "scene_win_tie_loss": [
+        3,
+        9,
+        2
+      ]
+    },
+    {
+      "rep": "csd",
+      "model": "gpt-image-2.5-flare",
+      "correct": [
+        70,
+        83,
+        104
+      ],
+      "delta": 0.1160714285714286,
+      "corrected": 16,
+      "harmed": 3,
+      "scene_win_tie_loss": [
+        8,
+        5,
+        1
+      ]
+    },
+    {
+      "rep": "csd",
+      "model": "gpt-image-2.5-sunburst",
+      "correct": [
+        69,
+        79,
+        101
+      ],
+      "delta": 0.0892857142857143,
+      "corrected": 17,
+      "harmed": 7,
+      "scene_win_tie_loss": [
+        9,
+        3,
+        2
+      ]
+    },
+    {
+      "rep": "csd",
+      "model": "google/gemini-3.1-flash-image",
+      "correct": [
+        57,
+        69,
+        84
+      ],
+      "delta": 0.1071428571428572,
+      "corrected": 22,
+      "harmed": 10,
+      "scene_win_tie_loss": [
+        9,
+        3,
+        2
+      ]
+    },
+    {
+      "rep": "csd",
+      "model": "black-forest-labs/flux.2-max",
+      "correct": [
+        44,
+        74,
+        84
+      ],
+      "delta": 0.26785714285714285,
+      "corrected": 39,
+      "harmed": 9,
+      "scene_win_tie_loss": [
+        13,
+        1,
+        0
+      ]
+    }
+  ],
+  "sensitivity": [
+    {
+      "rep": "clip",
+      "view": "original",
+      "target": "primary",
+      "translation": 0.026785714285714288,
+      "generated": 0.1607142857142857,
+      "negative_configs": 2,
+      "positive_configs": 3
+    },
+    {
+      "rep": "clip",
+      "view": "original",
+      "target": "development",
+      "translation": 0.04017857142857143,
+      "generated": 0.16666666666666666,
+      "negative_configs": 2,
+      "positive_configs": 4
+    },
+    {
+      "rep": "clip",
+      "view": "audited_region",
+      "target": "primary",
+      "translation": 0.02529761904761905,
+      "generated": 0.1681547619047619,
+      "negative_configs": 2,
+      "positive_configs": 3
+    },
+    {
+      "rep": "clip",
+      "view": "audited_region",
+      "target": "development",
+      "translation": 0.022321428571428572,
+      "generated": 0.15476190476190474,
+      "negative_configs": 3,
+      "positive_configs": 3
+    },
+    {
+      "rep": "csd",
+      "view": "original",
+      "target": "primary",
+      "translation": 0.09970238095238095,
+      "generated": 0.25,
+      "negative_configs": 0,
+      "positive_configs": 6
+    },
+    {
+      "rep": "csd",
+      "view": "original",
+      "target": "development",
+      "translation": 0.0982142857142857,
+      "generated": 0.3020833333333333,
+      "negative_configs": 0,
+      "positive_configs": 6
+    },
+    {
+      "rep": "csd",
+      "view": "audited_region",
+      "target": "primary",
+      "translation": 0.09672619047619047,
+      "generated": 0.2514880952380953,
+      "negative_configs": 1,
+      "positive_configs": 4
+    },
+    {
+      "rep": "csd",
+      "view": "audited_region",
+      "target": "development",
+      "translation": 0.1011904761904762,
+      "generated": 0.30357142857142855,
+      "negative_configs": 0,
+      "positive_configs": 6
+    }
+  ]
+}

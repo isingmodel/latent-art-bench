@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "recorded_utc": "2026-09-21T14:59:50.839001+00:00",
+  "pdf_sha256": "3fbf2dafd970a1d352d63af336bd6cb4c089f2332dc8df604428cb4d9e3e62ac",
+  "main_pages": 8,
+  "total_pages": 60,
+  "snapshot_bindings_verified": 33,
+  "scientific_bindings_verified": 44,
+  "reviewer_json_and_prose_bindings_verified": 6,
+  "all_prior_round03_review_bindings_unchanged": true,
+  "scores": [
+    6,
+    6,
+    4
+  ],
+  "unweighted_mean": 5.333333333333333,
+  "requested_minimum": 5.0,
+  "replacement_goal_achieved": true,
+  "native_prior_goal_unchanged": "blocked8.2 record; no false completion",
+  "report_sha256": "8ed326b0e06b5445d261602a7bf9b9efe4c760b08842ca946b30936163edddf7",
+  "report_links_verified": 13,
+  "known_reviewed_pdf_corrections_disclosed": true,
+  "korean_pdf_unchanged": true,
+  "source_modified_after_review": false,
+  "new_paid_calls": 0,
+  "new_images": 0
+}

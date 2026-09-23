@@ -1,0 +1,96 @@
+\section{Direct Naming and Scene Influence}\label{app:direct-naming}
+These analyses use the retained vectors and are retrospective. The full-frame
+named-minus-generic shared fractions had already been inspected before the
+version-three analysis plan was written; it is not a preregistration.
+No new significance tests, images, coordinate choices or reference corrections
+are introduced. The versioned report binds the plan, implementation, analytical
+tests and retained inputs by SHA-256 and supports exact numerical replay.
+
+\subsection{Changing the Baseline and Keeping the Cross Term}
+For each model, average arm vectors over scenes within repeat $k$. Write $g_k$
+for generic-minus-free, $n_k$ for mean-named-minus-generic and $c_k$ for
+mean-named-minus-free. The vector identity $c_k=g_k+n_k$ implies
+\begin{equation}
+ \underbrace{4\langle c_1,c_2\rangle}_{C}
+ =\underbrace{4\langle g_1,g_2\rangle}_{G}
+ +\underbrace{4\langle n_1,n_2\rangle}_{N}
+ +\underbrace{4\bigl(\langle g_1,n_2\rangle+
+                    \langle n_1,g_2\rangle\bigr)}_{I}.
+ \label{eq:generic-naming-identity}
+\end{equation}
+The between-name component $B=\sum_a\langle d_{a1},d_{a2}\rangle$ uses
+scene-averaged, artist-centered vectors and is unchanged by switching the
+baseline. Thus the free-baseline shared fraction is $C/(C+B)$, while the
+generic-baseline fraction is $N/(N+B)$. Fractions are reported only for positive
+totals; signed components are retained without clipping. The ratios are not
+unbiased or necessarily bounded by zero and one. Table~\ref{tab:direct-naming-terms}
+shows why $G+N$ alone does not recover $C$. The interaction $I$ is an algebraic
+cross term, not a separately identified causal or internal model mechanism.
+
+\begin{table}[htbp]
+\caption{Retrospective full-frame decomposition in squared standardized feature units.
+All terms use scene averages and cross-repeat products. $C=G+N+I$ exactly before rounding.}
+\label{tab:direct-naming-terms}
+\centering\small
+\begin{tabular}{@{}lrrrrr@{}}\toprule
+Configuration & Generic $G$ & Additional naming $N$ & Interaction $I$ & Common $C$ & Between-name $B$\\\midrule
+GPT Image 1 & 29.812 & 31.122 & $-1.727$ & 59.207 & 12.518\\
+GPT Image 2 & 37.175 & 29.450 & 6.242 & 72.867 & 12.074\\
+2.5 Flare & 23.714 & 29.511 & 13.551 & 66.775 & 11.986\\
+2.5 Sunburst & 18.194 & 23.485 & 19.373 & 61.052 & 11.738\\
+Nano Banana 2 & 7.191 & 8.037 & 11.323 & 26.551 & 3.589\\
+FLUX.2 Max & 22.371 & 31.590 & 38.619 & 92.580 & 4.149\\
+\bottomrule\end{tabular}
+\end{table}
+
+\subsection{Scene Deletion and Measurement Windows}
+Each deletion removes one scene, recomputes arm means over the remaining 13,
+and then forms the cross-products and ratios. Table~\ref{tab:direct-naming-deletions}
+retains the extrema over all deletions, with references and scaling fixed.
+These ranges describe scene influence; they are not confidence intervals and
+do not incorporate reference uncertainty or establish equivalence to zero.
+
+For Monet--Sisley, let $q=\mu_{\rm Monet}-\mu_{\rm Sisley}$. The pair aligned
+response is the average of
+$\langle z_{ms,\rm Monet,k}-z_{ms,\rm Sisley,k},q\rangle/\|q\|^2$ over retained
+scenes and repeats. Full-frame point estimates are $.074,.402,-.011,-.249,-.044,.129$
+in table order; square-reference estimates are $.038,.408,.012,-.185,-.017,.132$.
+Deleting scenes changes the signs for Flare and Nano Banana 2 under the
+full-frame target, whereas Sunburst remains negative and GPT Image 2 retains
+the strongest positive alignment.
+
+All generated images are square: their full-frame and central-square retained
+feature arrays are exactly equal. The shared fractions and decomposition terms
+therefore coincide across windows by construction, providing no independent
+robustness evidence. Pair alignment changes because the reference windows
+change $q$. Neither view matches historical compositions or validates perceived
+painter resemblance.
+
+\begin{table}[htbp]
+\caption{Descriptive ranges over 14 single-scene deletions. Shared fractions are percentages.
+The square window changes the reference target for pair alignment; shared-fraction
+ranges are identical across windows because generated vectors coincide.}
+\label{tab:direct-naming-deletions}
+\centering\small
+\begin{tabular}{@{}lcccc@{}}\toprule
+& \multicolumn{2}{c}{Shared fraction range (\%)} & \multicolumn{2}{c}{Monet--Sisley aligned response range}\\
+Configuration & Free baseline & Generic baseline & Full-frame reference & Square reference\\\midrule
+GPT Image 1 & $[79.4,84.0]$ & $[70.4,72.3]$ & $[.014,.129]$ & $[-.016,.096]$\\
+GPT Image 2 & $[85.0,86.4]$ & $[70.0,72.1]$ & $[.359,.445]$ & $[.365,.450]$\\
+2.5 Flare & $[83.6,85.8]$ & $[69.8,72.3]$ & $[-.019,.020]$ & $[.002,.041]$\\
+2.5 Sunburst & $[82.7,84.7]$ & $[65.9,67.7]$ & $[-.279,-.214]$ & $[-.216,-.152]$\\
+Nano Banana 2 & $[87.4,89.0]$ & $[66.8,70.9]$ & $[-.106,.007]$ & $[-.078,.029]$\\
+FLUX.2 Max & $[95.0,96.2]$ & $[86.1,90.2]$ & $[.066,.178]$ & $[.062,.184]$\\
+\bottomrule\end{tabular}
+\end{table}
+
+The offline replay command is:
+\begin{quote}\small
+\begin{verbatim}
+uv run --locked python -m \
+  latent_art_bench.painter_specificity_review_v3 check
+\end{verbatim}
+\end{quote}
+All deletion values, vectors and identity residuals are retained; analytical
+tests check baseline invariance, independent-repeat noise correction, signed
+interaction, nonpositive denominators and recomputation after deletion.

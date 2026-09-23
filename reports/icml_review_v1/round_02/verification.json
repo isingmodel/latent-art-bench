@@ -1,0 +1,26 @@
+{
+  "created_utc": "2026-09-18T15:33:12.305057+00:00",
+  "pdf_sha256": "ad4377767c0d442617b9a6dff49eb1231e1c359072daf3e317ba87c20f206e14",
+  "original_precollection_bindings_verified": 27,
+  "round02_snapshot_and_rubric": "all hashes verified",
+  "extraction_counts": {
+    "clip": [
+      2009,
+      768
+    ],
+    "csd": [
+      2009,
+      768
+    ]
+  },
+  "extraction_receipts_and_embedding_hashes": "matched",
+  "supplemental_cpu_mps_validation": "both passed",
+  "commands_observed_this_revision": {
+    "make paper-icml": "passed; 8 main /31 total",
+    "make icml-evidence-check": "passed all three exact numerical replays and generated-table check",
+    "make icml-artifact-check": "passed all 1878 originals and 870 attribution records",
+    "uv run --locked ruff check paper/make_icml_learned_tables.py scripts/check_icml_format.py": "passed"
+  },
+  "historical_suite": "881 passed /10 low-disk failures; subsequent explicitly scoped supplemental verification covers 85 unique passing cases in affected modules. See validation_environment_audit.md.",
+  "scope": "No assertion of scientific acceptance, perceptual validity, independent service draws or public pixel availability."
+}

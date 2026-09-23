@@ -1,0 +1,7 @@
+{
+  "format_checks": "passed",
+  "main_pages": 8,
+  "total_pages": 31,
+  "pdf_sha256": "ad4377767c0d442617b9a6dff49eb1231e1c359072daf3e317ba87c20f206e14",
+  "scope": "local format checks; visual QA and scientific review separate"
+}

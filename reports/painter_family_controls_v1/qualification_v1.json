@@ -1,0 +1,30 @@
+{
+  "bindings": {
+    "pytest-paper.ini": "5cfa206e5816ab3eb53accde20f5267141cf21d769527f62640d6774d82fb77f",
+    "scripts/qualify_family_controls_offline.py": "16f0726910cf95c1521b975267d42afcf5790d1fa334cf6fe99c5e2834369f6b",
+    "src/latent_art_bench/painter_family_controls_v1/__init__.py": "f3ea38e20211ee4a78b8c92ba11936062317f2f81ddeb89357d7e5edd93726ea",
+    "src/latent_art_bench/painter_family_controls_v1/__main__.py": "a275daf1302c32bb342b73f02f0ce16521a31932ca5868839f90cfb936f66844",
+    "src/latent_art_bench/painter_family_controls_v1/analysis.py": "33d83fa764903570d8d7e7a278869ced1204921e6aea51e6102ddbb0e2a7524f",
+    "src/latent_art_bench/painter_family_controls_v1/collector.py": "a07d21b13daf940023be2c7ba91847dc6138aa31c87915f004493f22e5f88d09",
+    "src/latent_art_bench/painter_family_controls_v1/preflight.py": "675a5359fa48eadedfca92b0cd02e7e7e5e15b50073b839a44051eb38ed95e8c",
+    "src/latent_art_bench/painter_family_controls_v1/protocol.py": "f6cda0b54926044634960467d32b667a1109179d9e7f83a9566528f7fe7aaa35",
+    "src/latent_art_bench/painter_family_controls_v1/transport_artifact.py": "7f2787e801d485178654da3ec266ec613a105cc76a92dc9073cd4d8672dd4639",
+    "studies/painter_family_controls_v1/PLAN.md": "0d41bcfccdad53a2c029cec98d370e879b962ffce9ffcc7fdab3450573657cd4",
+    "tests/painter_family_controls_v1/conftest.py": "50628130d8f6977466d5b1c6f3dafc2b35c5f67b365fdc4783795001f5820286",
+    "tests/painter_family_controls_v1/test_analysis.py": "3cd13887870933008025e71fbc7e63815be3fd2a7820e148be7f03bf9aa88199",
+    "tests/painter_family_controls_v1/test_collector.py": "7a11e3c5dbdcd34b630527c1902bcee64a03c3b74ed52842550dab199bd65c69",
+    "tests/painter_family_controls_v1/test_protocol.py": "480e359ea62b4dfb46e4d7c058fa30a4d09e3aa1b03b246244fe5440ada29843",
+    "tests/painter_family_controls_v1/test_transport_artifact.py": "b672a97c3d84ddc3117804402029a0f56332754486cb7cb1e43e3c4003e8e93c"
+  },
+  "full_grid_fixture_result_sha256": "bfa80a310f30f8067131ff7c3c92df131730243a7c24f732d9625c6fd559f41d",
+  "new_observations": 0,
+  "new_paid_calls": 0,
+  "old_parameter_candidate_sha256": "fd6e80de75b7578059ecaee602b4ea5fc9e74f06d7711e52e8bd532cddbabac2",
+  "ready_for_live_collection": false,
+  "recorded_utc": "2026-09-18T17:06:21.196800+00:00",
+  "ruff": "passed",
+  "status": "offline qualifications passed; prospective study not executed",
+  "test_command": "uv run --locked pytest -c pytest-paper.ini -q tests/painter_family_controls_v1",
+  "test_runtime_seconds": 2.38,
+  "tests_passed": 176
+}

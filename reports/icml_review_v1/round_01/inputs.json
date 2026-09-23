@@ -1,0 +1,22 @@
+{
+  "round": 1,
+  "created_utc": "2026-09-18T14:45:08.247851+00:00",
+  "main_pages": 8,
+  "total_pages": 23,
+  "sha256": {
+    "icml.tex": "59f21a51d1e393bc5cbec9efd259efc19334713deffd83108fb63e00ed4b2e48",
+    "icml_main.tex": "f170f76e8ae8a7769b53750eacc6ded73aa54e324be72dde151843dbb8356965",
+    "icml_appendix.tex": "d821eeb28e70d66921624091a3f8b6e0e8d8909206867031881ca31fe747900d",
+    "icml_reproducibility.tex": "9bb5e7091a5827d28efc56e3f526b98e3d213801d3e4ecbf97199c97270acf65",
+    "icml2026.sty": "7cdcf90f6a59c5219e7f15c88f7ed09fcaf598dad91e6cdddc4dc3cb0e397a95",
+    "icml2026.bst": "0ec3d5eb9b02efb7e0b44a32f3775882f42a743d0bdc618f34e6936309b98764",
+    "references.bib": "8468114c8e4d90f3f17d2cf0a099f85835fd9ff0155d0ff717a396670907b6a6",
+    "figures/specificity_artist_pairs.pdf": "f3397ecb0e93a98d936e5d981370f22f89c730f3a61165909f312b62272d1d76",
+    "figures/specificity_diagnostics.pdf": "4232b6337fc019e615ba5c23d3c53781226eda990445cb33024e1ea991e865bf",
+    "figures/specificity_geometry.pdf": "cb9127e1d26a4d961aefc81a4b7495b10576b20678687a1d80824235e2752ee8",
+    "figures/specificity_original_generated.pdf": "ec1bb5dfd06fc7fd7526fe376bda7e89ded2d22c66c415ca970a5a9d16b41920",
+    "figures/specificity_sunburst_distributions.pdf": "4369c09589f0d47f86916dfcc97ae0a9a529860a0d86c9148232513de6b23ad3",
+    "manuscript.pdf": "4ee2a3004226bbcd0151ca310265efad851b69e431d1e05895701b8f918a3e85"
+  },
+  "rubric_sha256": "d844e87053c466b3ea692a68010ac6a4fa82a008cdbea160c185da9f910ee369"
+}

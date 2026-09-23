@@ -1,0 +1,117 @@
+\section{Request configurations and reproducibility}
+\label{app:icml-reproducibility}
+
+\subsection{What the model labels identify}
+All 1,008 requests use the gateway endpoint
+\nolinkurl{https://openrouter.ai/api/v1/images}.
+Table~\ref{tab:icml-request-configurations} records the exact requested model
+identifiers and provider restrictions. Every request sets
+\texttt{n=1}, \texttt{aspect\_ratio=1:1}, and
+\texttt{provider.allow\_fallbacks=false}; the listed provider is the sole
+entry in \texttt{provider.only}. The payloads contain no image input or seed
+field. Separate requests supply the two repeats.
+
+\begin{table*}[t]
+\caption{Recorded request configurations for the six-model experiment.
+Rendering entries are explicit payload fields, not independently verified
+service settings. All 1,008 returned images decode to $1024\times1024$ pixels.
+None of the recorded responses echoes a model, quality, size or output-format
+field.}
+\label{tab:icml-request-configurations}
+\centering\small
+\setlength{\tabcolsep}{5pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{.39\textwidth}>{\raggedright\arraybackslash}p{.24\textwidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Requested model identifier & Sole requested provider & Additional rendering fields\\
+\midrule
+\nolinkurl{openai/gpt-image-1} & \texttt{openai} & \texttt{quality=medium}; \texttt{background=opaque}\\[3pt]
+\nolinkurl{openai/gpt-image-2} & \texttt{openai} & \texttt{quality=medium}; \texttt{background=opaque}\\[3pt]
+\nolinkurl{openai/gpt-image-2.5-flare} & \texttt{openai} & \texttt{quality=medium}; \texttt{background=opaque}\\[3pt]
+\nolinkurl{openai/gpt-image-2.5-sunburst} & \texttt{openai} & \texttt{quality=medium}; \texttt{background=opaque}\\[3pt]
+\nolinkurl{google/gemini-3.1-flash-image} & \texttt{google-ai-studio} & \texttt{resolution=1K}\\[3pt]
+\nolinkurl{black-forest-labs/flux.2-max} & \nolinkurl{black-forest-labs/us-3} & \texttt{output\_format=png}\\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+These records establish the configuration submitted to the gateway, not the
+identity of hidden served weights. Provider catalogue records are bound to the
+precollection freeze, but the absent echoed fields prevent response-level
+confirmation of model and quality. The labels therefore denote requested
+configurations. The earlier interface's acceptance of an invented model name
+motivated this explicit-route collection; it does not prove that valid names
+selected identical models. The terminated predecessor and technical probes
+are excluded from the 1,008-image analysis.
+
+\subsection{Timeline and evidence bindings}
+The run identifier is \texttt{psv2-20260911}. Its local calendar date is
+11 September 2026 (UTC+9), whereas the collection occurred on 10 September
+in UTC. The freeze was recorded at 15:34:19.942590 UTC, the first request
+started at 15:34:20.846233 UTC, and the terminal collection receipt was
+recorded at 18:21:04.039850 UTC. The measurement receipt follows at
+18:30:03.866908 UTC. Thus the date in the protocol and run identifier does
+not imply a freeze after collection.
+
+The freeze binds 27 files, including the protocols, exact assignments,
+provider catalogue records, implementation, numerical tests, reference
+features, development scaler and locked dependencies. The terminal record
+contains 1,008 successes in 1,008 attempts, with a response hash and image
+hash for every output. These hashes support consistency checks against the
+retained bytes; local timestamps and hashes are not an independent timestamping
+or preregistration service. A separate reader correction selects the intended
+649 measured references from a manifest retaining four historical failed
+records; it does not recollect those records.
+
+\subsection{Numerical replay and image access}
+The compact artifact supports numerical replay from retained feature vectors,
+scalers, manifests and versioned results. This covers the four primary views
+(full-frame and square-window measurements, each with the original or
+content-reweighted reference target), both retrospective diagnostic versions,
+and the source-region/scaler/label sensitivities. These checks verify the
+recorded computation conditional on those inputs. They do not independently
+validate the feature extraction, the source judgments, or served model identity.
+
+Exact-pixel verification additionally requires retained local source files.
+The terminal audit verifies the current experiment's response and image
+bytes; the example check verifies the 40 displayed sources. The source-quality
+image check verifies all 870 reference/development source hashes and
+re-extracts features for the 131 audited crops. Exact source pixels remain
+outside the compact repository, and the current experiment lacks a dedicated
+public exact-pixel archive or verified recovery route. Numerical reproducibility
+is therefore more complete than independent image-measurement reproducibility.
+
+\subsection{Verification commands}
+Run from the repository root using the locked Python 3.13.11 environment and
+\texttt{uv}. The following targets are offline and do not generate images:
+\begin{quote}\small
+\begin{verbatim}
+make specificity-check
+make review-check
+make reference-quality-check
+make figures-check
+\end{verbatim}
+\end{quote}
+The first three targets replay scientific results; the last checks the
+manuscript's numerical figures and generated tables. Focused tests for the
+primary estimator, routes, corrected reader and diagnostic arithmetic are:
+\begin{quote}\small
+\begin{verbatim}
+uv run --locked pytest -q tests/painter_specificity_v1 \
+  tests/painter_specificity_v2 \
+  tests/painter_specificity_measurement_v1 \
+  tests/painter_specificity_review_v1 \
+  tests/painter_specificity_review_v2 \
+  tests/painter_reference_quality_v1
+\end{verbatim}
+\end{quote}
+With the retained source pixels and responses available, run:
+\begin{quote}\small
+\begin{verbatim}
+make specificity-audit
+make example-images-check
+make reference-quality-images-check
+\end{verbatim}
+\end{quote}
+These image-dependent commands add byte verification or feature re-extraction;
+they do not collect new outputs. None of these checks is a scientific peer-review
+rating or a validation of perceptual artistic fidelity.

@@ -1,0 +1,23 @@
+{
+  "status": "actual raw31 synthetic execution/replay qualified; empirical goal not achieved",
+  "recorded_utc": "2026-09-18T22:51:24.918368+00:00",
+  "tests_passed": 295,
+  "test_runtime_seconds": 62.47,
+  "ruff": "passed",
+  "new_paid_calls": 0,
+  "new_scientific_observations": 0,
+  "raw31_synthetic_rows_exactly_replayed": 3,
+  "learned_encoders_executed": 0,
+  "full_study_execution_authenticated": false,
+  "bindings": {
+    "src/latent_art_bench/painter_family_controls_v1/execution31.py": "83a816b7d2b065a4b320f5a4160ef5279adfbc1192ef461858d9d15dbeb55787",
+    "tests/painter_family_controls_v1/test_execution31.py": "6c7f23892483cab45696f6d9e0bc090cd130401bee576ea334aa8e17ef657783",
+    "scripts/qualify_family_execution31_offline.py": "c7e2ec6ce0ac2b0426a2497198fc54a55fb3d3e66a88c3636c2f2acda04a5ebe",
+    "reports/icml_review_v1/family_execution31_qualification.md": "6c85bc7af7dc510fd7726eaa66b38d62d086b5c3a4a6bdf50a606813f1613a20"
+  },
+  "source_snapshot": "reports/painter_family_controls_v1/qualification_v3_sources.tar.gz",
+  "source_snapshot_sha256": "a64ed77657de41d15989e3be7d648341a7a59c655c66f2509aa8e16fd0952841",
+  "final_execution_fixture_result_sha256": "ba58551a8923d976abe68d9c04b6ca434049fb2da144968f07506b2833a180fb",
+  "prior_qualification_v1_sha256": "3aa4f177ae50a35433089aae639fc916eb54d519ef0bb42571b1b3533e9aec70",
+  "prior_qualification_v2_sha256": "844c5b10b877ebb1fa09557c2865cfc7827239a8477a7df57a83ab22e2310c7f"
+}

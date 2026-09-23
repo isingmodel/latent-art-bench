@@ -1,0 +1,331 @@
+{
+  "review_kind": "bounded editorial and visual QA; no scientific rating",
+  "created_at_utc": "2026-09-18T16:42:41.429308+00:00",
+  "pdf_path": "output/pdf/latent_art_bench_icml.pdf",
+  "pdf_sha256": "115f9ff33762e932d44fa3e8dbc9582af5f4ffd6a13e8406695c4eb43de89147",
+  "archived_pdf_path": "reports/icml_review_v1/post_round_03_reporting/latent_art_bench_icml.pdf",
+  "archived_pdf_sha256": "115f9ff33762e932d44fa3e8dbc9582af5f4ffd6a13e8406695c4eb43de89147",
+  "frozen_pdf_sha256": "bbcc12901427538ed0938cdea510f848a0999d0edd08b4bc707c5b6fb8051472",
+  "result": "No blocking editorial or visual defect found in the reviewed scope.",
+  "scope": {
+    "visually_inspected_pdf_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "total_pdf_pages": 46,
+    "main_text_pages": 8,
+    "impact_statement_starts_page": 9,
+    "references_pages": [
+      9,
+      10
+    ],
+    "appendix_starts_page": 11,
+    "limitations": "No scientific rating, literature truth adjudication, numerical replay, or visual inspection of pages 11-46 was performed in this bounded review."
+  },
+  "source_audit": {
+    "frozen_directory": "reports/icml_review_v1/round_03/input",
+    "current_directory": "paper",
+    "compared_files": 24,
+    "unchanged_files": 22,
+    "changed_files": [
+      "icml_main.tex",
+      "icml_references.bib"
+    ],
+    "main_tex_changed_sections": [
+      "Introduction",
+      "Related Work"
+    ],
+    "all_main_tex_content_from_design_and_measurements_onward_byte_identical": true,
+    "post_related_work_sha256": "592d5a28879bbec16a894d071f86f16c9c248a61471dcc87ff3cc1a981504c01",
+    "scientific_or_numerical_source_changes_outside_introduction_related_work_and_bibliography": false,
+    "bibliography_change": "icml_references.bib adds only frochte2026csd; references.bib, including the Su entry, is byte-identical.",
+    "files": [
+      {
+        "path": "figures/specificity_artist_pairs.pdf",
+        "current_exists": true,
+        "equal": true,
+        "frozen_sha256": "f3397ecb0e93a98d936e5d981370f22f89c730f3a61165909f312b62272d1d76",
+        "current_sha256": "f3397ecb0e93a98d936e5d981370f22f89c730f3a61165909f312b62272d1d76"
+      },
+      {
+        "path": "figures/specificity_diagnostics.pdf",
+        "current_exists": true,
+        "equal": true,
+        "frozen_sha256": "4232b6337fc019e615ba5c23d3c53781226eda990445cb33024e1ea991e865bf",
+        "current_sha256": "4232b6337fc019e615ba5c23d3c53781226eda990445cb33024e1ea991e865bf"
+      },
+      {
+        "path": "figures/specificity_geometry.pdf",
+        "current_exists": true,
+        "equal": true,
+        "frozen_sha256": "cb9127e1d26a4d961aefc81a4b7495b10576b20678687a1d80824235e2752ee8",
+        "current_sha256": "cb9127e1d26a4d961aefc81a4b7495b10576b20678687a1d80824235e2752ee8"
+      },
+      {
+        "path": "figures/specificity_original_generated.pdf",
+        "current_exists": true,
+        "equal": true,
+        "frozen_sha256": "ec1bb5dfd06fc7fd7526fe376bda7e89ded2d22c66c415ca970a5a9d16b41920",
+        "current_sha256": "ec1bb5dfd06fc7fd7526fe376bda7e89ded2d22c66c415ca970a5a9d16b41920"
+      },
+      {
+        "path": "figures/specificity_sunburst_distributions.pdf",
+        "current_exists": true,
+        "equal": true,
+        "frozen_sha256": "4369c09589f0d47f86916dfcc97ae0a9a529860a0d86c9148232513de6b23ad3",
+        "current_sha256": "4369c09589f0d47f86916dfcc97ae0a9a529860a0d86c9148232513de6b23ad3"
+      },
+      {
+        "path": "icml.tex",
+        "current_exists": true,
+        "equal": true,
+        "frozen_sha256": "0c1416ffd3668392ab24b4de54ab32cbbaeb1f232ee217090c4c0bc0b99a3103",
+        "current_sha256": "0c1416ffd3668392ab24b4de54ab32cbbaeb1f232ee217090c4c0bc0b99a3103"
+      },
+      {
+        "path": "icml2026.bst",
+        "current_exists": true,
+        "equal": true,
+        "frozen_sha256": "0ec3d5eb9b02efb7e0b44a32f3775882f42a743d0bdc618f34e6936309b98764",
+        "current_sha256": "0ec3d5eb9b02efb7e0b44a32f3775882f42a743d0bdc618f34e6936309b98764"
+      },
+      {
+        "path": "icml2026.sty",
+        "current_exists": true,
+        "equal": true,
+        "frozen_sha256": "7cdcf90f6a59c5219e7f15c88f7ed09fcaf598dad91e6cdddc4dc3cb0e397a95",
+        "current_sha256": "7cdcf90f6a59c5219e7f15c88f7ed09fcaf598dad91e6cdddc4dc3cb0e397a95"
+      },
+      {
+        "path": "icml_appendix.tex",
+        "current_exists": true,
+        "equal": true,
+        "frozen_sha256": "b542a39b5ad85e324a66288b2ea9d12c1831ea555d1f057eba87fdf8d3032559",
+        "current_sha256": "b542a39b5ad85e324a66288b2ea9d12c1831ea555d1f057eba87fdf8d3032559"
+      },
+      {
+        "path": "icml_covariance_appendix.tex",
+        "current_exists": true,
+        "equal": true,
+        "frozen_sha256": "d5764088bc2ed4a5f6895f4603403864e18421f6f92d32f31cff842a978090b7",
+        "current_sha256": "d5764088bc2ed4a5f6895f4603403864e18421f6f92d32f31cff842a978090b7"
+      },
+      {
+        "path": "icml_covariance_results.tex",
+        "current_exists": true,
+        "equal": true,
+        "frozen_sha256": "7d9fa2bb12d2358a4bafa7754ad159c0c12d955b96f9b99cea436280ea1c7e27",
+        "current_sha256": "7d9fa2bb12d2358a4bafa7754ad159c0c12d955b96f9b99cea436280ea1c7e27"
+      },
+      {
+        "path": "icml_diagnostics_v3.tex",
+        "current_exists": true,
+        "equal": true,
+        "frozen_sha256": "d4990547504f94f343eecf4c31c86dd1c1c2cc5e0b3a1158f5f042d238f8ad5d",
+        "current_sha256": "d4990547504f94f343eecf4c31c86dd1c1c2cc5e0b3a1158f5f042d238f8ad5d"
+      },
+      {
+        "path": "icml_extended_results.tex",
+        "current_exists": true,
+        "equal": true,
+        "frozen_sha256": "6b2e010f8764a9562d7c8c87b4d737a4ff1cd988322731a03733161e50338e37",
+        "current_sha256": "6b2e010f8764a9562d7c8c87b4d737a4ff1cd988322731a03733161e50338e37"
+      },
+      {
+        "path": "icml_learned_appendix.tex",
+        "current_exists": true,
+        "equal": true,
+        "frozen_sha256": "a3d9387b916c39cee8b37602604858f44ba2d1816425300b2f6d77ffc93f7f11",
+        "current_sha256": "a3d9387b916c39cee8b37602604858f44ba2d1816425300b2f6d77ffc93f7f11"
+      },
+      {
+        "path": "icml_learned_calibration.tex",
+        "current_exists": true,
+        "equal": true,
+        "frozen_sha256": "2a68a829aaf84dde79af2a9ce357742b96d99ff660f194f7931ae4d0ee9272c0",
+        "current_sha256": "2a68a829aaf84dde79af2a9ce357742b96d99ff660f194f7931ae4d0ee9272c0"
+      },
+      {
+        "path": "icml_learned_results.tex",
+        "current_exists": true,
+        "equal": true,
+        "frozen_sha256": "abdfc01f75be11dd9bc8eb38b1c49a198bf7b19f76d5c7cd124ecbb1992288cb",
+        "current_sha256": "abdfc01f75be11dd9bc8eb38b1c49a198bf7b19f76d5c7cd124ecbb1992288cb"
+      },
+      {
+        "path": "icml_learned_table.tex",
+        "current_exists": true,
+        "equal": true,
+        "frozen_sha256": "0649fbcd2be38577c619c93cb841ace531b2f316f3e382462e9ee0bb7502a1d9",
+        "current_sha256": "0649fbcd2be38577c619c93cb841ace531b2f316f3e382462e9ee0bb7502a1d9"
+      },
+      {
+        "path": "icml_main.tex",
+        "current_exists": true,
+        "equal": false,
+        "frozen_sha256": "315fde0ba8086c3f3edbeff652ec266e96d62f696498007bbb0d9b505b4bae67",
+        "current_sha256": "e616ed3959c0ad07478e43584ce1ae992c3c8fbbec93029c81f3682886487142"
+      },
+      {
+        "path": "icml_references.bib",
+        "current_exists": true,
+        "equal": false,
+        "frozen_sha256": "ec26706cc8102288a1a429b2ef021da5dfd5ee218f9c7f28af7abf57585be472",
+        "current_sha256": "25811da420abb3a7a51636d96f3a428899227e63757ce2ba47cf14b3c1ba86bf"
+      },
+      {
+        "path": "icml_reproducibility.tex",
+        "current_exists": true,
+        "equal": true,
+        "frozen_sha256": "c0547c6e1e47e6c52394fba8ec04b346c3cc9fa0806234ede458054a39f89cec",
+        "current_sha256": "c0547c6e1e47e6c52394fba8ec04b346c3cc9fa0806234ede458054a39f89cec"
+      },
+      {
+        "path": "icml_transfer_appendix.tex",
+        "current_exists": true,
+        "equal": true,
+        "frozen_sha256": "8a4a465fe470567ef1a7aa6d5f6cb566e284f8440591e6bca09bfed1ce997725",
+        "current_sha256": "8a4a465fe470567ef1a7aa6d5f6cb566e284f8440591e6bca09bfed1ce997725"
+      },
+      {
+        "path": "icml_transfer_results.tex",
+        "current_exists": true,
+        "equal": true,
+        "frozen_sha256": "db8083976fc06ba7d1e2b2ddfe0cae54e1d4df4ce0bf91f4420b7deefbe4be8c",
+        "current_sha256": "db8083976fc06ba7d1e2b2ddfe0cae54e1d4df4ce0bf91f4420b7deefbe4be8c"
+      },
+      {
+        "path": "icml_transfer_table.tex",
+        "current_exists": true,
+        "equal": true,
+        "frozen_sha256": "4036c3aaf6419201876ec12b9a455580f1b7345d769283a57b80a16d5ada685d",
+        "current_sha256": "4036c3aaf6419201876ec12b9a455580f1b7345d769283a57b80a16d5ada685d"
+      },
+      {
+        "path": "references.bib",
+        "current_exists": true,
+        "equal": true,
+        "frozen_sha256": "8468114c8e4d90f3f17d2cf0a099f85835fd9ff0155d0ff717a396670907b6a6",
+        "current_sha256": "8468114c8e4d90f3f17d2cf0a099f85835fd9ff0155d0ff717a396670907b6a6"
+      }
+    ]
+  },
+  "build_and_text_checks": {
+    "log_path": "tmp/paper/icml-build/icml.log",
+    "critical_warning_counts": {
+      "undefined_citations_or_references": 0,
+      "missing_character_warnings": 0,
+      "overfull_boxes": 0,
+      "latex_errors": 0
+    },
+    "unresolved_double_question_marks_in_pages_1_10": false,
+    "unicode_replacement_character_in_pages_1_10": false,
+    "other_log_observations": [
+      "Underfull hbox/vbox warnings are present; no corresponding visual clipping or overlap was observed on pages 1-10.",
+      "One hyperref warning reports an ignored empty anchor; it did not create a visible defect on the inspected pages."
+    ]
+  },
+  "visual_findings": [
+    {
+      "page": 1,
+      "finding": "Title, abstract, Introduction, affiliation footnote, and footer fit within the page; no clipping or overlap observed."
+    },
+    {
+      "page": 2,
+      "finding": "Related Work fits in the left column and Design and Measurements begins cleanly in the right column. Frochte (2026) and Su et al. (2025) citations render as resolved text."
+    },
+    {
+      "page": 3,
+      "finding": "Body text, equation labels, displayed mathematics, and section transitions are legible; no overlap observed."
+    },
+    {
+      "page": 4,
+      "finding": "Methods-to-results transition and both text columns fit; no clipping or overlap observed."
+    },
+    {
+      "page": 5,
+      "finding": "Tables 1 and 2, captions, and the two-column continuation are readable and separated."
+    },
+    {
+      "page": 6,
+      "finding": "Heatmaps, labels, colorbars, caption, and subsequent body text are readable; no overlap observed."
+    },
+    {
+      "page": 7,
+      "finding": "Tables 3 and 4, captions, equation, and surrounding text fit without clipping or overlap."
+    },
+    {
+      "page": 8,
+      "finding": "Discussion, limitations, Conclusion, and Reproducibility all fit. Reproducibility ends on the eighth main-text page."
+    },
+    {
+      "page": 9,
+      "finding": "Impact Statement and References begin on page 9. Frochte reference renders with year 2026, arXiv v2 URL, and Version 2 note; long URLs wrap within columns."
+    },
+    {
+      "page": 10,
+      "finding": "Remaining references, including Su et al. (2025) with the arXiv v1 URL and Version 1 note, render legibly. The short final reference column leaves intentional whitespace; no clipping or missing glyphs observed."
+    }
+  ],
+  "render_evidence": [
+    {
+      "page": 1,
+      "path": "tmp/paper/icml-post-round03-preview/page-01.png",
+      "sha256": "b4b92f962140ce9668e9949616346cf415deed92c91eeb2368703cbc60b62058"
+    },
+    {
+      "page": 2,
+      "path": "tmp/paper/icml-post-round03-preview/page-02.png",
+      "sha256": "318f9f0b1063f0a0aad12aa5df920ad1923e431d14ce4171c26b6ca324e56089"
+    },
+    {
+      "page": 3,
+      "path": "tmp/paper/icml-post-round03-preview/page-03.png",
+      "sha256": "3f69538f93976d7aa8462f9bb36d3cfdef45dc69813d8dfb466990a57627614f"
+    },
+    {
+      "page": 4,
+      "path": "tmp/paper/icml-post-round03-preview/page-04.png",
+      "sha256": "32031ca72c81e36ff9c662024f8055472db52a010e29ffdc3955cdcf510bb073"
+    },
+    {
+      "page": 5,
+      "path": "tmp/paper/icml-post-round03-preview/page-05.png",
+      "sha256": "bd91fde84d26806e1020080a11cf63ca66a846ecf25817799f18285bb0821c4a"
+    },
+    {
+      "page": 6,
+      "path": "tmp/paper/icml-post-round03-preview/page-06.png",
+      "sha256": "e5eebb24a3fec3fa71d99caad334319692ced833c05b4ac6a9d3e04da859a61c"
+    },
+    {
+      "page": 7,
+      "path": "tmp/paper/icml-post-round03-preview/page-07.png",
+      "sha256": "fdaa4e3fa7a5e156b5d73542151663301444abdcc2fa2133808c126d57fb472d"
+    },
+    {
+      "page": 8,
+      "path": "tmp/paper/icml-post-round03-preview/page-08.png",
+      "sha256": "365c373427315190b0768c9940545fc904911ea7dacd37b34399e3cc5073ebb2"
+    },
+    {
+      "page": 9,
+      "path": "tmp/paper/icml-post-round03-preview/page-09.png",
+      "sha256": "4cbc623cbc4c533d661014341eacfa00d951d63d454181591374fd368ad474d4"
+    },
+    {
+      "page": 10,
+      "path": "tmp/paper/icml-post-round03-preview/page-10.png",
+      "sha256": "6df1d405af68da26cd90e7915c67c0c4443aa82ce651389206e67b265fddcab8"
+    }
+  ],
+  "source_or_pdf_modified": false
+}

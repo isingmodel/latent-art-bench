@@ -1,0 +1,4 @@
+Command: PYTHONPATH=reports/icml_review_v1 uv run --locked pytest -c pytest-paper.ini -q -m "not live" -p no:cacheprovider -p storage_fixture --basetemp /private/tmp/icml-storage-supplement-retry-20260918 --storage-fixture-receipt reports/icml_review_v1/validation_environment_supplemental_retry.json tests/painter_map_validation_v2/test_operations.py::test_second_technical_failure_permanently_closes tests/painter_map_validation_v2/test_operations.py::test_storage_stop_is_terminal_without_network
+
+2 passed in 1.09s
+Precondition: root confirmed CSD extraction and model validation finished; real free space was checked to be at least 500 MiB before pytest.

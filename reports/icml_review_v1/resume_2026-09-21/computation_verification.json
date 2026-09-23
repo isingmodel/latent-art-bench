@@ -1,0 +1,56 @@
+{
+  "recorded_utc": "2026-09-21T14:37:01.279409+00:00",
+  "prior_round03_evidence_bindings": {
+    "studies/painter_learned_audit_v1/PLAN.md": true,
+    "reports/painter_learned_audit_v1/analysis.json": true,
+    "reports/painter_learned_audit_v1/inputs.json": true,
+    "reports/painter_learned_audit_v1/validation_clip.json": true,
+    "reports/painter_learned_audit_v1/validation_csd.json": true,
+    "reports/painter_specificity_review_v3/analysis.json": true,
+    "reports/painter_request_timing_v1/analysis.json": true,
+    "reports/icml_review_v1/artifact_inventory.json": true,
+    "reports/icml_review_v1/artifact_attribution.json": true,
+    "studies/painter_prototype_transfer_v1/PLAN.md": true,
+    "reports/painter_prototype_transfer_v1/inputs.json": true,
+    "reports/painter_prototype_transfer_v1/analysis.json": true,
+    "reports/painter_prototype_transfer_v1/REPORT.md": true,
+    "studies/painter_repeat_covariance_v1/PLAN.md": true,
+    "reports/painter_repeat_covariance_v1/inputs.json": true,
+    "reports/painter_repeat_covariance_v1/analysis.json": true,
+    "reports/painter_repeat_covariance_v1/REPORT.md": true,
+    "reports/icml_review_v1/transfer_independent_audit.py": true,
+    "reports/icml_review_v1/transfer_independent_audit.json": true,
+    "reports/icml_review_v1/transfer_independent_audit.md": true,
+    "reports/icml_review_v1/covariance_independent_audit.py": true,
+    "reports/icml_review_v1/covariance_independent_audit.json": true,
+    "reports/icml_review_v1/covariance_independent_audit.md": true
+  },
+  "all_prior_evidence_unchanged": true,
+  "legacy_icml_evidence_check": "passed; make icml-evidence-check exit0",
+  "log_sha256": "5d594da0fd589b05ddfd6da0e08a7595d931452d4d5bedc5dbac76fdc5ecb0e8",
+  "new_retrospective_analyses": {
+    "cross_cohort": {
+      "inputs_sha256": "94413b3ee5bd689f60df35e7a8135f79eb929fd9dbee36bd450b47df4db0e693",
+      "exact_replay": "passed",
+      "new_images": 0
+    },
+    "selective_attribution": {
+      "inputs_sha256": "f9d6b94e19d8004463f7b0524dd72865e22c18b0786cf48387cb9257e0528826",
+      "audit_sha256": "e3f26efb7286ad592e5ec30a50dd937690c29852d690c94b3baf09f31ae22569",
+      "exact_replay": "passed",
+      "new_images": 0
+    }
+  },
+  "independent_numerical_audits": {
+    "cross_cohort_numeric_audit": {
+      "path": "reports/icml_review_v1/resume_2026-09-21/cross_cohort_numeric_audit.json",
+      "sha256": "ac47817030ca89e213e67cccba3893f5006a90515a81e7259a7edba236569a0f",
+      "status": "passed"
+    },
+    "selective_numeric_audit": {
+      "path": "reports/icml_review_v1/resume_2026-09-21/selective_numeric_audit.json",
+      "sha256": "f47d52a948acf13599c3853350eb32c92fa42895c2b296c8670f172535d34aa8",
+      "status": "passed"
+    }
+  }
+}

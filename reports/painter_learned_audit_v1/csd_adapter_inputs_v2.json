@@ -1,0 +1,16 @@
+{
+  "bindings": {
+    "artifacts/models/clip-vit-large-patch14/config.json": "8a09b467700c58138c29d53c605b34ebc69beaadd13274a8a2af8ad2c2f4032a",
+    "artifacts/models/clip-vit-large-patch14/preprocessor_config.json": "910e70b3956ac9879ebc90b22fb3bc8a75b6a0677814500101a4c072bd7857bd",
+    "artifacts/models/openai-clip-source/LICENSE": "987e63b32f6c89ff5160e429458a872ff048e6860b590a3912e938f9da8f14db",
+    "artifacts/models/openai-clip-source/model.py": "9902cbe5ee90a1da2aa3e6f043e8a23dc1f8831193b963785c9af03d5c7bef2c",
+    "reports/painter_learned_audit_v1/inputs.json": "bd9cb00279fffb741b3579e3234ad034bb593884925ea40893c717612eccca57",
+    "src/latent_art_bench/painter_learned_audit_v1.py": "156750d6d7099fb0a87b6ca789f5892d555ebca04fc58195aec85a8ea2a1c0c8",
+    "src/latent_art_bench/painter_learned_csd_v1.py": "787b95697b6c48910a880c66961af4ea21c05d77184ddd0e8e7d2ff27395fb3e",
+    "studies/painter_learned_audit_v1/PLAN.md": "c4af957b1922853b9541c02041d3a1b887a2f660dff709d3efb70710025766c0",
+    "uv.lock": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+  },
+  "created_utc": "2026-09-18T15:11:55.027565+00:00",
+  "explanation": "Native CSD uses rounded center offsets; completed HF CLIP uses floors. This implementation clarification precedes CSD outcomes. No outcome selected the convention. Both follow their respective released preprocessing. The public CSD file is a training checkpoint: model_state_dict is selected with strict tensor checks; only fixed NumPy/argparse metadata types are allowlisted under weights_only=True. Prior adapter/input is preserved.",
+  "storage_note": "Initial simultaneous download exhausted local disk. The failed partial CSD download was removed. Models are downloaded and used serially; downloaded public CLIP weights may be evicted after extraction/validation. Exact checkpoint revision/hash and embeddings remain. No research pixels removed."
+}

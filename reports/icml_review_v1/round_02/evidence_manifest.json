@@ -1,0 +1,11 @@
+{
+  "studies/painter_learned_audit_v1/PLAN.md": "c4af957b1922853b9541c02041d3a1b887a2f660dff709d3efb70710025766c0",
+  "reports/painter_learned_audit_v1/analysis.json": "06c77de4be133afc203dda122b2816d4f866e1389999f18bc94b3d9c668f28f7",
+  "reports/painter_learned_audit_v1/inputs.json": "bd9cb00279fffb741b3579e3234ad034bb593884925ea40893c717612eccca57",
+  "reports/painter_learned_audit_v1/validation_clip.json": "f298280c15d0801c0918a85e1e82c889e03bda90249e1a1072e227064fcf049d",
+  "reports/painter_learned_audit_v1/validation_csd.json": "40024de26abeb12a40381f00392c6e94019c5ef056218cd4704079984b023978",
+  "reports/painter_specificity_review_v3/analysis.json": "79fa5ca28900e852c072e2a52d35f3cb400ee053935d857729b4ad4aa3bc542c",
+  "reports/painter_request_timing_v1/analysis.json": "80807c9ce3167ee853c354899a3fc750d8d330e17e5569135eb46e627819cceb",
+  "reports/icml_review_v1/artifact_inventory.json": "492ebd715d6e394244f00cbf98aa5d93a76c204e5c2fd1c7dce01c3d34320558",
+  "reports/icml_review_v1/artifact_attribution.json": "f4e468db427dbbd756bdcfac7686ed16cb587e487680d9e0b2bb4ce2cf4f4574"
+}

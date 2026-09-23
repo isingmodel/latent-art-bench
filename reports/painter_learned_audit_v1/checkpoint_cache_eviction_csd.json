@@ -1,0 +1,15 @@
+{
+  "created_utc": "2026-09-18T15:25:48.149956+00:00",
+  "evicted_path": "artifacts/models/csd-vit-large/pytorch_model.bin",
+  "reason": "Only newly downloaded public CSD checkpoint evicted after completed extraction, four-image CPU/MPS validation and exact analysis replay. Scientific pixels, embeddings, configurations, source code and receipts retained.",
+  "recovery": {
+    "directory": "csd-vit-large",
+    "file": "pytorch_model.bin",
+    "repository": "tomg-group-umd/CSD-ViT-L",
+    "revision": "5bc26a6fb0487f3f00a2a7313135103a005b1b67",
+    "sha256": "40e92fad63a361b8136100cd234c42d401ef9b34ff1748234318929ebcc7e7a1"
+  },
+  "sha256": "40e92fad63a361b8136100cd234c42d401ef9b34ff1748234318929ebcc7e7a1",
+  "embedding_sha256": "65f428ed866916dca12ea0bc8148f1e0b9122343d19181e56f03543b5506085b",
+  "validation_receipt_sha256": "40024de26abeb12a40381f00392c6e94019c5ef056218cd4704079984b023978"
+}

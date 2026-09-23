@@ -1,5 +1,74 @@
 # Research paper
 
+## ICML review draft
+
+[icml.tex](icml.tex) builds a separate anonymous English manuscript using the
+unaltered official ICML 2026 style. Its main body is 8 pages; references and
+the complete methodological appendix follow in the same PDF. This is a format
+target for a future submission, not a claim of submission to the past 2026
+conference. ICML 2027 instructions must be checked when published.
+
+```bash
+make paper-icml           # Build output/pdf/latent_art_bench_icml.pdf
+make icml-format-check   # Check the existing build, page limit and font embedding
+make icml-evidence-check # Replay the versioned scientific additions from retained vectors
+make icml-artifact-check # Verify the local 1,878-image inventory and attribution records
+```
+
+The main text is in `icml_main.tex`; `icml_appendix.tex` preserves the supporting
+analyses and `icml_reproducibility.tex` records exact gateway configurations,
+the UTC collection timeline and replay boundaries. `icml_diagnostics_v3.tex`
+adds direct incremental naming and influence diagnostics, while
+`icml_learned_appendix.tex` documents the same-image CLIP/CSD audit.
+`make_icml_learned_tables.py` generates its main comparison and complete
+source-view/reference-target appendix tables, with exact replay through
+`make icml-evidence-check`. `icml_transfer_appendix.tex` and the tables produced
+by `make_icml_transfer_tables.py` report the subsequent retrospective held-scene
+prompt-name task, including its adverse results and supervised context rule.
+`icml_extended_results.tex` preserves magnitude and source-correction tables
+moved out of the main text. `icml_covariance_appendix.tex` and the generated
+`icml_covariance_results.tex` report fixed cross-repeat covariance scenarios
+for all six primary-D curves and all 15 point-order comparisons; the scenarios
+do not estimate actual covariance or repair uncertainty intervals. Additional
+ICML-only citations are in `icml_references.bib`; the original bibliography is
+preserved. Main-text tables and figures
+count toward the eight-page check. The layout checker verifies every page's US
+Letter size, embedded fonts, references and the official style-file hashes;
+rendered-page inspection remains a separate step.
+
+The [ICLR-style review record](../reports/icml_review_v1/README.md) uses independent
+scientific recommendations on a fixed scale. It is separate from the historical
+editorial assessments below. Round 04 has overall recommendations 6, 6, 4
+(mean 5.333333333333333) on the exact 8-main-page, 60-total-page PDF. The
+[review report](../reports/icml_review_v1/review_report_2026-09-21.md) preserves
+all reviews and lists remaining scientific limits and editorial corrections in
+that scored version. Prior round-03 recommendations remain 4, 4, 4. The
+[portable numerical artifact](../reports/icml_review_v1/numeric_bundle_v1/README.md)
+replays 16 fixed checks from an extracted copy and preserves that reviewed PDF.
+It does not include exact pixels or replace independent empirical validation.
+Original English and Korean sources are preserved.
+
+The latest revision adds `icml_cross_cohort_appendix.tex` and its generated
+results for the retained 2,000-image SD-Turbo collection, plus
+`icml_selective_appendix.tex`, complete generated selective tables and the
+primary painter-coverage heatmap. Both retrospective studies were frozen and
+independently audited before their new outcomes; they add no newly collected
+images. Their exact execution/replay commands, including external input and
+audit digests, are documented in `icml_reproducibility.tex`. The legacy
+`icml-evidence-check` target above covers its original analyses; additionally
+check the new bound tables with:
+
+```bash
+uv run --locked python paper/make_icml_cross_cohort_tables.py --check
+uv run --locked python paper/make_icml_selective_tables.py --check
+```
+
+The frozen review snapshot lives in `reports/icml_review_v1/round_04/input/`.
+Rebuilding after any manuscript change produces a different artifact that must
+not inherit this exact-PDF review claim automatically.
+
+## Full-length English manuscript
+
 [paper.tex](paper.tex) is the canonical English source and [paper.pdf](paper.pdf)
 is the revised 23-page paper, **Artist-Name Responses beyond a Shared Painting
 Effect in Text-to-Image Generation**. All four painters and the declared

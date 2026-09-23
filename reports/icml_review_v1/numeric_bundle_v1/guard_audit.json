@@ -1,0 +1,330 @@
+{
+  "schema": "icml-numeric-guard-audit/1.0",
+  "status": "all_17_guard_probes_passed_no_unresolved_blocking_defect",
+  "reviewer_role": "independent methods reviewer; bounded code audit; no scientific rescoring",
+  "inspected_script": "scripts/icml_numeric_bundle.py",
+  "inspected_script_sha256": "f9fb24b62e2fb51ddfb33e8e8ed7b0659eaa7f3c71170b855d86b5b9e067e50f",
+  "inspected_readme_sha256": "d4173fa4929790ad2f9629b8e8d73079fef717ae7630f526f6976fc3fc6cb06f",
+  "environment": {
+    "python": "3.13.11",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O"
+  },
+  "method": "Imported the launcher with -I -B, replaced runpy.run_module with a single operation, redirected ROOT to a disposable sibling directory, and invoked guarded_check(0). All fixtures and preopened descriptors were created before the hook; all cleanup occurred after its finally block. No network request was made.",
+  "probes": [
+    {
+      "name": "unlink",
+      "expected": "reject",
+      "passed": true,
+      "error": {
+        "type": "RuntimeError",
+        "message": "mutating/network/process operation forbidden: os.remove"
+      }
+    },
+    {
+      "name": "mkdir",
+      "expected": "reject",
+      "passed": true,
+      "error": {
+        "type": "RuntimeError",
+        "message": "mutating/network/process operation forbidden: os.mkdir"
+      }
+    },
+    {
+      "name": "write_mode_open",
+      "expected": "reject",
+      "passed": true,
+      "error": {
+        "type": "RuntimeError",
+        "message": "write forbidden during numerical replay: <scratch>/relocated_bundle/victim.txt"
+      }
+    },
+    {
+      "name": "outside_root_read",
+      "expected": "reject",
+      "passed": true,
+      "error": {
+        "type": "RuntimeError",
+        "message": "read outside bundle/runtime forbidden: <scratch>/outside.txt"
+      }
+    },
+    {
+      "name": "original_checkout_read_after_relocation",
+      "expected": "reject",
+      "passed": true,
+      "error": {
+        "type": "RuntimeError",
+        "message": "read outside bundle/runtime forbidden: <original-checkout>/README.md"
+      }
+    },
+    {
+      "name": "socket_construction",
+      "expected": "reject",
+      "passed": true,
+      "error": {
+        "type": "RuntimeError",
+        "message": "mutating/network/process operation forbidden: socket.__new__"
+      }
+    },
+    {
+      "name": "subprocess_creation",
+      "expected": "reject",
+      "passed": true,
+      "error": {
+        "type": "RuntimeError",
+        "message": "mutating/network/process operation forbidden: subprocess.Popen"
+      }
+    },
+    {
+      "name": "rename",
+      "expected": "reject",
+      "passed": true,
+      "error": {
+        "type": "RuntimeError",
+        "message": "mutating/network/process operation forbidden: os.rename"
+      }
+    },
+    {
+      "name": "rmdir",
+      "expected": "reject",
+      "passed": true,
+      "error": {
+        "type": "RuntimeError",
+        "message": "mutating/network/process operation forbidden: os.rmdir"
+      }
+    },
+    {
+      "name": "chmod",
+      "expected": "reject",
+      "passed": true,
+      "error": {
+        "type": "RuntimeError",
+        "message": "mutating/network/process operation forbidden: os.chmod"
+      }
+    },
+    {
+      "name": "truncate",
+      "expected": "reject",
+      "passed": true,
+      "error": {
+        "type": "RuntimeError",
+        "message": "mutating/network/process operation forbidden: os.truncate"
+      }
+    },
+    {
+      "name": "utime",
+      "expected": "reject",
+      "passed": true,
+      "error": {
+        "type": "RuntimeError",
+        "message": "mutating/network/process operation forbidden: os.utime"
+      }
+    },
+    {
+      "name": "symlink",
+      "expected": "reject",
+      "passed": true,
+      "error": {
+        "type": "RuntimeError",
+        "message": "mutating/network/process operation forbidden: os.symlink"
+      }
+    },
+    {
+      "name": "hardlink",
+      "expected": "reject",
+      "passed": true,
+      "error": {
+        "type": "RuntimeError",
+        "message": "mutating/network/process operation forbidden: os.link"
+      }
+    },
+    {
+      "name": "relocated_bundle_read",
+      "expected": "allow",
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "runtime_dependency_read",
+      "expected": "allow",
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "preopened_descriptor_write_mode_open",
+      "expected": "reject",
+      "passed": true,
+      "error": {
+        "type": "RuntimeError",
+        "message": "write forbidden during numerical replay: 3"
+      }
+    }
+  ],
+  "scratch_postconditions": {
+    "victim_contents_unchanged": true,
+    "victim_mode_unchanged": true,
+    "empty_directory_retained": true,
+    "no_created_directory": true,
+    "no_renamed_file": true,
+    "no_created_links": true,
+    "no_child_process_created": true
+  },
+  "findings": [],
+  "portability_review": {
+    "blocking_same_host_relocation_defect_found": false,
+    "verified_mocked_behavior": [
+      "A read under the substituted bundle root succeeds.",
+      "An installed runtime-module read succeeds.",
+      "A read of original-checkout README outside the new root is rejected."
+    ],
+    "limits": [
+      "This audit does not replace the parent-run 16 real numerical replays from the extracted archive.",
+      "Runtime/dependency reads are allowed under sys.prefix/sys.base_prefix; legitimate extra-prefix packages or new OS metadata reads can fail on another host. Provision dependencies into the selected runtime and retain the documented same-host qualification.",
+      "Python audit hooks do not establish operating-system isolation or cover arbitrary native-extension I/O, pre-hook startup reads, or I/O on existing descriptors.",
+      "Exact numerical comparison remains sensitive to numerical-stack differences; the README correctly forbids silently loosening checks."
+    ]
+  },
+  "frozen_source_check": {
+    "evidence_records": 23,
+    "all_expected_hashes_match": true,
+    "reviewed_pdf_sha256": "bbcc12901427538ed0938cdea510f848a0999d0edd08b4bc707c5b6fb8051472",
+    "pdf_matches_round_03_inputs": true,
+    "scope": "Original frozen files and verifier code inspected; extracted-archive verification is a separate parent task."
+  },
+  "unchanged_work": [
+    "No launcher code edited.",
+    "No manuscript, science result, prior scientific review, or design audit edited.",
+    "No outcome reanalysis, download, paid call, or network request."
+  ],
+  "script_sha256_after_probes": "f9fb24b62e2fb51ddfb33e8e8ed7b0659eaa7f3c71170b855d86b5b9e067e50f",
+  "history": [
+    {
+      "script_sha256": "5b61c3dac1cc6b6a975d28d5db393b27f49fb8733d844bd9a9036c4c3e96b12b",
+      "status": "requested_probes_passed_with_one_descriptor_boundary_defect",
+      "probes": [
+        {
+          "name": "unlink",
+          "expected": "reject",
+          "passed": true,
+          "observed": "RuntimeError: os.remove"
+        },
+        {
+          "name": "mkdir",
+          "expected": "reject",
+          "passed": true,
+          "observed": "RuntimeError: os.mkdir"
+        },
+        {
+          "name": "write_mode_open",
+          "expected": "reject",
+          "passed": true,
+          "observed": "RuntimeError: write forbidden"
+        },
+        {
+          "name": "outside_root_read",
+          "expected": "reject",
+          "passed": true,
+          "observed": "RuntimeError: read outside bundle/runtime forbidden"
+        },
+        {
+          "name": "original_checkout_read_after_relocation",
+          "expected": "reject",
+          "passed": true,
+          "observed": "RuntimeError: read outside bundle/runtime forbidden"
+        },
+        {
+          "name": "socket_construction",
+          "expected": "reject",
+          "passed": true,
+          "observed": "RuntimeError: socket.__new__"
+        },
+        {
+          "name": "subprocess_creation",
+          "expected": "reject",
+          "passed": true,
+          "observed": "RuntimeError: subprocess.Popen"
+        },
+        {
+          "name": "rename",
+          "expected": "reject",
+          "passed": true,
+          "observed": "RuntimeError: os.rename"
+        },
+        {
+          "name": "rmdir",
+          "expected": "reject",
+          "passed": true,
+          "observed": "RuntimeError: os.rmdir"
+        },
+        {
+          "name": "chmod",
+          "expected": "reject",
+          "passed": true,
+          "observed": "RuntimeError: os.chmod"
+        },
+        {
+          "name": "truncate",
+          "expected": "reject",
+          "passed": true,
+          "observed": "RuntimeError: os.truncate"
+        },
+        {
+          "name": "utime",
+          "expected": "reject",
+          "passed": true,
+          "observed": "RuntimeError: os.utime"
+        },
+        {
+          "name": "symlink",
+          "expected": "reject",
+          "passed": true,
+          "observed": "RuntimeError: os.symlink"
+        },
+        {
+          "name": "hardlink",
+          "expected": "reject",
+          "passed": true,
+          "observed": "RuntimeError: os.link"
+        },
+        {
+          "name": "relocated_bundle_read",
+          "expected": "allow",
+          "passed": true,
+          "observed": "allowed"
+        },
+        {
+          "name": "runtime_dependency_read",
+          "expected": "allow",
+          "passed": true,
+          "observed": "allowed"
+        }
+      ],
+      "additional_boundary_probe": {
+        "name": "preopened_descriptor_write_mode_open",
+        "expected": "reject",
+        "passed": false,
+        "operation": "open(preopened_fd, 'w', closefd=False).write(...)",
+        "observed": "No exception; disposable victim bytes changed; only scratch data affected."
+      },
+      "findings": [
+        {
+          "id": "G1",
+          "severity": "low_for_fixed_trusted_launcher; guard-contract_defect",
+          "location": "scripts/icml_numeric_bundle.py:107-112",
+          "issue": "Integer open names return before mode/flag validation, allowing write-mode wrapping of a descriptor opened before the guard.",
+          "fix": "Check write modes/flags before the integer-name return. Retain the non-sandbox disclaimer; unaudited I/O through existing descriptors/native code remains outside this mechanism.",
+          "impact": "No evidence the fixed checks inherit a writable data descriptor. The tested Popen child was never created; current normal child launches do not pass data descriptors."
+        }
+      ]
+    }
+  ],
+  "resolved_findings": [
+    {
+      "id": "G1",
+      "fix": "Write-mode/flag validation now precedes the integer-name return.",
+      "verification": "The same preopened-descriptor write-mode operation now raises RuntimeError before modifying scratch bytes."
+    }
+  ],
+  "no_network_request_made": true,
+  "mocked_replay_only": true,
+  "all_temporary_fixtures_removed": true
+}

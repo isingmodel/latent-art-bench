@@ -1,0 +1,155 @@
+{
+  "review_type": "Independent ICLR-style scientific review simulation",
+  "reviewer": "reviewer_method",
+  "focus": "Statistical soundness and estimands",
+  "round": 1,
+  "manuscript": "input/manuscript.pdf",
+  "pdf_sha256": "4ee2a3004226bbcd0151ca310265efad851b69e431d1e05895701b8f918a3e85",
+  "inspected_pdf_sha256": "4ee2a3004226bbcd0151ca310265efad851b69e431d1e05895701b8f918a3e85",
+  "pdf_pages_read": 23,
+  "summary": "The paper audits six requested image-generation configurations on 14 fixed scenes, four painter-name clauses and two controls, with two outputs per cell. It compares centered artist means in 31 standardized image features against a finite 649-reproduction panel. Cross-repeat products estimate systematic contrast error; alignment, shared-change decompositions, painter pairs, scene averaging, scalar calibration and reference corrections expose different aspects of agreement. The result is a careful, narrow empirical evaluation, rather than a new estimator or a validated measure of artistic style.",
+  "strengths": [
+    {
+      "location": "Sections 3–4; Appendix B",
+      "text": "The estimands are unusually explicit. The paper distinguishes finite reference means from painter populations, scene-conditional mean error from aggregate error, amplitude from total mismatch, and contrast agreement from distributional proximity. The cross-repeat estimator and its decompositions are mathematically appropriate under the stated independence and stable-mean assumptions."
+    },
+    {
+      "location": "Section 4.3; Tables 1 and 4; Appendices C.4 and F",
+      "text": "The inferential discipline is strong: paired scenes, a fixed 21-endpoint family, descriptive labels for additional analyses, retained negative estimates, no equivalence claim from unresolved tests, and preservation of a contrary prospective result. The paper acknowledges that correction changes resolved comparisons and that overlapping calibration folds do not supply 14 independent wins."
+    },
+    {
+      "location": "Sections 5.3–5.5; Appendices C and I",
+      "text": "The empirical distinctions are useful: positive aggregate alignment can coexist with weak Monet–Sisley agreement, and an uncalibrated error minimum can change after scalar calibration. Multiple reference and coordinate sensitivities help show that the result is not a single-coordinate accident. Exact replay of all four primary views passed in my inspection."
+    }
+  ],
+  "weaknesses": [
+    {
+      "id": "W1",
+      "severity": "major",
+      "location": "Sections 3.1, 3.3, 5.3 and 6.1; Appendix C.1",
+      "category": "scientific significance / measurement validity",
+      "text": "The most interesting conclusions remain entirely inside one hand-selected feature geometry and one previously exposed four-painter reference collection. A pooled reference contrast mixes painter, subject and capture effects; testing the same contrast in every scene additionally penalizes legitimate content-dependent differences. The paper candidly acknowledges this, and I do not regard it as an algebraic error. However, the controls, crops and reweightings operate largely within that same target and do not establish when these diagnostics identify a consequential failure missed by existing style or artist-recognition evaluations. The split-reference controls themselves have appreciable exact-mean errors, especially under class targets, emphasizing that the target is not a simple fidelity standard. A useful case study is present, but its general evaluation lesson has limited independent empirical validation."
+    },
+    {
+      "id": "W2",
+      "severity": "moderate",
+      "location": "Section 4.3; Table 1; Appendix C.4",
+      "category": "uncertainty / evidence limitation",
+      "text": "The intervals use variation among 14 fixed authored scenes while disclaiming both a scene-population sampling interpretation and isolation of fresh-request uncertainty for the fixed panel. The appendix correctly derives an extra heterogeneity term and supplies reassuring simulations under particular independent-error models. This supports an approximate, model-dependent procedure, not a coverage guarantee for the actual gateway run. Two repeats and one collection session cannot check repeat dependence or identify persistent service-state effects; the adverse simulation makes the limitation concrete but is not evidence that such dependence occurred. This limits the weight of the resolved configuration comparisons. An explicit repeated-sampling model and separation of descriptive scene consistency from inferential claims would improve the presentation, but validating robustness to service dependence requires new evidence."
+    },
+    {
+      "id": "W3",
+      "severity": "moderate",
+      "location": "Abstract; Section 5.2; Table 2",
+      "category": "analysis emphasis; addressable with retained vectors",
+      "text": "The headline 82.5–95.7% shared fraction is for the combined oil-painting-plus-name intervention versus artist-free generation. This is correctly disclosed, but the generic control permits a more direct estimate of the additional naming intervention. Applying the same scene-averaged cross-repeat decomposition to named-minus-generic shifts gives shared fractions of 71.3%, 70.9%, 71.1%, 66.7%, 69.1% and 88.4% in table model order. Thus the qualitative conclusion survives, with a meaningfully different magnitude. Reporting this directly, together with sensitivity/uncertainty for the shared fractions and painter-pair diagnostics, would make the claimed empirical contribution more focused."
+    },
+    {
+      "id": "W4",
+      "severity": "moderate",
+      "location": "Reproducibility statement; Appendix I.3",
+      "category": "reproducibility",
+      "text": "The artifact supports computation conditional on stored features well, but the current full image cohort lacks a public exact-pixel archive or verified recovery route. Independent feature extraction, alternative representations and verification of source-region judgments are therefore less reproducible than the reported numerical replay. Requested configuration labels are appropriately qualified; I do not infer misrouting from absent echoed model fields."
+    }
+  ],
+  "questions": [
+    "Which specific diagnostic conclusion survives, or fails in an informative way, when the same retained images are evaluated with a relevant learned style descriptor or independently judged painter-pair distinction? This would assess the added empirical value without requiring a new generator or a much larger artist benchmark.",
+    "What precise repeated-sampling model should the reader use for the simultaneous intervals when the reference panel and all 14 scenes are fixed? Can the randomized request schedule support a complementary sharp no-name-effect test, with its different null clearly stated?",
+    "Why not make the named-minus-generic shared decomposition a main result? Can the existing vectors also quantify the stability of the weak Monet–Sisley response and shared fractions under scene/reference changes?",
+    "Can the retained generated and reference pixels, exact hashes and crop records be made independently recoverable for the released artifact?"
+  ],
+  "soundness": 3,
+  "presentation": 3,
+  "contribution": 2,
+  "overall_rating": 4,
+  "overall_recommendation": "marginally below acceptance",
+  "confidence": 4,
+  "scores": {
+    "soundness": 3,
+    "presentation": 3,
+    "contribution": 2,
+    "overall": 4,
+    "confidence": 4
+  },
+  "rating_scale": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    10
+  ],
+  "ethics_concerns": "No specific ethical violation is evidenced. The paper reports public-domain source metadata, avoids claims about living artists or human participants, and discloses AI assistance and unverified audit judgments.",
+  "overall_justification": "I lean marginally below acceptance because the careful statistical decomposition currently supports a narrow audit in one unvalidated feature/reference geometry. There is no identified fatal arithmetic defect, and the paper deserves credit for its unusually candid boundaries. The limiting factor is the independent empirical importance of the supported conclusions, with secondary uncertainty and image-access limitations. The existing-method contribution is legitimate, but the manuscript needs a stronger demonstration of why its observed diagnostic disagreements matter for evaluation practice.",
+  "revision_priorities": [
+    {
+      "priority": 1,
+      "action": "Demonstrate the added empirical value of the proposed distinctions on the same images using a relevant existing style representation and/or independent blinded painter-pair judgments. Explain informative disagreement rather than treating a learned metric as ground truth.",
+      "retained_data_feasibility": "Existing pixels suffice for new representation measurements; independent judgments require new annotations. Stored 31-dimensional vectors alone are insufficient.",
+      "recommendation_impact": "Major. A convincing independent validation of a consequential diagnostic failure could move this toward marginal acceptance."
+    },
+    {
+      "priority": 2,
+      "action": "Report the direct named-minus-generic shared fractions and stability of the key painter-pair and shared-change diagnostics. Keep retrospective analyses explicitly descriptive.",
+      "retained_data_feasibility": "Fully possible with retained vectors, controls and reference records; no new image generation needed.",
+      "recommendation_impact": "Moderate. Sharpens the scientific result but does not alone supply independent validation."
+    },
+    {
+      "priority": 3,
+      "action": "State the inferential repeated-sampling assumptions in the main text and give any design-based or timing sensitivity supported by the retained randomization records. For stronger configuration-comparison claims, replicate across independently collected sessions with more repeats.",
+      "retained_data_feasibility": "Clarification and limited randomization/timing analyses are possible now. Existing two-repeat data cannot establish independence or replace new-session replication.",
+      "recommendation_impact": "Major for inferential strength; additional simulations alone would not resolve the empirical limitation."
+    },
+    {
+      "priority": 4,
+      "action": "Publish or establish a verified recovery route for exact pixels and crop decisions.",
+      "retained_data_feasibility": "Possible from retained files subject to their distribution rights; no new scientific generation is required.",
+      "recommendation_impact": "Moderate for reuse and independent verification; numerical replay already works."
+    }
+  ],
+  "what_would_change_recommendation": "A credible same-image validation showing that these decompositions reveal an important distinction overlooked by relevant existing evaluations, combined with clearer inferential interpretation and an independently inspectable image artifact, could move the paper to 6. Editing, extra coordinate ablations, or more coverage simulations alone would not. The retained data permit substantial progress, including the direct naming decomposition and alternative feature analyses, but independent annotations and collection-session replication are new evidence.",
+  "evidence_inspected": [
+    "Complete frozen manuscript PDF, pages 1–23, extracted text and rendered contact sheets",
+    "Adjacent icml.tex, icml_main.tex, icml_appendix.tex, icml_reproducibility.tex and references.bib",
+    "studies/painter_specificity_v1/PROTOCOL.md and studies/painter_specificity_v2/PROTOCOL.md",
+    "src/latent_art_bench/painter_specificity_v1/{study,analysis}.py",
+    "src/latent_art_bench/painter_specificity_v2/{study,analysis}.py",
+    "src/latent_art_bench/painter_specificity_measurement_v1/workflow.py",
+    "data/manifests/painter_specificity_v2/psv2-20260911/freeze.json and inputs loaded by the four primary numerical replays"
+  ],
+  "verification": {
+    "primary_replay": "make specificity-check: all four exact numerical replay checks passed",
+    "focused_tests": "19 passed in 0.95s: tests/painter_specificity_v1/test_analysis.py, tests/painter_specificity_measurement_v1/test_membership.py, tests/painter_specificity_review_v2/test_diagnostics.py",
+    "independent_calculation": {
+      "description": "Scene-averaged cross-repeat shared fraction after replacing artist-free baseline with generic painting baseline, from retained standardized vectors.",
+      "model_order": [
+        "GPT Image 1",
+        "GPT Image 2",
+        "Flare",
+        "Sunburst",
+        "Nano Banana 2",
+        "FLUX.2 Max"
+      ],
+      "shared_fractions": [
+        0.713157,
+        0.709236,
+        0.711154,
+        0.666756,
+        0.691271,
+        0.883905
+      ]
+    }
+  },
+  "related_work_assessment": "The cited work already studies learned style descriptors and prompted-artist recognition; the manuscript appropriately claims a different labeled-contrast audit rather than novelty for name substitution. I checked the primary descriptions of those two related works. The paper would benefit from an empirical same-image bridge to those evaluations.",
+  "primary_external_sources": [
+    {
+      "title": "Su et al., Identifying Prompted Artist Names from Generated Images (2025), abstract",
+      "url": "https://arxiv.org/abs/2507.18633v1"
+    },
+    {
+      "title": "Somepalli et al., Investigating Style Similarity in Diffusion Models (ECCV 2024), conference abstract",
+      "url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/html/8294_ECCV_2024_paper.php"
+    }
+  ],
+  "independence_statement": "No other reviewer outputs, critics directory, historical editorial-review reports, or goal/status document were consulted. Manuscript files were not modified."
+}

@@ -1,0 +1,37 @@
+{
+  "created_utc": "2026-09-18T15:48:02.007028+00:00",
+  "status": "Reporting revision only; no new scientific score assigned",
+  "format": {
+    "format_checks": "passed",
+    "main_pages": 8,
+    "total_pages": 34,
+    "pdf_sha256": "5f6f8bcc3da0f342ddbd9de3faef2cb623f1fae1fe8744ce6b37fe5236d58004",
+    "scope": "local format checks; visual QA and scientific review separate"
+  },
+  "last_scored_pdf_sha256": "ad4377767c0d442617b9a6dff49eb1231e1c359072daf3e317ba87c20f206e14",
+  "last_scored_mean": 4.0,
+  "changes": [
+    "Explicit prior prototype metrics and same-seed name-removal comparison",
+    "Explicit joint representation/native-preprocessing scope",
+    "Absolute prototype gain components and reference energies",
+    "221-work real-development confusion matrices and recognition context",
+    "12 complete generated confusion matrices and per-painter recall",
+    "Retained learned scalar-calibration values"
+  ],
+  "analysis_changed": false,
+  "visual_qa": "All34 pages rendered and inspected; no clipping/overlap/missing glyphs/unresolved references observed.",
+  "bindings": {
+    "paper/icml.tex": "39c4ea461f2627b26f58b38f7477fecf7920ece47b14fdbf9324e08ea4bbbe7a",
+    "paper/icml_appendix.tex": "b542a39b5ad85e324a66288b2ea9d12c1831ea555d1f057eba87fdf8d3032559",
+    "paper/icml_diagnostics_v3.tex": "d4990547504f94f343eecf4c31c86dd1c1c2cc5e0b3a1158f5f042d238f8ad5d",
+    "paper/icml_learned_appendix.tex": "a3d9387b916c39cee8b37602604858f44ba2d1816425300b2f6d77ffc93f7f11",
+    "paper/icml_learned_calibration.tex": "9d3fd0b49dfe647a261d78b934c77aee5df0b83ef8fef733966c78b2c29dea3b",
+    "paper/icml_learned_results.tex": "d532ffd72dbe5cbcc023409d5be57a9861c2864824742f5170df21f95e5c769c",
+    "paper/icml_learned_table.tex": "b776a875c4fd58977e4c00f43770f1d78ea62d9c7f367e319d368a688a9d33b4",
+    "paper/icml_main.tex": "44b7e4e864aa8ee3aeccc2e2f9df358638872f61072d4638a78b734009813065",
+    "paper/icml_reproducibility.tex": "c0547c6e1e47e6c52394fba8ec04b346c3cc9fa0806234ede458054a39f89cec",
+    "paper/make_icml_learned_calibration_tables.py": "895cf4af0d418b5fffceaa91b4f3a61b7ea118b9f015a780376eb5e6f4e09bb7",
+    "paper/make_icml_learned_tables.py": "0427c48f3ff315752b691c1b0b63927ddb220c03896b6cb5ad4ac451f19c2b78",
+    "reports/painter_learned_audit_v1/analysis.json": "06c77de4be133afc203dda122b2816d4f866e1389999f18bc94b3d9c668f28f7"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "command": "make check",
+  "ruff": "passed",
+  "pytest": {
+    "passed": 881,
+    "failed": 10,
+    "seconds": 226.02
+  },
+  "failure_class": "Historical mocked collector tests stopped on actual host storage reserve; no new scientific test failure. Checkpoint downloads reduced free space. Rerun affected tests after evicting this turn public CSD checkpoint, then complete suite as justified.",
+  "affected": [
+    "tests/painter_naming_replication_v1/test_replication.py",
+    "tests/painter_map_validation_v2/test_operations.py"
+  ]
+}

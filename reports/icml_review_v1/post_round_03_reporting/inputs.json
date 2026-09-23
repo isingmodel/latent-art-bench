@@ -1,0 +1,16 @@
+{
+  "status": "unscored editorial revision after round03",
+  "changes": [
+    "Related-work comparison with Frochte2026 raw-CSD diagnostics and Su2025 real/generated retrieval results.",
+    "Shorter introduction; numerical results, methods and all analyses unchanged."
+  ],
+  "main_pages": 8,
+  "total_pages": 46,
+  "reviewed_round03_pdf_sha256": "bbcc12901427538ed0938cdea510f848a0999d0edd08b4bc707c5b6fb8051472",
+  "sha256": {
+    "paper/icml_main.tex": "e616ed3959c0ad07478e43584ce1ae992c3c8fbbec93029c81f3682886487142",
+    "paper/icml_references.bib": "25811da420abb3a7a51636d96f3a428899227e63757ce2ba47cf14b3c1ba86bf",
+    "output/pdf/latent_art_bench_icml.pdf": "115f9ff33762e932d44fa3e8dbc9582af5f4ffd6a13e8406695c4eb43de89147"
+  },
+  "score": "No new score assigned. Round03mean4.0 applies only to its frozen input."
+}

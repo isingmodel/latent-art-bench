@@ -1,0 +1,141 @@
+{
+  "bound_bytes_unchanged": true,
+  "claim": "Supplemental offline verification with a declared sufficient-storage fixture; this is not a vanilla make check pass.",
+  "destination": "/Users/fred/dev/generative_art_diff/reports/icml_review_v1/validation_environment_supplemental_retry.json",
+  "effective_exitstatus": 0,
+  "end_utc": "2026-09-18T15:26:12.729613+00:00",
+  "failed_or_error": 0,
+  "fake_free_bytes": 10737418240,
+  "invocation": [
+    "-c",
+    "pytest-paper.ini",
+    "-q",
+    "-m",
+    "not live",
+    "-p",
+    "no:cacheprovider",
+    "-p",
+    "storage_fixture",
+    "--basetemp",
+    "/private/tmp/icml-storage-supplement-retry-20260918",
+    "--storage-fixture-receipt",
+    "reports/icml_review_v1/validation_environment_supplemental_retry.json",
+    "tests/painter_map_validation_v2/test_operations.py::test_second_technical_failure_permanently_closes",
+    "tests/painter_map_validation_v2/test_operations.py::test_storage_stop_is_terminal_without_network"
+  ],
+  "network_calls_blocked": 0,
+  "passed": 2,
+  "pytest_exitstatus": 0,
+  "python": "3.13.11",
+  "real_workspace_disk_after": {
+    "free": 2754404352,
+    "total": 245107195904,
+    "used": 242352791552
+  },
+  "real_workspace_disk_before": {
+    "free": 2754998272,
+    "total": 245107195904,
+    "used": 242352197632
+  },
+  "resource_observations": [
+    {
+      "collection_receipts": [
+        {
+          "attempts": 2,
+          "posted_attempts": 2,
+          "reason": "required_slot_unavailable",
+          "relative_path": "data/manifests/painter_map_validation_v2/pmv2-20260910/collection_receipt.json",
+          "slot_counts": {
+            "http_error": 1,
+            "not_attempted_collection_stopped": 239
+          },
+          "status": "stopped"
+        }
+      ],
+      "fake_disk_queries": 2,
+      "nodeid": "tests/painter_map_validation_v2/test_operations.py::test_second_technical_failure_permanently_closes",
+      "real_disk_before": {
+        "free": 2754977792,
+        "total": 245107195904,
+        "used": 242352218112
+      },
+      "real_disk_queries_outside_scope": 1,
+      "real_workspace_probe": {
+        "free": 2754977792,
+        "total": 245107195904,
+        "used": 242352218112
+      },
+      "temporary_root": "/private/tmp/icml-storage-supplement-retry-20260918/test_second_technical_failure_0"
+    },
+    {
+      "collection_receipts": [
+        {
+          "attempts": 0,
+          "posted_attempts": 0,
+          "reason": "storage_reserve",
+          "relative_path": "data/manifests/painter_map_validation_v2/pmv2-20260910/collection_receipt.json",
+          "slot_counts": {
+            "not_attempted_collection_stopped": 240
+          },
+          "status": "stopped"
+        }
+      ],
+      "fake_disk_queries": 0,
+      "nodeid": "tests/painter_map_validation_v2/test_operations.py::test_storage_stop_is_terminal_without_network",
+      "real_disk_before": {
+        "free": 2754682880,
+        "total": 245107195904,
+        "used": 242352513024
+      },
+      "real_disk_queries_outside_scope": 1,
+      "real_workspace_probe": {
+        "free": 2754682880,
+        "total": 245107195904,
+        "used": 242352513024
+      },
+      "temporary_root": "/private/tmp/icml-storage-supplement-retry-20260918/test_storage_stop_is_terminal_0"
+    }
+  ],
+  "selected_modules": [
+    "tests/painter_naming_replication_v1/test_replication.py",
+    "tests/painter_map_validation_v2/test_operations.py"
+  ],
+  "sha256_after": {
+    "pytest-paper.ini": "fe59a3fbfc7f2b0ece41d6dc31d9d36508b9972ee7250103dd4946a407c770da",
+    "reports/icml_review_v1/storage_fixture.py": "f71f6360b38fac4be57cd2de4b86854e5a0853ece2260b7fbb2b2c3fbf588c14",
+    "reports/icml_review_v1/validation_environment_first.json": "54565ef34c23039e07444b1d99391edf2ef9ac36ee2791f2a5f0623b22949f5d",
+    "src/latent_art_bench/painter_map_validation_v2/collection.py": "019c8df4fcc7f3ff9852fd457b389d0e7dd7389b21fab468a22421d690f1564c",
+    "src/latent_art_bench/painter_map_validation_v2/common.py": "d5cc5410d00c91c627c78fb2f540b7f1ca027976fb426750a4d3fba329c6b119",
+    "src/latent_art_bench/painter_naming_replication_v1/collection.py": "a3f0459264d4bb75cbbad47a4b3f1b3ec51d900dbdeafbc780caeba3f85d1907",
+    "src/latent_art_bench/painter_naming_replication_v1/common.py": "0396169bd60dec27050830445f841f9cc9b11e4becb599362810ec7de00a1c37",
+    "tests/painter_map_validation_v2/test_operations.py": "ce58975358166d2b14af5880296e15cc2d7f8fcf2a5b2b27ce3ff5fc553065ea",
+    "tests/painter_naming_replication_v1/test_replication.py": "207f33361d5ec0c8322d59ec357f1a092a02cee1575f96d340f7b1d3aa7fc773",
+    "uv.lock": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+  },
+  "sha256_before": {
+    "pytest-paper.ini": "fe59a3fbfc7f2b0ece41d6dc31d9d36508b9972ee7250103dd4946a407c770da",
+    "reports/icml_review_v1/storage_fixture.py": "f71f6360b38fac4be57cd2de4b86854e5a0853ece2260b7fbb2b2c3fbf588c14",
+    "reports/icml_review_v1/validation_environment_first.json": "54565ef34c23039e07444b1d99391edf2ef9ac36ee2791f2a5f0623b22949f5d",
+    "src/latent_art_bench/painter_map_validation_v2/collection.py": "019c8df4fcc7f3ff9852fd457b389d0e7dd7389b21fab468a22421d690f1564c",
+    "src/latent_art_bench/painter_map_validation_v2/common.py": "d5cc5410d00c91c627c78fb2f540b7f1ca027976fb426750a4d3fba329c6b119",
+    "src/latent_art_bench/painter_naming_replication_v1/collection.py": "a3f0459264d4bb75cbbad47a4b3f1b3ec51d900dbdeafbc780caeba3f85d1907",
+    "src/latent_art_bench/painter_naming_replication_v1/common.py": "0396169bd60dec27050830445f841f9cc9b11e4becb599362810ec7de00a1c37",
+    "tests/painter_map_validation_v2/test_operations.py": "ce58975358166d2b14af5880296e15cc2d7f8fcf2a5b2b27ce3ff5fc553065ea",
+    "tests/painter_naming_replication_v1/test_replication.py": "207f33361d5ec0c8322d59ec357f1a092a02cee1575f96d340f7b1d3aa7fc773",
+    "uv.lock": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+  },
+  "start_utc": "2026-09-18T15:26:11.637587+00:00",
+  "tests": {
+    "tests/painter_map_validation_v2/test_operations.py::test_second_technical_failure_permanently_closes": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    },
+    "tests/painter_map_validation_v2/test_operations.py::test_storage_stop_is_terminal_without_network": {
+      "call": "passed",
+      "setup": "passed",
+      "teardown": "passed"
+    }
+  },
+  "zero_storage_override_verified": true
+}

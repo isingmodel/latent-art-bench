@@ -1,0 +1,20 @@
+{
+  "output/pdf/latent_art_bench_icml.pdf": "115f9ff33762e932d44fa3e8dbc9582af5f4ffd6a13e8406695c4eb43de89147",
+  "paper/icml.tex": "0c1416ffd3668392ab24b4de54ab32cbbaeb1f232ee217090c4c0bc0b99a3103",
+  "paper/icml_appendix.tex": "b542a39b5ad85e324a66288b2ea9d12c1831ea555d1f057eba87fdf8d3032559",
+  "paper/icml_covariance_appendix.tex": "d5764088bc2ed4a5f6895f4603403864e18421f6f92d32f31cff842a978090b7",
+  "paper/icml_covariance_results.tex": "7d9fa2bb12d2358a4bafa7754ad159c0c12d955b96f9b99cea436280ea1c7e27",
+  "paper/icml_diagnostics_v3.tex": "d4990547504f94f343eecf4c31c86dd1c1c2cc5e0b3a1158f5f042d238f8ad5d",
+  "paper/icml_extended_results.tex": "6b2e010f8764a9562d7c8c87b4d737a4ff1cd988322731a03733161e50338e37",
+  "paper/icml_learned_appendix.tex": "a3d9387b916c39cee8b37602604858f44ba2d1816425300b2f6d77ffc93f7f11",
+  "paper/icml_learned_calibration.tex": "2a68a829aaf84dde79af2a9ce357742b96d99ff660f194f7931ae4d0ee9272c0",
+  "paper/icml_learned_results.tex": "abdfc01f75be11dd9bc8eb38b1c49a198bf7b19f76d5c7cd124ecbb1992288cb",
+  "paper/icml_learned_table.tex": "0649fbcd2be38577c619c93cb841ace531b2f316f3e382462e9ee0bb7502a1d9",
+  "paper/icml_main.tex": "e616ed3959c0ad07478e43584ce1ae992c3c8fbbec93029c81f3682886487142",
+  "paper/icml_references.bib": "25811da420abb3a7a51636d96f3a428899227e63757ce2ba47cf14b3c1ba86bf",
+  "paper/icml_reproducibility.tex": "c0547c6e1e47e6c52394fba8ec04b346c3cc9fa0806234ede458054a39f89cec",
+  "paper/icml_transfer_appendix.tex": "8a4a465fe470567ef1a7aa6d5f6cb566e284f8440591e6bca09bfed1ce997725",
+  "paper/icml_transfer_results.tex": "db8083976fc06ba7d1e2b2ddfe0cae54e1d4df4ce0bf91f4420b7deefbe4be8c",
+  "paper/icml_transfer_table.tex": "4036c3aaf6419201876ec12b9a455580f1b7345d769283a57b80a16d5ada685d",
+  "paper/references.bib": "8468114c8e4d90f3f17d2cf0a099f85835fd9ff0155d0ff717a396670907b6a6"
+}

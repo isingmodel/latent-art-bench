@@ -1,0 +1,70 @@
+\section{Reference-calibrated Attribution with Abstention}\label{app:selective}
+This retrospective test asks when an existing reference-prototype assignment
+should be issued rather than withheld. Its rule is fixed using historical
+artworks; no generated prompt label fits or tunes the gate. The same generated
+images and their earlier baseline confusions were previously inspected, so
+the experiment is not independent confirmation. The primary condition is CSD
+with original primary prototypes. Both encoders and every original/audited
+view and primary/development prototype target remain mandatory outputs.
+
+\subsection{Fixed calibration and decision rule}
+Use the same unit-normalized historical prototype directions $u_a$ as the
+existing baseline. The other historical partition supplies calibration:
+development works for primary prototypes, primary works for development
+prototypes. The selected source view is used consistently in both partitions;
+an audited crop replaces only the previously declared region of that work.
+
+For a calibration artwork $x$ labeled $a$, define nonconformity
+\begin{equation}
+ s_a(x)=\max_{b\ne a}x^\top u_b-x^\top u_a.
+\end{equation}
+With $n_a$ calibration works for painter $a$, set
+$k_a=\lceil(n_a+1)(1-.10)\rceil$ and take $q_a$ to be the $k_a$-th smallest
+score, using $+\infty$ when $k_a>n_a$. There is no interpolated quantile or
+alternative nominal level. For each generated query form
+\begin{equation}
+ C(x)=\{a:s_a(x)\le q_a\},\qquad
+ \hat a(x)=\arg\max_a x^\top u_a.
+\end{equation}
+Issue the unchanged top-1 assignment only if $C(x)=\{\hat a(x)\}$.
+Otherwise abstain, retaining empty, multiple-label and disagreeing-singleton
+sets as separate reasons. Ties in top-1 follow the fixed painter order.
+
+This uses an ordinary rank-calibration rule as an empirical diagnostic.
+Exchangeability between historical art and generated images is not established;
+the numerical $.10$ choice is not a guarantee of generated-image coverage or
+selective error. No density-ratio correction or shift assumption from
+\citet{tibshirani2019shift} is fitted. The general rejection/coverage tradeoff
+is established work \citep{geifman2017selective}, not an algorithmic novelty.
+
+\subsection{Coverage-matched comparison and operational criterion}
+Within a configuration's 112 named queries, let $K$ be the number accepted by
+the reference gate. The comparator keeps exactly the $K$ greatest top-two
+prototype margins, breaking ties by frozen observation ID. It uses no true
+prompt name in selection. This is a transductive descriptive comparator: its
+cutoff uses the query distribution, whereas the reference gate's thresholds
+use historical artworks. Predictions remain the original top-1 assignments.
+For controls, apply the resulting numeric margin cutoff inclusively, retaining
+boundary ties. If $K=0$, neither named queries nor controls are accepted; if
+$K=112$, the minimum named margin is still the cutoff for controls. No prompt
+label determines either selection rule.
+
+The pre-outcome operational criterion requires at least 50\% named-image
+coverage in every configuration, at least one accepted query from every
+prompted painter in each configuration, and positive equal-configuration mean
+reductions in accepted error relative to both unrestricted top-1 and the
+coverage-matched comparator. These joint descriptive conditions prevent a
+nearly empty accepted set from being credited as useful. Undefined accepted
+error is retained as a failure, without dropping its configuration from an
+otherwise favorable mean. All individual adverse results remain visible.
+The 50\% threshold is this study's declared operating requirement, not a
+universal criterion for useful selective classification.
+
+For every encoder/view/target/configuration, retain the individual scores,
+candidate sets, predictions, decisions, painter-specific coverage, accepted
+and abstained error, and correct/incorrect counts. Delete each scene once to
+describe sensitivity, without changing historical calibration or interpreting
+the ranges as sampling intervals. Control-arm results report name-assignment
+rates separately for artist-free and generic-painting images. These rates
+concern assignments without a candidate name in the prompt; they do not
+establish that such an image has no resemblance to that painter.

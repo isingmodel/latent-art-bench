@@ -1,0 +1,1099 @@
+{
+  "status": "PASS",
+  "completed_utc": "2026-09-18T16:15:42.931390+00:00",
+  "result_sha256": "e5031ccad955b289b0d8dec110e8ee6b2ec39b43dfd8a6f2e150cc1dea1ce0c9",
+  "inputs_sha256": "43a44d769700b1a8fd0122d9a4e4d8e34726c121313641d892aa85b843bf2346",
+  "report_sha256": "7ebb75099602bd091e61c2c1b51cd4b1fa6f68fc6f5e51d8e33a4fe86f8d58a9",
+  "script_sha256": "bb3fbf5f8bfe140e273fa6d6a4dc159bab1f66fba008236d8a060020445c163b",
+  "bindings_checked": 56,
+  "numeric_assertions": 441,
+  "max_absolute_numeric_error": 1.7763568394002505e-15,
+  "canonical_reader": "painter_specificity_measurement_v1.workflow.load(square=False)",
+  "forbidden_module_imported": false,
+  "generated_shape": [
+    6,
+    14,
+    2,
+    6,
+    31
+  ],
+  "reference_counts": [
+    297,
+    106,
+    141,
+    105
+  ],
+  "reference_energy": 5.9150074798210355,
+  "rho_grid": [
+    0.0,
+    0.1,
+    0.25,
+    0.5,
+    0.75
+  ],
+  "scene_statistics_per_kind": 84,
+  "model_grid_points": 30,
+  "pair_grid_points": 75,
+  "model_count": 6,
+  "pair_count": 15,
+  "crossing_status_counts": {
+    "positive_interior_crossing": 3,
+    "no_positive_interior_crossing": 12
+  },
+  "crossings_above_grid": 0,
+  "negative_model_scenarios": 8,
+  "models": [
+    {
+      "model": "gpt-image-1",
+      "title": "GPT Image 1",
+      "d": 1.5724160543803045,
+      "q": 2.0238230017611314,
+      "scene_d": [
+        2.912029046681668,
+        -0.011227348655169946,
+        0.8066133144437989,
+        2.0924250638132587,
+        2.2325701765291623,
+        1.9193999964732646,
+        1.0115637538972522,
+        2.2056046274003775,
+        1.0073955083810395,
+        2.0902233642246837,
+        0.8640370501528126,
+        1.4775507920141988,
+        1.4702663952469568,
+        1.9353730207209576
+      ],
+      "scene_q": [
+        2.170183288213844,
+        3.7565954133184576,
+        2.028168758206011,
+        1.167334940914105,
+        1.6870330553223214,
+        1.2761918506808956,
+        3.212054171267452,
+        2.16561946141554,
+        1.2246153753560056,
+        1.3940260000844582,
+        1.7623982386903676,
+        1.629826344750479,
+        1.2799330756925038,
+        3.5795420507434024
+      ],
+      "scenarios": [
+        {
+          "rho": 0.0,
+          "alpha": 0.0,
+          "implied_bias": 0.0,
+          "adjusted_d": 1.5724160543803045,
+          "negative_adjusted_d": false
+        },
+        {
+          "rho": 0.1,
+          "alpha": 0.11111111111111112,
+          "implied_bias": 0.2248692224179035,
+          "adjusted_d": 1.347546831962401,
+          "negative_adjusted_d": false
+        },
+        {
+          "rho": 0.25,
+          "alpha": 0.3333333333333333,
+          "implied_bias": 0.6746076672537105,
+          "adjusted_d": 0.897808387126594,
+          "negative_adjusted_d": false
+        },
+        {
+          "rho": 0.5,
+          "alpha": 1.0,
+          "implied_bias": 2.0238230017611314,
+          "adjusted_d": -0.4514069473808269,
+          "negative_adjusted_d": true
+        },
+        {
+          "rho": 0.75,
+          "alpha": 3.0,
+          "implied_bias": 6.071469005283394,
+          "adjusted_d": -4.499052950903089,
+          "negative_adjusted_d": true
+        }
+      ]
+    },
+    {
+      "model": "gpt-image-2",
+      "title": "GPT Image 2",
+      "d": 1.2259309278231234,
+      "q": 0.9598224557477498,
+      "scene_d": [
+        1.6862430144041336,
+        0.6954171457726591,
+        1.5454711147266924,
+        0.7260189554589369,
+        1.3508233770069111,
+        1.4244056719920113,
+        0.9450637915947894,
+        1.469621609206116,
+        1.2214007019078954,
+        0.46439653493236144,
+        0.5635274695066923,
+        1.4255549500572962,
+        1.751059003551411,
+        1.8940296494058233
+      ],
+      "scene_q": [
+        0.6872670951215457,
+        1.4257866541225601,
+        0.7397384004471789,
+        2.2715039544903233,
+        1.1128891005996897,
+        0.9847408954298265,
+        0.8905275292977394,
+        1.0314989264533154,
+        0.5342327849494878,
+        0.8367043924960762,
+        1.0170413101754434,
+        0.8802051944045832,
+        0.6450667469073881,
+        0.3803113955733404
+      ],
+      "scenarios": [
+        {
+          "rho": 0.0,
+          "alpha": 0.0,
+          "implied_bias": 0.0,
+          "adjusted_d": 1.2259309278231234,
+          "negative_adjusted_d": false
+        },
+        {
+          "rho": 0.1,
+          "alpha": 0.11111111111111112,
+          "implied_bias": 0.10664693952752777,
+          "adjusted_d": 1.1192839882955956,
+          "negative_adjusted_d": false
+        },
+        {
+          "rho": 0.25,
+          "alpha": 0.3333333333333333,
+          "implied_bias": 0.3199408185825833,
+          "adjusted_d": 0.9059901092405401,
+          "negative_adjusted_d": false
+        },
+        {
+          "rho": 0.5,
+          "alpha": 1.0,
+          "implied_bias": 0.9598224557477498,
+          "adjusted_d": 0.2661084720753736,
+          "negative_adjusted_d": false
+        },
+        {
+          "rho": 0.75,
+          "alpha": 3.0,
+          "implied_bias": 2.8794673672432496,
+          "adjusted_d": -1.6535364394201262,
+          "negative_adjusted_d": true
+        }
+      ]
+    },
+    {
+      "model": "gpt-image-2.5-flare",
+      "title": "GPT Image 2.5 Flare",
+      "d": 1.7377191017739648,
+      "q": 0.4235959474125844,
+      "scene_d": [
+        0.9358938041232426,
+        1.4709959226975735,
+        1.680561734462565,
+        2.0862966963235587,
+        2.5645255693195805,
+        2.1490929523622393,
+        1.181419999535093,
+        2.1051775703443374,
+        1.4714813563068667,
+        1.2492036277522842,
+        2.0901847021338122,
+        1.991232785431902,
+        1.7497155861306721,
+        1.602285117911778
+      ],
+      "scene_q": [
+        0.7790448661509991,
+        0.7285126079005617,
+        0.5051687118643545,
+        0.3905420844365654,
+        0.3115660780340761,
+        0.20565888345326613,
+        0.2323597000488913,
+        0.27064781935069354,
+        0.4122456445333896,
+        0.18442565958599355,
+        0.66462664373256,
+        0.21363877427116623,
+        0.3299684882284434,
+        0.7019373021852201
+      ],
+      "scenarios": [
+        {
+          "rho": 0.0,
+          "alpha": 0.0,
+          "implied_bias": 0.0,
+          "adjusted_d": 1.7377191017739648,
+          "negative_adjusted_d": false
+        },
+        {
+          "rho": 0.1,
+          "alpha": 0.11111111111111112,
+          "implied_bias": 0.047066216379176046,
+          "adjusted_d": 1.6906528853947889,
+          "negative_adjusted_d": false
+        },
+        {
+          "rho": 0.25,
+          "alpha": 0.3333333333333333,
+          "implied_bias": 0.1411986491375281,
+          "adjusted_d": 1.5965204526364367,
+          "negative_adjusted_d": false
+        },
+        {
+          "rho": 0.5,
+          "alpha": 1.0,
+          "implied_bias": 0.4235959474125844,
+          "adjusted_d": 1.3141231543613805,
+          "negative_adjusted_d": false
+        },
+        {
+          "rho": 0.75,
+          "alpha": 3.0,
+          "implied_bias": 1.2707878422377532,
+          "adjusted_d": 0.4669312595362116,
+          "negative_adjusted_d": false
+        }
+      ]
+    },
+    {
+      "model": "gpt-image-2.5-sunburst",
+      "title": "GPT Image 2.5 Sunburst",
+      "d": 1.6414171768077122,
+      "q": 0.5825328256628655,
+      "scene_d": [
+        0.5036553939759271,
+        1.8554668093198334,
+        1.811236316164129,
+        1.7561162782354744,
+        2.6016136625806103,
+        1.4321140217879573,
+        1.772076733589739,
+        1.954103694288048,
+        1.2472754591012098,
+        0.6525315195405031,
+        2.3739811461122122,
+        1.8254770003825787,
+        1.4132368740319532,
+        1.7809555661977936
+      ],
+      "scene_q": [
+        1.2955156349279857,
+        0.5495924252373138,
+        0.47265459839216234,
+        0.8175504570923624,
+        0.3337813488908492,
+        0.769047888480701,
+        0.38210238105249383,
+        0.4567261768539207,
+        0.4437820047834803,
+        0.32868735428708523,
+        0.3868263945403012,
+        0.4236255921250519,
+        0.9497346559925052,
+        0.5458326466239036
+      ],
+      "scenarios": [
+        {
+          "rho": 0.0,
+          "alpha": 0.0,
+          "implied_bias": 0.0,
+          "adjusted_d": 1.6414171768077122,
+          "negative_adjusted_d": false
+        },
+        {
+          "rho": 0.1,
+          "alpha": 0.11111111111111112,
+          "implied_bias": 0.06472586951809617,
+          "adjusted_d": 1.576691307289616,
+          "negative_adjusted_d": false
+        },
+        {
+          "rho": 0.25,
+          "alpha": 0.3333333333333333,
+          "implied_bias": 0.19417760855428848,
+          "adjusted_d": 1.4472395682534236,
+          "negative_adjusted_d": false
+        },
+        {
+          "rho": 0.5,
+          "alpha": 1.0,
+          "implied_bias": 0.5825328256628655,
+          "adjusted_d": 1.0588843511448467,
+          "negative_adjusted_d": false
+        },
+        {
+          "rho": 0.75,
+          "alpha": 3.0,
+          "implied_bias": 1.7475984769885964,
+          "adjusted_d": -0.10618130018088423,
+          "negative_adjusted_d": true
+        }
+      ]
+    },
+    {
+      "model": "google/gemini-3.1-flash-image",
+      "title": "Nano Banana 2",
+      "d": 1.109450953564073,
+      "q": 2.59588305164661,
+      "scene_d": [
+        -0.1278963493469415,
+        0.13011649375119108,
+        0.1569228238765013,
+        3.202398661598106,
+        1.313720591821865,
+        0.6929577199619821,
+        1.5390162973929706,
+        1.0261251213569433,
+        1.299129591133339,
+        0.869698427768316,
+        0.7547184153705607,
+        0.6216776223638849,
+        1.5234144144151294,
+        2.5303135184331738
+      ],
+      "scene_q": [
+        4.662327835737651,
+        5.317972175977158,
+        2.079926727765364,
+        5.309253371800325,
+        0.7021819955926849,
+        1.1685414178210096,
+        1.2939328613482322,
+        2.491297019720235,
+        2.3147963780533796,
+        1.241847530040795,
+        1.2338362935680114,
+        1.653168957602145,
+        1.6396290961534163,
+        5.233651061872129
+      ],
+      "scenarios": [
+        {
+          "rho": 0.0,
+          "alpha": 0.0,
+          "implied_bias": 0.0,
+          "adjusted_d": 1.109450953564073,
+          "negative_adjusted_d": false
+        },
+        {
+          "rho": 0.1,
+          "alpha": 0.11111111111111112,
+          "implied_bias": 0.2884314501829567,
+          "adjusted_d": 0.8210195033811164,
+          "negative_adjusted_d": false
+        },
+        {
+          "rho": 0.25,
+          "alpha": 0.3333333333333333,
+          "implied_bias": 0.8652943505488699,
+          "adjusted_d": 0.24415660301520314,
+          "negative_adjusted_d": false
+        },
+        {
+          "rho": 0.5,
+          "alpha": 1.0,
+          "implied_bias": 2.59588305164661,
+          "adjusted_d": -1.4864320980825367,
+          "negative_adjusted_d": true
+        },
+        {
+          "rho": 0.75,
+          "alpha": 3.0,
+          "implied_bias": 7.78764915493983,
+          "adjusted_d": -6.678198201375757,
+          "negative_adjusted_d": true
+        }
+      ]
+    },
+    {
+      "model": "black-forest-labs/flux.2-max",
+      "title": "FLUX.2 Max",
+      "d": 0.8009282272091106,
+      "q": 1.674009866000562,
+      "scene_d": [
+        1.3781280656288741,
+        0.9112736950746573,
+        0.7544197071380816,
+        0.36622295049049025,
+        0.7383749914376967,
+        0.14292630173277857,
+        0.5857548878465598,
+        0.8674053228985755,
+        0.49587946605243655,
+        1.2278447716369558,
+        0.779010524515183,
+        1.408214529186367,
+        1.0353523015320207,
+        0.522187665756871
+      ],
+      "scene_q": [
+        2.6426321361030385,
+        1.918392460803217,
+        0.9327834125174042,
+        2.247635538380488,
+        1.3587615598979728,
+        2.0861997197809643,
+        0.8508720559705915,
+        1.9967207053766391,
+        1.4513458756701016,
+        1.41120198602141,
+        1.3535905780690682,
+        1.7506702206735818,
+        0.9772563403882006,
+        2.4580755343551925
+      ],
+      "scenarios": [
+        {
+          "rho": 0.0,
+          "alpha": 0.0,
+          "implied_bias": 0.0,
+          "adjusted_d": 0.8009282272091106,
+          "negative_adjusted_d": false
+        },
+        {
+          "rho": 0.1,
+          "alpha": 0.11111111111111112,
+          "implied_bias": 0.18600109622228467,
+          "adjusted_d": 0.6149271309868259,
+          "negative_adjusted_d": false
+        },
+        {
+          "rho": 0.25,
+          "alpha": 0.3333333333333333,
+          "implied_bias": 0.558003288666854,
+          "adjusted_d": 0.2429249385422566,
+          "negative_adjusted_d": false
+        },
+        {
+          "rho": 0.5,
+          "alpha": 1.0,
+          "implied_bias": 1.674009866000562,
+          "adjusted_d": -0.8730816387914514,
+          "negative_adjusted_d": true
+        },
+        {
+          "rho": 0.75,
+          "alpha": 3.0,
+          "implied_bias": 5.022029598001686,
+          "adjusted_d": -4.221101370792575,
+          "negative_adjusted_d": true
+        }
+      ]
+    }
+  ],
+  "pairs": [
+    {
+      "title_a": "GPT Image 1",
+      "title_b": "GPT Image 2",
+      "delta_d": 0.34648512655718067,
+      "delta_q": 1.0640005460133817,
+      "grid": [
+        {
+          "rho": 0.0,
+          "adjusted_difference": 0.34648512655718067,
+          "implied_bias_difference": 0.0
+        },
+        {
+          "rho": 0.1,
+          "adjusted_difference": 0.22826284366680505,
+          "implied_bias_difference": 0.11822228289037573
+        },
+        {
+          "rho": 0.25,
+          "adjusted_difference": -0.008181722113946521,
+          "implied_bias_difference": 0.3546668486711272
+        },
+        {
+          "rho": 0.5,
+          "adjusted_difference": -0.7175154194562009,
+          "implied_bias_difference": 1.0640005460133817
+        },
+        {
+          "rho": 0.75,
+          "adjusted_difference": -2.8455165114829635,
+          "implied_bias_difference": 3.192001638040144
+        }
+      ],
+      "crossing": {
+        "alpha": 0.32564374882644376,
+        "implied_bias_a": 0.6590453092546813,
+        "implied_bias_b": 0.3125601826975007,
+        "rho": 0.2456495186694972,
+        "status": "positive_interior_crossing"
+      }
+    },
+    {
+      "title_a": "GPT Image 1",
+      "title_b": "GPT Image 2.5 Flare",
+      "delta_d": -0.1653030473936603,
+      "delta_q": 1.600227054348547,
+      "grid": [
+        {
+          "rho": 0.0,
+          "adjusted_difference": -0.1653030473936603,
+          "implied_bias_difference": 0.0
+        },
+        {
+          "rho": 0.1,
+          "adjusted_difference": -0.34310605343238776,
+          "implied_bias_difference": 0.17780300603872745
+        },
+        {
+          "rho": 0.25,
+          "adjusted_difference": -0.6987120655098427,
+          "implied_bias_difference": 0.5334090181161824
+        },
+        {
+          "rho": 0.5,
+          "adjusted_difference": -1.7655301017422074,
+          "implied_bias_difference": 1.600227054348547
+        },
+        {
+          "rho": 0.75,
+          "adjusted_difference": -4.965984210439301,
+          "implied_bias_difference": 4.800681163045641
+        }
+      ],
+      "crossing": {
+        "alpha": null,
+        "implied_bias_a": null,
+        "implied_bias_b": null,
+        "rho": null,
+        "status": "no_positive_interior_crossing"
+      }
+    },
+    {
+      "title_a": "GPT Image 1",
+      "title_b": "GPT Image 2.5 Sunburst",
+      "delta_d": -0.06900112242740808,
+      "delta_q": 1.4412901760982662,
+      "grid": [
+        {
+          "rho": 0.0,
+          "adjusted_difference": -0.06900112242740808,
+          "implied_bias_difference": 0.0
+        },
+        {
+          "rho": 0.1,
+          "adjusted_difference": -0.22914447532721538,
+          "implied_bias_difference": 0.16014335289980736
+        },
+        {
+          "rho": 0.25,
+          "adjusted_difference": -0.54943118112683,
+          "implied_bias_difference": 0.480430058699422
+        },
+        {
+          "rho": 0.5,
+          "adjusted_difference": -1.5102912985256742,
+          "implied_bias_difference": 1.4412901760982662
+        },
+        {
+          "rho": 0.75,
+          "adjusted_difference": -4.392871650722205,
+          "implied_bias_difference": 4.323870528294798
+        }
+      ],
+      "crossing": {
+        "alpha": null,
+        "implied_bias_a": null,
+        "implied_bias_b": null,
+        "rho": null,
+        "status": "no_positive_interior_crossing"
+      }
+    },
+    {
+      "title_a": "GPT Image 1",
+      "title_b": "Nano Banana 2",
+      "delta_d": 0.46296510081623077,
+      "delta_q": -0.5720600498854784,
+      "grid": [
+        {
+          "rho": 0.0,
+          "adjusted_difference": 0.46296510081623077,
+          "implied_bias_difference": 0.0
+        },
+        {
+          "rho": 0.1,
+          "adjusted_difference": 0.526527328581284,
+          "implied_bias_difference": -0.06356222776505319
+        },
+        {
+          "rho": 0.25,
+          "adjusted_difference": 0.6536517841113902,
+          "implied_bias_difference": -0.19068668329515948
+        },
+        {
+          "rho": 0.5,
+          "adjusted_difference": 1.0350251507017092,
+          "implied_bias_difference": -0.5720600498854784
+        },
+        {
+          "rho": 0.75,
+          "adjusted_difference": 2.1791452504726676,
+          "implied_bias_difference": -1.7161801496564362
+        }
+      ],
+      "crossing": {
+        "alpha": null,
+        "implied_bias_a": null,
+        "implied_bias_b": null,
+        "rho": null,
+        "status": "no_positive_interior_crossing"
+      }
+    },
+    {
+      "title_a": "GPT Image 1",
+      "title_b": "FLUX.2 Max",
+      "delta_d": 0.7714878271711937,
+      "delta_q": 0.34981313576056916,
+      "grid": [
+        {
+          "rho": 0.0,
+          "adjusted_difference": 0.7714878271711937,
+          "implied_bias_difference": 0.0
+        },
+        {
+          "rho": 0.1,
+          "adjusted_difference": 0.7326197009755749,
+          "implied_bias_difference": 0.0388681261956188
+        },
+        {
+          "rho": 0.25,
+          "adjusted_difference": 0.6548834485843372,
+          "implied_bias_difference": 0.11660437858685646
+        },
+        {
+          "rho": 0.5,
+          "adjusted_difference": 0.4216746914106245,
+          "implied_bias_difference": 0.34981313576056916
+        },
+        {
+          "rho": 0.75,
+          "adjusted_difference": -0.27795158011051235,
+          "implied_bias_difference": 1.0494394072817066
+        }
+      ],
+      "crossing": {
+        "alpha": 2.2054284082094653,
+        "implied_bias_a": 4.463396741271754,
+        "implied_bias_b": 3.6919089141005603,
+        "rho": 0.688029220231877,
+        "status": "positive_interior_crossing"
+      }
+    },
+    {
+      "title_a": "GPT Image 2",
+      "title_b": "GPT Image 2.5 Flare",
+      "delta_d": -0.511788173950841,
+      "delta_q": 0.5362265083351656,
+      "grid": [
+        {
+          "rho": 0.0,
+          "adjusted_difference": -0.511788173950841,
+          "implied_bias_difference": 0.0
+        },
+        {
+          "rho": 0.1,
+          "adjusted_difference": -0.5713688970991928,
+          "implied_bias_difference": 0.059580723148351736
+        },
+        {
+          "rho": 0.25,
+          "adjusted_difference": -0.6905303433958961,
+          "implied_bias_difference": 0.1787421694450552
+        },
+        {
+          "rho": 0.5,
+          "adjusted_difference": -1.0480146822860066,
+          "implied_bias_difference": 0.5362265083351656
+        },
+        {
+          "rho": 0.75,
+          "adjusted_difference": -2.120467698956338,
+          "implied_bias_difference": 1.6086795250054968
+        }
+      ],
+      "crossing": {
+        "alpha": null,
+        "implied_bias_a": null,
+        "implied_bias_b": null,
+        "rho": null,
+        "status": "no_positive_interior_crossing"
+      }
+    },
+    {
+      "title_a": "GPT Image 2",
+      "title_b": "GPT Image 2.5 Sunburst",
+      "delta_d": -0.41548624898458875,
+      "delta_q": 0.3772896300848845,
+      "grid": [
+        {
+          "rho": 0.0,
+          "adjusted_difference": -0.41548624898458875,
+          "implied_bias_difference": 0.0
+        },
+        {
+          "rho": 0.1,
+          "adjusted_difference": -0.45740731899402043,
+          "implied_bias_difference": 0.04192107000943161
+        },
+        {
+          "rho": 0.25,
+          "adjusted_difference": -0.5412494590128835,
+          "implied_bias_difference": 0.12576321002829483
+        },
+        {
+          "rho": 0.5,
+          "adjusted_difference": -0.7927758790694733,
+          "implied_bias_difference": 0.3772896300848845
+        },
+        {
+          "rho": 0.75,
+          "adjusted_difference": -1.5473551392392422,
+          "implied_bias_difference": 1.1318688902546534
+        }
+      ],
+      "crossing": {
+        "alpha": null,
+        "implied_bias_a": null,
+        "implied_bias_b": null,
+        "rho": null,
+        "status": "no_positive_interior_crossing"
+      }
+    },
+    {
+      "title_a": "GPT Image 2",
+      "title_b": "Nano Banana 2",
+      "delta_d": 0.1164799742590501,
+      "delta_q": -1.63606059589886,
+      "grid": [
+        {
+          "rho": 0.0,
+          "adjusted_difference": 0.1164799742590501,
+          "implied_bias_difference": 0.0
+        },
+        {
+          "rho": 0.1,
+          "adjusted_difference": 0.298264484914479,
+          "implied_bias_difference": -0.18178451065542892
+        },
+        {
+          "rho": 0.25,
+          "adjusted_difference": 0.6618335062253368,
+          "implied_bias_difference": -0.5453535319662867
+        },
+        {
+          "rho": 0.5,
+          "adjusted_difference": 1.75254057015791,
+          "implied_bias_difference": -1.63606059589886
+        },
+        {
+          "rho": 0.75,
+          "adjusted_difference": 5.024661761955631,
+          "implied_bias_difference": -4.908181787696581
+        }
+      ],
+      "crossing": {
+        "alpha": null,
+        "implied_bias_a": null,
+        "implied_bias_b": null,
+        "rho": null,
+        "status": "no_positive_interior_crossing"
+      }
+    },
+    {
+      "title_a": "GPT Image 2",
+      "title_b": "FLUX.2 Max",
+      "delta_d": 0.425002700614013,
+      "delta_q": -0.7141874102528124,
+      "grid": [
+        {
+          "rho": 0.0,
+          "adjusted_difference": 0.425002700614013,
+          "implied_bias_difference": 0.0
+        },
+        {
+          "rho": 0.1,
+          "adjusted_difference": 0.5043568573087699,
+          "implied_bias_difference": -0.07935415669475693
+        },
+        {
+          "rho": 0.25,
+          "adjusted_difference": 0.6630651706982837,
+          "implied_bias_difference": -0.23806247008427073
+        },
+        {
+          "rho": 0.5,
+          "adjusted_difference": 1.1391901108668254,
+          "implied_bias_difference": -0.7141874102528124
+        },
+        {
+          "rho": 0.75,
+          "adjusted_difference": 2.567564931372451,
+          "implied_bias_difference": -2.1425622307584375
+        }
+      ],
+      "crossing": {
+        "alpha": null,
+        "implied_bias_a": null,
+        "implied_bias_b": null,
+        "rho": null,
+        "status": "no_positive_interior_crossing"
+      }
+    },
+    {
+      "title_a": "GPT Image 2.5 Flare",
+      "title_b": "GPT Image 2.5 Sunburst",
+      "delta_d": 0.09630192496625223,
+      "delta_q": -0.15893687825028108,
+      "grid": [
+        {
+          "rho": 0.0,
+          "adjusted_difference": 0.09630192496625223,
+          "implied_bias_difference": 0.0
+        },
+        {
+          "rho": 0.1,
+          "adjusted_difference": 0.11396157810517238,
+          "implied_bias_difference": -0.017659653138920123
+        },
+        {
+          "rho": 0.25,
+          "adjusted_difference": 0.14928088438301268,
+          "implied_bias_difference": -0.05297895941676037
+        },
+        {
+          "rho": 0.5,
+          "adjusted_difference": 0.25523880321653314,
+          "implied_bias_difference": -0.15893687825028108
+        },
+        {
+          "rho": 0.75,
+          "adjusted_difference": 0.5731125597170956,
+          "implied_bias_difference": -0.4768106347508434
+        }
+      ],
+      "crossing": {
+        "alpha": null,
+        "implied_bias_a": null,
+        "implied_bias_b": null,
+        "rho": null,
+        "status": "no_positive_interior_crossing"
+      }
+    },
+    {
+      "title_a": "GPT Image 2.5 Flare",
+      "title_b": "Nano Banana 2",
+      "delta_d": 0.6282681482098911,
+      "delta_q": -2.1722871042340257,
+      "grid": [
+        {
+          "rho": 0.0,
+          "adjusted_difference": 0.6282681482098911,
+          "implied_bias_difference": 0.0
+        },
+        {
+          "rho": 0.1,
+          "adjusted_difference": 0.8696333820136718,
+          "implied_bias_difference": -0.24136523380378067
+        },
+        {
+          "rho": 0.25,
+          "adjusted_difference": 1.352363849621233,
+          "implied_bias_difference": -0.7240957014113418
+        },
+        {
+          "rho": 0.5,
+          "adjusted_difference": 2.8005552524439166,
+          "implied_bias_difference": -2.1722871042340257
+        },
+        {
+          "rho": 0.75,
+          "adjusted_difference": 7.145129460911969,
+          "implied_bias_difference": -6.516861312702077
+        }
+      ],
+      "crossing": {
+        "alpha": null,
+        "implied_bias_a": null,
+        "implied_bias_b": null,
+        "rho": null,
+        "status": "no_positive_interior_crossing"
+      }
+    },
+    {
+      "title_a": "GPT Image 2.5 Flare",
+      "title_b": "FLUX.2 Max",
+      "delta_d": 0.936790874564854,
+      "delta_q": -1.250413918587978,
+      "grid": [
+        {
+          "rho": 0.0,
+          "adjusted_difference": 0.936790874564854,
+          "implied_bias_difference": 0.0
+        },
+        {
+          "rho": 0.1,
+          "adjusted_difference": 1.0757257544079626,
+          "implied_bias_difference": -0.13893487984310865
+        },
+        {
+          "rho": 0.25,
+          "adjusted_difference": 1.35359551409418,
+          "implied_bias_difference": -0.4168046395293259
+        },
+        {
+          "rho": 0.5,
+          "adjusted_difference": 2.187204793152832,
+          "implied_bias_difference": -1.250413918587978
+        },
+        {
+          "rho": 0.75,
+          "adjusted_difference": 4.688032630328789,
+          "implied_bias_difference": -3.7512417557639344
+        }
+      ],
+      "crossing": {
+        "alpha": null,
+        "implied_bias_a": null,
+        "implied_bias_b": null,
+        "rho": null,
+        "status": "no_positive_interior_crossing"
+      }
+    },
+    {
+      "title_a": "GPT Image 2.5 Sunburst",
+      "title_b": "Nano Banana 2",
+      "delta_d": 0.5319662232436388,
+      "delta_q": -2.0133502259837446,
+      "grid": [
+        {
+          "rho": 0.0,
+          "adjusted_difference": 0.5319662232436388,
+          "implied_bias_difference": 0.0
+        },
+        {
+          "rho": 0.1,
+          "adjusted_difference": 0.7556718039084994,
+          "implied_bias_difference": -0.22370558066486051
+        },
+        {
+          "rho": 0.25,
+          "adjusted_difference": 1.2030829652382202,
+          "implied_bias_difference": -0.6711167419945815
+        },
+        {
+          "rho": 0.5,
+          "adjusted_difference": 2.5453164492273834,
+          "implied_bias_difference": -2.0133502259837446
+        },
+        {
+          "rho": 0.75,
+          "adjusted_difference": 6.572016901194873,
+          "implied_bias_difference": -6.040050677951234
+        }
+      ],
+      "crossing": {
+        "alpha": null,
+        "implied_bias_a": null,
+        "implied_bias_b": null,
+        "rho": null,
+        "status": "no_positive_interior_crossing"
+      }
+    },
+    {
+      "title_a": "GPT Image 2.5 Sunburst",
+      "title_b": "FLUX.2 Max",
+      "delta_d": 0.8404889495986018,
+      "delta_q": -1.091477040337697,
+      "grid": [
+        {
+          "rho": 0.0,
+          "adjusted_difference": 0.8404889495986018,
+          "implied_bias_difference": 0.0
+        },
+        {
+          "rho": 0.1,
+          "adjusted_difference": 0.9617641763027903,
+          "implied_bias_difference": -0.12127522670418854
+        },
+        {
+          "rho": 0.25,
+          "adjusted_difference": 1.2043146297111673,
+          "implied_bias_difference": -0.36382568011256555
+        },
+        {
+          "rho": 0.5,
+          "adjusted_difference": 1.9319659899362986,
+          "implied_bias_difference": -1.091477040337697
+        },
+        {
+          "rho": 0.75,
+          "adjusted_difference": 4.114920070611693,
+          "implied_bias_difference": -3.274431121013091
+        }
+      ],
+      "crossing": {
+        "alpha": null,
+        "implied_bias_a": null,
+        "implied_bias_b": null,
+        "rho": null,
+        "status": "no_positive_interior_crossing"
+      }
+    },
+    {
+      "title_a": "Nano Banana 2",
+      "title_b": "FLUX.2 Max",
+      "delta_d": 0.3085227263549629,
+      "delta_q": 0.9218731856460476,
+      "grid": [
+        {
+          "rho": 0.0,
+          "adjusted_difference": 0.3085227263549629,
+          "implied_bias_difference": 0.0
+        },
+        {
+          "rho": 0.1,
+          "adjusted_difference": 0.2060923723942909,
+          "implied_bias_difference": 0.10243035396067199
+        },
+        {
+          "rho": 0.25,
+          "adjusted_difference": 0.0012316644729469806,
+          "implied_bias_difference": 0.30729106188201594
+        },
+        {
+          "rho": 0.5,
+          "adjusted_difference": -0.6133504592910847,
+          "implied_bias_difference": 0.9218731856460476
+        },
+        {
+          "rho": 0.75,
+          "adjusted_difference": -2.45709683058318,
+          "implied_bias_difference": 2.7656195569381428
+        }
+      ],
+      "crossing": {
+        "alpha": 0.3346693787809335,
+        "implied_bias_a": 0.8687625682825248,
+        "implied_bias_b": 0.5602398419275619,
+        "rho": 0.25075077326387407,
+        "status": "positive_interior_crossing"
+      }
+    }
+  ]
+}

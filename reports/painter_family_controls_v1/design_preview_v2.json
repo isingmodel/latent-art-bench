@@ -1,0 +1,119 @@
+{
+  "arms": [
+    "free",
+    "generic",
+    "style_frame",
+    "shared_family",
+    "claude_monet",
+    "alfred_sisley",
+    "camille_pissarro",
+    "paul_cezanne"
+  ],
+  "artists": [
+    "claude_monet",
+    "alfred_sisley",
+    "camille_pissarro",
+    "paul_cezanne"
+  ],
+  "current_approved_cumulative_ceiling_usd": "120",
+  "frozen_before_new_queries_required": true,
+  "historical_accounted_usd": "112.293676",
+  "models": [
+    "gpt-image-1",
+    "gpt-image-2",
+    "gpt-image-2.5-flare",
+    "gpt-image-2.5-sunburst",
+    "google/gemini-3.1-flash-image",
+    "black-forest-labs/flux.2-max"
+  ],
+  "namespace": "painter_family_controls_v1",
+  "network_transport_available": false,
+  "order_seed": 2026091908,
+  "planned_outputs": 4608,
+  "primary": {
+    "endpoints": [
+      "N",
+      "T"
+    ],
+    "family_size": 12,
+    "incomplete_model_decision": "unresolved",
+    "representation": "csd",
+    "scenes": 12,
+    "sessions": 8
+  },
+  "proposed_unapproved_ceiling_usd": "350",
+  "protocol_source_sha256": "f6cda0b54926044634960467d32b667a1109179d9e7f83a9566528f7fe7aaa35",
+  "scenes": [
+    {
+      "id": "W1",
+      "text": "A shallow stream divides around a mossy gravel island. A bare branch crosses the foreground, and a distant reed bank lies beneath thin evening clouds."
+    },
+    {
+      "id": "W2",
+      "text": "A flooded pasture surrounds a row of short wooden fence posts. Low willow bushes stand on the right, and the water reflects a strip of pale morning sky."
+    },
+    {
+      "id": "W3",
+      "text": "A tidal pool lies between dark rounded rocks. A narrow band of open sea crosses the background beneath a bright, cloudless sky."
+    },
+    {
+      "id": "B1",
+      "text": "A low railway platform stands beside two empty tracks. A red brick goods shed is set back on the left, with a line of hills beyond the station."
+    },
+    {
+      "id": "B2",
+      "text": "A narrow staircase climbs between plaster garden walls. A wooden door stands halfway up, and a small patch of sky is visible above the roofs."
+    },
+    {
+      "id": "B3",
+      "text": "A roadside bakery has closed wooden shutters and a striped awning. The empty pavement slopes gently toward a row of bare trees."
+    },
+    {
+      "id": "L1",
+      "text": "A harvested field contains several small stacks of straw. The rows run diagonally toward a distant belt of trees beneath a high, clear sky."
+    },
+    {
+      "id": "L2",
+      "text": "A wet heath is dotted with low flowering bushes. A line of exposed stones curves across the foreground, with a rounded hill in the distance."
+    },
+    {
+      "id": "L3",
+      "text": "A stand of slender birches grows on a sandy rise. Long shadows cross the open foreground and a dark evergreen wood fills the background."
+    },
+    {
+      "id": "M1",
+      "text": "An abandoned stone quarry contains a pool of green water. Rough steps descend from a grassy rim, and two small houses stand beyond the far wall."
+    },
+    {
+      "id": "M2",
+      "text": "A footpath follows the edge of a reservoir below a hillside village. A metal railing crosses the foreground and a patchwork of gardens climbs behind the roofs."
+    },
+    {
+      "id": "M3",
+      "text": "A sluice gate separates a narrow channel from a reed-filled basin. A dirt service track runs beside it toward a low brick building."
+    }
+  ],
+  "schema": "painter-family-controls-design/1.0",
+  "session_offsets_hours": [
+    0,
+    8,
+    24,
+    32,
+    48,
+    56,
+    72,
+    80
+  ],
+  "status": "draft; no live authorization, schedule, frozen study or observations",
+  "suffixes": {
+    "alfred_sisley": "Render as an oil painting in the style of Alfred Sisley. No text or frame.",
+    "camille_pissarro": "Render as an oil painting in the style of Camille Pissarro. No text or frame.",
+    "claude_monet": "Render as an oil painting in the style of Claude Monet. No text or frame.",
+    "free": "No text or frame.",
+    "generic": "Render as an oil painting. No text or frame.",
+    "paul_cezanne": "Render as an oil painting in the style of Paul Cezanne. No text or frame.",
+    "shared_family": "Render as an oil painting in the style of late-nineteenth-century French Impressionist and Post-Impressionist painting. No text or frame.",
+    "style_frame": "Render as an oil painting in the style of a generic oil painting. No text or frame."
+  },
+  "window_hours": 4
+}

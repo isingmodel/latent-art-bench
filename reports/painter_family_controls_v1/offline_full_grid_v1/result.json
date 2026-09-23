@@ -1,0 +1,108 @@
+{
+  "assignment_sha256": "4ae01b4b542f7e6f965744318414fb01a63b5fa3b0904bb451fb2aa65cf1f269",
+  "elapsed_seconds": 21.477562458021566,
+  "ends": 4608,
+  "fixture_accounted_usd": "158.373676",
+  "fixture_ceiling_usd": "350",
+  "fixture_image_bytes": 5338,
+  "fixture_image_sha256": "9713324abd2a92e04dfd1d7a41a71a59f07a8016acc68f6389e5309068818f18",
+  "full_journal_replay_passed": true,
+  "limits": [
+    "No current route, price, actual capacity or provider behavior is verified.",
+    "This is a deterministic fixture census, not scientific evidence or permission."
+  ],
+  "new_observations": 0,
+  "new_paid_calls": 0,
+  "operative_approved_ceiling_usd": "120",
+  "original_bytes_and_raw_response_checks": 4608,
+  "permanent_terminal_denial_passed": true,
+  "planned": 4608,
+  "recorded_utc": "2026-09-18T17:04:16.336819+00:00",
+  "retained_simulation_records": {
+    "events.jsonl.gz": {
+      "sha256": "7eabc3db20fef5b50c93d3e80eecc83a03e94072c0becc6218cbbf31ed6bf343",
+      "uncompressed_bytes": 8395372,
+      "uncompressed_sha256": "22d5015ea835c78c85f07768b71a49cc9b176f71286524c7cadc6820e337a2b9"
+    },
+    "run.json.gz": {
+      "sha256": "59fce0fd6ee714f77b7301ba3846256d094fcbb9ba042b1967c6b3658ba6518b",
+      "uncompressed_bytes": 2925294,
+      "uncompressed_sha256": "0a1ceadee0da2adff9b46f786b7c2feeb0f5e2c9dbb9eabfcf8a0f2c58c61074"
+    },
+    "terminal.json.gz": {
+      "sha256": "6d188e7e15508ca7cd3c5540f8d75426cdeae2bfcd87b28c23a36f69f9f573d0",
+      "uncompressed_bytes": 327698,
+      "uncompressed_sha256": "aa2196995a2d1250b58e4b61093cbd88e9ede23d04af9dac9fac08d3d5a83d7a"
+    }
+  },
+  "route_counts": {
+    "black-forest-labs/flux.2-max": 768,
+    "google/gemini-3.1-flash-image": 768,
+    "openai/gpt-image-1": 768,
+    "openai/gpt-image-2": 768,
+    "openai/gpt-image-2.5-flare": 768,
+    "openai/gpt-image-2.5-sunburst": 768
+  },
+  "schema": "painter-family-controls-full-grid-qualification/1.0",
+  "simulation_only": true,
+  "source_bindings": {
+    "scripts/qualify_family_controls_offline.py": "16f0726910cf95c1521b975267d42afcf5790d1fa334cf6fe99c5e2834369f6b",
+    "src/latent_art_bench/painter_family_controls_v1/__init__.py": "f3ea38e20211ee4a78b8c92ba11936062317f2f81ddeb89357d7e5edd93726ea",
+    "src/latent_art_bench/painter_family_controls_v1/__main__.py": "a275daf1302c32bb342b73f02f0ce16521a31932ca5868839f90cfb936f66844",
+    "src/latent_art_bench/painter_family_controls_v1/analysis.py": "33d83fa764903570d8d7e7a278869ced1204921e6aea51e6102ddbb0e2a7524f",
+    "src/latent_art_bench/painter_family_controls_v1/collector.py": "a07d21b13daf940023be2c7ba91847dc6138aa31c87915f004493f22e5f88d09",
+    "src/latent_art_bench/painter_family_controls_v1/preflight.py": "675a5359fa48eadedfca92b0cd02e7e7e5e15b50073b839a44051eb38ed95e8c",
+    "src/latent_art_bench/painter_family_controls_v1/protocol.py": "f6cda0b54926044634960467d32b667a1109179d9e7f83a9566528f7fe7aaa35",
+    "src/latent_art_bench/painter_family_controls_v1/transport_artifact.py": "7f2787e801d485178654da3ec266ec613a105cc76a92dc9073cd4d8672dd4639"
+  },
+  "starts": 4608,
+  "status": "passed",
+  "successful": 4608,
+  "synthetic_cost_per_fixture_usd": "0.01",
+  "synthetic_free_bytes": 107374182400,
+  "synthetic_window_origin": "2000-01-01T00:00:00+00:00",
+  "temporary_fixture_directory": "/Users/fred/dev/generative_art_diff/tmp/paper/family-offline-2gb3a02a",
+  "temporary_fixture_directory_removed": true,
+  "windows": {
+    "0": {
+      "count": 576,
+      "first_started_at": "2000-01-01T00:00:00+00:00",
+      "last_completed_at": "2000-01-01T00:47:56+00:00"
+    },
+    "1": {
+      "count": 576,
+      "first_started_at": "2000-01-01T08:00:00+00:00",
+      "last_completed_at": "2000-01-01T08:47:56+00:00"
+    },
+    "2": {
+      "count": 576,
+      "first_started_at": "2000-01-02T00:00:00+00:00",
+      "last_completed_at": "2000-01-02T00:47:56+00:00"
+    },
+    "3": {
+      "count": 576,
+      "first_started_at": "2000-01-02T08:00:00+00:00",
+      "last_completed_at": "2000-01-02T08:47:56+00:00"
+    },
+    "4": {
+      "count": 576,
+      "first_started_at": "2000-01-03T00:00:00+00:00",
+      "last_completed_at": "2000-01-03T00:47:56+00:00"
+    },
+    "5": {
+      "count": 576,
+      "first_started_at": "2000-01-03T08:00:00+00:00",
+      "last_completed_at": "2000-01-03T08:47:56+00:00"
+    },
+    "6": {
+      "count": 576,
+      "first_started_at": "2000-01-04T00:00:00+00:00",
+      "last_completed_at": "2000-01-04T00:47:56+00:00"
+    },
+    "7": {
+      "count": 576,
+      "first_started_at": "2000-01-04T08:00:00+00:00",
+      "last_completed_at": "2000-01-04T08:47:56+00:00"
+    }
+  }
+}

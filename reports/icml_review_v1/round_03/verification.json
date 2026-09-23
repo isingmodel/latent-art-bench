@@ -1,0 +1,25 @@
+{
+  "created_utc": "2026-09-18T16:21:12.031128+00:00",
+  "pdf_sha256": "bbcc12901427538ed0938cdea510f848a0999d0edd08b4bc707c5b6fb8051472",
+  "snapshot_and_evidence_hashes": "all verified",
+  "format": "official unmodified style; 8 main /46 total; all table captions above tables",
+  "new_synthetic_tests": {
+    "transfer": 39,
+    "covariance": 26
+  },
+  "exact_replays": "all ICML evidence commands passed; covariance table regenerated/check after layout-only change",
+  "independent_numeric_checks": {
+    "transfer_predictions": 16128,
+    "covariance_scene_D_and_q": 84,
+    "covariance_pair_grid_points": 75,
+    "covariance_crossing_classifications": 15
+  },
+  "historical_suite": "Preserved 881 passes and 10 low-disk failures, followed by 85 unique supplemental passes with an explicit scoped fixture; not a vanilla full-suite pass.",
+  "scope": "No scientific acceptance, actual covariance identification, new independent session, public pixel recoverability or perceptual validity inferred from these checks.",
+  "local_artifact_audit": {
+    "original_images_verified": 1878,
+    "hash_bound_attribution_records": 870,
+    "original_bytes": 4355822632,
+    "status": "passed; no upload or public recoverability claim"
+  }
+}

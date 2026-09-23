@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-09-18T15:08:02.208639+00:00",
+  "evicted_path": "artifacts/models/clip-vit-large-patch14/model.safetensors",
+  "reason": "Only newly downloaded public CLIP checkpoint evicted after completed inference and four-image validation to make room for sequential CSD checkpoint. All scientific pixels, vectors, configs and receipts retained.",
+  "recovery": {
+    "directory": "clip-vit-large-patch14",
+    "file": "model.safetensors",
+    "repository": "openai/clip-vit-large-patch14",
+    "revision": "32bd64288804d66eefd0ccbe215aa642df71cc41",
+    "sha256": "a2bf730a0c7debf160f7a6b50b3aaf3703e7e88ac73de7a314903141db026dcb"
+  },
+  "sha256": "a2bf730a0c7debf160f7a6b50b3aaf3703e7e88ac73de7a314903141db026dcb"
+}

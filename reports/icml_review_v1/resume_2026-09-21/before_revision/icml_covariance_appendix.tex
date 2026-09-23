@@ -1,0 +1,81 @@
+\section{Cross-repeat covariance: a point-estimate sensitivity}
+\label{app:repeat-covariance}
+
+This retrospective extension quantifies an assumed source of bias in the
+primary 31-feature, full-frame error. It does not estimate the actual service
+covariance, change the original uncertainty intervals, or add significance
+tests. All six configurations and 15 pairwise point comparisons are retained.
+The separate covariance-weighted \emph{feature metric} in
+Appendix~\ref{app:magnitude-coverage} is a different diagnostic.
+
+\subsection{Assumptions and quantities}
+Stack the four artist-centered vectors for model $m$, scene $s$ and repeat $k$
+as $d_{msk}=\theta_{ms}+e_{msk}$. Assume the same conditional mean in both
+repeats, zero-mean errors and finite second moments. Define their average
+normalized marginal energy and cross-repeat covariance trace as
+\begin{equation}
+ v_m=\frac{1}{SH}\sum_s\frac{\mathbb E\|e_{ms1}\|^2+
+ \mathbb E\|e_{ms2}\|^2}{2},\qquad
+ c_m=\frac{1}{SH}\sum_s\mathbb E\langle e_{ms1},e_{ms2}\rangle.
+\end{equation}
+Here $H$ is the original reference-contrast energy. Centering already accounts
+for dependence among artists within a repeat. The exact expectation identities
+are
+\begin{equation}
+ \mathbb E\widehat D_m=D_{*,m}+c_m,\qquad
+ \widehat q_m=\frac{1}{2SH}\sum_s\|d_{ms1}-d_{ms2}\|^2,
+ \qquad \mathbb E\widehat q_m=v_m-c_m,
+\end{equation}
+where $D_{*,m}$ is squared error of the stable scene-conditional mean contrasts.
+Thus the observed difference statistic estimates marginal noise energy only
+when $c_m=0$. These expectation identities do not require independent scenes
+or equal marginal repeat variances; those assumptions matter for precision.
+If repeat means differ, the difference statistic also contains their squared
+separation and this stable-mean analysis does not apply.
+
+For $v_m>0$, define the trace ratio $\rho_m=c_m/v_m\in[-1,1]$, called trace
+correlation here. It is not an estimated Pearson correlation of observed
+image vectors. Under an assumed common value $\rho_m=\rho<1$,
+\begin{equation}
+ \alpha(\rho)=\frac{\rho}{1-\rho},\qquad
+ \widehat D_m(\rho)=\widehat D_m-\alpha(\rho)\widehat q_m.
+ \label{eq:covariance-scenario}
+\end{equation}
+Equal trace correlation allows different covariance biases because models
+have different noise scales. Equal normalized covariance $c_m=c$ would instead
+shift every model equally and leave all pairwise differences unchanged. The
+common-$\rho$ scenario does not cover arbitrary model-specific dependence.
+
+\subsection{Fixed scenarios and point-order crossings}
+The grid $\rho\in\{0,.10,.25,.50,.75\}$ was fixed before computing these
+scenario outcomes. Negative adjusted estimates are retained; they are not
+negative physical squared errors or evidence that the assumption has been
+statistically rejected. No original interval is shifted or recomputed.
+For each pair, let $\Delta_D=\widehat D_a-\widehat D_b$ and
+$\Delta_q=\widehat q_a-\widehat q_b$. An interior positive crossing exists
+when $\Delta_q\ne0$ and $\alpha_*:=\Delta_D/\Delta_q>0$, at
+\begin{equation}
+ \rho_* = \frac{\alpha_*}{1+\alpha_*}.
+\end{equation}
+The threshold describes these plug-in point curves; it is not a bound on actual
+correlation, a confidence interval or a threshold for statistical superiority.
+The complete tables below retain every pair and distinguish absent crossings
+and ties. Unrounded values determine all calculations.
+
+\subsection{What cannot be learned from two repeats}
+Under this second-moment model, repeat differences alone impose no finite
+upper bound on positive cross-repeat covariance. A random state in the centered
+painter contrasts, shared by both repeats, cancels from their difference. Writing $q_*=\mathbb E\widehat q=v-c$,
+for positive $q_*$, letting $\rho\uparrow1$ makes
+$c=\rho q_* /(1-\rho)$ arbitrarily large. A zero observed
+difference is also compatible with a variable shared state. Negative covariance
+is possible and is outside this positive grid. Randomness over service sessions
+and conditioning on one session's realized state also define different targets;
+this collection does not distinguish them.
+
+The scene-averaged shared naming fractions need separate common/baseline noise
+and cross-scene covariance terms. Primary $q$ does not identify them, so no
+fraction correction is inferred from this sensitivity. Likewise, the linear
+aligned response remains unbiased under a mean-zero covariance model, but its
+interval coverage is not validated here. Independently interleaved repeated
+collections would provide information that these assumed curves cannot.

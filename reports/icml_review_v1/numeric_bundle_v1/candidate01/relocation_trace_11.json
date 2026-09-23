@@ -1,0 +1,25 @@
+{
+  "command": [
+    "paper/make_icml_learned_calibration_tables.py",
+    "--check"
+  ],
+  "external_reads": [
+    "/Users/fred/.local/share/uv/python/cpython-3.13.11-macos-aarch64-none/lib/python3.13/__pycache__/pkgutil.cpython-313.pyc",
+    "/Users/fred/.local/share/uv/python/cpython-3.13.11-macos-aarch64-none/lib/python3.13/__pycache__/typing.cpython-313.pyc"
+  ],
+  "index": 11,
+  "inputs": [
+    "paper/icml_learned_calibration.tex",
+    "paper/make_icml_learned_calibration_tables.py",
+    "paper/make_icml_learned_tables.py",
+    "reports/painter_learned_audit_v1/analysis.json",
+    "reports/painter_learned_audit_v1/embeddings_clip.npz",
+    "reports/painter_learned_audit_v1/embeddings_csd.npz",
+    "reports/painter_learned_audit_v1/extraction_clip.json",
+    "reports/painter_learned_audit_v1/extraction_csd.json",
+    "reports/painter_learned_audit_v1/inputs.json",
+    "src/latent_art_bench/painter_learned_analysis_v1.py",
+    "src/latent_art_bench/painter_learned_audit_v1.py",
+    "studies/painter_learned_audit_v1/PLAN.md"
+  ]
+}

@@ -1,0 +1,1195 @@
+{
+  "assumption": "same hypothetical aggregate trace correlation across configurations",
+  "canonical_replay": {
+    "primary_d": true,
+    "review_v2_direct_q": true,
+    "tolerance": 1e-12
+  },
+  "generated_shape": [
+    6,
+    14,
+    2,
+    6,
+    31
+  ],
+  "inputs_sha256": "43a44d769700b1a8fd0122d9a4e4d8e34726c121313641d892aa85b843bf2346",
+  "models": [
+    {
+      "d": 1.572416054380304,
+      "grid": [
+        {
+          "adjusted_d": 1.572416054380304,
+          "alpha": 0.0,
+          "implied_bias": 0.0,
+          "negative_adjusted_d": false,
+          "rho": 0.0
+        },
+        {
+          "adjusted_d": 1.3475468319624007,
+          "alpha": 0.11111111111111112,
+          "implied_bias": 0.2248692224179035,
+          "negative_adjusted_d": false,
+          "rho": 0.1
+        },
+        {
+          "adjusted_d": 0.8978083871265936,
+          "alpha": 0.3333333333333333,
+          "implied_bias": 0.6746076672537105,
+          "negative_adjusted_d": false,
+          "rho": 0.25
+        },
+        {
+          "adjusted_d": -0.4514069473808273,
+          "alpha": 1.0,
+          "implied_bias": 2.0238230017611314,
+          "negative_adjusted_d": true,
+          "rho": 0.5
+        },
+        {
+          "adjusted_d": -4.499052950903089,
+          "alpha": 3.0,
+          "implied_bias": 6.071469005283394,
+          "negative_adjusted_d": true,
+          "rho": 0.75
+        }
+      ],
+      "model": "gpt-image-1",
+      "q": 2.0238230017611314,
+      "reference_h": 5.9150074798210355,
+      "scene_d": [
+        2.912029046681668,
+        -0.011227348655170036,
+        0.8066133144437989,
+        2.0924250638132587,
+        2.2325701765291623,
+        1.9193999964732644,
+        1.0115637538972522,
+        2.2056046274003775,
+        1.0073955083810393,
+        2.0902233642246837,
+        0.8640370501528127,
+        1.4775507920141986,
+        1.470266395246957,
+        1.9353730207209574
+      ],
+      "scene_q": [
+        2.170183288213844,
+        3.7565954133184576,
+        2.028168758206011,
+        1.1673349409141047,
+        1.6870330553223214,
+        1.2761918506808954,
+        3.2120541712674524,
+        2.16561946141554,
+        1.2246153753560056,
+        1.394026000084458,
+        1.7623982386903672,
+        1.6298263447504793,
+        1.2799330756925038,
+        3.5795420507434037
+      ],
+      "title": "GPT Image 1"
+    },
+    {
+      "d": 1.2259309278231234,
+      "grid": [
+        {
+          "adjusted_d": 1.2259309278231234,
+          "alpha": 0.0,
+          "implied_bias": 0.0,
+          "negative_adjusted_d": false,
+          "rho": 0.0
+        },
+        {
+          "adjusted_d": 1.1192839882955956,
+          "alpha": 0.11111111111111112,
+          "implied_bias": 0.10664693952752777,
+          "negative_adjusted_d": false,
+          "rho": 0.1
+        },
+        {
+          "adjusted_d": 0.9059901092405401,
+          "alpha": 0.3333333333333333,
+          "implied_bias": 0.3199408185825833,
+          "negative_adjusted_d": false,
+          "rho": 0.25
+        },
+        {
+          "adjusted_d": 0.2661084720753736,
+          "alpha": 1.0,
+          "implied_bias": 0.9598224557477498,
+          "negative_adjusted_d": false,
+          "rho": 0.5
+        },
+        {
+          "adjusted_d": -1.6535364394201262,
+          "alpha": 3.0,
+          "implied_bias": 2.8794673672432496,
+          "negative_adjusted_d": true,
+          "rho": 0.75
+        }
+      ],
+      "model": "gpt-image-2",
+      "q": 0.9598224557477498,
+      "reference_h": 5.9150074798210355,
+      "scene_d": [
+        1.6862430144041334,
+        0.695417145772659,
+        1.545471114726692,
+        0.7260189554589369,
+        1.3508233770069114,
+        1.424405671992011,
+        0.9450637915947894,
+        1.4696216092061158,
+        1.2214007019078954,
+        0.46439653493236144,
+        0.5635274695066922,
+        1.4255549500572962,
+        1.751059003551411,
+        1.8940296494058233
+      ],
+      "scene_q": [
+        0.6872670951215457,
+        1.4257866541225603,
+        0.7397384004471789,
+        2.271503954490323,
+        1.1128891005996897,
+        0.9847408954298265,
+        0.8905275292977394,
+        1.0314989264533154,
+        0.5342327849494878,
+        0.8367043924960764,
+        1.0170413101754434,
+        0.880205194404583,
+        0.645066746907388,
+        0.3803113955733404
+      ],
+      "title": "GPT Image 2"
+    },
+    {
+      "d": 1.7377191017739644,
+      "grid": [
+        {
+          "adjusted_d": 1.7377191017739644,
+          "alpha": 0.0,
+          "implied_bias": 0.0,
+          "negative_adjusted_d": false,
+          "rho": 0.0
+        },
+        {
+          "adjusted_d": 1.6906528853947884,
+          "alpha": 0.11111111111111112,
+          "implied_bias": 0.04706621637917603,
+          "negative_adjusted_d": false,
+          "rho": 0.1
+        },
+        {
+          "adjusted_d": 1.5965204526364363,
+          "alpha": 0.3333333333333333,
+          "implied_bias": 0.14119864913752808,
+          "negative_adjusted_d": false,
+          "rho": 0.25
+        },
+        {
+          "adjusted_d": 1.31412315436138,
+          "alpha": 1.0,
+          "implied_bias": 0.4235959474125843,
+          "negative_adjusted_d": false,
+          "rho": 0.5
+        },
+        {
+          "adjusted_d": 0.4669312595362116,
+          "alpha": 3.0,
+          "implied_bias": 1.2707878422377528,
+          "negative_adjusted_d": false,
+          "rho": 0.75
+        }
+      ],
+      "model": "gpt-image-2.5-flare",
+      "q": 0.4235959474125843,
+      "reference_h": 5.9150074798210355,
+      "scene_d": [
+        0.9358938041232423,
+        1.4709959226975735,
+        1.680561734462565,
+        2.0862966963235587,
+        2.5645255693195805,
+        2.1490929523622397,
+        1.1814199995350931,
+        2.1051775703443374,
+        1.4714813563068667,
+        1.2492036277522842,
+        2.090184702133813,
+        1.9912327854319019,
+        1.7497155861306721,
+        1.6022851179117779
+      ],
+      "scene_q": [
+        0.7790448661509993,
+        0.7285126079005617,
+        0.5051687118643546,
+        0.3905420844365653,
+        0.31156607803407615,
+        0.20565888345326613,
+        0.2323597000488913,
+        0.27064781935069354,
+        0.4122456445333896,
+        0.18442565958599355,
+        0.66462664373256,
+        0.21363877427116623,
+        0.3299684882284434,
+        0.7019373021852201
+      ],
+      "title": "GPT Image 2.5 Flare"
+    },
+    {
+      "d": 1.6414171768077122,
+      "grid": [
+        {
+          "adjusted_d": 1.6414171768077122,
+          "alpha": 0.0,
+          "implied_bias": 0.0,
+          "negative_adjusted_d": false,
+          "rho": 0.0
+        },
+        {
+          "adjusted_d": 1.576691307289616,
+          "alpha": 0.11111111111111112,
+          "implied_bias": 0.06472586951809615,
+          "negative_adjusted_d": false,
+          "rho": 0.1
+        },
+        {
+          "adjusted_d": 1.4472395682534236,
+          "alpha": 0.3333333333333333,
+          "implied_bias": 0.19417760855428845,
+          "negative_adjusted_d": false,
+          "rho": 0.25
+        },
+        {
+          "adjusted_d": 1.058884351144847,
+          "alpha": 1.0,
+          "implied_bias": 0.5825328256628654,
+          "negative_adjusted_d": false,
+          "rho": 0.5
+        },
+        {
+          "adjusted_d": -0.10618130018088401,
+          "alpha": 3.0,
+          "implied_bias": 1.7475984769885962,
+          "negative_adjusted_d": true,
+          "rho": 0.75
+        }
+      ],
+      "model": "gpt-image-2.5-sunburst",
+      "q": 0.5825328256628654,
+      "reference_h": 5.9150074798210355,
+      "scene_d": [
+        0.503655393975927,
+        1.8554668093198334,
+        1.811236316164129,
+        1.756116278235475,
+        2.6016136625806103,
+        1.4321140217879569,
+        1.772076733589739,
+        1.9541036942880483,
+        1.2472754591012098,
+        0.6525315195405031,
+        2.3739811461122127,
+        1.8254770003825787,
+        1.4132368740319534,
+        1.7809555661977938
+      ],
+      "scene_q": [
+        1.2955156349279857,
+        0.5495924252373137,
+        0.47265459839216223,
+        0.8175504570923624,
+        0.33378134889084915,
+        0.769047888480701,
+        0.3821023810524939,
+        0.45672617685392064,
+        0.4437820047834804,
+        0.32868735428708523,
+        0.38682639454030116,
+        0.4236255921250519,
+        0.9497346559925053,
+        0.5458326466239036
+      ],
+      "title": "GPT Image 2.5 Sunburst"
+    },
+    {
+      "d": 1.1094509535640733,
+      "grid": [
+        {
+          "adjusted_d": 1.1094509535640733,
+          "alpha": 0.0,
+          "implied_bias": 0.0,
+          "negative_adjusted_d": false,
+          "rho": 0.0
+        },
+        {
+          "adjusted_d": 0.8210195033811166,
+          "alpha": 0.11111111111111112,
+          "implied_bias": 0.2884314501829567,
+          "negative_adjusted_d": false,
+          "rho": 0.1
+        },
+        {
+          "adjusted_d": 0.24415660301520337,
+          "alpha": 0.3333333333333333,
+          "implied_bias": 0.8652943505488699,
+          "negative_adjusted_d": false,
+          "rho": 0.25
+        },
+        {
+          "adjusted_d": -1.4864320980825365,
+          "alpha": 1.0,
+          "implied_bias": 2.59588305164661,
+          "negative_adjusted_d": true,
+          "rho": 0.5
+        },
+        {
+          "adjusted_d": -6.678198201375757,
+          "alpha": 3.0,
+          "implied_bias": 7.78764915493983,
+          "negative_adjusted_d": true,
+          "rho": 0.75
+        }
+      ],
+      "model": "google/gemini-3.1-flash-image",
+      "q": 2.59588305164661,
+      "reference_h": 5.9150074798210355,
+      "scene_d": [
+        -0.1278963493469415,
+        0.13011649375119103,
+        0.15692282387650128,
+        3.2023986615981066,
+        1.313720591821865,
+        0.6929577199619821,
+        1.5390162973929706,
+        1.0261251213569436,
+        1.2991295911333394,
+        0.8696984277683159,
+        0.7547184153705607,
+        0.621677622363885,
+        1.5234144144151296,
+        2.530313518433174
+      ],
+      "scene_q": [
+        4.662327835737651,
+        5.317972175977158,
+        2.0799267277653644,
+        5.309253371800325,
+        0.7021819955926851,
+        1.1685414178210098,
+        1.2939328613482324,
+        2.4912970197202355,
+        2.3147963780533796,
+        1.241847530040795,
+        1.2338362935680112,
+        1.6531689576021449,
+        1.639629096153416,
+        5.233651061872129
+      ],
+      "title": "Nano Banana 2"
+    },
+    {
+      "d": 0.8009282272091104,
+      "grid": [
+        {
+          "adjusted_d": 0.8009282272091104,
+          "alpha": 0.0,
+          "implied_bias": 0.0,
+          "negative_adjusted_d": false,
+          "rho": 0.0
+        },
+        {
+          "adjusted_d": 0.6149271309868257,
+          "alpha": 0.11111111111111112,
+          "implied_bias": 0.1860010962222847,
+          "negative_adjusted_d": false,
+          "rho": 0.1
+        },
+        {
+          "adjusted_d": 0.24292493854225639,
+          "alpha": 0.3333333333333333,
+          "implied_bias": 0.558003288666854,
+          "negative_adjusted_d": false,
+          "rho": 0.25
+        },
+        {
+          "adjusted_d": -0.8730816387914518,
+          "alpha": 1.0,
+          "implied_bias": 1.6740098660005622,
+          "negative_adjusted_d": true,
+          "rho": 0.5
+        },
+        {
+          "adjusted_d": -4.221101370792577,
+          "alpha": 3.0,
+          "implied_bias": 5.022029598001687,
+          "negative_adjusted_d": true,
+          "rho": 0.75
+        }
+      ],
+      "model": "black-forest-labs/flux.2-max",
+      "q": 1.6740098660005622,
+      "reference_h": 5.9150074798210355,
+      "scene_d": [
+        1.3781280656288741,
+        0.9112736950746573,
+        0.7544197071380818,
+        0.3662229504904903,
+        0.7383749914376967,
+        0.14292630173277848,
+        0.5857548878465598,
+        0.8674053228985753,
+        0.4958794660524365,
+        1.2278447716369558,
+        0.779010524515183,
+        1.408214529186367,
+        1.0353523015320207,
+        0.522187665756871
+      ],
+      "scene_q": [
+        2.6426321361030385,
+        1.918392460803217,
+        0.9327834125174042,
+        2.2476355383804885,
+        1.3587615598979734,
+        2.0861997197809643,
+        0.8508720559705915,
+        1.9967207053766394,
+        1.4513458756701014,
+        1.4112019860214104,
+        1.3535905780690682,
+        1.750670220673582,
+        0.9772563403882006,
+        2.458075534355193
+      ],
+      "title": "FLUX.2 Max"
+    }
+  ],
+  "pairs": [
+    {
+      "crossing": {
+        "alpha": 0.32564374882644376,
+        "implied_bias_a": 0.6590453092546813,
+        "implied_bias_b": 0.3125601826975007,
+        "rho": 0.2456495186694972,
+        "status": "positive_interior_crossing"
+      },
+      "delta_d": 0.34648512655718067,
+      "delta_q": 1.0640005460133817,
+      "grid": [
+        {
+          "adjusted_difference": 0.34648512655718067,
+          "implied_bias_difference": 0.0,
+          "rho": 0.0
+        },
+        {
+          "adjusted_difference": 0.22826284366680494,
+          "implied_bias_difference": 0.11822228289037574,
+          "rho": 0.1
+        },
+        {
+          "adjusted_difference": -0.008181722113946521,
+          "implied_bias_difference": 0.3546668486711272,
+          "rho": 0.25
+        },
+        {
+          "adjusted_difference": -0.717515419456201,
+          "implied_bias_difference": 1.0640005460133817,
+          "rho": 0.5
+        },
+        {
+          "adjusted_difference": -2.8455165114829644,
+          "implied_bias_difference": 3.192001638040145,
+          "rho": 0.75
+        }
+      ],
+      "model_a": "gpt-image-1",
+      "model_b": "gpt-image-2",
+      "title_a": "GPT Image 1",
+      "title_b": "GPT Image 2"
+    },
+    {
+      "crossing": {
+        "alpha": null,
+        "implied_bias_a": null,
+        "implied_bias_b": null,
+        "rho": null,
+        "status": "no_positive_interior_crossing"
+      },
+      "delta_d": -0.1653030473936603,
+      "delta_q": 1.600227054348547,
+      "grid": [
+        {
+          "adjusted_difference": -0.1653030473936603,
+          "implied_bias_difference": 0.0,
+          "rho": 0.0
+        },
+        {
+          "adjusted_difference": -0.34310605343238776,
+          "implied_bias_difference": 0.17780300603872745,
+          "rho": 0.1
+        },
+        {
+          "adjusted_difference": -0.6987120655098427,
+          "implied_bias_difference": 0.5334090181161824,
+          "rho": 0.25
+        },
+        {
+          "adjusted_difference": -1.7655301017422074,
+          "implied_bias_difference": 1.600227054348547,
+          "rho": 0.5
+        },
+        {
+          "adjusted_difference": -4.965984210439301,
+          "implied_bias_difference": 4.800681163045641,
+          "rho": 0.75
+        }
+      ],
+      "model_a": "gpt-image-1",
+      "model_b": "gpt-image-2.5-flare",
+      "title_a": "GPT Image 1",
+      "title_b": "GPT Image 2.5 Flare"
+    },
+    {
+      "crossing": {
+        "alpha": null,
+        "implied_bias_a": null,
+        "implied_bias_b": null,
+        "rho": null,
+        "status": "no_positive_interior_crossing"
+      },
+      "delta_d": -0.06900112242740808,
+      "delta_q": 1.4412901760982662,
+      "grid": [
+        {
+          "adjusted_difference": -0.06900112242740808,
+          "implied_bias_difference": 0.0,
+          "rho": 0.0
+        },
+        {
+          "adjusted_difference": -0.22914447532721544,
+          "implied_bias_difference": 0.16014335289980736,
+          "rho": 0.1
+        },
+        {
+          "adjusted_difference": -0.5494311811268301,
+          "implied_bias_difference": 0.480430058699422,
+          "rho": 0.25
+        },
+        {
+          "adjusted_difference": -1.5102912985256742,
+          "implied_bias_difference": 1.4412901760982662,
+          "rho": 0.5
+        },
+        {
+          "adjusted_difference": -4.392871650722206,
+          "implied_bias_difference": 4.3238705282947985,
+          "rho": 0.75
+        }
+      ],
+      "model_a": "gpt-image-1",
+      "model_b": "gpt-image-2.5-sunburst",
+      "title_a": "GPT Image 1",
+      "title_b": "GPT Image 2.5 Sunburst"
+    },
+    {
+      "crossing": {
+        "alpha": null,
+        "implied_bias_a": null,
+        "implied_bias_b": null,
+        "rho": null,
+        "status": "no_positive_interior_crossing"
+      },
+      "delta_d": 0.46296510081623077,
+      "delta_q": -0.5720600498854784,
+      "grid": [
+        {
+          "adjusted_difference": 0.46296510081623077,
+          "implied_bias_difference": -0.0,
+          "rho": 0.0
+        },
+        {
+          "adjusted_difference": 0.5265273285812839,
+          "implied_bias_difference": -0.06356222776505316,
+          "rho": 0.1
+        },
+        {
+          "adjusted_difference": 0.6536517841113902,
+          "implied_bias_difference": -0.19068668329515948,
+          "rho": 0.25
+        },
+        {
+          "adjusted_difference": 1.0350251507017092,
+          "implied_bias_difference": -0.5720600498854784,
+          "rho": 0.5
+        },
+        {
+          "adjusted_difference": 2.179145250472666,
+          "implied_bias_difference": -1.7161801496564353,
+          "rho": 0.75
+        }
+      ],
+      "model_a": "gpt-image-1",
+      "model_b": "google/gemini-3.1-flash-image",
+      "title_a": "GPT Image 1",
+      "title_b": "Nano Banana 2"
+    },
+    {
+      "crossing": {
+        "alpha": 2.2054284082094653,
+        "implied_bias_a": 4.463396741271754,
+        "implied_bias_b": 3.6919089141005603,
+        "rho": 0.688029220231877,
+        "status": "positive_interior_crossing"
+      },
+      "delta_d": 0.7714878271711937,
+      "delta_q": 0.34981313576056916,
+      "grid": [
+        {
+          "adjusted_difference": 0.7714878271711937,
+          "implied_bias_difference": 0.0,
+          "rho": 0.0
+        },
+        {
+          "adjusted_difference": 0.7326197009755749,
+          "implied_bias_difference": 0.038868126195618795,
+          "rho": 0.1
+        },
+        {
+          "adjusted_difference": 0.6548834485843373,
+          "implied_bias_difference": 0.11660437858685638,
+          "rho": 0.25
+        },
+        {
+          "adjusted_difference": 0.4216746914106245,
+          "implied_bias_difference": 0.34981313576056916,
+          "rho": 0.5
+        },
+        {
+          "adjusted_difference": -0.2779515801105138,
+          "implied_bias_difference": 1.0494394072817075,
+          "rho": 0.75
+        }
+      ],
+      "model_a": "gpt-image-1",
+      "model_b": "black-forest-labs/flux.2-max",
+      "title_a": "GPT Image 1",
+      "title_b": "FLUX.2 Max"
+    },
+    {
+      "crossing": {
+        "alpha": null,
+        "implied_bias_a": null,
+        "implied_bias_b": null,
+        "rho": null,
+        "status": "no_positive_interior_crossing"
+      },
+      "delta_d": -0.511788173950841,
+      "delta_q": 0.5362265083351656,
+      "grid": [
+        {
+          "adjusted_difference": -0.511788173950841,
+          "implied_bias_difference": 0.0,
+          "rho": 0.0
+        },
+        {
+          "adjusted_difference": -0.5713688970991927,
+          "implied_bias_difference": 0.059580723148351736,
+          "rho": 0.1
+        },
+        {
+          "adjusted_difference": -0.6905303433958961,
+          "implied_bias_difference": 0.1787421694450552,
+          "rho": 0.25
+        },
+        {
+          "adjusted_difference": -1.0480146822860066,
+          "implied_bias_difference": 0.5362265083351656,
+          "rho": 0.5
+        },
+        {
+          "adjusted_difference": -2.120467698956338,
+          "implied_bias_difference": 1.6086795250054968,
+          "rho": 0.75
+        }
+      ],
+      "model_a": "gpt-image-2",
+      "model_b": "gpt-image-2.5-flare",
+      "title_a": "GPT Image 2",
+      "title_b": "GPT Image 2.5 Flare"
+    },
+    {
+      "crossing": {
+        "alpha": null,
+        "implied_bias_a": null,
+        "implied_bias_b": null,
+        "rho": null,
+        "status": "no_positive_interior_crossing"
+      },
+      "delta_d": -0.41548624898458875,
+      "delta_q": 0.3772896300848845,
+      "grid": [
+        {
+          "adjusted_difference": -0.41548624898458875,
+          "implied_bias_difference": 0.0,
+          "rho": 0.0
+        },
+        {
+          "adjusted_difference": -0.4574073189940204,
+          "implied_bias_difference": 0.04192107000943161,
+          "rho": 0.1
+        },
+        {
+          "adjusted_difference": -0.5412494590128836,
+          "implied_bias_difference": 0.12576321002829483,
+          "rho": 0.25
+        },
+        {
+          "adjusted_difference": -0.7927758790694732,
+          "implied_bias_difference": 0.3772896300848845,
+          "rho": 0.5
+        },
+        {
+          "adjusted_difference": -1.5473551392392422,
+          "implied_bias_difference": 1.1318688902546534,
+          "rho": 0.75
+        }
+      ],
+      "model_a": "gpt-image-2",
+      "model_b": "gpt-image-2.5-sunburst",
+      "title_a": "GPT Image 2",
+      "title_b": "GPT Image 2.5 Sunburst"
+    },
+    {
+      "crossing": {
+        "alpha": null,
+        "implied_bias_a": null,
+        "implied_bias_b": null,
+        "rho": null,
+        "status": "no_positive_interior_crossing"
+      },
+      "delta_d": 0.1164799742590501,
+      "delta_q": -1.63606059589886,
+      "grid": [
+        {
+          "adjusted_difference": 0.1164799742590501,
+          "implied_bias_difference": -0.0,
+          "rho": 0.0
+        },
+        {
+          "adjusted_difference": 0.298264484914479,
+          "implied_bias_difference": -0.18178451065542892,
+          "rho": 0.1
+        },
+        {
+          "adjusted_difference": 0.6618335062253368,
+          "implied_bias_difference": -0.5453535319662867,
+          "rho": 0.25
+        },
+        {
+          "adjusted_difference": 1.7525405701579102,
+          "implied_bias_difference": -1.63606059589886,
+          "rho": 0.5
+        },
+        {
+          "adjusted_difference": 5.024661761955631,
+          "implied_bias_difference": -4.908181787696581,
+          "rho": 0.75
+        }
+      ],
+      "model_a": "gpt-image-2",
+      "model_b": "google/gemini-3.1-flash-image",
+      "title_a": "GPT Image 2",
+      "title_b": "Nano Banana 2"
+    },
+    {
+      "crossing": {
+        "alpha": null,
+        "implied_bias_a": null,
+        "implied_bias_b": null,
+        "rho": null,
+        "status": "no_positive_interior_crossing"
+      },
+      "delta_d": 0.425002700614013,
+      "delta_q": -0.7141874102528124,
+      "grid": [
+        {
+          "adjusted_difference": 0.425002700614013,
+          "implied_bias_difference": -0.0,
+          "rho": 0.0
+        },
+        {
+          "adjusted_difference": 0.50435685730877,
+          "implied_bias_difference": -0.07935415669475694,
+          "rho": 0.1
+        },
+        {
+          "adjusted_difference": 0.6630651706982837,
+          "implied_bias_difference": -0.23806247008427078,
+          "rho": 0.25
+        },
+        {
+          "adjusted_difference": 1.1391901108668254,
+          "implied_bias_difference": -0.7141874102528124,
+          "rho": 0.5
+        },
+        {
+          "adjusted_difference": 2.5675649313724502,
+          "implied_bias_difference": -2.142562230758437,
+          "rho": 0.75
+        }
+      ],
+      "model_a": "gpt-image-2",
+      "model_b": "black-forest-labs/flux.2-max",
+      "title_a": "GPT Image 2",
+      "title_b": "FLUX.2 Max"
+    },
+    {
+      "crossing": {
+        "alpha": null,
+        "implied_bias_a": null,
+        "implied_bias_b": null,
+        "rho": null,
+        "status": "no_positive_interior_crossing"
+      },
+      "delta_d": 0.09630192496625223,
+      "delta_q": -0.15893687825028108,
+      "grid": [
+        {
+          "adjusted_difference": 0.09630192496625223,
+          "implied_bias_difference": -0.0,
+          "rho": 0.0
+        },
+        {
+          "adjusted_difference": 0.11396157810517235,
+          "implied_bias_difference": -0.01765965313892012,
+          "rho": 0.1
+        },
+        {
+          "adjusted_difference": 0.14928088438301257,
+          "implied_bias_difference": -0.052978959416760354,
+          "rho": 0.25
+        },
+        {
+          "adjusted_difference": 0.2552388032165333,
+          "implied_bias_difference": -0.15893687825028108,
+          "rho": 0.5
+        },
+        {
+          "adjusted_difference": 0.5731125597170954,
+          "implied_bias_difference": -0.47681063475084323,
+          "rho": 0.75
+        }
+      ],
+      "model_a": "gpt-image-2.5-flare",
+      "model_b": "gpt-image-2.5-sunburst",
+      "title_a": "GPT Image 2.5 Flare",
+      "title_b": "GPT Image 2.5 Sunburst"
+    },
+    {
+      "crossing": {
+        "alpha": null,
+        "implied_bias_a": null,
+        "implied_bias_b": null,
+        "rho": null,
+        "status": "no_positive_interior_crossing"
+      },
+      "delta_d": 0.6282681482098911,
+      "delta_q": -2.1722871042340257,
+      "grid": [
+        {
+          "adjusted_difference": 0.6282681482098911,
+          "implied_bias_difference": -0.0,
+          "rho": 0.0
+        },
+        {
+          "adjusted_difference": 0.8696333820136717,
+          "implied_bias_difference": -0.24136523380378064,
+          "rho": 0.1
+        },
+        {
+          "adjusted_difference": 1.352363849621233,
+          "implied_bias_difference": -0.7240957014113418,
+          "rho": 0.25
+        },
+        {
+          "adjusted_difference": 2.8005552524439166,
+          "implied_bias_difference": -2.1722871042340257,
+          "rho": 0.5
+        },
+        {
+          "adjusted_difference": 7.145129460911968,
+          "implied_bias_difference": -6.516861312702077,
+          "rho": 0.75
+        }
+      ],
+      "model_a": "gpt-image-2.5-flare",
+      "model_b": "google/gemini-3.1-flash-image",
+      "title_a": "GPT Image 2.5 Flare",
+      "title_b": "Nano Banana 2"
+    },
+    {
+      "crossing": {
+        "alpha": null,
+        "implied_bias_a": null,
+        "implied_bias_b": null,
+        "rho": null,
+        "status": "no_positive_interior_crossing"
+      },
+      "delta_d": 0.936790874564854,
+      "delta_q": -1.250413918587978,
+      "grid": [
+        {
+          "adjusted_difference": 0.936790874564854,
+          "implied_bias_difference": -0.0,
+          "rho": 0.0
+        },
+        {
+          "adjusted_difference": 1.0757257544079626,
+          "implied_bias_difference": -0.13893487984310868,
+          "rho": 0.1
+        },
+        {
+          "adjusted_difference": 1.35359551409418,
+          "implied_bias_difference": -0.41680463952932595,
+          "rho": 0.25
+        },
+        {
+          "adjusted_difference": 2.187204793152832,
+          "implied_bias_difference": -1.250413918587978,
+          "rho": 0.5
+        },
+        {
+          "adjusted_difference": 4.688032630328787,
+          "implied_bias_difference": -3.7512417557639335,
+          "rho": 0.75
+        }
+      ],
+      "model_a": "gpt-image-2.5-flare",
+      "model_b": "black-forest-labs/flux.2-max",
+      "title_a": "GPT Image 2.5 Flare",
+      "title_b": "FLUX.2 Max"
+    },
+    {
+      "crossing": {
+        "alpha": null,
+        "implied_bias_a": null,
+        "implied_bias_b": null,
+        "rho": null,
+        "status": "no_positive_interior_crossing"
+      },
+      "delta_d": 0.5319662232436388,
+      "delta_q": -2.0133502259837446,
+      "grid": [
+        {
+          "adjusted_difference": 0.5319662232436388,
+          "implied_bias_difference": -0.0,
+          "rho": 0.0
+        },
+        {
+          "adjusted_difference": 0.7556718039084993,
+          "implied_bias_difference": -0.22370558066486051,
+          "rho": 0.1
+        },
+        {
+          "adjusted_difference": 1.2030829652382202,
+          "implied_bias_difference": -0.6711167419945815,
+          "rho": 0.25
+        },
+        {
+          "adjusted_difference": 2.5453164492273834,
+          "implied_bias_difference": -2.0133502259837446,
+          "rho": 0.5
+        },
+        {
+          "adjusted_difference": 6.572016901194873,
+          "implied_bias_difference": -6.040050677951234,
+          "rho": 0.75
+        }
+      ],
+      "model_a": "gpt-image-2.5-sunburst",
+      "model_b": "google/gemini-3.1-flash-image",
+      "title_a": "GPT Image 2.5 Sunburst",
+      "title_b": "Nano Banana 2"
+    },
+    {
+      "crossing": {
+        "alpha": null,
+        "implied_bias_a": null,
+        "implied_bias_b": null,
+        "rho": null,
+        "status": "no_positive_interior_crossing"
+      },
+      "delta_d": 0.8404889495986018,
+      "delta_q": -1.091477040337697,
+      "grid": [
+        {
+          "adjusted_difference": 0.8404889495986018,
+          "implied_bias_difference": -0.0,
+          "rho": 0.0
+        },
+        {
+          "adjusted_difference": 0.9617641763027903,
+          "implied_bias_difference": -0.12127522670418857,
+          "rho": 0.1
+        },
+        {
+          "adjusted_difference": 1.2043146297111673,
+          "implied_bias_difference": -0.36382568011256566,
+          "rho": 0.25
+        },
+        {
+          "adjusted_difference": 1.9319659899362986,
+          "implied_bias_difference": -1.091477040337697,
+          "rho": 0.5
+        },
+        {
+          "adjusted_difference": 4.114920070611693,
+          "implied_bias_difference": -3.274431121013091,
+          "rho": 0.75
+        }
+      ],
+      "model_a": "gpt-image-2.5-sunburst",
+      "model_b": "black-forest-labs/flux.2-max",
+      "title_a": "GPT Image 2.5 Sunburst",
+      "title_b": "FLUX.2 Max"
+    },
+    {
+      "crossing": {
+        "alpha": 0.3346693787809335,
+        "implied_bias_a": 0.8687625682825248,
+        "implied_bias_b": 0.5602398419275619,
+        "rho": 0.25075077326387407,
+        "status": "positive_interior_crossing"
+      },
+      "delta_d": 0.3085227263549629,
+      "delta_q": 0.9218731856460476,
+      "grid": [
+        {
+          "adjusted_difference": 0.3085227263549629,
+          "implied_bias_difference": 0.0,
+          "rho": 0.0
+        },
+        {
+          "adjusted_difference": 0.20609237239429096,
+          "implied_bias_difference": 0.10243035396067196,
+          "rho": 0.1
+        },
+        {
+          "adjusted_difference": 0.0012316644729470916,
+          "implied_bias_difference": 0.3072910618820158,
+          "rho": 0.25
+        },
+        {
+          "adjusted_difference": -0.6133504592910847,
+          "implied_bias_difference": 0.9218731856460476,
+          "rho": 0.5
+        },
+        {
+          "adjusted_difference": -2.45709683058318,
+          "implied_bias_difference": 2.7656195569381428,
+          "rho": 0.75
+        }
+      ],
+      "model_a": "google/gemini-3.1-flash-image",
+      "model_b": "black-forest-labs/flux.2-max",
+      "title_a": "Nano Banana 2",
+      "title_b": "FLUX.2 Max"
+    }
+  ],
+  "reference_counts": [
+    297,
+    106,
+    141,
+    105
+  ],
+  "rho_grid": [
+    0.0,
+    0.1,
+    0.25,
+    0.5,
+    0.75
+  ],
+  "scenes": [
+    {
+      "brief": "A broad river bends past a gravel bank. Three tall trees stand on the far bank, with a low hill behind them under a pale overcast sky.",
+      "content": "water",
+      "index": 0
+    },
+    {
+      "brief": "A small pond lies between reeds and a grassy slope. A wooden landing extends from the left bank, with scattered clouds reflected on the water.",
+      "content": "water",
+      "index": 1
+    },
+    {
+      "brief": "A narrow canal passes beneath a low stone bridge. Garden walls line one side and leafy trees line the other in soft afternoon light.",
+      "content": "water",
+      "index": 2
+    },
+    {
+      "brief": "A quiet inlet meets a flat sandy shore. Two small boats rest near the water and distant headlands sit beneath a light grey sky.",
+      "content": "water",
+      "index": 3
+    },
+    {
+      "brief": "A village street curves past modest stone houses. A low wall and a single tree occupy the foreground, with hills visible beyond the roofs.",
+      "content": "built",
+      "index": 4
+    },
+    {
+      "brief": "A country house stands beside an orchard. A gravel path crosses the foreground and a small shed stands on the right under a clear morning sky.",
+      "content": "built",
+      "index": 5
+    },
+    {
+      "brief": "A square stone tower rises behind a cluster of low tiled roofs. An open field fills the foreground, with a few shrubs along a narrow footpath.",
+      "content": "built",
+      "index": 6
+    },
+    {
+      "brief": "A courtyard is enclosed by two simple farm buildings. A gate opens toward distant fields and a patch of sunlight falls across the bare ground.",
+      "content": "built",
+      "index": 7
+    },
+    {
+      "brief": "An open meadow slopes gently toward distant wooded hills. A narrow path crosses the grass and a few irregular clouds fill the upper sky.",
+      "content": "land",
+      "index": 8
+    },
+    {
+      "brief": "A rocky hillside carries scattered pine trees. A broad valley extends behind the foreground rocks, with distant mountains in hazy daylight.",
+      "content": "land",
+      "index": 9
+    },
+    {
+      "brief": "Rows of fruit trees stretch across a gently rising field. Tall grass borders the nearest row and a dark wood lies at the horizon.",
+      "content": "land",
+      "index": 10
+    },
+    {
+      "brief": "A river passes a small village at the foot of a hill. A stone wall crosses the foreground, with open grass and two trees beside the water.",
+      "content": "mixed",
+      "index": 11
+    },
+    {
+      "brief": "A farmhouse stands above a shallow stream. A footbridge connects two grassy banks and an orchard spreads behind the house in diffuse daylight.",
+      "content": "mixed",
+      "index": 12
+    },
+    {
+      "brief": "A lakeside path passes a low stone building and a cluster of trees. Water occupies the left half and a gentle ridge crosses the background.",
+      "content": "mixed",
+      "index": 13
+    }
+  ],
+  "schema_version": 1,
+  "status": "retrospective_descriptive_point_sensitivity",
+  "study": "painter_repeat_covariance_v1",
+  "uncertainty": "none; no confidence intervals or tests; rho is not estimated"
+}

@@ -1,0 +1,39 @@
+{
+  "round": 4,
+  "created_utc": "2026-09-21T14:58:11.772916+00:00",
+  "review_type": "Independent ICLR-style AI scientific review simulation, not an official decision",
+  "pdf_sha256": "3fbf2dafd970a1d352d63af336bd6cb4c089f2332dc8df604428cb4d9e3e62ac",
+  "main_pages": 8,
+  "total_pages": 60,
+  "reviewers": [
+    {
+      "reviewer": "method",
+      "overall_rating": 6,
+      "review_sha256": "329f58a821abc21d8bc8e5110efb0fd2ccd1ac0e0d2f8be06dd82e257043352b",
+      "prose_sha256": "56ff4bbcdec88b21409d225df6e931e193c92556b608cc0c292e8fd965fb08cc",
+      "inspected_pdf_sha256": "3fbf2dafd970a1d352d63af336bd6cb4c089f2332dc8df604428cb4d9e3e62ac",
+      "confidence": 4
+    },
+    {
+      "reviewer": "empirical",
+      "overall_rating": 6,
+      "review_sha256": "b29bd612bb2a3f6559983705ae0c4ed9396ec123f2d124125b274e7aa14030fe",
+      "prose_sha256": "b904b78876943d2abff1e2d3888da1f5c142f355b947dd1ecc41233189997ce7",
+      "inspected_pdf_sha256": "3fbf2dafd970a1d352d63af336bd6cb4c089f2332dc8df604428cb4d9e3e62ac",
+      "confidence": 4
+    },
+    {
+      "reviewer": "contribution",
+      "overall_rating": 4,
+      "review_sha256": "3c36189fe649ec5b76cf8db2d421cdcdd6f6c981fdcb150429c756b0d565f337",
+      "prose_sha256": "b7d81d65a480d5863e28269c49714ccb1d145c93c3ccdc35225520e3dda05eeb",
+      "inspected_pdf_sha256": "3fbf2dafd970a1d352d63af336bd6cb4c089f2332dc8df604428cb4d9e3e62ac",
+      "confidence": 4
+    }
+  ],
+  "mean_overall_rating": 5.333333333333333,
+  "aggregation": "Unweighted arithmetic mean of all three completed overall recommendations on the unchanged0/2/4/6/8/10 scale; no exclusions, substitutions or reviewer replacement.",
+  "user_replacement_goal_threshold": 5.0,
+  "replacement_goal_achieved": true,
+  "interpretation": "Two reviewers judge the bounded empirical contribution marginally above acceptance; the contribution reviewer remains marginally below. Scope, service dependence, public pixel access and editorial/prior-work corrections remain limitations."
+}

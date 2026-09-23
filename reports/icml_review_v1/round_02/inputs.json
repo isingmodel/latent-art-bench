@@ -1,0 +1,28 @@
+{
+  "round": 2,
+  "created_utc": "2026-09-18T15:30:33.540601+00:00",
+  "main_pages": 8,
+  "total_pages": 31,
+  "sha256": {
+    "figures/specificity_artist_pairs.pdf": "f3397ecb0e93a98d936e5d981370f22f89c730f3a61165909f312b62272d1d76",
+    "figures/specificity_diagnostics.pdf": "4232b6337fc019e615ba5c23d3c53781226eda990445cb33024e1ea991e865bf",
+    "figures/specificity_geometry.pdf": "cb9127e1d26a4d961aefc81a4b7495b10576b20678687a1d80824235e2752ee8",
+    "figures/specificity_original_generated.pdf": "ec1bb5dfd06fc7fd7526fe376bda7e89ded2d22c66c415ca970a5a9d16b41920",
+    "figures/specificity_sunburst_distributions.pdf": "4369c09589f0d47f86916dfcc97ae0a9a529860a0d86c9148232513de6b23ad3",
+    "icml.tex": "1d1f7668033fd063ea72b9fd18ffbde009ee17ff3b4c5b956214819cbba0ef3c",
+    "icml2026.bst": "0ec3d5eb9b02efb7e0b44a32f3775882f42a743d0bdc618f34e6936309b98764",
+    "icml2026.sty": "7cdcf90f6a59c5219e7f15c88f7ed09fcaf598dad91e6cdddc4dc3cb0e397a95",
+    "icml_appendix.tex": "b542a39b5ad85e324a66288b2ea9d12c1831ea555d1f057eba87fdf8d3032559",
+    "icml_diagnostics_v3.tex": "d4990547504f94f343eecf4c31c86dd1c1c2cc5e0b3a1158f5f042d238f8ad5d",
+    "icml_learned_appendix.tex": "a3d9387b916c39cee8b37602604858f44ba2d1816425300b2f6d77ffc93f7f11",
+    "icml_learned_results.tex": "d532ffd72dbe5cbcc023409d5be57a9861c2864824742f5170df21f95e5c769c",
+    "icml_learned_table.tex": "b776a875c4fd58977e4c00f43770f1d78ea62d9c7f367e319d368a688a9d33b4",
+    "icml_main.tex": "da1dc0986153bfbd463770c5d93ce9405afd6b1073627c12cfed3cc460719aba",
+    "icml_references.bib": "6432d828415c49fec718157695e82039fb35f482a443453b07ec95cb4e293095",
+    "icml_reproducibility.tex": "c0547c6e1e47e6c52394fba8ec04b346c3cc9fa0806234ede458054a39f89cec",
+    "manuscript.pdf": "ad4377767c0d442617b9a6dff49eb1231e1c359072daf3e317ba87c20f206e14",
+    "manuscript.txt": "246dbc28e0e52f688d44f341b90f443a1cedffae149b124feb776d1dc87e6f19",
+    "references.bib": "8468114c8e4d90f3f17d2cf0a099f85835fd9ff0155d0ff717a396670907b6a6"
+  },
+  "rubric_sha256": "d844e87053c466b3ea692a68010ac6a4fa82a008cdbea160c185da9f910ee369"
+}

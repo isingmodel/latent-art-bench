@@ -1,0 +1,78 @@
+{
+  "qualification_v1": {
+    "record_sha256": "3aa4f177ae50a35433089aae639fc916eb54d519ef0bb42571b1b3533e9aec70",
+    "bindings_checked": 15,
+    "mismatches": []
+  },
+  "qualification_v2": {
+    "record_sha256": "844c5b10b877ebb1fa09557c2865cfc7827239a8477a7df57a83ab22e2310c7f",
+    "bindings_checked": 31,
+    "mismatches": []
+  },
+  "qualification_v3": {
+    "record_sha256": "d2781b532e5be072976d0d9cb332631e75e29fb36c5c35d5f68df96da19358ea",
+    "bindings_checked": 4,
+    "mismatches": []
+  },
+  "latent_art_bench_korean.pdf": {
+    "sha256": "096db88b2a5119dc6697e2064ceff554e90a581fb3cec93329507cc221e27ab2",
+    "matches_last_verified": true,
+    "pages": 26
+  },
+  "latent_art_bench_icml.pdf": {
+    "sha256": "115f9ff33762e932d44fa3e8dbc9582af5f4ffd6a13e8406695c4eb43de89147",
+    "matches_last_verified": true,
+    "pages": 46
+  },
+  "korean_source": {
+    "notice_absent": true,
+    "abstract_through_eof_unchanged": true,
+    "preserved_bytes": 86099
+  },
+  "execution31_fixture": {
+    "source_bindings_checked": 8,
+    "source_mismatches": [],
+    "archive_matches": true,
+    "receipt_matches": true,
+    "replay_matches": true
+  },
+  "recorded_utc": "2026-09-18T22:52:50.418275+00:00",
+  "free_bytes_at_handoff": 4967043072,
+  "round_03": {
+    "scientific_bindings_checked": 23,
+    "mismatches": [],
+    "reviews_checked": [
+      {
+        "path": "reports/icml_review_v1/round_03/reviewer_method.json",
+        "matches": true
+      },
+      {
+        "path": "reports/icml_review_v1/round_03/reviewer_method.md",
+        "matches": true
+      },
+      {
+        "path": "reports/icml_review_v1/round_03/reviewer_empirical.json",
+        "matches": true
+      },
+      {
+        "path": "reports/icml_review_v1/round_03/reviewer_empirical.md",
+        "matches": true
+      },
+      {
+        "path": "reports/icml_review_v1/round_03/reviewer_contribution.json",
+        "matches": true
+      },
+      {
+        "path": "reports/icml_review_v1/round_03/reviewer_contribution.md",
+        "matches": true
+      }
+    ],
+    "reviewed_pdf_matches": true,
+    "retained_scores": [
+      4,
+      4,
+      4
+    ],
+    "retained_mean": 4.0
+  }
+}

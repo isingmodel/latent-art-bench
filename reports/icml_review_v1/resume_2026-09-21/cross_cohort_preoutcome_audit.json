@@ -1,0 +1,169 @@
+{
+  "audit_kind": "bounded independent pre-outcome design and constructed-code audit; not scientific rating",
+  "auditor": "/root/resume_design_audit",
+  "bindings": [
+    {
+      "path": "studies/painter_cross_cohort_v1/PLAN.md",
+      "sha256": "d5c0ff6bcf54423174e3bee5ed6ed9ca6737d80ececba87223286793c2cdf4a4"
+    },
+    {
+      "path": "src/latent_art_bench/painter_cross_cohort_v1.py",
+      "sha256": "1610bb91e69470d9f7553cafc13a8a918df40671c921d9e2625030a1fae564e5"
+    },
+    {
+      "path": "tests/painter_cross_cohort_v1/test_analysis.py",
+      "sha256": "d742ee9506bdfb79b7de549340dad169f734299f4a0169d49d16706dd841d4f9"
+    },
+    {
+      "path": "tests/painter_cross_cohort_v1/test_census_and_gate.py",
+      "sha256": "73d89325e7bc3835ecf243ae41ad4da4f678538f894c2f55bc93aa9d577eaba0"
+    },
+    {
+      "path": "reports/icml_review_v1/resume_2026-09-21/cross_cohort_independent_probes.py",
+      "sha256": "9da4ad5b78d56545940d325c39a7f3bc68b47ff2a0535670f916d22b950c171f"
+    }
+  ],
+  "checks": {
+    "constructed_pytest": {
+      "command": "uv run --locked pytest -c pytest-paper.ini -q tests/painter_cross_cohort_v1",
+      "failed": 0,
+      "passed": 55
+    },
+    "independent_explicit_ordered_pair_probe": {
+      "checks": [
+        "ordered_pairs_K2",
+        "order_invariant_K2",
+        "ordered_pairs_K3",
+        "order_invariant_K3",
+        "ordered_pairs_K25",
+        "order_invariant_K25",
+        "all31:C",
+        "all31:L",
+        "all31:D",
+        "all31:sceneD",
+        "all31:pair0:amplitude",
+        "all31:pair0:sceneD",
+        "all31:pair1:amplitude",
+        "all31:pair1:sceneD",
+        "all31:pair2:amplitude",
+        "all31:pair2:sceneD",
+        "all31:pair3:amplitude",
+        "all31:pair3:sceneD",
+        "all31:pair4:amplitude",
+        "all31:pair4:sceneD",
+        "all31:pair5:amplitude",
+        "all31:pair5:sceneD",
+        "color:C",
+        "color:L",
+        "color:D",
+        "color:sceneD",
+        "color:pair0:amplitude",
+        "color:pair0:sceneD",
+        "color:pair1:amplitude",
+        "color:pair1:sceneD",
+        "color:pair2:amplitude",
+        "color:pair2:sceneD",
+        "color:pair3:amplitude",
+        "color:pair3:sceneD",
+        "color:pair4:amplitude",
+        "color:pair4:sceneD",
+        "color:pair5:amplitude",
+        "color:pair5:sceneD",
+        "spatial:C",
+        "spatial:L",
+        "spatial:D",
+        "spatial:sceneD",
+        "spatial:pair0:amplitude",
+        "spatial:pair0:sceneD",
+        "spatial:pair1:amplitude",
+        "spatial:pair1:sceneD",
+        "spatial:pair2:amplitude",
+        "spatial:pair2:sceneD",
+        "spatial:pair3:amplitude",
+        "spatial:pair3:sceneD",
+        "spatial:pair4:amplitude",
+        "spatial:pair4:sceneD",
+        "spatial:pair5:amplitude",
+        "spatial:pair5:sceneD",
+        "texture:C",
+        "texture:L",
+        "texture:D",
+        "texture:sceneD",
+        "texture:pair0:amplitude",
+        "texture:pair0:sceneD",
+        "texture:pair1:amplitude",
+        "texture:pair1:sceneD",
+        "texture:pair2:amplitude",
+        "texture:pair2:sceneD",
+        "texture:pair3:amplitude",
+        "texture:pair3:sceneD",
+        "texture:pair4:amplitude",
+        "texture:pair4:sceneD",
+        "texture:pair5:amplitude",
+        "texture:pair5:sceneD",
+        "25_deletions",
+        "delete0:K24",
+        "delete1:K24",
+        "delete2:K24",
+        "delete3:K24",
+        "delete4:K24",
+        "delete5:K24",
+        "delete6:K24",
+        "delete7:K24",
+        "delete8:K24",
+        "delete9:K24",
+        "delete10:K24",
+        "delete11:K24",
+        "delete12:K24",
+        "delete13:K24",
+        "delete14:K24",
+        "delete15:K24",
+        "delete16:K24",
+        "delete17:K24",
+        "delete18:K24",
+        "delete19:K24",
+        "delete20:K24",
+        "delete21:K24",
+        "delete22:K24",
+        "delete23:K24",
+        "delete24:K24",
+        "paired_control_common",
+        "paired_control_centered",
+        "zero_reference",
+        "negative_unclipped"
+      ],
+      "constructed_only": true,
+      "count": 100,
+      "status": "passed"
+    },
+    "ruff": "passed"
+  },
+  "created_utc": "2026-09-21T14:24:16.700816+00:00",
+  "initial_issues": [
+    {
+      "issue": "Pair amplitude/error lacked precise equations and scene aggregation order; coordinate-family denominator was underspecified.",
+      "resolution": "PLAN and implementation now use mean-bs aligned amplitude and mean-scene cross-block error with family-specific H and pair H; zero denominators explicitly unavailable.",
+      "severity": "mandatory specification"
+    },
+    {
+      "issue": "Frozen inputs lacked external digest gate.",
+      "resolution": "External expected SHA-256 is required on analyze and check.",
+      "severity": "optional hardening"
+    },
+    {
+      "issue": "Delete-one denominator/reference handling was implicit.",
+      "resolution": "PLAN states K=24 with fixed historical membership, means, scales and denominators.",
+      "severity": "scope clarification"
+    }
+  ],
+  "limits": [
+    "Audited math, constructed arrays, census/gate code and tests only; empirical input verification is performed by the frozen loader, not independently rerun here.",
+    "Cross-block independence and stable means are assumptions; deterministic distinct seed streams do not prove them.",
+    "Retrospective cohort reuses the four-painter reference target and is not fresh confirmation or evidence about closed-service dependence.",
+    "No scientific score, empirical success verdict, perceptual validity or new data is certified."
+  ],
+  "new_empirical_arrays_loaded_by_auditor": false,
+  "new_empirical_outcomes_computed": false,
+  "status": "passed",
+  "unresolved_mandatory_findings": []
+}

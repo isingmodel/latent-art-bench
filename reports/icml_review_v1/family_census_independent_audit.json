@@ -1,0 +1,105 @@
+{
+  "status": "constructed_offline_independent_probes",
+  "new_observations": 0,
+  "implementation_sha256": "5d47088fe846e6df368070ae7c70a81685d48379f30ea294b79a2375e4c3049a",
+  "script_sha256": "32c316707a40de235b9bf711410241e2d43250bd8af05c14ec09e1d5374415ee",
+  "probes": [
+    {
+      "probe": "image_response_mismatch",
+      "outcome": "accepted",
+      "details": {
+        "accepted_observations": 4,
+        "response_bytes_changed": false,
+        "selected_image_bytes_changed": true
+      }
+    },
+    {
+      "probe": "claimed_geometry",
+      "outcome": "accepted",
+      "details": {
+        "accepted_observations": 4,
+        "claimed_dimensions": [
+          1024,
+          1024
+        ],
+        "actual_dimensions": [
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "probe": "early_terminal",
+      "outcome": "accepted",
+      "details": {
+        "accepted_observations": 4,
+        "terminal_time": "2000-01-01T00:00:00+00:00",
+        "latest_completion": "2000-01-01T00:00:16+00:00"
+      }
+    },
+    {
+      "probe": "retry_after_success",
+      "outcome": "accepted",
+      "details": {
+        "selected_attempt": "pfam1-s00-m04-L2-shared_family-a2",
+        "earlier_successful_attempt": "pfam1-s00-m04-L2-shared_family-a1"
+      }
+    },
+    {
+      "probe": "fabricated_vectors",
+      "outcome": "accepted",
+      "details": {
+        "accepted_observations": 4,
+        "encoder_executed": false
+      }
+    },
+    {
+      "probe": "forged_object",
+      "outcome": "accepted",
+      "details": {
+        "simulation_only": false,
+        "on_disk_simulation_only": true
+      }
+    },
+    {
+      "probe": "altered_contract",
+      "outcome": "rejected",
+      "details": {
+        "exception": "ValueError",
+        "reason": "feature input membership, timing or measurement contract changed"
+      }
+    },
+    {
+      "probe": "reordered_vectors",
+      "outcome": "rejected",
+      "details": {
+        "exception": "ValueError",
+        "reason": "embedding row IDs differ from bound image order"
+      }
+    },
+    {
+      "probe": "altered_assignment",
+      "outcome": "rejected",
+      "details": {
+        "exception": "ValueError",
+        "reason": "assignment membership, order, windows or payload changed"
+      }
+    },
+    {
+      "probe": "default_simulation",
+      "outcome": "rejected",
+      "details": {
+        "exception": "ValueError",
+        "reason": "simulation receipts cannot be treated as scientific observations"
+      }
+    },
+    {
+      "probe": "stale_hash",
+      "outcome": "rejected",
+      "details": {
+        "exception": "ValueError",
+        "reason": "file differs from externally bound identity: /private/var/folders/yd/9_ft24v168dfkvzr70797tzh0000gn/T/family-census-independent-z58tfn8e/run/terminal.json"
+      }
+    }
+  ]
+}

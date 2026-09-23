@@ -1,0 +1,28 @@
+{
+  "round": 1,
+  "review_type": "Independent ICLR-style scientific review simulation",
+  "pdf_sha256": "4ee2a3004226bbcd0151ca310265efad851b69e431d1e05895701b8f918a3e85",
+  "reviewers": [
+    {
+      "reviewer": "method",
+      "overall_rating": 4,
+      "review_sha256": "861f13fa527bcea88658f05ad3abae544efc78114e9693e6e76e886b2c9e5811",
+      "inspected_pdf_sha256": "4ee2a3004226bbcd0151ca310265efad851b69e431d1e05895701b8f918a3e85"
+    },
+    {
+      "reviewer": "empirical",
+      "overall_rating": 4,
+      "review_sha256": "36f0e16e284f412fc4b2be5e01a72bf008c03a2ca751bb26d64ba1153412b7d1",
+      "inspected_pdf_sha256": "4ee2a3004226bbcd0151ca310265efad851b69e431d1e05895701b8f918a3e85"
+    },
+    {
+      "reviewer": "contribution",
+      "overall_rating": 4,
+      "review_sha256": "88d101290b26957027e2a53295752921ab7ee694accec75fa906517fe0e48287",
+      "inspected_pdf_sha256": "4ee2a3004226bbcd0151ca310265efad851b69e431d1e05895701b8f918a3e85"
+    }
+  ],
+  "mean_overall_rating": 4,
+  "aggregation": "Unweighted mean of all three original overall recommendations; no reviewer replacements.",
+  "interpretation": "First-round scientific reviews completed. Substantive new evidence is required before a new review round."
+}

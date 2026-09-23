@@ -1,0 +1,14 @@
+{
+  "status": "old-only parameter candidate; not complete study freeze",
+  "path": "reports/painter_family_controls_v1/old_transport_candidate_v1.json",
+  "sha256": "fd6e80de75b7578059ecaee602b4ea5fc9e74f06d7711e52e8bd532cddbabac2",
+  "loaded_identity_verified": true,
+  "old_named_images": 672,
+  "reference_images": 649,
+  "encoders": [
+    "clip",
+    "csd"
+  ],
+  "new_observations": 0,
+  "live_authorization": false
+}

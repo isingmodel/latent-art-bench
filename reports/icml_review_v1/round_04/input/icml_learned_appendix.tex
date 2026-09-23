@@ -1,0 +1,137 @@
+\section{Same-image Learned-representation Audit}\label{app:learned-audit}
+
+\subsection{Scope, representations and provenance}
+This retrospective extension asks whether prototype similarity, name recognition
+and centered painter agreement describe the same response in a common learned
+representation. These comparisons connect the prompted-artist evaluation of
+\citet{su2025prompted} with CLIP \citep{radford2021} and the CSD style descriptors
+of \citet{somepalli2024style}. The protocol was fixed after the 31-feature analysis
+and before inspecting learned-representation outcomes. No new images, painters,
+prompts or reference works enter this extension.
+
+The input census contains all 1,878 originals: 1,008 generated images, 649 primary
+references and 221 development works. An additional 131 views apply the previously
+recorded painting-region crops to 90 references and 41 development images, giving
+2,009 extraction rows per representation. The region sensitivity substitutes these
+views for their originals; unchanged works retain their original view. It does not
+double-count cropped works or alter generated pixels.
+
+Both encoders return 768-dimensional unit vectors. We use their Euclidean/cosine
+geometry without coordinate IQR scaling, whitening or selected dimensions.
+Table~\ref{tab:learned-provenance} identifies the fixed public checkpoints and
+local extraction implementations. CSD uses its released style projection of the
+CLIP visual backbone, followed by unit normalization; the content head is unused.
+Its release documentation reports a discrepancy between released weights and
+published benchmark numbers. Our CSD measurements therefore characterize the
+specified public checkpoint, without claiming to reproduce those benchmark numbers.
+
+\begin{table}[htbp]
+\caption{Learned-extraction provenance. Revision and SHA-256 prefixes are shortened
+to 12 characters here; retained records contain complete identifiers.}
+\label{tab:learned-provenance}
+\centering\small\setlength{\tabcolsep}{6pt}
+\begin{tabularx}{\linewidth}{@{}lXXX@{}}
+\toprule
+Encoder & Checkpoint revision & Weight SHA-256 & Implementation SHA-256\\
+\midrule
+CLIP ViT-L/14 & \texttt{32bd64288804} & \texttt{a2bf730a0c7d} & \texttt{156750d6d709}\\
+CSD ViT-L/14 & \texttt{5bc26a6fb048} & \texttt{40e92fad63a3} & \texttt{787b95697b6c}\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The checkpoint repositories are \texttt{openai/clip-vit-large-patch14} and
+\texttt{tomg-group-umd/CSD-ViT-L}. The retained OpenAI vision implementation is
+from commit \texttt{a1d071733d71}; CSD architecture and preprocessing follow
+commit \texttt{3a9df32605b8}. Strict tensor loading checks the selected model
+state and style-head dimensions. The CSD adapter has its own versioned input
+record; completed CLIP inputs, code and receipts are preserved.
+
+\subsection{Pixels, native crops and numerical checks}
+Each source is hash-verified. EXIF orientation and valid ICC-to-sRGB conversion
+precede the optional audited region. The resulting image undergoes bicubic resize
+to a 224-pixel short side, a $224\times224$ center crop, and CLIP channel
+normalization, directly from original pixels. The primary learned view is thus a
+native center crop, unlike the full-frame hand-feature measurement.
+
+The Hugging Face CLIP processor uses floor center offsets. Native CSD follows
+torchvision's rounded offsets; these can differ by one pixel when the resized
+long side is odd. A separately bound CSD adapter implements that convention,
+fixed before CSD outcomes. The difference is retained rather than silently
+changing completed CLIP extraction. Processed float32 tensors receive individual
+hashes. Models run serially in evaluation mode, float32, with MPS batches of four.
+
+The supplementary checks use four deterministically selected cases: a
+generated image, an original reference, an odd-aspect reference, and an audited
+region. CPU/MPS and batch-four/single comparisons have maximum absolute
+unit-vector-coordinate difference $8.11\times10^{-7}$ for CLIP and
+$1.26\times10^{-6}$ for CSD, below the declared
+$5\times10^{-5}$ tolerance; their tensor hashes match extraction. This checks
+backend and batching consistency on those cases, not all possible images or
+artistic validity. Supplemental provenance binds configurations, implementation
+files and the dependency lock. The CLIP environment records Python 3.13.11,
+PyTorch 2.13.0, Transformers 4.57.6, NumPy 2.5.2 and Pillow 11.3.0. Numerical
+replay uses retained embeddings and hash-bound row identities; exact inference
+can vary across environments.
+
+\subsection{Prototype gain and labeled agreement}
+For $A=4$ painters, let $g_a$ be the mean of named unit embeddings across scenes
+and repeats, $g_0$ the corresponding generic-painting mean, and $\mu_a$ the mean
+reference embedding. These prototypes are \emph{unnormalized} means, so
+$g_a^\top\mu_b$ equals average image-to-reference cosine similarity. Define
+$\bar g=A^{-1}\sum_a g_a$, $\bar\mu=A^{-1}\sum_a\mu_a$,
+$d_a=g_a-\bar g$, $r_a=\mu_a-\bar\mu$ and $H=\sum_a\|r_a\|^2$.
+The equally painter-weighted diagonal gain has the exact identity
+\begin{equation}
+\underbrace{\frac1A\sum_a g_a^\top\mu_a-g_0^\top\bar\mu}_{\text{prototype gain}}
+=\underbrace{(\bar g-g_0)^\top\bar\mu}_{\text{common contribution}}
++\underbrace{\frac1A\sum_a d_a^\top r_a}_{\text{labeled contribution}}
+=(\bar g-g_0)^\top\bar\mu+\frac{H}{A}\widehat\beta.
+\label{eq:learned-prototype-gain}
+\end{equation}
+The same decomposition holds for the artist-free baseline. A positive prototype
+gain can therefore include movement common to every painter name. Recognition
+is a separate calculation: each generated image is assigned to the largest dot
+product with a \emph{unit-normalized} reference prototype. We retain confusion
+matrices and macro-average development-work recognition over painters.
+
+All 24 reference-label permutations are descriptive controls. If $P_\pi$ is the
+permuted diagonal prototype score, then
+\begin{equation}
+P_\pi=\bar g^\top\bar\mu+\frac{H}{A}\widehat\beta_\pi,
+\qquad
+\widehat D_\pi=1+\widehat Q-2\widehat\beta_\pi.
+\label{eq:learned-permutation}
+\end{equation}
+Here $H$ and $\widehat Q$ are unchanged by reference-label permutation. Thus
+ranking permutations by higher $P_\pi$, higher $\widehat\beta_\pi$ or lower
+$\widehat D_\pi$ gives the same ordering by construction. These ranks are
+neither independent corroboration nor confirmatory permutation tests.
+
+\subsection{Sensitivity scope and artifact access}
+The audit retains all configurations and painter pairs, repeats the original
+contrast/error/calibration calculations in each representation, and reports
+common/specific changes from both control arms. Reference contrast energy is
+specific to the representation and view; normalized errors across them are not
+a shared perceptual scale. Leave-one-scene-out ranges describe influence, not
+confidence intervals. The 221-work development target is an alternative finite
+panel already used in this project, not a fresh collection or service replication.
+
+CSD derives from CLIP, and both are applied to the same images. Their agreement
+is therefore evidence about sensitivity to related representations. All four
+painters occur in CSD's published style-tag list, and training-image overlap is
+unknown for both encoders. Neither representation supplies perceptual ground truth,
+an unseen-artist test or validation of the AI-coded source regions.
+
+A deterministic local inventory verifies the hashes, byte counts and detected
+media types of exactly 1,878 originals; a companion attribution inventory binds
+870 historical sources to retained license, credit and source-page metadata.
+Recorded reproduction-file licenses comprise 763 public-domain entries, 23 CC0
+entries and 84 CC BY/CC BY-SA entries. These records distinguish the complete
+cohort from the four displayed public-domain examples. The inventories make local
+artifact contents reviewable without copying pixels. They do not constitute a
+public image release or establish complete live recovery; the public exact-pixel
+access limitation remains.
+Richer retained metadata matches each acquisition by hash and supplies license
+URLs and credit fields for all 84 attribution-bearing files. Two lack a separate
+artist-text field; release preparation requires contextual review of these credits.

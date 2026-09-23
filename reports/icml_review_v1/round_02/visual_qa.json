@@ -1,0 +1,7 @@
+{
+  "pdf_sha256": "ad4377767c0d442617b9a6dff49eb1231e1c359072daf3e317ba87c20f206e14",
+  "pages": 31,
+  "render": "Poppler PNG 700px; all pages inspected using contact sheets and detailed views; subsequent edited pages rerendered and reinspected",
+  "result": "No clipping, overlapping objects, missing figures, missing glyphs or unresolved references observed. Standard ICML float pages and final partial appendix page retained.",
+  "preview_directory": "tmp/paper/icml-round02-preview"
+}

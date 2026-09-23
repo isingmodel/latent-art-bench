@@ -1,0 +1,104 @@
+\clearpage
+\section{Retrospective held-scene prompted-name identification}
+\label{app:transfer}
+
+\subsection{Question, chronology and information budgets}
+The criterion is the recorded painter name in each generation prompt, among
+Monet, Sisley, Pissarro and C\'ezanne. It is not physical authorship or an expert
+judgment of resemblance. Baseline recognition and its confusions were already
+known when this diagnostic was chosen. Its plan, implementation, constructed
+tests, embedding archives and original analysis bindings were then frozen
+before computing any translated outcomes. Thus the fit excludes held-scene
+images, but the choice of question did not originate from an untouched test
+set. We call this a retrospective out-of-fold diagnostic, not a confirmatory
+validation experiment.
+
+The reference baseline uses historical examples only. Common translation
+additionally uses a balanced pool of generated named-arm examples, with no
+correspondence between individual training images and painter labels in its
+arithmetic. Selecting that pool and verifying its balance requires experimental
+metadata. The supervised generated-prototype rule additionally uses those
+individual painter assignments. These are different information budgets;
+the supervised result describes available generated-domain label structure,
+not a like-for-like zero-shot improvement or alignment with real-art features.
+
+\subsection{Fixed rules and exact identities}
+For each encoder, model and held scene $s$, let $x_{tra}$ be a unit generated
+embedding, with scene $t$, repeat $r$ and prompted painter $a$. The raw historical
+centroid $\mu_a$ averages unit reference-image embeddings; it is not itself
+normalized until forming the classification direction $u_a=\mu_a/\|\mu_a\|$.
+The target mean weights the four raw centroids equally, not by artwork counts.
+Using the other 13 scenes and both repeats, compute
+\begin{equation}
+ \bar\mu=\frac14\sum_a\mu_a,\qquad
+ \bar g_{-s}=\frac1{104}\sum_{t\ne s,r,a}x_{tra},\qquad
+ t_{-s}=\bar\mu-\bar g_{-s}.
+\end{equation}
+No normalization of either mixture mean, translation-scale search or
+label-dependent threshold adjustment is performed. The translated training
+mixture has mean $\bar\mu$ by construction; better held-scene recognition does
+not follow from that identity. In particular, using the mean of normalized
+$u_a$ instead would define a different correction and is not evaluated here.
+
+The three rules for a held-scene query $x$ are
+\begin{align}
+ B(x)&=\arg\max_a x^\top u_a,\\
+ T_{-s}(x)&=\arg\max_a (x+t_{-s})^\top u_a,\\
+ G_{-s}(x)&=\arg\max_a x^\top q_{a,-s},\qquad
+ q_{a,-s}=\frac{\frac1{26}\sum_{t\ne s,r}x_{tra}}
+ {\left\|\frac1{26}\sum_{t\ne s,r}x_{tra}\right\|}.
+\end{align}
+Every fold fits separately for one model and evaluates eight images, giving
+112 decisions per rule/configuration. Both repeats and all four named arms of
+the held scene are excluded jointly. Reference centroids are fixed across
+folds. Free and generic outputs do not enter this task. The two encoders,
+original/audited reference views and primary/development targets are all
+retained; none is selected based on transfer performance.
+
+The translated score is $x^\top u_a+t_{-s}^\top u_a$. Its second term changes
+class intercepts while preserving the ordering of images by any pairwise
+class margin within a fold. Normalizing a nonzero translated query would
+divide every candidate score by the same positive value, leaving its decision
+unchanged. We retain raw dot products. Ties choose the first artist in the
+fixed order above. An exactly zero translated query would have four zero
+scores and the same tie rule, with undefined cosine; none occurs here. Invalid
+or zero-norm class centroids are errors, never grounds to discard a painter.
+
+Adding the same $t_{-s}$ to all four held-scene painter embeddings cancels
+exactly under artist centering. Therefore the centered contrasts and their
+$\beta$, $Q$ and $D$ are unchanged before any query normalization. Improved
+decisions cannot be interpreted as improved centered geometry. This offset
+also mixes content, generator and reference-domain differences; it is not
+the isolated naming response estimated using the generic control.
+
+\subsection{Results and verification scope}
+Table~\ref{tab:transfer-main} reports the original primary target. Translation
+has mixed effects in CLIP and positive point changes for all six CSD
+configurations. Across the four reference settings, equal-configuration mean
+changes range from $+2.23$ to $+4.02$ percentage points for CLIP and $+9.67$ to
+$+10.12$ for CSD. These are sensitivity summaries of the same images, not
+independent replications. Audited primary regions make CSD GPT Image 1's
+change negative ($-1.8$ points), qualifying the all-positive original-view
+pattern. The full tables below retain adverse decisions,
+all painter recalls and scene-specific changes. Each recall has 28 queries;
+macro and micro accuracy coincide because the panel is balanced.
+
+All 39 constructed-data tests pass, including held-scene exclusion, invariance
+of the pooled translation to training-label permutation, identity under
+already matched means, a known additive offset, a harmful correction and
+zero-query accounting. An independent calculation from raw manifest rows and
+embedding archives reproduced all 16,128 predictions across the 48 conditions
+and three rules, with identical counts and maximum score discrepancy below
+$3\times10^{-15}$. The original baseline confusions agree exactly with the
+previous learned audit. This verifies implementation and accounting, not
+scientific generalization or perceptual validity.
+
+The versioned \texttt{painter\_prototype\_transfer\_v1} record retains all query
+scores, predictions, margins, fold means and centroids, source identities,
+tie counts and original input hashes. Exact replay uses
+\texttt{uv run --locked python -m
+latent\_art\_bench.painter\_prototype\_transfer\_v1 check
+--execute-real}. No p-values or confidence intervals are attached: training
+folds overlap, scenes are authored, the development panel has been used
+before, and the same service session supplies every generated observation.
+No fresh artist, model session, image generation or human assessment is added.

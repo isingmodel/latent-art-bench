@@ -1,0 +1,217 @@
+{
+  "reviewer": "method",
+  "review_type": "Independent AI scientific review; not acceptance prediction",
+  "overall_rating": 4,
+  "overall_rating_label": "marginally below acceptance",
+  "soundness": 3,
+  "presentation": 3,
+  "contribution": 2,
+  "confidence": 4,
+  "inspected_pdf_sha256": "bbcc12901427538ed0938cdea510f848a0999d0edd08b4bc707c5b6fb8051472",
+  "complete_manuscript_read": true,
+  "pages_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "summary": "A six-configuration, 1,008-image audit separates common prompt response from centered painter contrasts in 31 fixed features and two learned representations. A cross-repeat estimator evaluates finite-reference contrast error; a retrospective held-scene mean translation changes reference-prototype prompt-name recognition while supervised generated centroids perform better. An assumed-covariance analysis quantifies primary-error point-order sensitivity.",
+  "recommendation_rationale": "Technically coherent and carefully scoped empirical work, with exact replay of the new analyses. The contribution remains too concentrated in a reused four-painter, fixed-prompt, single-session panel to convincingly establish the broader evaluation lesson. Retrospective extensions interpret that panel but do not independently establish generality or actual repeat-error independence. The reservation is empirical importance, not lack of a new algorithm.",
+  "strengths": [
+    {
+      "location": "pp. 3-4, Sections 4.1-4.3; pp. 11-15, Appendices B-C",
+      "text": "Correctly distinguished estimands, artist centering, cross-repeat correction and score identities; signed estimates and finite-target limitations are handled appropriately."
+    },
+    {
+      "location": "pp. 4-7, Sections 5.2 and 5.6; Appendices I and L",
+      "text": "Generic painting control and exact common/labeled prototype-gain decomposition address a real ambiguity in an established similarity measure."
+    },
+    {
+      "location": "pp. 7-8, Section 5.7; pp. 33-42, Appendix M",
+      "text": "Held-scene exclusion, untuned correction, explicit information budgets, harmful outcomes and stronger supervised comparator are all retained."
+    },
+    {
+      "location": "Appendices L, M, N and O",
+      "text": "Strong provenance and numerical reproducibility. Combined 65 tests pass, both new analyses replay exactly, and all 15 selected science hashes match."
+    }
+  ],
+  "weaknesses": [
+    {
+      "id": "W1",
+      "severity": "major",
+      "type": "additional_evidence",
+      "location": "pp. 1-2, Introduction and Section 3.1; pp. 6-8, Sections 5.6-7; Appendices L.4 and M.1-M.3",
+      "text": "Four related painters, one outdoor prompt panel and one session do not establish the reach of the central empirical evaluation lesson. A large shared response may represent legitimate group-level characteristics. The existing sensitivities do not test an independent candidate set or untouched prompt/session panel."
+    },
+    {
+      "id": "W2",
+      "severity": "moderate",
+      "type": "contribution_and_prior_work",
+      "location": "p. 2, Section 2; pp. 7-8, Section 5.7; pp. 33-34, Appendix M",
+      "text": "The common-offset decision diagnostic is an established intercept change, and generated-domain classifier advantages overlap with prior prompted-artist and domain-generalization experiments. Its specific empirical outcomes are useful but retrospective; related work should discuss Su et al.’s classification and generator-domain evidence more directly."
+    },
+    {
+      "id": "W3",
+      "severity": "moderate",
+      "type": "additional_evidence_for_inference",
+      "location": "p. 4, Section 4.3; p. 15, Appendix C.4; p. 44, Appendix N.5; pp. 45-46, Appendix O",
+      "text": "Two repeats and contiguous scene blocks cannot identify service covariance or session state. The new sensitivity does not calibrate actual dependence, interval coverage, or headline shared-fraction bias. Honest disclosure prevents overclaiming but does not qualify the sampling model empirically."
+    },
+    {
+      "id": "W4",
+      "severity": "moderate",
+      "type": "artifact_access",
+      "location": "p. 8, Reproducibility; p. 27, Appendix L.4; pp. 43-45, Appendix N",
+      "text": "No complete public exact-pixel archive or verified recovery route is supplied, preventing independent measurement-layer reproduction despite strong vector-level replay."
+    },
+    {
+      "id": "W5",
+      "severity": "minor",
+      "type": "editing",
+      "location": "pp. 3-8, Sections 4-6 and Tables 1-4; Appendices L-M",
+      "text": "Many related quantities obscure the main thread. Add a map of baselines, targets, invariances and interpretations, and summarize painter-level transfer gains and source-view exceptions."
+    }
+  ],
+  "questions": [
+    "What transferable empirical conclusion is intended beyond metric disagreement in this four-painter panel, and what independent-panel result would falsify it?",
+    "Does common naming movement primarily encode legitimate characteristics shared by this painter group? A matched movement-level control or second artist group would help distinguish this from a broadly generic response.",
+    "Can exact pixels and complete attribution be supplied through an anonymous artifact or verified recovery manifest?",
+    "Can the main text summarize painter-level transfer changes and source-view exceptions alongside aggregate original-target gains?"
+  ],
+  "ethical_concerns": [],
+  "ethics_assessment": "No specific ethical violation is evidenced. AI source auditing and incomplete attribution/release packaging are disclosed; the latter is an outstanding release task.",
+  "revision_priorities": [
+    {
+      "priority": 1,
+      "type": "new_evidence",
+      "text": "Prospectively test the principal decomposition and decision diagnostic on a second artist/content panel or independently held-out benchmark subset, with a declared empirical hypothesis and adverse outcomes retained."
+    },
+    {
+      "priority": 2,
+      "type": "new_evidence",
+      "text": "If inferential repeat correction remains central, collect independently interleaved repeat/session blocks to separate request noise from session variation."
+    },
+    {
+      "priority": 3,
+      "type": "artifact_work",
+      "text": "Provide exact-pixel access or verified full recovery with preprocessing, selection and attribution records."
+    },
+    {
+      "priority": 4,
+      "type": "editing",
+      "text": "Focus the main narrative, add a quantity map, discuss Su et al.’s classifier/domain results, and highlight reference-view exceptions."
+    }
+  ],
+  "prior_work_inspected": [
+    {
+      "title": "Identifying Prompted Artist Names from Generated Images",
+      "url": "https://arxiv.org/html/2507.18633v1",
+      "scope": "Sections 3-5, including generated-image classifier training/retrieval and generator-domain generalization"
+    },
+    {
+      "title": "Measuring Style Similarity in Diffusion Models",
+      "url": "https://arxiv.org/html/2404.01292v1",
+      "scope": "Artist prototype and General Style Similarity definitions"
+    },
+    {
+      "title": "Official CSD implementation",
+      "url": "https://github.com/learn2phoenix/CSD",
+      "scope": "Released checkpoint discrepancy warning"
+    }
+  ],
+  "evidence_inspected": {
+    "manuscript": "reports/icml_review_v1/round_03/input/manuscript.pdf",
+    "text": "reports/icml_review_v1/round_03/input/manuscript.txt",
+    "frozen_tex": [
+      "icml_transfer_appendix.tex",
+      "icml_covariance_appendix.tex"
+    ],
+    "rendered_pages": [
+      6,
+      7,
+      17,
+      33
+    ],
+    "plans": [
+      "studies/painter_specificity_v2/PROTOCOL.md",
+      "studies/painter_learned_audit_v1/PLAN.md",
+      "studies/painter_prototype_transfer_v1/PLAN.md",
+      "studies/painter_repeat_covariance_v1/PLAN.md"
+    ],
+    "implementation": [
+      "src/latent_art_bench/painter_specificity_v1/analysis.py",
+      "src/latent_art_bench/painter_specificity_review_v3.py",
+      "src/latent_art_bench/painter_learned_analysis_v1.py",
+      "src/latent_art_bench/painter_prototype_transfer_v1.py",
+      "src/latent_art_bench/painter_repeat_covariance_v1.py"
+    ],
+    "manifest": "reports/icml_review_v1/round_03/evidence_manifest.json",
+    "science_manifest_entries_checked": 15,
+    "science_manifest_mismatches": 0,
+    "tests": {
+      "command": "uv run --locked pytest -q tests/painter_prototype_transfer_v1 tests/painter_repeat_covariance_v1",
+      "passed": 65
+    },
+    "replays": [
+      {
+        "command": "uv run --locked python -m latent_art_bench.painter_prototype_transfer_v1 check --execute-real",
+        "result": "Exact prototype-transfer result and report replay passed"
+      },
+      {
+        "command": "uv run --locked python -m latent_art_bench.painter_repeat_covariance_v1 check --execute-real",
+        "result": "Exact primary-D covariance sensitivity replay passed"
+      }
+    ]
+  },
+  "verification_limits": [
+    "No independent full-cohort feature re-extraction",
+    "No served-checkpoint authentication",
+    "No human validation of source crops",
+    "No new service sessions observed",
+    "Hashes and tests establish consistency, not significance"
+  ],
+  "independence_statement": "No prior scientific reviews, other reviewers reports, editorial ratings, or desired outcome thresholds were consulted.",
+  "credit_for_unperformed_work": false
+}

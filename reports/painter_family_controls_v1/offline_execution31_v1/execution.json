@@ -1,0 +1,106 @@
+{
+  "finished_utc": "2026-09-18T22:47:26.174128+00:00",
+  "implementation_bindings": {
+    "pyproject.toml": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8",
+    "src/latent_art_bench/painter_family_controls_v1/execution31.py": "d81af41d9c51cbd628ad32e1e2f125c20bf5b8714c7547f43c8e92f91af6d423",
+    "src/latent_art_bench/painter_family_controls_v1/feature_census.py": "27b761fb35e132eb5f3051a6ec1911eb8248aef4cbcd5957bf8eade096e455a8",
+    "src/latent_art_bench/painter_family_controls_v1/measurement31.py": "629f23513fca3fb3f02341d867a7901dc5b480bc768deaa51f9accb803f45f1c",
+    "src/latent_art_bench/painter_family_controls_v1/protocol.py": "f6cda0b54926044634960467d32b667a1109179d9e7f83a9566528f7fe7aaa35",
+    "src/latent_art_bench/painter_family_controls_v1/transport_artifact.py": "7f2787e801d485178654da3ec266ec613a105cc76a92dc9073cd4d8672dd4639",
+    "uv.lock": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+  },
+  "learned_encoders_executed": 0,
+  "manifest_sha256": "0c347d49407524c60732ef6c47e0bcc0a17cd59f9127e2d3b9f23dc8df4ade9b",
+  "method_contract_sha256": "af47c74eedb9afb63bdab4bcbcd28dbd1a158e6a785d26b9dcbb1acd256cfa2b",
+  "namespace": "painter_family_controls_v1",
+  "producer_pid": 80148,
+  "raw_features_sha256": "6ecf6b2942e59a1c1bec809b9a83ab7252ec7bfee1e95de20ae42988a2757a3d",
+  "remote_attestation": false,
+  "replay_comparison": "exact_float64_and_normalization_metadata",
+  "row_count": 3,
+  "rows": [
+    {
+      "id": "pfam1-s00-m04-L2-shared_family",
+      "normalization": {
+        "color_profile": "missing_assumed_srgb",
+        "crop_fraction": 0.0,
+        "normalized_height": 512,
+        "normalized_sha256": "27a3257a9682e2cf64eac19b125bba81c79ea9e566f3e3a7df5f3c39dea0bb6a",
+        "normalized_width": 512,
+        "original_height": 1024,
+        "original_width": 1024,
+        "short_side": 512
+      },
+      "original_sha256": "6968822de0ba1aec694461c79ac24294ce680a6a0af3bd1c3002b575cef0ab80",
+      "raw_vector_sha256": "2fca92c7403a8bb63a4826f83660e154d5f5a34e2fe62c95695a0799daf6d9b1"
+    },
+    {
+      "id": "pfam1-s00-m03-M3-shared_family",
+      "normalization": {
+        "color_profile": "embedded_to_srgb",
+        "crop_fraction": 0.0,
+        "normalized_height": 512,
+        "normalized_sha256": "613f9573791e6742d5a167c1e2fc3fe84e12022197050be5f47d5db61cb8edd8",
+        "normalized_width": 512,
+        "original_height": 1024,
+        "original_width": 1024,
+        "short_side": 512
+      },
+      "original_sha256": "4a96284cf04db75a3a88dcd38b222e53f62c869bb7eb715effee127bb8133c5c",
+      "raw_vector_sha256": "d9a76de6000dba9813cbe184fcc9bb96200fd3cf67f3376b3a9ae3f4ab1fc159"
+    },
+    {
+      "id": "pfam1-s00-m01-L3-paul_cezanne",
+      "normalization": {
+        "color_profile": "missing_assumed_srgb",
+        "crop_fraction": 0.0,
+        "normalized_height": 512,
+        "normalized_sha256": "65832ace0ca633a6cecc2f8539951207eaa62a9bef49b4d69a6f2c50d8acbd7f",
+        "normalized_width": 512,
+        "original_height": 1024,
+        "original_width": 1024,
+        "short_side": 512
+      },
+      "original_sha256": "b78b80e567397a5de3b0a692054878e2b90f70de9f28a6e1db63e64883486ff6",
+      "raw_vector_sha256": "a15bc67c0b5718386446d1d460513f16eabbb2c945d2025108844d4e08b6d0dc"
+    }
+  ],
+  "runtime": {
+    "byteorder": "little",
+    "executable": "/Users/fred/.local/share/uv/python/cpython-3.13.11-macos-aarch64-none/bin/python3.13",
+    "executable_sha256": "5a1070c11ba13896f34bc5e57b81640d972f7b3d7f1e7b39359562276ede4d79",
+    "image_codecs": {
+      "jpg": "6.2",
+      "littlecms2": "2.17",
+      "webp": "1.5.0",
+      "zlib": "1.3.1.zlib-ng"
+    },
+    "implementation": "CPython",
+    "machine": "arm64",
+    "packages": {
+      "Pillow": "11.3.0",
+      "PyWavelets": "1.8.0",
+      "numpy": "2.5.2",
+      "scikit_image": "0.26.0",
+      "scipy": "1.18.1"
+    },
+    "python": "3.13.11 (main, Jan 27 2026, 23:31:20) [Clang 21.1.4 ]",
+    "system": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "thread_environment": {
+      "MKL_NUM_THREADS": null,
+      "NUMEXPR_NUM_THREADS": null,
+      "OMP_NUM_THREADS": null,
+      "OPENBLAS_NUM_THREADS": null,
+      "VECLIB_MAXIMUM_THREADS": null
+    }
+  },
+  "schema": "painter-family-raw31-local-execution/1.0",
+  "simulation_only": true,
+  "started_utc": "2026-09-18T22:47:24.642048+00:00",
+  "status": "complete_local_execution_record_requires_replay",
+  "terminal_record_hashes": {
+    "events.jsonl": "3fe9663ee475b0c777bc844fc39241d3b00bc82f04e2e7e9b5fc02dfd998bac9",
+    "run.json": "5e949a6638795730d222b6c837ef6c888992f17a00942a561bc0b355a27468e6",
+    "terminal.json": "816d4a11d0daebcfc0eb59d9c298282d277ebb17e595ac90e5bc8c2ca07b832c"
+  }
+}

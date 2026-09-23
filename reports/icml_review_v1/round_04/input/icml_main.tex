@@ -1,0 +1,566 @@
+\section{Introduction}
+An evaluator observes that images prompted ``in the style of Monet'' move
+closer to Monet's reference collection. What should that observation establish?
+A painting instruction can improve proximity to several related painters at
+once. A classifier can recover prompted names from differences peculiar to a
+generator. A high-confidence reference assignment can still identify the wrong
+prompt. These possibilities require different evaluation checks.
+
+Our main audit crosses six requested configurations with four related painters,
+generic-painting and artist-free controls, 14 fixed scenes and two repeats
+(1,008 images). A separate retained collection adds 2,000 SD-Turbo images under
+a different template and 25 matched-seed blocks. We also test whether a rule
+calibrated on historical artworks can withhold unreliable prompt-name assignments.
+The targets are digital reference measurements and recorded prompt names.
+Historical content and reproduction processes enter the finite reference target;
+neither target establishes perceived resemblance. The additional analyses reuse
+previously exposed data, with their new rules fixed before their outcomes.
+
+The empirical question is how much an evaluation conclusion changes when its
+target is made explicit. We separate common naming movement from labeled painter
+contrasts, then separate reference-based decisions from within-generator label
+structure. Common naming movement and a generated-to-reference mixture offset
+are distinct: the first explains proximity gain over a prompt control, while
+the second can change class intercepts without changing painter contrasts.
+Table~\ref{tab:quantity-map} maps the required checks. These use established
+geometry and decision rules; the contribution is the measured evaluation
+behavior and its limits, not a new algorithm or perceptual metric.
+
+\begin{table*}[t]
+\caption{Evaluation questions and the checks needed to interpret their readouts.
+All targets concern recorded images or prompt names, not perceptual fidelity.}
+\label{tab:quantity-map}
+\centering\small
+\begin{tabularx}{\linewidth}{@{}p{.25\linewidth}p{.25\linewidth}X@{}}
+\toprule
+Question & Readout & Interpretation check\\\midrule
+Does naming increase reference proximity? & Own-painter prototype gain & Separate common movement from labeled agreement.\\
+Do painter differences match the reference? & Aligned amplitude $\beta$ and error $D$ & State the feature units, reference target and scene aggregation.\\
+Can the prompt name be recovered? & Top-1 accuracy & Compare reference decisions, fixed mean translation and supervised generated centroids.\\
+When should a name assignment be issued? & Accepted error and coverage & Test a fixed reference-calibrated gate against margin filtering at equal coverage.\\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+
+\section{Related Work}
+\citet{somepalli2024style} introduce CSD and General Style Similarity: a generated
+embedding's dot product with an averaged artist prototype, including
+content-constrained prompts. \citet{su2025prompted} evaluate prompted-artist
+recognition using content-controlled name substitutions and matched artist-free
+images; generated-image retrieval usually outperforms real-image retrieval in
+their benchmark. Our stronger generated-prototype comparator therefore
+contextualizes an established domain distinction. We audit common and labeled
+contributions to proximity gain, not a new recognition task.
+
+\citet{frochte2026csd} diagnose raw CSD cosine and shared-tradition confusions,
+then evaluate local-density readouts and input-resolution changes. Their
+absolute-score and pair-verification study excludes closed-set discrimination.
+Our controlled name interventions quantify common/labeled gain and connect a
+separate mean offset to prompted-name decisions. The general warning that raw
+style similarity needs validation is established, not our novelty claim.
+
+\citet{deliege2025} assess stylistic imitation and stereotyping with experts.
+AI-Pastiche studies authenticity and prompt adherence \citep{asperti2025pastiche};
+AI-WikiArt uses painting-derived captions and vision-language models for
+attribution \citep{fu2025aiwikiart}. Our measured painter contrasts and same-image
+CLIP/CSD comparisons target neither convincing imitation nor physical authorship.
+
+Quantitative art research examines color, composition and image statistics
+\citep{kim2014,sigaki2018,lee2020}. Unlike the contextual image-to-image
+experiments of \citet{kim2026}, our text-only intervention supplies no original
+composition.
+
+Generative evaluation separates fidelity and diversity \citep{naeem2020},
+while conditional metrics distinguish within-condition variation from relationships
+among means \citep{benny2021conditional}. We use independent-partition inner products
+as the primary noise-corrected squared-difference estimator \citep{diedrichsen2017representational}
+and energy statistics as a complementary distributional measure \citep{szekely2013}.
+Processing sensitivity \citep{parmar2022} and limits of learned-embedding
+separation \citep{asperti2026} motivate the source-quality checks and the
+restriction to a specified digital reference target.
+
+Target-domain centroid classifiers also address classifier bias under domain
+shift \citep{liang2021atdoc}. Our retrospective decision diagnostic uses a fixed
+mean translation and supervised centroids with frozen features; it is not an
+adaptation-method contribution.
+Selective classification trades prediction coverage for error
+\citep{geifman2017selective}. We test a fixed reference-calibrated rejection rule;
+distribution-shift guarantees require assumptions beyond those established for
+these historical and generated panels \citep{tibshirani2019shift}.
+
+\section{Design and Measurements}\label{sec:design}
+\subsection{Painters and Reference Images}
+The primary panel covers four related painters through 649 distinct reproductions: 297 Monet,
+106 Sisley, 141 Pissarro and 105 C\'ezanne. Artist means receive equal weight,
+so the larger Monet collection does not dominate the between-artist target.
+A separate 221-work development panel sets common feature units; no primary
+reference or generated image is used to fit that transformation. Both panels
+were assembled before the present experiment and had been used in earlier
+analyses. They are explicit, finite comparison panels rather than newly withheld
+samples of each painter's complete oeuvre.
+
+Reference files carry Wikimedia Commons source metadata and Wikidata work
+identities \citep{commonsglam,vrandecic2014wikidata}. These support traceable
+selection and rights records, but do not standardize photography, color
+calibration or conservation state. These are measurements of digital
+reproductions, whose capture conditions can affect the comparison.
+
+\subsection{A Common-scene, Six-model Experiment}
+We compare six requested service configurations, labeled GPT Image 1, GPT Image 2, GPT Image 2.5 Flare (Flare),
+GPT Image 2.5 Sunburst (Sunburst), Nano Banana 2 and FLUX.2 Max (FLUX).
+Fourteen fixed outdoor scene descriptions (briefs) span water,
+built, land and mixed compositions. Each scene is crossed with six clauses:
+no painting instruction; ``Render as an oil painting''; and ``Render as an oil
+painting in the style of [painter]'' for each of the four painters. The scene
+text is otherwise identical. Each model--scene--clause cell receives two
+separately requested outputs, giving 1,008 images collected on 10 September 2026 (UTC).
+
+All models receive text only and return 1,024-by-1,024-pixel images.
+The four OpenAI requests specify medium quality; Nano Banana 2 specifies
+1K resolution, while FLUX requests PNG output without an explicit resolution
+field. These comparisons concern the recorded
+configurations, not maximum attainable quality or equal expenditure per image.
+Response records do not echo model identifiers, so these labels identify requested
+configurations rather than independently verified checkpoints
+(Appendix~\ref{app:provenance}).
+The exact prompts, parameters and randomized request order were fixed before
+collection. The 14 scenes are a fixed design,
+not a random sample of all possible content.
+Earlier, separate prompt interventions are summarized in Appendix~\ref{app:cohorts}.
+
+Appendix Figure~\ref{fig:original-generated} shows all six conditions for one brief.
+GPT Image 2's C\'ezanne trees have darker blue-green outlines than its Monet
+and Sisley trees: a visible name response in this scene, whose agreement with
+historical painter differences remains to be measured.
+
+
+
+\subsection{What the Features Measure}\label{sec:features}
+The 31 features in Table~\ref{tab:features} capture properties that need not
+change together. Two images can have similar chroma (color strength) but different
+hue diversity, or similar total contrast but different edge directions and
+fine-scale texture. Such distinctions make results by feature family interpretable.
+There are 11 color coordinates (lightness, chroma, hue and color increments),
+eight spatial coordinates (spectra, gradients, orientations and quadrants),
+and 12 texture coordinates (wavelet energy, local binary patterns and local contrast).
+Correlated coordinates and sensitivity to image processing nevertheless prevent
+treating Euclidean distance as a validated measure of artistic style.
+
+
+
+Images undergo orientation correction and conversion to sRGB using valid
+embedded profiles; compatible unprofiled files are treated as sRGB. The primary
+pipeline preserves aspect ratio at a 512-pixel short side, using Lanczos resizing
+without upsampling. No painting-region mask is applied: source margins or
+calibration strips can enter the measurements. Each coordinate is centered and scaled by its
+median and interquartile range in the development panel, with equal total
+weight per painter. Thus a unit is a development-panel IQR in that coordinate,
+not a perceptual just-noticeable difference. The Euclidean metric weights
+standardized coordinates equally, without further equalizing feature families.
+
+
+
+\section{Comparing Painter Differences}\label{sec:method}
+\subsection{What Counts as Agreement?}\label{sec:contrast-intuition}
+Subtract each set's four-painter mean to isolate labeled differences. For
+example, reference Monet is $.325$ development-IQR units darker than Sisley
+in median lightness; GPT Image 2's mean gap is $.254$ in that direction.
+A shared brightness shift cannot create this contrast.
+Aligned amplitude $\beta$ measures agreement along the reference pattern;
+error $D$ also counts differences in other directions. No distinction, exact
+agreement and doubled reference contrasts have expected errors 1, 0 and 1.
+Thus stronger responses need not give lower error.
+
+\subsection{Computing the Two Scores}
+Let $\mu_a\in\R^{31}$ be painter $a$'s standardized reference mean and
+$r_a=\mu_a-\frac14\sum_b\mu_b$ its contrast. The total squared size of these
+contrasts, $H=\sum_a\|r_a\|^2$, normalizes both scores. Here $\|u\|^2$ sums squared
+coordinates, $\langle u,v\rangle$ sums matching-coordinate products, and
+hats mark estimates. For generated measurements $z_{msak}$, indices denote
+model $m$, scene $s$, painter $a$ and repeat $k\in\{1,2\}$:
+\begin{equation}
+ d_{msak}=z_{msak}-\frac14\sum_b z_{msbk}.
+ \label{eq:center}
+\end{equation}
+Centering removes shared additive shifts, but shared rescaling or mixing
+of coordinates can still change the contrasts
+(Appendix~\ref{app:score-details}). With $S=14$ scenes, the aligned response is
+\begin{equation}
+\begin{gathered}
+\widehat\beta_{msk}=\frac{\sum_a\langle d_{msak},r_a\rangle}{H},\\
+\widehat\beta_m=\frac1S\sum_s\frac{\widehat\beta_{ms1}+\widehat\beta_{ms2}}2.
+\end{gathered}
+\label{eq:beta}
+\end{equation}
+A positive value indicates an overall response along the reference differences;
+it does not require agreement for each artist pair. Values above one indicate
+exaggeration along that direction. To measure error, multiply the discrepancies
+from the two repeats rather than squaring either repeat's discrepancy:
+\begin{equation}
+\begin{gathered}
+\widehat D_{ms}=\frac1H\sum_a
+\langle d_{msa1}-r_a,\ d_{msa2}-r_a\rangle,\\
+\widehat D_m=\frac1S\sum_s\widehat D_{ms}.
+\end{gathered}
+\label{eq:distortion}
+\end{equation}
+Under stable conditional means and independent, mean-zero repeat errors,
+noise that does not recur across requests contributes zero in expectation.
+The expected score is then the normalized squared error of the scene-conditional
+mean contrasts. Individual estimates can be negative; they are retained, not
+interpreted as better-than-perfect recovery. The $D=1$ no-contrast benchmark
+is a theoretical predictor, not the observed generic-painting arm.
+
+Every scene is compared with the same pooled historical contrast. Scene-varying
+artist responses therefore incur error even when their average matches that
+target; this need not be an artistic mistake. We report both scene-wise error
+and error after scene averaging (Appendix~\ref{app:score-details}).
+
+\subsection{Model Comparisons and Uncertainty}
+The prespecified 31-feature family contains six aligned responses and 15
+model-pair error differences. Paired-scene Student intervals use a Bonferroni
+adjustment for all 21, targeting approximate 95\% simultaneous coverage under
+the stated model. Individual features, painters and outputs are not independent
+replicates. Absolute-$D$ intervals are unadjusted descriptive summaries.
+
+Inference conditions on the finite reference panel, scaling and 14 authored
+briefs, assuming stable conditional means and independent scene/repeat error
+blocks. Scene standard errors also include fixed scene heterogeneity and do
+not isolate fresh-request variance. Two repeats cannot verify independence,
+and the Student approximation guarantees neither actual service coverage nor
+inference to unseen scenes. Under an assumed common trace correlation, the
+Nano Banana 2--FLUX error point order crosses at $.251$
+(Appendix~\ref{app:repeat-covariance}); actual dependence remains unidentified.
+Declared scene, reference, feature-family and title-class sensitivities are
+specified in Appendix~\ref{app:estimation}. They do not match compositions or
+supply additional service observations.
+
+\subsection{What the Additional Comparisons Test}\label{sec:diagnostics}
+Artist-free and generic-painting arms characterize the removed common response.
+Retrospective diagnostics examine all painter pairs, scenes and reference views.
+A magnitude check fits one nonnegative multiplier of a model's centered
+contrasts on 13 scenes and scores the omitted scene. It changes feature
+contrasts, not images or references. These diagnostics do not expand the
+confirmatory family (Appendix~\ref{app:diagnostics}).
+
+\section{Results}\label{sec:results}
+\subsection{A Response in the Right Direction Can Still Miss the Target}
+All 1,008 outputs yield valid measurements. Every configuration's aligned-response
+interval lies above zero under the stated inference model (Appendix
+Table~\ref{tab:specificity-models}), but positive alignment need not give low error.
+GPT Image 2 nearly matches the reference strength,
+$\beta=.999\;[.893,1.104]$, while total error is $D=1.226$.
+FLUX has lower alignment ($.470$) and the lowest error estimate ($.801$).
+Only Flare--FLUX and Sunburst--FLUX resolve positive error differences after
+the 21-comparison adjustment; the other 13 intervals include zero.
+No configuration is established to beat the no-contrast error benchmark of one.
+These are full-frame comparisons; source correction changes which differences
+are resolved (Section~\ref{sec:source-correction}).
+
+\subsection{Most Scene-averaged Change Is Common to the Painter Names}\label{sec:shared-change}
+After averaging scenes, named-minus-artist-free shifts comprise a four-name mean
+and painter-specific departures. The mean includes the oil-painting clause and
+any common naming response: 82.5--95.7\% of repeat-corrected squared change
+(Table~\ref{tab:shared-change}). Retrospectively changing the baseline to generic
+oil painting isolates the additional naming change: 66.7--88.4\% is shared.
+The painter-specific component is unchanged. Deleting each scene and recomputing
+the ratios gives 65.9--90.2\% across models; these are sensitivity ranges,
+not confidence intervals (Appendix~\ref{app:direct-naming}).
+
+\begin{table*}[htbp]
+\caption{Scene-averaged, repeat-corrected change. Shared is the four-name mean shift; between-name is departure from it. The artist-free baseline includes the painting clause; the retrospective generic-baseline row isolates additional naming. The last two rows compare the shared named-minus-free shift with generic-minus-free: corrected cosine measures directional agreement, and the ratio divides their corrected squared magnitudes, shared by generic.}
+\label{tab:shared-change}
+\centering\small\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\linewidth}{@{}l*{6}{>{\centering\arraybackslash}X}@{}}
+\toprule
+& \shortstack{GPT Image\\1} & \shortstack{GPT Image\\2} & Flare & Sunburst & \shortstack{Nano\\Banana 2} & \shortstack{FLUX.2\\Max}\\\midrule
+Free baseline: shared (\%) & 82.5 & 85.8 & 84.8 & 83.9 & 88.1 & 95.7\\
+Free baseline: between-name (\%) & 17.5 & 14.2 & 15.2 & 16.1 & 11.9 & 4.3\\
+Generic baseline: shared (\%) & 71.3 & 70.9 & 71.1 & 66.7 & 69.1 & 88.4\\
+\midrule
+Corrected cosine & 0.689 & 0.774 & 0.766 & 0.837 & 0.930 & 0.916\\
+Squared-size ratio & 1.986 & 1.960 & 2.816 & 3.356 & 3.692 & 4.138\\
+\bottomrule\end{tabularx}
+
+\end{table*}
+
+
+The shared named-minus-free shift points broadly along the generic oil-painting shift
+(noise-corrected cosine $.689$--$.930$; 1 means parallel), but its repeat-corrected
+squared magnitude is 1.96--4.14 times as large. The generic and additional naming
+shifts interact: their signed cross term is negative for GPT Image 1 and positive
+for the other five configurations (Appendix~\ref{app:direct-naming}). Their
+squared magnitudes therefore do not add as separate contributions.
+Computing the free-baseline decomposition within scenes instead gives
+88.6--97.2\% shared change (Appendix~\ref{app:estimation}).
+
+
+\subsection{A Separate Collection Delimits the Common-majority Result}\label{sec:cross-cohort}
+We apply a fixed retrospective decomposition to all 2,000 retained SD-Turbo
+outputs from an earlier collection: 25 repeat blocks, 16 scenes and the four
+names plus a baseline already requesting oil painting. Naming inserts only
+``by [painter]'' into a different template. Within each scene/block, all five
+conditions share a seed; cross-products therefore use distinct complete
+blocks, allowing correlated arms within a block. For block vectors $v_b$,
+$U(v)=\sum_{b\ne b'}v_b^\top v_{b'}/[25(24)]$ replaces the two-repeat product.
+The model, resolution and generation mechanism also differ from the main
+collection (Appendix~\ref{app:cross-cohort}).
+
+After scene averaging, the common component is 64.2\% of naming change,
+with 63.9--64.6\% across all 25 block deletions. It remains a majority in
+color (57.5\%) and spatial coordinates (84.9\%), but not texture (36.6\%;
+deletion range 36.2--36.9\%). Computing within scenes gives 72.4\% overall
+and 48.5\% for texture. Thus common-majority change persists in this separate
+collection's complete metric, but does not hold for every feature family.
+
+SD-Turbo's overall alignment is $.618$; pooled error is $.917$ and scene-wise
+error $1.637$. Monet--Sisley alignment is $.471$, unlike the weak hand-feature
+alignment in five main configurations. These are descriptive contrasts,
+not checkpoint rankings. The image hashes are disjoint from the main collection,
+but these pixels had prior distance analyses and reuse the same historical
+target. This is a retrospective cross-collection check, not prospective
+confirmation, a test of closed-service independence, or a shared-family control.
+
+\subsection{Uneven Painter Distinctions in the 31 Features}
+Monet--Sisley alignment ranges from $-.249$ to $.129$ in five configurations,
+versus $.402$ for GPT Image 2 (Appendix Figure~\ref{fig:artist-pairs}). Yet GPT
+Image 1 has lower pair error ($.56$ versus $1.16$). Removing C\'ezanne lowers
+FLUX's overall alignment from $.470$ to $.096$, and GPT Image 2's from $.999$
+to $.651$. Swapping Monet and Sisley lowers original-target error for Flare,
+Sunburst and Nano Banana 2. Reversing a negatively aligned pair lowers its
+error without changing its size; source correction can change individual signs.
+
+\subsection{Scene Averaging and Contrast Magnitude Change the Ordering}
+The error target matters even within the same coordinates.
+Averaging scenes gives Nano Banana 2 lower error than FLUX ($.723$ versus $.761$),
+whereas scene-wise scoring reverses that order because Nano Banana 2 varies more
+across scenes. Rescaling centered contrasts by a multiplier fitted on the other
+13 scenes instead gives GPT Image 2 the lowest held-scene error ($.554$ versus
+FLUX's $.714$). These operations change the evaluated feature contrasts, not
+images; lower error is not evidence of improved fidelity. The full decomposition,
+calibration and influence checks are in Appendix~\ref{app:extended-magnitude}.
+
+\subsection{Which Comparisons Survive Reference Changes?}\label{sec:source-correction}
+FLUX retains the lowest uncalibrated 31-feature scene-error point estimate
+across scene deletions, windows, reference targets and feature weighting
+(Appendices~\ref{app:declared-sensitivities} and~\ref{app:diagnostics}).
+AI assistants audited all 870 historical reproductions and selected peripheral
+artifact-removal crops for 90 primary and 41 development works, without human
+verification. With corrected regions and refitted scaling, FLUX's error changes
+from $.801$ to $.872$ and all six aligned-response intervals remain positive.
+The Sunburst--FLUX error interval now includes zero; Flare--FLUX remains
+positive, and GPT Image 1--FLUX becomes positive. The latter is a retrospective
+sensitivity, not an added confirmatory finding
+(Appendix Table~\ref{tab:source-comparison}).
+Weak Monet--Sisley alignment persists, but individual signs change.
+Replacing title-derived with visual content labels for 11 nonmixed briefs
+also retains FLUX's lowest point estimate. These corrections address visible
+source regions and coarse content, not reproduction calibration or matched
+historical compositions.
+
+\subsection{What Changes in Learned Representations?}\label{sec:learned-results}
+We remeasure all original images using CLIP ViT-L/14 \citep{radford2021}
+and the public CSD ViT-L style checkpoint \citep{somepalli2024style}.
+This retrospective protocol was fixed before learned outcomes. Each encoder
+uses its native 224-pixel center crop and 768-dimensional unit vectors, without
+IQR scaling. This changes representation and native preprocessing together;
+the hand-feature square-window sensitivity in Appendix~\ref{app:direct-naming}
+does not isolate encoder effects. Reference prototypes are means of the same 649 works;
+Appendix~\ref{app:learned-audit} specifies checkpoints, checks and sensitivities.
+CSD's release warns of a discrepancy from published benchmark results, so
+we evaluate this released checkpoint without claiming benchmark reproduction.
+
+\emph{Common movement also dominates prototype gain.}
+Let $g_a$ and $\mu_a$ be mean named and reference embeddings, $g_0$ the generic
+mean, and bars denote equal-painter averages. Using unnormalized prototypes,
+mean own-painter cosine gain decomposes exactly as
+\begin{equation}
+\frac14\sum_a g_a^\top\mu_a-g_0^\top\bar\mu
+=(\bar g-g_0)^\top\bar\mu+\frac{H\widehat\beta}{4}.
+\label{eq:prototype-main}
+\end{equation}
+The first term is common movement; the second is labeled agreement.
+Across configurations, the common term supplies 73.2--83.8\% of CLIP gain and
+54.2--79.7\% of CSD gain (Table~\ref{tab:learned-main}). These are contributions
+to cosine gain, distinct from the squared-change shares in
+Table~\ref{tab:shared-change}. The latter are also majority-common:
+76.1--82.3\% in CLIP and 68.8--77.4\% in CSD for naming beyond generic painting.
+
+\input{icml_learned_table.tex}
+
+\emph{Monet--Sisley alignment depends on representation.}
+Monet--Sisley alignment is positive for all six configurations in both learned
+representations: $.299$--$.532$ in CLIP and $.323$--$.587$ in CSD. Thus the
+weak or reversed response measured by the 31 features cannot establish a
+representation-independent failure to distinguish these painters. CLIP gives
+GPT Image 1 the lowest scene-error estimate ($.847$); CSD gives FLUX the
+lowest ($.714$). Distances across representations do not share a perceptual scale.
+
+\emph{Proximity and recognition answer different questions.}
+Classifying each named output by its closest unit-normalized reference prototype
+gives the accuracies in Table~\ref{tab:learned-main}. Nano Banana 2 has the largest
+CLIP prototype gain ($.1121$) but 51.8\% accuracy, versus GPT Image 2's smaller
+gain ($.0996$) and 68.8\% accuracy. In CSD, GPT Image 2 has the smallest gain
+($.1659$) and highest accuracy (75.9\%). These descriptive reversals show why
+unpartitioned proximity gain is insufficient for evaluating labeled response.
+
+Classifying the 221 development works with these primary prototypes yields
+79.8\% macro accuracy in CLIP and 79.6\% in CSD. Appendix~\ref{app:learned-audit}
+reports their painter confusions, reference energies and all absolute
+common/labeled gain components. These controls describe panel separability,
+not generated-image fidelity.
+
+The appendix reports every configuration under both representations, original
+and audited regions, and primary and development targets. These related
+encoders share a CLIP backbone and unknown training-image overlap; the same
+images supply all comparisons. They add a representation sensitivity, not a
+fresh service replication or perceptual validation. No new significance claims
+are attached to this audit.
+
+\subsection{Common Offsets Can Change Prompted-name Decisions}\label{sec:transfer}
+A decision task tests a consequence beyond score disagreement: recovering the
+known painter clause of a generated image. This retrospective extension was
+chosen after inspecting baseline confusions; its rules were fixed before
+computing corrected outcomes. It uses all configurations and both encoders.
+For each held-out scene, pool the 104 named outputs from the other 13 scenes,
+excluding both held-scene repeats. Their mean $\bar g_{-s}$ ignores individual
+painter assignments within the known balanced pool. With raw real-art centroids
+$\mu_a$ and normalized directions $u_a=\mu_a/\|\mu_a\|$, set
+\begin{equation}
+ t_{-s}=\tfrac14\sum_a\mu_a-\bar g_{-s},\qquad
+ \hat a=\arg\max_a (x+t_{-s})^\top u_a.
+ \label{eq:transfer-main}
+\end{equation}
+The translation scale is fixed at one. It aligns mixture means and changes
+class intercepts by $t_{-s}^\top u_a$; it leaves centered painter differences
+unchanged within each fold. This cross-domain offset is not the
+named-minus-generic effect in Equation~\ref{eq:prototype-main}: free and generic
+outputs never enter its fit.
+
+\input{icml_transfer_table.tex}
+
+On the original-view primary target, translation changes accuracy by $-5.4$
+to $+12.5$ percentage points in CLIP,
+with two declines, one tie and three gains; all six CSD changes are positive,
+from $+0.9$ to $+26.8$ points. Equal-configuration means are $+2.7$ and $+10.0$
+points, respectively. These summaries retain newly introduced errors:
+CSD FLUX corrects 39 decisions and harms nine of 112, while CLIP GPT Image 1
+corrects one and harms seven. Thus a common offset can affect recognition
+without changing painter contrasts, but mean matching is not uniformly useful.
+
+A supervised context rule fits one centroid per prompted painter on those same
+13 training scenes. Its accuracy is higher than both reference rules in all 12
+combinations (Table~\ref{tab:transfer-main}); it uses artist assignments that
+translation does not. This demonstrates recoverable prompt-label structure
+within generated images, not agreement with historical painting style.
+Appendix~\ref{app:transfer} reports all confusions, painter recalls, scene changes
+and reference sensitivities. Folds overlap and reuse previously inspected
+images; these are descriptive out-of-fold results, not independent validation.
+
+\subsection{Low Accepted Error Can Conceal Missing Painters}\label{sec:selective}
+A further retrospective test asks when to withhold a reference assignment.
+The fixed rule calibrates each painter's nonconformity
+$s_a(x)=\max_{b\ne a}x^\top u_b-x^\top u_a$ on the other historical partition.
+With fixed $\alpha=.10$, its threshold is the
+$\lceil .9(n_a+1)\rceil$-th ordered calibration score. Retain the original
+top-1 prediction only if it is the sole class meeting its threshold
+(Appendix~\ref{app:selective}). Historical-to-generated exchangeability is not
+established, so this rule provides no generated-image coverage or error guarantee.
+No generated labels fit the gate. A comparator keeps the same number of named
+queries by their ordinary top-two prototype margin, with fixed ID tie-breaking.
+
+\input{icml_selective_table.tex}
+
+The primary CSD/original/primary setting reduces equal-configuration mean
+error by 26.0 percentage points relative to unrestricted prediction, but by
+only 0.5 points relative to coverage-matched margin filtering
+(Table~\ref{tab:selective-main}). Coverage is 24.1--57.1\%.
+GPT Image 1 has zero errors among 30 accepted queries, yet 28 are C\'ezanne
+and none is Sisley. Flare and Sunburst retain no Monet or Sisley queries.
+FLUX retains more than half its queries but still has 53.1\% accepted error,
+versus 48.4\% for the matched-margin comparator.
+Figure~\ref{fig:selective-coverage} shows the complete painter coverage.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{icml_selective_coverage.pdf}
+\caption{Primary CSD gate: accepted images per prompted painter, out of 28
+in every cell. Selection concentrates on C\'ezanne in several configurations;
+the zero aggregate errors for GPT Image 1, Flare and Sunburst in
+Table~\ref{tab:selective-main} coexist with missing painter conditions.
+Counts describe prompt-name coverage, not painter fidelity.}
+\label{fig:selective-coverage}
+\end{figure}
+
+The pre-outcome operational criterion required at least 50\% coverage in each
+configuration, some accepted query from every painter, and positive mean error
+reductions against both comparisons. The primary setting fails the first two
+conditions. All eight encoder/view/target settings fail at least the coverage
+condition; this 50\% requirement is a chosen operating point, not a universal
+standard. CLIP's original-primary mean reductions are 12.1 and 1.7 points,
+with minimum coverage 49.1\%. The complete continuous results and scene deletions
+remain in Appendix~\ref{app:selective}.
+
+The primary gate also assigns a name to 14.3--50.0\% of artist-free controls
+and 17.9--75.0\% of generic-painting controls. These are assignments without a
+requested name, not verified visual misattributions. The operational lesson
+is to report per-painter coverage and a matched-coverage comparison before
+using reduced accepted error as evidence for a useful attribution policy.
+The test does not establish that abstention generally fails, and no replacement
+rule is selected after these outcomes.
+
+\section{Discussion}\label{sec:discussion}
+Detecting a name response and matching painter differences are distinct achievements.
+FLUX's lowest uncalibrated error in the 31-feature metric coexists with weak
+Monet--Sisley alignment, while learned representations yield positive pair alignment.
+Model comparisons should therefore report overall and pairwise scores together
+for the stated reference target, distinguishing estimates from resolved comparisons.
+Reports should also state whether they score each scene, the average pattern,
+or rescaled contrasts. For prompted-name recognition, the two held-scene
+controls distinguish sensitivity to a pooled domain offset from supervised
+within-generator separability. The abstention test adds a second decision check: lower accepted error can
+coexist with missing painters and little advantage over margin filtering.
+Neither lower contrast error nor better name recovery alone establishes closer
+painter resemblance.
+
+The intervention identifies differences between prompt conditions, not their
+internal causes. Training composition, guidance and shared transformations remain
+possible explanations.
+
+\subsection{Scope and Remaining Limitations}
+The target is the pattern of differences in a finite digital reference
+collection. It mixes subject choices and reproduction processes with properties
+of the paintings. Coarse content classes do not match composition, viewpoint,
+career period or actual generated scene adherence. The source audit addresses
+visible peripheral regions and title/visual-class disagreements, but AI
+judgments, uncertain boundaries and remaining capture differences limit that
+correction. One reproduction per work cannot separate effects of illumination,
+sharpening, conservation or digitization source.
+
+The 31 coordinates describe digital color, spatial organization and texture;
+neither they nor the learned encoders establish physical brushwork or perceived
+painter resemblance. CSD's style-tag list includes all four painters, and exact
+training-image overlap is unknown for both encoders. Numerical replay and
+representation sensitivities do not validate perceptual judgments.
+The main inference conditions on four related painters, 14 authored briefs,
+two repeats and one clause template. The SD-Turbo check changes the template
+and uses 25 matched-seed blocks, but retains the painter group and historical
+target. Neither collection has a shared-family prompt control. A common response
+could represent appropriate family-level style; its prevalence alone does not
+establish a misleading or inferior response. Simulations probe stated noise
+models, not actual service independence. The image panels
+make the comparison inspectable, while incomplete public exact-pixel access
+still limits independent measurement reproduction.
+
+\section{Conclusion}
+Shared change, labeled reference agreement and prompt-name recovery lead to
+different evaluation conclusions. Common-majority naming change appears across
+the complete metrics of two collections, but fails for SD-Turbo texture.
+Monet--Sisley alignment depends on representation. Mean translation changes
+name recovery without changing painter contrasts, while a reference-calibrated
+abstention rule can lower accepted error by retaining a painter-skewed subset.
+Reports should state the reference and aggregation target, partition proximity
+gain, and accompany selective error with per-painter coverage and an
+coverage-matched comparator. These measured cases support that evaluation
+practice; they do not establish a general ranking of painter fidelity.

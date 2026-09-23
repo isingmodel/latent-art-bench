@@ -1,0 +1,186 @@
+{
+  "review_type": "Independent ICLR-style AI scientific review simulation; empirical evidence focus; not an official decision",
+  "round": 3,
+  "paper_title": "Artist-Name Responses beyond a Shared Painting Effect in Text-to-Image Generation",
+  "summary": "This paper audits 1,008 outputs from six requested generator configurations, crossing 14 fixed scenes, two repeats and six prompt conditions, against 649 historical reproductions. It separates a common name response from labeled painter contrasts in 31 hand measurements, CLIP and a released CSD encoder. A retrospective held-scene decision diagnostic then separates reference-prototype recognition, fixed mean translation and supervised generated prototypes. The supported conclusion is that common proximity movement, reference-based name recovery and within-generator label structure differ substantially on this cohort; none measures perceptual fidelity by itself.",
+  "strengths": [
+    {
+      "id": "S1",
+      "location": "Sections 3–5; Tables 1–3; Appendices B, I, L",
+      "text": "The crossed same-scene design, artist-free and generic controls, equal painter weights, and repeated requests allow a useful empirical decomposition. The observed common fractions are measurements rather than algebraically predetermined magnitudes: 66.7–88.4% of additional hand-feature naming change, and 73.2–83.8%/54.2–79.7% of CLIP/CSD prototype gain. This is an empirical contribution even without a new algorithm."
+    },
+    {
+      "id": "S2",
+      "location": "Section 5.6; Table 3; Appendices L.4–L.7",
+      "text": "The learned audit tests the same images and reports disagreement with the original representation. Positive Monet–Sisley alignment in both learned encoders prevents an unsupported representation-independent failure claim. Absolute gains, reference energies, development-work recognition and complete painter confusions provide useful context."
+    },
+    {
+      "id": "S3",
+      "location": "Section 5.7; Table 4; Appendix M",
+      "text": "The transfer analysis demonstrates a concrete decision consequence, beyond two scores having different definitions. Fixed mean translation yields large gains for some configurations, harms others, and leaves centered contrasts unchanged. Both held-scene repeats are excluded from fitting, the scale is untuned, and the stronger supervised comparator and newly introduced errors are retained."
+    },
+    {
+      "id": "S4",
+      "location": "Sections 4.3, 5.5, 6.1; Appendices C, F, N, O",
+      "text": "The manuscript carefully distinguishes fixed-scene inference, exploratory analyses and simulations; avoids treating overlapping folds as independent; retains an adverse prospective supporting result; and reports sensitivity of resolved model comparisons to source correction. The covariance appendix correctly exposes the unidentified dependence assumption instead of presenting an assumed correction as measured truth."
+    },
+    {
+      "id": "S5",
+      "location": "Appendices L–O; frozen evidence records and inspected source code",
+      "text": "Numerical traceability is unusually strong. All 23 top-level evidence-manifest bindings matched. My separate calculation from manifest rows and embedding archives reproduced all 16,128 B/T/G predictions exactly, and all 65 focused transfer/covariance tests passed. This supports implementation correctness conditional on the retained inputs, not scientific acceptance."
+    }
+  ],
+  "weaknesses": [
+    {
+      "id": "W1",
+      "kind": "evidence/contribution",
+      "severity": "major",
+      "location": "Sections 1–2, 5.6–5.7, 7; Table 4; Appendix M",
+      "text": "The scientific increment remains modest relative to the relevant prior work. Su et al. already distinguish prompted-name identification from real-art style recognition and directly compare real versus generated retrieval data, finding advantages for generated data. Thus the uniformly stronger generated prototypes here are useful context, not a new general finding. The new contribution is the quantified common/labeled decomposition and the size and direction of fixed-translation effects. Both are demonstrated on one repeatedly inspected four-painter cohort, with no independent test of whether the diagnostic changes a consequential evaluation conclusion outside this setting. This is a limitation of the current evidence, not a demand for an algorithmic contribution.",
+      "prior_work_url": "https://arxiv.org/html/2507.18633v1"
+    },
+    {
+      "id": "W2",
+      "kind": "evidence/uncertainty",
+      "severity": "major",
+      "location": "Section 4.3; Section 5.2; Appendix C.4; Appendices N.5 and O",
+      "text": "Two repeats collected in contiguous scene blocks within one service session do not identify the dependence needed to interpret cross-products as noise-corrected population quantities. The covariance analysis is useful but covers primary D under a common assumed trace correlation; it neither bounds actual covariance nor addresses the headline shared fractions. The Nano Banana 2–FLUX point ordering crosses at rho=0.250751, and no analogous data-calibrated uncertainty is available for the common fractions. I do not interpret that threshold as evidence that actual dependence exists. Rather, the paper lacks evidence about this important nuisance variable. Scene deletions and independent-noise simulations do not supply it."
+    },
+    {
+      "id": "W3",
+      "kind": "evidence/scope",
+      "severity": "major",
+      "location": "Sections 3.1–3.3, 5.2, 6.1; Appendices C.1, C.5, L.4",
+      "text": "All four painters are related, prompts use one oil-painting clause template, and content is restricted to authored outdoor scenes. A large response shared by this quartet may represent appropriate common family-level style rather than a misleading response. Generic oil painting does not test that alternative. The finite reproduction target also mixes artist, subject, period and capture characteristics. The paper acknowledges these facts and does not claim perceptual validation, so the arithmetic is not invalidated; however, they sharply limit the broader evaluative significance of the common-majority finding. A second independently chosen artist group or a shared-family control would directly test this interpretation."
+    },
+    {
+      "id": "W4",
+      "kind": "evidence/validation",
+      "severity": "moderate",
+      "location": "Sections 5.6–5.7; Tables 3–4; Appendices L and M",
+      "text": "The decision extension was chosen after baseline confusions were inspected, and the same 672 named images supply all encoder/view/target comparisons. Holding out a scene prevents fitting leakage but does not create a previously untouched validation cohort. Some headline changes are one additional correct prediction out of 112 (+0.9 points); audited primary references reverse the CSD GPT Image 1 change to -1.8 points. Conversely, the large FLUX effects deserve credit. The evidence supports these descriptive case-study results, not a stable benefit or a reliable effect size for a future collection."
+    },
+    {
+      "id": "W5",
+      "kind": "reproducibility",
+      "severity": "moderate",
+      "location": "Reproducibility statement; Appendices L.4, N.3, N.6",
+      "text": "The retained vectors and hash records support replay, but exact pixels lack a dedicated public archive or verified complete recovery route. This prevents an external reviewer from independently repeating feature extraction or investigating crop/content judgments using the stated compact artifact alone. Requested configurations also lack response-level checkpoint attestation. These limits are transparently stated, but a study whose contribution is empirical auditing would benefit substantially from a portable, independently inspectable cohort."
+    },
+    {
+      "id": "W6",
+      "kind": "presentation",
+      "severity": "minor",
+      "location": "Sections 1, 4–5; Figure 2; Appendices L–O",
+      "text": "The main text is generally clear and the inspected figures are legible, but the narrative gives substantial space to primary hand-feature rankings before reaching the more useful same-image evaluation findings. The two different common components—named-minus-generic movement and generated-to-reference domain offset—require repeated caveats to keep distinct. A compact diagram or explicit estimand table, a small main-text image example, and a concise prior-work comparison would improve accessibility. These are editing changes and cannot resolve W1–W5."
+    }
+  ],
+  "questions": [
+    "What empirical conclusion is new relative to Su et al. beyond the size of the common contribution and a particular mean-offset correction, and what evaluation decision should change because of it?",
+    "How would the authors distinguish appropriate shared family-level style from a nonspecific painting response in this four-painter panel? Would a prespecified shared-family prompt control or independent artist group preserve the central conclusion?",
+    "Do the common fractions and the large transfer effects persist in an independently interleaved collection with the analysis rules frozen? Such a collection would also help assess session/block dependence.",
+    "Can the submission provide an anonymous exact-pixel bundle, or a verified recovery manifest, with the per-file credits needed to reproduce the measurements?"
+  ],
+  "ethical_concerns": {
+    "serious_concerns_evidenced": false,
+    "text": "No human-participant or living-artist study is reported, and the manuscript explicitly avoids legal and authenticity claims. Complete attribution/release packaging remains outstanding for the documented reproduction files, including attribution-bearing licenses; this should be completed before distribution. This is an evidenced release obligation, not an allegation of misconduct."
+  },
+  "concrete_revision_priorities": [
+    {
+      "priority": 1,
+      "type": "new evidence",
+      "text": "Freeze a small set of headline outcomes and test them on an independent collection or untouched benchmark partition. Hold out the collection/session, not only scenes from the already analyzed cohort. Include repeated interleaved requests sufficient to investigate block or session effects."
+    },
+    {
+      "priority": 2,
+      "type": "new evidence",
+      "text": "Test the interpretation of shared movement with a prespecified related-family baseline or an independent artist group. Keep the current generic baseline and all adverse outcomes; do not select the new panel by which produces the largest common fraction."
+    },
+    {
+      "priority": 3,
+      "type": "artifact work",
+      "text": "Package exact source and generated pixels where permitted, or verify complete deterministic recovery, alongside hashes, crop decisions and attribution. Retain the original pixels and media types."
+    },
+    {
+      "priority": 4,
+      "type": "presentation",
+      "text": "Lead with the empirical evaluation contribution, explicitly compare it with Su et al.’s real/generated retrieval results, and visually separate the two common components. Keep retrospective and conditional language; additional prose alone should not be presented as addressing the evidence limitations."
+    }
+  ],
+  "overall_rating": 4,
+  "overall_rating_label": "marginally below acceptance",
+  "soundness": 3,
+  "presentation": 3,
+  "contribution": 2,
+  "confidence": 4,
+  "rating_rationale": "Marginally below acceptance. I credit the same-image decomposition, representation-dependent reversal and concrete held-scene decision effects as empirical contributions. The calculations and reporting are careful. My reservation is scientific importance supported by the current evidence: the strongest practical distinction overlaps prior prompted-artist recognition findings, while the new quantitative story remains a narrow retrospective case study with unmeasured service dependence and incomplete independent image access. A new algorithm or a human-fidelity claim is not required; a focused independent empirical test of the proposed evaluation lesson would be more valuable than further algebraic or display-only extensions.",
+  "subscore_rationale": {
+    "soundness": "Good for the explicitly finite, conditional and descriptive claims; the key dependence assumptions remain unmeasured.",
+    "presentation": "Good overall clarity and transparent limits; narrative and appendix organization can be more focused.",
+    "contribution": "Useful but limited new empirical insight beyond closely related prior recognition work.",
+    "confidence": "Complete manuscript and appendices read; source code, frozen analyses and selected primary literature inspected; independent numerical transfer calculation performed. No claim of expert art-historical or perceptual assessment."
+  },
+  "inspected_pdf_sha256": "bbcc12901427538ed0938cdea510f848a0999d0edd08b4bc707c5b6fb8051472",
+  "evidence_inspected": {
+    "manuscript": "reports/icml_review_v1/round_03/input/manuscript.pdf",
+    "complete_reading": "All 46 pages, including main text, references and Appendices A–O, via the complete manuscript.txt; selected frozen TeX inspected to confirm equations, inclusion structure and chronology.",
+    "rendered_pages_inspected": [
+      5,
+      6,
+      7,
+      17,
+      33
+    ],
+    "rubric": "reports/icml_review_v1/rubric.md",
+    "manifest": "reports/icml_review_v1/round_03/evidence_manifest.json",
+    "manifest_verification": {
+      "entries": 23,
+      "all_sha256_matched": true,
+      "note": "Hash verification only for independent-audit and inventory entries; their prose was not used as a review or scientific judgment."
+    },
+    "plans_read": [
+      "studies/painter_learned_audit_v1/PLAN.md",
+      "studies/painter_prototype_transfer_v1/PLAN.md",
+      "studies/painter_repeat_covariance_v1/PLAN.md"
+    ],
+    "records_inspected": [
+      "reports/painter_learned_audit_v1/inputs.json",
+      "reports/painter_learned_audit_v1/analysis.json",
+      "reports/painter_learned_audit_v1/embeddings_clip.npz",
+      "reports/painter_learned_audit_v1/embeddings_csd.npz",
+      "reports/painter_prototype_transfer_v1/inputs.json",
+      "reports/painter_prototype_transfer_v1/analysis.json",
+      "reports/painter_prototype_transfer_v1/REPORT.md (opening sections; all reported conditions read in the manuscript)",
+      "reports/painter_repeat_covariance_v1/inputs.json",
+      "reports/painter_repeat_covariance_v1/analysis.json",
+      "reports/painter_repeat_covariance_v1/REPORT.md",
+      "reports/painter_specificity_review_v3/analysis.json (structure and analysis status)",
+      "reports/painter_request_timing_v1/analysis.json (structure, design and analysis status)"
+    ],
+    "code_inspected": [
+      "src/latent_art_bench/painter_prototype_transfer_v1.py: evaluate_model, assemble_rows, summarize_scores, compute_real and bindings",
+      "src/latent_art_bench/painter_repeat_covariance_v1.py: scene_statistics, sensitivity and pair_curve",
+      "src/latent_art_bench/painter_learned_analysis_v1.py: common components, recognition and prototype decomposition"
+    ],
+    "checks_performed": [
+      "Independent B/T/G computation from raw manifest rows and both embedding archives: 16,128 decisions, zero prediction disagreements, maximum score discrepancy 0.0 in this environment.",
+      "Verified confusion-row totals, 104-image training fold counts, held-scene exclusion, and all three analytic covariance point crossings from retained values.",
+      "uv run --locked pytest -q tests/painter_prototype_transfer_v1 tests/painter_repeat_covariance_v1: 65 passed."
+    ],
+    "external_primary_sources": [
+      {
+        "title": "Su et al., Identifying Prompted Artist Names from Generated Images, v1 (particularly Sections 1, 3.5, 5.1 and 9.1/Table 10)",
+        "url": "https://arxiv.org/html/2507.18633v1"
+      },
+      {
+        "title": "Somepalli et al., Investigating Style Similarity in Diffusion Models (official abstract and paper search extract)",
+        "url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/html/8294_ECCV_2024_paper.php"
+      },
+      {
+        "title": "Official CSD repository release disclaimer",
+        "url": "https://github.com/learn2phoenix/CSD"
+      }
+    ],
+    "not_claimed": "No full pixel re-extraction, independent service collection, expert perceptual validation, or fresh public-recovery verification. No prior scientific reviews, other reviewer outputs, historical ratings or target ratings were consulted."
+  }
+}

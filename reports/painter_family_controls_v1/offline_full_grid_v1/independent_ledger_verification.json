@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "scope": "independent root structural replay of retained simulation records",
+  "events": {
+    "start": 4608,
+    "end": 4608
+  },
+  "new_fixture_charges_usd": "46.08",
+  "actual_new_paid_calls": 0,
+  "all_exact_assignments_verified": true,
+  "source_bindings_verified": 8,
+  "retained_archive_hashes_verified": 3,
+  "source_result_sha256": "bfa80a310f30f8067131ff7c3c92df131730243a7c24f732d9625c6fd559f41d",
+  "original_fixture_bytes": "checked during full census; temporary originals removed; reproducible from script",
+  "not_scientific_evidence": true
+}

@@ -1,0 +1,681 @@
+\section{Feature Definitions}\label{app:features}
+\begin{table}[!htbp]
+\caption{The 31 fixed digital features. Counts refer to scalar coordinates.
+Texture measurements do not measure physical paint relief or authenticate brushwork.
+Exact scales and definitions appear in Appendix~\ref{app:features}.}
+\label{tab:features}
+
+\centering\small
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{.15\linewidth}>{\raggedright\arraybackslash}p{.35\linewidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Family & Measurements & Interpretation\\
+\midrule
+Color (11) & Lightness and chroma median/IQR; chromatic fraction; hue
+concentration and entropy; color differences at three lags and their slope &
+Brightness, color strength and diversity, and how rapidly colors change over space.\\[4pt]
+Spatial (8) & Spectral slope, residual and anisotropy; orientation entropy;
+horizontal--vertical balance; gradient median/IQR; quadrant divergence &
+Coarse versus fine organization, dominant directions, edge strength and regional
+variation in orientation.\\[4pt]
+Texture (12) & Four wavelet energies, slope and curvature; three local-binary-pattern
+entropies; three local coefficients of variation &
+Detail across scales, diversity of local patterns and local luminance contrast.\\
+\bottomrule
+\end{tabularx}
+
+
+\end{table}
+
+Color coordinates use CIELAB under D65 and the $2^\circ$ observer. Lightness
+and chroma each contribute a median and IQR. Chromatic fraction is the share
+of pixels with $C^*\geq5$. Hue concentration is the magnitude of the
+chroma-weighted circular mean; hue entropy uses 24 equally spaced bins and is
+normalized by their log count. Both use chroma weights and are zero when fewer
+than 1\% of pixels are chromatic. At each of three lags (1\%, 4\% and 16\% of
+the short side), the median is taken over pooled horizontal and vertical
+CIEDE2000 differences. A log--log slope summarizes their
+scale dependence \citep{sharma2005ciede}.
+
+Spatial and texture coordinates use linear-sRGB luminance. A Tukey window
+(parameter .1) precedes Fourier analysis. Thirty-two logarithmic radial bins
+cover 4--128 cycles per short side; a Theil--Sen line gives spectral slope and
+its root-mean-square residual. Power-weighted axial concentration measures
+anisotropy. Scharr derivatives supply gradient median and IQR, an 18-bin
+magnitude-weighted orientation entropy, and horizontal--vertical balance. Mean
+Jensen--Shannon divergence of quadrant orientation histograms from the global
+histogram measures regional variation.
+
+Four log mean-squared detail energies come from a four-level undecimated
+\texttt{db2} wavelet transform, followed by their linear slope and mean second
+difference \citep{mallat1989wavelet}. Uniform local-binary-pattern entropy uses
+$(P,R)=(8,1),(16,2),(32,4)$ on quantized luminance
+\citep{ojala2002lbp}. Three median local coefficients of variation use window
+widths obtained by rounding 1\%, 4\% and 16\% of the short side and increasing
+even widths to the next odd integer, with a $10^{-6}$ mean floor.
+The fixed implementation records boundary handling and stabilizing
+constants. The separate scaler contains 101 Monet, 36 Sisley, 48 Pissarro and
+36 C\'ezanne works. Equal painter mass is used to calculate each weighted
+median and IQR.
+
+\section{Estimator Details and Sensitivity Analyses}\label{app:estimation}
+Let $\theta_{msa}=\mathbb E[d_{msak}]$ and
+$d_{msak}=\theta_{msa}+\eta_{msak}$. If repeat errors have zero mean and
+$\mathbb E\langle\eta_{msa1},\eta_{msa2}\rangle=0$, then
+\[
+ \mathbb E[\widehat D_{ms}]
+ =H^{-1}\sum_a\|\theta_{msa}-r_a\|^2.
+\]
+Centering induces dependence between artists within a repeat, but independent
+repeat blocks preserve the vanishing cross-repeat term. A common response has
+$\theta_{msa}=0$ and hence expected $D=1$, even if it shifts the entire named
+collection toward the references. A correctly aligned but rescaled response
+$\theta_{msa}=b r_a$ gives expected $D=(b-1)^2$. Orthogonal deviations add their
+squared magnitude. This identity explains why stronger painter contrasts need not have lower
+reference-relative squared error.
+
+The aggregate error $D_{\rm aggregate}$ applies the cross-product estimator to scene-averaged
+contrasts; Equation~\ref{eq:scene-decomposition} relates it to the primary,
+equally scene-weighted error. Painters also receive equal weight. Their
+additive contributions sum to $D$, but centering couples the four conditions,
+so these contributions are not standalone artist-fidelity scores.
+
+For a model contrast, compute one error difference per complete paired scene.
+Its standard error is the sample standard deviation of those differences divided
+by $\sqrt n$. The simultaneous half-width is
+$t_{n-1,1-.05/(2\cdot21)}\,\mathrm{SE}$. Six aligned-response intervals use the same
+family adjustment. Additional nominal intervals and 5,000 paired-scene bootstrap
+draws are descriptive checks, not alternative routes to significance. Reference
+sensitivity draws 1,000 bootstrap samples independently within each painter,
+recomputes reference means and $H$, and holds generated vectors and scaling
+fixed. It describes reference-panel dependence rather than all uncertainty
+jointly.
+
+Declared before inspecting the new feature outcomes, the four-class reference
+sensitivity uses a fixed lexicon applied to source titles: water-organized, built-place-organized, route-organized, and open or
+wooded land. Each class mean receives one-quarter weight within a painter.
+Resampling within artist/class strata conditions on those labels and does not
+account for classification error. The older controlled naming panel used a
+separate three-class visual coding scheme, described below.
+
+For the shared-effect diagnostic, average each arm over scenes within repeat.
+With named-minus-free differences $h_{ak}$ and $c_k=\frac14\sum_a h_{ak}$,
+common and specific squared magnitudes are $4\langle c_1,c_2\rangle$ and
+$\sum_a\langle h_{a1}-c_1,h_{a2}-c_2\rangle$. Their common fraction is reported
+when the total is positive; corrected components may be negative. The within-scene
+version computes both squared-change components separately in each scene,
+averages each over scenes, then takes their ratio. Its shares range from 88.6\%
+(GPT Image 1) to 97.2\% (FLUX).
+Let $g_k$ be the generic-minus-free shift. The ordinary repeat-averaged cosine
+shares a noisy free estimate in both vectors, adding its error covariance trace
+to the expected numerator. The corrected cosine reported in
+Section~\ref{sec:shared-change} instead uses cross-repeat products,
+$[\langle g_1,c_2\rangle+\langle g_2,c_1\rangle]/
+[2\sqrt{\langle g_1,g_2\rangle\langle c_1,c_2\rangle}]$ when both norm squares
+are positive. The ratio itself is not unbiased or constrained to $[-1,1]$.
+Primary $D$ uses only named arms and is unaffected by shared-free-control noise.
+
+\subsection{Additional Score Identities}\label{app:score-details}
+Under a shared affine transformation $z\mapsto Az+b$, centering removes
+the additive term $b$ but leaves the transformed contrast $Ad$.
+
+The estimator has an exact decomposition. Write
+$e_{msak}=d_{msak}-\widehat\beta_{msk}r_a$. Then
+\begin{equation}
+ \widehat D_{ms}=
+ (\widehat\beta_{ms1}-1)(\widehat\beta_{ms2}-1)
+ +\frac1H\sum_a\langle e_{msa1},e_{msa2}\rangle.
+ \label{eq:decomposition}
+\end{equation}
+The first term measures reference-aligned amplitude error. The residual is
+orthogonal to the single stacked reference configuration; it is not necessarily
+outside the feature-space span of the reference means, much less outside all
+authentic artistic variation. Both terms can be negative in finite samples.
+
+Let $\theta_s$ stack the four conditional mean contrasts and
+$\bar\theta=S^{-1}\sum_s\theta_s$. The population target decomposes as
+\begin{equation}
+ D_{\rm scene}=\frac{\|\bar\theta-r\|^2}{H}
+ +\frac1{SH}\sum_s\|\theta_s-\bar\theta\|^2
+ =D_{\rm aggregate}+V_{\rm scene}.
+ \label{eq:scene-decomposition}
+\end{equation}
+To separate contrast strength from direction, define
+\begin{equation}
+ \widehat Q_m=\frac1{SH}\sum_{s,a}\langle d_{msa1},d_{msa2}\rangle,
+ \qquad \widehat D_m=1-2\widehat\beta_m+\widehat Q_m.
+ \label{eq:magnitude}
+\end{equation}
+For positive $\widehat Q_m$, $\widehat\beta_m/\sqrt{\widehat Q_m}$ is a
+noise-corrected alignment summary; finite estimates need not lie in $[-1,1]$.
+Scaling every centered generated contrast by $c$ gives
+$\widehat D_m(c)=1-2c\widehat\beta_m+c^2\widehat Q_m$.
+We fit $c=\max(0,\widehat\beta/\widehat Q)$ on the other 13 scenes and evaluate
+it on the held-out scene. The fitting criterion is available only when its
+training $\widehat Q$ is positive, as it is in every observed fold. This
+counterfactual concerns feature vectors, not an implemented image transformation.
+
+\subsection{Paired Comparisons and Declared Sensitivities}\label{app:declared-sensitivities}
+We fit the scene fixed-effects regression
+\begin{equation}
+ \widehat D_{ms}=\alpha_s+\gamma_m+\varepsilon_{ms},
+ \qquad\gamma_{\text{GPT Image 2}}=0.
+ \label{eq:regression}
+\end{equation}
+In the balanced panel, coefficient differences equal the paired scene means
+used for inference. Changing the regression baseline leaves these differences
+unchanged; Table~\ref{tab:specificity-models} presents them relative to FLUX.
+Declared sensitivities delete each scene, resample scenes
+and reference works, examine feature families and omit texture. Central-square
+windows control aspect ratio by discarding peripheral content in generated and
+reference images. FLUX retains the lowest uncalibrated error after every scene
+deletion ($D=.754$--$.852$) and with square windows ($D=.765$; next-lowest
+Nano Banana 2, $1.024$).
+
+\subsection{Distributional Proximity and Repeat Spread}
+For painter $a$, energy discrepancy compares its generated collection $Y_a$
+with reference collection $X_a$:
+\begin{equation}
+ \E(X,Y)=\frac{2}{n_Xn_Y}\sum_{i,j}\|x_i-y_j\|
+ -\frac1{n_X^2}\sum_{i,i'}\|x_i-x_{i'}\|
+ -\frac1{n_Y^2}\sum_{j,j'}\|y_j-y_{j'}\|.
+ \label{eq:energy}
+\end{equation}
+Its finite-sample expectation depends on within-collection spread; equal
+generated sample sizes do not eliminate comparison bias. Appendix~\ref{app:diagnostics}
+gives the correction for the repeated-scene design. Within-scene repeat spread,
+$\frac{1}{2S}\sum_s\|z_{msa1}-z_{msa2}\|^2$, is the mean sample-variance
+trace of the two outputs. It separates repeat dispersion from variation across
+briefs.
+
+
+\section{Post-result Target Diagnostics}\label{app:diagnostics}
+These retrospective analyses retain the completed 1,008 generated images and
+the original inferential family. The initial diagnostics use unchanged reference
+vectors and scaling; the subsequent source audit separately varies painting
+regions, development scaling and content labels.
+
+\subsection{Content-specific Targets and Genuine-painting Controls}
+The recorded reference classes are water-organized, built-place-organized,
+route-organized, and open or wooded land, assigned by a fixed source-title
+lexicon. Counts in that order are $(191,67,8,31)$ for Monet, $(52,29,9,16)$ for
+Sisley, $(28,77,12,24)$ for Pissarro and $(31,28,12,34)$ for C\'ezanne.
+Class-specific means are centered across painters just as in the pooled target.
+Their mean squared departure from the pooled target is $.438H$, a description
+of observed reference means that includes finite-sample error.
+
+For the generated comparison, the four water, four built and three land briefs
+use the corresponding class means; the three mixed briefs are excluded.
+We average the class-specific cross-product error over these $S=11$ scenes and divide by
+$H_c=S^{-1}\sum_s\sum_a\|r_{a,c(s)}\|^2=7.413$, compared with pooled $H=5.915$.
+Each column of Table~\ref{tab:review-targets} therefore has its own denominator.
+The unchanged 11-scene pooled comparison isolates the scene-subset choice.
+These title-derived strata have 16--191 reference works per artist/class among
+the three included classes, but do not supply visually matched historical scenes.
+
+For each of 1,000 genuine-painting controls, works in each artist/class cell
+are randomly divided into disjoint halves, with the smaller half used for
+target estimation. A pooled control samples two independent works with replacement
+from each painter's held-out half for each of 14 pseudo-scenes. A class-stratified
+control samples within the held-out class for each of the 11 water, built or
+land pseudo-scenes. It is compared with both pooled and class-specific means
+from the training halves, using each target's own squared magnitude.
+The random seed is 2026091201. Sampling can repeat a held-out work, but no
+held-out work is used to estimate that split's target. The development scaler
+is fixed throughout.
+
+To separate sparse sampling from changes in the comparison pools, we also
+calculate each split's expected score from its exact held-out means, keeping
+the training target and normalizer fixed (Table~\ref{tab:painting-control-ranges}).
+
+\begin{table}[htbp]
+\caption{Central 95\% ranges of genuine-painting control scores across 1,000
+splits. Exact means integrate out sampling within each split; these finite-pool
+ranges are not confidence intervals.}
+\label{tab:painting-control-ranges}
+
+\centering\small
+\begin{tabular}{llcc}
+\toprule
+Control sampling & Reference target & Two draws & Exact held-out means\\
+\midrule
+Pooled & Pooled & $[-.758,1.380]$ & $[.135,.428]$\\
+Class-stratified & Pooled & $[-.554,2.400]$ & $[.544,.993]$\\
+Class-stratified & Class-specific & $[-.248,1.946]$ & $[.517,.954]$\\
+\bottomrule
+\end{tabular}
+
+
+\end{table}
+
+For pooled controls, SD falls from $.561$ to $.076$ after integrating out
+sampling. These controls still condition on imperfect title classes and a
+single source capture per work; they do not calibrate artistic fidelity.
+
+\begin{table}[htbp]
+\caption{Descriptive error under alternative targets and metrics. The class target uses title-derived water, built and land strata; the three mixed briefs are excluded. Each column uses its own reference normalizer; absolute values across columns are not directly comparable. Covariance is fitted only on development works, with fixed 50\% shrinkage.}
+\label{tab:review-targets}
+\centering\small
+\begin{tabular}{@{}lrrrr@{}}\toprule
+ & \multicolumn{2}{c}{11 common briefs} & \multicolumn{2}{c}{14 briefs}\\
+Model & Pooled target & Class target & Equal family & Covariance\\\midrule
+GPT Image 1 & 1.557 & 1.366 & 1.551 & 2.103\\
+GPT Image 2 & 1.099 & 1.130 & 1.243 & 1.511\\
+2.5 Flare & 1.726 & 1.539 & 1.765 & 1.636\\
+2.5 Sunburst & 1.633 & 1.525 & 1.680 & 1.617\\
+Nano Banana 2 & 0.987 & 0.948 & 1.203 & 1.385\\
+FLUX.2 Max & 0.750 & 0.786 & 0.808 & 0.928\\
+\bottomrule\end{tabular}
+
+\end{table}
+
+\FloatBarrier
+
+\subsection{Magnitude, Artist Coverage and Coordinate Weighting}\label{app:magnitude-coverage}
+The cross-repeat version of Equation~\ref{eq:scene-decomposition} is exact for
+the retained vectors. Its variation term replaces squared deviations with
+cross-products between scene-centered repeats. The term can be negative in
+finite samples, although its independent-repeat population target is nonnegative.
+Scalar calibration fits only the other 13 scenes. All fold denominators $Q$
+are positive. GPT Image 2's fitted scalars range from .438 to .459 and FLUX's
+from .598 to .694; all fold-specific scores are retained. No calibration
+parameter is selected by minimizing its own held-out score. The subsequent
+deletion check refits the entire procedure on
+each remaining 13-scene panel, rather than treating overlapping folds as
+independent replications. Its mean GPT Image 2-minus-FLUX error differences
+range from $-.189$ to $-.137$.
+
+\begin{table}[htbp]
+\caption{Descriptive magnitude and alignment of painter contrasts. $Q=1$ equals the reference squared size, and $D=1-2\beta+Q$. The alignment ratio can fall outside $[-1,1]$ in finite samples.}
+\label{tab:review-alignment}
+\centering\small
+\begin{tabular}{@{}lrr@{}}\toprule
+Model & Squared contrast magnitude $Q$ & Alignment ratio $\beta/\sqrt Q$\\
+\midrule
+GPT Image 1 & 2.449 & 0.600\\
+GPT Image 2 & 2.223 & 0.670\\
+2.5 Flare & 2.281 & 0.511\\
+2.5 Sunburst & 2.289 & 0.545\\
+Nano Banana 2 & 0.994 & 0.444\\
+FLUX.2 Max & 0.741 & 0.546\\
+\bottomrule\end{tabular}
+
+\end{table}
+
+
+For artist pairs, both generated and reference contrasts are direct differences
+between the two artists; the denominator is the squared reference-pair distance.
+Leaving one artist out recenters the remaining three generated and reference
+conditions. Reference singular components are the three rank-one terms of the
+centered four-by-31 reference matrix: each combines an artist contrast with a
+feature direction, rather than representing one artist. Component aligned
+responses project onto each term separately.
+
+\begin{table}[htbp]
+\caption{Descriptive artist coverage of the aligned response. Reference components account for 66.3\%, 20.6\% and 13.0\% of centroid variation. Each omission recomputes the target and recenters the other three artists.}
+\label{tab:review-components}
+\centering\small
+\begin{tabular}{@{}lrrr|rrrr@{}}\toprule
+ & \multicolumn{3}{c}{Component aligned response} & \multicolumn{4}{c}{Aligned response after omitting}\\
+Model & First & Second & Third & Monet & Sisley & Pissarro & C\'ezanne\\\midrule
+GPT Image 1 & 1.248 & 0.310 & 0.356 & 1.140 & 1.072 & 0.840 & 0.389\\
+GPT Image 2 & 1.156 & 0.617 & 0.800 & 1.195 & 0.972 & 0.992 & 0.651\\
+2.5 Flare & 1.022 & 0.211 & 0.383 & 1.034 & 0.734 & 0.802 & 0.222\\
+2.5 Sunburst & 1.082 & 0.250 & 0.417 & 1.116 & 0.840 & 0.762 & 0.284\\
+Nano Banana 2 & 0.513 & 0.371 & 0.195 & 0.569 & 0.446 & 0.388 & 0.276\\
+FLUX.2 Max & 0.666 & 0.021 & 0.183 & 0.539 & 0.511 & 0.527 & 0.096\\
+\bottomrule\end{tabular}
+
+\end{table}
+
+
+Table~\ref{tab:review-components} shows that aggregate positive alignment is
+uneven across those components.
+
+Equal-family weighting assigns each coordinate inverse family size (11, 8 or 12).
+The covariance sensitivity uses 221 development works with equal painter mass.
+For their weighted covariance $\Sigma$, the metric is
+$[.5\Sigma+.5\operatorname{tr}(\Sigma)I/31]^{-1}$, with fixed shrinkage and no
+tuning on evaluated images. These weighting choices are not independently
+validated artistic metrics.
+
+\begin{samepage}
+FLUX retains the lowest point estimate under all
+31 single-coordinate deletions; the report retains every coordinate contribution,
+including negative terms.
+Without texture, Flare and Sunburst still have error estimates above the
+no-contrast value of one (1.580 and 1.604).
+\end{samepage}
+
+\subsection{A Design-aware Energy Correction}
+The primary energy values use empirical distributions, including their zero
+diagonal distances. To estimate energy between a fixed empirical reference
+and the equally weighted mixture of scene-conditional output distributions,
+cross-scene generated pairs already have the required independent draws.
+Only the same-scene generated term needs adjustment. With two repeats and
+$S$ scenes, the descriptive correction is
+\[
+ \widehat{\mathcal E}_{\rm strata}
+ =\widehat{\mathcal E}_{\rm empirical}
+ -\frac{1}{2S^2}\sum_s\|y_{s1}-y_{s2}\|.
+\]
+The reference within-distance remains empirical because this target conditions
+on the finite reference panel. A pooled IID $n/(n-1)$ multiplier would also
+alter cross-scene terms and estimate a different target. This correction retains
+the 21 negative named-minus-generic differences. It does not solve unequal
+historical and generated content mixtures, and no new energy tests are performed.
+
+\subsection{Uncertainty and Synthetic Coverage Checks}
+The Student procedure uses 14 scene summaries. For independent scene errors
+with fixed conditional means $\delta_s$, its estimated variance has expectation
+\[
+ \mathbb E[s_\delta^2/S]
+ =\operatorname{Var}(\bar{\widehat\delta})
+ +\frac{1}{S(S-1)}\sum_s(\delta_s-\bar\delta)^2.
+\]
+It therefore includes real between-scene heterogeneity as well as request noise.
+This explains why it is not a direct estimate of fresh-request variance for
+exactly the fixed panel. It also does not provide an exact coverage guarantee:
+non-Gaussian cross-products and dependence can affect the Student approximation.
+
+The initial 5,000-run scenarios (seed 2026091202) use the six configurations,
+14 scenes, two repeats and 21-endpoint family, with unit reference magnitude.
+Gaussian, variance-standardized $t_3$/heteroskedastic and fixed scene-interaction
+errors give simultaneous coverage 95.96\%, 97.42\% and 99.68\%. Their independent
+centered noise power is $.5$. Allocating half the noise to a model-specific
+state shared by all scenes and both repeats reduces coverage to 0.04\%, with
+mean corrected-error bias near $.25$.
+
+A subsequent sweep uses independent Gaussian errors at powers $.5$, $1.5$ and
+$3$, with either isotropic or rank-three covariance aligned with the reference
+components (5,000 runs per case). Coverage ranges from 95.06\% to 96.80\%, with
+Monte Carlo SE $.25$--$.31$ percentage points. For comparison, directly centered
+repeat differences estimate observed powers of $.424$--$2.596$ relative to $H$.
+These stress models probe coverage approximations, not actual service independence;
+no significance threshold is selected from them.
+
+\subsection{Source-quality Sensitivity}\label{app:reference-quality}
+AI assistants inspect all 649 reference and 221 development reproductions
+using contact sheets and enlarged peripheral regions, recording removable
+calibration targets, frames, margins and labels. Uncertain boundaries remain
+unchanged. Reference content is visually classified before comparison with the
+title label; mixed or unclear cases retain that label.
+
+The audit selects crops for 90 reference and 41 development images, including
+ten calibration-strip cases; 43 uncertain boundaries remain unchanged. Visual
+classes differ from 230 title assignments, while 42 mixed or unclear cases
+retain their original labels. These AI-coded sensitivities did not undergo human verification and are not
+independent ground truth.
+
+Audited rectangular crops follow the original orientation and ICC rules, before
+aspect-preserving Lanczos resizing to a 512-pixel short side without upsampling.
+All 31 features and all works are retained. We compare corrected references with
+original scaling, then refit development IQR scaling and consistently transform
+generated vectors. Label sensitivity uses the same 11 briefs. Versioned records
+preserve audit decisions, new vectors and original results; model scores do not
+select corrections.
+All six aligned-response intervals remain above zero with either scaler.
+With original scaling, corrected regions give FLUX $D=0.832$.
+After refitting, (uncalibrated, held-out calibrated) errors are:
+GPT Image 1 $(1.631,0.693)$, GPT Image 2 $(1.259,0.579)$,
+Flare $(1.737,0.760)$, Sunburst $(1.577,0.711)$, Nano Banana 2 $(1.121,0.846)$
+and FLUX $(0.872,0.762)$. FLUX and GPT Image 2 retain the respective minima.
+
+\section{Image Selection and Provenance}\label{app:images}
+
+\begin{figure}[p]
+\centering\includegraphics[width=\linewidth]{specificity_original_generated.pdf}
+\caption{One scene, six prompt conditions and six generators. The requested scene
+is a broad river bending past a gravel bank, three trees on the opposite bank,
+and a low hill under an overcast sky. In each model row, compare the four named
+outputs with the artist-free and generic oil-painting controls on the right,
+then compare the painter names with one another. The top row shows audited
+reference regions for display; primary scores use full frames. These works were
+neither generator inputs nor matched compositions. All generated examples use the first brief and first
+repeat; Appendix~\ref{app:images} gives the full prompt, selection rule and provenance.}
+\label{fig:original-generated}
+\end{figure}
+
+The generated examples use the first declared brief and first repeat, selected
+after analysis without appearance- or score-based curation. The brief reads:
+``A broad river bends past a gravel bank. Three tall trees stand on the far bank,
+with a low hill behind them under a pale overcast sky.'' Every prompt ends with
+``No text or frame.'' Only the clauses in Section~\ref{sec:design} change.
+
+References in Figure~\ref{fig:original-generated} are the lexicographically first
+measured work IDs per painter classified as water-organized in the completed
+audit, with recorded public-domain status. The Sisley and Pissarro reproductions
+use audited crops removing calibration strips; Monet and C\'ezanne retain their
+full regions. The manifest records image identities, provenance, crop boxes
+and exact prompts. The paintings are not matched to the generated brief.
+
+
+\FloatBarrier
+
+
+\section{Complete Model and Painter Summaries}\label{app:results}
+Tables~\ref{tab:all-specificity-pairs}--\ref{tab:artist-distributions} and
+Figures~\ref{fig:specificity-diagnostics}--\ref{fig:specificity-distributions}
+summarize model comparisons, error components and collection-level proximity
+and spread.
+\emph{Energy discrepancy} combines between-collection distances and internal
+spread; lower values mean greater proximity (Appendices~\ref{app:estimation}
+and~\ref{app:diagnostics}). Naming lowers energy relative to the generic clause in 21 of 24
+model--painter cells, including the correction for repeated scenes.
+All 24 named collections have smaller total feature variance than their historical
+counterparts. These descriptive comparisons use 28 named or generic outputs
+against the recorded reference panel, with different subject mixtures; they do
+not establish agreement of painter contrasts.
+\begin{table}[htbp]
+\caption{All 15 paired model comparisons in the prespecified inferential family. Intervals are approximate 95\% simultaneous intervals adjusted across all 21 endpoints. A negative contrast favors model A on the stated feature-geometry target.}
+\label{tab:all-specificity-pairs}
+\centering\small
+\begin{tabular}{llr}\toprule
+Model A & Model B & $D_A-D_B$ [simultaneous interval]\\\midrule
+GPT Image 1 & GPT Image 2 & $0.346\;[-0.400,1.093]$\\
+GPT Image 1 & 2.5 Flare & $-0.165\;[-1.027,0.697]$\\
+GPT Image 1 & 2.5 Sunburst & $-0.069\;[-1.181,1.043]$\\
+GPT Image 1 & Nano Banana 2 & $0.463\;[-0.602,1.528]$\\
+GPT Image 1 & FLUX.2 Max & $0.771\;[-0.037,1.580]$\\
+GPT Image 2 & 2.5 Flare & $-0.512\;[-1.150,0.126]$\\
+GPT Image 2 & 2.5 Sunburst & $-0.415\;[-1.181,0.350]$\\
+GPT Image 2 & Nano Banana 2 & $0.116\;[-0.922,1.155]$\\
+GPT Image 2 & FLUX.2 Max & $0.425\;[-0.161,1.011]$\\
+2.5 Flare & 2.5 Sunburst & $0.096\;[-0.286,0.478]$\\
+2.5 Flare & Nano Banana 2 & $0.628\;[-0.283,1.540]$\\
+2.5 Flare & FLUX.2 Max & $0.937\;[0.256,1.618]$\\
+2.5 Sunburst & Nano Banana 2 & $0.532\;[-0.436,1.500]$\\
+2.5 Sunburst & FLUX.2 Max & $0.840\;[0.058,1.623]$\\
+Nano Banana 2 & FLUX.2 Max & $0.309\;[-0.847,1.464]$\\
+\bottomrule\end{tabular}
+
+\end{table}
+
+\begin{table}[htbp]
+\caption{Complementary empirical distribution summaries. Energy change is named-minus-generic reference energy; variance ratios are generated-to-reference. Negative changes favor naming; ratios below one indicate narrower generated feature distributions.}
+\label{tab:artist-distributions}
+\centering\small
+\begin{tabular}{llrrrr}\toprule
+Model & Measure & Monet & Sisley & Pissarro & C\'ezanne\\\midrule
+GPT Image 1 & Energy change & $-2.515$ & $-2.739$ & $-2.628$ & $-1.336$\\
+& Variance ratio & $0.479$ & $0.694$ & $0.603$ & $0.598$\\
+\addlinespace[2pt]
+GPT Image 2 & Energy change & $-0.602$ & $-1.092$ & $-0.195$ & $-0.373$\\
+& Variance ratio & $0.283$ & $0.312$ & $0.303$ & $0.303$\\
+\addlinespace[2pt]
+2.5 Flare & Energy change & $0.962$ & $-0.008$ & $0.429$ & $-1.013$\\
+& Variance ratio & $0.269$ & $0.371$ & $0.321$ & $0.275$\\
+\addlinespace[2pt]
+2.5 Sunburst & Energy change & $0.267$ & $-0.718$ & $-0.091$ & $-1.653$\\
+& Variance ratio & $0.248$ & $0.274$ & $0.273$ & $0.318$\\
+\addlinespace[2pt]
+Nano Banana 2 & Energy change & $-0.513$ & $-1.381$ & $-0.741$ & $-1.102$\\
+& Variance ratio & $0.829$ & $0.708$ & $0.572$ & $0.877$\\
+\addlinespace[2pt]
+FLUX.2 Max & Energy change & $-0.707$ & $-0.886$ & $-1.080$ & $-1.431$\\
+& Variance ratio & $0.340$ & $0.416$ & $0.570$ & $0.622$\\
+\bottomrule\end{tabular}
+
+\end{table}
+
+\FloatBarrier
+
+\begin{figure}[tbp]
+\centering\includegraphics[width=\linewidth]{specificity_diagnostics.pdf}
+\caption{Descriptive summaries for the original reference target.
+(a) Amplitude error and the orthogonal residual---differences perpendicular to
+the overall labeled reference pattern---sum to $D$ (Equation~\ref{eq:decomposition}).
+(b) Generated/reference variance ratios for every model and painter. Total
+spread includes variation across fixed briefs and is not a mode-collapse measure.}
+\label{fig:specificity-diagnostics}
+\end{figure}
+\begin{figure}[tbp]
+\centering\includegraphics[width=.92\linewidth]{specificity_sunburst_distributions.pdf}
+\caption{GPT Image 2.5 Sunburst's named outputs appear more concentrated than
+the reference works in all four projections. This model illustration was selected before the
+primary feature outcomes were inspected. Each panel uses principal components
+fitted only to that painter's reference works, so axes differ between painters.
+The 14 generated briefs and two repeats have a different content distribution
+from the historical panel. Projections are descriptive; numerical summaries
+use all 31 coordinates.}
+\label{fig:specificity-distributions}
+\end{figure}
+\FloatBarrier
+
+\section{Supporting Interventions}\label{sec:why}\label{app:cohorts}
+These earlier cohorts address related but different questions
+(Table~\ref{tab:cohorts}). They are not pooled with the six-model experiment
+or treated as independent-investigator replications. Historical model labels
+identify recorded request configurations, not verified underlying models
+(Appendix~\ref{app:provenance}).
+
+\begin{table}[htbp]
+\caption{Supporting evidence is kept separate from the new six-model experiment.
+Different prompts, panels and finite-sample targets do not form one pooled test.}
+\label{tab:cohorts}
+
+\centering\small
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{.22\linewidth}>{\raggedright\arraybackslash}p{.27\linewidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Cohort & Comparison & Role in this paper\\
+\midrule
+Four-painter exploration & 649 references; 1,920 generated outputs &
+Describes reference/generated separation and motivates the controlled test.\\[4pt]
+Controlled naming & 1,006 outputs; 38 Monet and 32 C\'ezanne references &
+Six named/free and two detailed/short prompt contrasts; subsequent transformation
+and conditional-variance diagnostics.\\[4pt]
+Palette interventions & Two separate 192-output collections &
+Named-minus-generic chroma response; no pooling across collections.\\[4pt]
+Generic-clause comparison & 96 C\'ezanne/generic outputs on 24 new scenes &
+Tests a proximity gain beyond a generic painting clause.\\[4pt]
+Fixed-map transfer & 240 FLUX/C\'ezanne outputs on 12 new scenes &
+Prospective counterexample to the historical opposing energy/prediction ordering.\\
+\bottomrule
+\end{tabularx}
+
+
+\end{table}
+
+\subsection{Proximity and Spread under Naming}
+The four-painter exploration used 1,536 named and 384 artist-free outputs,
+three prompt methods and 16 scenes. Its 24 model--painter--method cells had
+total variance ratios .206--.376 and grouped generated/reference discrimination accuracy
+.940--.983. Pooled named energy medians for Monet, Sisley, Pissarro and C\'ezanne
+were 2.068, 1.678, 1.975 and 2.142; corresponding artist-free medians were
+1.732, 1.878, 1.854 and 1.657. Only Sisley had a lower pooled named median.
+Matched-size real/real medians were .193, .215, .164 and .199. These post-result
+summaries describe that exploration, not a general naming effect.
+
+The later controlled panel selected Monet and C\'ezanne after exploration.
+It crossed 24 scenes with three models, two clauses and three repeats; 142
+short-scene outputs supplied two prompt-length comparisons. Reference panels
+contained 38 Monet and 32 C\'ezanne works, with water/built/land masses based on
+maintainer-run LLM visual coding. Named-minus-free energy changes were
+$-.846,-1.818$ for Nano Banana 2, $-.625,-.896$ for FLUX, and $-.234,-.056$ for
+GPT Image 2 (Monet, C\'ezanne). The first four null hypotheses were rejected in
+the original family of eight. A separate 72-output FLUX collection repeated both directions
+($-.695,-.952$) with rejection in its own four-endpoint family.
+
+A standalone 96-output GPT Image 2/C\'ezanne comparison on 24 new scenes reduced energy
+relative to the generic clause by 1.195 ($p=.00001$, fixed $\alpha=.025$), with
+named/generic total variance ratio .552. It randomized clauses within 48 two-position
+blocks, used reference class masses $(3,11,18)/32$, and tested a sharp no-effect
+null with 99,999 within-block sign draws and plus-one correction. This tests
+clause effects, not equality of energy alone. A generic clause therefore did
+not reproduce the full proximity gain in that panel, but proximity does not
+establish correct four-artist contrasts. Likewise, lower total spread does
+not establish loss of scene information: controlled FLUX/Monet held-repetition
+scene retrieval rose from 44.4\% to 59.7\% under naming. This measures relative
+feature distinguishability, not verified prompt adherence.
+
+\subsection{Palette Responsiveness and a Contrary Transfer Result}
+Both 192-output palette collections requested the historical GPT Image 2 alias,
+using six scenes, four repeats, muted/vivid instructions and free, generic,
+Monet and C\'ezanne clauses. Primary name-minus-generic chroma-response
+interactions were unresolved (Monet, C\'ezanne):
+$-.284,-.018$ in the first collection and $-.159,.037$ in the later one.
+Their adjusted intervals spanned zero in the original two-interaction family and the later four-endpoint
+family, which also included two FLUX naming contrasts.
+Secondary generic-minus-free responses were $-.853$ and $-.891$, with nominal
+95\% intervals excluding zero. Thus generic painting can attenuate measured
+palette response without an identified additional name effect. Two palette
+levels do not distinguish reduced gain from saturation or an operating-range
+shift, and unresolved interactions do not demonstrate equivalence.
+
+Earlier maps translated and optionally isotropically rescaled artist-free feature
+vectors to predict named-prompt scene means, with fits based only on generated
+images and evaluation on held-out scenes. Actual naming had lower reference energy than
+translation plus isotropic scaling in all six model--painter averages. Adding
+scale improved named-mean prediction in all six while worsening reference
+energy in five. That ordering did not transfer to a prospective 240-output
+FLUX/C\'ezanne comparison with 12 new scenes and ten repeats, using the original
+fits unchanged. Translation/scaling improved both energy and repeat-corrected
+prediction error relative to translation: $-.390\;[-.509,-.271]$ and
+$-5.047\;[-7.880,-2.214]$, with approximate simultaneous jackknife intervals.
+The achieved prediction-error half-width exceeded its planning criterion.
+This contrary result is retained without extra sampling; it rules out treating
+the historical opposing ordering as a universal mechanism. These named/free maps
+differ from the retrospective calibration of painter contrasts in
+Table~\ref{tab:review-calibration}.
+
+\section{Collection Provenance and Computational Scope}\label{app:provenance}
+Historical GPT Image 1 and GPT Image 2 labels identify the requested model
+names. A later technical negative control showed that the earlier image
+interface also accepted an invented image-model identifier. This does not show
+that valid names select the same underlying model, but successful request
+acceptance alone cannot authenticate their separation. Historical contrasts
+are therefore interpreted as recorded request-group comparisons. The current
+experiment uses explicit documented model identifiers and fixed routes;
+it does not reuse historical images as verified examples of the new variants.
+All current outputs decode to the requested square dimensions, but their
+response bodies do not echo model or quality fields. Labels therefore denote
+the documented request configurations, without independent checkpoint
+attestation. Underlying checkpoints and training corpora are not available
+for inspection.
+
+The present experiment excludes technical probes and an earlier attempt closed
+before feature measurement because model selection could not be qualified.
+No image is shared between these collections. The earlier incomplete
+generic-clause cohort is likewise not pooled with its complete 96-image
+successor. Exact assignments, attempt outcomes and measurement exclusions are
+retained in the versioned manifests; selection was not based on visual success.
+
+\clearpage
+\section{Projection of Labeled Painter Contrasts}\label{app:geometry}
+In Figure~\ref{fig:specificity-geometry}, C\'ezanne remains visibly separated,
+while generated Monet and Sisley means often lie close together. The M/S/P detail
+boxes magnify the nearby positions. The axes combine the 31 standardized features, with directions fitted
+only to the four reference means. Together they show 86.99\% of variation among
+those means; Figure~\ref{fig:artist-pairs} checks all 31 features.
+
+\begin{figure}[tbp]
+\centering\includegraphics[width=\linewidth]{specificity_geometry.pdf}
+\caption{Matching the labeled painter pattern. Crosses mark reference contrasts;
+open circles average generated contrasts over all 14 scenes and both repeats.
+Shorter matching-label lines indicate less projected mismatch;
+faint dots show centered scene/repeat contrasts.
+The outlined region is enlarged in the adjacent Monet (M), Sisley (S) and
+Pissarro (P) detail at a common scale; C\'ezanne
+remains in the overview. Each view uses common axes across models. Agreement
+in these two projected axes does not establish agreement in all 31 features.}
+\label{fig:specificity-geometry}
+\end{figure}

@@ -1,0 +1,111 @@
+{
+  "review_type": "AI scientific review simulation, not an official conference review",
+  "summary": "The paper audits artist-name responses in a balanced 1,008-image, six-requested-configuration experiment with four related painters, 14 scenes, two repeats, and artist-free/generic-painting controls. It separates common movement from centered painter agreement in 31 hand measurements and two learned representations, then examines historical-prototype prompt-name recovery, held-scene mean translation, supervised generated prototypes, and reference-calibrated abstention. A separate, previously analyzed 2,000-image SD-Turbo collection supports majority-common naming change in the complete hand metric but supplies a texture counterexample. The contribution is a carefully bounded empirical account of distinct evaluation targets, not a new algorithm or a validated fidelity measure.",
+  "strengths": [
+    {
+      "location": "Sections 3-5; Tables 2-5; Appendices B, I, L-M",
+      "text": "The controlled design makes the interpretation problem concrete. It keeps every requested configuration and painter, distinguishes naming beyond generic painting from the painting instruction itself, and does not equate positive alignment, smaller contrast error, prototype proximity, and correct prompt-name recovery. The common-change and common-prototype-gain magnitudes are substantial rather than merely algebraic possibilities."
+    },
+    {
+      "location": "Section 5.3; Appendix Q, Tables 39-42",
+      "text": "The separate SD-Turbo collection is useful additional empirical evidence: different pixels, template, generation mechanism and resolution, with 25 complete repeat blocks. Its cross-block calculation correctly retains paired-arm dependence. Reporting 64.2% common change overall alongside only 36.6% in texture materially limits the main pattern instead of presenting replication as uniformly favorable."
+    },
+    {
+      "location": "Sections 5.7-5.9; Figure 1; Appendices L-M and R",
+      "text": "The decision experiments provide interpretable consequences. Learned representations reverse the weak hand-feature Monet-Sisley alignment conclusion; translation changes actual decisions while preserving centered contrasts; and zero accepted errors coexist with loss of painter coverage. The coverage-matched margin comparator prevents crediting a large selective-error reduction simply to rejecting difficult images. Adverse translation effects and the gate's failed operating criteria remain visible."
+    },
+    {
+      "location": "Sections 4.3, 6.1 and Reproducibility; Appendices C, N-O",
+      "text": "Uncertainty and provenance are unusually candid. The manuscript distinguishes descriptive sensitivity from confidence intervals, discloses prior data exposure and shared references, qualifies hidden service identities, and explicitly shows how repeat covariance can change point ordering. The retained numerical artifacts are detailed enough for independent reconstruction. My recomputations matched the inspected headline results, and all checked source-image hashes matched."
+    }
+  ],
+  "weaknesses": [
+    {
+      "location": "Sections 2, 5.3, 6.1; Appendices M.1, Q.1 and R.1",
+      "type": "scientific scope requiring new evidence to broaden",
+      "text": "The supported contribution remains a focused case study. Four related painters and the same historical comparison panels supply every central result. The additional collection changes several factors together and was already exposed; all learned decision extensions reuse the original service session. These observations establish useful examples of evaluation disagreement, but not its prevalence across artist families, reference sources or future model sessions. Existing work already establishes prompted-artist recognition and problems with raw CSD interpretation; the added value is the particular controlled decomposition and decision consequences. This is sufficient for a modest empirical contribution, but limits significance relative to a broadly validated evaluation protocol."
+    },
+    {
+      "location": "Sections 4.3 and 5.1; Appendices C.4, N.5 and O",
+      "type": "evidence limitation, not an algebraic error",
+      "text": "Actual closed-service dependence remains unidentified with two repeats and scene-contiguous acquisition. The conditional Student intervals and cross-repeat correction are correctly qualified, but neither a negative linear-drift result nor simulations establishes their real-service coverage. The common-fraction estimates have their own common-control and cross-scene covariance exposure, which the primary-D covariance exercise does not bound. This mainly limits population or repeated-service interpretations; it does not erase the observed finite-cohort discrepancies. Independent time-interleaved collections would be needed to strengthen those interpretations."
+    },
+    {
+      "location": "Reproducibility statement; Appendices L.4 and N.3-N.7",
+      "type": "artifact access gap",
+      "text": "Numerical replay is much stronger than public measurement reproducibility. Exact pixels are retained locally and passed my hash checks, but the manuscript states that public exact-pixel recovery is incomplete and that full release/attribution packaging remains outstanding. Consequently an external reader cannot yet repeat feature extraction or inspect the whole cohort from the compact artifact alone. An accessible, versioned pixel bundle or demonstrated recovery route is needed; a plan to release it is not present evidence."
+    },
+    {
+      "location": "Section 5.9; Appendix R, especially Tables 43-46",
+      "type": "scope of decision evidence and explanatory presentation",
+      "text": "The abstention result concerns one fixed score and alpha=.10 operating point. Its 26.0-point mean reduction versus unrestricted prediction yields only 0.53 points versus matched-margin selection, with a harmful FLUX comparison. CLIP's original-primary coverage failure is only one image below the declared 50% cutoff for GPT Image 1. The manuscript appropriately avoids generalizing failure to all abstention methods; the useful finding is painter-skewed selection and limited incremental benefit, not the binary pass/fail label. Showing the four calibration thresholds and relating them to historical per-painter separability would explain this behavior more directly. Such an explanation can use existing records; broader operating-point conclusions would need a separately labeled analysis or fresh validation."
+    },
+    {
+      "location": "Table 2 caption, page 5; main-text organization and Appendices E-P",
+      "type": "editorial issue, no new observations needed",
+      "text": "The Table 2 caption says that the artist-free baseline includes the painting clause, whereas Section 3.2 defines that arm as having no painting instruction. The intended statement is that the named-minus-artist-free contrast includes the painting clause. This should be corrected because control interpretation is central. More generally, the extensive appendix is valuable but repetitive, while the primary complete beta/D table is deferred to page 48. A clearer map from each main claim to its exact primary table would improve accessibility."
+    }
+  ],
+  "questions": [
+    "Can the authors provide an anonymous, versioned exact-pixel artifact or a tested hash-verifying recovery procedure for the complete cohorts and historical panels, including the attribution-bearing files?",
+    "Can Section 5.9 explain the calibration thresholds and their relationship to the strong historical separation of Cezanne, so readers can distinguish inherited class separability from additional generated-domain error detection?",
+    "Which conclusion is intended to transfer beyond these finite cohorts: the existence of the demonstrated score disagreements, or their frequency and magnitude? The former is supported; the latter still needs an independently collected artist/reference/session setting."
+  ],
+  "ethical_concerns": [],
+  "ethics_note": "I found no evidenced research-ethics violation. The manuscript discloses AI-assisted source auditing and incomplete attribution/release packaging. Those release obligations should be completed; incomplete packaging alone does not establish misuse.",
+  "concrete_revision_priorities": [
+    {
+      "priority": 1,
+      "category": "artifact completion",
+      "action": "Make the exact image cohorts, source metadata and extraction environment independently accessible through a versioned anonymous bundle or verified recovery route. Preserve original byte payloads and complete the recorded attribution requirements."
+    },
+    {
+      "priority": 2,
+      "category": "explanation using existing evidence",
+      "action": "Explain the abstention result through the existing calibration thresholds and per-painter historical separability, keeping the matched-coverage effect and painter retention more prominent than the operational pass/fail flag."
+    },
+    {
+      "priority": 3,
+      "category": "editorial correction",
+      "action": "Correct the Table 2 baseline wording and provide a compact claim-to-table map or bring the complete primary beta/D summary closer to the main results. Preserve the adverse sensitivities in the supplement."
+    },
+    {
+      "priority": 4,
+      "category": "new evidence needed for a stronger general claim",
+      "action": "For broader claims about prevalence or operational reliability, run the frozen diagnostics on an independently collected artist/reference setting with time-interleaved repeats. A shared-family prompt control is needed only if the authors wish to identify whether common movement is appropriate family-level style; it is not necessary for the present descriptive decomposition. Do not treat planned collection as current support."
+    }
+  ],
+  "overall_rating": 6,
+  "overall_rating_label": "marginally above acceptance",
+  "soundness": 3,
+  "presentation": 3,
+  "contribution": 3,
+  "confidence": 4,
+  "rating_rationale": "I lean toward acceptance as a careful empirical evaluation paper. The central contribution is not the standard centering or rejection mathematics, but substantial, reproducible examples showing how apparently favorable evaluation readouts lead to different conclusions, with a separate collection and important adverse results. The explicit restrictions to measured digital references and prompt labels make the claims largely commensurate with the evidence. I do not require a new algorithm or human fidelity study for those claims. The narrow artist/reference scope, unidentified service dependence, mostly retrospective extensions, small matched-margin benefit and incomplete public pixel access prevent a stronger recommendation. More caveats alone cannot establish wider generality, but wider generality is not required to recognize the current bounded empirical contribution.",
+  "inspected_pdf_sha256": "3fbf2dafd970a1d352d63af336bd6cb4c089f2332dc8df604428cb4d9e3e62ac",
+  "evidence_inspected": {
+    "complete_reading_scope": "Read the complete 60-page frozen manuscript, including all eight main pages, references, and Appendices A-R, through all 4,032 lines of manuscript.txt; recovered the small truncated passage around printed lines 3091-3103 separately. Inspected frozen TeX for Table 2 and the cross-cohort/selective method appendices.",
+    "rendered_pdf_pages": [1, 2, 3, 4, 5, 6, 7, 8, 17, 23, 43, 48, 51, 54, 55, 60],
+    "bindings": "Verified the manuscript SHA-256 and all 44 entries in round_04/evidence_manifest.json; no mismatch.",
+    "source_checks": [
+      "Read the original cross-cohort and selective-attribution plans, their frozen inputs, relevant calculation/loading/census implementations, and selected raw manifest/measurement rows. Did not read another scientific review or a round summary.",
+      "Independently reconstructed the main six-configuration hand-feature array from requests.jsonl, measurements.jsonl, the retained development scaler and the 649 measured historical references. Reproduced every named-minus-generic common share, beta point/adjusted interval, D and repeat-difference q. Recomputed all 15 adjusted model contrasts; only Flare-FLUX and Sunburst-FLUX excluded zero.",
+      "Independently loaded both 2,009-by-768 embedding archives and original row identities. For every configuration, reconstructed primary-reference baseline accuracy, named-minus-generic common prototype-gain fraction, held-scene translated accuracy, fixed reference-calibrated gate, painter accepted counts and exact-coverage margin comparison. Matched all inspected records, including CSD mean reductions 26.03035 and 0.52594 percentage points, and CLIP/CSD mean translation gains 2.67857 and 9.97024 points.",
+      "Independently reconstructed all 2,000 SD-Turbo standardized feature vectors and computed U using explicit distinct ordered block pairs, without importing the study's analysis functions. Reproduced all four family pooled and within-scene summaries, including overall common share 0.64184458, texture share 0.36577152 and overall pooled/scene D 0.91696852/1.63663230. Confirmed 2,000 unique request cells, 400 distinct scene/block seeds and shared seeds across all five arms in each cell.",
+      "Verified SHA-256 against retained raw bytes for all 1,878 original main/generated/reference/development images and all 2,000 SD-Turbo originals. No mismatch; no hash overlap between the two generated cohorts. These checks establish retained-byte consistency, not public accessibility or independent feature re-extraction."
+    ],
+    "verification_limits": "Did not regenerate model outputs, re-extract all image measurements, independently authenticate hidden served checkpoints, or validate perceived style with human experts. Public artifact availability was not demonstrated by local hash verification.",
+    "primary_literature_consulted": [
+      {
+        "title": "Frochte (2026), When Style Similarity Scores Fail: Diagnosing Raw CSD Cosine in Artist-Style Evaluation, v2",
+        "url": "https://arxiv.org/abs/2605.09030v2",
+        "scope": "Abstract and version metadata; supports that raw-CSD interpretation and shared-tradition failures are established prior topics."
+      },
+      {
+        "title": "Su et al. (2025), Identifying Prompted Artist Names from Generated Images, v1",
+        "url": "https://arxiv.org/abs/2507.18633v1",
+        "scope": "Abstract and version metadata; establishes the existing prompted-artist-recognition benchmark and comparisons across methods/generalization settings."
+      }
+    ]
+  }
+}

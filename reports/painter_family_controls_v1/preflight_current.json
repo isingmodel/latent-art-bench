@@ -1,0 +1,36 @@
+{
+  "approved_cumulative_ceiling_usd": "120",
+  "historical_accounted_usd": "112.293676",
+  "historical_terminal_record_intact": true,
+  "namespace": "painter_family_controls_v1",
+  "operations": "read-only; no network or new generation",
+  "planned_outputs": 4608,
+  "present_weight_files": [],
+  "proposed_start": null,
+  "proposed_unapproved_ceiling_usd": "350",
+  "ready_for_live_collection": false,
+  "schema": "painter-family-controls-readiness/1.0",
+  "storage": {
+    "destination_exists": true,
+    "device": 16777234,
+    "existing_ancestor": "/Users/fred/dev/generative_art_diff",
+    "free_bytes": 2648059904,
+    "initial_capacity_bytes": 42949672960,
+    "meets_idle_collector_floor": false,
+    "meets_initial_capacity": false,
+    "note": "actual filesystem free bytes; no reservation, directory creation or write probe",
+    "requested_path": "/Users/fred/dev/generative_art_diff",
+    "writable": true
+  },
+  "unresolved": [
+    "new collection is not authorized; proposed $350 ceiling is not operative",
+    "current route availability and pricing have not been verified for a new run",
+    "no complete precollection freeze for this run exists",
+    "no live transport or execution command is implemented in this offline package",
+    "no user-provided output/cache/temporary storage destination",
+    "destination lacks writable 40 GiB initial capacity",
+    "actual free space is below the 5 GiB collector floor",
+    "absolute UTC session windows are not frozen",
+    "fixed extraction weights are not locally available; no download attempted"
+  ]
+}

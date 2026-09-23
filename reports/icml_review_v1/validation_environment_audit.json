@@ -1,0 +1,182 @@
+{
+  "artifact_sha256": {
+    "storage_fixture.py": "f71f6360b38fac4be57cd2de4b86854e5a0853ece2260b7fbb2b2c3fbf588c14",
+    "storage_fixture_initial.py": "18fa773f2efe33468e2e94697367f6eada05681f56d3d3668c324e13ebf05045",
+    "validation_environment_first.json": "54565ef34c23039e07444b1d99391edf2ef9ac36ee2791f2a5f0623b22949f5d",
+    "validation_environment_supplemental.json": "ccb8c3597e2003b67db787af3616f674f67822e42872a9febab12fb69c8e30d0",
+    "validation_environment_supplemental.log": "40fe607a1eedbd26a0e4647c33377b7420ce7b1966d35d22ab3da3cd8e684147",
+    "validation_environment_supplemental_retry.json": "48b6a150bd3072b8802ea82e9673a0e188cfd7e87ae10c6ff75c6650b6f85d86",
+    "validation_environment_supplemental_retry.log": "28c84a49ccc8573a49dd3dafc1527ebfb94d46a9ab4fe9e231d71e674112b701"
+  },
+  "cache_caveat": "Cache also held one unrelated stale collection entry; it is not attributed to this run. Original full tracebacks were not available to this audit.",
+  "claim_limit": "The original vanilla make check result remains 881 passed and 10 failed. All 85 cases in the affected two modules subsequently passed across explicitly declared supplemental fixture runs. This is not a vanilla make check pass and does not replace the original receipt.",
+  "cleanup": "Only the two new synthetic temporary directories created for these supplemental runs were removed after preserving receipts and logs; no pre-existing user files, production source, frozen tests, model state, or OS volume contents were altered by this helper.",
+  "combined_supplemental": {
+    "all_protected_source_and_test_hashes_equal_across_runs": true,
+    "counting": "84 first-run passes plus 2 retry passes minus 1 repeated zero-storage control = 85 unique passes",
+    "original_failing_cases_now_passed": 10,
+    "unique_cases_passed": 85
+  },
+  "diagnosis": "Both offline fixtures retain the production 5 GiB reserve but omit a disk fixture. Real insufficient host storage stops before HTTP MockTransport dispatch; this is correct production guard behavior.",
+  "first_supplemental": {
+    "bound_bytes_unchanged": true,
+    "cause": "new helper compared time-varying real disk snapshots 4096 bytes apart; source assertion error, not a frozen test assertion failure",
+    "collected": 85,
+    "network_calls_blocked": 0,
+    "passed": 84,
+    "receipt": "reports/icml_review_v1/validation_environment_supplemental.json",
+    "seconds": 38.95,
+    "setup_errors": 1,
+    "zero_storage_override_verified": true
+  },
+  "original_ten_node_ids_from_pytest_cache": [
+    "tests/painter_naming_replication_v1/test_replication.py::test_credit_shortfall_and_queued_retry_not_reported_as_post[10]",
+    "tests/painter_naming_replication_v1/test_replication.py::test_full_mocked_collection_measurement_analysis_replay",
+    "tests/painter_map_validation_v2/test_operations.py::test_complete_240_transport_accounting_and_one_shot",
+    "tests/painter_map_validation_v2/test_operations.py::test_exact_429_retries_same_payload_once",
+    "tests/painter_map_validation_v2/test_operations.py::test_second_technical_failure_permanently_closes",
+    "tests/painter_map_validation_v2/test_operations.py::test_last_success_overcharge_is_ineligible",
+    "tests/painter_map_validation_v2/test_operations.py::test_final_identity_failure_overrides_complete_grid",
+    "tests/painter_map_validation_v2/test_operations.py::test_low_total_final_overcharge_cannot_forge_complete_receipt",
+    "tests/painter_map_validation_v2/test_operations.py::test_eight_retries_are_allowed_but_ninth_needed_stops[8-True]",
+    "tests/painter_map_validation_v2/test_operations.py::test_eight_retries_are_allowed_but_ninth_needed_stops[9-False]"
+  ],
+  "pending": [],
+  "potentially_vacuous_cases_now_reached": [
+    {
+      "nodeid": "tests/painter_map_validation_v2/test_operations.py::test_first_unavailable_or_unknown_slot_stops_and_drains[refused]",
+      "receipts": [
+        {
+          "attempts": 1,
+          "posted_attempts": 1,
+          "reason": "required_slot_unavailable",
+          "relative_path": "data/manifests/painter_map_validation_v2/pmv2-20260910/collection_receipt.json",
+          "slot_counts": {
+            "not_attempted_collection_stopped": 239,
+            "refused": 1
+          },
+          "status": "stopped"
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/painter_map_validation_v2/test_operations.py::test_first_unavailable_or_unknown_slot_stops_and_drains[server500]",
+      "receipts": [
+        {
+          "attempts": 1,
+          "posted_attempts": 1,
+          "reason": "unrecognized_backend_error",
+          "relative_path": "data/manifests/painter_map_validation_v2/pmv2-20260910/collection_receipt.json",
+          "slot_counts": {
+            "http_error": 1,
+            "not_attempted_collection_stopped": 239
+          },
+          "status": "stopped"
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/painter_map_validation_v2/test_operations.py::test_first_unavailable_or_unknown_slot_stops_and_drains[timeout]",
+      "receipts": [
+        {
+          "attempts": 1,
+          "posted_attempts": 1,
+          "reason": "uncertain_or_unsupported_delivery",
+          "relative_path": "data/manifests/painter_map_validation_v2/pmv2-20260910/collection_receipt.json",
+          "slot_counts": {
+            "not_attempted_collection_stopped": 239,
+            "outcome_uncertain": 1
+          },
+          "status": "stopped"
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/painter_map_validation_v2/test_operations.py::test_first_unavailable_or_unknown_slot_stops_and_drains[wrong_model]",
+      "receipts": [
+        {
+          "attempts": 1,
+          "posted_attempts": 1,
+          "reason": "uncertain_or_unsupported_delivery",
+          "relative_path": "data/manifests/painter_map_validation_v2/pmv2-20260910/collection_receipt.json",
+          "slot_counts": {
+            "not_attempted_collection_stopped": 239,
+            "unsupported_success": 1
+          },
+          "status": "stopped"
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/painter_map_validation_v2/test_operations.py::test_first_unavailable_or_unknown_slot_stops_and_drains[unknown_success]",
+      "receipts": [
+        {
+          "attempts": 1,
+          "posted_attempts": 1,
+          "reason": "unknown_paid_cost",
+          "relative_path": "data/manifests/painter_map_validation_v2/pmv2-20260910/collection_receipt.json",
+          "slot_counts": {
+            "image_returned": 1,
+            "not_attempted_collection_stopped": 239
+          },
+          "status": "stopped"
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/painter_map_validation_v2/test_operations.py::test_first_unavailable_or_unknown_slot_stops_and_drains[overcharge]",
+      "receipts": [
+        {
+          "attempts": 1,
+          "posted_attempts": 1,
+          "reason": "reported_cost_exceeds_reservation",
+          "relative_path": "data/manifests/painter_map_validation_v2/pmv2-20260910/collection_receipt.json",
+          "slot_counts": {
+            "image_returned": 1,
+            "not_attempted_collection_stopped": 239
+          },
+          "status": "stopped"
+        }
+      ]
+    }
+  ],
+  "pre_download_free_space": {
+    "approximate_gib": 3.7,
+    "source": "parent agent observation, not independently reconstructed"
+  },
+  "repeat_condition": "parent confirms CSD extraction and supplemental model validation finished, checkpoint evicted, and real free bytes at least 500 MiB",
+  "role": "implementation_and_test_environment_validation; not independent scientific review",
+  "schema": "supplemental-storage-environment-audit/1",
+  "status": "complete_supplemental_verification",
+  "sufficient_storage_fixture": {
+    "mock_free_bytes": 10737418240,
+    "path": "reports/icml_review_v1/storage_fixture.py",
+    "production_and_frozen_test_edits": false,
+    "real_network_io": "prohibited",
+    "scope": "exact selected collector module and exact pytest temporary root; all other paths delegate"
+  },
+  "targeted_retry": {
+    "bound_bytes_unchanged": true,
+    "failed": 0,
+    "passed": 2,
+    "purpose": "one previously setup-interrupted case plus repeated zero-storage control",
+    "real_network_attempts": 0,
+    "receipt": "reports/icml_review_v1/validation_environment_supplemental_retry.json",
+    "seconds": 1.09,
+    "zero_storage_override_verified": true
+  },
+  "vanilla_make_check": {
+    "affected": [
+      "tests/painter_naming_replication_v1/test_replication.py",
+      "tests/painter_map_validation_v2/test_operations.py"
+    ],
+    "command": "make check",
+    "failure_class": "Historical mocked collector tests stopped on actual host storage reserve; no new scientific test failure. Checkpoint downloads reduced free space. Rerun affected tests after evicting this turn public CSD checkpoint, then complete suite as justified.",
+    "pytest": {
+      "failed": 10,
+      "passed": 881,
+      "seconds": 226.02
+    },
+    "ruff": "passed"
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "schema": "painter-family-controls-design/1.0",
+  "namespace": "painter_family_controls_v1",
+  "status": "draft; no live authorization, schedule, frozen study or observations",
+  "models": [
+    "gpt-image-1",
+    "gpt-image-2",
+    "gpt-image-2.5-flare",
+    "gpt-image-2.5-sunburst",
+    "google/gemini-3.1-flash-image",
+    "black-forest-labs/flux.2-max"
+  ],
+  "artists": [
+    "claude_monet",
+    "alfred_sisley",
+    "camille_pissarro",
+    "paul_cezanne"
+  ],
+  "arms": [
+    "free",
+    "generic",
+    "style_frame",
+    "shared_family",
+    "claude_monet",
+    "alfred_sisley",
+    "camille_pissarro",
+    "paul_cezanne"
+  ],
+  "scenes": [
+    {
+      "id": "W1",
+      "text": "A shallow stream divides around a mossy gravel island. A bare branch crosses the foreground, and a distant reed bank lies beneath thin evening clouds."
+    },
+    {
+      "id": "W2",
+      "text": "A flooded pasture surrounds a row of short wooden fence posts. Low willow bushes stand on the right, and the water reflects a strip of pale morning sky."
+    },
+    {
+      "id": "W3",
+      "text": "A tidal pool lies between dark rounded rocks. A narrow band of open sea crosses the background beneath a bright, cloudless sky."
+    },
+    {
+      "id": "B1",
+      "text": "A low railway platform stands beside two empty tracks. A red brick goods shed is set back on the left, with a line of hills beyond the station."
+    },
+    {
+      "id": "B2",
+      "text": "A narrow staircase climbs between plaster garden walls. A wooden door stands halfway up, and a small patch of sky is visible above the roofs."
+    },
+    {
+      "id": "B3",
+      "text": "A roadside bakery has closed wooden shutters and a striped awning. The empty pavement slopes gently toward a row of bare trees."
+    },
+    {
+      "id": "L1",
+      "text": "A harvested field contains several small stacks of straw. The rows run diagonally toward a distant belt of trees beneath a high, clear sky."
+    },
+    {
+      "id": "L2",
+      "text": "A wet heath is dotted with low flowering bushes. A line of exposed stones curves across the foreground, with a rounded hill in the distance."
+    },
+    {
+      "id": "L3",
+      "text": "A stand of slender birches grows on a sandy rise. Long shadows cross the open foreground and a dark evergreen wood fills the background."
+    },
+    {
+      "id": "M1",
+      "text": "An abandoned stone quarry contains a pool of green water. Rough steps descend from a grassy rim, and two small houses stand beyond the far wall."
+    },
+    {
+      "id": "M2",
+      "text": "A footpath follows the edge of a reservoir below a hillside village. A metal railing crosses the foreground and a patchwork of gardens climbs behind the roofs."
+    },
+    {
+      "id": "M3",
+      "text": "A sluice gate separates a narrow channel from a reed-filled basin. A dirt service track runs beside it toward a low brick building."
+    }
+  ],
+  "suffixes": {
+    "free": "No text or frame.",
+    "generic": "Render as an oil painting. No text or frame.",
+    "style_frame": "Render as an oil painting in the style of a generic oil painting. No text or frame.",
+    "shared_family": "Render as an oil painting in the style of late-nineteenth-century French Impressionist and Post-Impressionist painting. No text or frame.",
+    "claude_monet": "Render as an oil painting in the style of Claude Monet. No text or frame.",
+    "alfred_sisley": "Render as an oil painting in the style of Alfred Sisley. No text or frame.",
+    "camille_pissarro": "Render as an oil painting in the style of Camille Pissarro. No text or frame.",
+    "paul_cezanne": "Render as an oil painting in the style of Paul Cezanne. No text or frame."
+  },
+  "session_offsets_hours": [
+    0,
+    8,
+    24,
+    32,
+    48,
+    56,
+    72,
+    80
+  ],
+  "window_hours": 4,
+  "order_seed": 2026091908,
+  "planned_outputs": 4608,
+  "historical_accounted_usd": "112.293676",
+  "current_approved_cumulative_ceiling_usd": "120",
+  "proposed_unapproved_ceiling_usd": "350",
+  "primary": {
+    "representation": "csd",
+    "endpoints": [
+      "N",
+      "T"
+    ],
+    "family_size": 12,
+    "sessions": 8,
+    "scenes": 12,
+    "incomplete_model_decision": "unresolved"
+  },
+  "frozen_before_new_queries_required": true,
+  "network_transport_available": false,
+  "protocol_source_sha256": "4c219f05cf3fde67959cd0d73e2c15cfc4302473f6dbfba1f08e57d91fc0b163",
+  "design_sha256": "c47514a88068a582ad67567f8fb0d8e7b84d83ea93095644da6f1c435be469ea"
+}

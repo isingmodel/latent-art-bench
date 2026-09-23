@@ -5,6 +5,7 @@ PYTHON := $(UV) python
 CONTROLLED := latent_art_bench.painter_distribution_study_v1
 REVISION := latent_art_bench.painter_distribution_revision_v1
 PAPER_BUILD := tmp/paper/build
+ICML_BUILD := tmp/paper/icml-build
 SPECIFICITY := latent_art_bench.painter_specificity_measurement_v1
 
 .PHONY: help check check-all evidence analysis four-painter-analysis plots responsiveness computational-responsiveness palette-check validation-check replication-check geometry-check clause-check clause-successor-check figures figures-check paper specificity-check specificity-audit review-check review-images-check reference-quality-check reference-quality-images-check example-images example-images-check editorial-check
@@ -12,6 +13,9 @@ SPECIFICITY := latent_art_bench.painter_specificity_measurement_v1
 help:
 	@echo 'Paper correction: paper/README.md and docs/AGENT_HANDOVER.md'
 	@echo 'make paper     Render manuscript figures and compile paper/paper.pdf'
+	@echo 'make paper-icml  Build and check the anonymous ICML manuscript'
+	@echo 'make icml-evidence-check  Replay the separate ICML scientific revision'
+	@echo 'make icml-artifact-check  Verify the selected exact-pixel inventory locally'
 	@echo 'make figures-check  Check manuscript figures without rewriting them'
 	@echo 'make check     Ruff and the current analysis/integrity test suite'
 	@echo 'make check-all Ruff and all retained offline tests, including historical workflows'
@@ -143,3 +147,28 @@ paper: figures
 	mkdir -p $(PAPER_BUILD)
 	cd paper && tectonic --outdir ../$(PAPER_BUILD) paper.tex
 	cp $(PAPER_BUILD)/paper.pdf paper/paper.pdf
+
+.PHONY: paper-icml icml-format-check
+paper-icml:
+	mkdir -p $(ICML_BUILD) output/pdf
+	cd paper && tectonic --keep-logs --keep-intermediates --outdir ../$(ICML_BUILD) icml.tex
+	$(PYTHON) scripts/check_icml_format.py
+	cp $(ICML_BUILD)/icml.pdf output/pdf/latent_art_bench_icml.pdf
+
+icml-format-check:
+	$(PYTHON) scripts/check_icml_format.py
+
+.PHONY: icml-evidence-check icml-artifact-check
+icml-evidence-check:
+	$(PYTHON) -m latent_art_bench.painter_specificity_review_v3 check
+	$(PYTHON) -m latent_art_bench.painter_request_timing_v1 check
+	$(PYTHON) -m latent_art_bench.painter_learned_audit_v1 check
+	$(PYTHON) paper/make_icml_learned_tables.py --check
+	$(PYTHON) paper/make_icml_learned_calibration_tables.py --check
+	$(PYTHON) -m latent_art_bench.painter_prototype_transfer_v1 check --execute-real
+	$(PYTHON) paper/make_icml_transfer_tables.py --check
+	$(PYTHON) -m latent_art_bench.painter_repeat_covariance_v1 check --execute-real
+	$(PYTHON) paper/make_icml_covariance_tables.py --check
+
+icml-artifact-check:
+	$(PYTHON) scripts/check_icml_artifact_inventory.py

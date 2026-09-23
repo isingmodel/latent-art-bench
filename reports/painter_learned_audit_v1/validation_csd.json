@@ -1,0 +1,280 @@
+{
+  "batch_size": 4,
+  "bindings": [
+    {
+      "path": "artifacts/models/clip-vit-large-patch14/config.json",
+      "sha256": "8a09b467700c58138c29d53c605b34ebc69beaadd13274a8a2af8ad2c2f4032a"
+    },
+    {
+      "path": "artifacts/models/clip-vit-large-patch14/preprocessor_config.json",
+      "sha256": "910e70b3956ac9879ebc90b22fb3bc8a75b6a0677814500101a4c072bd7857bd"
+    },
+    {
+      "path": "artifacts/models/csd-vit-large/config.json",
+      "sha256": "c84b12fd5371203f06ebbe752757fa73e23da873de365f357805abdc9faa65f5"
+    },
+    {
+      "path": "artifacts/models/csd-vit-large/pytorch_model.bin",
+      "sha256": "40e92fad63a361b8136100cd234c42d401ef9b34ff1748234318929ebcc7e7a1"
+    },
+    {
+      "path": "artifacts/models/openai-clip-source/model.py",
+      "sha256": "9902cbe5ee90a1da2aa3e6f043e8a23dc1f8831193b963785c9af03d5c7bef2c"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8"
+    },
+    {
+      "path": "reports/painter_learned_audit_v1/csd_adapter_inputs.json",
+      "sha256": "349174290b7dcdb2e1806ab47b8b2fae0fd1da0d979fca93607a5b336eb6b2ec"
+    },
+    {
+      "path": "reports/painter_learned_audit_v1/extraction_csd.json",
+      "sha256": "5a55e4337b9588ef45bce46037dbe7ed123f89113d92da1e8d1c738eee0d6945"
+    },
+    {
+      "path": "reports/painter_learned_audit_v1/inputs.json",
+      "sha256": "bd9cb00279fffb741b3579e3234ad034bb593884925ea40893c717612eccca57"
+    },
+    {
+      "path": "scripts/check_learned_extraction.py",
+      "sha256": "f4d627ca0bcf29bc460032c67f8aa6c5662bc73e9535c060cbac24ddb50a5c08"
+    },
+    {
+      "path": "src/latent_art_bench/painter_learned_audit_v1.py",
+      "sha256": "156750d6d7099fb0a87b6ca789f5892d555ebca04fc58195aec85a8ea2a1c0c8"
+    },
+    {
+      "path": "src/latent_art_bench/painter_learned_csd_v1.py",
+      "sha256": "787b95697b6c48910a880c66961af4ea21c05d77184ddd0e8e7d2ff27395fb3e"
+    },
+    {
+      "path": "studies/painter_learned_audit_v1/PLAN.md",
+      "sha256": "c4af957b1922853b9541c02041d3a1b887a2f660dff709d3efb70710025766c0"
+    },
+    {
+      "path": "tests/painter_learned_audit_v1/test_pixels.py",
+      "sha256": "803579e8fad90f0daf8bac48aff103bf414df29e28cc05b1eb9dc6bbac82cc67"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+    }
+  ],
+  "cases": [
+    {
+      "case": "original_generated",
+      "index": 0,
+      "oriented_source_size": [
+        1024,
+        1024
+      ],
+      "row": {
+        "arm": "camille_pissarro",
+        "box": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "id": "psv2-0000",
+        "model": "gpt-image-2.5-sunburst",
+        "path": "research_workspace/painter_specificity_v2/psv2-20260911/images/psv2-0000.png",
+        "repeat": 1,
+        "role": "generated",
+        "scene": 8,
+        "sha256": "65ec023c5012c5f8ac474853eb98432ba608b8ab202aae9a11f94d2a8e8b0dc9",
+        "view": "original"
+      }
+    },
+    {
+      "case": "original_reference",
+      "index": 1051,
+      "oriented_source_size": [
+        3840,
+        2645
+      ],
+      "row": {
+        "box": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "id": "wikidata:Q104774055",
+        "painter": "alfred_sisley",
+        "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/be98239c7ffb872f84922f85cefce89cac62ed9715ca087056d5ae52b4ce1484",
+        "role": "reference",
+        "sha256": "be98239c7ffb872f84922f85cefce89cac62ed9715ca087056d5ae52b4ce1484",
+        "view": "original"
+      }
+    },
+    {
+      "case": "odd_aspect_reference",
+      "index": 1057,
+      "oriented_source_size": [
+        3840,
+        3211
+      ],
+      "row": {
+        "box": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "id": "wikidata:Q107340193",
+        "painter": "alfred_sisley",
+        "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/1d8508c78baae645ed79d1ca6d1e848cf47bb9fdab9301b32d651e9a8638c71f",
+        "role": "reference",
+        "sha256": "1d8508c78baae645ed79d1ca6d1e848cf47bb9fdab9301b32d651e9a8638c71f",
+        "view": "original"
+      }
+    },
+    {
+      "case": "audited_region",
+      "index": 1052,
+      "oriented_source_size": [
+        3840,
+        2645
+      ],
+      "row": {
+        "box": [
+          0.068,
+          0.015,
+          0.992,
+          0.988
+        ],
+        "id": "wikidata:Q104774055",
+        "painter": "alfred_sisley",
+        "path": "research_workspace/painter_feature_generation_v2/pfg2-renderings-r2-20260905/raw/be98239c7ffb872f84922f85cefce89cac62ed9715ca087056d5ae52b4ce1484",
+        "role": "reference",
+        "sha256": "be98239c7ffb872f84922f85cefce89cac62ed9715ca087056d5ae52b4ce1484",
+        "view": "audited_region"
+      }
+    }
+  ],
+  "census": {
+    "input_rows": 2009,
+    "original_counts": {
+      "development": 221,
+      "generated": 1008,
+      "reference": 649
+    },
+    "region_count": 131
+  },
+  "checkpoint": {
+    "directory": "csd-vit-large",
+    "file": "pytorch_model.bin",
+    "repository": "tomg-group-umd/CSD-ViT-L",
+    "revision": "5bc26a6fb0487f3f00a2a7313135103a005b1b67",
+    "sha256": "40e92fad63a361b8136100cd234c42d401ef9b34ff1748234318929ebcc7e7a1"
+  },
+  "comparisons": {
+    "cpu_batch4_vs_cpu_single": {
+      "max_abs": 0.0,
+      "passed": true,
+      "per_case_max_abs": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "cpu_batch4_vs_mps_batch4": {
+      "max_abs": 1.2516975402832031e-06,
+      "passed": true,
+      "per_case_max_abs": [
+        1.1567026376724243e-06,
+        1.2516975402832031e-06,
+        1.044943928718567e-06,
+        6.966292858123779e-07
+      ]
+    },
+    "cpu_single_vs_mps_single": {
+      "max_abs": 1.2516975402832031e-06,
+      "passed": true,
+      "per_case_max_abs": [
+        1.1567026376724243e-06,
+        1.2516975402832031e-06,
+        1.044943928718567e-06,
+        6.966292858123779e-07
+      ]
+    },
+    "mps_batch4_vs_mps_single": {
+      "max_abs": 0.0,
+      "passed": true,
+      "per_case_max_abs": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "cpu_threads": 4,
+  "dtype": "float32",
+  "ended_utc": "2026-09-18T15:21:42.829545+00:00",
+  "environment": {
+    "machine": "arm64",
+    "mps_available": true,
+    "mps_built": true,
+    "packages": {
+      "Pillow": "11.3.0",
+      "huggingface-hub": "0.36.2",
+      "numpy": "2.5.2",
+      "safetensors": "0.8.0",
+      "tokenizers": "0.22.2",
+      "torch": "2.13.0",
+      "torchvision": null,
+      "transformers": "4.57.6"
+    },
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.11"
+  },
+  "extraction_implementation_sha256": "156750d6d7099fb0a87b6ca789f5892d555ebca04fc58195aec85a8ea2a1c0c8",
+  "extraction_receipt_sha256": "5a55e4337b9588ef45bce46037dbe7ed123f89113d92da1e8d1c738eee0d6945",
+  "input_manifest_sha256": "bd9cb00279fffb741b3579e3234ad034bb593884925ea40893c717612eccca57",
+  "model": "csd",
+  "processed_tensor_sha256": [
+    "b239901eb8854c2f11f0ecba2e6fe78547cc3553ee70c181eb0a41e1dec3908b",
+    "f8a8f1763f0aa41d4094359dda07dfca5ba1246c3aeeb066a0f14981854600d5",
+    "b731e18554c474f0d43addb07170bff1e4b702d2f46f5262d2b5c57d1f753ada",
+    "b580b993710d3424a25af6b154b366c2b8e9d4ec1a16c9162867e951e00db0e4"
+  ],
+  "processed_tensors_match_extraction": true,
+  "processor": {
+    "configuration_scope": "Factory and runtime source hashes bind native settings when no to_dict API exists.",
+    "serialized_configuration": {
+      "adapter_sha256": "787b95697b6c48910a880c66961af4ea21c05d77184ddd0e8e7d2ff27395fb3e",
+      "binding_path": "csd_adapter_inputs_v2.json",
+      "binding_sha256": "29107601907b257798a24bc01615c86e5984e11de0843c3dc8b4eb7685cf2567",
+      "conversion": "uint8 RGB -> float32 / 255",
+      "crop_offset": "int(round((resized_dimension - 224) / 2.0))",
+      "crop_size": 224,
+      "interpolation": "PIL bicubic",
+      "kind": "official CSD torchvision-equivalent PIL resize/round-center-crop",
+      "loader": "CSD model_state_dict; weights_only=True with fixed standard metadata types",
+      "mean": [
+        0.48145466,
+        0.4578275,
+        0.40821073
+      ],
+      "shortest_edge": 224,
+      "std": [
+        0.26862954,
+        0.26130258,
+        0.27577711
+      ]
+    },
+    "type": "latent_art_bench.painter_learned_csd_v1.CSDNativeProcessor"
+  },
+  "schema_version": 1,
+  "scope": "Four deterministic cases validate backend and batch consistency, not artistic fidelity or every cohort output.",
+  "selection_rule": "First original generated, first original reference, first distinct reference where floor/round center offsets differ after 224-short-edge resizing, first audited reference region; frozen row order.",
+  "started_utc": "2026-09-18T15:21:29.570879+00:00",
+  "status": "passed",
+  "tolerance": 5e-05,
+  "validation_extractor_sha256": "156750d6d7099fb0a87b6ca789f5892d555ebca04fc58195aec85a8ea2a1c0c8"
+}

@@ -1,0 +1,73 @@
+% Official ICML 2026 anonymous review style; vendor files are unmodified.
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{microtype,graphicx,booktabs,tabularx,array}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage{icml2026}
+\usepackage{placeins}
+\graphicspath{{figures/}}
+\newcommand{\E}{\widehat{\mathcal E}}
+\newcommand{\R}{\mathbb R}
+\icmltitlerunning{Artist-Name Responses in Image Generation}
+\hypersetup{pdfauthor={Anonymous},pdftitle={Artist-Name Responses beyond a Shared Painting Effect in Text-to-Image Generation}}
+\begin{document}
+\twocolumn[
+\icmltitle{Artist-Name Responses beyond a Shared Painting Effect in Text-to-Image Generation}
+\begin{icmlauthorlist}
+\icmlauthor{Anonymous Authors}{anon}
+\end{icmlauthorlist}
+\icmlaffiliation{anon}{Anonymous Institution}
+\icmlcorrespondingauthor{Anonymous Author}{anon.email@domain.com}
+\icmlkeywords{text-to-image generation, evaluation, artist conditioning}
+\vskip 0.3in
+]
+\printAffiliationsAndNotice{}
+\begin{abstract}
+Painter-name prompts can change generated images without reproducing differences between painters.
+We audit six requested generator configurations on 14 fixed scenes, two repeats
+and six prompt conditions (1,008 images), comparing 31 color, spatial and texture
+measurements with 649 historical reproductions.
+After scene averaging and repeat-noise correction, 82.5--95.7\% of squared
+artist-free-to-named change is shared across names, including the painting clause.
+All configurations have positive reference-aligned painter contrasts, yet none
+is established to beat a no-distinction error benchmark; descriptive diagnostics
+find weak or reversed Monet--Sisley alignment in five configurations.
+Scene averaging changes one ordering, and held-out scalar rescaling of measured
+contrasts changes the lowest-error configuration from FLUX.2 Max to GPT Image 2,
+while source correction changes which pairwise differences are resolved.
+These conditional results show why response strength, labeled agreement and
+scene stability must be reported separately; they concern a finite digital
+reference target and do not validate perceptual fidelity.
+\end{abstract}
+\input{icml_main.tex}
+
+\section*{Reproducibility}
+Versioned protocols, exact prompts, request configurations, source metadata,
+scalers and retained feature vectors support numerical replay. The primary
+analysis, post-result diagnostics and source-quality sensitivities have separate
+input hashes and replay commands (Appendix~\ref{app:icml-reproducibility}). Independent
+feature re-extraction requires exact pixels, which remain outside the compact
+repository; public recoverability of the current full image cohort is incomplete.
+Identifying repository links are omitted from this anonymous draft.
+\label{sec:main-end}
+\clearpage
+\section*{Impact Statement}
+This work studies how to interpret measured responses to artist-name prompts.
+It may help evaluation practitioners avoid treating prompt responsiveness or
+proximity to a digital collection as evidence of artistic fidelity. Conversely,
+misreading the measurements as a quality ranking could misrepresent artists,
+reproductions or service capabilities. The reference examples have recorded
+public-domain metadata; no living-artist study or human-participant evaluation
+is reported. The measurements do not establish legal authorization, attribution
+or perceptual authenticity. AI assistance was used in manuscript editing and
+in the explicitly described reference-image audit; that audit has not been
+human validated.
+\bibliographystyle{icml2026}
+\bibliography{references}
+\clearpage
+\appendix
+\onecolumn
+\input{icml_appendix.tex}
+\IfFileExists{icml_reproducibility.tex}{\input{icml_reproducibility.tex}}{}
+\end{document}

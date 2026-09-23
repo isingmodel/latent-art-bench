@@ -1,0 +1,108 @@
+{
+  "reviewer_id": "reviewer_contribution",
+  "round": 1,
+  "review_type": "independent_local_iclr_style_scientific_simulation",
+  "focus": ["contribution", "related_work", "communication_to_broad_ml_audience"],
+  "manuscript_title": "Artist-Name Responses beyond a Shared Painting Effect in Text-to-Image Generation",
+  "pdf_path": "reports/icml_review_v1/round_01/input/manuscript.pdf",
+  "pdf_sha256": "4ee2a3004226bbcd0151ca310265efad851b69e431d1e05895701b8f918a3e85",
+  "reading_scope": {
+    "complete_pdf_read": true,
+    "pages": 23,
+    "appendices_read": "A-I",
+    "adjacent_sources_read": ["icml.tex", "icml_main.tex", "icml_appendix.tex", "icml_reproducibility.tex", "references.bib"],
+    "rendered_pages_visually_inspected": [1, 2, 3, 6, 7, 21],
+    "other_reviews_or_historical_editorial_scores_read": false,
+    "critics_or_goal_status_documents_read": false,
+    "numerical_pipeline_independently_rerun": false,
+    "service_identities_independently_authenticated": false
+  },
+  "summary": "This empirical audit evaluates six requested image-generator configurations on four related painters, 14 scenes and two repeats. It centers 31 image measurements across painters, estimates reference-aligned amplitude and cross-repeat squared mismatch, and reports common prompt shifts, uneven pairwise alignment, ordering changes after scene averaging/scalar calibration, and sensitivity to source corrections. The distinction between response strength and labeled agreement is useful, but the evidence is confined to one finite reference target and feature representation. The main concern is demonstrated significance rather than absence of algorithmic novelty.",
+  "strengths": [
+    {"id": "S1", "locations": ["Sections 1 and 4"], "description": "Clearly separates prompt responsiveness, aligned amplitude and total labeled mismatch, with accessible numerical examples."},
+    {"id": "S2", "locations": ["Sections 3 and 4", "Appendices B and I"], "description": "Crossed scenes, generic-painting control, development-only scaling, repeat correction and scene-paired comparisons support a coherent conditional evaluation. Retrospective analyses are distinguished from declared tests."},
+    {"id": "S3", "locations": ["Section 5.5", "Section 6.1", "Appendices F-I"], "description": "Candidly retains source-correction consequences, incomplete provenance, limits of exact-pixel reproduction and a contrary prospective transfer result."},
+    {"id": "S4", "locations": ["Figures 1-2", "Tables 1-4"], "description": "The empirical contrast between low uncalibrated error and stronger directional agreement is more informative than a single ranking. Sensitivity analyses strengthen limited claims without themselves establishing high significance."}
+  ],
+  "weaknesses": [
+    {
+      "id": "W1",
+      "priority": "major",
+      "type": "new_comparative_evidence",
+      "locations": ["Section 2, pages 1-2", "Sections 5.3-5.4, pages 5-7", "Appendix C.2, page 14"],
+      "description": "The paper does not show on its own images what consequential evaluation error it diagnoses beyond existing artist-prototype or style-similarity approaches. Some highlighted discrepancies follow directly from squared-distance geometry. The empirical instances are useful but their added practical value remains unestablished.",
+      "change_needed": "Compare a relevant established evaluator on the same cohort, identify a concrete misleading aggregate conclusion, and use controlled evidence to explain the discrepancy. No new algorithm is required."
+    },
+    {
+      "id": "W2",
+      "priority": "major",
+      "type": "new_target_validation_evidence",
+      "locations": ["Sections 3.1, 4.2 and 6.1, pages 2, 4 and 7-8", "Appendix C.1, pages 13-14"],
+      "description": "The pooled target penalizes scene-dependent differences that may be legitimate. Class-specific reference means depart from the pooled target by .438H, and class-stratified genuine-painting controls have exact-held-out-mean scores .544-.993 against the pooled target. This does not invalidate the estimator but limits the significance of the ranking. Coarse classes and an unvalidated AI source audit do not establish that the painter contrast transfers across independently assembled/source-controlled reference material.",
+      "change_needed": "Characterize contrast reproducibility with independent or carefully source-controlled reference material; use genuine-painting controls to explain what score magnitudes mean for the intended evaluation."
+    },
+    {
+      "id": "W3",
+      "priority": "major",
+      "type": "new_confirmatory_evidence",
+      "locations": ["Abstract", "Section 5.3 and Figure 2, pages 5-6", "Section 5.5, page 7", "Table 9, page 14"],
+      "description": "Weak Monet-Sisley alignment is an interesting central observation, but pairwise estimates have no uncertainty or independent confirmation, and some signs change after source correction. The first reference component accounts for 66.3% of centroid variation; omitting Cezanne reduces FLUX beta from .470 to .096. This supports a dataset pattern more clearly than a repeatable service-level failure.",
+      "change_needed": "Prospectively test the selected close-painter hypothesis with adequate additional independent requests/new scenes and a characterized reference contrast. Define a meaningful weak-alignment region."
+    },
+    {
+      "id": "W4",
+      "priority": "moderate",
+      "type": "retained_data_analysis_and_editing",
+      "locations": ["Abstract", "Section 5.2 and Table 2, pages 5-6", "Appendix B, page 12"],
+      "description": "The headline common-response fraction includes the oil-painting clause. It is correctly stated but does not directly answer what adding a painter name does beyond the generic clause. Cosine and magnitude ratios require readers to reconstruct that comparison.",
+      "change_needed": "Report common and between-name components of named-minus-generic change using the existing generic arm, with uncertainty or explicit descriptive status."
+    },
+    {
+      "id": "W5",
+      "priority": "moderate",
+      "type": "editing_and_artifact_availability",
+      "locations": ["Section 3.3, page 2", "Appendix A/Table 5, page 11", "Appendix H/Figure 5, page 21", "Reproducibility and Appendix I.3, pages 8 and 22"],
+      "description": "Essential feature information appears only in the appendix and there is little feature-level explanation of the central pair result. Public exact-pixel access/recovery is incomplete, which prevents independent feature extraction and alternative evaluation on the same cohort.",
+      "change_needed": "Move the concise feature inventory into the main text, provide a concrete coordinate-level interpretation, fix the stale 'below' cross-reference, and distribute an anonymous exact-pixel artifact or verified recovery route."
+    }
+  ],
+  "questions": [
+    "On the same generated images, do existing prototype or style-similarity evaluations give a materially misleading conclusion that the centered contrasts diagnose, and what controlled evidence adjudicates the difference?",
+    "How stable are the Monet-Sisley direction and magnitude under independent reference splits and additional requests? Can a prospective test distinguish weak alignment from uncertainty of two-repeat estimates?",
+    "What are the shared and between-name fractions for named-minus-generic change, with uncertainty or explicit descriptive status?",
+    "Can retained generated pixels and exact reference recovery/crop information be distributed anonymously so alternative feature extraction is possible?"
+  ],
+  "scores": {
+    "soundness": {"score": 3, "scale": [1, 4], "rationale": "Coherent estimator and conditional claims, with uncertainty and target limitations disclosed; computation not independently replayed."},
+    "presentation": {"score": 3, "scale": [1, 4], "rationale": "Clear explanations and disciplined claims; essential feature information and concrete interpretation should be more prominent."},
+    "contribution": {"score": 2, "scale": [1, 4], "rationale": "Useful careful case study, but added practical value and repeatable pair-level finding are insufficiently established."}
+  },
+  "overall_rating": 4,
+  "overall_label": "marginally below acceptance",
+  "overall_scale": [0, 2, 4, 6, 8, 10],
+  "overall_rationale": "The manuscript is close in rigor and communication, but the empirical contribution falls short in demonstrated significance. A narrow claim may be sound without being sufficiently important. The number of robustness checks does not resolve that contribution gap.",
+  "confidence": 4,
+  "confidence_scale": [1, 5],
+  "confidence_rationale": "Complete manuscript and relevant primary related work read; pixel-level execution and service provenance were not independently audited.",
+  "ethics_concerns": {
+    "separate_review_warranted": false,
+    "description": "No evidenced concern requiring separate ethics review. Historical-artist scope, public-domain metadata and AI-assistance disclosure are appropriate. Unvalidated AI source coding is an evidentiary limitation, not by itself an ethics violation."
+  },
+  "revision_priorities": [
+    {"rank": 1, "requires_new_evidence": true, "description": "Demonstrate consequential added evaluative value by comparing an established prototype/style evaluator on the same cohort and resolving a specific disagreement with controlled evidence."},
+    {"rank": 2, "requires_new_evidence": true, "description": "Freeze and conduct a focused confirmation of the close-painter result with additional independent requests/new scenes and independently assembled or source-controlled references. A human perceptual study is not mandatory for the current finite-feature claim."},
+    {"rank": 3, "requires_new_evidence": false, "description": "Use retained data for the named-minus-generic decomposition, appropriate pair uncertainty and feature-level explanation; move essential feature information into the main text."},
+    {"rank": 4, "requires_new_evidence": false, "description": "Provide an anonymous exact-pixel archive or verified recovery procedure with source corrections and complete prompts."}
+  ],
+  "decision_changing_changes": {
+    "toward_6": "A concrete demonstration of added evaluative value plus convincing independent evidence for the central empirical distinction, with adequate artifact access, would move the recommendation toward marginally above acceptance.",
+    "toward_8": "A substantially broader reusable and independently replicated evaluation result would be needed for an accept recommendation.",
+    "insufficient_alone": ["copyediting", "additional deletions or reweightings of the same observations", "more favorable wording", "claiming novelty for established operations"],
+    "not_required": ["a novel algorithm", "a human study unless claims are extended to perceptual fidelity", "every conceivable robustness experiment"]
+  },
+  "primary_sources_consulted": [
+    {"title": "Identifying Prompted Artist Names from Generated Images", "url": "https://arxiv.org/html/2507.18633v1", "relevance": "Content-controlled name substitutions, named/artist-free CLIP similarity, artist prototypes and recognition evaluations."},
+    {"title": "Investigating Style Similarity in Diffusion Models", "url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/html/8294_ECCV_2024_paper.php", "relevance": "Learned style descriptors and cross-model style matching; official proceedings abstract consulted."},
+    {"title": "On the Separation of Human and AI-Generated Images in CLIP Embedding Space", "url": "https://arxiv.org/abs/2608.25609", "relevance": "Checked the cited motivation concerning embedding separation and perceptual salience; abstract consulted."}
+  ]
+}

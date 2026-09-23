@@ -1,0 +1,32 @@
+{
+  "round": 2,
+  "created_utc": "2026-09-18T15:37:15.155596+00:00",
+  "review_type": "Independent ICLR-style scientific review simulation",
+  "pdf_sha256": "ad4377767c0d442617b9a6dff49eb1231e1c359072daf3e317ba87c20f206e14",
+  "reviewers": [
+    {
+      "reviewer": "method",
+      "overall_rating": 4,
+      "review_sha256": "91034e2835d2c6e447e48d226f06373d877646c982d38b22387ee8a063a1807c",
+      "prose_sha256": "e8a0c9e0dc7a03db1e02f78d3aca520f992e6d81469b68bee397d7e463e33063",
+      "inspected_pdf_sha256": "ad4377767c0d442617b9a6dff49eb1231e1c359072daf3e317ba87c20f206e14"
+    },
+    {
+      "reviewer": "empirical",
+      "overall_rating": 4,
+      "review_sha256": "54e274b9527f0974a2c8dfec79553c0adb36c245e8be528a46e25bf71724c22c",
+      "prose_sha256": "dd7297a1c8532e9cad8e0829df932171463a82c71e096f849379f3042f903870",
+      "inspected_pdf_sha256": "ad4377767c0d442617b9a6dff49eb1231e1c359072daf3e317ba87c20f206e14"
+    },
+    {
+      "reviewer": "contribution",
+      "overall_rating": 4,
+      "review_sha256": "1543c826961c3d78be040145ffa3b7c4aa97700eeb1e6c7120ad6867a8a6a73d",
+      "prose_sha256": "6b4745a6604aae302471f4d14a00fdf4657ff3353ddc99c5f6ce49f1abf1ef40",
+      "inspected_pdf_sha256": "ad4377767c0d442617b9a6dff49eb1231e1c359072daf3e317ba87c20f206e14"
+    }
+  ],
+  "mean_overall_rating": 4.0,
+  "aggregation": "Unweighted mean of all three completed recommendations under unchanged 0/2/4/6/8/10 scale; no exclusions or reviewer replacement.",
+  "interpretation": "Scientific goal not met. Reviewers judge conditional computations sound but request evidence of practical evaluation consequence, shared-family control and fresh-request uncertainty, plus independent pixel access. Reporting omissions can be fixed but alone do not justify a new scientific review round."
+}
