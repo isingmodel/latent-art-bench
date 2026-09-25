@@ -6,6 +6,35 @@ September 2026 experiment is not represented as an ICML 2026 submission.
 The fixed [rubric](rubric.md) separates scientific recommendation from editing
 quality. Historical editorial scores are not scientific acceptance evidence.
 
+## Summary
+
+| Round | Reviewed PDF | Recommendations | Record |
+| --- | --- | --- | --- |
+| 01 | 8 main / 23 total pages | 4, 4, 4 | [round_01](round_01/summary.json) |
+| 02 | 8 / 31 | 4, 4, 4 | [round_02](round_02/summary.json), [revision](round_02/revision.md) |
+| 03 | 8 / 46 | 4, 4, 4 | [round_03](round_03/summary.json), [revision](round_03/revision.md) |
+| 04 | 8 / 60 | **6, 6, 4** (mean 5.33) | [round_04](round_04/summary.json), [revision](round_04/revision.md), [report](review_report_2026-09-21.md) |
+
+The round-04 PDF is identical to the current `paper/icml*.tex` build input and to
+the local `output/pdf/latent_art_bench_icml.pdf`. Review scores never transfer to
+a rebuilt PDF.
+
+## Directory guide
+
+Files stay at their original paths because later records bind them.
+
+| Topic | Files |
+| --- | --- |
+| Review rubric and rounds | [rubric.md](rubric.md), `round_01/` to `round_04/` (frozen inputs, three reviews, aggregation, revision notes), stop reports [2026-09-19](review_report_2026-09-19.md) and [2026-09-21](review_report_2026-09-21.md) |
+| Unscored revisions between rounds | [post_round_02_reporting/](post_round_02_reporting/README.md), [post_round_03_reporting/](post_round_03_reporting/README.md), `resume_2026-09-21/` (goal request, pre-revision snapshot, SD-Turbo and selective audits) |
+| Evidence, pixels and packaging | [evidence_audit.md](evidence_audit.md), [artifact_access_plan.md](artifact_access_plan.md), `artifact_inventory.json`, `artifact_attribution.json`, [numeric_bundle_v1/](numeric_bundle_v1/README.md) |
+| Independent audits of retrospective analyses | Transfer: [design audit](held_scene_transfer_design_audit.md), [alternative](held_scene_transfer_design_audit_normalized_alternative.md), [independent audit](transfer_independent_audit.md). Covariance: [design](covariance_sensitivity_design.md), [independent audit](covariance_independent_audit.md) |
+| External-data feasibility | [public artifacts](external_audit_feasibility.md), [Frochte release](frochte_external_feasibility.md) |
+| Prospective-control proposal (unapproved) | [options](prospective_replication_options.md), [v2](prospective_controls_v2.md), [methods audit](prospective_controls_method_audit.md), [v3](prospective_controls_v3.md), [secondary resolution](prospective_controls_secondary_method_resolution.md), [v4](prospective_controls_v4.md) |
+| Family-control implementation audits | `family_*` files: implementation notes, independent audits, remediation and verification records for the analysis, collector, feature census, reference adapter, transport artifact, 31-feature execution and reporting integration |
+| Test environment | [validation_environment_audit.md](validation_environment_audit.md) and its receipts, `storage_fixture*.py` |
+| Goal-state snapshots | `goal_state_before_*.json`, `goal_continuation_state.json` |
+
 ## Current result: round 04, replacement goal achieved
 
 The user replaced the earlier objective with a mean recommendation of at least

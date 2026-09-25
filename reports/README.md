@@ -1,9 +1,10 @@
 # Results index
 
-Start with the current experiment and its separate post-result diagnostics.
-Other directories contain supporting or historical evidence at their recorded
-paths. For source code, plotting and offline commands, see
-[the analysis catalog](../docs/ANALYSES.md).
+Start with the primary experiment, its post-result diagnostics and the
+retrospective analyses added for the ICML draft. Other directories contain
+supporting or historical evidence at their recorded paths; every result
+directory is a record and keeps its original bytes. For source code, plotting
+and offline commands, see [the analysis catalog](../docs/ANALYSES.md).
 
 ## Current experiment
 
@@ -16,17 +17,36 @@ paths. For source code, plotting and offline commands, see
 | [Current image examples](../paper/example_selection.json) | Selection rules, prompts, source identities, rights metadata, crop boxes and hashes for the manuscript's 40 example images |
 | [Historical image inspection](painter_specificity_review_v1/inspection.json) | Preserved full-frame examples before the source-quality corrections; separate from the current presentation |
 
-The [current paper](../paper/paper.pdf) is the scientific synthesis.
-[Status](../docs/STATUS.md) records what remains unresolved. The new six-model
-study does not yet have a dedicated versioned release.
+[Status](../docs/STATUS.md) summarizes these results and what remains
+unresolved. The six-model study does not yet have a dedicated versioned release.
 
-## Editorial assessments
+## ICML-era retrospective analyses
 
-The [editorial review record](paper_editorial_review_v1/README.md) contains the
-fixed rubric, independent assessments and revision decisions. Each score applies
-to its recorded manuscript hash. These AI assessments concern expression,
-structure and reader experience; they are separate from the scientific results
-above. Use [the paper guide](../paper/README.md) for the current revision state.
+Added 2026-09-18 to 2026-09-21. Each reuses previously exposed data under a plan
+fixed before its new outcomes; none collects new observations.
+
+| Result | Contents |
+| --- | --- |
+| [Direct naming decomposition](painter_specificity_review_v3/report.md) | Named-minus-generic common/specific split, interaction term and scene deletion; [interpretation note](painter_specificity_review_v3/interpretation.md) |
+| [Request timing](painter_request_timing_v1/REPORT.md) | Within-cell linear drift with held-scene predictive gain |
+| [Learned representations](painter_learned_audit_v1/REPORT.md) | CLIP and CSD vectors for all 1,878 original images plus 131 audited views; [extraction review](painter_learned_audit_v1/EXTRACTION_REVIEW.md) and [implementation notes](painter_learned_audit_v1/IMPLEMENTATION_NOTES.md) |
+| [Held-scene prompt-name transfer](painter_prototype_transfer_v1/REPORT.md) | All 48 encoder/view/target/configuration conditions and three decision rules |
+| [Repeat covariance scenarios](painter_repeat_covariance_v1/REPORT.md) | Primary-D curves under fixed hypothetical cross-repeat correlations |
+| [Separate SD-Turbo collection](painter_cross_cohort_v1/REPORT.md) | 2,000 retained images, 25 paired-seed blocks; [implementation](painter_cross_cohort_v1/IMPLEMENTATION.md) |
+| [Selective attribution](painter_selective_attribution_v1/REPORT.md) | Reference-calibrated abstention against matched-margin filtering; [pre-outcome readiness](painter_selective_attribution_v1/PRE_OUTCOME_READINESS.md) |
+| [Family-control preparation](painter_family_controls_v1/README.md) | Offline qualification of an uncollected, unapproved prospective study; no observations |
+
+## Review records
+
+Each score applies to its recorded manuscript hash. These are internal AI
+assessments, separate from the scientific results above; see
+[the paper guide](../paper/README.md#review-records) for a summary.
+
+| Record | Contents |
+| --- | --- |
+| [ICML scientific review](icml_review_v1/README.md) | Rubric, four review rounds of the ICML draft, revision records, independent audits, prospective-control proposals and the local numerical bundle |
+| [Editorial review](paper_editorial_review_v1/README.md) | Reader-experience rubric, 33 internal rounds, paired external reviews and final-update decisions for the full-length paper |
+| [External reviews, 2026-09-13](../critics/ASSESSMENT.md) | Three reviews of the full-length paper and their assessment |
 
 ## Supporting evidence
 

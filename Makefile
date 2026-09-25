@@ -5,16 +5,24 @@ PYTHON := $(UV) python
 CONTROLLED := latent_art_bench.painter_distribution_study_v1
 REVISION := latent_art_bench.painter_distribution_revision_v1
 PAPER_BUILD := tmp/paper/build
-ICML_BUILD := tmp/paper/icml-build
+# Fresh ICML builds go here; the round-04 reviewed build is tmp/paper/icml-resume-build.
+ICML_BUILD ?= tmp/paper/icml-build
 SPECIFICITY := latent_art_bench.painter_specificity_measurement_v1
+# Scripts under reports/ are frozen audit records, and the ICML figure builder is
+# hash-bound by the round-04 review; lint must not require rewriting their bytes.
+LINT_SCOPE := --extend-exclude reports --extend-per-file-ignores 'paper/make_icml_selective_figure.py:I001'
+# pytest-paper.ini is hash-bound by later analyses, so newer routine suites are listed here.
+ROUTINE_EXTRA := tests/painter_cross_cohort_v1 tests/painter_selective_attribution_v1
 
-.PHONY: help check check-all evidence analysis four-painter-analysis plots responsiveness computational-responsiveness palette-check validation-check replication-check geometry-check clause-check clause-successor-check figures figures-check paper specificity-check specificity-audit review-check review-images-check reference-quality-check reference-quality-images-check example-images example-images-check editorial-check
+.PHONY: help check check-all evidence analysis four-painter-analysis plots responsiveness computational-responsiveness palette-check validation-check replication-check geometry-check clause-check clause-successor-check figures figures-check paper specificity-check specificity-audit review-check review-images-check reference-quality-check reference-quality-images-check example-images example-images-check editorial-check paper-icml icml-format-check icml-evidence-check icml-extensions-check icml-artifact-check
 
 help:
-	@echo 'Paper correction: paper/README.md and docs/AGENT_HANDOVER.md'
+	@echo 'Start with docs/STATUS.md, then paper/README.md and docs/AGENT_HANDOVER.md'
 	@echo 'make paper     Render manuscript figures and compile paper/paper.pdf'
 	@echo 'make paper-icml  Build and check the anonymous ICML manuscript'
-	@echo 'make icml-evidence-check  Replay the separate ICML scientific revision'
+	@echo 'make icml-format-check  Check the ICML build in ICML_BUILD without recompiling'
+	@echo 'make icml-evidence-check  Replay the ICML direct-naming, timing, learned, transfer and covariance analyses'
+	@echo 'make icml-extensions-check  Replay the SD-Turbo and selective-attribution analyses and tables'
 	@echo 'make icml-artifact-check  Verify the selected exact-pixel inventory locally'
 	@echo 'make figures-check  Check manuscript figures without rewriting them'
 	@echo 'make check     Ruff and the current analysis/integrity test suite'
@@ -41,11 +49,12 @@ help:
 	@echo 'Other studies: docs/ANALYSES.md'
 
 check:
-	$(UV) ruff check .
+	$(UV) ruff check . $(LINT_SCOPE)
 	$(UV) pytest -c pytest-paper.ini -q -m 'not live'
+	$(UV) pytest -c pytest-paper.ini -q -m 'not live' $(ROUTINE_EXTRA)
 
 check-all:
-	$(UV) ruff check .
+	$(UV) ruff check . $(LINT_SCOPE)
 	$(UV) pytest -q tests -m 'not live'
 
 evidence:
@@ -148,17 +157,15 @@ paper: figures
 	cd paper && tectonic --outdir ../$(PAPER_BUILD) paper.tex
 	cp $(PAPER_BUILD)/paper.pdf paper/paper.pdf
 
-.PHONY: paper-icml icml-format-check
 paper-icml:
 	mkdir -p $(ICML_BUILD) output/pdf
 	cd paper && tectonic --keep-logs --keep-intermediates --outdir ../$(ICML_BUILD) icml.tex
-	$(PYTHON) scripts/check_icml_format.py
+	$(PYTHON) scripts/check_icml_format.py --build-dir $(ICML_BUILD)
 	cp $(ICML_BUILD)/icml.pdf output/pdf/latent_art_bench_icml.pdf
 
 icml-format-check:
-	$(PYTHON) scripts/check_icml_format.py
+	$(PYTHON) scripts/check_icml_format.py --build-dir $(ICML_BUILD)
 
-.PHONY: icml-evidence-check icml-artifact-check
 icml-evidence-check:
 	$(PYTHON) -m latent_art_bench.painter_specificity_review_v3 check
 	$(PYTHON) -m latent_art_bench.painter_request_timing_v1 check
@@ -169,6 +176,16 @@ icml-evidence-check:
 	$(PYTHON) paper/make_icml_transfer_tables.py --check
 	$(PYTHON) -m latent_art_bench.painter_repeat_covariance_v1 check --execute-real
 	$(PYTHON) paper/make_icml_covariance_tables.py --check
+
+icml-extensions-check:
+	$(PYTHON) -m latent_art_bench.painter_cross_cohort_v1 check --execute-real \
+	  --inputs-sha256 94413b3ee5bd689f60df35e7a8135f79eb929fd9dbee36bd450b47df4db0e693
+	$(PYTHON) paper/make_icml_cross_cohort_tables.py --check
+	$(PYTHON) -m latent_art_bench.painter_selective_attribution_v1 check --execute-real \
+	  --input-sha256 f9d6b94e19d8004463f7b0524dd72865e22c18b0786cf48387cb9257e0528826 \
+	  --audit-file reports/icml_review_v1/resume_2026-09-21/selective_preoutcome_audit.json \
+	  --audit-sha256 e3f26efb7286ad592e5ec30a50dd937690c29852d690c94b3baf09f31ae22569
+	$(PYTHON) paper/make_icml_selective_tables.py --check
 
 icml-artifact-check:
 	$(PYTHON) scripts/check_icml_artifact_inventory.py

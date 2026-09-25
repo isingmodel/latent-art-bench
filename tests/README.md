@@ -1,25 +1,19 @@
 # Test scope
 
-Use `make check` for the current paper's analysis and data-integrity tests. It
-runs Ruff and the **848-case routine suite** selected by
-[pytest-paper.ini](../pytest-paper.ini). Tests cover the 31-feature calculations,
-four-painter comparisons, weighting and randomization, missing observations,
-palette response, geometry, arithmetic oracles, evidence integrity and the main
-and current public replay contracts. The latest collection safeguards remain
-covered with artificial inputs; no live calls are made.
+`make check` runs three steps:
 
-The artist-specificity extension adds 15 cases: nine numerical checks for
-centering, repeat correction, paired intervals, regression and repeat spread; three route and
-accounting checks; two reference-mixture checks; and one reference-membership
-check. They protect the new scientific and collection contracts. No plotting or
-document-formatting tests were added.
+1. Ruff on the repository. Scripts under `reports/` are frozen audit records and
+   are excluded; the hash-bound `paper/make_icml_selective_figure.py` is exempt
+   from import ordering only.
+2. The routine suite selected by [pytest-paper.ini](../pytest-paper.ini).
+3. The newer routine suites in the Makefile's `ROUTINE_EXTRA` list
+   (SD-Turbo cross-cohort and selective attribution).
 
-The review diagnostics add seven analytical controls for scene decomposition,
-repeat covariance, held-scene fitting, stratified-energy expectation,
-development weighting, reference splitting and synthetic shared-state bias.
-The follow-up diagnostics add ten numerical controls, and the source-quality
-sensitivity adds eight crop-normalization checks, including full-frame equivalence
-and EXIF/ICC handling. They do not add formatting or image-layout tests.
+Together they cover the 31-feature calculations, four-painter comparisons,
+weighting and randomization, missing observations, palette response, geometry,
+arithmetic oracles, evidence integrity, the main public replay contracts, the
+six-model analysis and diagnostics, every ICML-era analysis and the offline
+family-control collector. No live calls are made.
 
 ```sh
 make check                         # Routine analysis and integrity checks
@@ -27,69 +21,47 @@ make check-all                     # All retained offline regression tests
 uv run --locked pytest -q tests/painter_map_validation_v2/test_analysis_oracle.py
 ```
 
-The routine suite is an explicit selection. Add a new current analysis test
-file to `pytest-paper.ini` when introducing it. A plain `pytest` still uses the
-original `pytest.ini` and discovers all retained tests. That file, `pyproject.toml`
-and many historical tests are bound to published evidence, so their bytes and
-paths remain unchanged. Both Make targets exclude tests marked `live`.
+`pytest-paper.ini`, `pytest.ini` and `pyproject.toml` are hash-bound by completed
+analyses, so their bytes stay unchanged. Add a new routine test directory to
+`ROUTINE_EXTRA` in the Makefile instead. A plain `pytest` uses `pytest.ini` and
+discovers every retained test. Both Make targets exclude tests marked `live`.
 
-## What was reduced
+Two historical mocked-collector modules (`painter_naming_replication_v1` and
+`painter_map_validation_v2/test_operations.py`) keep the production 5 GiB storage
+reserve and read the host's real free space. With less free disk they fail
+before dispatch; this is an environment condition, documented in the
+[2026-09-19 environment audit](../reports/icml_review_v1/validation_environment_audit.md).
+
+## Why the routine suite is a selection
 
 The former 1,970-case suite mixed current analysis with closed acquisition,
-generation, preparation, human-rating and packaging workflows. Those histories
-are useful for reproducing old software states, but they do not all belong in
-routine paper development. The routine selection omits **1,121 retained historical
-cases**. This reduces the scope of routine regression coverage; it does not claim
-equivalent coverage of every old implementation.
+generation, preparation, human-rating and packaging workflows. The routine
+selection omits those historical cases; they remain in `make check-all`. This
+narrows routine regression coverage; it does not claim equivalent coverage of
+every old implementation.
 
-Another **41 cases were removed from the working tree**, leaving 1,929 at that
-retirement. With the subsequent 15 specificity cases, `make check-all` contains
-1,944 retained cases before the seven initial review controls and 18 follow-up
-cases (1,969 now). Eight retired unbound files covered obsolete operational paths:
-
-- `painter_feature_generation_v1/test_collect.py`: the early generic metadata collector.
-- `painter_feature_generation_v2/test_acquisition.py`, `test_renderings.py` and
-  `test_renderings_r2.py`: old acquisition and delivery transports.
-- `painter_feature_generation_v2/test_generation.py`, `test_model_assessment.py`,
-  `test_assessment_diagnostics.py` and `test_oauth_generate.py`: preliminary
-  generation grids, service probes and OAuth transport.
-
-Two report-formatting tests were also removed from
-`painter_feature_generation_v2/test_report.py`; numerical report and missing-analysis
-checks remain. This is retirement of coverage for closed paths and low-impact
-formatting, not a claim that different collectors behave identically. These
-unbound tests remain recoverable from Git at `b5a6348`. No implementation,
-numerical fixture, protocol, ledger, result or published archive was changed.
-
-Frozen predecessor tests were not deleted or rewritten merely because they
-repeat successor test bodies. In particular, historical collector, qualification,
-human-rating preparation and older release-adapter suites remain available in
-`make check-all`. Different adapters still require their own integrity checks
-when they change. The routine suite retains result-level refusal, missingness
-and retry-identity checks even where the old collection executor is omitted.
+Eight unbound test files for obsolete operational paths (the early generic
+metadata collector, old acquisition and delivery transports, preliminary
+generation grids, service probes and OAuth transport) and two report-formatting
+tests were retired; they are recoverable from Git at `b5a6348`. Frozen
+predecessor tests were not deleted merely because they repeat successor tests.
 
 ## Choosing checks
 
-Run the relevant test module while editing. Use `make check` for changes to the
-current analysis. Use `make check-all` for shared Python primitives, test-runner
-changes or work on a historical workflow. Run `make evidence` after changes that
-could affect an evidence binding. Paper-only edits require compilation and
-visual inspection; documentation-only edits need working links, not a full
-Python run. Test totals describe software checks, not scientific validation.
+Run the relevant test module while editing. Use `make check` for changes to
+current analysis and `make check-all` for shared primitives, test-runner changes
+or historical workflows. Run `make evidence` after changes that could affect an
+evidence binding. Manuscript edits need compilation and visual inspection;
+documentation edits need working links, not a Python run. Test totals describe
+software checks, not scientific validation.
 
-Verification on 2026-09-10: `make check` passes all 808 routine cases; the
-explicit full suite passes all 1,929 retained cases. Ruff and the 2,902-check
-evidence audit pass. No test cases were merged into loops to lower the count,
-and no scientific values or comparison thresholds were changed.
+## Verification history
 
-Verification on 2026-09-11 after the specificity implementation: the full
-offline suite passes all 1,944 cases, including the 823 routine cases, in
-479.82 seconds. Ruff passes. The earlier audit's 2,902 checks cover historical
-evidence; the new experiment has its own four numerical replays and raw-byte
-audit. Passing software tests does not establish measurement or scientific validity.
-
-Verification on 2026-09-13: `make check` passes all 848 routine cases and Ruff.
-Original numerical/presentation replays, both diagnostic versions and the new
-source-quality replay pass. All 870 source hashes and exact re-extraction of
-131 crops pass; the historical evidence audit passes all 2,902 checks. The full
-historical suite was not rerun for this revision.
+| Date | Routine suite | Full offline suite | Notes |
+| --- | --- | --- | --- |
+| 2026-09-10 | 808 passed | 1,929 passed | Evidence audit 2,902 checks |
+| 2026-09-11 | 823 passed | 1,944 passed | Six-model implementation |
+| 2026-09-13 | 848 passed | Not rerun | Source-quality audit; 870 source hashes, 131 crops re-extracted |
+| 2026-09-19 | 881 passed, 10 failed | Not rerun | Failures from the storage reserve; a scoped fixture verified all 85 affected cases |
+| 2026-09-23 | 1,251 + 110 passed | 2,482 passed (536 s) | Evidence audit 2,902 checks, 0 failed; Ruff passes with the record-script exclusion |
+| 2026-09-25 | 1,251 + 110 passed | Not rerun | Evidence audit 2,902 checks, 0 failed; at 4.1 GiB free the same 10 storage-reserve cases failed, and passed after space was freed |
