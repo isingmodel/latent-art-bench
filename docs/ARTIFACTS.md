@@ -29,6 +29,15 @@ must not be expanded to conceal new missing files.
 
 ## Unique local material
 
+The frozen `reports/painter_prototype_transfer_v1/analysis.json` is 176,665,174
+bytes and exceeds GitHub's ordinary Git file limit. Git stores its lossless
+`analysis.json.gz` archive instead. Run `make restore-analysis` after cloning
+to restore the ignored JSON at its original path. The helper verifies SHA-256
+`e1d1fbb924feb797f67e0907677511ed7c745335a4f2827e99d2f286e6be5448`
+and refuses to overwrite a differing local file. The archive preserves all
+original observations, whitespace and frozen bindings. Numerical bundle tools
+still package the restored original bytes; run the restore step before using them.
+
 Git does not back up these files. Some are referenced by committed records.
 
 | Location | Contents |
@@ -62,11 +71,11 @@ summarize stay in place.
 | Cleanup | Change | Previous tree |
 | --- | --- | --- |
 | 2026-09-13 | Removed superseded review rounds, the initial unbound proposal, duplicate feature-distance guidance and redundant report/release prose | `cc764fe` |
-| 2026-09-23 | Merged `docs/ARCHITECTURE.md` into the [analysis catalog](ANALYSES.md); renamed `docs/INDEX.md` to [docs/README.md](README.md); rewrote the navigation documents for the ICML-era state | `aae2314` |
+| 2026-09-23 | Merged `docs/ARCHITECTURE.md` into the [analysis catalog](ANALYSES.md); renamed `docs/INDEX.md` to [docs/README.md](README.md); rewrote the navigation documents for the ICML-era state | `fb61bb5` |
 
 ```bash
 git show cc764fe:docs/RESEARCH_PROPOSAL_20260906.md
-git show aae2314:docs/ARCHITECTURE.md
+git show fb61bb5:docs/ARCHITECTURE.md
 ```
 
 Manuscript build folders, page previews under `tmp/paper/`, test/lint caches,

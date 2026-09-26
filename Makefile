@@ -12,7 +12,9 @@ SPECIFICITY := latent_art_bench.painter_specificity_measurement_v1
 # hash-bound by the round-04 review; lint must not require rewriting their bytes.
 LINT_SCOPE := --extend-exclude reports --extend-per-file-ignores 'paper/make_icml_selective_figure.py:I001'
 # pytest-paper.ini is hash-bound by later analyses, so newer routine suites are listed here.
-ROUTINE_EXTRA := tests/painter_cross_cohort_v1 tests/painter_selective_attribution_v1
+ROUTINE_EXTRA := tests/painter_cross_cohort_v1 tests/painter_selective_attribution_v1 tests/test_repository_artifacts.py
+
+.PHONY: restore-analysis install-hooks git-size-check
 
 .PHONY: help check check-all evidence analysis four-painter-analysis plots responsiveness computational-responsiveness palette-check validation-check replication-check geometry-check clause-check clause-successor-check figures figures-check paper specificity-check specificity-audit review-check review-images-check reference-quality-check reference-quality-images-check example-images example-images-check editorial-check paper-icml icml-format-check icml-evidence-check icml-extensions-check icml-artifact-check
 
@@ -24,6 +26,9 @@ help:
 	@echo 'make icml-evidence-check  Replay the ICML direct-naming, timing, learned, transfer and covariance analyses'
 	@echo 'make icml-extensions-check  Replay the SD-Turbo and selective-attribution analyses and tables'
 	@echo 'make icml-artifact-check  Verify the selected exact-pixel inventory locally'
+	@echo 'make restore-analysis  Restore and verify the compressed frozen transfer result'
+	@echo 'make install-hooks  Enable the staged-file size check in this checkout'
+	@echo 'make git-size-check  Check staged Git blobs against the 100 MiB limit'
 	@echo 'make figures-check  Check manuscript figures without rewriting them'
 	@echo 'make check     Ruff and the current analysis/integrity test suite'
 	@echo 'make check-all Ruff and all retained offline tests, including historical workflows'
@@ -47,6 +52,15 @@ help:
 	@echo 'make clause-successor-check  Replay the separate Cezanne/generic result after terminal measurement'
 	@echo 'make figures   Render the manuscript and supporting figures from retained numeric inputs'
 	@echo 'Other studies: docs/ANALYSES.md'
+
+restore-analysis:
+	python3 scripts/restore_analysis.py
+
+install-hooks:
+	git config --local core.hooksPath .githooks
+
+git-size-check:
+	python3 scripts/check_git_sizes.py
 
 check:
 	$(UV) ruff check . $(LINT_SCOPE)
@@ -166,7 +180,7 @@ paper-icml:
 icml-format-check:
 	$(PYTHON) scripts/check_icml_format.py --build-dir $(ICML_BUILD)
 
-icml-evidence-check:
+icml-evidence-check: restore-analysis
 	$(PYTHON) -m latent_art_bench.painter_specificity_review_v3 check
 	$(PYTHON) -m latent_art_bench.painter_request_timing_v1 check
 	$(PYTHON) -m latent_art_bench.painter_learned_audit_v1 check

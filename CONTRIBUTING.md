@@ -39,6 +39,13 @@ outputs, ledger entries or stored hashes to make a check pass.
 
 ## Checks and data
 
+Run `make install-hooks` once per checkout to enable the pre-commit check for
+staged Git blobs above 100 MiB. `make git-size-check` runs the same check manually.
+It inspects the staged bytes, including files whose working copies differ.
+If you use a custom `core.hooksPath`, integrate `.githooks/pre-commit` there
+instead of replacing your hook configuration. Hook installation is local to
+each clone; hooks can be bypassed and do not repair oversized earlier commits.
+
 Run checks appropriate to the change:
 
 - Documentation: working links and preserved dependencies.

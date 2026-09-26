@@ -47,6 +47,8 @@ broader Python floor does not qualify every frozen study on older interpreters.
 
 ```bash
 uv sync --locked --extra analysis --extra dev --inexact
+make install-hooks         # Reject staged files over GitHub's 100 MiB limit
+make restore-analysis      # Extract and checksum-verify the frozen transfer result
 make specificity-check      # Primary numerical results
 make review-check           # Post-result diagnostics
 make reference-quality-check
@@ -56,6 +58,10 @@ make check                  # Ruff and the routine test suite
 ```
 
 These commands make no generation requests and need no API key or model weights.
+The frozen transfer result is stored as a lossless `analysis.json.gz` archive.
+`make restore-analysis` restores its original path and bytes without changing
+any scientific hashes; `make icml-evidence-check` runs this step automatically.
+Run it before invoking the transfer Python scripts or numerical bundle tools directly.
 A Git checkout contains compact measurements, not image pixels; commands that
 re-extract features or verify pixel hashes need the retained local archive.
 The [analysis catalog](docs/ANALYSES.md) lists every replay command.

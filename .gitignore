@@ -55,3 +55,7 @@ research_workspace/
 /reports/paper_editorial_review_v1/astra_xhigh_review_*/request*.json
 /reports/paper_editorial_review_v1/astra_xhigh_review_*/response_events.jsonl
 /reports/paper_editorial_review_v1/astra_xhigh_review_*/completed_response.json
+
+# Restore the byte-identical frozen result with `make restore-analysis`.
+# The lossless analysis.json.gz archive is tracked instead of the 168 MiB JSON.
+/reports/painter_prototype_transfer_v1/analysis.json
