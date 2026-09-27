@@ -5,7 +5,7 @@ PYTHON := $(UV) python
 CONTROLLED := latent_art_bench.painter_distribution_study_v1
 REVISION := latent_art_bench.painter_distribution_revision_v1
 PAPER_BUILD := tmp/paper/build
-# Fresh ICML builds go here; the round-04 reviewed build is tmp/paper/icml-resume-build.
+# Fresh ICML builds go here; the round-04 reviewed PDF is reports/icml_review_v1/round_04/input/manuscript.pdf.
 ICML_BUILD ?= tmp/paper/icml-build
 SPECIFICITY := latent_art_bench.painter_specificity_measurement_v1
 # Scripts under reports/ are frozen audit records, and the ICML figure builder is

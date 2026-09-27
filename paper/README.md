@@ -23,7 +23,6 @@ Tectonic is the only TeX engine needed; it runs BibTeX and reruns automatically.
 # ICML draft
 make paper-icml             # Compile into tmp/paper/icml-build, format-check, copy to output/pdf/
 make icml-format-check      # Page limit, US Letter size, embedded fonts, official style hashes
-make icml-format-check ICML_BUILD=tmp/paper/icml-resume-build   # The round-04 reviewed build
 make icml-evidence-check    # Direct naming, timing, learned, transfer and covariance analyses and tables
 make icml-extensions-check  # SD-Turbo and selective-attribution analyses and tables; needs local pixels
 make icml-artifact-check    # Local 1,878-image inventory and attribution records
@@ -39,9 +38,11 @@ mkdir -p tmp/paper/korean-build && cd paper && tectonic --outdir ../tmp/paper/ko
 
 `make paper-icml` overwrites `output/pdf/latent_art_bench_icml.pdf`; the reviewed
 copy is also preserved at `reports/icml_review_v1/round_04/input/manuscript.pdf`.
-Until the next `make paper-icml`, the default build folder `tmp/paper/icml-build`
-holds an older round-03 build, so a plain `make icml-format-check` fails on its
-missing new labels; pass the reviewed build folder as shown above.
+To format-check the current sources without replacing that PDF, compile into the
+build folder directly:
+`cd paper && tectonic --keep-logs --keep-intermediates --outdir ../tmp/paper/icml-build icml.tex`,
+then run `make icml-format-check`. The round-04 build folder was deleted on
+2026-09-27; a rebuild of the unchanged sources passed with 8 main and 60 total pages.
 Rebuilt PDFs differ byte-for-byte from earlier builds, so recorded PDF hashes and
 review scores apply only to the preserved files. After a substantive edit, render
 and inspect every page; the format checker does not replace visual inspection.
@@ -115,6 +116,6 @@ human evaluation or scientific acceptance, and never transfer to a rebuilt PDF.
 | [ICML scientific review](../reports/icml_review_v1/README.md) | ICML draft | Rounds 1–3: 4, 4, 4. Round 4: **6, 6, 4** (mean 5.33) on the current sources, with four corrections listed in the [round-04 report](../reports/icml_review_v1/review_report_2026-09-21.md) |
 | [Editorial review](../reports/paper_editorial_review_v1/README.md) | Full-length paper | Round 33 met the original goal (three fresh reviewers, mean 9.29; 99 reviews over 33 rounds); later paired external reviews scored 8.06–8.94; the [final update](../reports/paper_editorial_review_v1/final_update/README.md) is unscored |
 
-Build intermediates and page previews belong under `tmp/paper/`. Keep the frozen
-reviewed snapshots there and under `reports/`; see
+Build intermediates and page previews belong under `tmp/paper/` and are
+disposable. The reviewed PDFs are preserved under `reports/`; see
 [artifact retention](../docs/ARTIFACTS.md).

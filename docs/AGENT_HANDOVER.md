@@ -47,7 +47,7 @@ make reference-quality-check  # Source-region, scaler and label sensitivity
 make figures-check            # Full-length figures and tables, without rewriting
 make icml-evidence-check      # Direct naming, timing, learned, transfer, covariance
 make icml-extensions-check    # SD-Turbo and selective attribution; needs local pixels
-make icml-format-check ICML_BUILD=tmp/paper/icml-resume-build  # Reviewed ICML build
+make icml-format-check        # ICML format of the build in tmp/paper/icml-build
 make editorial-check          # Portable editorial-review record; no model calls
 ```
 

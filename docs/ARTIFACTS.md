@@ -42,26 +42,71 @@ Git does not back up these files. Some are referenced by committed records.
 
 | Location | Contents |
 | --- | --- |
-| `research_workspace/` (22 GB) | Original responses, generated images, failed requests, reference displays, transport bodies and locks; the SD-Turbo and six-model pixel checks read it |
+| `research_workspace/` (20 GB) | Original responses, generated images, failed requests, reference displays, transport bodies and locks; the SD-Turbo and six-model pixel checks read it. The SD-Turbo weights were deleted on 2026-09-27 (see below) |
 | `artifacts/` | Retained model weights and source checkouts |
 | `output/pdf/` | `latent_art_bench_icml.pdf` (identical to the round-04 reviewed PDF) and `latent_art_bench_korean.pdf` (hash recorded by the 2026-09-19 and 2026-09-21 review reports) |
 | `output/artifacts/` | The final numerical bundle and two candidate archives, each bound by a record in [numeric_bundle_v1/](../reports/icml_review_v1/numeric_bundle_v1/README.md) |
 | `reports/icml_review_v1/*/input/`, `post_round_*/`, `resume_2026-09-21/before_revision/` | Exact reviewed PDFs and figure copies, ignored by the PDF rule |
 | `reports/paper_editorial_review_v1/*_review_*/` | Editorial CLI traces and runners, listed with digests in the [archive guide](../reports/paper_editorial_review_v1/ARCHIVE.md) |
-| `tmp/pdfs/`, `tmp/paper/`, calibration files under `tmp/` | Hash-bound inputs and frozen reviewed manuscript snapshots despite the temporary-looking path |
+| `tmp/pdfs/`, calibration files under `tmp/` | Hash-bound inputs despite the temporary-looking path |
 
 Before migrating or removing unique bytes, create a checksum inventory and a
 separate archive. Never run broad cleanup such as `git clean -xfd`.
 
-### Local inventory, 2026-09-23
+### Local inventory, 2026-09-27
 
-`tmp/` holds 9.2 GB. About 1.6 GB is 2026-09-10 clause-release test and review
-staging (`tmp/paper-clause-adapter-*`, `tmp/paper-clause-combined-*`) that no
-tracked file references. QA render folders (`tmp/*-qa`, `tmp/r3_contribution_render`)
-and dated 2026-09-05 to 09-08 logs are also unreferenced. They were **not deleted**:
-an unreferenced path can still hold the only copy of an intermediate, and
-deletion needs an inventory and the user's approval. Test caches, `__pycache__`
-and `.DS_Store` files are disposable.
+`tmp/` holds 435 MB in 18 entries. Each is on the keep list above or is named by
+path or SHA-256 in a record:
+
+| Path under `tmp/` | Size | Why it stays |
+| --- | --- | --- |
+| `paper/` | 5 MB | Only `icml-build/`, a fresh build of the current ICML sources that `make icml-format-check` reads |
+| `pdfs/` | 347 MB | Reviewed PDFs and page renders whose digests the review records keep |
+| `reference-quality/` | 70 MB | Source crops named in `reports/painter_reference_quality_v1/audit_*.json` |
+| Calibration, randomization and supplement JSON files; `painter_prompt_supplement_v1/` | 5 MB | On the keep list above; `data/manifests/painter_prompt_study_v1/*/decision.json` names the calibration and randomization files, and the supplement package writes its locks in `painter_prompt_supplement_v1/` |
+| `docs-cleanup/`, `editorial_r11_b.IKbcXX/`, `portable-review-audit-result.json`, `pps1-gpt-prompts-20260905/`, `ppss1-missingness-20260905/` | 9 MB | Digests in editorial records, or completion logs named by their run IDs |
+
+On 2026-09-26, 50 unreferenced entries (1.6 GB) were packed into verified
+lossless archives outside the repository, in the sibling folder
+`generative_art_diff_archive/2026-09-26/`, and then removed. They were the
+2026-09-10 clause test and review staging, QA render folders, the 2026-09-05 to
+09-08 logs and other scratch. That folder's `README.md` summarizes each archive,
+`MANIFEST.tsv` lists every file with its SHA-256, and `BINDING_TEST.tsv` records
+why each `tmp/` entry was kept or archived. Git does not hold these archives.
+To restore one, run this from that folder:
+
+```bash
+zstd -dc --long=27 X.tar.zst | tar -xf - -C /path/to/generative_art_diff
+```
+
+On 2026-09-27, at the owner's request, the following derived paper material and
+model weights were deleted. None of it was generated result data.
+
+- `tmp/paper/`: previews, page renders, review work folders, the round-03 and
+  round-04 ICML builds, and logs.
+- The six 2026-09-10 release folders (`tmp/paper-release/`,
+  `tmp/paper-substantive-release/`, `tmp/paper-map-release/`,
+  `tmp/paper-map-validation-release/`, `tmp/paper-clause-release/` and
+  `tmp/paper-clause-local-replay-20260910/`). They held drafts, extracted bundles
+  with their virtual environments, and QA renders.
+- The SD-Turbo weights in `research_workspace/painter_feature_generation_v2/models/`.
+
+Records under `studies/`, `data/manifests/` and `reports/` still name these paths
+and digests; the files are gone. `generative_art_diff_archive/2026-09-27/` holds:
+
+- `DELETED_MANIFEST.tsv`, which lists every deleted file with its SHA-256.
+- A 58 MB lossless archive of the 1,121 files that existed nowhere else: paper
+  drafts, LLM review requests and response streams, and release-draft records.
+  Virtual environments, renders and byte copies of kept files were not archived.
+
+Every offline check target gave the same result before and after the deletion.
+The only exception is the format check of the deleted round-04 build. To
+re-extract SD-Turbo features, download `stabilityai/sd-turbo` at revision
+`b261bac6fd2cf515557d5d0707481eafa0485ec2` into the recorded `model_path`, then
+verify it against the file digests in
+[model_sd_turbo.json](../data/manifests/painter_feature_generation_v2/model_sd_turbo.json).
+
+Test caches, `__pycache__` and `.DS_Store` files are disposable.
 
 ## Retired documentation
 
@@ -80,7 +125,6 @@ git show fb61bb5:docs/ARCHITECTURE.md
 
 Manuscript build folders, page previews under `tmp/paper/`, test/lint caches,
 bytecode and operating-system metadata are disposable when unused. Inspect the
-exact target first, and keep the frozen reviewed snapshots under `tmp/paper/`.
-`tmp/paper/icml-resume-build/` holds the build that produced the round-04 reviewed
-PDF; `tmp/paper/icml-build/` receives fresh builds and still holds a round-03-era
-build. `make icml-format-check` reads either one.
+exact target first. `tmp/paper/icml-build/` receives fresh builds and is what
+`make icml-format-check` reads. The reviewed round-04 PDF is preserved at
+`reports/icml_review_v1/round_04/input/manuscript.pdf`.
