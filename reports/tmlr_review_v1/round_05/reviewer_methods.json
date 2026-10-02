@@ -1,0 +1,57 @@
+{
+  "role": "methods",
+  "pdf_sha256": "764356d845744d7adc994600113628525cce6f0569eff8c7927439c6a1ba5316",
+  "criterion_claims_evidence": "partially",
+  "criterion_audience_clarity": "yes",
+  "desk_reject_risk": "low",
+  "recommendation": "minor revision",
+  "confidence": 4,
+  "critical_changes": [
+    "Reword the 'aligned but oversized' / 'well aligned but oversized' characterization of GPT Image 1, Flare and Sunburst (and GPT Image 2) in the Abstract (p.1), Intro bullet 3 (p.2) and Sec. 5.3 (p.9). The v1 protocol prespecified an exact split of D into aligned-amplitude and orthogonal error (psv2 analysis.json fields amplitude_error / off_axis_error). It shows 97-100% of their error is off-pattern: GPT Image 1 0.029 + 1.543, GPT Image 2 -0.003 + 1.229, Flare 0.054 + 1.683, Sunburst 0.044 + 1.598. Their along-pattern amplitude is near reference size (beta 0.77-1.0), and an alignment ratio of 0.51-0.60 means 64-74% of their squared size is off-pattern. Report this prespecified split in Table 4 or 14. Revise the Sec. 6 sentence 'the alignment ratio shows whether they are misdirected or merely too large': by that criterion none of the six configurations (ratios 0.44-0.67) is merely too large. Editing only; no new data needed."
+  ],
+  "minor_changes": [
+    "Correct the Figure 3 caption (p.9): observed shares are not above the faithful ones for all embedding cases. CLIP GPT Image 2 is 73.2 vs 76.0 faithful (Table 2; Sec. 5.2 itself reports -2.8).",
+    "Sec. 5.3 (p.11): the claim that content-matched embedding errors 'change by at most 0.037 and keep their order' holds only against the pooled target on the same 11 scenes, which Table 5 does not show. Against Table 5's 14-scene primary column the changes reach 0.064 and GPT Image 1/GPT Image 2 (CSD) and Flare/FLUX.2 Max (CLIP) swap. Add the 11-scene pooled column or state the baseline explicitly.",
+    "Intro bullet 3 (p.2): qualify 'FLUX.2 Max has the lowest error in the features' as a point estimate. Under the prespecified 21-endpoint family it is resolved only against Flare and Sunburst, and the protocol's rule was to label the other differences unresolved.",
+    "Appendix A (p.18): 'so under this model the dependence is below about 0.3' comes from point estimates of D, not a bound. Reword accordingly.",
+    "Table 5 / Sec. 5.3: report paired-scene Student intervals for embedding D and beta, or state that they agree (they do: CSD GPT Image 1 [0.629,0.842], GPT Image 2 [0.652,0.830], Flare [0.771,0.867], FLUX.2 Max [0.609,0.818]; CLIP Sunburst [1.047,1.225]). Percentile bootstrap with 14 scenes tends to under-cover.",
+    "State the asymmetry: positive repeat dependence and reference-target noise both inflate D, so the D<1 conclusions (CSD) are conservative and the D>1 conclusions are the vulnerable ones. Extend the rho sensitivity to CLIP Sunburst's D>1, or note that it is not covered.",
+    "Sec. 5.2: report the CSD variance ratio of the shared to the painter-specific term (about 5.8; only CLIP's 11 is given). Note that with n=6 configurations and total = shared + specific, the correlations of 0.96/0.95 are partly mechanical.",
+    "Sec. 4.5: list the prespecified diagnostics that are not reported (generated-vs-reference energy distances and trace ratios, the scene fixed-effects regression, the reference-only PCA), or add them to the appendix.",
+    "Sec. 3 / Appendix A: state whether the explicit provider.only=[openai] route was checked with an invalid model identifier (the negative control that ended the first attempt), and summarize the evidence that the Flare and Sunburst requests reached distinct backends (e.g. the medium-quality cost difference from GPT Image 2).",
+    "Sec. 6 (p.12): flag 'as movement toward any painting-like image would' as an untested conjecture. The design has no any-name or distant-painter control.",
+    "Main text p.11: note that Sunburst's Monet-Sisley alignment in the 31 features is resolved negative under scene resampling (-0.249 [-0.369,-0.140]; the reference interval includes zero), next to 'every configuration responds in the reference direction in aggregate'.",
+    "Define 'resolved' once, and mark which resolved statements are inside the prespecified family and which are post hoc.",
+    "Align the Reproducibility statement ('checks every number quoted in the text') with Appendix H ('each registered number'). The ordering claim in Sec. 5.3 is checked only for the minimum.",
+    "Consider a human spot-check of a random sample of the AI-assistant content labels and crops used in the sensitivity analyses. The content audit disagrees with the title labels on 230 of 870 works.",
+    "Consider shortening the abstract (about 290 words, six numeric findings) for readability."
+  ],
+  "factual_errors": [
+    "Figure 3 caption (p.9): 'this is why the observed values lie below the faithful ones on the left but not in the embeddings'. In CLIP, GPT Image 2's observed share (73.2%) is below its faithful value (76.0%) (Table 2).",
+    "Sec. 5.3 (p.9): 'Their differences are well aligned but oversized' (GPT Image 1, Flare, Sunburst). By the prespecified amplitude/orthogonal decomposition, 97-98% of their error D is orthogonal to the reference pattern and their alignment ratio (a noise-corrected cosine) is only 0.51-0.60. 'Well aligned' is not supported as worded."
+  ],
+  "verified_numbers": [
+    "PDF SHA-256 764356d845744d7adc994600113628525cce6f0569eff8c7927439c6a1ba5316 (shasum -a 256)",
+    "build_assets.py --check: 'ok: 26 generated files and 163 claims'",
+    "H = 5.915 and the finite-sample H bias of 6.7%, recomputed from confirmation_features.jsonl (649 measured) and scaler.json",
+    "Table 1, all rows exactly, from raw measurements.jsonl + requests.jsonl: shared fractions 71.3/70.9/71.1/66.7/69.1/88.4; N/H 5.26/4.98/4.99/3.97/1.36/5.34; B/H 2.12/2.04/2.03/1.98/0.61/0.70; faithful 95.2/89.3/84.8/86.9/92.5/90.4; exact differences 84.0/83.3/83.3/79.9/57.6/84.2",
+    "Table 11 exactly: cos(c,t) 0.85/0.66/0.57/0.72/0.75/0.86; lambda 44.1/50.7/54.3/55.6/24.8/64.6; along-generic 0.1/0.9/6.6/22.0/55.5/52.8",
+    "Table 9 exactly: G, N, I, N_free; vs-free 82.5-95.7; within-scene 52.8-93.6",
+    "Table 4 exactly: beta 0.938/0.999/0.772/0.824/0.442/0.470; Q 2.449/2.223/2.281/2.289/0.994/0.741; D 1.572/1.226/1.738/1.641/1.109/0.801; D = 1 - 2 beta + Q; beta simultaneous intervals (e.g. FLUX.2 Max [0.239,0.701]); D Student intervals (e.g. GPT Image 1 [1.129,2.016]); Bonferroni-over-6 for GPT Image 1 [0.935,2.210]",
+    "Table 13, all 15 pairwise Delta D with simultaneous and nominal intervals exactly; 2/15 resolved simultaneously, 6/15 nominally",
+    "Table 14 exactly: D_agg 1.239/1.044/1.483/1.337/0.723/0.761; D_held 0.645/0.554/0.741/0.706/0.832/0.714; fitted-scalar ranges",
+    "Table 12 exactly: repeat noise/H 2.02/0.96/0.42/0.58/2.60/1.67; centroid proximity gain split (e.g. 17.490 = 17.844 - 0.354)",
+    "Development nearest-mean macro accuracy in the 31 features: 49.8% (Monet 39.6%, Sisley 30.6%)",
+    "Appendix A rho thresholds derived analytically (D inflated by rho/(1-rho) x repeat noise): GPT Image 1 0.221, Flare 0.637, Sunburst 0.525, NB2/FLUX.2 Max crossing about 0.25, zero crossings 0.30/0.32",
+    "Tables 2, 3 and 5 exactly from embeddings_{clip,csd}.npz: all 12 observed/faithful/exact proximity shares; gain/shared/specific; recognition 60.7/68.8/59.8/58.9/51.8/41.1 (CLIP) and 72.3/75.9/62.5/61.6/50.9/39.3 (CSD); embedding beta and D; Eq. 4 residual about 1e-16",
+    "corr(gain, shared) 0.96 CLIP and 0.95 CSD; corr(gain, specific) -0.65 CSD; CLIP variance ratio 10.8 (paper: 11); CSD variance ratio 5.8 (not reported); CLIP gain ranking identical to the shared-term ranking",
+    "Approximate re-simulation with different seeds: joint D<1 0.6/9.6/0.0/0.1/33.1/94.2 vs paper 0.7/9.9/0.0/0.1/33.4/94.2; reference-resampling beta intervals close to Table 4",
+    "Genuine-painting control (pooled, distinct works) re-simulated: mean 0.112 and range [-0.868,1.129] vs paper 0.125 and [-0.886,1.159]",
+    "Table 20 re-simulated: CLIP gain best Nano Banana 2 86.4% (85.8), CLIP D best GPT Image 1 99.4% (99.3), CLIP recognition best GPT Image 2 98.8% (98.7), CSD D best FLUX.2 Max 47.6% (47.2), CSD gain 33.5% (33.6); FLUX.2 Max recognition below Nano Banana 2 in 99.9% of resamples in both encoders",
+    "SD-Turbo shared fraction 64.2%, beta 0.618, D_agg 0.917, D 1.637 (painter_cross_cohort_v1/analysis.json)",
+    "Drift predictive gains -3.4 to -0.7% and maximum repeat gap 19.98 min (painter_request_timing_v1/analysis.json)",
+    "Content-matched embedding D: max |class - pooled(11 scenes)| = 0.037 with order preserved (painter_tmlr_diagnostics_v4); against Table 5's 14-scene column the changes reach 0.064 and two pairs swap",
+    "Prespecified amplitude/orthogonal error split from psv2-20260911/analysis.json: orthogonal share of D 98/100/97/97/72/62%",
+    "Arithmetic cross-checks: 297+106+141+105 = 649; 101+36+48+36 = 221; 6x14x6x2 = 1,008; recognition shift changes -5.4..+12.5 (CLIP), +0.9..+26.8 (CSD), means +2.7/+10.0; 11 of 12 scene intervals above 50%; Cezanne least shared in 11/12 (Table 23); H-corrected beta 0.474-1.071 and FLUX.2 Max D 0.787"
+  ]
+}

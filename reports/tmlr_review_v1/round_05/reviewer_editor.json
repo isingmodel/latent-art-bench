@@ -1,0 +1,47 @@
+{
+  "role": "editor",
+  "pdf_sha256": "764356d845744d7adc994600113628525cce6f0569eff8c7927439c6a1ba5316",
+  "criterion_claims_evidence": "yes",
+  "criterion_audience_clarity": "yes",
+  "desk_reject_risk": "low",
+  "recommendation": "minor revision",
+  "confidence": 4,
+  "critical_changes": [
+    "C1 (Sec. 5.3, p. 11): correct 'the embedding errors change by at most 0.037 and keep their order'. Table 5 shows changes up to 0.064 (CLIP Sunburst 1.136->1.200; CLIP GPT Image 1 0.847->0.904) and two order swaps (CLIP Flare/FLUX.2 Max; CSD GPT Image 1/GPT Image 2). The 0.037 is computed against an unreported 11-scene pooled-target D, and the guard checks only the argmin. Report that baseline in Table 5 and restate as 'lowest-error configuration unchanged', or quote the change relative to the printed values; align the Introduction's 'change none of these orderings' accordingly."
+  ],
+  "minor_changes": [
+    "M1: Shorten and simplify the abstract (~310 words). Define 'agreement'. Rephrase 'resolved as closer to the reference differences than making no distinctions' and 'close to what a faithful imitator would show' (say 'a share close to').",
+    "M2: Restructure Sec. 5.3 into labelled paragraphs (direction/size in features; representation dependence; genuine-painting calibration; aggregation/rescaling), each with a one-sentence takeaway. Move the Bonferroni-over-six and rho side analyses to App. A.",
+    "M3: State in one place which interval type each table uses (simultaneous Student, nominal Student, percentile bootstrap, reference bootstrap, joint), or harmonize Tables 4 and 5.",
+    "M4: In Sec. 5.2 report both cross-configuration correlations (the CLIP 0.96 appears only in the intro) and both variance ratios (CSD ~6 not stated; '11 times' gives ~9.8 from rounded Table 3), with scene-resampling intervals; note n = 6.",
+    "M5: Qualify 'aligned but oversized' as 'in reference units', or add a scale-calibrated Q, since the paper notes the excess may reflect a scale difference between clean generated images and photographed paintings.",
+    "M6: Fix unclear sentences: 'which does not depend on the name either' (p. 1); 'errors resolved below that level' (p. 2); the three stacked caveats in Sec. 3 Measurements (p. 4); 'so it serves as a reference point' (p. 6); 'sampled this way' (p. 7); 'the configuration with the largest CSD gain is best in at most 33.6%' (tie at 0.217, p. 12). Replace the repeated '(computed before rounding)' with one global note.",
+    "M7: Explain how reference works labelled 'route' enter the water/built/land content-matched targets.",
+    "M8: Mention in Sec. 5.3 that Sunburst's Monet-Sisley amplitude in the features is resolved negative (Table 17: -0.249 [-0.369, -0.140]).",
+    "M9: Main content runs to p. 13 (Broader Impact Statement to p. 14). Declare a long submission on OpenReview or trim ~1 page (SD-Turbo sentences, 'Other checks', rho discussion to appendix).",
+    "M10: Add downsampled contact sheets of all generated images, or an anonymized link, to the supplement (TMLR allows 100 MB); readers currently see one scene.",
+    "M11 (optional): Add a generic-name control (fictitious name, distant painters or an 'Impressionist' clause) and a time-separated third repeat for a subset to probe repeat dependence.",
+    "M12 (optional): Human spot-check of a random sample of the AI-only reference audits (230/870 label disagreements; 131 crops).",
+    "M13: Tighten appendix float placement (large blank areas on pp. 23, 25, 26, 28).",
+    "M14: Make the bibliography consistent (initials vs full names; inconsistent URL/DOI inclusion; Casper et al. venue).",
+    "M15: Supplement housekeeping: figures/PROVENANCE.json calls example_selection.json the manifest 'for Figure 1', but the image panel is Figure 2.",
+    "M16: De-emphasize the 25% exchangeable null ('far above the 25%', p. 7) in favor of the two benchmarks."
+  ],
+  "factual_errors": [
+    "Sec. 5.3, p. 11: 'the embedding errors change by at most 0.037 and keep their order' is inconsistent with Table 5. Changes against the printed 14-scene D reach 0.064, and the full order is not preserved (CLIP Flare 1.057->1.074 vs FLUX.2 Max 1.058->1.023; CSD GPT Image 1 0.735->0.767 vs GPT Image 2 0.741->0.759). Only the lowest-error configuration is unchanged."
+  ],
+  "format_checks": [
+    "tmlr.sty, tmlr.bst and fancyhdr.sty SHA-256 match STYLE_PROVENANCE.json (JmlrOrg/tmlr-style-file @ 7bf90ef, modified=false); the tmlr.sty header matches the official macros (not compared to upstream over the network).",
+    "Submission mode (\\usepackage{tmlr}, no [accepted]/[preprint]); header 'Under review as submission to TMLR'; anonymous author block.",
+    "No geometry, margin, spacing or font overrides in main.tex; \\small and \\vspace only inside two appendix tables.",
+    "US Letter 612x792 pt; Latin Modern fonts plus DejaVu Sans in figures, all embedded.",
+    "PDF metadata has no Author or Title; CreationDate normalized to 2026-01-01 UTC; no identity leak.",
+    "Text search for author names, emails, repository URLs, acknowledgments and self-identifying phrasing found nothing.",
+    "All 25 table captions above their tables; all 4 figure captions below their figures.",
+    "Broader Impact Statement present (pp. 13-14) with risks and mitigation; Reproducibility statement with AI-assistance disclosure present.",
+    "Length: 30 pages; main content pp. 1-13 (+BIS to p. 14), references pp. 14-16, appendices pp. 17-30; exceeds 12 pages of main content, so declare long submission or trim.",
+    "natbib author-year via tmlr.bst; no unresolved references.",
+    "Figures legible; Figure 3 encodes series by shape and color; public-domain rights for the reference images stated.",
+    "TMLR author guide and editorial policies consulted for length, anonymity, broader impact, LLM use and desk-rejection criteria."
+  ]
+}

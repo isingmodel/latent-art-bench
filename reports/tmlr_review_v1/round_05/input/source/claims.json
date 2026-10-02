@@ -1,0 +1,654 @@
+{
+ "exact_hand": {
+  "value": "57.6--84.2",
+  "context": "and even exact painter differences would leave {}\\% shared (Section~\\ref{sec:shared})."
+ },
+ "exact_clip_proto": {
+  "value": "60.6--73.0",
+  "context": "differences instead, the shared term would still supply {}\\% (CLIP) and 52.5--67.4\\%"
+ },
+ "exact_csd_proto": {
+  "value": "52.5--67.4",
+  "context": "term would still supply 60.6--73.0\\% (CLIP) and {}\\% (CSD) of the gain,"
+ },
+ "exact_nb2": {
+  "value": "57.6",
+  "context": "painter differences its fraction would fall to {}\\%. The shared change"
+ },
+ "proto_diff": {
+  "value": "$-$2.8 to +6.5",
+  "context": "term; the observed shares differ from these by {} percentage points"
+ },
+ "flux_obs_below": {
+  "value": "84.1",
+  "context": "configurations; for FLUX.2 Max it is below in {}\\% of resamples, and"
+ },
+ "flux_obs_interval": {
+  "value": "[76.8, 94.2]",
+  "context": "below in 84.1\\% of resamples, and its interval {} includes the faithful"
+ },
+ "dev31_macro": {
+  "value": "49.8",
+  "context": "development work to the nearest reference mean gives {}\\% macro accuracy in"
+ },
+ "dev31_monet": {
+  "value": "39.6",
+  "context": "macro accuracy in the 31 features, with only {}\\% of Monet and 30.6\\%"
+ },
+ "dev31_sisley": {
+  "value": "30.6",
+  "context": "the 31 features, with only 39.6\\% of Monet and {}\\% of Sisley works"
+ },
+ "joint_flux": {
+  "value": "94.2",
+  "context": "84.1\\% of resamples, and its interval [76.8, {}] includes the faithful"
+ },
+ "joint_nb2": {
+  "value": "33.4",
+  "context": "reference resamples (94.2\\%; next, Nano Banana 2 at {}\\%). Its agreement"
+ },
+ "sd_faithful": {
+  "value": "92.5",
+  "context": "against faithful and exact-differences values of {}\\% and 67.4\\% overall"
+ },
+ "sd_exact": {
+  "value": "67.4",
+  "context": "faithful and exact-differences values of 92.5\\% and {}\\% overall (Appendix~\\ref{app:sdturbo});"
+ },
+ "sd_texture_exact": {
+  "value": "46.5",
+  "context": "texture. The exact-differences value in texture is {}\\%. SD-Turbo's aligned"
+ },
+ "fam_color": {
+  "value": "74.3",
+  "context": "Averaged over configurations, the shared fraction is {}\\% in color, 71.5\\%"
+ },
+ "fam_spatial": {
+  "value": "71.5",
+  "context": "configurations, the shared fraction is 74.3\\% in color, {}\\% in spatial and 68.2\\%"
+ },
+ "fam_texture": {
+  "value": "68.2",
+  "context": "fraction is 74.3\\% in color, 71.5\\% in spatial and {}\\% in texture features,"
+ },
+ "texture_d_nb2": {
+  "value": "0.886",
+  "context": "texture features alone Nano Banana 2 is lower, {} against 0.906 (Appendix"
+ },
+ "texture_d_flux": {
+  "value": "0.906",
+  "context": "features alone Nano Banana 2 is lower, 0.886 against {} (Appendix Table~\\ref{tab:family-agreement})."
+ },
+ "worse_scene_low": {
+  "value": "1.129",
+  "context": "both kinds of resampling (lowest interval bounds {} for scenes and 1.260"
+ },
+ "worse_ref_low": {
+  "value": "1.260",
+  "context": "(lowest interval bounds 1.129 for scenes and {} for references). Their"
+ },
+ "real_class_class_mean": {
+  "value": "0.731",
+  "context": "inflated that version's means (0.234, 0.753 and {}, first column). With"
+ },
+ "gpt2_q_linear": {
+  "value": "1.49",
+  "context": "exactly, $\\beta=0.999$, but its differences are {} times the reference"
+ },
+ "cez_least": {
+  "value": "11",
+  "context": "painters, C\\'ezanne's gain is the least shared in {} of the 12 pairs, as"
+ },
+ "shared_free": {
+  "value": "82.5--95.7",
+  "context": "baseline, which includes the painting instruction, {}\\% (Appendix~\\ref{app:hand})."
+ },
+ "shared_generic": {
+  "value": "66.7--88.4",
+  "context": "interpretable image features the shared change makes up {}\\% of the squared change."
+ },
+ "shared_within_free": {
+  "value": "88.6--97.2",
+  "context": "computing both components within scenes gives {}\\%. Against the generic"
+ },
+ "shared_within_generic": {
+  "value": "52.8--93.6",
+  "context": "Computed within scenes, the shared fraction is {}\\%, and against the"
+ },
+ "faithful_hand": {
+  "value": "84.8--95.2",
+  "context": "66.7--88.4\\%; a faithful imitator would show {}\\%, and even exact"
+ },
+ "proto_faithful_clip": {
+  "value": "71.3--82.9",
+  "context": "(Table~\\ref{tab:learned}). A faithful imitator would obtain {}\\% and 48.3--75.7\\%"
+ },
+ "proto_faithful_csd": {
+  "value": "48.3--75.7",
+  "context": "faithful imitator would obtain 71.3--82.9\\% and {}\\% of its gain from"
+ },
+ "direction_cos": {
+  "value": "0.57--0.86",
+  "context": "the reference centroid, with corrected cosine {} (Appendix Table~\\ref{tab:direction})."
+ },
+ "along_generic_gpt": {
+  "value": "0.1--22.0",
+  "context": "along the artist-free-to-generic shift, against {}\\% for the four GPT"
+ },
+ "along_generic_nb2": {
+  "value": "55.5",
+  "context": "Table~\\ref{tab:direction}). For Nano Banana 2 and FLUX.2 Max, {}\\% and 52.8\\% of its"
+ },
+ "along_generic_flux": {
+  "value": "52.8",
+  "context": "For Nano Banana 2 and FLUX.2 Max, 55.5\\% and {}\\% of its squared size"
+ },
+ "texture_gpt1": {
+  "value": "48.6",
+  "context": "scene resamples). GPT Image 1's texture fraction, {}\\%, the only value"
+ },
+ "gpt2_beta": {
+  "value": "0.999",
+  "context": "the reference amplitude almost exactly, $\\beta={}$, but its differences"
+ },
+ "gpt2_q": {
+  "value": "2.223",
+  "context": "are 1.49 times the reference size in norm ($Q={}$), and its error of"
+ },
+ "gpt2_d": {
+  "value": "1.226",
+  "context": "reference size in norm ($Q=2.223$), and its error of {} has intervals that"
+ },
+ "flux_d": {
+  "value": "0.801",
+  "context": "response, $\\beta=0.470$, and the lowest error, $D={}$; it is the only configuration"
+ },
+ "flux_beta": {
+  "value": "0.470",
+  "context": "FLUX.2 Max has a smaller aligned response, $\\beta={}$, and the lowest error,"
+ },
+ "beta_range": {
+  "value": "0.442--0.999",
+  "context": "the 31 features all six aligned amplitudes are {}, with prespecified"
+ },
+ "beta_ref_min": {
+  "value": "0.342",
+  "context": "reference-resampling lower bounds of at least {}; in the embeddings"
+ },
+ "real_pooled_mean": {
+  "value": "0.234",
+  "context": "variance, which inflated that version's means ({}, 0.753 and 0.731,"
+ },
+ "real_class_mean": {
+  "value": "0.753",
+  "context": "variance, which inflated that version's means (0.234, {} and 0.731, first column)."
+ },
+ "nb2_d_agg": {
+  "value": "0.723",
+  "context": "Nano Banana 2 a lower error than FLUX.2 Max, {} against 0.761, because"
+ },
+ "flux_d_agg": {
+  "value": "0.761",
+  "context": "a lower error than FLUX.2 Max, 0.723 against {}, because Nano Banana"
+ },
+ "gpt2_d_held": {
+  "value": "0.554",
+  "context": "by alignment ratio: GPT Image 2 is lowest at {}, followed by GPT Image"
+ },
+ "flux_d_held": {
+  "value": "0.714",
+  "context": "and Sunburst (0.706), all below FLUX.2 Max's {} (Appendix Table~\\ref{tab:calibration})."
+ },
+ "clip_common_gain": {
+  "value": "73.2--83.8",
+  "context": "of Equation~\\ref{eq:prototype-gain} supplies {}\\% and 54.2--79.7\\%"
+ },
+ "csd_common_gain": {
+  "value": "54.2--79.7",
+  "context": "Equation~\\ref{eq:prototype-gain} supplies 73.2--83.8\\% and {}\\% of the named-minus-generic"
+ },
+ "nb2_clip_gain": {
+  "value": "0.112",
+  "context": "Nano Banana 2 has the largest proximity gain, {}, in 85.8\\% of resamples,"
+ },
+ "nb2_clip_acc": {
+  "value": "51.8",
+  "context": "resamples, yet its prompted names are recognized in {}\\% of images; GPT Image"
+ },
+ "gpt2_clip_acc": {
+  "value": "68.8",
+  "context": "images; GPT Image 2 has the best recognition, {}\\%, in 98.7\\%; and"
+ },
+ "flux_clip_acc": {
+  "value": "41.1",
+  "context": "of resamples but the least recognizable names, {}\\% in CLIP and 39.3\\%"
+ },
+ "flux_csd_acc": {
+  "value": "39.3",
+  "context": "least recognizable names, 41.1\\% in CLIP and {}\\% in CSD, below Nano"
+ },
+ "gpt1_clip_d": {
+  "value": "0.847",
+  "context": "above 1 in the features, has the lowest error, {} [0.757, 0.934], and"
+ },
+ "stab_clip_gain": {
+  "value": "85.8",
+  "context": "Nano Banana 2 has the largest proximity gain in {}\\% of scene resamples,"
+ },
+ "stab_clip_acc": {
+  "value": "98.7",
+  "context": "resamples, GPT Image 2 the best recognition in {}\\% and GPT Image 1"
+ },
+ "stab_hand_d": {
+  "value": "84.7",
+  "context": "FLUX.2 Max has the lowest 31-feature error in {}\\% of resamples but"
+ },
+ "stab_clip_d": {
+  "value": "99.3",
+  "context": "in 98.7\\% and GPT Image 1 the lowest error in {}\\% (Section~\\ref{sec:readouts})."
+ },
+ "stab_csd_gain": {
+  "value": "33.6",
+  "context": "with the largest CSD gain is best in at most {}\\% of resamples, and"
+ },
+ "stab_csd_d": {
+  "value": "47.2",
+  "context": "resamples, and the one with the lowest CSD error in {}\\%. Proximity ranks"
+ },
+ "flux_below_nb2_clip": {
+  "value": "99.9",
+  "context": "CLIP and 39.3\\% in CSD, below Nano Banana 2 in {}\\% of resamples for"
+ },
+ "flux_below_nb2_csd": {
+  "value": "99.9",
+  "context": "CLIP and 39.3\\% in CSD, below Nano Banana 2 in {}\\% of resamples for"
+ },
+ "dev_clip": {
+  "value": "79.8",
+  "context": "Monet and 30.6\\% of Sisley works correct, against {}\\% in CLIP and 79.6\\%"
+ },
+ "dev_csd": {
+  "value": "79.6",
+  "context": "Sisley works correct, against 79.8\\% in CLIP and {}\\% in CSD. The 31 features"
+ },
+ "transfer_clip_range": {
+  "value": "$-$5.4 to +12.5",
+  "context": "differences unchanged but changes recognition by {} percentage points"
+ },
+ "transfer_csd_range": {
+  "value": "+0.9 to +26.8",
+  "context": "$-$5.4 to +12.5 percentage points in CLIP and {} in CSD (computed before"
+ },
+ "transfer_clip_mean": {
+  "value": "+2.7",
+  "context": "The mean changes from the reference rule are {} (CLIP) and +10.0 points"
+ },
+ "transfer_csd_mean": {
+  "value": "+10.0",
+  "context": "changes from the reference rule are +2.7 (CLIP) and {} points (CSD) for the"
+ },
+ "transfer_csd_flux": {
+  "value": "39 and harms 9",
+  "context": "rule; for FLUX.2 Max in CSD the shift corrects {} of 112 decisions."
+ },
+ "sd_share": {
+  "value": "64.2",
+  "context": "with a different template and seed design shares {}\\% of the change across"
+ },
+ "sd_share_range": {
+  "value": "63.9--64.6",
+  "context": "Across all features the shared fraction is 64.2\\% ({}\\% across block deletions),"
+ },
+ "sd_color": {
+  "value": "57.5",
+  "context": "64.2\\% (63.9--64.6\\% across block deletions), {}\\% in color and 84.9\\%"
+ },
+ "sd_spatial": {
+  "value": "84.9",
+  "context": "across block deletions), 57.5\\% in color and {}\\% in spatial features"
+ },
+ "sd_texture": {
+  "value": "36.6",
+  "context": "64.2\\% of the change across all features and {}\\% in texture, against"
+ },
+ "sd_texture_range": {
+  "value": "36.2--36.9",
+  "context": "84.9\\% in spatial features but 36.6\\% in texture ({}\\%); within scenes"
+ },
+ "sd_within": {
+  "value": "72.4",
+  "context": "in texture (36.2--36.9\\%); within scenes it is {}\\% overall and 48.5\\%"
+ },
+ "sd_texture_within": {
+  "value": "48.5",
+  "context": "(36.2--36.9\\%); within scenes it is 72.4\\% overall and {}\\% for texture. The"
+ },
+ "sd_beta": {
+  "value": "0.618",
+  "context": "texture is 46.5\\%. SD-Turbo's aligned amplitude is {}, its scene-averaged"
+ },
+ "sd_d": {
+  "value": "0.917",
+  "context": "amplitude is 0.618, its scene-averaged error {} and its scene-wise"
+ },
+ "sd_d_scene": {
+  "value": "1.637",
+  "context": "scene-averaged error 0.917 and its scene-wise error {}, and its Monet--Sisley"
+ },
+ "sd_ms": {
+  "value": "0.471",
+  "context": "error 1.637, and its Monet--Sisley alignment is {}. The collection reuses"
+ },
+ "flux_d_refit": {
+  "value": "0.872",
+  "context": "refitting the feature scaling, FLUX.2 Max's error is {}, the amplitudes remain"
+ },
+ "flux_d_crop": {
+  "value": "0.832",
+  "context": "original feature scaling, FLUX.2 Max's error becomes {}, all six aligned amplitudes"
+ },
+ "cov_nb2_flux": {
+  "value": "0.251",
+  "context": "upward; under an assumed common correlation of {} the Nano Banana 2"
+ },
+ "cov_gpt1_gpt2": {
+  "value": "0.246",
+  "context": "$\\rho=0.251$, GPT Image 1 and GPT Image 2 at $\\rho={}$, and GPT Image 1"
+ },
+ "cov_gpt1_flux": {
+  "value": "0.688",
+  "context": "$\\rho=0.246$, and GPT Image 1 and FLUX.2 Max at $\\rho={}$. The actual dependence"
+ },
+ "sim_gaussian": {
+  "value": "96.0",
+  "context": "scene-interaction errors gave simultaneous coverage of {}\\%, 97.4\\% and 99.7\\%,"
+ },
+ "sim_heavy": {
+  "value": "97.4",
+  "context": "errors gave simultaneous coverage of 96.0\\%, {}\\% and 99.7\\%, whereas"
+ },
+ "sim_interaction": {
+  "value": "99.7",
+  "context": "gave simultaneous coverage of 96.0\\%, 97.4\\% and {}\\%, whereas a configuration-specific"
+ },
+ "sim_shared": {
+  "value": "0.04",
+  "context": "by all scenes and both repeats reduced it to {}\\%. In that scenario,"
+ },
+ "h_bias": {
+  "value": "6.7",
+  "context": "reference spread $H$ for its finite-sample bias ({}\\%) scales $\\beta$,"
+ },
+ "beta_corrected_range": {
+  "value": "0.474--1.071",
+  "context": "the same factor: the aligned amplitudes become {}, FLUX.2 Max's error"
+ },
+ "learned_setting_spread": {
+  "value": "1.6",
+  "context": "target changes the observed shares by at most {} points (Appendix Table~\\ref{tab:learned-settings})."
+ },
+ "transfer_clip_settings": {
+  "value": "2.2--4.0",
+  "context": "development panel), the mean translation gains are {} points (CLIP) and"
+ },
+ "transfer_csd_settings": {
+  "value": "9.7--10.1",
+  "context": "translation gains are 2.2--4.0 points (CLIP) and {} points (CSD). \\FloatBarrier"
+ },
+ "gap_median": {
+  "value": "3.1",
+  "context": "repeats of a cell were requested a median of {} minutes apart, and"
+ },
+ "gap_max": {
+  "value": "20",
+  "context": "started a median of 3.1 minutes apart (at most {} minutes). A common"
+ },
+ "drift_gain": {
+  "value": "$-$3.4 to $-$0.7",
+  "context": "differences worse than no drift in every configuration ({}\\% change in squared"
+ },
+ "exact_corrected": {
+  "value": "59.3--85.1",
+  "context": "changes, and the exact-differences fractions rise to {}\\% (Appendix Table~\\ref{tab:robustness})."
+ },
+ "flux_d_corrected": {
+  "value": "0.787",
+  "context": "amplitudes become 0.474--1.071, FLUX.2 Max's error {}, no ordering changes,"
+ },
+ "genuine_above": {
+  "value": "5.1--9.1",
+  "context": "and so contain several generated errors, and {}\\% of splits exceed"
+ },
+ "genuine_hand": {
+  "value": "0.125--0.328",
+  "context": "half of each collection, have mean errors of {} in the 31 features"
+ },
+ "genuine_emb": {
+  "value": "0.060--0.216",
+  "context": "errors of 0.125--0.328 in the 31 features and {} in the embeddings,"
+ },
+ "clip_gpt1_d_interval": {
+  "value": "[0.757, 0.934]",
+  "context": "in the features, has the lowest error, 0.847 {}, and only Sunburst's"
+ },
+ "norm_diff": {
+  "value": "0.5",
+  "context": "prototypes the shares below change by at most {} points (Appendix Table~\\ref{tab:learned-settings})."
+ },
+ "texture_color": {
+  "value": "$-$6.1",
+  "context": "Table~\\ref{tab:families}). The texture--color difference of {} points [$-$13.5, $-$2.0]"
+ },
+ "texture_color_below": {
+  "value": "99.7",
+  "context": "gave simultaneous coverage of 96.0\\%, 97.4\\% and {}\\%, whereas a configuration-specific"
+ },
+ "texture_spatial_below": {
+  "value": "65.2",
+  "context": "texture--spatial ordering is not resolved (texture lower in {}\\% of paired scene"
+ },
+ "family_dropped": {
+  "value": "35",
+  "context": "for the spatial and 4 for the texture mean, and {} for the paired family"
+ },
+ "boot_resolved": {
+  "value": "8",
+  "context": "6 of 15 are resolved by Student intervals and {} by the paired-scene"
+ },
+ "nominal_resolved": {
+  "value": "6",
+  "context": "higher error than FLUX.2 Max. Without adjustment, {} of 15 are resolved"
+ },
+ "gpt1_six_way": {
+  "value": "[0.935, 2.210]",
+  "context": "descriptive), GPT Image 1's interval for $D$, {}, includes 1, and its"
+ },
+ "bh_gpt": {
+  "value": "1.98--2.12",
+  "context": "size of the between-name differences: $B/H$ is {} for the four GPT configurations,"
+ },
+ "bh_other": {
+  "value": "0.61--0.70",
+  "context": "fractions are therefore below the benchmark, and {} for Nano Banana 2"
+ },
+ "proto_share_all": {
+  "value": "54.2--83.8",
+  "context": "gain that ignores which name was used supplies {}\\% of it, close to"
+ },
+ "proto_above_half": {
+  "value": "11",
+  "context": "the gain, with a scene interval above 50\\%, in {} of the 12 configuration--encoder"
+ },
+ "gpt2_csd_interval": {
+  "value": "[47.4, 59.3]",
+  "context": "The exception is GPT Image 2 in CSD, at 54.2\\% {}, where a faithful"
+ },
+ "gpt2_csd_faithful": {
+  "value": "48.3",
+  "context": "59.3], where a faithful imitator would obtain {}\\%. For individual"
+ },
+ "cezanne_csd_min": {
+  "value": "34.6",
+  "context": "least shared in 11 of the 12 pairs, as low as {}\\% (Appendix Table~\\ref{tab:per-painter})."
+ },
+ "worse_q": {
+  "value": "2.28--2.45",
+  "context": "but oversized: $\\beta=$ 0.772--0.938 with $Q=$ {}, an alignment ratio"
+ },
+ "worse_beta": {
+  "value": "0.772--0.938",
+  "context": "differences are well aligned but oversized: $\\beta=$ {} with $Q=$ 2.28--2.45,"
+ },
+ "worse_ratio": {
+  "value": "0.511--0.600",
+  "context": "0.772--0.938 with $Q=$ 2.28--2.45, an alignment ratio of {}, comparable with FLUX.2"
+ },
+ "gpt1_d_held": {
+  "value": "0.645",
+  "context": "is lowest at 0.554, followed by GPT Image 1 ({}) and Sunburst (0.706),"
+ },
+ "sunburst_d_held": {
+  "value": "0.706",
+  "context": "followed by GPT Image 1 (0.645) and Sunburst ({}), all below FLUX.2"
+ },
+ "clip_sunburst_d_interval": {
+  "value": "[1.058, 1.213]",
+  "context": "[0.757, 0.934], and only Sunburst's interval, {}, lies above 1. In"
+ },
+ "csd_d_range": {
+  "value": "0.714--0.999",
+  "context": "[1.058, 1.213], lies above 1. In CSD the errors are {}; four scene intervals"
+ },
+ "emb_beta_range": {
+  "value": "0.438--0.936",
+  "context": "of at least 0.342; in the embeddings they are {}, all with scene intervals"
+ },
+ "texture_color_interval": {
+  "value": "[$-$13.5, $-$2.0]",
+  "context": "The texture--color difference of $-$6.1 points {} is therefore partly"
+ },
+ "fam_unavail_spatial": {
+  "value": "32",
+  "context": "family's denominator was not positive were dropped: {} of 5,000 for the spatial"
+ },
+ "fam_unavail_texture": {
+  "value": "4",
+  "context": "were dropped: 32 of 5,000 for the spatial and {} for the texture mean,"
+ },
+ "corr_clip_shared": {
+  "value": "0.96",
+  "context": "configurations follow that part, with correlations of {} (CLIP) and 0.95 (CSD)"
+ },
+ "corr_csd_shared": {
+  "value": "0.95",
+  "context": "that part, with correlations of 0.96 (CLIP) and {} (CSD) (Section~\\ref{sec:learned})."
+ },
+ "corr_csd_specific": {
+  "value": "$-$0.65",
+  "context": "gain correlates 0.95 with the shared term and {} with the painter-specific"
+ },
+ "clip_var_ratio": {
+  "value": "11",
+  "context": "shared term does, and the shared term varies {} times as much across"
+ },
+ "rho_gpt1": {
+  "value": "0.22",
+  "context": "below 1 if the two repeats shared a fraction {} of their noise power,"
+ },
+ "rho_flare": {
+  "value": "0.64",
+  "context": "a fraction 0.22 of their noise power, against {} for Flare and 0.52"
+ },
+ "rho_sunburst": {
+  "value": "0.52",
+  "context": "their noise power, against 0.64 for Flare and {} for Sunburst (Appendix~\\ref{app:provenance})."
+ },
+ "rho_zero": {
+  "value": "0.30--0.32",
+  "context": "expected squared distance cannot be, at $\\rho=$ {}, so under this model"
+ },
+ "fam_exact_color": {
+  "value": "77.8",
+  "context": "benchmark is also lower for texture (74.7\\%, against {}\\% for color and 79.1\\%"
+ },
+ "fam_exact_spatial": {
+  "value": "79.1",
+  "context": "texture (74.7\\%, against 77.8\\% for color and {}\\% for spatial), and"
+ },
+ "fam_exact_texture": {
+  "value": "74.7",
+  "context": "exact-differences benchmark is also lower for texture ({}\\%, against 77.8\\%"
+ },
+ "fam_below_exact": {
+  "value": "3.6--7.6",
+  "context": "and 79.1\\% for spatial), and every family lies {} points below its benchmark"
+ },
+ "fam_faithful_texture_color": {
+  "value": "+2.1",
+  "context": "benchmark is higher for texture than for color ({} points), the exact-differences"
+ },
+ "fam_exact_texture_color": {
+  "value": "$-$3.2",
+  "context": "points), the exact-differences benchmark lower ({} points; both computed"
+ },
+ "gpt1_texture_bh": {
+  "value": "3.11",
+  "context": "comes from oversized texture differences ($B/H=$ {}; exact-differences"
+ },
+ "gpt1_texture_exact": {
+  "value": "74.6",
+  "context": "differences ($B/H=$ 3.11; exact-differences value {}\\%). An earlier collection"
+ },
+ "content_shift": {
+  "value": "0.037",
+  "context": "scenes, the embedding errors change by at most {} and keep their order,"
+ },
+ "clip_gpt1_class_d": {
+  "value": "0.904",
+  "context": "their order, with GPT Image 1 lowest in CLIP ({}) and FLUX.2 Max in"
+ },
+ "csd_flux_class_d": {
+  "value": "0.699",
+  "context": "lowest in CLIP (0.904) and FLUX.2 Max in CSD ({}). The representations"
+ },
+ "flux_impressionist_beta": {
+  "value": "0.02--0.17",
+  "context": "amplitudes for the three Impressionist pairs are {}, and its Monet--Sisley"
+ },
+ "flux_ms_d": {
+  "value": "1.16",
+  "context": "Monet--Sisley and Monet--Pissarro pair errors are {} and 1.51 (Appendix"
+ },
+ "flux_mp_d": {
+  "value": "1.51",
+  "context": "and Monet--Pissarro pair errors are 1.16 and {} (Appendix Table~\\ref{tab:coverage}"
+ },
+ "flux_align": {
+  "value": "0.546",
+  "context": "of 0.511--0.600, comparable with FLUX.2 Max's {}. GPT Image 2 matches"
+ },
+ "csd_nb2_joint": {
+  "value": "51.3",
+  "context": "Banana 2 is indistinguishable from 1 (below it in {}\\% of joint resamples)."
+ },
+ "genuine_hand_upper": {
+  "value": "1.16--1.36",
+  "context": "31 features, whose central 95\\% ranges end at {} and so contain several"
+ },
+ "flux_omit_cezanne": {
+  "value": "0.096",
+  "context": "contrast: without C\\'ezanne its amplitude is {}, its amplitudes for"
+ },
+ "equal_family": {
+  "value": "66.1--89.8",
+  "context": "Reweighting the 31 features gives shared fractions of {}\\% (equal family weights)"
+ },
+ "covariance": {
+  "value": "65.8--86.9",
+  "context": "fractions of 66.1--89.8\\% (equal family weights) and {}\\% (development covariance),"
+ },
+ "lofo": {
+  "value": "64.8--89.6",
+  "context": "any single feature keeps the fraction within {}\\%. Scene resamples"
+ }
+}

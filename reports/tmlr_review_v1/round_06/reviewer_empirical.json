@@ -1,0 +1,42 @@
+{
+  "role": "empirical",
+  "pdf_sha256": "4ae5600ec39d49e52f30a105432d92b809d117d71d0c3e8627ccd6405209a242",
+  "criterion_claims_evidence": "partially",
+  "criterion_audience_clarity": "yes",
+  "desk_reject_risk": "low",
+  "recommendation": "minor revision",
+  "confidence": 4,
+  "critical_changes": [
+    "Describe the alignment ratio beta/sqrt(Q) accurately (Sec. 4.3, Tables 4-5 captions, Sec. 5.3, abstract). It is invariant only to one global rescaling. It is lowered by off-pattern differences and by scene-to-scene variation (Q = B/H + V_scene), so 'direction regardless of size' is inaccurate. Also report the scene-averaged cosine beta/sqrt(B/H); by the reviewer's computation GPT Image 2 remains highest in all three representations (0.70, 0.71, 0.78).",
+    "Correct the explanation of recognition (Sec. 5.4 and intro bullet 4). Nearest-prototype recognition does not reward direction 'whatever their size': it depends on the size of the differences relative to image-level spread and on shared offsets, as the paper's own Appendix F/Table 26 shows (up to +26.8 points from a name-independent translation). Present the n=6 Spearman correlations as descriptive co-variation; recognition correlates nearly as well with beta itself (about 0.77 CLIP, 0.71 CSD).",
+    "Qualify the introduction's D > 1 verdicts (GPT Image 1, Flare, Sunburst in the features; Sunburst in CLIP) as unadjusted and conditional on independent repeats. Note that GPT Image 1 fails a six-configuration Bonferroni adjustment and reverses at rho = 0.22. State in the abstract or introduction the prespecified primary outcome (2 of 15 pairwise D differences resolved in the features) and that the alignment ratio, Q and D_held were defined after the D results were known."
+  ],
+  "minor_changes": [
+    "In the embeddings, report lambda (observed/faithful shared term) and the mean-embedding norms. The faithful imitator inherits the reference collection's dispersion (CSD |mu_bar| about 0.66 vs 0.85-0.91 for named-condition means), and the observed shared term exceeds the faithful one for GPT Image 2 in CSD (about 1.18x). Revise the Figure 3 caption, which attributes 'observed at or above faithful' only to H*beta/4 < H/4.",
+    "Add D_agg and V_scene for CLIP and CSD (Table 5 or 23). By the reviewer's computation, CLIP D_agg is 0.59-0.80 for all six configurations, so every CLIP D above 1 (including Sunburst's) comes from scene-to-scene variation.",
+    "Give the K-painter form of Eq. 4 (painter-specific term H*beta/K) and of the 'quarter of the painter spread' rule, and discuss how the recommendations apply to many-artist benchmarks and to unrelated painter sets.",
+    "Acknowledge, or briefly check, name-induced changes in scene content in the generated images (e.g., captioner or CLIP text probes on named vs generic images), since CLIP is content-sensitive and content-matched targets address only the reference side.",
+    "Streamline Sections 5.3-5.5, moving secondary sensitivity numbers to the appendix. Consider a summary table of headline claims with prespecified/post hoc status, interval type and dependence on the independent-repeat assumption.",
+    "Commit to depositing the 1,008 generated images (closed services may change or disappear) and add a small qualitative contact sheet (a few scenes x four names x configurations) to illustrate on- and off-pattern differences.",
+    "Wording: clarify '(less for Cezanne alone)' in intro bullet 2; narrow 'Content does not explain the difference' to the title-derived content-class check on 11 scenes; source the claim that CSD's prototype scoring uses unit-normalized prototypes (the CSD paper describes a dot product with the averaged prototype); describe Verma et al.'s top-10 similarity as a nonlinear readout outside Eq. 4's scope instead of 'the same kind of similarity'.",
+    "Related work: connect the low trace ratios (named outputs 25-88% as varied as references) to stereotyped/concentrated imitation in Deliege et al. (2025) and to Xing et al. (2026), and mention between-artist specificity readouts in concept-erasure evaluations.",
+    "Strip the KST time zone from the PDF CreationDate metadata (minor anonymity hint).",
+    "Note that percentile bootstrap intervals over 14 scenes for ratio statistics (e.g., Table 1) may undercover, or use Student/BCa intervals as elsewhere."
+  ],
+  "factual_errors": [
+    "Sec. 5.4 (and intro bullet 4): 'Recognition ... [and the alignment ratio] both reward differences in the right direction, whatever their size' is technically incorrect for nearest-prototype recognition, whose accuracy depends on the size of between-name differences relative to within-condition spread and on shared offsets (as the paper's Appendix F itself demonstrates)."
+  ],
+  "literature_checked": [
+    "Somepalli et al. 2024 (ECCV), CSD: GSS scores are dot products with averaged artist prototypes; prototype normalization not stated in the paper",
+    "Verma et al. 2025 (TMLR), imitation thresholds: imitation score = mean similarity to top-10 most similar training images, PELT change detection",
+    "Frochte 2026 (arXiv 2605.09030v2): raw CSD cosine 'widely read as an absolute, calibrated style-fidelity score'; 91 artists; prompted Flux generations evaluated",
+    "Su et al. 2025 (arXiv 2507.18633): 110 artists; fixed-content name substitution; same-seed no-artist comparison",
+    "Casper et al. 2023 (arXiv 2307.04028): 70 artists, CLIP zero-shot, 81.0% average identification",
+    "Moayeri et al. 2025 (ICLR), ArtSavant: about 20% of 372 artists at risk",
+    "Xing et al. 2026 (arXiv 2608.06751): canonical shortcuts such as recurring motifs and generic palettes",
+    "Kim et al. 2026 (PNAS; arXiv 2503.13531): historical change in learned embeddings",
+    "Deliege et al. 2025 (J. Imaging 11(12):429): expert raters, Midjourney v6, ten painters incl. Monet",
+    "Asperti et al. 2025 (BDCC 9(9):231), AI-Pastiche dataset",
+    "Fu et al. 2025 (arXiv 2508.01408): VLM artist attribution and AI-image detection"
+  ]
+}

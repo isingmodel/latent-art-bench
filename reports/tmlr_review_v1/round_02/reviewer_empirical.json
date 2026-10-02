@@ -1,0 +1,48 @@
+{
+  "role": "empirical",
+  "pdf_sha256": "2837299e02bca86a872f392d19e4e5a74ee72944be0c79441b89eea7deb446d6",
+  "criterion_claims_evidence": "partially",
+  "criterion_audience_clarity": "yes",
+  "desk_reject_risk": "low",
+  "recommendation": "minor revision",
+  "confidence": 4,
+  "critical_changes": [
+    "Narrow and correct the headline claim. Replace 'for related painters' with the tested scope (four related painters, one template, 14 scenes), state the geometric condition under which a faithful imitator's change is mostly shared (N* >> H), and qualify 'would remain true for a generator that reproduced each painter exactly', because the CSD faithful share is 48.3% for GPT Image 2 and the observed share is 54.2% (Abstract, Intro bullet 2, Sec. 5.2, Recommendations).",
+    "Make the faithful benchmark interpretable. Report a benchmark that holds the observed shared movement fixed, e.g. N/(N+H) (recomputed: 84.0, 83.3, 83.3, 79.9, 57.6, 84.2%), or decompose the observed-vs-faithful gap into coverage (lambda, N/N*) and between-name size (B/H). State that 'below faithful' does not mean 'more specific' (Nano Banana 2 is below faithful only because lambda = 24.8%). Revise the Figure 3 caption and the abstract (Sec. 5.1).",
+    "Support or narrow the pair- and representation-level claims. Add scene and reference-resampling intervals for pair beta and pair D (Fig. 4; Monet-Sisley columns of Table 14, all representations). Report the 31-feature discriminability of genuine works next to the 79.8/79.6% embedding check (recomputed: about 50% macro on the development panel, Monet 40%, Sisley 31%). Qualify 'unevenly across painter pairs and representations' and 'does not transfer to the embeddings' (Sec. 5.3, Abstract).",
+    "Correct the texture claim. In Table 6, texture is least shared in only 3 of 6 main configurations (GPT Image 1, Flare, FLUX.2 Max) plus SD-Turbo, and it is the most shared family for Nano Banana 2. Rephrase Intro bullet 5, the Sec. 5.5 title and the abstract clause."
+  ],
+  "minor_changes": [
+    "Show the genuine-painting D distribution next to Table 3 (pooled 0.234; class vs pooled target 0.753; class vs class target 0.731, which is in the outputs but not the paper). Explain that these controls include half-sample target noise, and tone down the 'no-distinction' (D = 1) framing in the Intro and Sec. 5.3.",
+    "Hedge the first sentence of Sec. 6 ('movement toward the four painters' common appearance'), because t also carries reproduction and old-painting properties. Name a fictitious-name, group-clause or distant-painter control as the test.",
+    "Positioning: name concrete published uses of prototype-proximity readouts (CSD GSS; Su et al. prototype similarity); note that closed-set recognition already uses between-name information; add change-direction readouts (CLIP directional similarity, Gal et al. 2022 / InstructPix2Pix); mention Su et al.'s observation of weak artist-name effects in recent generators; consider Xing et al. 2026 (arXiv:2608.06751).",
+    "Disclose the terminated first collection (an upstream route returned an image for an invalid model ID) and the 16-to-14 scene reduction made before outcomes. Distinguish the prespecified paired-scene bootstrap for pairwise D from the post-hoc readout bootstrap of Table 5 (Sec. 4.5 currently lists 'the scene bootstrap' as post hoc).",
+    "Add scene-deletion ranges to Table 2 (they exist in the outputs, e.g. CSD GPT Image 2: 52.4-55.6%).",
+    "Flag in Sec. 5.1 or the abstract that the shared fraction depends on aggregation (52.8-93.6% within scenes; 82.5-95.7% against the artist-free baseline).",
+    "Add a figure for the title claim: stacked shared vs painter-specific proximity gain, observed vs faithful, per configuration and encoder.",
+    "Readability: move a compact notation table into the main text, reduce the number of numeric ranges in the abstract, and rewrite dense sentences (e.g. the end of Sec. 5.1 paragraph 3).",
+    "De-emphasise the exchangeable-null comparison; given the faithful benchmark it carries little information.",
+    "Add content matching of the reference target to the Recommendations (Table 15 shows D shifting by up to 0.2).",
+    "Release the generated images through an external archive at camera-ready."
+  ],
+  "factual_errors": [
+    "Intro bullet 5 / Sec. 5.5 title / Abstract: 'Texture is the least shared feature family' is contradicted per configuration by Table 6. Spatial is lower for GPT Image 2 (59.6 vs 73.8) and Sunburst (61.5 vs 70.3); for Nano Banana 2 texture (79.8) is the most shared family.",
+    "Abstract sentence 2: proximity gain 'would remain true' (mostly shared) for a faithful imitator is contradicted by the CSD faithful value of 48.3% for GPT Image 2 (Table 2)."
+  ],
+  "literature_checked": [
+    "Su et al. 2025, Identifying Prompted Artist Names from Generated Images (arXiv:2507.18633)",
+    "Somepalli et al. 2024, Investigating Style Similarity in Diffusion Models (CSD, ECCV)",
+    "Casper et al. 2023, Measuring the Success of Diffusion Models at Imitating Human Artists (arXiv:2307.04028)",
+    "Moayeri et al. 2025, Rethinking Artistic Copyright Infringements in the Era of Text-to-Image Generative Models (ICLR)",
+    "Frochte 2026, When Style Similarity Scores Fail: Diagnosing Raw CSD Cosine (arXiv:2605.09030v2)",
+    "Verma et al. 2025, How Many Images Does It Take? Estimating Imitation Thresholds (TMLR)",
+    "Deliege et al. 2025, How Good Is the Machine at the Imitation Game? (J. Imaging)",
+    "Asperti et al. 2025, A Critical Assessment of Modern Generative Models' Ability to Replicate Artistic Styles (BDCC)",
+    "Fu et al. 2025, AI and Misinformation in Art: Can VLMs Judge the Hand or the Machine (arXiv:2508.01408)",
+    "Kim et al. 2026, Context-aware multimodal AI navigates hidden pathways in five centuries of art evolution (PNAS)",
+    "Xing et al. 2026, Beyond Starry Night: Shortcut-Aware Control-State Planning for Artist-Grounded T2I (arXiv:2608.06751) - not cited",
+    "Gal et al. 2022, StyleGAN-NADA (directional CLIP similarity); Brooks et al. 2023, InstructPix2Pix - not cited (own knowledge)",
+    "OpenRouter and gateway listings for GPT Image 2.5 Flare/Sunburst (released 2026-09-08)",
+    "Honig et al. 2025 (ICLR); Gandikota et al. 2023; Kumari et al. 2023; Diedrichsen & Kriegeskorte 2017; Benny et al. 2021; Naeem et al. 2020; Parmar et al. 2022"
+  ]
+}

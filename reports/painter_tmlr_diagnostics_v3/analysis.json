@@ -1,0 +1,540 @@
+{
+  "analysis_namespace": "painter_tmlr_diagnostics_v3",
+  "family_contrasts": {
+    "below_zero": {
+      "color-spatial": 0.27895266868076535,
+      "texture-color": 0.9969788519637462,
+      "texture-spatial": 0.6517623363544813
+    },
+    "dropped_draws": 35,
+    "interval": {
+      "color-spatial": [
+        -0.0854043802567349,
+        0.1817843667649599
+      ],
+      "texture-color": [
+        -0.1353546477341421,
+        -0.019553504005621926
+      ],
+      "texture-spatial": [
+        -0.1362681105533011,
+        0.10289818270684664
+      ]
+    },
+    "point": {
+      "color-spatial": 0.027186340168517065,
+      "texture-color": -0.06091291445161051,
+      "texture-spatial": -0.03372657428309345
+    }
+  },
+  "genuine_controls_distinct": {
+    "clip": {
+      "class_real_class_target": {
+        "above_one": 0.0,
+        "interval95": [
+          -0.027057968252621235,
+          0.47000794730868967
+        ],
+        "mean": 0.21615179201744752
+      },
+      "class_real_pooled_target": {
+        "above_one": 0.0,
+        "interval95": [
+          -0.10610501950824765,
+          0.5315458691625197
+        ],
+        "mean": 0.20347855308686205
+      },
+      "pooled_real": {
+        "above_one": 0.0,
+        "interval95": [
+          -0.16217040242406736,
+          0.30479881828884564
+        ],
+        "mean": 0.06433094474932727
+      }
+    },
+    "csd": {
+      "class_real_class_target": {
+        "above_one": 0.0,
+        "interval95": [
+          -0.06738704655126165,
+          0.46508038289310005
+        ],
+        "mean": 0.19255242185526578
+      },
+      "class_real_pooled_target": {
+        "above_one": 0.0,
+        "interval95": [
+          -0.1772546404885247,
+          0.45032557620163355
+        ],
+        "mean": 0.1388336772006718
+      },
+      "pooled_real": {
+        "above_one": 0.0,
+        "interval95": [
+          -0.20882480881654505,
+          0.3358312631318451
+        ],
+        "mean": 0.059866840300842356
+      }
+    },
+    "hand31": {
+      "class_real_class_target": {
+        "above_one": 0.066,
+        "interval95": [
+          -0.5331886097510704,
+          1.1655206609193147
+        ],
+        "mean": 0.32779025742069345
+      },
+      "class_real_pooled_target": {
+        "above_one": 0.091,
+        "interval95": [
+          -1.0295640715056444,
+          1.361922920654637
+        ],
+        "mean": 0.18523726545653774
+      },
+      "pooled_real": {
+        "above_one": 0.051,
+        "interval95": [
+          -0.8859904594326183,
+          1.1591268391025007
+        ],
+        "mean": 0.12508830389650674
+      }
+    }
+  },
+  "genuine_controls_with_replacement_embeddings": {
+    "clip": {
+      "class_real_class_target": {
+        "interval95": [
+          0.1024957159790796,
+          0.7863878513715
+        ],
+        "mean": 0.42797655795801454
+      },
+      "class_real_pooled_target": {
+        "interval95": [
+          0.07345433785382478,
+          0.9248886478893041
+        ],
+        "mean": 0.4625363193431549
+      },
+      "pooled_real": {
+        "interval95": [
+          -0.12854712680675132,
+          0.4498187263105802
+        ],
+        "mean": 0.13484965859254475
+      }
+    },
+    "csd": {
+      "class_real_class_target": {
+        "interval95": [
+          0.03835728215236854,
+          0.7645581525426586
+        ],
+        "mean": 0.3818248705291494
+      },
+      "class_real_pooled_target": {
+        "interval95": [
+          -0.05863116567655067,
+          0.8115381944984718
+        ],
+        "mean": 0.36594050247594656
+      },
+      "pooled_real": {
+        "interval95": [
+          -0.16704963362903258,
+          0.43282338173580487
+        ],
+        "mean": 0.1223416696888155
+      }
+    }
+  },
+  "inputs": [
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/confirmation_features.jsonl",
+      "sha256": "01cc5167c09b88eab6a86885b72040f76fc8a7ca8a62acd56d85a8b16b2f7717"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/development_features.jsonl",
+      "sha256": "6001964b6f6d0a4958f4f546d48d81120b43c6587d55e248fd48b99dee3c821b"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/scaler.json",
+      "sha256": "71f511235081dfc1e9846976320c69477bcbd04dd43fc9a2e271f7b0375497b9"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v2/psv2-20260911/measurements.jsonl",
+      "sha256": "5db95709f48a25e31ef212b588c2aa3e0f7af4fb5dbaf413cfc16690de60cac1"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8"
+    },
+    {
+      "path": "reports/painter_learned_audit_v1/embeddings_clip.npz",
+      "sha256": "d6e3d49bde6ca7d75fb3603cf7f3ecf7d46ea979b21a3b1e75435a504acd9945"
+    },
+    {
+      "path": "reports/painter_learned_audit_v1/embeddings_csd.npz",
+      "sha256": "65f428ed866916dca12ea0bc8148f1e0b9122343d19181e56f03543b5506085b"
+    },
+    {
+      "path": "reports/painter_learned_audit_v1/extraction_clip.json",
+      "sha256": "30a2aa7f93fcaa2e23413837ba3f75cf79b7ca3fca3f450a7b5ff4cddb7a22d5"
+    },
+    {
+      "path": "reports/painter_learned_audit_v1/extraction_csd.json",
+      "sha256": "5a55e4337b9588ef45bce46037dbe7ed123f89113d92da1e8d1c738eee0d6945"
+    },
+    {
+      "path": "reports/painter_learned_audit_v1/inputs.json",
+      "sha256": "bd9cb00279fffb741b3579e3234ad034bb593884925ea40893c717612eccca57"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_review_v1.py",
+      "sha256": "6abfa4d2cc25d38cd8ba2c1cb47d6b3beb15686caff43e92e85711ef905b179b"
+    },
+    {
+      "path": "src/latent_art_bench/painter_tmlr_diagnostics_v1.py",
+      "sha256": "d7ed038ee5fe010445dfe4bf99ee1f5c1e173ea27f73716cff121b12d9c52dc5"
+    },
+    {
+      "path": "src/latent_art_bench/painter_tmlr_diagnostics_v2.py",
+      "sha256": "5b2f4b0d0303d466c6a7ceefd5843989a59cbe9b252475d135b693d4b438ee96"
+    },
+    {
+      "path": "src/latent_art_bench/painter_tmlr_diagnostics_v3.py",
+      "sha256": "fd87c69e4609eb786f2b0897954e43830a87b6ec4b9354752c8b3f22088493d0"
+    },
+    {
+      "path": "studies/painter_tmlr_diagnostics_v3/PLAN.md",
+      "sha256": "74f7202cc22d84819adc0958a23dc9bd8625a557d132384e7d1147b5fe7d64ea"
+    },
+    {
+      "path": "tests/painter_tmlr_diagnostics_v3/test_diagnostics_v3.py",
+      "sha256": "e75ffb0016fdd04a96309873c7251918a90f6b3a27d9594766f8cf5e0f046c6b"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+    }
+  ],
+  "learned": {
+    "clip": [
+      {
+        "beta": 0.5266407150560881,
+        "beta_reference": [
+          0.48443057565206044,
+          0.5339751378790302
+        ],
+        "beta_scene": [
+          0.4727037483593565,
+          0.5750788385097279
+        ],
+        "d": 0.8466159733562603,
+        "d_below_one_joint": 0.999,
+        "d_below_one_scene": 0.9996,
+        "d_reference": [
+          0.8128542598463648,
+          0.8919403890615127
+        ],
+        "d_scene": [
+          0.7573858596104481,
+          0.9344337478179738
+        ],
+        "model": "gpt-image-1",
+        "normalized_prototype_share": 0.7458609801339259
+      },
+      {
+        "beta": 0.7702957476881213,
+        "beta_reference": [
+          0.7105757362229698,
+          0.778233123721858
+        ],
+        "beta_scene": [
+          0.7187599648913336,
+          0.8118762315533338
+        ],
+        "d": 1.0610888303889947,
+        "d_below_one_joint": 0.2105,
+        "d_below_one_scene": 0.1884,
+        "d_reference": [
+          0.9964747386853627,
+          1.1244660269041489
+        ],
+        "d_scene": [
+          0.9228729380216709,
+          1.192119984534519
+        ],
+        "model": "gpt-image-2",
+        "normalized_prototype_share": 0.733773279038907
+      },
+      {
+        "beta": 0.5583033239403982,
+        "beta_reference": [
+          0.5129277662338533,
+          0.5667377196547784
+        ],
+        "beta_scene": [
+          0.5161828042368058,
+          0.5981371427625298
+        ],
+        "d": 1.0568213314455337,
+        "d_below_one_joint": 0.144,
+        "d_below_one_scene": 0.1212,
+        "d_reference": [
+          1.007131191259797,
+          1.1061703384547568
+        ],
+        "d_scene": [
+          0.9623258173226062,
+          1.1519063089065684
+        ],
+        "model": "gpt-image-2.5-flare",
+        "normalized_prototype_share": 0.7904686201880681
+      },
+      {
+        "beta": 0.6514566667633237,
+        "beta_reference": [
+          0.5984359957590002,
+          0.6587314104958818
+        ],
+        "beta_scene": [
+          0.6022361831918132,
+          0.7008945673447817
+        ],
+        "d": 1.1356764061554838,
+        "d_below_one_joint": 0.0005,
+        "d_below_one_scene": 0.0,
+        "d_reference": [
+          1.0716051401020816,
+          1.198083891829603
+        ],
+        "d_scene": [
+          1.0581760545569259,
+          1.2128639510911168
+        ],
+        "model": "gpt-image-2.5-sunburst",
+        "normalized_prototype_share": 0.779751400539251
+      },
+      {
+        "beta": 0.5232130743151694,
+        "beta_reference": [
+          0.48227276796268037,
+          0.5317318508754686
+        ],
+        "beta_scene": [
+          0.4769320751184273,
+          0.5667150607207497
+        ],
+        "d": 1.0779281930890565,
+        "d_below_one_joint": 0.158,
+        "d_below_one_scene": 0.1418,
+        "d_reference": [
+          1.016399701710049,
+          1.13692527934197
+        ],
+        "d_scene": [
+          0.9429539246153675,
+          1.228173893822735
+        ],
+        "model": "google/gemini-3.1-flash-image",
+        "normalized_prototype_share": 0.8390003946940484
+      },
+      {
+        "beta": 0.4375401072598117,
+        "beta_reference": [
+          0.3980186839122792,
+          0.44753433336069814
+        ],
+        "beta_scene": [
+          0.3900544447593398,
+          0.48027330835078186
+        ],
+        "d": 1.0583359441219329,
+        "d_below_one_joint": 0.164,
+        "d_below_one_scene": 0.1482,
+        "d_reference": [
+          1.014759487588918,
+          1.1034463239603434
+        ],
+        "d_scene": [
+          0.9504802988174457,
+          1.1648145744485727
+        ],
+        "model": "black-forest-labs/flux.2-max",
+        "normalized_prototype_share": 0.8189419263716506
+      }
+    ],
+    "csd": [
+      {
+        "beta": 0.72842179671718,
+        "beta_reference": [
+          0.6738730664788811,
+          0.7399701796017756
+        ],
+        "beta_scene": [
+          0.6642529161478689,
+          0.7920976611678447
+        ],
+        "d": 0.7354972584811248,
+        "d_below_one_joint": 1.0,
+        "d_below_one_scene": 1.0,
+        "d_reference": [
+          0.6911772857120634,
+          0.8009917953958468
+        ],
+        "d_scene": [
+          0.643982452316961,
+          0.82949708556867
+        ],
+        "model": "gpt-image-1",
+        "normalized_prototype_share": 0.7282367663376986
+      },
+      {
+        "beta": 0.9355966795839176,
+        "beta_reference": [
+          0.8686077758096589,
+          0.9488598241214932
+        ],
+        "beta_scene": [
+          0.8934615236153268,
+          0.9736607722749605
+        ],
+        "d": 0.7410354097156832,
+        "d_below_one_joint": 1.0,
+        "d_below_one_scene": 1.0,
+        "d_reference": [
+          0.686280998086634,
+          0.8210369075712097
+        ],
+        "d_scene": [
+          0.6662253194114911,
+          0.8217123166854174
+        ],
+        "model": "gpt-image-2",
+        "normalized_prototype_share": 0.5470973509727821
+      },
+      {
+        "beta": 0.8043691457406241,
+        "beta_reference": [
+          0.740248590827215,
+          0.8213386215561482
+        ],
+        "beta_scene": [
+          0.7724831761609775,
+          0.834839955358089
+        ],
+        "d": 0.8189144571575357,
+        "d_below_one_joint": 1.0,
+        "d_below_one_scene": 1.0,
+        "d_reference": [
+          0.7611908537867321,
+          0.8965688285864654
+        ],
+        "d_scene": [
+          0.7773264896107348,
+          0.8615694540388156
+        ],
+        "model": "gpt-image-2.5-flare",
+        "normalized_prototype_share": 0.6539656069488936
+      },
+      {
+        "beta": 0.8596035360068598,
+        "beta_reference": [
+          0.7917835180531916,
+          0.8784295437316118
+        ],
+        "beta_scene": [
+          0.818852895625294,
+          0.8986133455528695
+        ],
+        "d": 0.94432149434707,
+        "d_below_one_joint": 0.8075,
+        "d_below_one_scene": 0.9096,
+        "d_reference": [
+          0.8714672008921767,
+          1.0346100424521731
+        ],
+        "d_scene": [
+          0.8655276430969586,
+          1.0241221460225796
+        ],
+        "model": "gpt-image-2.5-sunburst",
+        "normalized_prototype_share": 0.6771204706366638
+      },
+      {
+        "beta": 0.5257628571245689,
+        "beta_reference": [
+          0.48175096146753893,
+          0.5415425236696287
+        ],
+        "beta_scene": [
+          0.4716149844556188,
+          0.5819709724354374
+        ],
+        "d": 0.9991497559989374,
+        "d_below_one_joint": 0.5135,
+        "d_below_one_scene": 0.4994,
+        "d_reference": [
+          0.9419567086513236,
+          1.06170129509855
+        ],
+        "d_scene": [
+          0.876238084617447,
+          1.1284638680969354
+        ],
+        "model": "google/gemini-3.1-flash-image",
+        "normalized_prototype_share": 0.7957617414254252
+      },
+      {
+        "beta": 0.598279966347367,
+        "beta_reference": [
+          0.5477047148682567,
+          0.6135865043240818
+        ],
+        "beta_scene": [
+          0.5493156458568764,
+          0.6497104741326553
+        ],
+        "d": 0.7137127256157852,
+        "d_below_one_joint": 1.0,
+        "d_below_one_scene": 1.0,
+        "d_reference": [
+          0.6743978864027427,
+          0.7735372109584457
+        ],
+        "d_scene": [
+          0.6199146671209105,
+          0.8007502736004709
+        ],
+        "model": "black-forest-labs/flux.2-max",
+        "normalized_prototype_share": 0.7768589066976692
+      }
+    ]
+  },
+  "models": [
+    "gpt-image-1",
+    "gpt-image-2",
+    "gpt-image-2.5-flare",
+    "gpt-image-2.5-sunburst",
+    "google/gemini-3.1-flash-image",
+    "black-forest-labs/flux.2-max"
+  ],
+  "schema_version": 1,
+  "seeds": {
+    "control": 20261005,
+    "family": 20261002,
+    "joint": 20261008,
+    "reference": 20261007,
+    "scene": 20261006
+  },
+  "status": "retrospective; post-result diagnostics requested by round-3 reviews",
+  "uncertainty": "percentile intervals and shares from resampling; no tests"
+}

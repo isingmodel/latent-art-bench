@@ -3,16 +3,15 @@
 `make check` runs three steps:
 
 1. Ruff on the repository. Scripts under `reports/` are frozen audit records and
-   are excluded; the hash-bound `paper/make_icml_selective_figure.py` is exempt
-   from import ordering only.
+   are excluded.
 2. The routine suite selected by [pytest-paper.ini](../pytest-paper.ini).
 3. The newer routine suites in the Makefile's `ROUTINE_EXTRA` list
-   (SD-Turbo cross-cohort and selective attribution).
+   (SD-Turbo cross-cohort, selective attribution and the TMLR diagnostics v1–v5).
 
 Together they cover the 31-feature calculations, four-painter comparisons,
 weighting and randomization, missing observations, palette response, geometry,
 arithmetic oracles, evidence integrity, the main public replay contracts, the
-six-model analysis and diagnostics, every ICML-era analysis and the offline
+six-model analysis and diagnostics, every retrospective analysis and the offline
 family-control collector. No live calls are made.
 
 ```sh
@@ -65,3 +64,7 @@ software checks, not scientific validation.
 | 2026-09-19 | 881 passed, 10 failed | Not rerun | Failures from the storage reserve; a scoped fixture verified all 85 affected cases |
 | 2026-09-23 | 1,251 + 110 passed | 2,482 passed (536 s) | Evidence audit 2,902 checks, 0 failed; Ruff passes with the record-script exclusion |
 | 2026-09-25 | 1,251 + 110 passed | Not rerun | Evidence audit 2,902 checks, 0 failed; at 4.1 GiB free the same 10 storage-reserve cases failed, and passed after space was freed |
+| 2026-10-01 | 1,251 + 134 passed | Not rerun | After the TMLR round-3 revision; `evidence`, `retrospective-check` (diagnostics v1–v3) and `tmlr-check` pass |
+| 2026-10-01 | 1,251 + 136 passed | Not rerun | After the TMLR round-4 revision (diagnostics v4 added); all offline check targets pass |
+| 2026-10-01 | 1,251 + 141 passed | Not rerun | After the TMLR round-5 revision (diagnostics v5 added); all offline check targets pass |
+| 2026-10-01 | 1,251 + 141 passed | Not rerun | After the final post-round-6 TMLR revision; all offline check targets pass |

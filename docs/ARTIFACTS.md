@@ -44,7 +44,7 @@ Git does not back up these files. Some are referenced by committed records.
 | --- | --- |
 | `research_workspace/` (20 GB) | Original responses, generated images, failed requests, reference displays, transport bodies and locks; the SD-Turbo and six-model pixel checks read it. The SD-Turbo weights were deleted on 2026-09-27 (see below) |
 | `artifacts/` | Retained model weights and source checkouts |
-| `output/pdf/` | `latent_art_bench_icml.pdf` (identical to the round-04 reviewed PDF) and `latent_art_bench_korean.pdf` (hash recorded by the 2026-09-19 and 2026-09-21 review reports) |
+| `output/pdf/` | `latent_art_bench_tmlr.pdf` (current anonymous TMLR build; disposable) and `latent_art_bench_korean.pdf` (hash recorded by the 2026-09-19 and 2026-09-21 review reports) |
 | `output/artifacts/` | The final numerical bundle and two candidate archives, each bound by a record in [numeric_bundle_v1/](../reports/icml_review_v1/numeric_bundle_v1/README.md) |
 | `reports/icml_review_v1/*/input/`, `post_round_*/`, `resume_2026-09-21/before_revision/` | Exact reviewed PDFs and figure copies, ignored by the PDF rule |
 | `reports/paper_editorial_review_v1/*_review_*/` | Editorial CLI traces and runners, listed with digests in the [archive guide](../reports/paper_editorial_review_v1/ARCHIVE.md) |
@@ -60,7 +60,7 @@ path or SHA-256 in a record:
 
 | Path under `tmp/` | Size | Why it stays |
 | --- | --- | --- |
-| `paper/` | 5 MB | Only `icml-build/`, a fresh build of the current ICML sources that `make icml-format-check` reads |
+| `paper/` | 5 MB | Only `tmlr-build/`, the disposable output of `make paper-tmlr` |
 | `pdfs/` | 347 MB | Reviewed PDFs and page renders whose digests the review records keep |
 | `reference-quality/` | 70 MB | Source crops named in `reports/painter_reference_quality_v1/audit_*.json` |
 | Calibration, randomization and supplement JSON files; `painter_prompt_supplement_v1/` | 5 MB | On the keep list above; `data/manifests/painter_prompt_study_v1/*/decision.json` names the calibration and randomization files, and the supplement package writes its locks in `painter_prompt_supplement_v1/` |
@@ -106,6 +106,34 @@ re-extract SD-Turbo features, download `stabilityai/sd-turbo` at revision
 verify it against the file digests in
 [model_sd_turbo.json](../data/manifests/painter_feature_generation_v2/model_sd_turbo.json).
 
+On 2026-10-01, when the user retargeted the paper to TMLR and asked for the ICML
+templates to be removed, the live ICML draft sources in `paper/` (`icml.tex`, the
+hand-written `icml_*` sections, `icml_references.bib`, `icml2026.sty`,
+`icml2026.bst` and `icml_style/`), `scripts/check_icml_format.py`,
+`output/pdf/latent_art_bench_icml.pdf` and `tmp/paper/icml-build/` were deleted.
+Every deleted source is byte-identical to a tracked frozen copy in
+`reports/icml_review_v1/round_04/input/`, and the reviewed PDF stays at
+`reports/icml_review_v1/round_04/input/manuscript.pdf`. The untracked files and
+the unbound checker were first copied to `generative_art_diff_archive/2026-10-01/`
+with an `INVENTORY.sha256`.
+
+The same day, at the owner's request to remove redundant files from `paper/`, the
+folder was reorganized: the full-length paper and its Korean translation, with
+their inputs and five figures, moved unchanged to
+`paper/archive/full_length_2026-09-15/`; the two figures and the example-image
+manifest used by the TMLR manuscript were copied to `paper/tmlr/figures/`; and
+all presentation builders except `replay_palette.py` (14 files), the nine
+generated `icml_*` tables and 18 unused figures were deleted. The presentation
+checks that read them (`figures-check` except the palette figure, the builder
+steps of `review-check`, `retrospective-check` and `extensions-check`,
+`example-images-check` and `review-images-check`) were removed with them; the
+analysis replays are unchanged. Records under `reports/` still name the deleted
+paths. A complete copy of the previous `paper/` folder is in
+`generative_art_diff_archive/2026-10-01/paper_before_cleanup/`, listed in
+`PAPER_BEFORE_CLEANUP.sha256`, and Git history holds every tracked file. All
+offline check targets were run before and after these changes; see
+[STATUS.md](STATUS.md#verification).
+
 Test caches, `__pycache__` and `.DS_Store` files are disposable.
 
 ## Retired documentation
@@ -125,6 +153,7 @@ git show fb61bb5:docs/ARCHITECTURE.md
 
 Manuscript build folders, page previews under `tmp/paper/`, test/lint caches,
 bytecode and operating-system metadata are disposable when unused. Inspect the
-exact target first. `tmp/paper/icml-build/` receives fresh builds and is what
-`make icml-format-check` reads. The reviewed round-04 PDF is preserved at
-`reports/icml_review_v1/round_04/input/manuscript.pdf`.
+exact target first. `tmp/paper/tmlr-build/` receives TMLR builds. The reviewed
+round-04 ICML PDF is preserved at
+`reports/icml_review_v1/round_04/input/manuscript.pdf`, and each reviewed TMLR PDF
+under `reports/tmlr_review_v1/round_*/input/`.

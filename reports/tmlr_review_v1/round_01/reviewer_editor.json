@@ -1,0 +1,58 @@
+{
+  "role": "editor",
+  "pdf_sha256": "33c87a6f609b2c791b0ba6c5101d4af64fc9b05e155b9bb448c65a5a6a90b5c8",
+  "criterion_claims_evidence": "partially",
+  "criterion_audience_clarity": "yes",
+  "desk_reject_risk": "low",
+  "recommendation": "major revision",
+  "confidence": 4,
+  "critical_changes": [
+    "C1: Give the shared fraction reference values. State the 25% exchangeable null (no common component). Report the faithful-imitation shared fraction implied by moving the generic-clause mean to each reference mean: in the 31 features, 4||mu_bar - z_g||^2 / (4||mu_bar - z_g||^2 + H); in CLIP and CSD, Eq. 4 with g_a = mu_a. State the domain-gap caveat. Revise the Abstract, Section 1 and Section 6 so that 66.7-88.4% (and 73.2-83.8% / 54.2-79.7% of proximity gain) is read against these values, instead of saying the benchmark 'does not exist here'.",
+    "C2: Establish the direction of the shared change in the 31 features (cosine with mu_bar - z_g, the aligned component versus the orthogonal remainder, and the change in distance to mu_bar), or restrict the claim. Either compute a feature-space proximity analogue of Eq. 4 or rewrite Section 6's 'dominates proximity gain in every configuration and representation we examined' to name CLIP and CSD only. Proximity was not computed in the 31 features, and 'dominates' is too strong at 54.2% (GPT Image 2, CSD).",
+    "C3: For the six main configurations, report N/(N+B), N/H and B/H by feature family (color, spatial, texture), under the equal-family and covariance weightings of Table 11, and N/H under the content-matched reference target. The SD-Turbo check shows the share depends strongly on family (spatial 84.9%, texture 36.6%). Correct Section 5.6's statement that choices cannot change the split: it holds for the reference collection, not for the weighting or the H normalizer.",
+    "C4: Add scene-deletion ranges or scene-cluster bootstrap intervals for proximity gain, recognition and the embedding shares (Tables 3-4), as Section 4.4 promises. State which ranking reversals are robust. Qualify the abstract and Section 1 bullet 3: FLUX.2 Max's lowest D is not resolved from 3 of 5 configurations and its interval includes 1. Recognition uses n=112 per configuration, so the binomial standard error is about 4.5 pp before scene clustering.",
+    "C5: The abstract, Section 1, Section 5.1 and Section 6 phrase the squared ratio N/H ('1.4-5.3 times as large as the entire spread', 'several times larger') as if it were linear. Say 'in squared magnitude' or report the linear equivalents: shared shift about 1.2-2.3 times, and between-name about 0.8-1.5 times, the RMS painter deviation."
+  ],
+  "minor_changes": [
+    "Section 5.3: soften 'The decomposition is not an artifact of the hand-designed features' and 'therefore a property of that representation'. Embedding Monet-Sisley alignment may reflect content or semantic cues, and CSD was trained with these painters as style tags.",
+    "Section 5.4: 'These reversals follow from the decomposition'. Eq. 4 is an identity for proximity only; the link to recognition is interpretive.",
+    "Unify terminology: between-name, name-specific and painter-specific are used interchangeably. Replace 'shared share' with 'shared fraction'. Distinguish beta ('aligned amplitude') from beta/sqrt(Q) ('Alignment'). Define or drop 'uncalibrated' (Section 5.6). De-overload B, G, C and b (Tables 1 and 12, Fig. 3, Section 4.2). Give Eq. 2's 'shared' a symbol.",
+    "Add a schematic of the geometry (generic mean, named means, c, e_a, r_a). Figure 2 repeats Table 1's N and B columns; its 'Flare'/'Sunburst' labels are also inconsistent with the tables.",
+    "Move beta/sqrt(Q) into Table 2, and explain in the caption that D > 1 can arise from correctly directed but over-amplified differences (GPT Image 2).",
+    "Rewrite dense sentences for a general ML reader: Section 4.4 'Intervals condition on the reference panels, the scaling and the 14 authored scenes, and they include fixed scene heterogeneity'; Section 5.2 'Each is a legitimate target; they answer different questions'; Section 3 '31 coordinates chosen to change independently' (the features are correlated).",
+    "Abstract and Section 1: the estimators remove noise-induced bias, not noise, and repeat independence is assumed rather than established. Rephrase 'use independent repeated generations to remove sampling noise'.",
+    "Abstract and Section 1: say that name-specific differences are aligned 'in aggregate'. Monet-Sisley alignment in the features is between -0.249 and 0.129 in 5 of 6 configurations.",
+    "Signal in the abstract or at the start of Section 5 that the generic-baseline, embedding and recognition analyses are post hoc and descriptive. Include the hashed pre-collection protocol in the supplement.",
+    "Appendix A: explain what 'GPT Image 2.5 Flare/Sunburst' are and name the gateway. Name the third ordering that reverses for rho < 1; the text names only two of three.",
+    "Section 5.6: name the AI tool and procedure used to audit the 870 reproductions, and verify the 131 crops by hand.",
+    "Provide the 1,008 generated images through an anonymized link so features can be re-extracted from pixels.",
+    "Report the subject composition of the reference panels, and whether r_a and H are restricted to landscapes; the conclusions about Cezanne (Table 10) depend on r_a.",
+    "Clarify whether the 'earlier study' that produced the SD-Turbo collection is published. If it is, cite it in the third person.",
+    "Figure 1: add source and licence attribution for the four displayed reference reproductions (some reference records are CC BY/BY-SA).",
+    "Add a source for 'Artist names are among the most widely used style controls' (e.g., DiffusionDB prompt statistics). Fix BibTeX capitalization after question marks (Verma et al.; Deliege et al.).",
+    "Section 5.1: report generic-baseline within-scene shares alongside the artist-free within-scene shares (88.6-97.2%).",
+    "Table 4: GPT Image 1 and FLUX.2 Max are tied at 0.217 CSD proximity but only one is bold. Show more digits or bold both.",
+    "Cosmetic: the last caption line abuts the top rule in Tables 1, 6, 8, 11 and 12. Add a small skip below table captions without modifying tmlr.sty.",
+    "Optional but strengthening: scope the title to the four-painter study, or run the distant-painter or 'Impressionist'-clause control proposed in Section 7.",
+    "Clarify that the 'Accessed 11 September 2026' date for Commons:GLAM refers to the cited page, not to when the panel was assembled (the panels predate the 5 and 10 September collections)."
+  ],
+  "factual_errors": [
+    "Section 6 states that the shared change 'dominates proximity gain in every configuration and representation we examined', but proximity gain is computed only in CLIP and CSD (Tables 3-4), not in the 31 features. The CSD shared part for GPT Image 2 is 54.2%, which is not domination.",
+    "Section 5.6 states 'The shared/between-name split uses only generated images and the fixed feature scaling, so choices about the reference collection cannot change it'. The split is independent of the reference collection, but N/H and B/H, which are reported alongside it, depend on H, and the split depends on the feature weighting. Neither dependence is reported.",
+    "Appendix A says 'three point orderings reverse within rho < 1' but identifies only two (Nano Banana 2-FLUX.2 Max at 0.251, GPT Image 1-GPT Image 2 at 0.246)."
+  ],
+  "format_checks": [
+    "PDF SHA-256 computed with shasum -a 256: 33c87a6f609b2c791b0ba6c5101d4af64fc9b05e155b9bb448c65a5a6a90b5c8",
+    "tmlr.sty, tmlr.bst and fancyhdr.sty SHA-256 match STYLE_PROVENANCE.json (JmlrOrg/tmlr-style-file commit 7bf90efe, modified: false). Upstream was not re-fetched because no network was allowed; the file header and logic match the official style.",
+    "\\usepackage{tmlr} has no accepted/preprint option; the header 'Under review as submission to TMLR' appears on all 20 pages.",
+    "Anonymization: 'Anonymous authors / Paper under double-blind review'; no acknowledgments; no author or title in the PDF metadata; a byte scan for user names and paths was negative; no identifying paths or emails in the paper/tmlr sources.",
+    "No layout overrides (no geometry, margin or \\vspace hacks; only \\small inside tables); US letter 612x792 pt.",
+    "All fonts are embedded (Type 1C Latin Modern, CID TrueType DejaVu); no Type 3 fonts.",
+    "All 12 table captions are above their tables; all 3 figure captions are below their figures.",
+    "A broader impact statement is present (p. 11); a reproducibility statement is also present.",
+    "Main text is pp. 1-11 (about 10.5 pages, within the 12-page guideline); references are pp. 11-13; appendices A-H are pp. 14-20 in the same PDF.",
+    "No unresolved cross-references; the bibliography uses tmlr.bst author-year natbib.",
+    "Figure legibility checked: Figure 1 thumbnails are about 309 ppi, and Figure 2 and Figure 3 labels are readable.",
+    "Cosmetic: the last caption line abuts the top rule in Tables 1, 6, 8, 11 and 12."
+  ]
+}

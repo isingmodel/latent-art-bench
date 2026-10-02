@@ -1,0 +1,57 @@
+{
+  "role": "methods",
+  "pdf_sha256": "7da8263c19eeb6ec1b3dc1c6292306712a7e5297e99f95009649c66c80299310",
+  "criterion_claims_evidence": "partially",
+  "criterion_audience_clarity": "yes",
+  "desk_reject_risk": "low",
+  "recommendation": "minor revision",
+  "confidence": 4,
+  "critical_changes": [
+    "Genuine-painting control (Sec 5.3, App D, Sec 6). Appendix D says the control uses 'two works per painter' per pseudo-scene, but painter_specificity_review_v1.real_controls draws the two pseudo-repeats with replacement, so one painting can fill both repeats. That duplicate reintroduces within-painter variance into the cross-repeat product. Recompute with distinct works: my rerun gives means of 0.111/0.252/0.373 instead of 0.234/0.753/0.731. Also account for the larger half-collection and class-specific target noise. Then revise or remove 'FLUX.2 Max's 0.801 is close to the content-sampled genuine level; the other configurations are not' and adjust the Sec 6 recommendation.",
+    "Qualify the headline 'three configurations have larger errors than a generator that makes no painter distinctions' (Abstract, Sec 1 bullet 3, Sec 5.3). (a) It holds only in the 31 features: in CLIP five of six D estimates exceed 1, with GPT Image 1 lowest at 0.847; in CSD none do. (b) D vs 1 is a descriptive comparison outside the prespecified 21-comparison family (protocol v2). (c) GPT Image 1's exceedance does not survive a 6-way Bonferroni adjustment ([0.935, 2.210]); Flare's and Sunburst's do.",
+    "Narrow the feature-family contribution (Sec 1 bullet 5, Sec 5.5, Table 6). Texture minus spatial is -2.9 points [-14.1, +10.2] in a paired scene bootstrap, with texture below spatial in only about 68% of resamples; texture minus color is below zero in about 99.6%. Report paired family-difference intervals and state only what is supported: texture is less shared than color; the texture/spatial ordering is unresolved; orderings differ by configuration."
+  ],
+  "minor_changes": [
+    "Sec 5.2, last sentence: qualify 'for a faithful imitator alike'. The faithful CSD share for GPT Image 2 is 48.3%, its observed share is 54.2% [47.4, 59.3], and Cezanne's per-painter CSD shares go as low as 34.6%.",
+    "Table 11 caption: repeat noise is half the squared difference between the repeats' centered contrasts, relative to H.",
+    "App D: 'GPT Image 2's differences are about twice the reference size' should say twice in squared size (1.49 times in norm, as in Sec 5.3).",
+    "App C, exchangeable null: 1/4 is E[N]/(E[N]+E[B]), not the expected shared fraction.",
+    "Report the protocol-prescribed nominal and paired-bootstrap intervals for the 15 pairwise D differences, labelled unadjusted. The bootstrap excludes zero for 8/15 pairs, nominal t for 6/15, simultaneous for 2/15.",
+    "Sec 5.6: separate the cropped-only and refit results. Cropped only: Flare-FLUX is the only resolved pair. Refit: GPT Image 1-FLUX and Flare-FLUX are resolved.",
+    "Report how bootstrap draws with non-positive denominators were handled (family means: 32 spatial and 4 texture draws out of 5,000).",
+    "State that Eq. 4 uses the unnormalized prototype (mean of reference cosines) while recognition uses unit prototypes. Add that normalized-prototype gains change the shares by at most 0.5 points.",
+    "Note that correcting the finite-sample bias of H also changes Q, D, B/H and both benchmarks, not only beta.",
+    "Add scene intervals or stability frequencies for the CLIP and CSD D values in Table 4.",
+    "Repeat dependence: note that a shared repeat component would also inflate N and B (the shared fraction), not only D.",
+    "Sec 1 bullet 3: rephrase 'only FLUX.2 Max is below that level in 94.2%...' so that it does not read as if no other configuration is ever below 1.",
+    "App C 'Intervals': clarify 'describe these 14 scenes rather than fresh requests'. Between-scene standard errors are conservative for fixed scenes; the intervals do not generalize because the scenes are authored.",
+    "Commit to releasing the generated images with the camera-ready version (subject to service terms) so the features can be re-extracted.",
+    "Clarity: reduce the density of numbers in the prose (abstract, Sec 5.1, Sec 5.3) and add a short reading guide mapping each quantity to the question it answers.",
+    "App H: the claim check matches each literal anywhere in the text. Anchor claims to their sentences, and compute caption literals such as the Table 14 shares instead of hard-coding them."
+  ],
+  "factual_errors": [
+    "App D 'Genuine-painting controls' describes 'two works per painter for each of 14 pseudo-scenes', but the implementation samples with replacement, so the same work can appear as both repeats. The reported means 0.234/0.753/0.731 depend on this: with distinct works they are 0.111/0.252/0.373. The Sec 5.3 statement that FLUX.2 Max's 0.801 is close to the content-sampled genuine level is therefore not supported.",
+    "Table 11 caption defines repeat noise as the squared difference between repeats relative to H. The printed values are half the squared difference.",
+    "App D says GPT Image 2's differences are 'about twice the reference size', which conflicts with Sec 5.3 ('1.49 times the reference size in norm'). Q = 2.223 is a squared size."
+  ],
+  "verified_numbers": [
+    "build_assets.py --check: 'ok: 21 generated files and 106 claims' (input hashes, byte-identical outputs, claim registry)",
+    "Own code on retained 31-feature vectors: H = 5.915; N/H, B/H, G/H, I/H for all six configurations match Table 10",
+    "Shared fraction vs generic 66.7-88.4%, vs free 82.5-95.7%; faithful 84.8-95.2%; exact differences 57.6-84.2% (NB2 57.6%)",
+    "cos(c,t) 0.57-0.86; lambda 24.8-64.6%; share along the generic shift 0.1-55.5%",
+    "beta, Q, D for all six configurations; D = 1-2beta+Q; nominal D intervals, e.g. GPT Image 1 [1.129, 2.016], FLUX [0.586, 1.016]; simultaneous beta intervals, e.g. GPT Image 1 [0.709, 1.168]",
+    "Table 12 simultaneous intervals: Flare-FLUX [0.256, 1.618], Sunburst-FLUX [0.058, 1.623], GPT1-FLUX [-0.037, 1.580]",
+    "Own scene bootstrap: FLUX shared fraction [77.6, 94.2] (paper [76.8, 94.2]); family-mean intervals close to Table 6",
+    "Own code on CLIP/CSD embeddings: Table 2 obs/faithful/exact shares and Table 4 gains, recognition, D all match; Eq. 4 identity error < 3e-16; development recognition 79.8%/79.6%",
+    "Embedding beta all positive; CLIP D > 1 for 5 of 6 configurations; CSD D < 1 for all 6",
+    "Repeat-correlation crossing NB2/FLUX rho = 0.251: implied biases 0.869 vs 0.560, difference equal to the D gap 0.308; repeat noise/H 0.42-2.60",
+    "FLUX.2 Max lowest D in all 14 single-scene deletions (0.754-0.852) and in square windows (0.765)",
+    "Figure 4 painter-pair beta and D matrix reproduced exactly",
+    "Reference spread singular shares 66.3/20.6/13.0%; H bias 6.7%; corrected beta range 0.474-1.071",
+    "Hand derivations: G+N+I = N_free; I = 2cos(c,g)sqrt(GN); centroid between-name term = H*beta/2 - B/4; D_agg + V_scene = D; D(kappa) at kappa = beta/Q gives 0.551/0.702 vs held-out 0.554/0.714",
+    "Genuine-painting control: paper function reproduces 0.234/0.753/0.731; distinct-work draws give 0.111/0.252/0.373",
+    "Prespecified pairwise bootstrap excludes zero for 8/15 pairs, nominal t for 6/15, simultaneous for 2/15; source-correction resolved pairs match the text",
+    "Audit counts 870/131/230/43; Cezanne least shared in 11/12 pairs; reference counts 297/106/141/105 = 649; development panel 221 works; 1,008 images",
+    "PDF SHA-256 7da8263c19eeb6ec1b3dc1c6292306712a7e5297e99f95009649c66c80299310"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "note": "Static copies of committed figures whose builders were retired on 2026-10-01. Bytes are identical to the originals, which passed `make figures-check`, `make review-check` and `make example-images-check` in the pre-cleanup run; build_assets.py --check verifies these hashes.",
+  "files": {
+    "specificity_original_generated.pdf": {
+      "original_path": "paper/figures/specificity_original_generated.pdf",
+      "builder": "paper/make_example_figures.py (retired 2026-10-01)",
+      "selection_manifest": "example_selection.json",
+      "sha256": "ec1bb5dfd06fc7fd7526fe376bda7e89ded2d22c66c415ca970a5a9d16b41920"
+    },
+    "specificity_artist_pairs.pdf": {
+      "original_path": "paper/figures/specificity_artist_pairs.pdf",
+      "builder": "paper/make_review_figures.py (retired 2026-10-01)",
+      "source": "reports/painter_specificity_review_v1/analysis.json",
+      "sha256": "f3397ecb0e93a98d936e5d981370f22f89c730f3a61165909f312b62272d1d76"
+    },
+    "example_selection.json": {
+      "original_path": "paper/example_selection.json",
+      "role": "selection rule, prompts, source identities, rights metadata and hashes for Figure 1",
+      "sha256": "4f5c1838477e67a1d62c0dae2dc2a5847c3296c56f40bee3a99db0ee845f24d1"
+    }
+  }
+}

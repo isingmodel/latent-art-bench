@@ -1,0 +1,43 @@
+{
+  "role": "empirical",
+  "pdf_sha256": "7da8263c19eeb6ec1b3dc1c6292306712a7e5297e99f95009649c66c80299310",
+  "criterion_claims_evidence": "partially",
+  "criterion_audience_clarity": "yes",
+  "desk_reject_risk": "low",
+  "recommendation": "minor revision",
+  "confidence": 4,
+  "critical_changes": [
+    "Qualify every D-based specificity verdict ('three have larger errors than a generator that makes no painter distinctions', 'only FLUX.2 Max is below that level in 94.2%') as a 31-feature result in the abstract, intro bullet 3, Sec. 5.3 and Discussion. Report D, Q and beta for CLIP and CSD with scene (and reference) intervals and P(D<1) alongside Table 3. State explicitly that GPT Image 1 goes from worst (31 features, D=1.572) to best (CLIP, D=0.847, best in 99.3% of resamples), and that all six CSD estimates are below 1. A reviewer recomputation from the released embeddings gives CSD D<1 in 100% of scene resamples for GPT Image 1, GPT Image 2, Flare and FLUX.2 Max.",
+    "Confront the validity of each representation for painter specificity. Introduce the genuine-work separability (31 features 49.8% macro accuracy vs about 80% for CLIP/CSD) where the representations are defined. Compute the genuine-painting D calibration (pooled and content-sampled) in CLIP and CSD, and report its dispersion as well as its mean: in the 31 features, content-sampled genuine draws exceed D=1 in about 29-35% of splits. Explain what is and is not concluded about each configuration's specificity given that the prespecified representation is the least discriminative. Extend Discussion recommendation 1 to require a representation-validity check and a calibration in the same representation."
+  ],
+  "minor_changes": [
+    "Reword the Sec. 5.1 heading and intro bullet 1 ('as it would be for a faithful imitator'); the observed fraction is below the faithful one in 100% of resamples for five configurations. Show N/H and B/H in the main text.",
+    "Clarify that common practice (e.g. CSD GSS) uses raw prototype similarity, not gain relative to a generic clause. Explain why the conclusion transfers a fortiori, and ideally add the raw-proximity analogue of Table 2.",
+    "Qualify 'mostly' for GPT Image 2 in CSD (54.2%, scene interval [47.4, 59.3]).",
+    "Give a paired interval for texture-minus-spatial shared fraction, or remove 'texture is the least shared family' from the contribution list (spatial [57.3, 80.1] overlaps texture [61.9, 70.7]; ordering differs across configurations).",
+    "Lead the 'different readouts favor different configurations' claim with the within-CLIP contrast (proximity: Nano Banana 2; recognition: GPT Image 2; D: GPT Image 1) to avoid conflating readout with representation.",
+    "App. D p. 21: 'about twice the reference size' should read 'about twice in squared size' (1.49 times in norm, as in Sec. 5.3).",
+    "Define 'corrected cosine', lambda ('covered') and 'along generic' (cos^2(c,g)) in the main text or the Table 1 caption.",
+    "Simplify the abstract (fewer numeric ranges) while keeping representation qualifiers.",
+    "Release the 1,008 generated images, or commit to releasing them on acceptance, so features and embeddings can be re-extracted from pixels.",
+    "In Limitations, state that 'specificity' is operationalised as agreement with differences between reference means in a chosen representation, without perceptual validation."
+  ],
+  "factual_errors": [
+    "Appendix D (p. 21) says GPT Image 2's between-name differences are 'about twice the reference size'; they are about twice in squared size (Q = 2.223) and 1.49 times in norm, as Sec. 5.3 states."
+  ],
+  "literature_checked": [
+    "Somepalli et al. 2024, Investigating style similarity in diffusion models (CSD, ECCV): GSS is raw prototype similarity, no no-name baseline",
+    "Frochte 2026, When style similarity scores fail (arXiv 2605.09030v2): 23/91 artists with negative gaps; Sec. 8 evaluates prompted FLUX generations",
+    "Su et al. 2025, Identifying prompted artist names from generated images (arXiv 2507.18633): 110 artists, content-controlled name substitution, same-seed no-name comparison",
+    "Moayeri et al. 2025, Rethinking artistic copyright infringements (ICLR): 20% of 372 artists",
+    "Casper et al. 2023, Measuring the success of diffusion models at imitating human artists (arXiv 2307.04028): 70 artists, CLIP zero-shot",
+    "Xing et al. 2026, Beyond Starry Night (arXiv 2608.06751): canonical shortcuts in artist-grounded generation",
+    "Asperti et al. 2025, AI-Pastiche (BDCC 9(9):231)",
+    "Fu et al. 2025 (arXiv 2508.01408): VLM artist attribution and AI detection",
+    "Deliege et al. 2025 (Journal of Imaging): existence confirmed",
+    "Kim et al. 2026 (PNAS; arXiv 2503.13531 titled 'Reveals Hidden Pathways'): PNAS page not accessible",
+    "Honig et al. 2025 (ICLR); Kumari et al. 2023; Gandikota et al. 2023; Zhang et al. 2024 UnlearnCanvas; Verma et al. 2025 (TMLR)",
+    "OpenAI GPT Image 2.5 Flare/Sunburst on OpenRouter (released about 8-9 September 2026)",
+    "HEIM, Lee et al. 2023 (NeurIPS D&B): optional citation for human-rated art style evaluation"
+  ]
+}

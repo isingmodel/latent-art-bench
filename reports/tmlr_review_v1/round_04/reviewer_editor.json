@@ -1,0 +1,47 @@
+{
+  "role": "editor",
+  "pdf_sha256": "caa3b4299154a8926e29f7a7dee8d5c81784ff77477597931a0aab8d4d5ec617",
+  "criterion_claims_evidence": "partially",
+  "criterion_audience_clarity": "yes",
+  "desk_reject_risk": "low",
+  "recommendation": "minor revision",
+  "confidence": 4,
+  "critical_changes": [
+    "Support the headline 'proximity gain mostly measures the shared change' (Abstract; Sec. 1; Sec. 5.2; Sec. 5.4) with the between-configuration decomposition, not only the share of each gain level. Report absolute shared and painter-specific (H*beta/4) terms per configuration and encoder (e.g., in Table 5), and state how the gain ranking compares with the painter-specific term: Nano Banana 2 is first by CLIP gain but fifth by painter-specific term; GPT Image 2 is last by CSD gain but first by painter-specific term. Rest the Sec. 5.4 attribution on this.",
+    "Correct Sec. 5.3 (p. 10) 'In the embeddings no genuine split has an error above 0.53': this contradicts the 95% ranges in Table 16 (upper bounds up to 0.532, so some splits lie above). State that no embedding split exceeds 1 and that the 95% ranges end at or below 0.53.",
+    "Use the same evidence standard for CSD statements in the abstract and intro as for the 31-feature statements. Replace 'In CSD all six errors are below that level' with interval-based wording: four scene intervals lie entirely below 1, and Nano Banana 2 is at 0.999 with D<1 in only 51.3% of resamples. Qualify 'close to what a faithful imitator would show': CSD shares are above faithful in all six configurations, and the intervals exclude it for Nano Banana 2 and FLUX.2 Max."
+  ],
+  "minor_changes": [
+    "Report the scale-free alignment ratio beta/sqrt(Q) (or D_held) next to D in Tables 3-4. Say in the abstract/intro that the three 31-feature D>1 cases come from oversized but aligned differences (Q = 2.28-2.45), which may reflect a scale mismatch between generated images and photographed paintings.",
+    "Reframe the genuine-painting comparison. The 31-feature genuine 95% ranges (upper bounds 1.16-1.36) contain the D values of FLUX.2 Max, Nano Banana 2 and GPT Image 2, so 'far above these means' holds for means only. Explain why the variance of genuine splits is larger.",
+    "Report CLIP/CSD beta and D against content-matched reference targets. Content-matched targets are currently checked only for the 31 features (Table 20).",
+    "Explain in the Figure 3 caption or Sec. 5.2 why the observed value is below the faithful value in the squared-change panel but at or above it in the embedding gain-share panels (B includes off-pattern energy; the gain share includes only H*beta/4).",
+    "Bring the main content (about 13.3 pages) to 12 pages or fewer: move the SD-Turbo paragraph, the N_free/G/I split, the feature-family denominator bookkeeping and most of Sec. 5.6 to the appendix.",
+    "Rewrite unclear sentences: Sec. 2 'are therefore established'; the Sec. 4 opening fragment 'The shared term of Equation 4 (Section 4.4).'; Sec. 5.3 'not missing but too large for their alignment'; Sec. 5.5 'The only minority value'; the Figure 2 caption on Flare/Sunburst labels; the three-part final sentence of the abstract.",
+    "State the retrospective/prespecified caveat once in the abstract and once in Sec. 4.5, removing the other repetitions. Vary or consolidate the roughly 12 repeated 'X, not Y' constructions.",
+    "Use the exchangeable null (1/4) in Results or remove it from Sec. 4.2 and Table 10.",
+    "Keep hat notation for beta and D consistent between Eqs. 3-4 and the text and tables.",
+    "Show Table 1's obs.<faithful column to one decimal (84 vs 84.1% in the text). Note 'computed before rounding' for the Sec. 5.4 recognition deltas (-5.4 vs -5.3 from Table 24).",
+    "Label the six-configuration Bonferroni adjustment in Sec. 5.3 as descriptive (outside the prespecified family).",
+    "Add support for 'widely read as style fidelity' (Sec. 1, currently one citation) or soften it.",
+    "Motivate the feature-family intro bullet or demote it; it is loosely tied to the thesis and not consistent across configurations or with SD-Turbo.",
+    "Reduce the large blank regions on pp. 10 and 25-29 (float placement and FloatBarrier).",
+    "Provide downsampled generated images, or anonymized external hosting, so features can be re-extracted from pixels.",
+    "Use consistent configuration labels in Figure 2 and the text."
+  ],
+  "factual_errors": [
+    "Sec. 5.3, p. 10: 'In the embeddings no genuine split has an error above 0.53'. Table 16 reports 95% ranges with upper bounds up to 0.532, which implies that some splits exceed 0.53. The value is the maximum of the 95% upper bounds (build_assets.py: emb_upper = max of interval95 upper bounds), not the maximum over splits. The supportable statement is that no embedding split exceeds 1."
+  ],
+  "format_checks": [
+    "tmlr.sty, tmlr.bst and fancyhdr.sty SHA-256 match STYLE_PROVENANCE.json (JmlrOrg/tmlr-style-file commit 7bf90ef, modified:false). The tmlr.sty header matches the official file. Not diffed against upstream (network limited to guidelines).",
+    "main.tex uses \\documentclass[10pt]{article} and \\usepackage{tmlr} with no option (anonymous mode), plus the template month/year/openreview placeholders. No geometry, spacing or font overrides in the preamble; \\small only inside some tables.",
+    "Rendered header 'Under review as submission to TMLR'; byline 'Anonymous authors / Paper under double-blind review'; US letter; 29 pages.",
+    "Anonymization: no names, affiliations, acknowledgments, funding or identifying URLs in the text. PDF metadata has no Author or Title fields; creation date normalized. Self-reference is third person only. Supplement not inspected.",
+    "All 25 table captions are above their tables and all 4 figure captions are below their figures (visually verified on every page).",
+    "Broader impact statement present (p. 14) and appropriate. Reproducibility statement present with an AI-assistance disclosure.",
+    "Main content before references is about 13.3 pages (over 12, so 4-week review track per the TMLR reviewer guide); not a violation.",
+    "References in author-year format via tmlr.bst; all in-text citations resolve; no undefined references in the text.",
+    "Figures 1, 3 and 4 are vector graphics and legible; Figure 2 is a raster thumbnail panel, adequate for orientation.",
+    "Math verified: Eq. 4/8 proximity identity, Eq. 6 centroid identity, exchangeable-null ratio 1/4, finite-sample bias of H, D = 1 - 2*beta + Q, D = D_agg + V_scene. About 40 reported numbers cross-checked against Tables 1-5, 11, 13-15 and 24."
+  ]
+}

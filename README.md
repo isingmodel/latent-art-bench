@@ -28,17 +28,18 @@ GPT Image 2.5 Sunburst, Nano Banana 2 and FLUX.2 Max.
   overall, but not in texture features.
 
 [docs/STATUS.md](docs/STATUS.md) has the full findings, the retrospective
-analyses added for the ICML draft, open decisions and limits.
+analyses, open decisions and limits.
 
 ## Manuscripts
 
 | Manuscript | Source | Scope |
 | --- | --- | --- |
-| ICML-format draft | [paper/icml.tex](paper/icml.tex) | Most recent: primary results plus all retrospective extensions; its PDF is built locally with `make paper-icml` |
-| Full-length paper | [paper/paper.tex](paper/paper.tex), [PDF](paper/paper.pdf) | 23-page version of 2026-09-15, without the ICML-era extensions |
-| Korean translation | [paper/latent_art_bench_korean.tex](paper/latent_art_bench_korean.tex) | Translation of the full-length paper |
+| TMLR submission (lead) | [paper/tmlr/main.tex](paper/tmlr/main.tex) | Anonymous TMLR-format manuscript: the shared/between-name decomposition, learned embeddings, readout disagreement and the SD-Turbo check; its PDF is built locally with `make paper-tmlr` |
+| Korean translation of the TMLR manuscript | [paper/tmlr_ko/main.tex](paper/tmlr_ko/main.tex) | Same content, tables and figures as the TMLR manuscript; built locally with `make paper-tmlr-ko` |
+| Full-length paper (frozen) | [paper/archive/full_length_2026-09-15/paper.tex](paper/archive/full_length_2026-09-15/paper.tex), [PDF](paper/archive/full_length_2026-09-15/paper.pdf) | 23-page version of 2026-09-15, without the later retrospective analyses |
+| Korean translation (frozen) | [paper/archive/full_length_2026-09-15/latent_art_bench_korean.tex](paper/archive/full_length_2026-09-15/latent_art_bench_korean.tex) | Translation of the full-length paper |
 
-The [paper guide](paper/README.md) explains sources, figures and builds.
+The [paper guide](paper/README.md) explains the layout and builds.
 
 ## Reproduce
 
@@ -52,15 +53,16 @@ make restore-analysis      # Extract and checksum-verify the frozen transfer res
 make specificity-check      # Primary numerical results
 make review-check           # Post-result diagnostics
 make reference-quality-check
-make icml-evidence-check    # ICML-era retrospective analyses
-make figures-check          # Figures and tables, without rewriting
+make retrospective-check    # Retrospective analyses (direct naming, timing, learned, transfer, covariance)
+make tmlr-check             # TMLR tables, figure and every number quoted in its text
+make figures-check          # Retained palette figure against its replay
 make check                  # Ruff and the routine test suite
 ```
 
 These commands make no generation requests and need no API key or model weights.
 The frozen transfer result is stored as a lossless `analysis.json.gz` archive.
 `make restore-analysis` restores its original path and bytes without changing
-any scientific hashes; `make icml-evidence-check` runs this step automatically.
+any scientific hashes; `make retrospective-check` and `make tmlr-check` run this step automatically.
 Run it before invoking the transfer Python scripts or numerical bundle tools directly.
 A Git checkout contains compact measurements, not image pixels; commands that
 re-extract features or verify pixel hashes need the retained local archive.
@@ -70,13 +72,13 @@ The [analysis catalog](docs/ANALYSES.md) lists every replay command.
 
 | Location | Purpose |
 | --- | --- |
-| [paper/](paper/README.md) | Manuscripts, bibliographies, figures and presentation builders |
+| [paper/](paper/README.md) | TMLR manuscript with its asset builder, and the frozen earlier manuscripts |
 | [src/latent_art_bench/](src/latent_art_bench/) | Versioned analysis code and shared measurement primitives |
 | [studies/](studies/) | Protocols, fixed plans and methodological boundaries |
 | [data/manifests/](data/manifests/) | Compact measured vectors, request records, hashes and receipts |
 | [reports/](reports/README.md) | Numerical results, report plots, release receipts and review records |
 | [tests/](tests/README.md) | Offline analysis and integrity checks |
-| [scripts/](scripts/), [tools/](tools/) | Record audits, ICML checks, historical collectors and release adapters |
+| [scripts/](scripts/), [tools/](tools/) | Record audits, artifact checks, historical collectors and release adapters |
 | [configs/](configs/README.md) | Executed study configurations |
 | [docs/](docs/README.md) | Status, handover, analysis catalog and retention policy |
 | [critics/](critics/ASSESSMENT.md), [literature_reviews/](literature_reviews/README.md) | 2026-09-13 external reviews; original literature base |

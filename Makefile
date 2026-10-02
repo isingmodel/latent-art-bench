@@ -4,37 +4,39 @@ UV := uv run --locked
 PYTHON := $(UV) python
 CONTROLLED := latent_art_bench.painter_distribution_study_v1
 REVISION := latent_art_bench.painter_distribution_revision_v1
-PAPER_BUILD := tmp/paper/build
-# Fresh ICML builds go here; the round-04 reviewed PDF is reports/icml_review_v1/round_04/input/manuscript.pdf.
-ICML_BUILD ?= tmp/paper/icml-build
+ARCHIVE_PAPER := paper/archive/full_length_2026-09-15
+# TMLR manuscript builds go here; the PDF is copied to output/pdf/ (ignored by Git).
+# The build fixes the PDF date (2026-01-01 UTC) so that no local time zone is embedded.
+TMLR_BUILD ?= tmp/paper/tmlr-build
+TMLR_KO_BUILD ?= tmp/paper/tmlr-ko-build
 SPECIFICITY := latent_art_bench.painter_specificity_measurement_v1
-# Scripts under reports/ are frozen audit records, and the ICML figure builder is
-# hash-bound by the round-04 review; lint must not require rewriting their bytes.
-LINT_SCOPE := --extend-exclude reports --extend-per-file-ignores 'paper/make_icml_selective_figure.py:I001'
+# Scripts under reports/ are frozen audit records; lint must not require rewriting their bytes.
+LINT_SCOPE := --extend-exclude reports
 # pytest-paper.ini is hash-bound by later analyses, so newer routine suites are listed here.
-ROUTINE_EXTRA := tests/painter_cross_cohort_v1 tests/painter_selective_attribution_v1 tests/test_repository_artifacts.py
+ROUTINE_EXTRA := tests/painter_cross_cohort_v1 tests/painter_selective_attribution_v1 tests/painter_tmlr_diagnostics_v1 tests/painter_tmlr_diagnostics_v2 tests/painter_tmlr_diagnostics_v3 tests/painter_tmlr_diagnostics_v4 tests/painter_tmlr_diagnostics_v5 tests/test_repository_artifacts.py
 
 .PHONY: restore-analysis install-hooks git-size-check
 
-.PHONY: help check check-all evidence analysis four-painter-analysis plots responsiveness computational-responsiveness palette-check validation-check replication-check geometry-check clause-check clause-successor-check figures figures-check paper specificity-check specificity-audit review-check review-images-check reference-quality-check reference-quality-images-check example-images example-images-check editorial-check paper-icml icml-format-check icml-evidence-check icml-extensions-check icml-artifact-check
+.PHONY: help check check-all evidence analysis four-painter-analysis plots responsiveness computational-responsiveness palette-check validation-check replication-check geometry-check clause-check clause-successor-check figures-check specificity-check specificity-audit review-check reference-quality-check reference-quality-images-check editorial-check paper-archive paper-tmlr paper-tmlr-ko tmlr-ko-assets tmlr-ko-check tmlr-assets tmlr-check retrospective-check extensions-check artifact-check icml-evidence-check icml-extensions-check icml-artifact-check
 
 help:
 	@echo 'Start with docs/STATUS.md, then paper/README.md and docs/AGENT_HANDOVER.md'
-	@echo 'make paper     Render manuscript figures and compile paper/paper.pdf'
-	@echo 'make paper-icml  Build and check the anonymous ICML manuscript'
-	@echo 'make icml-format-check  Check the ICML build in ICML_BUILD without recompiling'
-	@echo 'make icml-evidence-check  Replay the ICML direct-naming, timing, learned, transfer and covariance analyses'
-	@echo 'make icml-extensions-check  Replay the SD-Turbo and selective-attribution analyses and tables'
-	@echo 'make icml-artifact-check  Verify the selected exact-pixel inventory locally'
+	@echo 'make paper-tmlr  Check assets and build the anonymous TMLR manuscript'
+	@echo 'make tmlr-check  Verify TMLR tables, figure, quoted numbers and style files'
+	@echo 'make paper-tmlr-ko  Build the Korean translation of the TMLR manuscript'
+	@echo 'make tmlr-assets  Regenerate the TMLR tables and figure from retained analyses'
+	@echo 'make paper-archive  Compile the archived full-length paper and Korean translation into tmp/'
+	@echo 'make retrospective-check  Replay the direct-naming, timing, learned, transfer, covariance and TMLR diagnostics'
+	@echo 'make extensions-check  Replay the SD-Turbo and selective-attribution analyses'
+	@echo 'make artifact-check  Verify the selected exact-pixel inventory locally'
 	@echo 'make restore-analysis  Restore and verify the compressed frozen transfer result'
 	@echo 'make install-hooks  Enable the staged-file size check in this checkout'
 	@echo 'make git-size-check  Check staged Git blobs against the 100 MiB limit'
-	@echo 'make figures-check  Check manuscript figures without rewriting them'
+	@echo 'make figures-check  Check the retained palette figure against its replay'
 	@echo 'make check     Ruff and the current analysis/integrity test suite'
 	@echo 'make check-all Ruff and all retained offline tests, including historical workflows'
 	@echo 'make specificity-check  Replay six-model recovery and reference sensitivities'
 	@echo 'make review-check  Replay both versions of post-result diagnostics'
-	@echo 'make example-images-check  Verify original/generated panels from retained pixels'
 	@echo 'make editorial-check  Audit archived review hashes and scores without model calls'
 	@echo 'make reference-quality-check  Replay the source-region and label sensitivity'
 	@echo 'make specificity-audit  Verify the new terminal report and retained raw bytes'
@@ -50,7 +52,6 @@ help:
 	@echo 'make geometry-check  Replay held-scene maps and evaluation centering'
 	@echo 'make clause-check  Replay the stopped four-arm clause study'
 	@echo 'make clause-successor-check  Replay the separate Cezanne/generic result after terminal measurement'
-	@echo 'make figures   Render the manuscript and supporting figures from retained numeric inputs'
 	@echo 'Other studies: docs/ANALYSES.md'
 
 restore-analysis:
@@ -124,7 +125,6 @@ specificity-check:
 
 review-check:
 	$(PYTHON) -m latent_art_bench.painter_specificity_review_v1 check
-	$(PYTHON) paper/make_review_figures.py --check
 	$(PYTHON) -m latent_art_bench.painter_specificity_review_v2 check
 
 reference-quality-check:
@@ -133,73 +133,71 @@ reference-quality-check:
 reference-quality-images-check:
 	$(PYTHON) -m latent_art_bench.painter_reference_quality_v1 check-images
 
-example-images:
-	$(PYTHON) paper/make_example_figures.py
-
-example-images-check:
-	$(PYTHON) paper/make_example_figures.py --check
-
 editorial-check:
 	$(PYTHON) scripts/audit_paper_reviews.py
-
-review-images-check:
-	$(PYTHON) paper/make_review_figures.py --check --images
 
 specificity-audit:
 	$(PYTHON) -m $(SPECIFICITY).report --check
 
-figures:
-	$(PYTHON) paper/make_figures.py
-	$(PYTHON) paper/replay_palette.py --figure paper/figures/palette_blocks.pdf
-	$(PYTHON) paper/make_validation_figure.py
-	$(PYTHON) paper/make_geometry_figure.py
-	$(PYTHON) paper/make_specificity_figures.py
-	$(PYTHON) paper/make_specificity_tables.py
-	$(PYTHON) paper/make_review_figures.py
-
+# Other presentation builders were retired on 2026-10-01 (see docs/ARTIFACTS.md);
+# the palette figure stays because hash-bound routine tests read it at this path.
 figures-check:
-	$(PYTHON) paper/make_figures.py --check
 	$(PYTHON) paper/replay_palette.py --check-figure paper/figures/palette_blocks.pdf
-	$(PYTHON) paper/make_validation_figure.py --check
-	$(PYTHON) paper/make_geometry_figure.py --check
-	$(PYTHON) paper/make_specificity_figures.py --check
-	$(PYTHON) paper/make_specificity_tables.py --check
-	$(PYTHON) paper/make_review_figures.py --check
 
-paper: figures
-	mkdir -p $(PAPER_BUILD)
-	cd paper && tectonic --outdir ../$(PAPER_BUILD) paper.tex
-	cp $(PAPER_BUILD)/paper.pdf paper/paper.pdf
+# Archived manuscripts are frozen snapshots; this only recompiles them into tmp/.
+paper-archive:
+	mkdir -p tmp/paper/archive-build
+	cd $(ARCHIVE_PAPER) && tectonic --outdir ../../../tmp/paper/archive-build paper.tex
+	cd $(ARCHIVE_PAPER) && tectonic --outdir ../../../tmp/paper/archive-build latent_art_bench_korean.tex
 
-paper-icml:
-	mkdir -p $(ICML_BUILD) output/pdf
-	cd paper && tectonic --keep-logs --keep-intermediates --outdir ../$(ICML_BUILD) icml.tex
-	$(PYTHON) scripts/check_icml_format.py --build-dir $(ICML_BUILD)
-	cp $(ICML_BUILD)/icml.pdf output/pdf/latent_art_bench_icml.pdf
+tmlr-assets: restore-analysis
+	$(PYTHON) paper/tmlr/build_assets.py
 
-icml-format-check:
-	$(PYTHON) scripts/check_icml_format.py --build-dir $(ICML_BUILD)
+tmlr-check: restore-analysis
+	$(PYTHON) paper/tmlr/build_assets.py --check
 
-icml-evidence-check: restore-analysis
+paper-tmlr: tmlr-check
+	mkdir -p $(TMLR_BUILD) output/pdf
+	cd paper/tmlr && TZ=UTC SOURCE_DATE_EPOCH=1767225600 tectonic --keep-logs --outdir ../../$(TMLR_BUILD) main.tex
+	cp $(TMLR_BUILD)/main.pdf output/pdf/latent_art_bench_tmlr.pdf
+
+# Korean translation: Korean tables are derived from paper/tmlr/generated, and the
+# numbers of the Korean prose are compared with the English manuscript.
+tmlr-ko-assets:
+	$(PYTHON) paper/tmlr_ko/build_korean.py
+
+tmlr-ko-check:
+	$(PYTHON) paper/tmlr_ko/build_korean.py --check
+
+paper-tmlr-ko: tmlr-check tmlr-ko-check
+	mkdir -p $(TMLR_KO_BUILD) output/pdf
+	cd paper/tmlr_ko && TZ=UTC SOURCE_DATE_EPOCH=1767225600 tectonic --keep-logs --outdir ../../$(TMLR_KO_BUILD) main.tex
+	cp $(TMLR_KO_BUILD)/main.pdf output/pdf/latent_art_bench_tmlr_korean.pdf
+
+# The icml-* names are kept as aliases because dated records under reports/ cite them.
+icml-evidence-check: retrospective-check
+icml-extensions-check: extensions-check
+icml-artifact-check: artifact-check
+
+retrospective-check: restore-analysis
 	$(PYTHON) -m latent_art_bench.painter_specificity_review_v3 check
 	$(PYTHON) -m latent_art_bench.painter_request_timing_v1 check
 	$(PYTHON) -m latent_art_bench.painter_learned_audit_v1 check
-	$(PYTHON) paper/make_icml_learned_tables.py --check
-	$(PYTHON) paper/make_icml_learned_calibration_tables.py --check
 	$(PYTHON) -m latent_art_bench.painter_prototype_transfer_v1 check --execute-real
-	$(PYTHON) paper/make_icml_transfer_tables.py --check
 	$(PYTHON) -m latent_art_bench.painter_repeat_covariance_v1 check --execute-real
-	$(PYTHON) paper/make_icml_covariance_tables.py --check
+	$(PYTHON) -m latent_art_bench.painter_tmlr_diagnostics_v1 check
+	$(PYTHON) -m latent_art_bench.painter_tmlr_diagnostics_v2 check
+	$(PYTHON) -m latent_art_bench.painter_tmlr_diagnostics_v3 check
+	$(PYTHON) -m latent_art_bench.painter_tmlr_diagnostics_v4 check
+	$(PYTHON) -m latent_art_bench.painter_tmlr_diagnostics_v5 check
 
-icml-extensions-check:
+extensions-check:
 	$(PYTHON) -m latent_art_bench.painter_cross_cohort_v1 check --execute-real \
 	  --inputs-sha256 94413b3ee5bd689f60df35e7a8135f79eb929fd9dbee36bd450b47df4db0e693
-	$(PYTHON) paper/make_icml_cross_cohort_tables.py --check
 	$(PYTHON) -m latent_art_bench.painter_selective_attribution_v1 check --execute-real \
 	  --input-sha256 f9d6b94e19d8004463f7b0524dd72865e22c18b0786cf48387cb9257e0528826 \
 	  --audit-file reports/icml_review_v1/resume_2026-09-21/selective_preoutcome_audit.json \
 	  --audit-sha256 e3f26efb7286ad592e5ec30a50dd937690c29852d690c94b3baf09f31ae22569
-	$(PYTHON) paper/make_icml_selective_tables.py --check
 
-icml-artifact-check:
+artifact-check:
 	$(PYTHON) scripts/check_icml_artifact_inventory.py

@@ -1,0 +1,54 @@
+{
+  "role": "methods",
+  "pdf_sha256": "caa3b4299154a8926e29f7a7dee8d5c81784ff77477597931a0aab8d4d5ec617",
+  "criterion_claims_evidence": "partially",
+  "criterion_audience_clarity": "yes",
+  "desk_reject_risk": "low",
+  "recommendation": "minor revision",
+  "confidence": 4,
+  "critical_changes": [
+    "p. 10 (Sec. 5.3): correct 'In the embeddings no genuine split has an error above 0.53'. The recorded outputs support only 'no embedding genuine split exceeds 1; 97.5th percentiles are at most 0.53'. The maximum 97.5th percentile is 0.5315 (CLIP, class sampling, pooled target), so about 2.5% of those splits exceed 0.53. Also fix the claim-registry derivation in build_assets.py (genuine_emb_upper = max of interval95 upper bounds) so that the registered number matches the sentence.",
+    "Abstract (p. 1), introduction bullet 3 (p. 2) and the Discussion recommendation (p. 13): qualify 'in the 31 features three configurations err more than a generator that makes no painter distinctions'. State that (i) it is a point-estimate/unadjusted statement conditional on independent repeats, and GPT Image 1's D falls below 1 once the repeats share about 22% of their noise (adjusted D 0.898 at rho = 0.25 in painter_repeat_covariance_v1); (ii) GPT Image 1's Bonferroni-over-six interval [0.935, 2.210] includes 1; (iii) the excess comes from oversized differences (Q 2.28-2.45) rather than direction (beta/sqrt(Q) of GPT Image 1 is 0.600, above FLUX.2 Max's 0.546). Soften 'in CSD none does', since Nano Banana 2 has D = 0.999 [0.876, 1.128], below 1 in 51.3% of joint resamples."
+  ],
+  "minor_changes": [
+    "Sec. 5.2: report the between-configuration decomposition of proximity gain. Across the six configurations, gain correlates 0.96 (CLIP) and 0.95 (CSD) with the shared term, and -0.65 with the painter-specific term in CSD. This directly supports the claim that proximity rankings track the name-invariant term.",
+    "Abstract / Sec. 4.4: state that Eq. 4 covers scores linear in the image embedding, and that nonlinear proximity readouts (top-k retrieval, max-similarity, thresholded imitation decisions) are not covered; the title and abstract generalise beyond this.",
+    "Abstract: the justification 'the four painters are close to one another relative to their distance from the generic outputs, so ... exact differences would still leave most of the change shared' mixes the faithful benchmark (which depends on ||t||) with the exact-differences benchmark (which depends on the observed N, including shared movement away from the reference direction). Keeping only the on-target part of the shared change (cos^2 * N) gives 43% for Nano Banana 2. Rephrase, or report this variant.",
+    "p. 2 and p. 12: qualify 'texture features are less shared than color features'. It is an average over six configurations driven by GPT Image 1 and Flare; it is reversed for Sunburst and Nano Banana 2 and essentially tied for GPT Image 2 (Table 7).",
+    "p. 10 / Table 15: note that D_held is approximately 1 - (beta/sqrt(Q))^2 <= 1 by construction (min over kappa of D(kappa) = 1 - beta^2/Q), so the rescaled ranking is the alignment-ratio ranking. Add Q = B/H + V_scene to Table 10 or Sec. 4.3 to reconcile B/H (Table 1) with Q (Table 3).",
+    "p. 10 and App. D: make the genuine-painting calibration like-for-like. Pooled pseudo-scenes carry no shared scene content (expected D is target noise only), whereas generated D includes V_scene = 0.04-0.39. Compare with D_agg, or state this explicitly.",
+    "App. A / Sec. 7: report the implied admissible range of rho. Adjusted D becomes negative for Nano Banana 2 and FLUX.2 Max at rho of about 0.30-0.32. Optionally collect a small third repeat on another day for a subset of cells to bound between-session dependence.",
+    "Table 3 reference intervals: the percentile reference-resampling intervals for beta are off-centre because each resample re-inflates H by about 6.7% (e.g. FLUX.2 Max 0.470 in [0.369, 0.509]). Use basic/BCa intervals or bias-corrected H within resamples, or note the effect.",
+    "Table 6: state the tie rule, or split ties. np.argmax credits ties to the first-listed configuration; ties occur in about 6% of CSD recognition resamples and count toward GPT Image 1's 19.6%.",
+    "Table 4: add the embedding beta scene intervals that the text cites ('all with scene intervals above zero', p. 9). Explain or harmonise the mixed interval types (Student for D in Table 3, percentile bootstrap in Table 4).",
+    "Sec. 5.3: report the embedding D against content-matched reference targets, as Table 20 does for the 31 features. CLIP and CSD respond to content, and the reference subject mix differs strongly across painters.",
+    "Sec. 5.3: streamline. Move secondary numbers to tables and add a short reading guide for D, D_agg, V_scene, D_held, Q and beta/sqrt(Q).",
+    "Reproducibility: commit to releasing the 1,008 generated images after de-anonymisation (the Flare and Sunburst endpoints may disappear). Note that the claim registry checks numeric equality with a chosen derivation, not that the derivation matches the sentence."
+  ],
+  "factual_errors": [
+    "p. 10: 'In the embeddings no genuine split has an error above 0.53' is not supported. reports/painter_tmlr_diagnostics_v3/analysis.json records a maximum 97.5th percentile of 0.5315 (CLIP, class sampling, pooled target), so about 2.5% of those splits exceed 0.53. Only 'no split exceeds 1' (above_one = 0) is supported."
+  ],
+  "verified_numbers": [
+    "build_assets.py --check passes: 26 generated files and 141 claims",
+    "H = 5.915 recomputed from the 649 measured reference works with the development median/IQR scaler; finite-sample bias of H 6.7% (6.75%)",
+    "Table 1, all six rows (shared fraction, N/H, B/H, faithful, exact diff.), recomputed from raw per-image features: exact",
+    "Table 11 G/H and I/H, and Table 12 cos(c,t) 0.57-0.86 and lambda 24.8-64.6%: exact",
+    "Table 3 beta, Q, D point estimates; simultaneous beta intervals (t_13, 1-0.05/42); nominal D intervals: exact",
+    "Bonferroni-over-six D interval for GPT Image 1, [0.935, 2.210]: exact",
+    "Table 14: all 15 D differences with simultaneous and nominal intervals; 6/15 nominal and 2/15 simultaneous resolved: exact",
+    "Table 15 D_agg, V_scene, D_held and fitted-scalar ranges: exact; D_held is approximately 1 - (beta/sqrt(Q))^2",
+    "Table 13 centroid proximity split (Eq. 6): exact, e.g. 17.490 = 17.844 - 0.354",
+    "Table 2 CLIP/CSD shared, faithful and exact-diff. shares, recomputed from embeddings: exact; Eq. 4 residual <= 2.2e-16; '-2.8 to +6.5 points' confirmed (-2.80 to +6.54)",
+    "Table 4 beta and D, Table 5 gains and recognition, development macro accuracy 79.8/79.6%: exact",
+    "Table 7 family fractions and six-configuration means 74.3/71.5/68.2: exact",
+    "Scene bootstrap (own seed): NB2 interval [51.1, 76.0] vs [52.0, 75.8]; FLUX obs<faithful 85.6% vs 84.1%; texture-color [-13.1, -2.0] with 99.4% below zero vs [-13.5, -2.0] and 99.7%; texture<spatial 66.2% vs 65.2%",
+    "Reference/joint resampling (own seed): FLUX beta reference interval [0.374, 0.513] vs [0.369, 0.509]; joint D<1 FLUX 95.2% vs 94.2%, NB2 33.9% vs 33.4%",
+    "Table 6 CLIP stability (own 3,000 draws): NB2 gain best 85.5% vs 85.8%, GPT Image 2 recognition 98.9% vs 98.7%, GPT Image 1 lowest D 99.0% vs 99.3%",
+    "Table 25 SD-Turbo shared/faithful/exact for all four feature sets, recomputed with the cross-block U-statistic: exact",
+    "Request timing: repeat gap median 3.15 min, maximum 19.98 min, collection 15:34-18:21 UTC, no retries",
+    "Table inspection: Cezanne least shared in 11 of 12 pairs (Table 23); normalised-prototype change <= 0.5 points and reference-setting change <= 1.6 points (Table 21)",
+    "Recorded genuine controls: embedding above_one = 0; maximum 97.5th percentile 0.5315 (contradicts the p. 10 sentence)",
+    "Recorded repeat covariance: GPT Image 1 adjusted D 1.348 at rho = 0.1 and 0.898 at rho = 0.25",
+    "Analytic checks: exchangeable null 1/4; Eq. 4/8; D = 1 - 2 beta + Q; Eq. 7; bias (3/4) sum tr(Sigma_a)/n_a; min over kappa of D(kappa) = 1 - beta^2/Q"
+  ]
+}

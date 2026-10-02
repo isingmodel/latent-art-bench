@@ -1,0 +1,48 @@
+{
+  "role": "methods",
+  "pdf_sha256": "33c87a6f609b2c791b0ba6c5101d4af64fc9b05e155b9bb448c65a5a6a90b5c8",
+  "criterion_claims_evidence": "partially",
+  "criterion_audience_clarity": "yes",
+  "desk_reject_risk": "low",
+  "recommendation": "major revision",
+  "confidence": 4,
+  "critical_changes": [
+    "Add reference-based benchmarks for the headline shared fractions and reframe the Abstract, Section 1 bullets and Section 6. Report per configuration and representation the perfect-agreement shared component 4||mu_bar - generic||^2/H, its shared share, and the perfect-agreement shared part of prototype gain; add a content-matched version using the Table 11 class targets. Split N into its component along (mu_bar - generic) and the orthogonal remainder. Delete or qualify 'Our data cannot say how large that appropriate part is' (Section 6, p. 10). Recomputed from retained data, the observed shares are at or below perfect-agreement values: 31 features 66.7-88.4% observed vs 84.8-95.2%; CLIP/CSD prototype-gain fractions within a few points of perfect-agreement values 71.3-82.9% (CLIP) and 48.3-75.7% (CSD).",
+    "Report the real-painting control for D that is already computed (painter_specificity_review_v1 real_controls: class-matched held-out real paintings D = 0.73-0.75, 95% range about [-0.55, 2.40], P(D>=1) about 0.3) next to Table 2. Reinterpret 'no configuration is shown to beat a generator that makes no painter distinctions' (Section 5.2, p. 8) in its light. This is part of the benchmark request.",
+    "Attach uncertainty (e.g., paired scene-bootstrap intervals for between-configuration differences) to the rank-reversal claim in the Abstract, Section 1 bullet 3, Section 5.4 and Table 4. Restate it around the resolved reversals: FLUX.2 Max vs Flare/Sunburst has lower prespecified D and 18-23 pp lower recognition in both encoders. Qualify unresolved orderings: CLIP largest gain, where NB2-GPT2 = 0.013 [-0.002, 0.033]; CSD largest gain; CSD lowest D, where FLUX-GPT1 = -0.022 [-0.136, 0.096].",
+    "Report the prespecified secondary analyses that were run but omitted, or list them with pointers. At minimum: (a) the stratified reference-resampling ranges for beta, D and the 15 pairwise contrasts, stating whether the two resolved contrasts survive (e.g., D ranges GPT Image 2 [0.976, 1.507], FLUX.2 Max [0.693, 0.945]); (b) main-collection per-family shares, beta and D. Revise Section 5.5 and the Abstract's 'but not in texture features', since GPT Image 1's main-collection texture share is also below a majority (48.6%)."
+  ],
+  "minor_changes": [
+    "Appendix A (pp. 14-15): correct the direction of the repeat-dependence bias. A positive shared error component biases the cross-repeat D upward, and the correction lowers it.",
+    "Estimate H without finite-reference bias (split-half cross product), or report the plug-in bias (about 0.40, 6.7% of 5.915) and its effect on beta, Q, N/H and B/H. Temper 'GPT Image 2 matches the reference amplitude almost exactly'.",
+    "Replace or supplement scene-deletion ranges (Tables 1, 3, 5) with jackknife or bootstrap SEs (generic-share jackknife SE 1.9-4.4 pp), or relabel the bracket column so it is not read as an interval.",
+    "State in Section 5.2 that GPT Image 1, Flare and Sunburst have nominal D intervals entirely above 1 ([1.129, 2.016], [1.477, 1.999], [1.312, 1.971]).",
+    "Disclose the predecessor negative control (the gateway returned an image for an invalid model ID) and whether the v2 routes were negative-controlled. Add a configuration-distinguishability check; all pairs, including Flare vs Sunburst, are distinguishable in the retained data.",
+    "Temper wording: 'therefore a property of that representation' (Section 5.3), 'dominates proximity gain in every configuration and representation' (Section 6; CSD GPT Image 2 is 54.2%), and 'so the prompted names are more separable within each generator's own outputs' (Section 5.4; supervised in-distribution vs zero-shot cross-domain). Say 'squared' in the Abstract's 1.4-5.3 x H comparison.",
+    "Mark prespecified vs retrospective results in the Abstract and Section 1 bullets; the lead generic-baseline split was added after collection.",
+    "Table 4: GPT Image 1 and FLUX.2 Max both print 0.217 in CSD proximity gain (0.21672 vs 0.21666) but only one is bold. Bold both or print more digits.",
+    "Reduce terminology load ('shared share' -> 'shared fraction') and make Table 3's two 'shared' column groups visually distinct; avoid using the word 'shared' as a variable in Eq. (2).",
+    "Consider releasing the 512-pixel normalized images (or hashes plus a retrieval path) so feature extraction, not only post-extraction analysis, can be replayed."
+  ],
+  "factual_errors": [
+    "Appendix A (pp. 14-15): 'the estimated error of each configuration would be biased downward by an amount proportional to its observed repeat disagreement' states the direction backwards. With a positive shared error fraction rho, E<d1 - r, d2 - r> = ||theta - r||^2 + rho*tr(Sigma), so the cross-repeat D is biased upward. painter_repeat_covariance_v1 correctly computes adjusted D = D - rho*q/(1 - rho)."
+  ],
+  "verified_numbers": [
+    "build_assets.py --check: 'ok: 12 generated files and 78 claims' (input hashes, byte-identical tables and figure, prose claims)",
+    "H = 5.915, recomputed from the 649 raw reference vectors with the freeze-bound scaler (sha256 71f51123...97b9)",
+    "Table 1, all six rows (G, N, I, B /H; shares vs free 82.5-95.7% and vs generic 66.7-88.4%; deletion ranges 65.9-90.2%), recomputed from raw measurements.jsonl; C = G + N + I holds",
+    "Within-scene artist-free shares 88.6-97.2%",
+    "Table 2, all six rows (beta with Bonferroni t_{13,1-0.05/42} intervals, Q, D, D_agg); e.g. GPT Image 2 0.999 [0.893, 1.104], Q 2.223, D 1.226; D = 1 - 2*beta + Q holds",
+    "FLUX.2 Max unadjusted D 95% interval [0.586, 1.016]",
+    "Table 8: all 15 pairwise D differences and simultaneous intervals; only Flare-FLUX [0.256, 1.618] and Sunburst-FLUX [0.058, 1.623] exclude zero",
+    "Table 9: V_scene, beta/sqrt(Q), fitted-scalar ranges, held-out D (GPT Image 2 0.554, FLUX.2 Max 0.714) via leave-one-scene refit of c = max(0, beta/Q)",
+    "Monet-Sisley beta in 31 features: -0.249 to 0.129 (five configurations), 0.402 (GPT Image 2); omit-Cezanne beta 0.096 (FLUX) and 0.651 (GPT Image 2)",
+    "Tables 3 and 4 recomputed from raw CLIP/CSD embedding archives: shared part of gain 73.2-83.8% / 54.2-79.7%; embedding N/(N+B) 76.1-82.3% / 68.8-77.4%; recognition, proximity gain, D per encoder; Monet-Sisley beta 0.299-0.532 / 0.323-0.587; Eq. 4 identity to 1e-10",
+    "Development-panel recognition 79.8% (CLIP) and 79.6% (CSD)",
+    "Table 12, all 12 rows (B/T/G), mean changes +2.7/+16.1 (CLIP) and +10.0/+25.0 (CSD), FLUX CSD translation corrects 39 and harms 9",
+    "FLUX.2 Max has the lowest D under each of the 14 single-scene deletions",
+    "Table 5 SD-Turbo internal consistency: share = C/(C+L) in all four families; family H values sum to 5.915; beta 0.618, D 0.917, scene-wise D 1.637 (raw SD-Turbo features not recomputed)",
+    "Reference singular-value shares 66.3/20.6/13.0% and simulation coverages 96.0/97.4/99.7/0.04% read from painter_specificity_review_v1/analysis.json",
+    "Repeat-covariance crossing values 0.251 and 0.246 and the adjustment direction (adjusted D = D - rho*q/(1-rho)) from painter_repeat_covariance_v1"
+  ]
+}

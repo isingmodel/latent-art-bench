@@ -1,0 +1,55 @@
+{
+  "role": "editor",
+  "pdf_sha256": "7da8263c19eeb6ec1b3dc1c6292306712a7e5297e99f95009649c66c80299310",
+  "criterion_claims_evidence": "partially",
+  "criterion_audience_clarity": "yes",
+  "desk_reject_risk": "low",
+  "recommendation": "minor revision",
+  "confidence": 4,
+  "critical_changes": [
+    "Say which representation the agreement claims come from and explain what drives them. The abstract and the Section 1 bullet 3 claim that 'three have larger errors than a generator that makes no painter distinctions' is a 31-feature result. Those features classify genuine development works at 49.8% macro accuracy (Monet 39.6%, Sisley 30.6%). In CLIP, 5 of 6 D point estimates exceed 1; in CSD, none do. Report CLIP and CSD D with scene (and reference) intervals in the main text; Table 4 gives point estimates only. State that D > 1 comes from over-sized (Q = 2.2-2.4), only partly aligned (beta/sqrt(Q) = 0.5-0.6) differences, not absent ones. Name the scale gap between generated images and photographed paintings as a possible contributor, citing the D_held evidence.",
+    "Support or remove the genuine-painting comparison in Section 5.3: 'FLUX.2 Max's 0.801 is close to the content-sampled genuine level; the other configurations are not.' Only means are reported for the content-sampled control (0.753/0.731). The pooled control's central 95% range is [-0.758, 1.380], wide enough that D of about 1.1-1.2 may lie inside the genuine range. Report the content-sampled spread and where each configuration falls in it, then rephrase.",
+    "Document the premise the title argues against. The abstract's first sentence and Section 1 ('a score that is widely read as style fidelity (Frochte, 2026)') assert common practice with one or two citations, while Section 2 concedes that recognition and artist-free comparisons are already established. Cite concrete published evaluations that read proximity, or proximity gain, as evidence of style fidelity or mimicry, or narrow the claim. State how the analysed score (mean image-to-reference cosine, unnormalized prototype) relates to the scores used there (normalized-prototype cosine; absolute similarity)."
+  ],
+  "minor_changes": [
+    "Rewrite the abstract to state the argument in words before numbers and keep only the ranges the argument needs. Unpack 'keeping each configuration's shared change and giving it exactly the painters' reference differences would still leave 57.6-84.2% shared'. Resolve 'several of them stably under scene resampling'.",
+    "Section 1 bullet 3: rephrase 'only FLUX.2 Max is below that level in 94.2% of joint scene and reference resamples' so that 'only' attaches correctly.",
+    "Qualify the texture claim (Section 1 bullet 5, Section 5.5). Texture at 68.2% [61.9, 70.7] is not resolved against spatial at 71.5% [57.3, 80.1]; call it a point-estimate ordering or drop it from the contributions.",
+    "Qualify 'mostly' for proximity gain. GPT Image 2 in CSD is at 54.2% [47.4, 59.3]; state that the lower bound exceeds 50% in 11 of 12 configuration-encoder pairs.",
+    "Report the proximity-share decomposition with normalized prototypes too; it remains exact because the score is linear. Correct 'cosine similarity to the prompted painter's prototype' (Section 4.4, Table 4 caption, abstract) to 'mean cosine similarity to the painter's reference works'.",
+    "Section 5.1: explain or remove 'the two components overlap and do not add'.",
+    "Section 5.3: name the comparator in 'gives GPT Image 2 the lowest held-out error, 0.554 against 0.714'. GPT Image 1 (0.645) and Sunburst (0.706) are also below FLUX.2 Max's 0.714 after rescaling.",
+    "Appendix D: change 'GPT Image 2's differences are about twice the reference size' to 'about twice in squared size (1.49 times in norm)'.",
+    "Section 4.2: add the 'mean zero' condition to the exchangeable null, as in Appendix C.",
+    "Tabulate, or point to named supplementary files for, the untabulated claims: single-scene deletion and square windows (cited to Table 17, which contains neither); crop-induced changes in resolved pairwise differences; the 'at most 1.6 points' share change in Section 5.2; the SD-Turbo within-scene values.",
+    "Appendix F: define 'source view'. Correct 'changes each class score by the constant t^T u_a and cancels exactly under centering'; the class-score shift differs across classes, and what is invariant is the centered contrasts.",
+    "Explain what the 'Flare' and 'Sunburst' gateway variants are and whether they remain available. Use the same labels in Figure 2 ('GPT Image 2.5 Flare/Sunburst') and the tables.",
+    "Add a repeat-dependence and drift diagnostic from the existing request timestamps (randomized order, 15:34-18:21 UTC), or a small delayed third repeat, to bound rho. Appendix A shows rho = 0.251 reverses the Nano Banana 2 / FLUX.2 Max ordering, and Appendix C shows coverage falls to 0.04% under shared state.",
+    "Where the main text reports title-derived content counts ('191 of 297 Monet works are water scenes') and uses content-matched targets, note the 230-of-870 disagreement between title-derived and visual content labels.",
+    "Abstract '+6.5': the rounded Table 2 entries give +6.6 for FLUX.2 Max in CSD (77.6 - 71.0). State that ranges use unrounded values, or align them.",
+    "Figure 3: fix the clipped '100%' x-tick in the CSD panel. Figure 4: extend the pair-error colorbar to cover the -0.05 cell. Appendix E: allow line breaks in the \\texttt identifiers to fix loose justification.",
+    "Consider moving the 'Direction of the shared change' columns of Table 1 to the appendix to reduce main-text table density.",
+    "Commit to releasing the 1,008 generated images (and the SD-Turbo images), for example via an anonymized host during review and an archive at camera-ready. The closed services cannot be re-queried identically.",
+    "Broader impact: add a dual-use sentence (specificity metrics could help optimize imitation of living artists' distinguishing traits) with a mitigation.",
+    "Optional: add a fictitious-name, distant-painter or 'Impressionist' group-name arm so that the Section 6 paragraph 'What the shared change is' can say what the shared change is, not only what it is not."
+  ],
+  "factual_errors": [
+    "Appendix D (Scene aggregation and rescaling): 'GPT Image 2's differences are about twice the reference size' contradicts Section 5.3, '1.49 times the reference size in norm (Q = 2.223)'; 'twice' holds only for squared size.",
+    "Section 4.4, the Table 4 caption and the abstract describe proximity as a gain in 'cosine similarity to the prompted painter's prototype'. With the unnormalized mu_a used, g_a^T mu_a is the mean image-to-reference cosine (as Appendix E states), not a cosine to the prototype.",
+    "Section 5.6 cites Appendix Table 17 for single-scene deletion and square measurement windows; Table 17 contains neither.",
+    "Section 4.2 states the exchangeable null ('independent and of equal expected size') without the mean-zero condition given in Appendix C; without it, the 25% shared fraction does not follow."
+  ],
+  "format_checks": [
+    "tmlr.sty, tmlr.bst and fancyhdr.sty SHA-256 match STYLE_PROVENANCE.json (upstream JmlrOrg/tmlr-style-file, commit 7bf90efe, modified: false). The tmlr.sty content matches the standard TMLR file. Not re-downloaded from upstream.",
+    "\\usepackage{tmlr} loaded without [accepted]/[preprint]; 'Under review as submission to TMLR' header on all 25 pages.",
+    "Anonymization: 'Anonymous authors / Paper under double-blind review'; no acknowledgments; no identifying URLs or repositories; no PDF Author metadata; string scan of the PDF found no identifiers.",
+    "Table captions above all 20 tables; figure captions below all 4 figures (checked on rendered pages).",
+    "Broader impact statement present and appropriate; reproducibility statement and AI-use disclosure present.",
+    "US letter page size (612 x 792 pt); no Type 3 fonts; no unresolved references ('??').",
+    "No global layout overrides in the preamble; tables use local \\small/\\footnotesize and \\tabcolsep only.",
+    "Author-year citations via tmlr.bst; bibliography complete, with DOI or URL where applicable.",
+    "Length: main text about 12 pages, appendices pp. 16-25; not unusually long under the TMLR author guide (jmlr.org/tmlr/author-guide.html, checked).",
+    "Rendered-figure inspection: Figure 3 clipped '100%' tick (CSD panel); Figure 4 error colorbar does not cover -0.05; loose justification in Appendix E.",
+    "Supplementary archive not inspected (outside the permitted inputs); the authors should confirm the request records contain no account or API identifiers."
+  ]
+}

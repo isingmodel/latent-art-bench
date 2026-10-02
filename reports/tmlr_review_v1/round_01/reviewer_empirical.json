@@ -1,0 +1,51 @@
+{
+ "role": "empirical",
+ "pdf_sha256": "33c87a6f609b2c791b0ba6c5101d4af64fc9b05e155b9bb448c65a5a6a90b5c8",
+ "criterion_claims_evidence": "partially",
+ "criterion_audience_clarity": "yes",
+ "desk_reject_risk": "low",
+ "recommendation": "major revision",
+ "confidence": 4,
+ "critical_changes": [
+  "Benchmark the headline shared share and N/H (Abstract; Intro bullet 1; Sec. 5.1; Discussion). H measures painter-to-painter spread and is the wrong yardstick for the shared change. From the retained vectors, the shared change needed to put the named-output centroid on the reference centroid is 5.6-19.6 H, which exceeds the observed N in every configuration. A generator reproducing the reference painter means would show an 85-95% shared share, higher than the observed 66.7-88.4%. Report reference-based benchmark shares (reference centroid; held-out development panel) and the direction and distance reduction of the shared change toward the reference centroid in the 31 features. Reframe the headline accordingly and correct the Discussion statement that the data cannot say how large the appropriate shared part is.",
+  "Provide uncertainty for, or narrow, the claim that proximity, agreement and recognition rank configurations differently (Abstract; Intro bullet 3; Sec. 5.4; Table 4). Recognition uses 112 images (about +/-9 pp). CLIP and CSD proximity gains are within 0.012 and 0.007 for the top configurations, and CSD proximity for GPT Image 1 and FLUX.2 Max is tied. FLUX's lowest D is resolved against only 2 of 5 configurations, and its interval includes 1. Use a joint scene-cluster bootstrap or deletion ranges with rank correlations or reversal probabilities, or restate the result as a point-estimate observation plus the algebraic explanation.",
+  "Restrict the claims to four related painters and address the alternative that the shared component is a generic artist-name or painterliness effect (Title/Abstract/bullets; Sec. 5.3; Discussion). Qualify 'moves images toward the four painters' common appearance', which rests on a positive projection onto the reference mean in raw, anisotropic cosine geometry. Either add an out-group analysis (projection of the shared change onto mu_bar - mu_outgroup from non-Impressionist reference images; no generation needed) or state that this alternative cannot be excluded. Interpret the cross term I: for FLUX about 40% of N lies along the generic painting shift."
+ ],
+ "minor_changes": [
+  "Report the prespecified reference-resampling intervals (present in the retained analysis; e.g., Flare beta [0.568, 0.878], wider than the scene interval) next to the scene intervals. Note or correct the finite-sample upward bias of H (about 0.40 of 5.92).",
+  "Add per-family shares and weighting sensitivity (equal-family, covariance, leave-one-feature-out) for the main collection. Main-collection texture shares are 48.6-79.8% (below 50% only for GPT Image 1), and FLUX's N is dominated by quadrant JSD and orientation entropy. Revise bullet 4 and the Sec. 5.5 heading accordingly.",
+  "State the reference-collection inclusion criteria and the subject mix per painter (e.g., 191/297 Monet vs 31/105 Cezanne water scenes). Mention the 230 title/visual class disagreements that affect the content-matched target.",
+  "Have a human verify at least a sample of the AI-assistant-proposed reference crops and report agreement.",
+  "Correct the related-work descriptions (Fu et al. 'AI-WikiArt' label; Moayeri et al. at-risk criterion; note that Frochte's raw-cosine failures are 23/91 as point estimates but only 2/91 robust). Acknowledge that Su et al. (2025) already use an artist-removed same-seed comparison. Cite Casper et al. 2023 (CLIP recognition of 70 imitated artists), Kumari et al. 2023 (generic 'painting' anchor) and a source such as DiffusionDB for the prevalence of artist names.",
+  "Give the exact prompt strings: the Cezanne clause used 'Paul Cezanne' without the diacritic.",
+  "Say in the abstract that the headline decompositions (generic baseline, embeddings, recognition) are post hoc descriptive analyses.",
+  "Define 'uncalibrated/calibrated' error in the main text (Sec. 5.6). Add a compact table of estimands with their ideal and null values. Define Monet-Sisley beta outside table captions.",
+  "State that four of the six configurations are OpenAI GPT Image variants. Report per-configuration repeat disagreement (noise-to-signal) and whether the services rewrite prompts, as context for the repeat-independence assumption.",
+  "If possible, release the generated images (or reduced-resolution copies) after review so that features can be re-extracted.",
+  "State whether the 16 SD-Turbo scenes overlap in content with the 14 main-collection scenes.",
+  "Table 4: mark ties in bold consistently and add recognition confidence intervals."
+ ],
+ "factual_errors": [
+  "p. 3: 'AI-WikiArt (Fu et al., 2025)'. Fu et al. (arXiv 2508.01408v1) does not appear to name a dataset 'AI-WikiArt'; the label seems misattributed.",
+  "p. 2: Moayeri et al. are described as deciding at-risk status by testing whether the artist's own works are recognizable. Their ~20% of 372 artists refers to artists whose distinctive style is also recognized in generated images.",
+  "Sec. 3/Intro: the named clause is described with each painter's full name, 'Paul Cezanne' rendered with a diacritic. The actual prompts (requests.jsonl) used 'Paul Cezanne' without it.",
+  "Table 4: 'Bold marks the best value in each column', but CSD proximity for GPT Image 1 (0.21672) and FLUX.2 Max (0.21666) is tied at the reported precision and only one is bold.",
+  "p. 10: 'Our data cannot say how large that appropriate part is' is too strong. The supplied reference centroid permits a partial benchmark, which indicates that the shared change falls short of, rather than exceeds, the distance to the painters' common reference appearance."
+ ],
+ "literature_checked": [
+  "Su et al. 2025, Identifying prompted artist names from generated images, arXiv 2507.18633 (110 artists and content-controlled substitution confirmed; also an artist-removed same-seed control, not mentioned)",
+  "Frochte 2026, When style similarity scores fail, arXiv 2605.09030 v1/v2 (91 artists, CSD+, top-1/top-5 recognition confirmed; 23/91 negative gaps, 2/91 robust)",
+  "Moayeri et al. ICLR 2025, Rethinking artistic copyright infringements (ArtSavant; 372 artists, ~20% at risk)",
+  "Somepalli et al. ECCV 2024, Investigating style similarity in diffusion models (CSD prototypes, content-constrained prompts confirmed)",
+  "Fu et al. 2025, arXiv 2508.01408v1 (VLM attribution and AI detection; no 'AI-WikiArt' name found)",
+  "Asperti et al. 2025, AI-Pastiche, BDCC 9(9):231 (confirmed)",
+  "Deliege et al. 2025, J. Imaging (existence confirmed)",
+  "Verma et al. TMLR 2025, imitation thresholds (confirmed)",
+  "Kim, Lee, You, Yun PNAS 2026 / arXiv 2503.13531 (plausible; arXiv title differs slightly)",
+  "Casper et al. 2023, Measuring the success of diffusion models at imitating human artists, arXiv 2307.04028 (relevant, not cited)",
+  "Kumari et al. ICCV 2023, Ablating concepts in text-to-image diffusion models (generic painting anchor; relevant, not cited)",
+  "Wang et al. ACL 2023, DiffusionDB (suggested source for prevalence of artist-name prompts)",
+  "Diedrichsen & Kriegeskorte 2017 (cross-validated distance; correctly cited)",
+  "Honig et al. ICLR 2025; Shan et al. USENIX Security 2023 (Glaze); Gandikota et al. ICCV 2023 (ESD); Zhang et al. NeurIPS D&B 2024 (UnlearnCanvas) (descriptions consistent)"
+ ]
+}

@@ -1,0 +1,46 @@
+{
+  "role": "editor",
+  "pdf_sha256": "4ae5600ec39d49e52f30a105432d92b809d117d71d0c3e8627ccd6405209a242",
+  "criterion_claims_evidence": "yes",
+  "criterion_audience_clarity": "partially",
+  "desk_reject_risk": "low",
+  "recommendation": "minor revision",
+  "confidence": 4,
+  "critical_changes": [
+    "C1: Anonymize the supplementary archive. paper/tmlr/make_supplement.py packages every file under paper/tmlr/, including itself. Its line-47 identifier regex spells out the author's GitHub handle, first name, email domain and email local part, and lines 101-102 exempt the script from its own scan. Exclude the script or move the regex out of the packaged files, remove the self-exemption, also scan .pdf metadata and .gz contents, and grep the final zip before upload. TMLR requires the supplement to be anonymized; uploading the archive as built would break double-blind review.",
+    "C2: Restructure Sections 4.3, 4.5 and 5.3-5.5 for readability and bring the main text (currently about 13.2 pages) to 12 pages or fewer, or declare a long submission. Add a short main-text reading guide for the 5-6 estimands needed to read Section 5. Split 4.3 into direction (beta, beta/sqrt(Q)) and size (Q, D and its splits). Move the protocol-deviation detail of 4.5 and the robustness logs to the appendix: repeat-dependence thresholds, Bonferroni variants, 11-scene content checks, source audits and SD-Turbo.",
+    "C3: Align the introduction and abstract claims with their evidence. Qualify introduction bullet 3's verdict that GPT Image 1, Flare and Sunburst err more than a no-distinction generator: the intervals are unadjusted, GPT Image 1's Bonferroni-over-six interval [0.935, 2.210] includes 1, the verdict reverses at rho=0.22, and the 31 features separate Monet/Sisley at only 39.6%/30.6%. Replace the abstract's causal-sounding 'as it is also best recognized'. Present 'Recognition tracks the alignment ratio (Spearman 0.94/0.89)' as a six-point rank agreement with intervals or descriptive wording. Lead the between-configuration claim with the variance ratio, not r=0.96/0.95. Tie 'Specificity is better read from...' to the paper's operational definition."
+  ],
+  "minor_changes": [
+    "M1: Rephrase 'Content does not explain the difference' (p. 11), since only title-derived content-class targets on 11 scenes were tested, and soften 'direction-only agreement is consistent across representations' (Spearman 0.60-0.77 over six items).",
+    "M2: Describe the faithful imitator as a reference point rather than an 'upper reference' (p. 6). It is not a bound: B < H can exceed it, and a configuration with no between-name differences scores 100%.",
+    "M3: Fix 'Appendix Table 8 lists every symbol' (p. 4). Table 8 omits N*, t, G, I, N_free, kappa and rho.",
+    "M4: Appendix H (p. 32) lists Figures 1, 3 and 4 as generated but omits Figure 5 (fig_projection.pdf, which is also generated). Make it consistent with the reproducibility statement.",
+    "M5: Remove or justify the superseded with-replacement genuine-painting control (Table 15 first column; App. D, pp. 21-22). Replace the process jargon 'registered sentence context' (App. H).",
+    "M6: Have a human verify the 131 AI-proposed reference crops and a sample of the 230 AI content-label disagreements, and report the outcome.",
+    "M7: Release the generated images, e.g. losslessly at the 512-pixel measurement resolution, through an anonymous link so features can be re-extracted, or explain why this is impossible.",
+    "M8: Consider adding a fictitious-name, group ('Impressionist') or distant-painter clause on the same 14 scenes. This would separate painter-group movement from a generic artist-name effect at small cost.",
+    "M9: Fix the label overlaps in Figure 1 ('t: to reference centroid' over a generated point) and Figure 5 (overlapping S/M/P letters). In Table 3, do not bold the largest proximity gain as 'best', or define bold as 'largest'.",
+    "M10: Clarify the cryptic '(less for Cezanne alone)' in introduction bullet 2.",
+    "M11: Consider adding raw proximity (not only the named-minus-generic gain) to Table 3, since practitioners usually report raw CSD scores.",
+    "M12: In the 18-page appendix, state each table's purpose before its numbers."
+  ],
+  "factual_errors": [
+    "Appendix H (p. 32) says all tables plus Figures 3 and 4 (and Figure 1) are generated from result files and omits Figure 5, which is also generated (fig_projection.pdf). This is inconsistent with the reproducibility statement's 'all figures except the image panel of Figure 2'.",
+    "Section 4 (p. 4) says 'Appendix Table 8 lists every symbol', but Table 8 omits N*, t, G, I, N_free, kappa and rho.",
+    "Section 4.2 (p. 6) calls the faithful-imitator fraction 'an upper reference for the shared fraction'. It is not an upper bound: a generator with B < H or no between-name differences can exceed it."
+  ],
+  "format_checks": [
+    "tmlr.sty, tmlr.bst and fancyhdr.sty SHA-256 match STYLE_PROVENANCE.json (upstream commit 7bf90ef, modified=false). The tmlr.sty header matches the official file. Not re-downloaded from upstream.",
+    "\\usepackage{tmlr} in anonymous mode (no [accepted]/[preprint]). Every page has the header 'Under review as submission to TMLR'. The author block reads 'Anonymous authors / Paper under double-blind review'.",
+    "No geometry, margin, line-spread or caption-spacing changes. Generated tables use \\small/\\footnotesize and a reduced \\tabcolsep, which is permitted local formatting.",
+    "All 27 table captions are above their tables; all 5 figure captions are below their figures (checked visually on the rendered pages).",
+    "A broader impact statement is present (p. 14) and covers misuse, misreading and licensing. A reproducibility statement with an AI-use disclosure is present. There is no acknowledgments section.",
+    "natbib author-year citations via tmlr.bst; the reference list is complete for the cited works.",
+    "PDF: letter size, 32 pages, all fonts embedded (pdffonts). Metadata has only Creator/Producer, no Author/Title.",
+    "Raw and decompressed PDF streams were scanned for author name, handle, email, /Users/ paths and repository names. No hits apart from painter names ('Alfred').",
+    "Supplement packager (make_supplement.py) inspected: it would package the identifying regex and exempts itself from the scan. Anonymity violation in the supplementary material (C1). Figure PDFs under paper/tmlr/ have clean metadata.",
+    "Length: main text about 13.2 pages (pp. 1-14 top), plus statements, 2.5 pages of references and 16 pages of appendices. This exceeds the 12-page regular-submission split; TMLR guidance says unusually long papers are likely to delay review.",
+    "About 60 numbers were cross-checked across the abstract, text, tables and appendices. No numerical mismatches were found; there are two documentation inconsistencies (App. H omits Figure 5; Table 8 does not list every symbol)."
+  ]
+}

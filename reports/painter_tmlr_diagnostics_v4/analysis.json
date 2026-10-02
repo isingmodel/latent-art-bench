@@ -1,0 +1,391 @@
+{
+  "analysis_namespace": "painter_tmlr_diagnostics_v4",
+  "hand31": [
+    {
+      "class_beta": 0.7760849076282025,
+      "class_d": 1.3658799845235687,
+      "class_h_over_h": 1.253332228108132,
+      "class_vs_pooled": 0.31797119400504303,
+      "model": "gpt-image-1",
+      "pooled_beta": 0.923311607620198,
+      "pooled_d": 1.5573304139401956
+    },
+    {
+      "class_beta": 0.7705113123356772,
+      "class_d": 1.1300636495701182,
+      "class_h_over_h": 1.253332228108132,
+      "class_vs_pooled": 0.31797119400504303,
+      "model": "gpt-image-2",
+      "pooled_beta": 0.9975590787048456,
+      "pooled_d": 1.099308126046291
+    },
+    {
+      "class_beta": 0.63776148143481,
+      "class_d": 1.5388132505818672,
+      "class_h_over_h": 1.253332228108132,
+      "class_vs_pooled": 0.31797119400504303,
+      "model": "gpt-image-2.5-flare",
+      "pooled_beta": 0.7740360274093416,
+      "pooled_d": 1.7258939941237417
+    },
+    {
+      "class_beta": 0.6516419402443847,
+      "class_d": 1.5248805267452161,
+      "class_h_over_h": 1.253332228108132,
+      "class_vs_pooled": 0.31797119400504303,
+      "model": "gpt-image-2.5-sunburst",
+      "pooled_beta": 0.8292772742652929,
+      "pooled_d": 1.632742821335968
+    },
+    {
+      "class_beta": 0.389861579382217,
+      "class_d": 0.9475935861569337,
+      "class_h_over_h": 1.253332228108132,
+      "class_vs_pooled": 0.31797119400504303,
+      "model": "google/gemini-3.1-flash-image",
+      "pooled_beta": 0.46228894937701503,
+      "pooled_d": 0.9869916176986216
+    },
+    {
+      "class_beta": 0.3901460313464779,
+      "class_d": 0.7858690162013354,
+      "class_h_over_h": 1.253332228108132,
+      "class_vs_pooled": 0.31797119400504303,
+      "model": "black-forest-labs/flux.2-max",
+      "pooled_beta": 0.4799193866733298,
+      "pooled_d": 0.7497491531320264
+    }
+  ],
+  "inputs": [
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/confirmation_features.jsonl",
+      "sha256": "01cc5167c09b88eab6a86885b72040f76fc8a7ca8a62acd56d85a8b16b2f7717"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/development_features.jsonl",
+      "sha256": "6001964b6f6d0a4958f4f546d48d81120b43c6587d55e248fd48b99dee3c821b"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/scaler.json",
+      "sha256": "71f511235081dfc1e9846976320c69477bcbd04dd43fc9a2e271f7b0375497b9"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v2/psv2-20260911/measurements.jsonl",
+      "sha256": "5db95709f48a25e31ef212b588c2aa3e0f7af4fb5dbaf413cfc16690de60cac1"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8"
+    },
+    {
+      "path": "reports/painter_learned_audit_v1/embeddings_clip.npz",
+      "sha256": "d6e3d49bde6ca7d75fb3603cf7f3ecf7d46ea979b21a3b1e75435a504acd9945"
+    },
+    {
+      "path": "reports/painter_learned_audit_v1/embeddings_csd.npz",
+      "sha256": "65f428ed866916dca12ea0bc8148f1e0b9122343d19181e56f03543b5506085b"
+    },
+    {
+      "path": "reports/painter_learned_audit_v1/extraction_clip.json",
+      "sha256": "30a2aa7f93fcaa2e23413837ba3f75cf79b7ca3fca3f450a7b5ff4cddb7a22d5"
+    },
+    {
+      "path": "reports/painter_learned_audit_v1/extraction_csd.json",
+      "sha256": "5a55e4337b9588ef45bce46037dbe7ed123f89113d92da1e8d1c738eee0d6945"
+    },
+    {
+      "path": "reports/painter_learned_audit_v1/inputs.json",
+      "sha256": "bd9cb00279fffb741b3579e3234ad034bb593884925ea40893c717612eccca57"
+    },
+    {
+      "path": "reports/painter_specificity_review_v1/analysis.json",
+      "sha256": "2fabb78e15dfcc7b027a73170f6ad0c87af0196c754b4e6f45275269c2c961e2"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_review_v1.py",
+      "sha256": "6abfa4d2cc25d38cd8ba2c1cb47d6b3beb15686caff43e92e85711ef905b179b"
+    },
+    {
+      "path": "src/latent_art_bench/painter_tmlr_diagnostics_v3.py",
+      "sha256": "fd87c69e4609eb786f2b0897954e43830a87b6ec4b9354752c8b3f22088493d0"
+    },
+    {
+      "path": "src/latent_art_bench/painter_tmlr_diagnostics_v4.py",
+      "sha256": "83df31d572e7a8177791043298b50872136f96755467f7aa4a96651fe3743372"
+    },
+    {
+      "path": "studies/painter_tmlr_diagnostics_v4/PLAN.md",
+      "sha256": "bd599b494013eb6ebce9b8a864fa4fe0be403567c68b852fdf3a9bc026655dd9"
+    },
+    {
+      "path": "tests/painter_tmlr_diagnostics_v4/test_diagnostics_v4.py",
+      "sha256": "c0b7a90cc5fb281b8e5fb60fd5bbf15ac876dd71fcafc045c8f42bf48d4be6b1"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+    }
+  ],
+  "learned": {
+    "clip": [
+      {
+        "class_beta": 0.44985425833742737,
+        "class_beta_scene": [
+          0.4034468791308206,
+          0.48973864850683396
+        ],
+        "class_d": 0.9037431183374021,
+        "class_d_below_one": 0.9914,
+        "class_d_scene": [
+          0.8140158360287914,
+          0.9851113419880255
+        ],
+        "class_h_over_h": 1.1400552179706613,
+        "class_vs_pooled": 0.239822460462178,
+        "model": "gpt-image-1",
+        "pooled_beta": 0.5148130529883208,
+        "pooled_d": 0.8863531229061408
+      },
+      {
+        "class_beta": 0.6476863788030919,
+        "class_beta_scene": [
+          0.6016992782436646,
+          0.6871422436194049
+        ],
+        "class_d": 1.090900883682809,
+        "class_d_below_one": 0.124,
+        "class_d_scene": [
+          0.9359549023562086,
+          1.2352046906296987
+        ],
+        "class_h_over_h": 1.1400552179706613,
+        "class_vs_pooled": 0.239822460462178,
+        "model": "gpt-image-2",
+        "pooled_beta": 0.7567729524499772,
+        "pooled_d": 1.0668825933867498
+      },
+      {
+        "class_beta": 0.4715634086442377,
+        "class_beta_scene": [
+          0.4292918432030398,
+          0.5176647044838598
+        ],
+        "class_d": 1.0743598398367875,
+        "class_d_below_one": 0.0954,
+        "class_d_scene": [
+          0.9613821144745194,
+          1.183382806025257
+        ],
+        "class_h_over_h": 1.1400552179706613,
+        "class_vs_pooled": 0.239822460462178,
+        "model": "gpt-image-2.5-flare",
+        "pooled_beta": 0.5506677186068026,
+        "pooled_d": 1.058655535457575
+      },
+      {
+        "class_beta": 0.5315386369186209,
+        "class_beta_scene": [
+          0.48916759784000885,
+          0.5784265058538718
+        ],
+        "class_d": 1.199874122723369,
+        "class_d_below_one": 0.0002,
+        "class_d_scene": [
+          1.0967169669799006,
+          1.2977322414254597
+        ],
+        "class_h_over_h": 1.1400552179706613,
+        "class_vs_pooled": 0.239822460462178,
+        "model": "gpt-image-2.5-sunburst",
+        "pooled_beta": 0.6384881813092069,
+        "pooled_d": 1.1628579670738444
+      },
+      {
+        "class_beta": 0.43358798594294706,
+        "class_beta_scene": [
+          0.39788029879312287,
+          0.46424923342741975
+        ],
+        "class_d": 1.1031537617791287,
+        "class_d_below_one": 0.0824,
+        "class_d_scene": [
+          0.962175396944623,
+          1.2541757525045187
+        ],
+        "class_h_over_h": 1.1400552179706613,
+        "class_vs_pooled": 0.239822460462178,
+        "model": "google/gemini-3.1-flash-image",
+        "pooled_beta": 0.4995159709790343,
+        "pooled_d": 1.1071975340588223
+      },
+      {
+        "class_beta": 0.3718274914969475,
+        "class_beta_scene": [
+          0.32388973507055124,
+          0.41661146027698825
+        ],
+        "class_d": 1.0229477843479957,
+        "class_d_below_one": 0.3172,
+        "class_d_scene": [
+          0.925299684048594,
+          1.121665003945285
+        ],
+        "class_h_over_h": 1.1400552179706613,
+        "class_vs_pooled": 0.239822460462178,
+        "model": "black-forest-labs/flux.2-max",
+        "pooled_beta": 0.4276184122324521,
+        "pooled_d": 1.018732660553967
+      }
+    ],
+    "csd": [
+      {
+        "class_beta": 0.639521999918161,
+        "class_beta_scene": [
+          0.580604992811839,
+          0.7021860127423905
+        ],
+        "class_d": 0.7666693114607785,
+        "class_d_below_one": 1.0,
+        "class_d_scene": [
+          0.6799612447172798,
+          0.8472276694549886
+        ],
+        "class_h_over_h": 1.135431770147229,
+        "class_vs_pooled": 0.16869904031664998,
+        "model": "gpt-image-1",
+        "pooled_beta": 0.7045200677607943,
+        "pooled_d": 0.7782959805909996
+      },
+      {
+        "class_beta": 0.8260848439925819,
+        "class_beta_scene": [
+          0.7844934061416018,
+          0.8598431060609538
+        ],
+        "class_d": 0.7586531169079757,
+        "class_d_below_one": 1.0,
+        "class_d_scene": [
+          0.6748028437218797,
+          0.8510028363178083
+        ],
+        "class_h_over_h": 1.135431770147229,
+        "class_vs_pooled": 0.16869904031664998,
+        "model": "gpt-image-2",
+        "pooled_beta": 0.9257192944046505,
+        "pooled_d": 0.7504544459145948
+      },
+      {
+        "class_beta": 0.7208471958172262,
+        "class_beta_scene": [
+          0.6916595632127363,
+          0.7528149950419999
+        ],
+        "class_d": 0.8036208677870739,
+        "class_d_below_one": 1.0,
+        "class_d_scene": [
+          0.7364552596679236,
+          0.8684946012923052
+        ],
+        "class_h_over_h": 1.135431770147229,
+        "class_vs_pooled": 0.16869904031664998,
+        "model": "gpt-image-2.5-flare",
+        "pooled_beta": 0.7973049669616062,
+        "pooled_d": 0.8193605754731276
+      },
+      {
+        "class_beta": 0.754950621619134,
+        "class_beta_scene": [
+          0.7164675956440094,
+          0.799273752095657
+        ],
+        "class_d": 0.9301617860751705,
+        "class_d_below_one": 0.9262,
+        "class_d_scene": [
+          0.8437009433570338,
+          1.026523983874416
+        ],
+        "class_h_over_h": 1.135431770147229,
+        "class_vs_pooled": 0.16869904031664998,
+        "model": "gpt-image-2.5-sunburst",
+        "pooled_beta": 0.8508758368519419,
+        "pooled_d": 0.933341640793055
+      },
+      {
+        "class_beta": 0.4366612448718534,
+        "class_beta_scene": [
+          0.39738064847657195,
+          0.4781341300580903
+        ],
+        "class_d": 0.9712527964733879,
+        "class_d_below_one": 0.652,
+        "class_d_scene": [
+          0.8318816439680049,
+          1.1176632570080054
+        ],
+        "class_h_over_h": 1.135431770147229,
+        "class_vs_pooled": 0.16869904031664998,
+        "model": "google/gemini-3.1-flash-image",
+        "pooled_beta": 0.4914720691253695,
+        "pooled_d": 0.9760134740013399
+      },
+      {
+        "class_beta": 0.535348477537033,
+        "class_beta_scene": [
+          0.4828457496398309,
+          0.5890475316053716
+        ],
+        "class_d": 0.6987720989676047,
+        "class_d_below_one": 1.0,
+        "class_d_scene": [
+          0.5910648118537636,
+          0.8069182348697364
+        ],
+        "class_h_over_h": 1.135431770147229,
+        "class_vs_pooled": 0.16869904031664998,
+        "model": "black-forest-labs/flux.2-max",
+        "pooled_beta": 0.5830883001506565,
+        "pooled_d": 0.7075030098027356
+      }
+    ]
+  },
+  "models": [
+    "gpt-image-1",
+    "gpt-image-2",
+    "gpt-image-2.5-flare",
+    "gpt-image-2.5-sunburst",
+    "google/gemini-3.1-flash-image",
+    "black-forest-labs/flux.2-max"
+  ],
+  "scene_classes": [
+    "water_organized",
+    "water_organized",
+    "water_organized",
+    "water_organized",
+    "built_place_organized",
+    "built_place_organized",
+    "built_place_organized",
+    "built_place_organized",
+    "open_or_wooded_land",
+    "open_or_wooded_land",
+    "open_or_wooded_land"
+  ],
+  "scenes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "schema_version": 1,
+  "seeds": {
+    "scene": 20261009
+  },
+  "status": "retrospective; post-result diagnostics requested by round-4 reviews",
+  "uncertainty": "percentile intervals and shares from scene resampling; no tests"
+}

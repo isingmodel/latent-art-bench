@@ -1,0 +1,54 @@
+{
+  "role": "methods",
+  "pdf_sha256": "2837299e02bca86a872f392d19e4e5a74ee72944be0c79441b89eea7deb446d6",
+  "criterion_claims_evidence": "partially",
+  "criterion_audience_clarity": "yes",
+  "desk_reject_risk": "low",
+  "recommendation": "minor revision",
+  "confidence": 4,
+  "critical_changes": [
+    "Correct the headline 'Texture is the least shared feature family' (Intro bullet 5, Section 5.5 heading/text). Per Table 6 it holds in only 3/6 configurations (GPT Image 1, Flare, FLUX.2 Max) plus SD-Turbo; spatial is lowest for GPT Image 2 (59.6%) and Sunburst (61.5%), and texture is the MOST shared family for Nano Banana 2 (79.8%).",
+    "Replace leave-one-scene deletion ranges as the only spread for headline shared fractions (Table 1, Section 5.1, Figure 3, Table 2) with scene-bootstrap or jackknife intervals for observed and faithful fractions and their difference. Deletion ranges understate scene variability by about sqrt(n-1): e.g., FLUX.2 Max 86.1-90.2% deletion range against a bootstrap interval of about 77.6-94.2%. Qualify 'a faithful imitator would share more' and the Figure 3 caption for FLUX.2 Max in the 31 features (88.4 vs 90.4; reversed in about 15% of paired scene resamples).",
+    "Narrow the abstract/intro claim that proximity gain would be mostly shared 'for a generator that reproduced each painter exactly'. The faithful benchmark includes the photographed-painting/generated-image domain gap, and the CSD GPT Image 2 faithful share is 48.3% (<50%). Add a domain-gap-free benchmark (observed shared term plus exact reference differences: S_obs/(S_obs+H/4) in embeddings, N/(N+H) in features; about 60.6-73.0% CLIP, 52.5-67.4% CSD, 57.6-84.2% features) and state the general condition under which the shared term dominates.",
+    "Report the prespecified family-level beta/D sensitivity (color, spatial, texture, without texture; present in psv2 analysis.json 'sensitivities' but absent from the paper), and revise the Section 5.6 list of analyses under which FLUX.2 Max keeps the lowest D: in the texture family Nano Banana 2 is lower (0.886 vs 0.906).",
+    "Reword 'movement toward the four painters' common appearance' (Section 6, Section 5.1) as movement toward the centroid of these reproductions, which the design identifies; align the abstract's opening 'for related painters' with the single four-painter, single-template scope."
+  ],
+  "minor_changes": [
+    "Define the proximity readout precisely: mean image-to-reference cosine with unnormalized prototypes mu_a, distinct from the normalized prototypes used for recognition; note Eq. 4 holds for any linear score (normalized-prototype shares differ by at most 0.5 points).",
+    "Section 5.2 'the observed shares are only a few points higher': GPT Image 2 CLIP observed is lower (73.2 vs 76.0); gaps range -2.8 to +6.6 points.",
+    "Add intervals (scene and reference resampling) or an explicit point-description label to painter-pair beta/D (Figure 4, Table 14) and the 31-feature vs embedding Monet-Sisley contrast; e.g., Sunburst Monet-Sisley beta -0.249 has reference-resampling interval about [-0.45, 0.21].",
+    "Consider a two-way (scene x reference) bootstrap for D relative to 1, especially for the FLUX.2 Max below-1 statement.",
+    "Clarify the interval estimand (conservative for the fixed authored panel; not justified for a scene population) and interpret the 0.04% shared-state coverage scenario.",
+    "Mention the pre-outcome reduction from 16 to 14 scenes and the terminated v1 attempt in Section 4.5 or Appendix A.",
+    "Section 6: note that the 'toward centroid' and 'along generic shift' components of N overlap and are not additive.",
+    "State units of the centroid proximity gain in Table 11 (squared standardized units).",
+    "Report per-painter (not only name-averaged) proximity splits, since single-artist evaluations include cross terms that cancel only in the average.",
+    "Release the 1,008 generated images via an anonymous host or commit to release, enabling pixel-level re-extraction.",
+    "When correcting H for its 6.7% finite-sample bias, also report the implied Q and D.",
+    "Reduce numeric density in running text of Sections 5.3-5.4 for readability."
+  ],
+  "factual_errors": [
+    "Intro bullet 5 and Section 5.5 heading: 'Texture is the least shared feature family' is false for GPT Image 2 and Sunburst (spatial lower) and Nano Banana 2 (texture highest, color lowest) per the paper's own Table 6.",
+    "Section 5.2: 'the observed shares are only a few points higher' than faithful; for GPT Image 2 in CLIP the observed share (73.2%) is below the faithful value (76.0%).",
+    "Abstract: proximity gain 'would remain' mostly shared for an exact imitator; the paper's own CSD faithful value for GPT Image 2 is 48.3% (a minority).",
+    "Figure 3 caption / Section 5.1: 'The observed fraction is below the faithful value in every configuration' is true only for point estimates; for FLUX.2 Max (31 features, 88.4 vs 90.4) the difference is not resolved under scene resampling."
+  ],
+  "verified_numbers": [
+    "build_assets.py --check: ok, 16 generated files and 102 claims; all computed claim literals found in the frozen PDF text",
+    "H = 5.915 and finite-sample H bias 6.7%, recomputed from 649 reference vectors and scaler.json",
+    "Table 1 all rows: shared fraction 71.3/70.9/71.1/66.7/69.1/88.4, deletion ranges, faithful 95.2/89.3/84.8/86.9/92.5/90.4, cos(c,t), lambda, along-generic share, B/H (independent script from measurements.jsonl)",
+    "Table 10: G, N, I, N_free, B (/H) and vs-free, vs-generic, within-scene shares for all six configurations",
+    "Table 11 centroid proximity gain total/shared/between (e.g., GPT Image 1 17.490 = 17.844 - 0.354; FLUX.2 Max 10.529 = 10.176 + 0.353)",
+    "Table 3: beta 0.938/0.999/0.772/0.824/0.442/0.470, Q, D 1.572/1.226/1.738/1.641/1.109/0.801, beta simultaneous intervals with t_{13,1-0.05/42} = 3.760",
+    "FLUX.2 Max nominal D interval [0.586, 1.016]",
+    "Table 12: all 15 D differences and simultaneous intervals; only Flare-FLUX.2 Max [0.256, 1.618] and Sunburst-FLUX.2 Max [0.058, 1.623] exclude zero",
+    "Table 13 D_agg (e.g., NB2 0.723, FLUX.2 Max 0.761); identity D = 1 - 2beta + Q and Q - B/H = V_scene",
+    "Reference-resampling intervals reproduced within Monte Carlo error (FLUX.2 Max D [0.695, 0.944] vs reported [0.693, 0.945])",
+    "FLUX.2 Max lowest D under all 14 single-scene deletions",
+    "Table 2 all 24 cells from embeddings npz (e.g., CSD GPT Image 2 shared gain 54.2 vs faithful 48.3)",
+    "Table 4 proximity gains, recognition accuracies and CLIP/CSD D; Table 14 CLIP/CSD Monet-Sisley beta; development-panel recognition 79.8% CLIP / 79.6% CSD",
+    "Faithful fraction derivation N*/H = (N/H) cos^2/lambda^2 from printed Table 1/10 values",
+    "Table 16 mean translation gains +2.7 (CLIP) and +10.0 (CSD); FLUX.2 Max CSD 39 corrected minus 9 harmed = +26.8 points",
+    "Text ranges: B RMS 0.78-1.45, N RMS 1.17-2.31, corrected-H beta 0.474-1.071, along-generic 55.5/52.8 vs 0.1-22.0"
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "role": "editor",
+  "pdf_sha256": "2837299e02bca86a872f392d19e4e5a74ee72944be0c79441b89eea7deb446d6",
+  "criterion_claims_evidence": "partially",
+  "criterion_audience_clarity": "partially",
+  "desk_reject_risk": "low",
+  "recommendation": "minor revision",
+  "confidence": 4,
+  "critical_changes": [
+    "C1: Align headline claims with the tables. The abstract's 'this would remain true for a generator that reproduced each painter exactly' is contradicted by the faithful CSD value of 48.3% for GPT Image 2 (Table 2). Replace 'only a few points higher'/'within a few points' with the actual deltas (CLIP -2.8 to +3.2; CSD +2.0 to +6.6; GPT Image 2 CLIP is below faithful). Scope 'for related painters' to these four painters unless a second painter set is added.",
+    "C2: Restate or remove 'Texture is the least shared feature family' (intro bullet 5, Section 5.5 heading). Per Table 6 it holds in only 3 of 6 configurations, and texture is the most shared family for Nano Banana 2 and Sunburst. Report per-configuration orderings and the cross-configuration mean (texture 68.2 vs spatial 71.5 vs color 74.3) with uncertainty. Keep the SD-Turbo texture result.",
+    "C3: Add scene-bootstrap and reference-resampling intervals for observed-minus-faithful differences (Table 1 and both halves of Table 2), and qualify Figure 3's 'below the faithful value in every configuration and representation', especially FLUX.2 Max (88.4 vs 90.4, deletion range up to 90.2).",
+    "C4: Make the specificity readout operational. State that GPT Image 1, Flare and Sunburst have reference-resampling D intervals entirely above the no-distinction value of 1. Relate observed D to the genuine-painting controls (0.234 pooled, 0.753 within content classes, vs FLUX.2 Max 0.801). In Section 6, specify which between-name statistics (beta, beta/sqrt(Q), D or D_agg, per-pair) practitioners should report and how to read disagreements among them.",
+    "C5: Fix internal inconsistencies: the development panel 'never compared with generated images' (Section 3) vs its use as a reference target (Section 5.2, App. F); 'more than twice the reference size' for Q (Section 5.3, App. D), which is a squared-size ratio (about 1.49x in norm); 'regenerates every table and figure' (App. H, Reproducibility statement), although Figures 2 and 4 are static hash-checked copies and Figure 1 is a schematic; 'independent generations' (intro) vs the concession in Limitations.",
+    "C6: Support the opening claim 'Artist-style prompting is often evaluated by how much closer images ... move to that artist's works' with specific published evaluations that report proximity/similarity-to-artist scores, stating which quantity each uses.",
+    "C7: Clarity edit. Rewrite the ambiguous sentences quoted in W-B1 (e.g., 'Zero error is not attainable either.'; 'These differences have a common explanation, which follows from Equation 4 for proximity and is an interpretation for the other two readouts.'; 'Some benchmark values were first computed during internal review of an earlier draft; the analysis plan records this.'). Explain the App. C scenario in which coverage drops to 0.04% and its relevance to closed services. Reduce the number density of Sections 5.3-5.4 by moving secondary values to tables."
+  ],
+  "minor_changes": [
+    "Tabulate sensitivity numbers now quoted only in the text: the 1.6 pp development/audited-target change, the unadjusted scene interval of D [0.586, 1.016], the cropped-source beta and pairwise results, and the 99.9% recognition resampling figure.",
+    "Report the faithful-imitator benchmark for the SD-Turbo collection or explain its absence.",
+    "Consider a domain-gap control for the faithful benchmark (e.g., a baseline at a broader landscape-painting centroid) to separate painter relatedness from the rendered-vs-photographed gap.",
+    "State that the pre-collection protocols and post hoc analysis plan are in the supplement, and clarify what 'internal review of an earlier draft' refers to.",
+    "Consolidate the eleven or more repeated 'X, not Y' caveats into the Scope/Limitations paragraphs.",
+    "Use consistent configuration names across Figure 3 ('Flare'), Figure 4 ('2.5 Flare') and the tables ('GPT Image 2.5 Flare').",
+    "Fix the stretched last column of Table 2.",
+    "Place Table 7 after the Appendix A heading (it currently floats above it, directly after the references).",
+    "Consider an observed-minus-faithful difference plot with intervals in place of or alongside Figure 3, where the FLUX.2 Max markers overlap.",
+    "Replace or explain the Commons:GLAM citation as the source for the reference records.",
+    "Note whether gpt-image-2.5-flare/-sunburst are preview or stealth endpoints, for replicability.",
+    "Release the generated images via an anonymized host or downsampled JPEGs within the 100 MB supplement limit.",
+    "Optionally extend related work to data-attribution/replication studies and to erasure evaluations that use CLIP similarity to an artist.",
+    "Trim the number-dense abstract (about ten numeric ranges).",
+    "Strip or normalize the PDF CreationDate timezone (KST) for anonymity hygiene."
+  ],
+  "factual_errors": [
+    "Abstract (p.1): 'this would remain true for a generator that reproduced each painter exactly' is false for GPT Image 2 in CSD, whose faithful shared part of proximity gain is 48.3% (Table 2; the abstract's own range is 48.3-75.7%).",
+    "Section 5.2 (p.8): 'the observed shares are only a few points higher' is false for GPT Image 2 in CLIP (observed 73.2 < faithful 76.0); CSD differences reach 6.6 points (FLUX.2 Max 77.6 vs 71.0).",
+    "Intro bullet 5 (p.2) and Section 5.5 heading (p.10): 'Texture is the least shared feature family' holds in only 3 of 6 main configurations (Table 6); spatial is least for GPT Image 2 and Sunburst, color for Nano Banana 2, and texture is the most shared family for Nano Banana 2 (79.8) and Sunburst (70.3).",
+    "Section 3 (p.4) says the development panel 'is never compared with generated images', but Section 5.2 (p.8) uses 'the development panel as the reference target' and App. F refers to four source-view/reference-target combinations.",
+    "Section 5.3 (p.9) 'its differences are more than twice the reference size, Q = 2.223' and App. D (p.19) 'about twice the reference size': Q is a squared-size ratio; in norm the differences are about 1.49x the reference.",
+    "Appendix H (p.23) and the Reproducibility statement (p.12) claim every table and figure is regenerated byte for byte; per figures/PROVENANCE.json, Figures 2 and 4 are static hash-checked copies with retired builders, and Figure 1 is a schematic that App. H nonetheless calls 'generated from those result files'."
+  ],
+  "format_checks": [
+    "tmlr.sty, tmlr.bst and fancyhdr.sty SHA-256 match STYLE_PROVENANCE.json (JmlrOrg/tmlr-style-file commit 7bf90ef, modified=false); header text matches the official file; not byte-diffed against upstream.",
+    "main.tex loads \\usepackage{tmlr} with no option (anonymous submission mode); rendered header 'Under review as submission to TMLR' and 'Anonymous authors / Paper under double-blind review'.",
+    "US letter page size; Latin Modern fonts from tmlr.sty plus DejaVu Sans in figures; all fonts embedded.",
+    "Anonymization: no names, affiliations, acknowledgments or identifying URLs; PDF Info has no Author field; figure PDFs only list the Matplotlib creator; byte search of PDF streams for local paths or user identifiers found nothing; CreationDate carries a KST timezone (minor).",
+    "Table captions above tables: Tables 1-16 pass.",
+    "Figure captions below figures: Figures 1-4 pass.",
+    "Broader impact statement present (p.12); reproducibility statement and AI-use disclosure present.",
+    "Main text about 11.5 pages; references pp.12-14; appendices after references pp.15-23, as the TMLR author guide allows.",
+    "All cross-references resolve; author-year citations via tmlr.bst; every in-text citation appears in the reference list.",
+    "Numerical identities verified: D=1-2beta+Q (all six), N_free=G+N+I, Table 10 shared fractions, along-generic share=cos^2(c,g), I=2cos(c,g)sqrt(GN), centroid proximity total=shared+between, D=D_agg+V_scene, beta/sqrt(Q), corrected-H beta, Table 12 differences, Table 16 shift/generated means, Figure 4 vs Table 14, and all abstract/intro ranges against Tables 1, 2, 3, 5 and 6.",
+    "Reproducibility claims checked against figures/PROVENANCE.json and make_supplement.py: Figures 2 and 4 are static copies (the regeneration claim is overstated)."
+  ]
+}

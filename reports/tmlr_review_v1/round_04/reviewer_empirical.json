@@ -1,0 +1,41 @@
+{
+  "role": "empirical",
+  "pdf_sha256": "caa3b4299154a8926e29f7a7dee8d5c81784ff77477597931a0aab8d4d5ec617",
+  "criterion_claims_evidence": "partially",
+  "criterion_audience_clarity": "yes",
+  "desk_reject_risk": "low",
+  "recommendation": "minor revision",
+  "confidence": 4,
+  "critical_changes": [
+    "Calibrate the headline agreement claims in the Abstract and Introduction. The 31-feature D > 1 verdicts reflect over-sized differences (Q > 2beta); they reverse under a single held-out rescaling (Table 15), and only two survive Bonferroni over configurations. FLUX.2 Max's aggregate D < 1 rests mainly on the Cezanne contrast, with near-zero differentiation among the Impressionists (Table 17, Fig. 4). Replace 'in CSD none does' with an interval-based statement: Nano Banana 2 has D = 0.999 with 51.3% of joint resamples below 1, and Sunburst's interval includes 1.",
+    "Report the per-family faithful and exact-differences benchmarks for the main collection (already in painter_tmlr_diagnostics_v1 hand31[*].families) in Table 7, and reinterpret or narrow the feature-family contribution. GPT Image 1's 48.6% texture fraction comes from B/H = 3.11. The mean exact-differences benchmark is itself 3.1 points lower for texture than for colour (74.7 vs 77.8%), about half the observed -6.1-point gap, and the faithful benchmark runs the other way (89.4 vs 87.2%).",
+    "Correct three factual misstatements: (a) p.1 attributes the named-minus-unnamed proximity gain to Su et al. (2025), who report named-vs-unnamed CLIP similarity and named-to-prototype similarity but no gain; (b) p.13 'whatever the model does' holds only for beta <= 1, since the painter-specific term is H*beta/4; (c) p.10 'no genuine split has an error above 0.53' uses the maximum upper end of central 95% ranges, so about 2.5% of splits exceed it by construction; the data support 'none exceeds 1'."
+  ],
+  "minor_changes": [
+    "Add content-matched (class) reference targets for the CLIP and CSD agreement scores on the 11 non-mixed scenes, analogous to Table 20, to test whether the representation-dependence of D reflects subject-mix differences in r_a.",
+    "Show the across-configuration decomposition of proximity-gain differences into shared and painter-specific terms. In CLIP the shared term's variance is about 11 times the specific term's; in CSD the two terms are negatively correlated. This directly supports the Section 5.4 explanation.",
+    "Commit to releasing the generated images (reduced resolution fits the 100 MB supplement limit) and add an appendix contact sheet of all 14 scenes.",
+    "State in Section 3 that the visual content labels (230 of 870 disagreements) were AI-assigned and not verified by a human, like the crops.",
+    "Bring forward from Appendix D that the genuine-painting controls' expected value is essentially target sampling noise, because pseudo-scenes have no fixed content.",
+    "Reduce numeric density in Sections 5.3-5.4 by moving secondary values into tables.",
+    "In the Discussion, put the caveat that any painting-like movement would also raise prototype similarity next to the statement that the shared change increases similarity to the average prototype."
+  ],
+  "factual_errors": [
+    "p.1 (Introduction): 'comparing with the image generated without the name turns it into a gain (Su et al., 2025)'. Su et al. Table 1(a) reports CLIP similarity between named and name-removed images and prototype similarity of named images only; it reports no named-minus-unnamed proximity gain.",
+    "p.13 (Discussion, Recommendation 2): 'a shared term larger than a quarter of the painter spread will dominate proximity whatever the model does'. False for aligned amplitude beta > 1, where the painter-specific term H*beta/4 exceeds H/4; GPT Image 2's corrected beta is 1.071 in the features.",
+    "p.10 (Section 5.3): 'In the embeddings no genuine split has an error above 0.53'. The 0.53 is the maximum of the 97.5th percentiles (build_assets.py line 1743; np.quantile in painter_tmlr_diagnostics_v3.py line 93), so about 25 of 1,000 splits in the CLIP class-sampling/pooled-target control exceed it. The output supports 'no split exceeds 1'."
+  ],
+  "literature_checked": [
+    "Su et al. 2025, Identifying prompted artist names from generated images, arXiv:2507.18633 (checked Table 1(a) and methods)",
+    "Somepalli et al. 2024, CSD / Measuring style similarity in diffusion models, arXiv:2404.01292 (prototype scoring confirmed)",
+    "Frochte 2026, When style similarity scores fail, arXiv:2605.09030v2 (23/91 negative gaps, T2I section confirmed)",
+    "Xing et al. 2026, Beyond Starry Night, arXiv:2608.06751 (canonical shortcuts confirmed)",
+    "Moayeri et al. ICLR 2025, Rethinking artistic copyright infringements, arXiv:2404.08030 (372 artists, 20% at risk)",
+    "Casper et al. 2023, Measuring the success of diffusion models at imitating human artists, arXiv:2307.04028 (70 artists, CLIP)",
+    "Verma et al. TMLR 2025, How many images does it take? (imitation thresholds, art styles)",
+    "Fu et al. 2025, arXiv:2508.01408 (VLM attribution and AI-painting detection)",
+    "Kim et al. 2026 PNAS / arXiv:2503.13531 (existence and title confirmed; volume not verified)",
+    "Deliege et al. 2025, Journal of Imaging (existence confirmed)",
+    "TMLR author guide (length and supplement policy)"
+  ]
+}

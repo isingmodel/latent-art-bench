@@ -1,0 +1,47 @@
+{
+  "role": "empirical",
+  "pdf_sha256": "764356d845744d7adc994600113628525cce6f0569eff8c7927439c6a1ba5316",
+  "criterion_claims_evidence": "partially",
+  "criterion_audience_clarity": "yes",
+  "desk_reject_risk": "low",
+  "recommendation": "minor revision",
+  "confidence": 4,
+  "critical_changes": [
+    "Report direction-only agreement for CLIP and CSD (Q, alignment ratio beta/sqrt(Q), held-out rescaled D, which is already in reports/painter_learned_audit_v1/analysis.json) in Table 5 and as a readout in Tables 3/20. Then qualify the abstract ('how accurately depends on the representation'; 'Proximity, agreement and recognition favor different configurations'), Section 1 bullets 3-4, Section 5.3 ('we do not rank ... overall'), Section 5.4 and Section 6. The revised text should say that direction-only agreement ranks GPT Image 2 highest in all three representations (alignment ratio highest in 99.7%/100% of scene resamples for CLIP/CSD; D_held 0.554/0.631/0.458), that it tracks reference-prototype recognition (Spearman 0.94 CLIP, 0.89 CSD), and that the representational and readout disagreements concern the amplitude of the between-name differences, which may partly reflect the generated-versus-photographed scale difference. Alternatively, justify why amplitude miscalibration should count against specificity and present D and the alignment ratio side by side."
+  ],
+  "minor_changes": [
+    "Table 5 / Section 5.3: show the 11-scene pooled-target D for the embeddings, or state that 'change by at most 0.037 and keep their order' is relative to that unreported baseline; against the displayed 14-scene D, shifts reach 0.064 (Sunburst CLIP) and CSD GPT Image 1/2 and CLIP Flare/FLUX.2 Max swap order.",
+    "Fix the citation on p. 3: Naeem et al. (2020) propose unconditional density/coverage metrics, not conditional metrics that separate within-condition variation from relations among means.",
+    "State n = 6 for the gain-versus-shared-term correlations (0.96/0.95), give a leave-one-out range or interval (CLIP 0.91-0.99, CSD 0.84-0.98 by my computation), and report the CLIP correlation in Section 5.2, not only the introduction.",
+    "Note in the abstract or introduction that shared-term dominance of the proximity gain is a four-painter average and is weakest for Cezanne (down to 34.6%, Table 23).",
+    "Introduction: qualify 'FLUX.2 Max has the lowest error in the features' (resolved only against Flare and Sunburst in the prespecified family), and mark 'resolved' as unadjusted where intervals lie outside the family.",
+    "Soften the untested Discussion clause 'as movement toward any painting-like image would' (p. 12) or tie it to the proposed fictitious-name or 'Impressionist' controls.",
+    "Report a negative-control request (an invalid model ID on the explicit OpenAI provider route) and a distinguishability check for Flare versus Sunburst. In my check from the released embeddings, cross-configuration distances exceed within-configuration repeat distances in 92% (CLIP) and 100% (CSD) of cells.",
+    "Commit to public release of the 1,008 generated images on acceptance, and add a contact sheet of several more scenes under all six clauses (only one scene is shown).",
+    "Extend the repeat-dependence (rho) sensitivity to the embedding D-versus-1 statements (notably Sunburst in CLIP), and address coverage of percentile scene-bootstrap intervals with 14 clusters.",
+    "Figure 3: put like-for-like quantities on the same axis, for example by adding the embedding squared-change shares from Table 22.",
+    "Add a figure projecting each configuration's named means and the reference means onto the reference-difference subspace, to make beta, Q and 'aligned but oversized' visible.",
+    "Add an embedding square-window check, or note the crop asymmetry: square generated images versus centre-cropped non-square references.",
+    "Reduce numerical density in the abstract and Sections 5.3-5.5; move secondary numbers to tables and consolidate the '(computed before rounding)' qualifiers.",
+    "Next to the Section 6 recommendations, acknowledge that beta/Q/D have not been validated against perceptual or expert judgement or against a positive control with known painter differences; optionally add such a control.",
+    "De-emphasise the 25% exchangeable null in Section 5.1; it adds little beside the reference benchmarks."
+  ],
+  "factual_errors": [
+    "p. 3 (Related work): Naeem et al. (2020) is cited as a conditional evaluation metric that separates within-condition variation from relations among condition means; it proposes unconditional fidelity/diversity metrics (density and coverage)."
+  ],
+  "literature_checked": [
+    "Somepalli et al. 2024 (CSD; prototype dot-product scoring with 0.5/0.8 thresholds) - described accurately",
+    "Verma et al. 2025, TMLR (imitation thresholds; average CSD cosine to top-10 training images, no baseline subtraction) - described accurately",
+    "Frochte 2026, arXiv:2605.09030v2 (raw CSD cosine; negative discrimination gaps for 23/91 artists pairwise, 15/91 pooled; Flux generations) - described accurately",
+    "Su et al. 2025, arXiv:2507.18633 (prompted-artist identification, 110 artists, content-controlled name substitution, same-seed no-artist comparison) - described accurately",
+    "Moayeri et al. 2025, ICLR (ArtSavant; 20% of 372 artists at risk) - described accurately",
+    "Casper et al. 2023 (70 artists, CLIP zero-shot, 81% accuracy) - described accurately",
+    "Deliege et al. 2025, J. Imaging (three experts, Midjourney v6, ten painters) - described accurately",
+    "Asperti et al. 2025, BDCC (AI-Pastiche) - described accurately",
+    "Xing et al. 2026, arXiv:2608.06751 (Atelier; canonical shortcuts for artist names) - described accurately",
+    "Kim, Lee, You, Yun 2026, PNAS 123(30) - exists as cited",
+    "Benny et al. 2021, IJCV (conditional IS/FID) - citation fits",
+    "Naeem et al. 2020, ICML (density/coverage; unconditional) - mis-cited as a conditional metric",
+    "Dinu et al. 2026, arXiv:2607.20127 (embedding-distance analysis of AI pastiches of twelve contemporary artists) - not cited; optional related work"
+  ]
+}

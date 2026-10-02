@@ -18,16 +18,14 @@ reports/*/embeddings_*.npz     retained CLIP/CSD vectors (learned audit)
     |     painter_specificity_v2/analysis.py: primary slopes and model comparisons
     |
     +-- post-result diagnostics      painter_specificity_review_v1/v2, reference_quality_v1
-    +-- ICML-era extensions          review_v3, request_timing, learned_audit,
+    +-- retrospective extensions     review_v3, request_timing, learned_audit,
     |                                prototype_transfer, repeat_covariance,
     |                                cross_cohort, selective_attribution
     v
 reports/<study>/                 hash-bound numerical results; originals never rewritten
     |
-    +-- paper/make_specificity_*.py, make_review_figures.py, make_example_figures.py
-    |     -> paper/paper.tex -> paper/paper.pdf        (full-length paper)
-    +-- paper/make_icml_*.py
-          -> paper/icml.tex -> output/pdf/latent_art_bench_icml.pdf   (ICML draft)
+    +-- paper/tmlr/build_assets.py
+          -> paper/tmlr/main.tex -> output/pdf/latent_art_bench_tmlr.pdf (TMLR submission)
 ```
 
 The 31 feature definitions are in
@@ -44,7 +42,7 @@ Make target calls it.
 | [data/manifests/](../data/manifests/) | Measurements, assignments, provenance and result bindings |
 | [reports/](../reports/README.md) | Numerical outputs, report plots, release receipts and review records |
 | [paper/](../paper/README.md) | Manuscripts and presentation builders |
-| [scripts/](../scripts/), [tools/](../tools/) | Record audits, ICML format/pixel checks, historical collectors and release adapters |
+| [scripts/](../scripts/), [tools/](../tools/) | Record audits, pixel-inventory checks, historical collectors and release adapters |
 | [tests/](../tests/README.md) | Offline scientific and integrity checks |
 | `research_workspace/` (ignored) | Raw artwork, generated images and transport records |
 
@@ -74,21 +72,28 @@ uv run --locked python -m latent_art_bench.painter_specificity_measurement_v1.wo
 Post-result diagnostics do not extend the original 21-comparison family. The
 first, stopped 31-output attempt remains excluded.
 
-## ICML-era retrospective analyses
+## Retrospective analyses
 
-Added 2026-09-18 to 2026-09-21 for the ICML draft. Each plan was fixed before
+Added 2026-09-18 to 2026-09-21 for the (now retired) ICML draft; the TMLR
+manuscript uses the direct-naming, learned, transfer, covariance and SD-Turbo
+analyses. Each plan was fixed before
 its new outcomes were inspected, but every analysis reuses previously exposed
 data. Module paths are relative to `src/latent_art_bench/`.
 
 | Analysis | Plan | Code | Report | Replay |
 | --- | --- | --- | --- | --- |
-| Direct named-minus-generic decomposition and scene stability | [plan](../studies/painter_specificity_review_v3/PLAN.md) | `painter_specificity_review_v3.py` | [report](../reports/painter_specificity_review_v3/report.md), [interpretation](../reports/painter_specificity_review_v3/interpretation.md) | `make icml-evidence-check` |
-| Within-cell request timing | [plan](../studies/painter_request_timing_v1/PLAN.md) | `painter_request_timing_v1.py` | [report](../reports/painter_request_timing_v1/REPORT.md) | `make icml-evidence-check` |
-| Same-image CLIP/CSD audit | [plan](../studies/painter_learned_audit_v1/PLAN.md) | `painter_learned_audit_v1.py` (extraction), `painter_learned_csd_v1.py` (CSD crop adapter), `painter_learned_analysis_v1.py` (analysis) | [report](../reports/painter_learned_audit_v1/REPORT.md) | `make icml-evidence-check`; re-extraction needs `--extra learned`, checkpoints and pixels |
-| Held-scene prompt-name transfer | [plan](../studies/painter_prototype_transfer_v1/PLAN.md) | `painter_prototype_transfer_v1.py` | [report](../reports/painter_prototype_transfer_v1/REPORT.md) | `make icml-evidence-check` |
-| Cross-repeat covariance scenarios | [plan](../studies/painter_repeat_covariance_v1/PLAN.md) | `painter_repeat_covariance_v1.py` | [report](../reports/painter_repeat_covariance_v1/REPORT.md) | `make icml-evidence-check` |
-| Separate 2,000-image SD-Turbo collection | [plan](../studies/painter_cross_cohort_v1/PLAN.md) | `painter_cross_cohort_v1.py` | [report](../reports/painter_cross_cohort_v1/REPORT.md) | `make icml-extensions-check`; verifies the 2,000 local pixel hashes |
-| Reference-calibrated selective attribution | [plan](../studies/painter_selective_attribution_v1/PLAN.md) | `painter_selective_attribution_v1.py` | [report](../reports/painter_selective_attribution_v1/REPORT.md) | `make icml-extensions-check` |
+| Direct named-minus-generic decomposition and scene stability | [plan](../studies/painter_specificity_review_v3/PLAN.md) | `painter_specificity_review_v3.py` | [report](../reports/painter_specificity_review_v3/report.md), [interpretation](../reports/painter_specificity_review_v3/interpretation.md) | `make retrospective-check` |
+| Within-cell request timing | [plan](../studies/painter_request_timing_v1/PLAN.md) | `painter_request_timing_v1.py` | [report](../reports/painter_request_timing_v1/REPORT.md) | `make retrospective-check` |
+| Same-image CLIP/CSD audit | [plan](../studies/painter_learned_audit_v1/PLAN.md) | `painter_learned_audit_v1.py` (extraction), `painter_learned_csd_v1.py` (CSD crop adapter), `painter_learned_analysis_v1.py` (analysis) | [report](../reports/painter_learned_audit_v1/REPORT.md) | `make retrospective-check`; re-extraction needs `--extra learned`, checkpoints and pixels |
+| Held-scene prompt-name transfer | [plan](../studies/painter_prototype_transfer_v1/PLAN.md) | `painter_prototype_transfer_v1.py` | [report](../reports/painter_prototype_transfer_v1/REPORT.md) | `make retrospective-check` |
+| Cross-repeat covariance scenarios | [plan](../studies/painter_repeat_covariance_v1/PLAN.md) | `painter_repeat_covariance_v1.py` | [report](../reports/painter_repeat_covariance_v1/REPORT.md) | `make retrospective-check` |
+| Separate 2,000-image SD-Turbo collection | [plan](../studies/painter_cross_cohort_v1/PLAN.md) | `painter_cross_cohort_v1.py` | [report](../reports/painter_cross_cohort_v1/REPORT.md) | `make extensions-check`; verifies the 2,000 local pixel hashes |
+| Reference-calibrated selective attribution | [plan](../studies/painter_selective_attribution_v1/PLAN.md) | `painter_selective_attribution_v1.py` | [report](../reports/painter_selective_attribution_v1/REPORT.md) | `make extensions-check` |
+| TMLR revision diagnostics (2026-10-01): faithful-imitation benchmark, direction, feature families, readout stability | [plan](../studies/painter_tmlr_diagnostics_v1/PLAN.md) | `painter_tmlr_diagnostics_v1.py` | [report](../reports/painter_tmlr_diagnostics_v1/REPORT.md) | `make retrospective-check` |
+| TMLR revision diagnostics v2 (2026-10-01): exact-differences benchmark, scene and reference intervals, joint resampling of D, 31-feature separability, SD-Turbo benchmarks | [plan](../studies/painter_tmlr_diagnostics_v2/PLAN.md) | `painter_tmlr_diagnostics_v2.py` | [report](../reports/painter_tmlr_diagnostics_v2/REPORT.md) | `make retrospective-check` |
+| TMLR revision diagnostics v3 (2026-10-01): genuine-painting controls with distinct works (31 features, CLIP, CSD), embedding D intervals, normalized-prototype shares, paired feature-family contrasts | [plan](../studies/painter_tmlr_diagnostics_v3/PLAN.md) | `painter_tmlr_diagnostics_v3.py` | [report](../reports/painter_tmlr_diagnostics_v3/REPORT.md) | `make retrospective-check` |
+| TMLR revision diagnostics v4 (2026-10-01): CLIP/CSD agreement against content-matched class targets | [plan](../studies/painter_tmlr_diagnostics_v4/PLAN.md) | `painter_tmlr_diagnostics_v4.py` | [report](../reports/painter_tmlr_diagnostics_v4/REPORT.md) | `make retrospective-check` |
+| TMLR revision diagnostics v5 (2026-10-01): direction-only agreement and its stability, embedding error split and Student intervals, repeat dependence in the embeddings, proximity correlations across configurations, configuration distinctness, projection coordinates | [plan](../studies/painter_tmlr_diagnostics_v5/PLAN.md) | `painter_tmlr_diagnostics_v5.py` | [report](../reports/painter_tmlr_diagnostics_v5/REPORT.md) | `make retrospective-check` |
 
 The prospective [family-control study](../studies/painter_family_controls_v1/PLAN.md)
 is implemented in `painter_family_controls_v1/` and qualified offline by
@@ -103,33 +108,27 @@ Independent audit and replay scripts for these analyses are frozen records in
 
 ## Manuscript presentation
 
-Builders read retained results. Image panels read source pixels only when
-explicitly requested; normal builds reuse the committed PDFs.
-
-| Presentation | Builder | Used by |
+| Presentation | Builder | Check |
 | --- | --- | --- |
-| Six-model comparisons, centered contrasts, error/spread, painter projections | [make_specificity_figures.py](../paper/make_specificity_figures.py) | Both manuscripts |
-| Primary numerical tables | [make_specificity_tables.py](../paper/make_specificity_tables.py) | Full-length paper |
-| Diagnostic tables, artist-pair figure, preserved full-frame panels | [make_review_figures.py](../paper/make_review_figures.py) | Both manuscripts |
-| Original/generated comparison and control examples | [make_example_figures.py](../paper/make_example_figures.py), [selection manifest](../paper/example_selection.json) | Both manuscripts; `make example-images-check` |
-| ICML learned, calibration, transfer, covariance, SD-Turbo and selective tables; coverage heatmap | `paper/make_icml_*.py` | ICML draft; `make icml-evidence-check`, `make icml-extensions-check` |
-| Earlier distribution, control and retrieval figures | [make_figures.py](../paper/make_figures.py) | Supporting records only |
-| Palette block display | [replay_palette.py](../paper/replay_palette.py) | Supporting records only |
-| Measurement challenges and geometry displays | [make_validation_figure.py](../paper/make_validation_figure.py), [make_geometry_figure.py](../paper/make_geometry_figure.py) | Supporting records only |
+| TMLR tables, component figure and every quoted number | [paper/tmlr/build_assets.py](../paper/tmlr/build_assets.py) | `make tmlr-check` |
+| TMLR Figures 1 and 3 (example images, painter pairs) | Static copies with hashes in [paper/tmlr/figures/PROVENANCE.json](../paper/tmlr/figures/PROVENANCE.json) | `make tmlr-check` |
+| Palette block display | [paper/replay_palette.py](../paper/replay_palette.py) | `make figures-check`, `make palette-check` |
+| Frozen full-length paper and Korean translation | None (snapshot in `paper/archive/`) | `make paper-archive` recompiles them |
 
 ```bash
-make figures-check        # Verify full-length and supporting figures/tables
-make figures              # Rebuild presentation only
-make paper                # Rebuild and compile the full-length paper
-make paper-icml           # Compile and format-check the ICML draft
-make example-images-check # Optional: verify the 40 current image sources and panels
-make review-images-check  # Optional: verify the preserved preceding panels
+make tmlr-check           # TMLR assets, quoted numbers, style and figure hashes
+make paper-tmlr           # Check assets and compile the TMLR submission
+make paper-archive        # Recompile the frozen full-length paper and translation
+make figures-check        # Palette figure against its replay
 ```
 
-Eighteen of the 24 committed figures, including every "supporting records only" output,
-are no longer included by either manuscript. They stay committed and
-replay-checked because earlier manuscript snapshots, review provenance and
-release receipts bind their bytes.
+The earlier presentation builders (`make_specificity_figures.py`,
+`make_specificity_tables.py`, `make_review_figures.py`, `make_example_figures.py`,
+`make_figures.py`, `make_validation_figure.py`, `make_geometry_figure.py` and
+the seven `make_icml_*.py` table builders) and their unused outputs were removed
+from `paper/` on 2026-10-01. Records under `reports/` still name them; Git
+history and `generative_art_diff_archive/2026-10-01/` keep them. The numerical
+analyses they presented are unaffected and still replay.
 
 ## Supporting analyses
 

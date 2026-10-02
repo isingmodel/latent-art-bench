@@ -1,0 +1,59 @@
+{
+  "role": "methods",
+  "pdf_sha256": "4ae5600ec39d49e52f30a105432d92b809d117d71d0c3e8627ccd6405209a242",
+  "criterion_claims_evidence": "yes",
+  "criterion_audience_clarity": "yes",
+  "desk_reject_risk": "none",
+  "recommendation": "minor revision",
+  "confidence": 4,
+  "critical_changes": [
+    "Disclose in Section 4.5 (and briefly in the abstract/Section 1) that the pre-collection protocol designated D as the only ranking criterion ('Rank models only on D'). The alignment-ratio ranking featured in the abstract (GPT Image 2 aligns best in all three representations) was adopted after collection, once D's rankings proved representation-dependent. Its values, resampled 'best' shares and recognition Spearman correlations were already known when the plan that fixed them was written (painter_tmlr_diagnostics_v5 PLAN). Reword 'each fixed before its outcomes were computed' so it does not imply protection for these quantities. Editing only.",
+    "Correct the sign error in Appendix A (Repeat dependence, p. 18). '(-3.4 to -0.7% change in squared prediction error relative to zero)' reports predictive gains, (MSE_zero - MSE_held)/MSE_zero, as error changes. The held-out squared error was 0.7-3.4% higher, not lower. Write '+0.7 to +3.4% change in squared prediction error' or 'predictive gain of -3.4 to -0.7%', and update the drift_gain registry entry."
+  ],
+  "minor_changes": [
+    "Describe the alignment ratio as the alignment of scene-wise differences with the pooled pattern. Because Q = B/H + V_scene, it treats scene-specific variation as misalignment. Report the scene-averaged beta/sqrt(B/H) as well: GPT Image 2 stays best in all representations, but Nano Banana 2 moves from last to third in the 31 features.",
+    "Section 5.3: note that D_held is approximately 1 - (beta/sqrt(Q))^2 (e.g. 0.551 vs 0.554 for GPT Image 2), so its agreement with the alignment ratio is not independent corroboration.",
+    "Section 1 bullet 3: qualify GPT Image 1's D > 1 as Section 5.3 does (unadjusted interval; Bonferroni-over-six interval [0.935, 2.210] includes 1; reverses at repeat correlation 0.22), or restrict the statement to Flare and Sunburst.",
+    "Section 5.3 p. 11: narrow 'Content does not explain the difference' to 'title-derived content-class targets on the 11 non-mixed scenes change embedding errors by at most 0.037'.",
+    "State n = 6 wherever Spearman correlations are quoted (0.94, 0.89, 0.60-0.77, -0.14 to 0.66); one adjacent swap moves rho by 0.057. Preferably add resampling intervals.",
+    "Appendix A 'Model selection': temper 'argue that the six requested configurations reached different generators' to 'produced distinguishable output distributions'. Cost and distance differences do not establish distinct checkpoints.",
+    "Section 6: the condition for the shared term to dominate is beta < 4S/H. Rephrase 'unless the model exaggerates the reference differences (beta > 1)' to say that beta <= 1 suffices.",
+    "Report that 4 of 653 eligible reference works (2 Monet, 1 Pissarro, 1 Cezanne) failed feature extraction, so 649 is after exclusion.",
+    "Add uncertainty (scene-resampling or binomial intervals) to the recognition accuracies in Table 3.",
+    "Commit to depositing the 1,008 generated images upon de-anonymisation so features can be re-extracted from pixels.",
+    "Reduce number density in Sections 5.3-5.5 by moving secondary ranges to the appendix tables. State early in Section 5.1 that the comparison with the exact-differences benchmark reduces to B/H versus 1.",
+    "Supplement: have the claim registry record sign/units, so that the replay check can catch semantic errors like the drift sign."
+  ],
+  "factual_errors": [
+    "Appendix A, Repeat dependence (p. 18): '(-3.4 to -0.7% change in squared prediction error relative to zero)'. The source values are predictive gains, (MSE_zero - MSE_held)/MSE_zero = -3.38% to -0.72% (reports/painter_request_timing_v1). The squared prediction error increased by 0.7-3.4%. As worded, the parenthetical contradicts 'predicts those differences worse than no drift'."
+  ],
+  "verified_numbers": [
+    "PDF SHA-256 4ae5600e...a242 (shasum -a 256)",
+    "build_assets.py --check: ok, 29 generated files and 180 claims",
+    "Reference counts 297/106/141/105 = 649 measured (plus 4 failed); development 221 (101/36/48/36), from feature JSONL",
+    "1,008 images, all 1024x1024, 1,008 distinct hashes (measurements.jsonl)",
+    "H = 5.915 (31 features); finite-sample bias 6.75% of H, recomputed from reference features",
+    "Table 1, all rows exact from raw features: shared fraction 71.3/70.9/71.1/66.7/69.1/88.4%, N/H, B/H, faithful 95.2/89.3/84.8/86.9/92.5/90.4%, exact-diff 84.0/83.3/83.3/79.9/57.6/84.2%",
+    "Table 1 FLUX.2 Max scene interval [76.8, 94.2] and obs<faithful 84.1% exact with registered seed 20261002 (other seeds 85.2-85.5%); others 100%",
+    "Table 4 beta, Q, beta/sqrt(Q), D exact; D = 1 - 2beta + Q verified",
+    "Table 4/23 beta simultaneous intervals (t13 at 1-0.05/42) and nominal intervals exact, e.g. GPT Image 1 [0.709, 1.168] and [0.806, 1.070]; nominal D intervals exact; GPT Image 1 Bonferroni-over-6 D interval [0.935, 2.210]",
+    "Table 13: all 15 pairwise D differences with simultaneous and nominal intervals exact",
+    "Table 11: lambda 44.1/50.7/54.3/55.6/24.8/64.6% and corrected cos(c,t) 0.85/0.66/0.57/0.72/0.75/0.86",
+    "Table 14: D_agg 1.239/1.044/1.483/1.337/0.723/0.761 and D_held 0.645/0.554/0.741/0.706/0.832/0.714",
+    "Table 12 centroid proximity split exact (e.g. GPT Image 1 17.490 = 17.844 - 0.354), via Eq. 6 and by direct computation",
+    "Reference singular-component shares 66.3/20.6/13.0%",
+    "Development nearest-mean accuracy 49.8% macro, Monet 39.6%, Sisley 30.6%",
+    "Tables 2, 3, 5 exact from raw CLIP/CSD embeddings: gain totals, shared and painter-specific terms, shares, faithful and exact-diff shares, beta, Q, ratio, D, recognition (CLIP 60.7/68.8/59.8/58.9/51.8/41.1; CSD 72.3/75.9/62.5/61.6/50.9/39.3)",
+    "Gain-shared correlation 0.960 (CLIP) and 0.949 (CSD); gain-specific correlation -0.646 (CSD); variance ratios 10.8 and 5.82; CLIP gain ranking equals shared-term ranking",
+    "Spearman by hand: recognition vs alignment ratio 0.943 (CLIP) and 0.886 (CSD); ratio across representations 0.600-0.771; D across representations -0.143 to 0.657",
+    "Own scene bootstrap: alignment ratio best GPT Image 2 97.9% (paper 98.0%); 31-feature D best FLUX.2 Max 85.0% (paper 84.7%)",
+    "rho thresholds from bias = rho/(1-rho) x repeat noise: 0.22, 0.19, 0.64, 0.52, 0.04; NB2 and FLUX D reach 0 at 0.30 and 0.32",
+    "Genuine controls (diagnostics_v3 JSON): Table 15 means and ranges; 5.1-9.1% of splits above 1 in features; 0% in CLIP/CSD",
+    "Table 26 arithmetic: mean changes +2.7, +10.0, +16.1; shift ranges -5.4..+12.5 (CLIP) and +0.9..+26.8 (CSD)",
+    "Table 25: Cezanne least shared in 11/12, minimum 34.6%; Table 22 changes <= 1.6 points (settings) and <= 0.5 points (unit prototypes)",
+    "Flare vs Sunburst farther apart than repeats in 91.7% of cells in CLIP (diagnostics_v5 JSON)",
+    "Drift predictive gains -0.86/-3.38/-2.28/-2.62/-0.72/-1.19% (timing JSON), which exposed the sign error; median repeat gaps 2.9-3.3 min, maximum 20.0 min",
+    "Algebra: Eq. 4 identity, exchangeable null 1/4, bias of H = (3/4) sum tr(Sigma_a)/n_a, D split along/off pattern, unbiasedness of distinct-works genuine control",
+    "Protocol: the 21-comparison family (6 beta + 15 D differences, Bonferroni over 21) and the 16-to-14 scene reduction match studies/painter_specificity_v1 and v2"
+  ]
+}

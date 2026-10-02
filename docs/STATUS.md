@@ -1,124 +1,98 @@
-# Current status — 2026-09-23
+# Current status — 2026-10-01
 
-LatentArtBench asks whether painter-name prompts recover differences between
-painters or mainly produce a shared painting-like appearance. The primary
-six-model experiment was collected and measured on 2026-09-11. Everything added
-since then is **retrospective analysis of retained data**: no images have been
-generated or acquired, and no paid request has been made. Recorded cumulative
-paid accounting is **$112.293676**, under the user's ceiling of strictly below $120.
+LatentArtBench asks what a painter's name adds to a text-to-image prompt: a change shared by
+all painter names, or differences that match the differences between the painters. The primary
+six-model experiment was collected and measured on 2026-09-11. Everything since is
+**retrospective analysis of retained data**: no images have been generated or acquired, and no
+paid request has been made. Recorded cumulative paid accounting is **$112.293676**, under the
+user's ceiling of strictly below $120.
 
-Work stopped on 2026-09-21 after the ICML draft reached the user's replacement
-review target. Resuming scientific work or revising a manuscript needs a new
-instruction from the user.
+On 2026-09-30 the user retargeted the paper to **TMLR**, retired the ICML draft, asked for the
+`paper/` folder to be cleaned, and asked for subagent reviews with revision until the review
+rubric passes.
 
 ## Manuscripts
 
-| Manuscript | Source and output | Content | Last assessment |
-| --- | --- | --- | --- |
-| ICML-format draft (8 main pages, 60 total) | [paper/icml.tex](../paper/icml.tex) → `output/pdf/latent_art_bench_icml.pdf` (local only, not in Git) | Most complete: primary results plus every retrospective extension below | Round-04 AI scientific review **6, 6, 4** (mean 5.33) on PDF `3fbf2daf…`; live sources are identical to the reviewed input |
-| Full-length paper (23 pages) | [paper/paper.tex](../paper/paper.tex) → [paper/paper.pdf](../paper/paper.pdf) | 2026-09-15 final editorial update; primary results, diagnostics and source-quality audit, without the ICML-era extensions | Unscored after its final update; the last scored snapshot (`_04`) received 8.0625 (Claude Code / Opus 5) and 8.8125 (Astra / xhigh) on the editorial rubric |
-| Korean translation (26 pages) | [paper/latent_art_bench_korean.tex](../paper/latent_art_bench_korean.tex) → `output/pdf/latent_art_bench_korean.pdf` (local only) | Translation of the full-length paper at commit `f9e3935` | Not reviewed; PDF SHA-256 `096db88b…` matches the 2026-09-21 record |
+| Manuscript | Source | State |
+| --- | --- | --- |
+| **TMLR submission** (lead) | [paper/tmlr/main.tex](../paper/tmlr/main.tex) → `output/pdf/latent_art_bench_tmlr.pdf` (local, not in Git) | *Proximity Is Not Specificity: What Four Painter Names Add in Text-to-Image Generation.* Anonymous, official TMLR style. Every table and figure except one image panel is generated, and all quoted numbers are checked (`make tmlr-check`). Six subagent review rounds ([reports/tmlr_review_v1](../reports/tmlr_review_v1/README.md)): all three reviewers at minor revision from round 2 on; the rubric (both criteria *yes* from all three, no factual error) was not met by round 6, the last allowed. The current sources include an unreviewed final revision addressing round 6 |
+| Korean translation of the TMLR manuscript | [paper/tmlr_ko/main.tex](../paper/tmlr_ko/main.tex) → `output/pdf/latent_art_bench_tmlr_korean.pdf` (local, not in Git) | 33-page translation of the current TMLR sources, made by an AI assistant on 2026-10-01 at the user's request and not yet read by the user. Same tables and figures; `make tmlr-ko-check` verifies that its numbers match the English text. Labels inside figures and prompt texts stay in English |
+| Full-length paper | [paper/archive/full_length_2026-09-15/](../paper/archive/full_length_2026-09-15/) | Frozen 23-page version of 2026-09-15 |
+| Korean translation of the full-length paper | same folder | Frozen 26-page translation of the full-length paper (the user's work) |
+| ICML-format draft | [reports/icml_review_v1/round_04/input/](../reports/icml_review_v1/round_04/input/) | Retired on 2026-10-01; round-04 AI review 6, 6, 4 |
 
-All scores are internal language-model assessments of exact PDF snapshots, not
-human evaluation, conference decisions or evidence of scientific validity. The
-[ICML review record](../reports/icml_review_v1/README.md) and the
-[editorial review record](../reports/paper_editorial_review_v1/README.md) keep
-every review, including low scores.
+All review scores are internal language-model assessments of exact PDF snapshots, not human
+evaluation, journal decisions or evidence of scientific validity.
 
-## Primary experiment
+## Main findings (TMLR manuscript)
 
-Six requested configurations (GPT Image 1, GPT Image 2, GPT Image 2.5 Flare,
-GPT Image 2.5 Sunburst, Nano Banana 2 and FLUX.2 Max) × 14 scenes × six prompt
-clauses × two repeats = **1,008 images**. The 649-work reference panel
-(Monet 297, Sisley 106, Pissarro 141, Cézanne 105) is compared in 31 color,
-spatial and texture features; a separate 221-work panel scales them.
+Six configurations (GPT Image 1, GPT Image 2, GPT Image 2.5 Flare and Sunburst, Nano Banana 2,
+FLUX.2 Max) × 14 scenes × six clauses × two repeats = **1,008 images**, compared with 649
+reference reproductions of Monet, Sisley, Pissarro and Cézanne in 31 color, spatial and texture
+features and in CLIP and CSD embeddings.
 
-- All six aggregate reference-aligned slopes are positive under the declared
-  simultaneous procedure, including the source-correction sensitivities.
-- FLUX.2 Max has the lowest uncalibrated error point estimate (D = 0.801;
-  0.832 with corrected source regions; 0.872 with corrected regions and scaler).
-  Its adjusted advantage over Sunburst does not survive source correction; the
-  Flare comparison stays separated. No model is shown to beat the D = 1
-  no-contrast benchmark before calibration.
-- GPT Image 2 has the lowest held-scene calibrated error estimate.
-- Alignment is uneven across artist pairs, especially Monet–Sisley.
-- An assistant audit covers all 870 reference/development sources; 131 cropped
-  images were re-measured. Its labels are not independent ground truth.
+- Beyond a generic oil-painting clause, 66.7–88.4% of the squared change the names add is shared
+  by all four names. This is **not** by itself a lack of specificity: a faithful imitator starting
+  from the same generic outputs would share 84.8–95.2%, and a generator with exact reference
+  painter differences 57.6–84.2%.
+- In CLIP and CSD, the shared change supplies 73.2–83.8% and 54.2–79.7% of the gain in mean
+  similarity to the prompted painter's works, within −2.8 to +6.5 points of a faithful imitator
+  (scene interval above 50% in 11 of 12 configuration–encoder pairs), and differences in gain
+  between configurations follow the shared term (CLIP: identical ranking; CSD: r = 0.95).
+  Proximity gain mostly measures shared movement.
+- Specificity is read from the between-name differences, separating direction from size. By
+  direction (alignment ratio), every configuration aligns positively and GPT Image 2 is best in
+  all three representations, consistent with recognition. The error D, which also penalizes size,
+  ranks them differently per representation: in the 31 features GPT Image 1, Flare and Sunburst
+  are above a no-distinction generator (97–98% of their error off the reference pattern); in CLIP
+  GPT Image 1 is lowest; in CSD four errors are resolved below 1 and none above. Content-matched targets leave
+  the embedding orderings unchanged. The 31 features separate genuine Monet and Sisley works
+  poorly. Genuine paintings sampled with distinct works score below every configuration on
+  average in all three representations.
+- Proximity, agreement and recognition favor different configurations, even within CLIP alone.
+  Texture is less shared than color (99.7% of paired resamples); texture versus spatial is
+  unresolved.
+- A separate 2,000-image SD-Turbo collection is majority-shared overall but not in texture.
 
-Reports: [primary](../reports/painter_specificity_v2/psv2-20260911/REPORT.md),
-[diagnostics](../reports/painter_specificity_review_v1/REPORT.md),
-[follow-up diagnostics](../reports/painter_specificity_review_v2/REPORT.md),
-[source quality](../reports/painter_reference_quality_v1/REPORT.md).
-
-## Retrospective extensions, 2026-09-18 to 2026-09-21
-
-Each has its own plan in `studies/`, source module, tests and hash-bound
-analysis. None collects new observations; all reuse previously exposed data.
+## Analyses added on 2026-10-01
 
 | Analysis | Result |
 | --- | --- |
-| [Direct naming decomposition](../reports/painter_specificity_review_v3/report.md) | Common movement is 66.7–88.4% of named-minus-generic change (single-scene deletion 65.9–90.2%). Monet–Sisley alignment is most positive for GPT Image 2 and negative for Sunburst. |
-| [Request timing](../reports/painter_request_timing_v1/REPORT.md) | A common linear drift model has negative held-out gain in every configuration (−0.72% to −3.38%); service independence is not established. |
-| [Learned representations](../reports/painter_learned_audit_v1/REPORT.md) | CLIP and CSD on 2,009 same-image vectors: common movement supplies 73.2–83.8% (CLIP) and 54.2–79.7% (CSD) of named-minus-generic prototype gain; Monet–Sisley alignment turns positive in both. |
-| [Held-scene prompt-name transfer](../reports/painter_prototype_transfer_v1/REPORT.md) | Common translation changes mean accuracy by +2.68 pp (CLIP) and +9.97 pp (CSD) on the primary target; centroids fitted to labeled generated images win all 12 primary combinations but use more information. |
-| [Repeat covariance scenarios](../reports/painter_repeat_covariance_v1/REPORT.md) | Fixed hypothetical correlations; three model pairs change point order. Actual covariance is not identified and no interval is repaired. |
-| [Separate SD-Turbo collection](../reports/painter_cross_cohort_v1/REPORT.md) | 2,000 retained images: 64.18% common change overall, but texture only 36.58%; pooled D 0.917 versus scene-wise D 1.637. |
-| [Reference-calibrated abstention](../reports/painter_selective_attribution_v1/REPORT.md) | Primary CSD setting: accepted error falls 26.03 pp against unrestricted prediction but only 0.526 pp against matched-margin filtering. All eight settings fail the declared joint criterion. |
+| [TMLR diagnostics v1](../reports/painter_tmlr_diagnostics_v1/REPORT.md) | Faithful-imitation benchmark, direction of the shared change, feature-family and weighting sensitivity, readout stability |
+| [TMLR diagnostics v2](../reports/painter_tmlr_diagnostics_v2/REPORT.md) | Exact-differences benchmark, scene and reference intervals, pair intervals, joint resampling of D, 31-feature separability, SD-Turbo benchmarks |
+| [TMLR diagnostics v3](../reports/painter_tmlr_diagnostics_v3/REPORT.md) | Genuine-painting controls with distinct works in all three representations (the earlier control drew with replacement), CLIP/CSD agreement intervals, normalized-prototype shares, paired feature-family contrasts |
+| [TMLR diagnostics v4](../reports/painter_tmlr_diagnostics_v4/REPORT.md) | CLIP/CSD agreement against content-matched class targets: errors change by at most 0.037, orderings unchanged |
+| [TMLR diagnostics v5](../reports/painter_tmlr_diagnostics_v5/REPORT.md) | Direction-only agreement: GPT Image 2 best in all three representations; error split along/off the reference pattern; embedding Student intervals and repeat-dependence thresholds; proximity correlations with intervals; configuration distinctness |
+
+All five plans record the values that review subagents had computed before the analyses ran.
 
 ## Decisions waiting for the user
 
-1. **ICML corrections.** The [round-04 report](../reports/icml_review_v1/review_report_2026-09-21.md)
-   lists four corrections still present in the scored PDF: the Table 2 caption,
-   the description of Frochte v2, selective-classification prior work (Jones
-   et al.) and "an coverage-matched" in the conclusion. Applying them produces a
-   new, unscored PDF.
-2. **Which manuscript leads.** The full-length paper lacks the ICML-era
-   extensions; the Korean translation follows the full-length paper.
-3. **Prospective family controls.** The [plan](../studies/painter_family_controls_v1/PLAN.md)
-   adds shared-family prompt controls: 4,608 new images (six configurations,
-   12 scenes, eight arms, eight windows). Its collector and analysis pass offline
-   qualification ([preparation record](../reports/painter_family_controls_v1/README.md)),
-   but it needs about $200 at historical rates, a proposed $350 cumulative
-   ceiling and at least 40 GiB of storage. None of these is approved and nothing
-   has been collected.
-4. **Public release.** The six-model experiment has no versioned public release
-   and no public exact-pixel archive or verified recovery route. The local
-   [numerical bundle](../reports/icml_review_v1/numeric_bundle_v1/README.md)
-   replays 16 checks but contains no pixels.
-
-## Outstanding review requests
-
-The ICML scientific reviewers still ask for evidence the project does not have:
-independent fresh observations, a shared-family prompt control, public access to
-exact pixels and a broader painter scope than four related painters with finite
-digital reference panels. Closed-service repeat dependence is unidentified, and
-the SD-Turbo check reuses the historical target. There is no human evaluation or
-perceptual validation; the user asked that none be added. Local hashes and
-replay are not independent research replication.
+1. **Submission.** Whether and when to submit to TMLR through OpenReview. The main text is
+   about 13.3 pages, so declare a long submission or cut about a page. Build the anonymous
+   supplementary archive with
+   `SUPPLEMENT_IDENTIFIERS='<names>|<handles>|<email fragments>' uv run --locked python paper/tmlr/make_supplement.py`
+   (about 54 MiB). The packager is no longer included in the archive, and it refuses to write if
+   any file, decompressed `.gz`, PDF or the written zip contains an identifier.
+2. **Anonymity and the public repository.** The GitHub repository contains the manuscript sources
+   under the author's name; TMLR forbids linking the submission to named versions. Consider making
+   the repository private during review.
+3. **Generated images.** Whether to release the 1,008 images (anonymized host now, or on
+   acceptance). Reviewers asked for this.
+4. **AI-use statement.** The manuscript states that AI assistants were used for code, the
+   reference-source audit and editing, and that the authors checked all results; confirm or edit.
+5. **Optional evidence.** A human check of the 131 AI-proposed crops and of a sample of the 230
+   AI content-label disagreements; a prospective control with stylistically distant painters, a
+   fictitious name or a group clause, and a time-separated third repeat (the unapproved
+   family-control plan would need a budget above $120).
+6. **Another review round.** The final revision after round 6 is unreviewed; a seventh round would
+   need the rubric's six-round limit lifted.
 
 ## Verification
 
-Recorded on 2026-09-23 during the documentation cleanup, which changed only
-navigation documents and the Makefile:
-
-- `make check`: Ruff passed; 1,251 routine tests and 110 SD-Turbo/selective tests
-  passed. Before the Makefile fix, Ruff reported 324 findings, all in frozen audit
-  scripts under `reports/` and one hash-bound ICML builder.
-- `make check-all`: 2,482 tests passed.
-- `make evidence`: 2,902 checks, 0 failed. `make editorial-check` passed.
-- `make specificity-check`, `review-check`, `reference-quality-check`,
-  `figures-check`, `icml-evidence-check` and `icml-extensions-check` replayed
-  exactly; no tracked result or figure changed.
-- The ICML format check passed on the reviewed build
-  (`ICML_BUILD=tmp/paper/icml-resume-build`): 8 main pages, 60 total, PDF `3fbf2daf…`.
-- The Korean translation compiled with Tectonic into a scratch folder.
-
-Repeated on 2026-09-25 before committing the cleanup, with 9.7 GiB free: `make check`,
-`make evidence`, every replay target above, `make editorial-check`,
-`make icml-artifact-check` and the reviewed-build format check passed with no
-tracked change. `make check-all` and the Korean build were not rerun. With less
-than 5 GiB free, 10 mocked-collector tests stop at the storage reserve (see
-[test scope](../tests/README.md)).
-
-Earlier receipts: the [2026-09-15 full-length validation](../reports/paper_editorial_review_v1/final_update/VALIDATION.json)
-and the [2026-09-21 ICML review verification](../reports/icml_review_v1/round_04/verification.json).
+On 2026-10-01, all 22 offline check targets gave identical results before and after removing the
+ICML sources and cleaning `paper/`. After the final (post-round-6) revision, `make check` passes
+(1,251 + 141 tests), as do `evidence`, `retrospective-check` (including diagnostics v3–v5),
+`extensions-check`, `artifact-check`, `figures-check`, `paper-archive` and `tmlr-check` (29
+generated files, 183 claims, each checked in its sentence context). The supplement rebuilds at
+72 files, 54.4 MiB, with no identifier found by the packager's scan or an independent re-scan.

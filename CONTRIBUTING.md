@@ -3,13 +3,14 @@
 LatentArtBench compares generated-image features with digital reproductions of
 paintings. Start with [current status](docs/STATUS.md), then the
 [handover](docs/AGENT_HANDOVER.md) and the [analysis catalog](docs/ANALYSES.md).
-Work paused on 2026-09-21 after the ICML draft met the user's review target;
-new scientific work or manuscript revision needs a new instruction.
+The lead manuscript is the anonymous TMLR submission in `paper/tmlr/`; new
+scientific work needs a new instruction.
 
 ## Where changes belong
 
-- `paper/`: the ICML draft, the full-length paper, the Korean translation and
-  their presentation builders. [paper/README.md](paper/README.md) owns the builds.
+- `paper/`: the TMLR manuscript and its asset builder (`paper/tmlr/`), and the
+  frozen full-length paper and Korean translation (`paper/archive/`).
+  [paper/README.md](paper/README.md) owns the builds.
 - Versioned packages in `src/latent_art_bench/`: scientific computation, with
   corresponding tests, study plans, manifests and result directories.
 - `docs/` and the README files: current navigation. Keep them short and link to
@@ -49,7 +50,8 @@ each clone; hooks can be bypassed and do not repair oversized earlier commits.
 Run checks appropriate to the change:
 
 - Documentation: working links and preserved dependencies.
-- Manuscript: the relevant build, presentation replay and page-by-page visual inspection.
+- Manuscript: the relevant build, presentation replay (`make tmlr-check` for the
+  TMLR manuscript) and page-by-page visual inspection.
 - Current analysis: targeted tests, `make check` and affected numerical replays.
 - Shared primitives or historical workflows: `make check-all` and the relevant
   evidence/replay checks.
@@ -61,6 +63,6 @@ targets make no generation requests. Passing software checks does not establish
 scientific validity.
 
 Preserve secrets, local user work, ignored image/response archives, weights and
-bound temporary files. Do not commit unlicensed artwork or the anonymous ICML
+bound temporary files. Do not commit unlicensed artwork or the anonymous TMLR
 PDF. See [artifact retention](docs/ARTIFACTS.md); ignore status is not
 permission to delete a file.

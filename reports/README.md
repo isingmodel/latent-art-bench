@@ -1,7 +1,7 @@
 # Results index
 
 Start with the primary experiment, its post-result diagnostics and the
-retrospective analyses added for the ICML draft. Other directories contain
+retrospective analyses behind the TMLR manuscript. Other directories contain
 supporting or historical evidence at their recorded paths; every result
 directory is a record and keeps its original bytes. For source code, plotting
 and offline commands, see [the analysis catalog](../docs/ANALYSES.md).
@@ -20,7 +20,7 @@ and offline commands, see [the analysis catalog](../docs/ANALYSES.md).
 [Status](../docs/STATUS.md) summarizes these results and what remains
 unresolved. The six-model study does not yet have a dedicated versioned release.
 
-## ICML-era retrospective analyses
+## Retrospective analyses
 
 Added 2026-09-18 to 2026-09-21. Each reuses previously exposed data under a plan
 fixed before its new outcomes; none collects new observations.
@@ -35,6 +35,11 @@ fixed before its new outcomes; none collects new observations.
 | [Separate SD-Turbo collection](painter_cross_cohort_v1/REPORT.md) | 2,000 retained images, 25 paired-seed blocks; [implementation](painter_cross_cohort_v1/IMPLEMENTATION.md) |
 | [Selective attribution](painter_selective_attribution_v1/REPORT.md) | Reference-calibrated abstention against matched-margin filtering; [pre-outcome readiness](painter_selective_attribution_v1/PRE_OUTCOME_READINESS.md) |
 | [Family-control preparation](painter_family_controls_v1/README.md) | Offline qualification of an uncollected, unapproved prospective study; no observations |
+| [TMLR revision diagnostics](painter_tmlr_diagnostics_v1/REPORT.md) | Faithful-imitation and exchangeable benchmarks for the shared fraction, its direction, feature-family and weighting sensitivity, and scene-bootstrap stability of the readouts; added 2026-10-01 for the TMLR revision |
+| [TMLR revision diagnostics v2](painter_tmlr_diagnostics_v2/REPORT.md) | Exact-differences benchmark, scene and reference intervals for the new quantities, joint resampling of D, 31-feature separability and SD-Turbo benchmarks; added 2026-10-01 |
+| [TMLR revision diagnostics v3](painter_tmlr_diagnostics_v3/REPORT.md) | Genuine-painting controls with two distinct works per pseudo-repeat in all three representations, CLIP and CSD agreement intervals, normalized-prototype shares and paired feature-family contrasts; added 2026-10-01 after the round-3 reviews |
+| [TMLR revision diagnostics v4](painter_tmlr_diagnostics_v4/REPORT.md) | CLIP and CSD agreement against title-derived content-class targets on the 11 non-mixed scenes, with scene intervals; added 2026-10-01 after the round-4 reviews |
+| [TMLR revision diagnostics v5](painter_tmlr_diagnostics_v5/REPORT.md) | Direction-only agreement (alignment ratio, held-out rescaled error) and its scene stability in all three representations, the split of D along and off the reference pattern in the embeddings, Student intervals, repeat-dependence thresholds, proximity correlations across configurations and configuration distinctness; added 2026-10-01 after the round-5 reviews |
 
 ## Review records
 
@@ -44,7 +49,8 @@ assessments, separate from the scientific results above; see
 
 | Record | Contents |
 | --- | --- |
-| [ICML scientific review](icml_review_v1/README.md) | Rubric, four review rounds of the ICML draft, revision records, independent audits, prospective-control proposals and the local numerical bundle |
+| [TMLR review](tmlr_review_v1/README.md) | Rubric and subagent review rounds of the TMLR manuscript, with revision records |
+| [ICML scientific review](icml_review_v1/README.md) | Rubric, four review rounds of the retired ICML draft and its exact sources, revision records, independent audits, prospective-control proposals and the local numerical bundle |
 | [Editorial review](paper_editorial_review_v1/README.md) | Reader-experience rubric, 33 internal rounds, paired external reviews and final-update decisions for the full-length paper |
 | [External reviews, 2026-09-13](../critics/ASSESSMENT.md) | Three reviews of the full-length paper and their assessment |
 
