@@ -13,7 +13,7 @@ SPECIFICITY := latent_art_bench.painter_specificity_measurement_v1
 # Scripts under reports/ are frozen audit records; lint must not require rewriting their bytes.
 LINT_SCOPE := --extend-exclude reports
 # pytest-paper.ini is hash-bound by later analyses, so newer routine suites are listed here.
-ROUTINE_EXTRA := tests/painter_cross_cohort_v1 tests/painter_selective_attribution_v1 tests/painter_tmlr_diagnostics_v1 tests/painter_tmlr_diagnostics_v2 tests/painter_tmlr_diagnostics_v3 tests/painter_tmlr_diagnostics_v4 tests/painter_tmlr_diagnostics_v5 tests/painter_specificity_v3 tests/test_repository_artifacts.py
+ROUTINE_EXTRA := tests/painter_cross_cohort_v1 tests/painter_selective_attribution_v1 tests/painter_tmlr_diagnostics_v1 tests/painter_tmlr_diagnostics_v2 tests/painter_tmlr_diagnostics_v3 tests/painter_tmlr_diagnostics_v4 tests/painter_tmlr_diagnostics_v5 tests/painter_specificity_v3 tests/painter_tmlr_diagnostics_v6 tests/test_repository_artifacts.py
 
 .PHONY: restore-analysis install-hooks git-size-check
 
