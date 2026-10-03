@@ -20,7 +20,7 @@ paper; the user approved committing the work ("Commit everything").
 
 | Manuscript | Source | State |
 | --- | --- | --- |
-| **TMLR submission** (lead) | [paper/tmlr/main.tex](../paper/tmlr/main.tex) → `output/pdf/latent_art_bench_tmlr.pdf` (local, not in Git) | *Proximity Is Not Specificity: What Painter Names Add in Text-to-Image Generation.* 38 pages. Anonymous, official TMLR style. Every table and figure except one image panel is generated, and all 225 quoted numbers are checked in their sentences (`make tmlr-check`). Revised on 2026-10-03 for the second collection; this revision has **not** been reviewed. Six earlier subagent review rounds ([reports/tmlr_review_v1](../reports/tmlr_review_v1/README.md)) ended at minor revision without passing the rubric |
+| **TMLR submission** (lead) | [paper/tmlr/main.tex](../paper/tmlr/main.tex) → `output/pdf/latent_art_bench_tmlr.pdf` (local, not in Git) | *Proximity Is Not Specificity: What Painter Names Add in Text-to-Image Generation.* 38 pages. Anonymous, official TMLR style. Every table and figure except one image panel is generated, and all 225 quoted numbers are checked in their sentences (`make tmlr-check`). Revised on 2026-10-03 for the second collection. Six earlier subagent review rounds ([reports/tmlr_review_v1](../reports/tmlr_review_v1/README.md)) ended at minor revision without passing the rubric. A new round of the revision ([reports/tmlr_review_v2](../reports/tmlr_review_v2/README.md), round 1) gave three minor revisions without a pass: the closeness claim is too strong, and four factual errors were confirmed. The revision it calls for has not been made |
 | Korean translation of the TMLR manuscript | [paper/tmlr_ko/main.tex](../paper/tmlr_ko/main.tex) → `output/pdf/latent_art_bench_tmlr_korean.pdf` (local, not in Git) | 39-page translation of the current sources, made by an AI assistant at the user's request and updated on 2026-10-03; not yet read by the user. `make tmlr-ko-check` verifies its numbers against the English text |
 | Full-length paper | [paper/archive/full_length_2026-09-15/](../paper/archive/full_length_2026-09-15/) | Frozen 23-page version of 2026-09-15 |
 | Korean translation of the full-length paper | same folder | Frozen 26-page translation of the full-length paper (the user's work) |
@@ -73,8 +73,13 @@ Cole, Asher Brown Durand), with 788 reference works chosen by the four-painter r
 
 ## Decisions waiting for the user
 
-1. **Review.** The revision for the second collection is unreviewed. A new subagent review round
-   (with the six-round limit lifted) would check it.
+1. **Revision after review.** Round 1 of the second review series
+   ([triage](../reports/tmlr_review_v2/round_01/triage.md)) found the second collection's closeness
+   claim too strong. By the faithful benchmark, closeness accounts for about 31 of the 72.7 points.
+   The Impressionists and the Hudson River School are equally close, yet 21 points apart. "Near their
+   size" for the century group holds only along the reference pattern. The round also confirmed
+   four factual errors and found prespecified v6 readouts unreported. All of this needs text and
+   table edits only; reporting H2 within pair types would need a short plan first.
 2. **Submission.** Whether and when to submit to TMLR. The main text is now longer than 12 pages,
    so declare a long submission or move material to the appendix. Build the anonymous supplement
    with `SUPPLEMENT_IDENTIFIERS='<names>|<handles>|<email fragments>' uv run --locked python paper/tmlr/make_supplement.py`

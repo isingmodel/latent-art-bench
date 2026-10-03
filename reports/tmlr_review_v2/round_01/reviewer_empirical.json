@@ -1,0 +1,50 @@
+{
+  "role": "empirical",
+  "pdf_sha256": "af4eea64c0750637d2695ce49f017ca8c45357d476eead26aed361e48fa3ecef",
+  "criterion_claims_evidence": "partially",
+  "criterion_audience_clarity": "yes",
+  "desk_reject_risk": "low",
+  "recommendation": "minor revision",
+  "confidence": 4,
+  "critical_changes": [
+    "W1 (Abstract, Sec. 1 bullet 2, Sec. 5.2, Sec. 6): Narrow the closeness claim. The second collection contrasts a distant, widely known group with a related, less widely known group whose references differ in subject composition, so it does not isolate closeness. In the primary 31 features the Impressionists and the Hudson River School have similar reference spread (H 5.92 vs 6.24; noise-corrected 5.52 vs 4.21) and similar faithful benchmarks, yet very different shared fractions (66.7-88.4% vs 89.4-98.6%) and aligned amplitudes (0.44-1.00 vs -0.01-0.20). H2 is carried by the century and cross-group pairs: mean within-Hudson Spearman is 0.09 in the features, against 0.78 within the century group. Reword 'confirms it' and 'tracks how close the painters are', report the matched-spread comparison and the within-group H2 breakdown, state that the Hudson River School's high fraction reflects a lack of differentiation (beta about 0, above the faithful benchmark for two configurations) rather than good imitation, and name reference subject composition as a further confound.",
+    "W2 (Abstract, Sec. 1, Sec. 5.2, Table 32): Qualify 'reproduce the distant painters' differences in the right direction and near their size' as applying to the amplitude along the reference pattern. Report alongside beta that the century-group differences are oversized (B/H 1.33-2.56, Q 1.41-3.13) with large off-pattern parts, and that D is 0.73-1.58 with its 95% interval including 1 for five of six configurations in the features.",
+    "W3 (Sec. 1 bullet 5, Sec. 5.3, Sec. 5.5, Appendix H): Report every readout prespecified in studies/painter_tmlr_diagnostics_v6/PLAN.md. These are eight-way recognition, the per-group Spearman between alignment ratio and recognition (century CLIP 0.29, CSD 0.64; Hudson 0.94, 0.66), and the per-group correlations of proximity gain with its shared and painter-specific terms (century CLIP 0.97, CSD 0.83 with the shared term). Scope 'recognition rises with the alignment ratio (0.94/0.89)' to the Impressionists, and revisit the 'for related painters' restriction on 'drives the differences between configurations'."
+  ],
+  "minor_changes": [
+    "Sec. 5.2: correct the sentence on predictions. The values recorded before collection were 47.0-73.3% and 90.1-96.9%, computed from the September generic outputs; the quoted 45.0-75.4% and 89.4-97.0% were recomputed from the October generic arms after collection.",
+    "Table 31 and Appendix H: H1 in the central square window is identical by construction, because the shared fraction depends only on the generated images and those images are square. Do not present it as a robustness result.",
+    "Sec. 7 and Appendix A: use the October re-collection of the identical no-clause and generic prompts (Table 34, values averaging about zero) to bound session-level repeat dependence. Keep prompt-deterministic dependence as a stated limitation.",
+    "Table 2 and second collection: report N/H and B/H with intervals per configuration, and comment on the ill-conditioning of N/(N+B). The FLUX.2 Max difference interval is [-198.2, +90.2] points, and its Hudson fraction interval is [50.1, 105.8]%.",
+    "Optional: add a non-CLIP representation such as DINOv2 or Gram-matrix statistics, since CSD shares the CLIP backbone. Alternatively, state more explicitly that the CLIP-CSD agreement is not independent evidence.",
+    "Optional: add fictitious-name and group-name ('Impressionist') arms, which Sec. 6 identifies as the decisive control and which are cheap at the reported costs.",
+    "Sec. 3 and Appendix A: cite the public descriptions of GPT Image 2.5 Flare and Sunburst (OpenAI release of 8 Sep 2026; OpenRouter IDs dated 20260908; Flare positioned as fast, Sunburst as precision- and editing-oriented). Note that collection ran two days after release.",
+    "Table 32 caption: the feature-space 'shared gain' is the squared-distance identity (Eq. 6), not Eq. 4. Explain the '-' entry for GPT Image 1 in the Hudson River School row.",
+    "Table 4: apply the bold rule to the 'shared' columns as the caption states.",
+    "Sec. 3: make the eligibility description complete (oil on canvas, collection, open licence), consistent with Table 29 and the reference rules.",
+    "Table 31: cite Mantel (1967) for the 'Mantel' label.",
+    "Clarity: shorten the number-heavy intro bullets, turn Sec. 4.3 into a definitions list or table, and move the mostly unresolved first-collection D model comparisons to the appendix to make room for the second-collection analysis.",
+    "Reproducibility: commit to releasing the 2,686 generated images, through an anonymized link during review and a permanent archive on acceptance.",
+    "Positioning: connect the argument to Frochte's (2026) shared-tradition failures. Consider citing ArtFID (Wright & Ommer 2022), and fine-art style and artist classification work (Karayev et al. 2014; Saleh & Elgammal 2016) when discussing representation separability."
+  ],
+  "factual_errors": [
+    "Sec. 5.2 (p. 9): 'The predictions recorded before collection anticipated the ordering: from the new generic outputs, a faithful imitator would show 45.0-75.4% ... and 89.4-97.0%'. The recorded predictions (Table 30; studies/painter_specificity_v3/PROTOCOL.md) are 47.0-73.3% and 90.1-96.9%, computed from September's generic outputs. The quoted ranges are post-collection values from the October generic arms.",
+    "Table 32 caption: the feature-space shared share of the centroid proximity gain is attributed to 'Eq. 4, here in the features'. The computation (painter_tmlr_diagnostics_v1.decomposition) uses the squared-distance identity of Eq. 6.",
+    "Appendix H and Table 31: H1 is presented as holding 'in the central square window' as a sensitivity result, but it is identical by construction because generated images are square and the shared fraction does not use the references."
+  ],
+  "literature_checked": [
+    "Somepalli et al. 2024, Investigating style similarity in diffusion models (CSD; GSS uses averaged artist prototypes): accurately described",
+    "Verma et al. 2025, How many images does it take? (TMLR; CSD-based imitation score with top-10 training-image similarity): accurately described and correctly placed outside Eq. 4's scope",
+    "Frochte 2026, When style similarity scores fail (arXiv 2605.09030v2; 91 artists; T2I and LoRA stress tests; shared-tradition failures across CLIP, SigLIP and DINOv2): accurately described",
+    "Su et al. 2025, Identifying prompted artist names from generated images (arXiv 2507.18633; 110 artists; content-controlled substitution; same-seed no-name comparison): accurately described",
+    "Casper et al. 2023, Measuring the success of diffusion models at imitating human artists (70 artists; CLIP identification about 81%): accurately described",
+    "Moayeri et al. 2025, Rethinking artistic copyright infringements (ICLR; ArtSavant; 20% of 372 artists): accurately described",
+    "Xing et al. 2026, Beyond Starry Night (arXiv 2608.06751; canonical shortcuts): accurately described",
+    "Deliege et al. 2025, How good is the machine at the imitation game? (J. Imaging; three expert raters; Midjourney v6): accurately described",
+    "Asperti et al. 2025, A critical assessment of modern generative models' ability to replicate artistic styles (AI-Pastiche; user surveys): accurately described",
+    "Fu et al. 2025, AI and misinformation in art (arXiv 2508.01408; VLM attribution and AI detection): accurately described",
+    "Kim et al. 2026, Context-aware multimodal AI ... five centuries of art evolution (PNAS; arXiv 2503.13531): content matches, volume and issue not verified",
+    "GPT Image 2.5 Flare and Sunburst public documentation (OpenRouter model pages dated 20260908; summaries of the OpenAI release of 8 Sep 2026): contradicts 'no further documentation'",
+    "Suggested additions, not cited: ArtFID (Wright & Ommer 2022); Mantel 1967; Karayev et al. 2014; Saleh & Elgammal 2016"
+  ]
+}

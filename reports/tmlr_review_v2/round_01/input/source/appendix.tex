@@ -1,0 +1,539 @@
+\section{Prompts, requests and provenance}\label{app:provenance}
+
+\paragraph{Scenes and prompts.}
+The 14 scene descriptions (Table~\ref{tab:scenes}) are a fixed authored panel, not a sample of
+possible content. Each prompt is the clause, a space, the scene description and ``No text or
+frame.'' The named clauses read ``Render as an oil painting in the style of'' followed by
+``Claude Monet.'', ``Alfred Sisley.'', ``Camille Pissarro.'' or ``Paul Cezanne.''; the
+artist-free prompt has no clause.
+
+\input{generated/tab_scenes.tex}
+
+\paragraph{Collection history.} A first collection attempt was stopped after a technical probe
+showed that an earlier gateway route accepted an invented model identifier, so that model selection
+could not be verified; none of its images was measured or used. The protocol was then revised to use
+explicit routes, and, before any image of the new collection existed, the scene panel was reduced
+from 16 to the 14 descriptions in Table~\ref{tab:scenes} (two scenes of the original 16 were
+omitted) to fit the budget at medium quality. Nothing was selected on the basis of outcomes.
+
+\paragraph{Request configurations.}
+All requests used the OpenRouter image API with a single fixed provider per configuration
+(OpenAI for the four GPT Image configurations, Google AI Studio for Nano Banana 2 and Black
+Forest Labs for FLUX.2 Max), fallbacks disabled, one image per request, square aspect ratio,
+and no image input or seed. The OpenAI configurations requested medium quality and an opaque
+background; Nano Banana 2 requested 1K resolution; FLUX.2 Max requested PNG output. The exact
+payloads and a randomized request order were fixed and hashed before collection, which ran on
+10 September 2026 between 15:34 and 18:21 UTC; all 1,008 requests succeeded and all images are
+$1024\times1024$ pixels with distinct hashes. The responses do not echo model, quality or size
+fields, so the labels identify requested configurations. The comparison concerns these
+configurations, not each service's best attainable quality or equal cost per image.
+
+\paragraph{Model selection.} The stopped first attempt had shown that an earlier route returned an
+image for an invented model identifier. The explicit OpenAI routes used here were not tested with
+an invalid identifier. Two observations show that the six requested configurations produced
+distinguishable outputs, although they cannot establish distinct checkpoints. First, the cost per medium-quality image differed among the OpenAI
+configurations in pre-collection probes (GPT Image 1 \$0.042, GPT Image 2 \$0.053, Flare and
+Sunburst \$0.013 each). Second, for every pair of configurations, including Flare and Sunburst (95.2,
+91.7, 100.0\% in the 31 features, CLIP and CSD), the images of the two configurations lie farther
+apart than each configuration's own two repeats in most scene--clause cells, at least 91.7\% of them
+for every pair and representation.
+
+\paragraph{Reference collections.}
+Eligible works were recorded in Wikidata as paintings with a single creator, the painter, and
+classified as outdoor places by a lexicon applied to titles and metadata that was fixed before
+any feature was measured; each needed a Wikimedia Commons reproduction at least 1,024 pixels on
+its short side. Works were assigned to the development and reference panels by a fixed hash
+rule. By a title-based content lexicon, the reference collections comprise (water, built place,
+route, open or wooded land) 191, 67, 8 and 31 Monet works; 52, 29, 9 and 16 Sisley works; 28,
+77, 12 and 24 Pissarro works; and 31, 28, 12 and 34 C\'ezanne works. Source records come from Wikimedia
+Commons \citep{wikimediacommons}; the panels were assembled before the experiment.
+
+\paragraph{Repeat dependence.}
+The cross-repeat estimators assume that the two repeats of a cell have independent errors, and
+two repeats cannot test this. If both repeats of every cell shared an error component with a
+common fraction $\rho$ of the noise power, the cross-repeat products would include that shared
+component. The squared sizes $N$ and $B$ would then be biased upward, and so would each
+configuration's error $D$, by an amount proportional to its noise power. Recomputing all 15
+pairwise differences under this assumption, three point orderings reverse for $\rho<1$: Nano
+Banana 2 and FLUX.2 Max at $\rho=0.251$, GPT Image 1 and GPT Image 2 at $\rho=0.246$, and GPT
+Image 1 and FLUX.2 Max at $\rho=0.688$. The actual dependence is not identified, so we treat the
+pairwise orderings as conditional on independent repeats. The same model moves the comparisons
+with 1: GPT Image 1's error would fall below 1 at $\rho=0.22$, whereas Flare's and Sunburst's stay
+above 1 up to $\rho=0.64$ and 0.52. Nano Banana 2's and FLUX.2 Max's adjusted errors become negative,
+which an expected squared distance cannot be, at $\rho=$ 0.30--0.32, so the point estimates imply a
+dependence below about 0.3 under this model. In the embeddings (Appendix
+Table~\ref{tab:embedding-calibration}), the CLIP errors above 1 would fall to 1 at $\rho=$
+0.03--0.14, whereas the CSD errors, all below 1, would only fall further. Appendix
+Tables~\ref{tab:robustness} and~\ref{tab:embedding-calibration} report each configuration's repeat
+noise.
+
+The request records allow one descriptive check. Scenes were requested in contiguous randomized
+blocks, and the two repeats of a cell started a median of 3.1 minutes apart (at most 20 minutes).
+A common linear drift in time, fitted to the 84 repeat differences of a configuration and
+evaluated on held-out scenes, predicts those differences worse than no drift in every
+configuration: its held-out squared prediction error exceeds that of predicting zero by 0.7--3.4\%.
+This
+argues against slow drift within the collection but cannot rule out nonlinear or shared-state
+dependence.
+
+\FloatBarrier
+\section{Feature definitions}\label{app:features}
+
+\begin{table}[ht]
+\caption{The 31 image features. Counts are scalar coordinates. Texture features describe the
+digital image; they do not measure physical paint relief.}
+\label{tab:features}
+\vspace{2pt}
+\centering\small
+\begin{tabular}{@{}p{0.14\linewidth}p{0.42\linewidth}p{0.36\linewidth}@{}}
+\toprule
+Family & Measurements & Interpretation\\
+\midrule
+Color (11) & Lightness and chroma median and IQR; chromatic fraction; hue concentration and
+entropy; color differences at three lags and their slope & Brightness, color strength and
+diversity, and how quickly colors change across the image\\[3pt]
+Spatial (8) & Spectral slope, residual and anisotropy; orientation entropy;
+horizontal--vertical balance; gradient median and IQR; quadrant divergence & Coarse versus fine
+organization, dominant directions, edge strength and regional variation in orientation\\[3pt]
+Texture (12) & Four wavelet energies, their slope and curvature; three local-binary-pattern
+entropies; three local coefficients of variation & Detail across scales, diversity of local
+patterns and local luminance contrast\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Images are orientation-corrected and converted to sRGB using valid embedded color profiles;
+unprofiled files are treated as sRGB. They are resized with Lanczos filtering to a 512-pixel
+short side without upsampling, preserving aspect ratio. No painting-region mask is applied in
+the primary analysis. The features are correlated with each other; Appendix
+Table~\ref{tab:sensitivity} and Table~\ref{tab:families} report alternative weightings.
+
+\paragraph{Color.} Features use CIELAB under D65 and the $2^\circ$ observer. Lightness and
+chroma each contribute a median and an IQR. The chromatic fraction is the share of pixels with
+$C^*\ge5$. Hue concentration is the length of the chroma-weighted circular mean hue; hue
+entropy uses 24 equal bins, normalized by the log of the bin count, with chroma weights; both
+are zero when fewer than 1\% of pixels are chromatic. At lags of 1\%, 4\% and 16\% of the short
+side, the median CIEDE2000 difference \citep{sharma2005ciede} is taken over pooled horizontal
+and vertical pixel pairs, and a log--log slope summarizes the three.
+
+\paragraph{Spatial.} Features use linear-sRGB luminance. After a Tukey window (parameter 0.1),
+32 logarithmic radial bins cover 4--128 cycles per short side; a Theil--Sen line gives the
+spectral slope and its root-mean-square residual, and power-weighted axial concentration gives
+anisotropy. Scharr derivatives give the gradient median and IQR, an 18-bin magnitude-weighted
+orientation entropy and the horizontal--vertical balance. Quadrant divergence is the mean
+Jensen--Shannon divergence of the four quadrants' orientation histograms from the global one.
+
+\paragraph{Texture.} A four-level undecimated \texttt{db2} wavelet transform
+\citep{mallat1989wavelet} gives four log mean-squared detail energies, their linear slope and
+mean second difference. Uniform local-binary-pattern entropies \citep{ojala2002lbp} use
+$(P,R)=(8,1),(16,2),(32,4)$ on quantized luminance. Three median local coefficients of
+variation use windows of 1\%, 4\% and 16\% of the short side (rounded up to odd widths) with a
+$10^{-6}$ floor on the mean.
+
+\paragraph{Scaling.} Each coordinate is centered by the median and divided by the IQR of the
+221-work development panel (101 Monet, 36 Sisley, 48 Pissarro and 36 C\'ezanne), with each
+painter given equal total weight.
+
+\FloatBarrier
+\section{Estimators}\label{app:estimators}
+
+\begin{table}[ht]
+\caption{Estimands, their meaning and their reference values. All squared sizes use
+cross-repeat products.}
+\label{tab:estimands}
+\vspace{2pt}
+\centering\small
+\begin{tabular}{@{}lp{0.52\linewidth}p{0.3\linewidth}@{}}
+\toprule
+Symbol & Meaning & Reference values\\
+\midrule
+$N$, $B$ & Squared size of the shared change beyond the generic clause, and of the
+between-name differences & ---\\
+$N/(N+B)$ & Shared fraction & 25\% exchangeable null; $N^*/(N^*+H)$ faithful imitator;
+$N/(N+H)$ exact differences\\
+$H$ & Spread of the four reference painter means, $\sum_a\|r_a\|^2$ & ---\\
+$B/H$ & Size of the between-name differences relative to the reference differences & 1 for a
+faithful imitator\\
+$\cos(c,t)$, $\lambda$ & Direction of the shared change toward the reference centroid, and the
+fraction of that distance covered & 1 and 1 for a faithful imitator\\
+$\beta$ & Aligned amplitude of the between-name differences & 1 faithful; 0 no painter
+distinctions\\
+$Q$ & Squared size of the centered generated differences relative to $H$,
+$B/H+V_{\mathrm{scene}}$ & 1 faithful; 0 no distinctions\\
+$\beta/\sqrt{Q}$ & Alignment ratio: alignment of the scene-wise differences with the pooled
+reference pattern & 1 faithful\\
+$D$, $D_{\mathrm{agg}}$ & Error of the scene-wise and of the scene-averaged differences & 0
+faithful; 1 no distinctions\\
+$V_{\mathrm{scene}}$ & Variation of the differences across scenes, $D-D_{\mathrm{agg}}$ & 0 if
+constant across scenes\\
+$D_{\mathrm{held}}$ & Error after rescaling the differences by a held-out scalar & ---\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Noise correction.} Write a repeat as $x_k=\theta+\eta_k$ with fixed mean $\theta$
+and errors of mean zero that are independent between $k=1,2$. Then
+$\mathbb E\ip{x_1}{x_2}=\|\theta\|^2$, whereas $\mathbb E\|x_1\|^2=\|\theta\|^2+\mathbb
+E\|\eta_1\|^2$. Products of two different vectors are symmetrized,
+$\frac12(\ip{u_1}{v_2}+\ip{u_2}{v_1})$. Centering across the four painters couples the painters
+within a repeat but does not introduce dependence between repeats.
+
+\paragraph{Exchangeable null.} If the four named shifts $h_a$ are independent with mean zero and
+equal expected squared size $\sigma^2$, then $\mathbb E[N]=\mathbb E\,4\|\bar h\|^2=\sigma^2$ and
+$\mathbb E[N]+\mathbb E[B]=\mathbb E\sum_a\|h_a\|^2=4\sigma^2$, so the ratio of expectations
+$\mathbb E[N]/(\mathbb E[N]+\mathbb E[B])$ is $1/4$.
+
+\paragraph{Baselines and the cross term.} Averaging scenes within repeat $k$, let $g_k$ be the
+generic-minus-free shift, $c_k$ the shared change beyond the generic clause, and $g_k+c_k$ the
+shared change against the artist-free baseline. Then
+\begin{equation}
+\underbrace{4\ip{g_1+c_1}{g_2+c_2}}_{N_{\mathrm{free}}}=\underbrace{4\ip{g_1}{g_2}}_{G}
++\underbrace{4\ip{c_1}{c_2}}_{N}
++\underbrace{4\bigl(\ip{g_1}{c_2}+\ip{c_1}{g_2}\bigr)}_{I}.
+\end{equation}
+The share of $N$ along the generic shift is $4\,\ip{c}{g}^2/(\|g\|^2N)$ with symmetrized
+products. The within-scene variant computes the shared and between-name components in each
+scene before averaging them.
+
+\paragraph{Centroid proximity.} Write the named mean for painter $a$ as $\bar z_a=\bar
+z_{\mathrm{g}}+c+e_a$ and let $t=\bar\mu-\bar z_{\mathrm{g}}$. Because $\sum_ae_a=\sum_ar_a=0$,
+the mean reduction in squared distance to the painters' reference means is
+\begin{equation}
+\frac14\sum_a\bigl(\|\mu_a-\bar z_{\mathrm{g}}\|^2-\|\mu_a-\bar z_a\|^2\bigr)
+=\underbrace{2\ip{c}{t}-\|c\|^2}_{\text{shared}}
++\underbrace{\tfrac12\textstyle\sum_a\ip{e_a}{r_a}-\tfrac14\sum_a\|e_a\|^2}_{\text{between-name}},
+\end{equation}
+which holds exactly with symmetrized cross-repeat products.
+
+\paragraph{Split of $D$.} With repeat-specific slopes $s_{sk}=\sum_a\ip{d_{sak}}{r_a}/H$ and
+residuals $o_{sak}=d_{sak}-s_{sk}r_a$ orthogonal to the reference pattern, each scene's error splits
+exactly as $(s_{s1}-1)(s_{s2}-1)+H^{-1}\sum_a\ip{o_{sa1}}{o_{sa2}}$: the error of the amplitude along
+the pattern and the off-pattern part. The protocol prescribed this split to distinguish weak or
+strong aligned responses from differences in other directions.
+
+\paragraph{Error identities.} With $\theta_{sa}=\mathbb E[d_{sak}]$ under the repeat model,
+$\mathbb E[\widehat D]=(SH)^{-1}\sum_{s,a}\|\theta_{sa}-r_a\|^2$. Writing
+$\bar\theta_a=S^{-1}\sum_s\theta_{sa}$,
+\begin{equation}
+D=\underbrace{\frac1H\sum_a\|\bar\theta_a-r_a\|^2}_{D_{\mathrm{agg}}}
++\underbrace{\frac{1}{SH}\sum_{s,a}\|\theta_{sa}-\bar\theta_a\|^2}_{V_{\mathrm{scene}}}.
+\end{equation}
+Because $\beta$ is the same for the scene-averaged differences, $Q=B/H+V_{\mathrm{scene}}$.
+Rescaling every centered generated contrast by $\kappa$ gives $D(\kappa)=1-2\kappa\beta+\kappa^2Q$,
+minimized at $\kappa=\beta/Q$ with value $1-\beta^2/Q$; we fit $\kappa=\max(0,\beta/Q)$ on 13
+scenes and score the held-out scene.
+
+\paragraph{Finite-sample bias of $H$.} With $n_a$ reference works and within-painter covariance
+$\Sigma_a$, $\mathbb E\,\widehat H=H+\frac34\sum_a\operatorname{tr}(\Sigma_a)/n_a$; subtracting
+the estimated bias lowers $H$ by 6.7\%. Because $\beta$ and $Q$ are divided by $H$ and
+$D-1=Q-2\beta$, all three scale by the same factor. Both benchmark fractions rise: $N/(N+H)$
+because $H$ falls, and $N^*/(N^*+H)$ because the noise of the centroid $\bar\mu$ adds only a third
+of the correction to $N^*$, which is much larger than $H$.
+
+\paragraph{Intervals.} For a pair of configurations, one error difference per scene gives a
+paired-scene standard error; the simultaneous half-width is $t_{13,\,1-0.05/42}$ times that
+standard error, and the six aligned amplitudes use the same adjustment. Because the scenes were
+authored rather than sampled, these intervals describe variation across these 14 scenes and do
+not generalize to a population of scenes; for the mean over these fixed scenes, the between-scene
+standard error is conservative because it also includes the variance of the scene effects. In
+5,000 simulated experiments per scenario with the same
+design, independent Gaussian, heavy-tailed heteroskedastic and scene-interaction errors gave
+simultaneous coverage of 96.0\%, 97.4\% and 99.7\%, whereas a configuration-specific state
+shared by all scenes and both repeats reduced it to 0.04\%. In that scenario, which would arise if a
+closed service drifted or cached state during the collection so that both repeats of every cell
+moved together, the cross-repeat products no longer remove the noise, and every interval is shifted.
+Two repeats cannot rule it out, which is why repeat dependence is listed as a limitation.
+Reference resampling draws 1,000 bootstrap samples of the reference works within painter, holding
+the generated vectors fixed. Scene-bootstrap draws in which a denominator is not positive are
+dropped and counted.
+
+\FloatBarrier
+\section{Additional results for the 31 features}\label{app:hand}
+
+\input{generated/tab_decomposition_full.tex}
+\input{generated/tab_families.tex}
+\input{generated/tab_direction.tex}
+\input{generated/tab_robustness.tex}
+\input{generated/tab_pairs.tex}
+\input{generated/tab_calibration.tex}
+\input{generated/tab_genuine.tex}
+\input{generated/tab_coverage.tex}
+\input{generated/tab_pair_intervals.tex}
+\input{generated/tab_family_agreement.tex}
+\input{generated/tab_sensitivity.tex}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\linewidth]{fig_pairs.pdf}
+\caption{Aligned amplitude and error for each of the six painter pairs (M: Monet, S: Sisley,
+P: Pissarro, C: C\'ezanne), using all 31 features and normalized by the squared reference
+distance of each pair. An amplitude of 1 matches the reference, negative values point the
+opposite way, and an error of 1 corresponds to no distinction. Negative errors can arise from
+repeat correction.}
+\label{fig:pairs}
+\end{figure}
+
+\paragraph{Full decomposition.} Table~\ref{tab:decomposition-full} gives all components; against the
+artist-free baseline the shared component is $N_{\mathrm{free}}=G+N+I$, with $G$ the squared
+generic-minus-free shift and $I$ a signed cross term (Appendix~\ref{app:estimators}). Against
+the artist-free baseline, 82.5--95.7\% of the squared change is shared; this includes the
+painting instruction itself, and computing both components within scenes gives 88.6--97.2\%.
+Against the generic baseline the within-scene shares are 52.8--93.6\%. Table~\ref{tab:robustness}
+reports centroid proximity in squared standardized units.
+
+\paragraph{Feature families.} Table~\ref{tab:families} gives the shared fraction by family, with the
+mean faithful and exact-differences values. The faithful benchmark is higher for texture than for
+color (+2.1 points), the exact-differences benchmark lower ($-$3.2 points; both computed before
+rounding), so neither benchmark explains the texture--color difference alone. Reweighting the 31
+features gives shared fractions of 66.1--89.8\% (equal family weights) and 65.8--86.9\%
+(development covariance), and deleting any single feature keeps the fraction within 64.8--89.6\%. Scene resamples in
+which a family's denominator was not positive were dropped: 32 of 5,000 for the spatial and 4 for
+the texture mean, and 35 for the paired family differences.
+
+\paragraph{Genuine-painting controls.} For each of 1,000 random splits, the works in each
+painter's collection (or each painter and content class) are divided into two disjoint halves;
+the smaller half estimates the target, and the other supplies two distinct works per painter for
+each of 14 pseudo-scenes (11 with content classes), which are scored with the same error $D$ in
+each representation (Table~\ref{tab:genuine}). An earlier version of this control drew the two
+works with replacement, so that both pseudo-repeats could be the same painting; the product of a
+work with itself adds its within-painter variance, which inflated that version's means (0.234,
+0.753 and 0.731, first column). With distinct works the pseudo-repeats are unbiased for the
+painter's mean, so the pooled control's expected value is the noise of the target alone: for a
+target estimated from about half of each collection, the term $\frac34\sum_a\operatorname{tr}
+(\Sigma_a)/n_a$ of Appendix~\ref{app:estimators} is about twice the 6.7\% of $H$ found for the full
+collections, close to the observed 0.125. Content-class sampling adds the difference between class
+and pooled means (0.185), and class-specific targets rest on fewer works (0.328). The generated
+errors are scored against the full collections, whose target noise is the 6.7\% removed by the
+correction of $H$ (Table~\ref{tab:robustness}). These controls therefore describe what genuine
+paintings score under this design; they do not bound what a generator could reach.
+
+\paragraph{Feature separability.} Classifying each of the 221 development works by its nearest
+reference mean in the 31 standardized features gives 49.8\% macro accuracy, with 39.6\% of Monet
+and 30.6\% of Sisley works correct; the embeddings give 79.8\% (CLIP) and 79.6\% (CSD).
+
+\paragraph{Painter pairs and coverage.} Table~\ref{tab:coverage} shows that the aggregate
+aligned response rests mostly on the first reference component, which accounts for 66.3\% of
+the reference spread, and that omitting C\'ezanne removes much of it. Stronger pair alignment
+does not ensure lower pair error: GPT Image 1 has weaker Monet--Sisley alignment than GPT Image
+2 but lower error for that pair (Figure~\ref{fig:pairs}). For Flare, Sunburst and Nano Banana
+2, swapping the Monet and Sisley reference labels lowers the overall error, as it must when the
+pair alignment is negative.
+
+\paragraph{Scene aggregation and rescaling.} Nano Banana 2 has the largest scene variation and
+FLUX.2 Max the smallest, which explains their reversal between $D$ and $D_{\mathrm{agg}}$. GPT
+Image 2's differences are about twice the reference size in squared size (1.49 times in norm), so
+shrinking them to about 0.45 of their size removes more off-pattern difference than aligned
+response. Deleting any scene and
+refitting the whole procedure preserves GPT Image 2's advantage after rescaling.
+
+\paragraph{Distributions.} Table~\ref{tab:diversity} gives the prespecified distribution
+diagnostics. The 28 images named for a painter span 14 scenes, yet their total variance is 0.25--0.88
+of that of the painter's reference works. The named images are closer than the generic images to the
+painter's works in energy distance in 21 of 24 configuration--painter combinations.
+Figure~\ref{fig:projection} shows each configuration's scene-averaged centered named means next to
+the reference differences on the first two reference axes, which carry 87.0\% of $H$.
+
+\input{generated/tab_diversity.tex}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\linewidth]{fig_projection.pdf}
+\caption{Reference differences $r_a$ (squares) and each configuration's scene- and
+repeat-averaged centered named means (circles) on the first two principal axes of the 31-feature
+reference differences (M: Monet, S: Sisley, P: Pissarro, C: C\'ezanne; gray lines join each
+painter's two points). Point values; the remaining axes are not shown.}
+\label{fig:projection}
+\end{figure}
+
+\paragraph{Reference sensitivity.} The content-matched target uses the title-derived water,
+built and land classes for the 11 non-mixed scenes; works in the route class enter the pooled
+target but no class target, because no scene belongs to that class. The source audit recorded removable
+frames, margins, labels and calibration strips; 43 uncertain boundaries were left unchanged. A
+visual content audit of the same reproductions disagreed with the title-derived class for 230
+works; replacing the title-derived with visual labels also leaves FLUX.2 Max with the lowest
+error. All works and features are retained under every correction.
+
+\FloatBarrier
+\section{Learned embeddings}\label{app:learned}
+
+\paragraph{Extraction.} We used the public checkpoints
+\texttt{openai/\allowbreak clip-\allowbreak vit-\allowbreak large-\allowbreak patch14} and
+\texttt{tomg-\allowbreak group-\allowbreak umd/\allowbreak CSD-\allowbreak ViT-\allowbreak L}. CSD uses its released style projection of the CLIP visual
+backbone; its release notes a discrepancy with the published benchmark numbers, so we
+characterize the released checkpoint without claiming to reproduce those numbers. Every image
+is orientation- and color-corrected as above, resized bicubically to a 224-pixel short side,
+center-cropped to $224\times224$ and normalized with the CLIP channel statistics. Embeddings
+are unit-normalized 768-dimensional vectors; we use their Euclidean and cosine geometry without
+scaling or dimension selection. Backend and batch-size checks on fixed test cases agreed to
+within $1.3\times10^{-6}$ per coordinate.
+
+\paragraph{Prototype gain.} With unnormalized prototypes $\mu_a$ (means of unit reference
+embeddings), $g_a^\top\mu_b$ is the average image-to-reference cosine similarity. Writing
+$g_a=\bar g+d_a$ and $\mu_a=\bar\mu+r_a$,
+\begin{equation}
+\frac14\sum_a g_a^\top\mu_a-g_{\mathrm g}^\top\bar\mu
+=(\bar g-g_{\mathrm g})^\top\bar\mu+\frac14\sum_a d_a^\top r_a
+=(\bar g-g_{\mathrm g})^\top\bar\mu+\frac{H\widehat\beta}{4},
+\end{equation}
+because $\sum_a r_a=\sum_a d_a=0$. The first term cannot depend on which name produced which
+images; permuting the painter labels of the generated images changes only $\widehat\beta$. The
+faithful value sets $g_a=\mu_a$, giving the shared fraction $(\bar\mu-g_{\mathrm
+g})^\top\bar\mu/[(\bar\mu-g_{\mathrm g})^\top\bar\mu+H/4]$. Replacing $\mu_a$ by the unit
+prototype $u_a=\mu_a/\|\mu_a\|$ keeps the score linear in the image embedding, so the same
+identity holds with $u_a$ in place of $\mu_a$ (Table~\ref{tab:learned-settings}).
+
+\input{generated/tab_stability.tex}
+\input{generated/tab_learned_settings.tex}
+\input{generated/tab_embedding_calibration.tex}
+\input{generated/tab_learned_squared.tex}
+\input{generated/tab_per_painter.tex}
+
+\paragraph{Error parts and repeat dependence.} Table~\ref{tab:embedding-calibration} gives the split
+of $D$, Student intervals for $\beta$ and the repeat noise in all three representations. In the
+embeddings the off-pattern part also dominates, and the amplitude along the pattern contributes
+more than in the features.
+
+\paragraph{Crops.} Generated images are square, so the encoders' center crop sees nearly the whole
+image, whereas non-square reference reproductions lose their periphery. For the 31 features the
+comparable square-window sensitivity leaves FLUX.2 Max with the lowest error (Appendix
+Table~\ref{tab:sensitivity}).
+
+\paragraph{Scope.} CSD is built on the CLIP backbone and both encoders see the same images, so
+their agreement is weaker evidence than agreement between independent representations would be. All
+four painters appear in CSD's style-tag vocabulary, and the overlap between either encoder's
+training data and our references is unknown. As a check on the reference panels, the primary
+prototypes classify the 221 development works with 79.8\% (CLIP) and 79.6\% (CSD) macro
+accuracy.
+
+\FloatBarrier
+\section{Held-scene prompt-name recognition}\label{app:transfer}
+
+\input{generated/tab_transfer.tex}
+
+For each configuration and held-out scene $s$, let $x$ be a unit embedding of a named image
+from scene $s$ and $u_a=\mu_a/\|\mu_a\|$ the normalized reference prototypes. The reference rule
+(Ref.) is $\arg\max_a x^\top u_a$. The shift rule computes $t_{-s}=\frac14\sum_a\mu_a-\bar
+g_{-s}$, where $\bar g_{-s}$ is the mean of the 104 named embeddings from the other 13 scenes,
+and predicts $\arg\max_a(x+t_{-s})^\top u_a$. The translation adds $t_{-s}^\top u_a$ to painter
+$a$'s score; these shifts differ between painters, which is why recognition can change. Because the
+same vector is added to every named image, the centered contrasts $d_{sak}$, and hence $\beta$, $Q$
+and $D$, are unchanged. The generated-prototype rule (Gen.) uses the normalized mean of the 26
+labeled training embeddings for each painter. Held-scene repeats never enter the fit, and the
+artist-free and generic images are not used. The question was chosen after the reference-rule
+confusions were known; the rules were fixed before the translated outcomes were computed. Folds
+overlap and scenes are authored, so these are descriptive out-of-fold results. The mean changes
+from the reference rule are +2.7 (CLIP) and +10.0 points (CSD) for the shift rule; for FLUX.2 Max in
+CSD the shift corrects 39 and harms 9 of 112 decisions. The generated-prototype rule outperforms
+both reference-based rules in all 12 configuration--encoder combinations, so the prompted names
+are more separable within each generator's own outputs than with respect to the historical
+references. Across the four
+combinations of reference source (full reproductions or audited painting regions) and reference
+target (primary collection or development panel), the mean translation gains are 2.2--4.0 points
+(CLIP) and 9.7--10.1 points (CSD).
+
+\FloatBarrier
+\section{The SD-Turbo collection}\label{app:sdturbo}
+
+The collection was generated on 5 September 2026 with \texttt{stabilityai/sd-turbo} at
+$512\times512$ pixels, one denoising step and guidance scale zero, for an earlier, unpublished
+distance analysis by the same project. It crosses 16 scenes, 25 repeat blocks and five
+conditions (the baseline and four names), 400 images per condition. Within each scene and
+block, all five conditions use the same seed. Its image hashes are disjoint from the main
+collection, and its 16 scene descriptions are shorter, class-level texts, different from the 14
+main descriptions (for example, ``a riverbank landscape, with water organizing the
+composition''), and the baseline prompt already requests an oil painting, with the names inserted
+as ``by [painter]''.
+
+For block vectors $v_b$, $b=1,\dots,K$ with $K=25$, the estimator
+$U(v)=[K(K-1)]^{-1}\sum_{b\ne b'}\ip{v_b}{v_{b'}}$ replaces the two-repeat product. Averaging
+scenes within each block, let $\delta_{ba}$ be the named-minus-baseline shift, $c_b$ its mean
+over names and $e_{ba}=\delta_{ba}-c_b$. The shared component is $4U(c)$ and the between-name
+component is $\sum_aU(e_a)$. Because products are formed only between different blocks,
+correlation among the five seed-matched conditions within a block is allowed. The reference
+means and scaling are those of the main experiment. Deleting each block once gives the reported
+ranges, which describe sensitivity to single blocks. The faithful and exact-differences benchmarks use
+the block means of the baseline arm and the same cross-block products. Table~\ref{tab:sdturbo}
+gives the values by feature family. Across all features the shared fraction is 64.2\%
+(63.9--64.6\% across block deletions), 57.5\% in color and 84.9\% in spatial features but 36.6\%
+in texture (36.2--36.9\%); within scenes it is 72.4\% overall and 48.5\% for texture. The
+exact-differences value in texture is 46.5\%. SD-Turbo's aligned amplitude is 0.618, its
+scene-averaged error 0.917 and its scene-wise error 1.637, and its Monet--Sisley alignment is
+0.471. The collection reuses the same references and was analyzed before in other ways.
+
+\input{generated/tab_sdturbo.tex}
+
+\FloatBarrier
+\section{The second collection}\label{app:second}
+
+\paragraph{Protocol and amendments.} After the four-painter results and the first rounds of
+review, a protocol for a second collection named the two further groups, fixed the tests H1 and H2
+(Section~\ref{sec:inference}) and the per-group analysis, and was frozen with the request frame
+before any image was generated; the plan for the embedding readouts (shared-fraction intervals,
+recognition and proximity) was fixed while the images were being collected and before any was
+measured. The reference rules were amended twice before the first request. First, the protocol's
+minimum of 60 works per painter was withdrawn so that the new collections are treated exactly like
+the four-painter collection, which had none; three Hudson River painters and Kirchner fall below it
+(Table~\ref{tab:v3-panels}). Second, Wikimedia Commons now serves only standard thumbnail widths,
+so the rendered files are 1,280, 1,920 or 3,840 pixels wide (or the original), all reduced to a
+512-pixel short side for measurement. The title lexicon keeps every term of the four-painter
+lexicon and adds place and landscape terms for the new painters' titles (for example Yosemite,
+Catskill, piazza and wheatfield) and exclusion terms for figure and interior titles that those
+words would otherwise admit; the terms were fixed from the titles before any image was requested.
+A first proposal for the related group, four Russian landscape painters, was replaced before any
+reference was acquired, because Wikidata records too few documented oil paintings for three of them.
+
+\input{generated/tab_v3_panels.tex}
+
+\paragraph{References and predictions.} Of 790 works admitted after merging two duplicates, one
+file in an unsupported format could not be read and one in an unprofiled non-RGB color space could
+not be measured, as for the four-painter collection, leaving 788 (Table~\ref{tab:v3-panels}). The
+predictions recorded before collection (Table~\ref{tab:v3-predictions}) use the first collection's
+generic outputs; the four-painter rows reproduce this paper's values. The CLIP and CSD checkpoints,
+deleted after the first collection's extraction, were downloaded again at the same revisions and
+matched their recorded hashes.
+
+\input{generated/tab_v3_predictions.tex}
+
+\paragraph{Collection.} The six configurations kept the first collection's routes and request
+fields; tests in the code check that the no-clause and generic requests are identical to the first
+collection's for every configuration and scene, and the gateway listed every route at unchanged
+prices on the day of collection. The 1,680 requests were randomized within scene blocks of 120
+with a new seed. Two requests were refused by the provider's safety system (HTTP 400, no charge)
+for prompts that name Durand and Bierstadt with ordinary landscape scenes; under the protocol they
+are recorded and not repeated. Two gateway timeouts (HTTP 503) were repeated successfully. The new
+charges were \$72.93. The collector reserves \$5 for every request until its charge is known and
+keeps that reservation when a failure reports no charge, so the two timeouts held \$10 that the
+bookkeeping never released; the spending ceiling was therefore raised from \$200 to \$220 in a
+recorded amendment, which changed no other rule.
+
+\input{generated/tab_v3_tests.tex}
+
+\paragraph{Tests and sensitivity.} H1 and H2 hold in every representation, in the central square
+window and, for H2, without the correction for panel size (Table~\ref{tab:v3-tests}). The
+per-configuration differences in shared fraction are large in every configuration; for FLUX.2
+Max the adjusted interval is wide because both of its fractions are unstable under resampling
+(Table~\ref{tab:v3-shared}).
+
+\input{generated/tab_v3_detail.tex}
+\input{generated/tab_v3_embeddings.tex}
+
+\paragraph{Change between the collections.} The no-clause and generic requests of the two
+collections are identical. Relative to the first collection's repeat noise, the squared distance
+between their scene means, estimated without repeat noise, ranges from $-$0.61 to 0.48 over
+configurations and arms in the 31 features and from $-$0.29 to 0.24 in the embeddings
+(Table~\ref{tab:v3-drift}); values near zero mean no change beyond the noise between two repeats.
+
+\input{generated/tab_v3_drift.tex}
+
+\FloatBarrier
+\section{Evidence and replay}\label{app:replay}
+
+Every analysis in this paper reads retained feature vectors or embeddings and writes a versioned
+result file whose inputs are recorded by SHA-256. All tables and Figures~\ref{fig:benchmark}, \ref{fig:v3-pairs}, \ref{fig:pairs}
+and~\ref{fig:projection} are generated from those result files, and Figure~\ref{fig:schematic} by
+the same script; Figure~\ref{fig:examples} is a static image panel whose bytes and selection manifest are
+checked by hash. The check script verifies the input hashes, regenerates every generated table and
+figure byte for byte, and confirms that each registered number quoted in the text equals its
+recomputed value and appears in the sentence recorded for it. These checks establish that the
+reported numbers follow from the retained measurements; they do not re-extract features from
+pixels.

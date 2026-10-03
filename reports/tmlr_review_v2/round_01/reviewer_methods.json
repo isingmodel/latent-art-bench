@@ -1,0 +1,47 @@
+{
+  "role": "methods",
+  "pdf_sha256": "af4eea64c0750637d2695ce49f017ca8c45357d476eead26aed361e48fa3ecef",
+  "criterion_claims_evidence": "partially",
+  "criterion_audience_clarity": "yes",
+  "desk_reject_risk": "low",
+  "recommendation": "minor revision",
+  "confidence": 4,
+  "critical_changes": [
+    "Calibrate the closeness claim (Abstract ll. 24-26 'confirms it'; Section 5.2 title; Section 6). Replace 'confirms' with 'is consistent with' and name the closeness-familiarity confound in the abstract. In Section 5.2, report the Impressionist-Hudson comparison at matched closeness: H 5.92 vs 6.24 and preregistered faithful benchmarks 84.8-95.2% vs 90.1-96.9%, yet observed fractions differ by 23-28 points in five of six configurations; for GPT Image 1 the faithful prediction is higher for the Impressionists (95.2 vs 90.5) while the observed fraction is far lower (71.3 vs 95.7). State that closeness predicts the faithful benchmark, while the observed fraction also depends on how much a generator differentiates the names. The Hudson River School's high fraction occurs with beta near 0, so it is not the good-imitation case. Report H2 within subsets of pairs (recomputed: 0.78 within the century group, 0.74 across groups, 0.09 within the Hudson River School). Text edit only.",
+    "Make the century-group size claim consistent with the paper's direction-versus-size framework (Abstract ll. 33-35 'near their size'; Intro bullet 2; Section 5.2 'roughly in size'). Beta (0.84-1.29) is the aligned amplitude only. The total size is Q 1.41-3.13 (1.2-1.8 times the reference norm), and the prespecified error D is 0.73-1.58 with only FLUX.2 Max's interval below 1, about the same as the Impressionists' 0.80-1.74. Reword accordingly and report the century group's D in Section 5.2. Text edit only."
+  ],
+  "minor_changes": [
+    "Report how many H1 bootstrap draws had non-positive denominators or fractions outside [0,1] (FLUX.2 Max: 90 of 5,000 Hudson draws with N+B <= 0; 150 century and 237 Hudson draws outside [0,1]). Reconcile Appendix C's 'dropped and counted' rule with the frozen H1 code, which keeps these draws, and explain FLUX.2 Max's [-198.2, +90.2] in the caption of Table 2.",
+    "Add a coverage check (simulation or jackknife/BCa comparison) for the percentile intervals of ratio statistics computed from 12-14 scenes, or state that their coverage is unverified; the simulation in Appendix C covers only the Student intervals.",
+    "Label the cross-group comparison of alignment ratios (century 0.70-0.80 vs Impressionists at most 0.67) as descriptive, noting that Q is scaled by a group-specific H that differs 5.6-fold.",
+    "In Section 5.1 and the caption of Table 1, flag the generic-baseline split (66.7-88.4%) as added after collection, and give the prespecified artist-free split (82.5-95.7%) beside it.",
+    "In the supplement, explain that freeze.json binds PROTOCOL.md even though the file's header says 'draft / Not frozen', and state that the H2 panel-size correction was fixed in the frozen analysis code rather than in the protocol prose.",
+    "Optional, with existing data: compare the two new groups' noise-corrected shared changes with each other (cosine -0.17 to 0.65) and with their targets (cosine 0.66-0.95), as a partial check on a generic 'any artist name' effect.",
+    "Shorten the main text toward TMLR's regular length (currently about 16 pages): split the definitions in Section 4.3 into a list, move the history of the with-replacement control and some sensitivity detail to the appendices, explain the '-' entry in Table 32, and change 'dotted' to 'dashed' in the caption of Figure 3.",
+    "Commit to releasing the generated images, or a hashed archive of them, on de-anonymisation, so that features can be re-extracted from pixels."
+  ],
+  "factual_errors": [
+    "Appendix C states that scene-bootstrap draws with a non-positive denominator are dropped and counted, but the frozen H1 code keeps them (90 of 5,000 draws for FLUX.2 Max with the Hudson River School), and the paper does not report the count."
+  ],
+  "verified_numbers": [
+    "build_assets.py --check: ok, 37 generated files and 225 claims",
+    "H = 5.915 (Table 10), recomputed from raw reference features and the scaler",
+    "Table 1, all six rows (fraction, N/H, B/H, faithful, exact differences): exact match from raw features with independent code",
+    "Table 12 cos(c,t) and lambda: exact match",
+    "Table 5 beta, Q, beta/sqrt(Q), D for all six configurations: exact match; D = 1 - 2beta + Q holds",
+    "Simultaneous beta intervals (GPT Image 1 [0.709, 1.168]; FLUX.2 Max [0.239, 0.701]): exact, with t(13, 1-0.05/42)",
+    "Table 14 simultaneous intervals for Flare-FLUX [0.256, 1.618], Sunburst-FLUX [0.058, 1.623], GPT1-FLUX [-0.037, 1.580]; 2 of 15 resolved",
+    "GPT Image 1 D, Bonferroni over six configurations, [0.935, 2.210]",
+    "FLUX.2 Max shared-fraction interval and obs<faithful share: own bootstrap [77.1, 94.2] and 85.6% vs reported [76.8, 94.2] and 84.1% (Monte Carlo agreement)",
+    "Tables 3, 4 and 6 (CLIP and CSD gain, shared, painter-specific, share, recognition, beta, Q, alignment ratio, D): exact match; Eq. 4 holds to 1e-12",
+    "corr(gain, shared) 0.96/0.95; CSD corr(gain, painter-specific) -0.65; variance ratio 10.8 (11)/5.8; Spearman(recognition, alignment ratio) 0.94/0.89",
+    "Second collection: 12 complete scenes (refusals GPT1/scene 8/Bierstadt and Sunburst/scene 5/Durand)",
+    "Table 2 per-group fractions and per-configuration differences; H1 pooled -72.7 points (own bootstrap [-76.6, -61.8] vs reported [-76.5, -62.6])",
+    "H2 mean Spearman 0.849 (per configuration 0.77-0.92; uncorrected 0.84); exact p 0.00027 (features), 0.00037 (CLIP), 0.00055 (CSD)",
+    "Table 32 beta, Q, alignment ratio and D for both groups: exact match",
+    "Hudson H corrected 4.21/6.24 = 0.676 (the 'beta near 0.68' statement)",
+    "New charges $72.93 = 195.22 - 112.29 - 10 holds",
+    "Preregistration: freeze.json hashes of PROTOCOL.md and analysis.py match the shipped files; freeze 01:16:15 UTC precedes the first request 01:16:24 UTC; measurement 07:11 UTC; Table 30 matches predictions.json",
+    "Algebra: D = 1 - 2beta + Q; exchangeable null 1/4; bias of H = (3/4) sum tr(Sigma_a)/n_a, with the centroid adding a third of that to N*; Eq. 6; Eq. 4/8"
+  ]
+}

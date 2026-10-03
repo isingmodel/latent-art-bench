@@ -1,0 +1,49 @@
+{
+  "role": "editor",
+  "pdf_sha256": "af4eea64c0750637d2695ce49f017ca8c45357d476eead26aed361e48fa3ecef",
+  "criterion_claims_evidence": "partially",
+  "criterion_audience_clarity": "yes",
+  "desk_reject_risk": "low",
+  "recommendation": "minor revision",
+  "confidence": 4,
+  "critical_changes": [
+    "C1: Recalibrate the second-collection claim. The paper's own faithful (closeness-only) benchmark predicts about -31 of the observed -72.7-point century-minus-Hudson difference, and about -4 against an observed -21 for Impressionists versus Hudson (Table 2 means). Add the faithful and exact-differences contrasts to Table 2, state that the remainder reflects how strongly the generators separate the names (confounded with familiarity), and reword 'confirms it' (abstract), Intro bullet 2 and the Sec. 5.2 heading 'The shared fraction tracks how close the painters are'.",
+    "C2: Replace 'near their size' (abstract) and 'roughly in size' (p. 11) for the century group. Table 32 gives Q = 1.41-3.13 and D = 0.73-1.58 in the 31 features, with only FLUX.2 Max resolved below 1. The agreement is in direction and in amplitude along the reference pattern, with large off-pattern differences.",
+    "C3: Make the generated images (2,686, or the 512-px versions actually measured) available through an anonymized external host now, or commit in the paper to releasing them on acceptance. Two of the six configurations are undocumented and may no longer exist, so the images are the only primary evidence (p. 16: 'features cannot yet be re-extracted from pixels by others')."
+  ],
+  "minor_changes": [
+    "m1: Remove or explain 'after the results above and the first rounds of review' (p. 4) and 'After the four-painter results and the first rounds of review' (App. H, p. 34). If this is a resubmission of a rejected TMLR paper, link the earlier submission per TMLR policy.",
+    "m2: Shorten the 285-word abstract to about 200 words with at most three numerical results. Avoid causal 'drives' for a six-point correlation.",
+    "m3: Rewrite Intro bullet 4 ('Descriptively, in the 31 features, which separate genuine Monet and Sisley works poorly, Flare and Sunburst err more than a generator making no painter distinctions ...') as a one-sentence finding and move the detail to Sec. 5.4.",
+    "m4: Slim Sec. 4.3 to beta, Q, beta/sqrt(Q) and D. Move D_agg, V_scene, D_held and the scene-averaged alignment to Appendix C, and add a schematic of along- versus off-pattern differences.",
+    "m5: Rewrite 'so an imitator of the corrected means would still show beta near 0.68 against the observed pattern' and 'The Impressionists lie between the two groups' (p. 11) so that the pattern and the quantity are named.",
+    "m6: Mention in the main text that in the 31-feature squared-distance proximity (Eq. 6, Table 32) the shared term still supplies 73.0-100.7% of the century group's gain in five of six configurations, and explain the difference from the linear embedding readout (6.5-49.0%).",
+    "m7: In Sec. 5.1, state that the prespecified artist-free split gives 82.5-95.7% and that the generic baseline, adopted after collection, is the conservative choice.",
+    "m8: Explain the FLUX.2 Max interval [-198.2, +90.2] in the Table 2 caption, and the '-' entry in Table 32.",
+    "m9: State in the Figure 4 caption which Spearman statistic the panel titles show (the mean of per-configuration correlations, per the H2 definition, or the correlation of configuration-averaged distances as plotted).",
+    "m10: Table 31 / App. H: say that H1 is unchanged by construction in the central-square row (the shared fraction does not use the references) rather than presenting it as a robustness result.",
+    "m11: In Sec. 4.5, state explicitly that the prespecified PCA display of full distributions was replaced by a projection of means, and why.",
+    "m12: Expand the elliptical 'a fictitious name or a clause naming the group (\"Impressionist\") would.' (p. 15).",
+    "m13 (optional): Address the familiarity confound with H2 with group membership partialled out (or stratified) and a simple familiarity proxy (Wikidata sitelinks or Commons counts) against beta across the twelve painters.",
+    "m14: Say in the abstract that four of the six configurations are OpenAI routes, two of them undocumented variants.",
+    "m15: Acknowledge in Recommendations that the genuine-painting control (Table 16) is a partial positive control, and name the missing generator-side positive control.",
+    "m16: Have a human check a random sample of the AI-audited content classes and crops (pp. 4, 15), or state why this is unnecessary.",
+    "m17: Cut repeated numbers from the Sec. 5.4 prose that already appear in Tables 5, 6 and 15. Main content is about 15 pages: enter it on OpenReview as a long submission, or shorten toward 12 pages.",
+    "m18: Fix the appendix float placement (pages 30 and 35-37 are about half empty)."
+  ],
+  "factual_errors": [],
+  "format_checks": [
+    "Style files: tmlr.sty, tmlr.bst and fancyhdr.sty SHA-256 match STYLE_PROVENANCE.json (JmlrOrg/tmlr-style-file commit 7bf90ef, modified=false); not re-downloaded from upstream.",
+    "Preamble: \\usepackage{tmlr} with no option (anonymous mode); only amsmath, amssymb, booktabs, graphicx, hyperref, url and placeins; no geometry, spacing, font or margin overrides.",
+    "Running header 'Under review as submission to TMLR' on all 38 pages; US Letter; TMLR title block renders correctly.",
+    "Anonymization: author block 'Anonymous authors / Paper under double-blind review'; PDF metadata have no Author or Title; no names, emails or local paths in the PDF bytes; no acknowledgments; figure PDFs carry Matplotlib metadata only; 'first rounds of review' phrasing flagged (m1).",
+    "Captions: all 34 table captions above their tables and all 6 figure captions below their figures.",
+    "No unresolved cross-references ('??') in the text extraction.",
+    "Broader impact statement present (p. 16): misreading risk, misuse for imitating living artists, licensing, no human participants.",
+    "Reproducibility statement and LLM-use disclosure present (p. 16), consistent with TMLR LLM policy.",
+    "Length: about 15 pages of main content, 2 of references, 20 of appendices; long submission (>12 pages of main content) on OpenReview; TMLR says length should be justified by content.",
+    "References: tmlr.bst author-year style used consistently.",
+    "Supplement: TMLR 100 MB PDF/ZIP limit; generated images excluded (C3).",
+    "Internal numerical consistency: about 100 values recomputed from the printed tables (Tables 1-6, 15, 26, 27, 32, 33; identities D=1-2beta+Q, D=D_agg+V_scene, shared+specific=total); no inconsistencies beyond the rounding the paper declares."
+  ]
+}

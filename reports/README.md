@@ -52,6 +52,7 @@ assessments, separate from the scientific results above; see
 | Record | Contents |
 | --- | --- |
 | [TMLR review](tmlr_review_v1/README.md) | Rubric and subagent review rounds of the TMLR manuscript, with revision records |
+| [TMLR review, second series](tmlr_review_v2/README.md) | Subagent review of the manuscript revised for the second collection (round 1 on 2026-10-03, not passed), with triage |
 | [ICML scientific review](icml_review_v1/README.md) | Rubric, four review rounds of the retired ICML draft and its exact sources, revision records, independent audits, prospective-control proposals and the local numerical bundle |
 | [Editorial review](paper_editorial_review_v1/README.md) | Reader-experience rubric, 33 internal rounds, paired external reviews and final-update decisions for the full-length paper |
 | [External reviews, 2026-09-13](../critics/ASSESSMENT.md) | Three reviews of the full-length paper and their assessment |

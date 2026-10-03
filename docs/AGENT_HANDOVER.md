@@ -27,6 +27,11 @@ should stay that way unless the user says otherwise.
   ICML draft and asked for subagent reviews with revision until the rubric in
   [reports/tmlr_review_v1](../reports/tmlr_review_v1/README.md) passes. Do not
   start a collection without a new instruction.
+- On 2026-10-03 the user asked for a new review round of the revision for the second
+  collection. It is recorded in [reports/tmlr_review_v2](../reports/tmlr_review_v2/README.md)
+  (own rubric; rounds only at the user's request). Round 1 did not pass; its
+  [triage](../reports/tmlr_review_v2/round_01/triage.md) lists the confirmed errors and the
+  revision they call for, which has not been made.
 
 ## Where things are
 
@@ -40,7 +45,7 @@ should stay that way unless the user says otherwise.
 | Prospective family controls (uncollected) | [package](../src/latent_art_bench/painter_family_controls_v1/), [plan](../studies/painter_family_controls_v1/PLAN.md), [preparation record](../reports/painter_family_controls_v1/README.md) |
 | Manuscript sources and builds | [Paper guide](../paper/README.md) |
 | Full-length editorial reviews | [Record](../reports/paper_editorial_review_v1/README.md), audited by [audit_paper_reviews.py](../scripts/audit_paper_reviews.py) |
-| TMLR reviews | [Record](../reports/tmlr_review_v1/README.md) |
+| TMLR reviews | [First record](../reports/tmlr_review_v1/README.md), [second series](../reports/tmlr_review_v2/README.md) |
 | ICML scientific reviews (retired draft) | [Record](../reports/icml_review_v1/README.md), including the draft's exact sources in `round_04/input/`; pixel-inventory check in [scripts/](../scripts/) |
 
 ## Checks
