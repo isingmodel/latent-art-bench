@@ -101,11 +101,11 @@
  },
  "shared_free": {
   "value": "82.5--95.7",
-  "context": "baseline, which includes the painting instruction, {}\\% (Appendix~\\ref{app:hand})."
+  "context": "artist-free baseline, which includes the painting instruction itself, the fraction is {}\\% (Appendix~\\ref{app:hand})."
  },
  "shared_generic": {
   "value": "66.7--88.4",
-  "context": "interpretable image features the shared change makes up {}\\% of the squared change."
+  "context": "In 31 interpretable image features, {}\\% of the squared change that the names add"
  },
  "shared_within_free": {
   "value": "88.6--97.2",
@@ -113,7 +113,7 @@
  },
  "shared_within_generic": {
   "value": "52.8--93.6",
-  "context": "Computed within scenes, the shared fraction is {}\\%, and against the"
+  "context": "Computed within scenes, the shared fraction is {}\\% (Appendix~\\ref{app:hand})."
  },
  "faithful_hand": {
   "value": "84.8--95.2",
@@ -393,7 +393,7 @@
  },
  "exact_corrected": {
   "value": "59.3--85.1",
-  "context": "changes, and the exact-differences fractions rise to {}\\% (Appendix Table~\\ref{tab:robustness})."
+  "context": "changes, and the exact-differences fractions rise to {}\\% (Table~\\ref{tab:robustness})."
  },
  "flux_d_corrected": {
   "value": "0.787",
@@ -733,15 +733,11 @@
  },
  "v3_century_shared@abstract": {
   "value": "17.7--29.5",
-  "context": "for four painters from four centuries the shared fraction is {}\\%, for four painters"
+  "context": "four painters from four centuries leave {}\\% of the change shared, four Hudson River School painters"
  },
  "v3_hudson_shared@abstract": {
   "value": "89.4--98.6",
-  "context": "for four painters of the Hudson River School {}\\%, and across their 28"
- },
- "v3_rho_hand@abstract": {
-  "value": "0.85",
-  "context": "painters' works (Spearman {}; CLIP and CSD embeddings agree)"
+  "context": "four Hudson River School painters {}\\%. Closeness alone"
  },
  "v3_century_shared@intro": {
   "value": "17.7--29.5",
@@ -757,7 +753,7 @@
  },
  "v3_h1_ci@intro": {
   "value": "62.6--76.5",
-  "context": "a difference of 72.7 points (95\\% interval {}), and across"
+  "context": "a difference of 72.7 points (95\\% interval {}). A faithful imitator"
  },
  "v3_rho_hand@intro": {
   "value": "0.85",
@@ -821,7 +817,7 @@
  },
  "v3_faith_hudson": {
   "value": "89.4--97.0",
-  "context": "for the century group and {}\\% for the Hudson River School. Across the 28"
+  "context": "for the century group and {}\\% for the Hudson River School, a difference of 30.9 points"
  },
  "v3_rho_hand": {
   "value": "0.85",
@@ -861,15 +857,15 @@
  },
  "v3_hudson_h": {
   "value": "6.24",
-  "context": "for panel size lowers it from {} to 4.21,"
+  "context": "for panel size lowers it from {} to 4.21;"
  },
  "v3_hudson_hc": {
   "value": "4.21",
-  "context": "lowers it from 6.24 to {}, so an imitator"
+  "context": "lowers it from 6.24 to {}; a generator reproducing"
  },
  "v3_hudson_attenuation": {
   "value": "0.68",
-  "context": "would still show $\\beta$ near {} against the observed pattern"
+  "context": "would still reach $\\beta$ of about {} against the recorded reference pattern"
  },
  "v3_prox_hudson": {
   "value": "92.5--98.3",
@@ -898,5 +894,145 @@
  "v3_refs@appendix": {
   "value": "788",
   "context": "as for the four-painter collection, leaving {} (Table"
+ },
+ "v7_closeness_share@abstract": {
+  "value": "42--58",
+  "context": "Closeness alone predicts {}\\% of that gap;"
+ },
+ "v7_closeness_share": {
+  "value": "42--58",
+  "context": "Closeness alone, however, predicts only {}\\% of the gap between the groups"
+ },
+ "v7_faith_diff@intro": {
+  "value": "30.9",
+  "context": "A faithful imitator would differ by {} points; the rest"
+ },
+ "v7_faith_diff": {
+  "value": "30.9",
+  "context": "a difference of {} points averaged over configurations (95\\% interval 26.6--32.9)"
+ },
+ "v7_faith_diff_ci": {
+  "value": "26.6--32.9",
+  "context": "averaged over configurations (95\\% interval {}); the remaining"
+ },
+ "v7_excess": {
+  "value": "41.8",
+  "context": "the remaining {} points (34.9--47.2) come from"
+ },
+ "v7_excess_ci": {
+  "value": "34.9--47.2",
+  "context": "the remaining 41.8 points ({}) come from"
+ },
+ "v7_faith_diff_clip": {
+  "value": "22.9",
+  "context": "closeness predicts somewhat more, {} of the 40.1 points in CLIP"
+ },
+ "v3_h1_clip@closeness": {
+  "value": "40.1",
+  "context": "22.9 of the {} points in CLIP and 27.3"
+ },
+ "v7_faith_diff_csd": {
+  "value": "27.3",
+  "context": "points in CLIP and {} of the 47.4 in CSD."
+ },
+ "v3_h1_csd@closeness": {
+  "value": "47.4",
+  "context": "and 27.3 of the {} in CSD."
+ },
+ "v7_imp_h": {
+  "value": "5.92",
+  "context": "in the features (reference spread {} against 6.24)"
+ },
+ "v3_hudson_h@matched": {
+  "value": "6.24",
+  "context": "(reference spread 5.92 against {}), yet"
+ },
+ "v7_matched_obs": {
+  "value": "21.4",
+  "context": "shared fraction is lower by {} points on average, against 3.7"
+ },
+ "v7_matched_faith": {
+  "value": "3.7",
+  "context": "on average, against {} points for a faithful imitator."
+ },
+ "v7_h2_century": {
+  "value": "0.78",
+  "context": "within the century group (Spearman {} in the features)"
+ },
+ "v7_h2_across": {
+  "value": "0.74",
+  "context": "and across the groups ({}), but hardly"
+ },
+ "v7_h2_hudson": {
+  "value": "0.09",
+  "context": "hardly within the Hudson River School ({}; 0.49 in CLIP and 0.27 in CSD)"
+ },
+ "v7_h2_hudson_clip": {
+  "value": "0.49",
+  "context": "(0.09; {} in CLIP and 0.27 in CSD)"
+ },
+ "v7_h2_hudson_csd": {
+  "value": "0.27",
+  "context": "(0.09; 0.49 in CLIP and {} in CSD)"
+ },
+ "v3_pred_century": {
+  "value": "47.0--73.3",
+  "context": "a faithful imitator would show {}\\% for the century group and 90.1--96.9"
+ },
+ "v3_pred_hudson": {
+  "value": "90.1--96.9",
+  "context": "for the century group and {}\\% for the Hudson River School (Appendix"
+ },
+ "v3_bh_century": {
+  "value": "1.33--2.56",
+  "context": "reference differences ($B/H$ {}, $Q$ 1.41--3.13)"
+ },
+ "v3_q_century": {
+  "value": "1.41--3.13",
+  "context": "($B/H$ 1.33--2.56, $Q$ {}), and"
+ },
+ "v3_off_century": {
+  "value": "89.8--97.9",
+  "context": "and {}\\% of their error lies off the reference pattern"
+ },
+ "v3_d_century": {
+  "value": "0.73--1.58",
+  "context": "so $D$ is {} and only FLUX.2 Max's interval lies below 1"
+ },
+ "v3_centroid_century": {
+  "value": "73.0--100.7",
+  "context": "the shared term still supplies {}\\% of the century group's gain in five configurations"
+ },
+ "v3_centroid_flux": {
+  "value": "31.5",
+  "context": "in five configurations ({}\\% for FLUX.2 Max)"
+ },
+ "v6_sp_century_clip": {
+  "value": "0.29",
+  "context": "the relation is weaker ({} and 0.64; Appendix"
+ },
+ "v6_sp_century_csd": {
+  "value": "0.64",
+  "context": "the relation is weaker (0.29 and {}; Appendix"
+ },
+ "v7_census_flux": {
+  "value": "90",
+  "context": "for FLUX.2 Max with the Hudson River School $N+B\\le0$ in {} of the 5,000 draws"
+ },
+ "v7_outside_century": {
+  "value": "150",
+  "context": "a fraction lies outside $[0,1]$ in {} draws for the century group"
+ },
+ "v7_outside_hudson": {
+  "value": "237",
+  "context": "in 150 draws for the century group and {} for the Hudson River School"
+ },
+ "v7_faith_diff@appendix": {
+  "value": "30.9",
+  "context": "century-minus-Hudson difference of {} points in the features"
+ },
+ "v7_excess@appendix": {
+  "value": "41.8",
+  "context": "so the remaining {} points come from how strongly"
  }
 }

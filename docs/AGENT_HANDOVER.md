@@ -30,8 +30,10 @@ should stay that way unless the user says otherwise.
 - On 2026-10-03 the user asked for a new review round of the revision for the second
   collection. It is recorded in [reports/tmlr_review_v2](../reports/tmlr_review_v2/README.md)
   (own rubric; rounds only at the user's request). Round 1 did not pass; its
-  [triage](../reports/tmlr_review_v2/round_01/triage.md) lists the confirmed errors and the
-  revision they call for, which has not been made.
+  [triage](../reports/tmlr_review_v2/round_01/triage.md) lists the confirmed errors. On
+  2026-10-04 the user approved the revision ("gogo"): diagnostics v7 (plan committed before it
+  ran) and the text changes in the [revision record](../reports/tmlr_review_v2/round_01/revision.md).
+  The revised manuscript is unreviewed; run a round 2 only when the user asks.
 
 ## Where things are
 

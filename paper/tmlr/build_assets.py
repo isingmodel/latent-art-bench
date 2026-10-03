@@ -121,6 +121,10 @@ INPUTS = {
         "data/manifests/painter_specificity_v3/psv3-r1/collection.json",
         "c850b97c8051dcc6c35de9a506ce15217f1763c2588551cd1fe06332e8edde86",
     ),
+    "v7": (
+        "reports/painter_tmlr_diagnostics_v7/analysis.json",
+        "385f089c29f6853d79c9560dd80243b6ac331583334f03801e4e11b6722aac74",
+    ),
 }
 
 STYLE = json.loads((HERE / "STYLE_PROVENANCE.json").read_text())["sha256"]
@@ -618,46 +622,66 @@ def v3rep(v3, rep):
     return out
 
 
-def table_v3_shared(v3, diag2) -> str:
+def table_v3_shared(v3, diag2, v7) -> str:
     hand = v3rep(v3, "hand31")
     close = hand["closeness"]
-    body = []
+    contrast = v7["representations"]["hand31"]["closeness_contrast"]
+    census = v7["representations"]["hand31"]["h1_census"]
+    body, cols = [], {k: [] for k in ("io", "if", "co", "cf", "ho", "hf")}
     for m, name in enumerate(SHORT):
         imp = diag2["hand31"][m]["point"]["all31"]
         cen, hud = hand["groups"]["century"][m], hand["groups"]["hudson"][m]
         diff = close["difference_by_configuration"][m]
         require(abs(diff - (cen["shared_fraction"] - hud["shared_fraction"])) < 1e-12,
                 "v3 closeness difference")
+        faithful = contrast["faithful_difference"][m]
+        require(abs(faithful - (cen["faithful_shared_fraction"]
+                                - hud["faithful_shared_fraction"])) < 1e-12,
+                "v7 faithful difference")
+        for key, value in zip(cols, (imp["observed"], imp["faithful"], cen["shared_fraction"],
+                                     cen["faithful_shared_fraction"], hud["shared_fraction"],
+                                     hud["faithful_shared_fraction"]), strict=True):
+            cols[key].append(value)
         lo, hi = close["simultaneous_ci_by_configuration"][m]
         body.append(
             f"{name} & {pct(imp['observed'])} & {pct(imp['faithful'])}"
             f" & {pct(cen['shared_fraction'])} & {pct(cen['faithful_shared_fraction'])}"
             f" & {pct(hud['shared_fraction'])} & {pct(hud['faithful_shared_fraction'])}"
-            f" & {signed_pct(diff)} & {rng((lo, hi), signed_pct)}\\\\"
+            f" & {signed_pct(diff)} & {rng((lo, hi), signed_pct)} & {signed_pct(faithful)}\\\\"
         )
+    require(abs(contrast["mean_observed_difference"] - close["pooled_difference"]) < 1e-12,
+            "v7 observed difference")
+    nonpositive = census["nonpositive_denominator"]
+    require(nonpositive["century"] == [0] * 6 and nonpositive["hudson"][:5] == [0] * 5,
+            "non-positive denominators only for FLUX.2 Max")
     lo, hi = close["pooled_ci95"]
+    means = " & ".join(pct(statistics.fmean(v)) for v in cols.values())
     body.append("\\midrule")
     body.append(
-        f"Mean & & & & & & & {signed_pct(close['pooled_difference'])} & {rng((lo, hi), signed_pct)}"
-        "\\\\"
+        f"Mean & {means} & {signed_pct(close['pooled_difference'])} & {rng((lo, hi), signed_pct)}"
+        f" & {signed_pct(contrast['mean_faithful_difference'])}\\\\"
     )
     header = (
         " & \\multicolumn{2}{c}{Impressionists} & \\multicolumn{2}{c}{Century group}"
-        " & \\multicolumn{2}{c}{Hudson River} & \\multicolumn{2}{c}{Century $-$ Hudson}\\\\\n"
-        "\\cmidrule(lr){2-3}\\cmidrule(lr){4-5}\\cmidrule(lr){6-7}\\cmidrule(l){8-9}\n"
-        "Configuration & obs. & faithful & obs. & faithful & obs. & faithful & diff. & 95\\%\\\\"
+        " & \\multicolumn{2}{c}{Hudson River} & \\multicolumn{3}{c}{Century $-$ Hudson}\\\\\n"
+        "\\cmidrule(lr){2-3}\\cmidrule(lr){4-5}\\cmidrule(lr){6-7}\\cmidrule(l){8-10}\n"
+        "Configuration & obs. & faithful & obs. & faithful & obs. & faithful & obs. & 95\\%"
+        " & faithful\\\\"
     )
     caption = (
         "Shared fraction $N/(N+B)$ (\\%) of what the four names add beyond the generic clause, "
         "observed and for a faithful imitator, in the 31 features, for the four Impressionists "
         "(first collection) and the two further groups (second collection, each with its own "
         "generic arm). Last columns: the century group's fraction minus the Hudson River "
-        "School's, with Bonferroni-adjusted (six configurations) percentile intervals from "
-        "5,000 paired scene resamples; the mean row is the prespecified test H1, with its "
-        "95\\% interval."
+        "School's, observed, with Bonferroni-adjusted (six configurations) percentile intervals "
+        "from 5,000 paired scene resamples, and for a faithful imitator, which reflects how "
+        "close the painters are alone; the mean row gives the mean of each column, and its "
+        "observed difference is the prespecified test H1, with its 95\\% interval. For FLUX.2 "
+        f"Max the Hudson River School's $N+B$ is not positive in {nonpositive['hudson'][5]} of "
+        "the resamples, which the prespecified code keeps, so its interval is wide."
     )
-    return table("tab:v3-shared", caption, "@{}lrrrrrrrc@{}", header, body, "diagnostics2", "v3",
-                 size="\\small\\setlength{\\tabcolsep}{3.5pt}")
+    return table("tab:v3-shared", caption, "@{}lrrrrrrrcr@{}", header, body, "diagnostics2", "v3",
+                 "v7", size="\\small\\setlength{\\tabcolsep}{3.2pt}")
 
 
 def table_v3_tests(v3) -> str:
@@ -686,9 +710,12 @@ def table_v3_tests(v3) -> str:
         "minus the Hudson River School's (percentage points), with a 95\\% interval from 5,000 "
         "paired scene resamples. H2: Spearman correlation over the 28 painter pairs between the "
         "name distance and the reference distance, averaged over configurations, with the exact "
-        "one-sided $p$-value over all 40,320 relabellings of the eight painters; the reference "
-        "distances are corrected for panel size, and the uncorrected test is shown beside it. "
-        "Last columns: reference spread corrected for panel size."
+        "one-sided $p$-value over all 40,320 relabellings of the eight painters "
+        "(a Mantel test, \\citealp{mantel1967detection}); the reference distances are corrected "
+        "for panel size, and the uncorrected test is shown beside it. In the central square "
+        "window H1 is unchanged by construction, because the generated images are square and "
+        "the shared fraction does not use the references. Last columns: reference spread "
+        "corrected for panel size."
     )
     return table("tab:v3-tests", caption, "@{}lrcrrrrrr@{}", header, body, "v3",
                  size="\\small\\setlength{\\tabcolsep}{4pt}")
@@ -714,7 +741,9 @@ def table_v3_detail(v3) -> str:
         "(31 features, second collection), as in Table~\\ref{tab:agreement}: aligned amplitude "
         "$\\beta$ and error $D$ with unadjusted paired-scene Student intervals, relative size "
         "$Q$, alignment ratio, held-out rescaled error, and the share of the centroid proximity "
-        "gain (Eq.~\\ref{eq:prototype-gain}, here in the features) carried by the shared term."
+        "gain, the mean reduction in squared distance to the painters' reference means "
+        "(Eq.~\\ref{eq:centroid}), carried by the shared term (--: the reduction is not "
+        "positive)."
     )
     return table("tab:v3-detail", caption, "@{}lrcrrrcrr@{}", header, body, "v3",
                  size="\\small\\setlength{\\tabcolsep}{4pt}")
@@ -811,6 +840,75 @@ def table_v3_embeddings(v3, readouts) -> str:
                  "v3_readouts", size="\\footnotesize\\setlength{\\tabcolsep}{3.5pt}")
 
 
+def table_v3_closeness(v7) -> str:
+    body = []
+    for rep, title in (("hand31", "31 features"), ("clip", "CLIP"), ("csd", "CSD")):
+        out = v7["representations"][rep]
+        h2, c = out["h2_by_pair_type"], out["closeness_contrast"]
+        body.append(
+            f"{title} & {f2(h2['all']['mean'])} & {f2(h2['within_century']['mean'])}"
+            f" & {f2(h2['within_hudson']['mean'])} & {f2(h2['across']['mean'])}"
+            f" & {signed_pct(c['mean_observed_difference'])}"
+            f" & {signed_pct(c['mean_faithful_difference'])}"
+            f" & {rng(c['mean_faithful_difference_ci95'], signed_pct)}"
+            f" & {signed_pct(c['mean_excess'])} & {rng(c['mean_excess_ci95'], signed_pct)}\\\\"
+        )
+    header = (
+        " & \\multicolumn{4}{c}{H2 by pair type (Spearman)}"
+        " & \\multicolumn{5}{c}{Century $-$ Hudson shared fraction (points)}\\\\\n"
+        "\\cmidrule(lr){2-5}\\cmidrule(l){6-10}\n"
+        "Representation & all & century & Hudson & across & obs. & faithful & 95\\%"
+        " & excess & 95\\%\\\\"
+    )
+    caption = (
+        "Two breakdowns of the prespecified tests, defined after review (descriptive). Left: the "
+        "H2 Spearman correlation, averaged over configurations, over all 28 pairs, the 6 pairs "
+        "within each group and the 16 pairs across the groups. Right: H1's mean century-minus-"
+        "Hudson difference, observed and for a faithful imitator (closeness alone), and the "
+        "excess, the observed minus the faithful difference, with 95\\% intervals from 5,000 "
+        "paired scene resamples."
+    )
+    return table("tab:v3-closeness", caption, "@{}lrrrrrrcrc@{}", header, body, "v7",
+                 size="\\footnotesize\\setlength{\\tabcolsep}{3.5pt}")
+
+
+def table_v3_readouts(v3, readouts) -> str:
+    groups = [(rep, g) for rep in ("clip", "csd") for g, _, _ in V3_GROUPS]
+    out = {(rep, g): readouts["representations"][rep]["groups"][g] for rep, g in groups}
+    body = []
+    for m, name in enumerate(SHORT):
+        cells = [pct(out[k]["configurations"][m]["recognition_eight_way"]) for k in groups]
+        body.append(f"{name} & " + " & ".join(cells) + "\\\\")
+    body.append("\\midrule")
+    rows = (
+        ("Spearman, alignment ratio and four-way recognition",
+         lambda k: out[k]["spearman_alignment_recognition"]),
+        ("Correlation of the gain with its shared term",
+         lambda k: out[k]["proximity"]["corr_shared"]),
+        ("Correlation of the gain with its painter-specific term",
+         lambda k: out[k]["proximity"]["corr_specific"]),
+    )
+    for label, fn in rows:
+        body.append(f"{label} & " + " & ".join(f2(fn(k)) for k in groups) + "\\\\")
+    for rep, g in groups:
+        align = [r["alignment_ratio"] for r in v3rep(v3, rep)["groups"][g]]
+        require(len(align) == 6, "six alignment ratios")
+    header = (
+        " & \\multicolumn{2}{c}{CLIP} & \\multicolumn{2}{c}{CSD}\\\\\n"
+        "\\cmidrule(lr){2-3}\\cmidrule(l){4-5}\n"
+        " & century & Hudson & century & Hudson\\\\"
+    )
+    caption = (
+        "Further embedding readouts of the second collection, fixed before its images were "
+        "measured. Top: recognition among all eight painters (macro accuracy, \\%, chance "
+        "12.5\\%). Bottom, across the six configurations: the Spearman correlation between the "
+        "alignment ratio and four-way recognition, and the Pearson correlations of the proximity "
+        "gain with its two terms (Eq.~\\ref{eq:prototype-gain})."
+    )
+    return table("tab:v3-readouts", caption, "@{}lrrrr@{}", header, body, "v3", "v3_readouts",
+                 size="\\small")
+
+
 def pvalue(p: float) -> str:
     return "$<$0.001" if p < 0.001 else f"{p:.3f}"
 
@@ -850,7 +948,8 @@ def table_shared(diag, diag2) -> str:
         " fraction if the observed shared change were kept and $B/H$ were 1, $N/(N+H)$."
         " Obs.$<$faithful: share of scene resamples in which the observed fraction is below the"
         " faithful one. Appendix Table~\\ref{tab:direction} gives the direction of the shared"
-        " change."
+        " change. The generic baseline was chosen after collection; the prespecified split"
+        " against the artist-free baseline is in Appendix~\\ref{app:hand}."
     )
     return table(
         "tab:shared",
@@ -2136,6 +2235,62 @@ def v3_claims(data) -> dict[str, str]:
     }
 
 
+def v7_claims(data) -> dict[str, str]:
+    """Numbers quoted from the review readouts (diagnostics v7) and the v3 detail they use."""
+    v7, v3, more = data["v7"]["representations"], data["v3"], data["v3_readouts"]
+    hand = v3rep(v3, "hand31")
+    c = {rep: v7[rep]["closeness_contrast"] for rep in ("hand31", "clip", "csd")}
+    h2 = {rep: v7[rep]["h2_by_pair_type"] for rep in ("hand31", "clip", "csd")}
+    share = [c[r]["mean_faithful_difference"] / c[r]["mean_observed_difference"] for r in c]
+    for r in c:
+        require(c[r]["mean_excess_ci95"][1] < 0 and c[r]["mean_faithful_difference_ci95"][1] < 0,
+                f"closeness contrast resolved in {r}")
+    matched = v7["hand31"]["matched_closeness"]
+    census = v7["hand31"]["h1_census"]
+    century = hand["groups"]["century"]
+    off = [r["off_pattern"] / r["D"] for r in century]
+    centroid = [r["centroid_gain_shared_fraction"] for r in century]
+    require(min(centroid) == centroid[5], "FLUX.2 Max has the least shared centroid gain")
+    d_ci = [r["D_ci95"] for r in century]
+    require([i for i, (lo, hi) in enumerate(d_ci) if hi < 1] == [5], "only FLUX.2 Max D below 1")
+    pred = data["v3_predictions"]["hand31"]
+    sp = {(rep, g): more["representations"][rep]["groups"][g]["spearman_alignment_recognition"]
+          for rep in ("clip", "csd") for g in ("century", "hudson")}
+    neg = lambda v: pct(-v)  # noqa: E731
+    return {
+        "v7_faith_diff": neg(c["hand31"]["mean_faithful_difference"]),
+        "v7_faith_diff_ci": f"{neg(c['hand31']['mean_faithful_difference_ci95'][1])}--"
+                            f"{neg(c['hand31']['mean_faithful_difference_ci95'][0])}",
+        "v7_excess": neg(c["hand31"]["mean_excess"]),
+        "v7_excess_ci": f"{neg(c['hand31']['mean_excess_ci95'][1])}--"
+                        f"{neg(c['hand31']['mean_excess_ci95'][0])}",
+        "v7_faith_diff_clip": neg(c["clip"]["mean_faithful_difference"]),
+        "v7_faith_diff_csd": neg(c["csd"]["mean_faithful_difference"]),
+        "v7_closeness_share": f"{100 * min(share):.0f}--{100 * max(share):.0f}",
+        "v7_h2_century": f2(h2["hand31"]["within_century"]["mean"]),
+        "v7_h2_across": f2(h2["hand31"]["across"]["mean"]),
+        "v7_h2_hudson": f2(h2["hand31"]["within_hudson"]["mean"]),
+        "v7_h2_hudson_clip": f2(h2["clip"]["within_hudson"]["mean"]),
+        "v7_h2_hudson_csd": f2(h2["csd"]["within_hudson"]["mean"]),
+        "v7_matched_obs": neg(matched["mean_observed_difference"]),
+        "v7_matched_faith": neg(matched["mean_faithful_difference"]),
+        "v7_imp_h": f2(matched["H"]["impressionists"]),
+        "v7_census_flux": str(census["nonpositive_denominator"]["hudson"][5]),
+        "v7_outside_century": str(census["fraction_outside_unit"]["century"][5]),
+        "v7_outside_hudson": str(census["fraction_outside_unit"]["hudson"][5]),
+        "v3_pred_century": span(pred["century"]["faithful_shared_fraction"], pct),
+        "v3_pred_hudson": span(pred["hudson"]["faithful_shared_fraction"], pct),
+        "v3_bh_century": span([r["B_over_H"] for r in century], f2),
+        "v3_q_century": span([r["Q"] for r in century], f2),
+        "v3_d_century": span([r["D"] for r in century], f2),
+        "v3_off_century": span(off, pct),
+        "v3_centroid_century": span(sorted(centroid)[1:], pct),
+        "v3_centroid_flux": pct(centroid[5]),
+        "v6_sp_century_clip": f2(sp[("clip", "century")]),
+        "v6_sp_century_csd": f2(sp[("csd", "century")]),
+    }
+
+
 def claims(data) -> dict[str, str]:
     hand = hand_decomposition(data)
     agree = agreement(data)
@@ -2734,6 +2889,7 @@ def claims(data) -> dict[str, str]:
         ),
     }
     values.update(v3_claims(data))
+    values.update(v7_claims(data))
     return values
 
 
@@ -2784,12 +2940,14 @@ def all_outputs(data) -> dict[str, str | bytes]:
         "fig_pairs.pdf": figure_pairs(diag2),
         "tab_v3_panels.tex": table_v3_panels(data["v3_determination"], data["v3_references"]),
         "tab_v3_predictions.tex": table_v3_predictions(data["v3_predictions"]),
-        "tab_v3_shared.tex": table_v3_shared(data["v3"], diag2),
+        "tab_v3_shared.tex": table_v3_shared(data["v3"], diag2, data["v7"]),
         "tab_v3_tests.tex": table_v3_tests(data["v3"]),
         "tab_v3_detail.tex": table_v3_detail(data["v3"]),
         "tab_v3_drift.tex": table_v3_drift(data["v3"]),
         "tab_v3_embeddings.tex": table_v3_embeddings(data["v3"], data["v3_readouts"]),
         "fig_v3_pairs.pdf": figure_v3_pairs(data["v3"]),
+        "tab_v3_closeness.tex": table_v3_closeness(data["v7"]),
+        "tab_v3_readouts.tex": table_v3_readouts(data["v3"], data["v3_readouts"]),
     }
 
 

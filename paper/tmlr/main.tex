@@ -9,6 +9,12 @@
 \usepackage{url}
 \usepackage{placeins}
 \graphicspath{{generated/}{figures/}}
+% Let several tables share a page in the table-heavy appendices.
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.75}
+\setcounter{topnumber}{3}
+\setcounter{totalnumber}{4}
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\ip}[2]{\langle #1,#2\rangle}
@@ -30,22 +36,19 @@
 Artist-style prompting is often evaluated by how similar images generated with an artist's name
 are to that artist's works, or by how much that similarity rises when the name is added. We ask
 what this proximity measures. Six commercial text-to-image configurations rendered 14 fixed scenes
-without a painting instruction, with a generic oil-painting instruction and in the style of each of
-four related painters, Monet, Sisley, Pissarro and C\'ezanne, twice each. We split what the names
-add beyond the generic instruction into a change shared by all four names and differences between
-the names. In 31 interpretable image features the shared change makes up 66.7--88.4\% of the
-squared change. That is expected even of good imitation when the painters are close to one another
-relative to their distance from the generic outputs, and a second collection whose tests were fixed
-in advance confirms it: for four painters from four centuries the shared fraction is
-17.7--29.5\%, for four painters of the Hudson River School 89.4--98.6\%, and across their 28
-painter pairs the difference between two names' images grows with the difference between the
-painters' works (Spearman 0.85; CLIP and CSD embeddings agree). In those embeddings, an exact
-identity splits any proximity gain that is linear in the image embedding into a term that ignores
-which name was used and a painter-specific term; for related painters the first supplies most of
-the gain and drives the differences between configurations. Specificity is better read from how
-the differences between names match the painters' reference differences: the generators reproduce
-the distant painters' differences in the right direction and near their size, the Impressionists'
-in part and the Hudson River painters' barely. Beyond the prespecified tests, the analyses are
+with a generic oil-painting instruction and in the style of each of four related painters (Monet,
+Sisley, Pissarro, C\'ezanne), twice each. In 31 interpretable image features, 66.7--88.4\% of the
+squared change that the names add beyond the generic instruction is shared by all four names, as
+expected even of good imitation when the painters are close to one another relative to their
+distance from the generic outputs. A second collection with prespecified tests is consistent with
+this: four painters from four centuries leave 17.7--29.5\% of the change shared, four Hudson River
+School painters 89.4--98.6\%. Closeness alone predicts 42--58\% of that gap; the rest is
+confounded with how familiar the names are. In CLIP and CSD embeddings, an exact identity shows
+that for related painters most of the proximity gain comes from a term that ignores which name was
+used.
+Specificity is better read from how the differences between names match the painters' reference
+differences: in direction, the generators follow the distant painters closely, the Impressionists
+in part and the Hudson River painters barely. Beyond the prespecified tests, the analyses are
 descriptive.
 \end{abstract}
 
@@ -94,13 +97,16 @@ embeddings of the same images. We find:
 more.} In the 31 features the shared fraction is 66.7--88.4\%; a faithful imitator would show
 84.8--95.2\%, and even exact painter differences would leave 57.6--84.2\% shared
 (Section~\ref{sec:shared}).
-\item \textbf{The shared fraction tracks how close the painters are.} In the second collection,
-four painters from four centuries leave 17.7--29.5\% of the change shared and four Hudson River
-School painters 89.4--98.6\%, a difference of 72.7 points (95\% interval 62.6--76.5), and across
-their 28 painter pairs the name differences grow with the reference differences (Spearman 0.85 in
-the features, 0.86 in CLIP, 0.92 in CSD; exact $p<0.001$ each). The distant painters' differences
-are reproduced in the right direction and near their size; the Hudson River painters' barely
-(Section~\ref{sec:groups}).
+\item \textbf{Distant painters leave much less of the change shared, but closeness explains only
+part of it.} In the second collection, four painters from four centuries leave 17.7--29.5\% of the
+change shared and four Hudson River School painters 89.4--98.6\%, a difference of 72.7 points (95\%
+interval 62.6--76.5). A faithful imitator would differ by 30.9 points; the rest reflects how
+strongly the generators separate the names, which is confounded with how familiar they are. Across
+the 28 painter pairs the name differences grow with the reference differences (Spearman 0.85 in the
+features, 0.86 in CLIP, 0.92 in CSD; exact $p<0.001$ each), within the century group and across the
+groups but hardly within the Hudson River School. The distant painters' differences are reproduced
+in the right direction and, along the reference pattern, near their size, with large differences
+off it; the Hudson River painters' barely (Section~\ref{sec:groups}).
 \item \textbf{For related painters, proximity gain mostly measures the shared change.} In CLIP and
 CSD, the part of the gain that ignores which name was used supplies 54.2--83.8\% of it for the
 Impressionists, close to the faithful-imitation values (for C\'ezanne alone, as little as a
@@ -109,22 +115,19 @@ third), and across the six configurations the gain follows that part, with corre
 School but 6.5--49.0\% for the distant painters.
 \item \textbf{Specificity has to be read from the between-name differences, separating direction
 from size.} For the Impressionists, all six configurations align positively with the reference
-differences. By the
-alignment ratio, which we defined after collection, GPT Image 2 is best in all three
-representations, in 98.0\% (31 features), 99.7\% (CLIP) and 100.0\% (CSD) of scene resamples. The
-prespecified error $D$, which also penalizes the size of the differences and their variation across
-scenes, ranks the configurations differently in each representation, and only 2 of its 15
-prespecified pairwise comparisons are resolved. Descriptively, in the 31 features, which separate
-genuine Monet and Sisley works poorly, Flare and Sunburst err more than a generator making no
-painter distinctions, mostly through differences off the reference pattern (GPT Image 1 too, but
-not after a multiplicity adjustment); in CSD four configurations are resolved below that level and
-none above it (Section~\ref{sec:agreement}).
-\item \textbf{Readouts disagree where they weigh size differently.} Across the six configurations,
-recognition rises with the alignment ratio (Spearman 0.94 in CLIP, 0.89 in CSD), proximity follows
-the shared change, and $D$ favors small differences (Section~\ref{sec:readouts}).
+differences. By the alignment ratio, which we defined after collection, GPT Image 2 is best in all
+three representations, in 98.0\% (31 features), 99.7\% (CLIP) and 100.0\% (CSD) of scene resamples.
+The prespecified error $D$, which also penalizes the size of the differences and their variation
+across scenes, ranks the configurations differently in each representation, and only 2 of its 15
+prespecified pairwise comparisons are resolved (Section~\ref{sec:agreement}).
+\item \textbf{Readouts disagree where they weigh size differently.} For the Impressionists, across
+the six configurations, recognition rises with the alignment ratio (Spearman 0.94 in CLIP, 0.89 in
+CSD), proximity follows the shared change, and $D$ favors small differences
+(Section~\ref{sec:readouts}).
 \end{itemize}
 These results concern three groups of four painters, one prompt template and digital measurements
-of reproductions. Between our groups, closeness is confounded with how familiar the names are, and
+of reproductions. Between our groups, closeness is confounded with how familiar the names are and
+with what the painters painted, and
 the design cannot separate movement toward a group from a generic effect of any artist name
 (Section~\ref{sec:limitations}).
 
@@ -177,7 +180,9 @@ prompt adherence of generated paintings, and \citet{fu2025aiwikiart} test vision
 on artist attribution and detection of generated paintings. Quantitative art research describes
 paintings by color, composition and image statistics \citep{kim2014,sigaki2018,lee2020} and
 traces historical change in learned embeddings \citep{kim2026}; our features follow this
-tradition. Our estimator is the cross-validated distance of representational similarity analysis
+tradition. Style classification of fine-art paintings \citep{karayev2014recognizing,saleh2016large}
+and style-transfer metrics such as ArtFID \citep{wright2022artfid} likewise score style against
+reference collections. Our estimator is the cross-validated distance of representational similarity analysis
 \citep{diedrichsen2017representational}, and conditional evaluation metrics similarly separate
 variation within conditions from relations among their means \citep{benny2021conditional}.
 
@@ -215,8 +220,10 @@ fallbacks disabled: \texttt{openai/\allowbreak gpt-\allowbreak image-1} and
 gemini-\allowbreak 3.1-\allowbreak flash-\allowbreak image}) at 1K resolution; and FLUX.2 Max
 (\texttt{black-\allowbreak forest-\allowbreak labs/\allowbreak flux.2-\allowbreak max}). The
 gateway's catalogue listed Flare and Sunburst as GPT Image 2.5 variants from the OpenAI provider at
-the time of collection; we have no further documentation of how they differ and cannot guarantee
-that they remain available. All configurations return $1024\times1024$ images. Each
+the time of collection. OpenAI released both on 8 September 2026, two days before our collection,
+and its release notes describe Flare as the faster default and Sunburst as the variant tuned for
+quality and precise editing; how they differ technically is not documented, and we cannot
+guarantee that they remain available. All configurations return $1024\times1024$ images. Each
 configuration--scene--clause cell received two separate requests, 1,008 images in total, collected
 on 10 September 2026 (UTC) in a randomized order fixed before collection. Responses do not echo
 model identifiers, and the explicit routes were not tested with an invalid identifier, so the
@@ -226,7 +233,7 @@ scene--clause cells in every representation (Appendix~\ref{app:provenance}).
 Figure~\ref{fig:examples} shows one scene under all six clauses.
 
 \paragraph{Two further painter groups.} To test whether the shared fraction depends on how close
-the painters are, we added two groups after the results above and the first rounds of review: a
+the painters are, we added two groups after the results above were known: a
 \emph{century group} of painters far apart in time and manner, Jacob van Ruisdael, Canaletto,
 Vincent van Gogh and Ernst Ludwig Kirchner (one per century from the 17th to the 20th, each known
 for outdoor scenes), and a closely related group from the Hudson River School, Albert Bierstadt,
@@ -338,22 +345,27 @@ we drop the hats below. The aligned amplitude $\beta$ projects the generated dif
 reference pattern: $\beta=1$ matches its size along that pattern, and $\beta>0$ indicates a
 response in the right direction in aggregate. The error $D$ also counts differences in other
 directions: its expectation is 0 for exact agreement, 1 when the names produce no differences, and
-$(\kappa-1)^2$ when the reference pattern is reproduced at $\kappa$ times its size. With
-$Q=(SH)^{-1}\sum_{s,a}\ip{d_{sa1}}{d_{sa2}}$, the squared size of the generated differences
-relative to the reference, $D=1-2\beta+Q$. The prespecified split writes $D$ exactly as the error of
-the amplitude along the reference pattern plus an off-pattern part, the size of the differences
-orthogonal to it (Appendix~\ref{app:estimators}). The alignment ratio $\beta/\sqrt{Q}$ is the
-alignment of the scene-wise differences with the pooled reference pattern: it is unaffected by
-rescaling the differences but lowered by off-pattern differences and by their variation across
-scenes. Rescaling the differences optimally would leave $D=1-\beta^2/Q$; $D_{\mathrm{held}}$
-applies such a rescaling fitted on the other scenes and therefore closely follows the alignment
-ratio. Every scene is compared with
-the same pooled target, so $D$ also penalizes differences that vary across scenes:
-$D=D_{\mathrm{agg}}+V_{\mathrm{scene}}$, where $D_{\mathrm{agg}}$ scores the scene-averaged
-differences and $Q=B/H+V_{\mathrm{scene}}$; the scene-averaged alignment is $\beta/\sqrt{B/H}$. Genuine paintings do not reach $D=0$ either when two
-works per painter stand in for the two repeats of a scene, so we also report that error for held-out
-reference paintings. Specificity here means agreement with the differences between the painters'
-reference means in a given representation; no perceptual judgment enters it.
+$(\kappa-1)^2$ when the reference pattern is reproduced at $\kappa$ times its size. Three further
+quantities separate direction from size:
+\begin{itemize}
+\item \textbf{Relative size.} $Q=(SH)^{-1}\sum_{s,a}\ip{d_{sa1}}{d_{sa2}}$ is the squared size of
+the generated differences relative to the reference, and $D=1-2\beta+Q$. The prespecified split
+writes $D$ exactly as the error of the amplitude along the reference pattern plus an off-pattern
+part, the size of the differences orthogonal to it (Appendix~\ref{app:estimators}).
+\item \textbf{Alignment ratio.} $\beta/\sqrt{Q}$ is the alignment of the scene-wise differences
+with the pooled reference pattern: it is unaffected by rescaling the differences but lowered by
+off-pattern differences and by their variation across scenes. Rescaling the differences optimally
+would leave $D=1-\beta^2/Q$; $D_{\mathrm{held}}$ applies such a rescaling fitted on the other
+scenes and therefore closely follows the alignment ratio.
+\item \textbf{Scene variation.} Every scene is compared with the same pooled target, so $D$ also
+penalizes differences that vary across scenes: $D=D_{\mathrm{agg}}+V_{\mathrm{scene}}$, where
+$D_{\mathrm{agg}}$ scores the scene-averaged differences and $Q=B/H+V_{\mathrm{scene}}$; the
+scene-averaged alignment is $\beta/\sqrt{B/H}$.
+\end{itemize}
+Genuine paintings do not reach $D=0$ either when two works per painter stand in for the two
+repeats of a scene, so we also report that error for held-out reference paintings. Specificity
+here means agreement with the differences between the painters' reference means in a given
+representation; no perceptual judgment enters it.
 
 \subsection{Proximity and recognition in embeddings}\label{sec:proximity}
 
@@ -393,7 +405,9 @@ along and off the reference pattern, and distribution diagnostics (Appendix
 Table~\ref{tab:diversity}); its scene fixed-effects regression reproduces the pairwise differences,
 and a projection of the means (Appendix Figure~\ref{fig:projection}) replaces its reference PCA
 display of full distributions. All other intervals are unadjusted: paired-scene Student intervals
-for per-scene statistics and percentile intervals for resampled ones. We call a difference
+for per-scene statistics and percentile intervals for resampled ones; the coverage simulation of
+Appendix~\ref{app:estimators} covers the Student intervals, and the coverage of percentile intervals
+for ratios over 12--14 scenes is unverified. We call a difference
 \emph{resolved} when its interval excludes the comparison value; only the 21 prespecified
 comparisons use adjusted intervals, and comparisons of $D$ with 1 lie outside that family. The
 protocol ranked configurations only on $D$; the alignment ratio, $D_{\mathrm{held}}$ and their
@@ -417,9 +431,14 @@ distance between the painters' reference means, measured by the Spearman correla
 configurations and tested exactly against all 40,320 relabellings of the painters, with reference
 distances corrected for panel size. It also recorded the predicted reference spreads and faithful
 benchmarks and applied this paper's estimators to each group; a separate plan for the embedding
-readouts (intervals, recognition, proximity) was fixed before the images were measured. Two
-amendments to the reference rules preceded any request, and the spending ceiling was raised during
-collection to absorb reservations held for gateway errors (Appendix~\ref{app:second}).
+readouts (intervals, recognition, proximity) was fixed before the images were measured. The
+correction for panel size in H2 was fixed in the frozen analysis code rather than in the protocol
+text; the uncorrected test gives the same result. Two amendments to the reference rules preceded
+any request, and the spending ceiling was raised during collection to absorb reservations held for
+gateway errors (Appendix~\ref{app:second}). After a first review of these results, a further plan
+fixed two descriptive breakdowns of the tests, H2 within and across the groups and the part of the
+H1 difference that closeness alone predicts, with intervals; the reviewers had already computed
+their point values.
 
 \section{Results}\label{sec:results}
 
@@ -434,7 +453,9 @@ are computed from unrounded values.
 \input{generated/tab_shared.tex}
 
 Beyond the generic clause, 66.7--88.4\% of the squared change that the names add is shared by all
-four names (Table~\ref{tab:shared}). A faithful imitator starting from the same generic outputs
+four names (Table~\ref{tab:shared}). We chose this baseline after collection; against the
+prespecified artist-free baseline, which includes the painting instruction itself, the fraction is
+82.5--95.7\% (Appendix~\ref{app:hand}). A faithful imitator starting from the same generic outputs
 would show 84.8--95.2\% (Figure~\ref{fig:benchmark}): the generic outputs are much farther from the
 paintings than the four painters are from each other, so most of any faithful movement toward them
 is shared. The observed fraction is below the faithful one in every scene resample for five
@@ -456,8 +477,8 @@ The shared change points toward the reference centroid, with corrected cosine 0.
 Table~\ref{tab:direction}). For Nano Banana 2 and FLUX.2 Max, 55.5\% and 52.8\% of its squared size
 also lies along the artist-free-to-generic shift, against 0.1--22.0\% for the four GPT
 configurations, so in those two configurations part of what a name adds continues the generic
-painting instruction. Computed within scenes, the shared fraction is 52.8--93.6\%, and against the
-artist-free baseline, which includes the painting instruction, 82.5--95.7\% (Appendix~\ref{app:hand}).
+painting instruction. Computed within scenes, the shared fraction is 52.8--93.6\%
+(Appendix~\ref{app:hand}).
 
 \begin{figure}[t]
 \centering
@@ -471,11 +492,11 @@ whereas the proximity gain counts only their aligned part, $H\beta/4$; this is w
 values lie below the faithful ones on the left but mostly at or above them in the embeddings (Appendix
 Table~\ref{tab:learned-squared} gives the squared-change shares in the embeddings). In the embeddings
 the faithful benchmark also inherits the variety of the reference works, whose mean embeddings are
-shorter than those of the generated images, markedly so in CSD. The dotted line marks 50\%.}
+shorter than those of the generated images, markedly so in CSD. The dashed line marks 50\%.}
 \label{fig:benchmark}
 \end{figure}
 
-\subsection{The shared fraction tracks how close the painters are}\label{sec:groups}
+\subsection{Distant painters leave less of the change shared, but not by closeness alone}\label{sec:groups}
 
 \input{generated/tab_v3_shared.tex}
 
@@ -483,11 +504,12 @@ Both prespecified tests of the second collection are supported (Table~\ref{tab:v
 the 31 features the century group's shared fraction is 17.7--29.5\% and the Hudson River School's
 89.4--98.6\%; averaged over configurations the century group's is lower by 72.7 points, and by
 40.1 points in CLIP and 47.4 in CSD (Appendix Table~\ref{tab:v3-tests}). The predictions recorded
-before collection anticipated the ordering: from the new generic outputs, a faithful imitator would
-show 45.0--75.4\% for the century group and 89.4--97.0\% for the Hudson River School. Across the 28
-pairs of the eight painters, the distance between two names' images rises with the distance
-between the painters' reference means (Figure~\ref{fig:v3-pairs}), with Spearman correlations of
-0.85 in the 31 features, 0.86 in CLIP and 0.92 in CSD.
+before collection, from the first collection's generic outputs, anticipated the ordering: a
+faithful imitator would show 47.0--73.3\% for the century group and 90.1--96.9\% for the Hudson
+River School (Appendix Table~\ref{tab:v3-predictions}). Across the 28 pairs of the eight painters,
+the distance between two names' images rises with the distance between the painters' reference
+means (Figure~\ref{fig:v3-pairs}), with Spearman correlations of 0.85 in the 31 features, 0.86 in
+CLIP and 0.92 in CSD.
 
 \begin{figure}[t]
 \centering
@@ -496,25 +518,50 @@ between the painters' reference means (Figure~\ref{fig:v3-pairs}), with Spearman
 distance between the two names' images (scene-averaged, from products of different repeats,
 averaged over configurations) against the squared distance between the painters' reference means
 (corrected for panel size), in each representation. Pairs within the century group (circles),
-within the Hudson River School (squares) and across the groups (triangles).}
+within the Hudson River School (squares) and across the groups (triangles). Panel titles give the
+H2 statistic, the mean of the six per-configuration Spearman correlations.}
 \label{fig:v3-pairs}
 \end{figure}
 
+Closeness explains only part of the difference. From the new generic outputs, a faithful imitator
+would show 45.0--75.4\% for the century group and 89.4--97.0\% for the Hudson River School, a
+difference of 30.9 points averaged over configurations (95\% interval 26.6--32.9); the remaining
+41.8 points (34.9--47.2) come from how strongly the generators separate the names relative to the
+painters' differences (Appendix Table~\ref{tab:v3-closeness}). In the embeddings closeness predicts
+somewhat more, 22.9 of the 40.1 points in CLIP and 27.3 of the 47.4 in CSD. The two collections
+show the same. The Impressionists and the Hudson River School are about equally close in the
+features (reference spread 5.92 against 6.24), yet the Impressionists' shared fraction is lower by
+21.4 points on average, against 3.7 points for a faithful imitator. The pairwise test behaves
+alike: the name differences follow the reference differences within the century group (Spearman
+0.78 in the features) and across the groups (0.74), but hardly within the Hudson River School (0.09;
+0.49 in CLIP and 0.27 in CSD). The second collection is therefore consistent with closeness raising
+the shared fraction, but it does not isolate closeness: the century group's names are also far more
+familiar, and the groups' reference works differ in subject matter.
+
 The groups differ in what the names do beyond the shared change. For the century group, the
-between-name differences match the reference differences in direction and roughly in size:
-$\beta$ is 0.840--1.292 in the 31 features, with alignment ratios of 0.698--0.805, above that of
-every configuration for the Impressionists, and the prompted painter is recognized in
-71.9--89.6\% of images in the embeddings (four-way, chance 25\%). For the Hudson River School the
-names barely differ: $\beta$ is $-$0.014 to 0.198 in the features and 0.095--0.395 in the
-embeddings, recognition is 29.2--50.0\%, and for GPT Image 1 and GPT Image 2 the shared fraction
-exceeds even the faithful benchmark (Appendix Tables~\ref{tab:v3-detail} and~\ref{tab:v3-embeddings}).
-Small panels do not explain this: correcting the Hudson River School's spread for panel size
-lowers it from 6.24 to 4.21, so an imitator of the corrected means would still show $\beta$ near
-0.68 against the observed pattern. The Impressionists lie between the two groups. Proximity
-follows suit: the shared term of Equation~\ref{eq:prototype-gain} supplies 92.5--98.3\% of the
-embedding proximity gain for the Hudson River School but 6.5--49.0\% for the century group. The
-no-clause and generic outputs, requested identically in both collections three weeks apart,
-differ by no more than repeat noise (Appendix Table~\ref{tab:v3-drift}).
+between-name differences match the reference differences in direction, and along the reference
+pattern roughly in size: $\beta$ is 0.840--1.292 in the 31 features, with alignment ratios of
+0.698--0.805, above that of every configuration for the Impressionists (a descriptive comparison,
+since each group has its own $H$), and the prompted painter is recognized in 71.9--89.6\% of images
+in the embeddings (four-way, chance 25\%). Overall, however, the differences are larger than the
+reference differences ($B/H$ 1.33--2.56, $Q$ 1.41--3.13), and 89.8--97.9\% of their error lies off
+the reference pattern, so $D$ is 0.73--1.58 and only FLUX.2 Max's interval lies below 1 (Appendix
+Table~\ref{tab:v3-detail}). For the Hudson River School the names barely differ: $\beta$ is
+$-$0.014 to 0.198 in the features and 0.095--0.395 in the embeddings, recognition is 29.2--50.0\%,
+and for GPT Image 1 and GPT Image 2 the shared fraction exceeds even the faithful benchmark
+(Appendix Tables~\ref{tab:v3-detail} and~\ref{tab:v3-embeddings}). There a high shared fraction
+reflects a lack of differentiation, not good imitation. Small reference panels do not explain this.
+Correcting the Hudson River School's reference spread for panel size lowers it from 6.24 to 4.21; a
+generator reproducing the corrected painter means would still reach $\beta$ of about 0.68 against
+the recorded reference pattern, far above the observed values. By $\beta$ and the alignment ratio,
+the Impressionists lie between the two groups. Proximity follows suit: the shared term of
+Equation~\ref{eq:prototype-gain} supplies 92.5--98.3\% of the embedding proximity gain for the
+Hudson River School but 6.5--49.0\% for the century group. In the features, where the gain is the
+reduction in squared distance to the painters' reference means, the shared term still supplies
+73.0--100.7\% of the century group's gain in five configurations (31.5\% for FLUX.2 Max), because
+that reduction is also lowered by the oversized differences. The no-clause and generic outputs,
+requested identically in both collections three weeks apart, differ by no more than repeat noise
+(Appendix Table~\ref{tab:v3-drift}).
 
 \subsection{For related painters, proximity gain mostly measures the shared change}\label{sec:learned}
 
@@ -535,7 +582,7 @@ as 34.6\% (Appendix Table~\ref{tab:per-painter}). Using the audited source regio
 development panel as the reference target changes the observed shares by at most 1.6 points
 (Appendix Table~\ref{tab:learned-settings}).
 
-The shared term also drives the differences in gain between configurations, which is how proximity
+The shared term also tracks the differences in gain between configurations, which is how proximity
 is used to compare models (Table~\ref{tab:readouts}). Across the six configurations, the gain
 correlates with its shared term at 0.96 [0.91, 0.98] in CLIP and 0.95 [0.79, 0.99] in CSD (95\%
 intervals from scene resampling), and the shared term varies more across configurations than the
@@ -633,10 +680,12 @@ gain (0.217), and no configuration has the largest gain in more than 33.6\% of r
 lowest error in more than 47.2\%.
 
 The disagreements follow from what each readout weighs. Proximity follows the shared change
-(Section~\ref{sec:learned}). Across the six configurations, recognition rises with the alignment
-ratio (Spearman 0.94 in CLIP and 0.89 in CSD): both reward differences in the right direction,
-although recognition also depends on the size of the differences relative to the spread of
-individual images and on shared offsets (below). $D$ departs from both because it also penalizes
+(Section~\ref{sec:learned}). For the Impressionists, across the six configurations, recognition
+rises with the alignment ratio (Spearman 0.94 in CLIP and 0.89 in CSD): both reward differences in
+the right direction, although recognition also depends on the size of the differences relative to
+the spread of individual images and on shared offsets (below). For the century group, whose names
+every configuration makes recognizable, the relation is weaker (0.29 and 0.64; Appendix
+Table~\ref{tab:v3-readouts}). $D$ departs from both because it also penalizes
 size, so it favors small differences, as in FLUX.2 Max, over large ones with off-pattern parts.
 
 A shared offset can also change recognition without changing any painter difference. One fixed
@@ -647,38 +696,12 @@ CSD (Appendix~\ref{app:transfer}).
 
 \subsection{Feature families and sensitivity}\label{sec:sensitivity}
 
-\paragraph{Feature families.} Averaged over configurations, the shared fraction is 74.3\% in color,
-71.5\% in spatial and 68.2\% in texture features, but the exact-differences benchmark is also lower
-for texture (74.7\%, against 77.8\% for color and 79.1\% for spatial), and every family lies 3.6--7.6
-points below its benchmark (Appendix Table~\ref{tab:families}). The texture--color difference of
-$-$6.1 points [$-$13.5, $-$2.0] is therefore partly expected from the reference differences, and the
-texture--spatial ordering is not resolved (texture lower in 65.2\% of paired scene resamples). GPT
-Image 1's texture fraction, 48.6\%, the only value below 50\%, comes from oversized texture
-differences ($B/H=$ 3.11; exact-differences value 74.6\%). An earlier collection of 2,000 SD-Turbo
-images with a different template and seed design shares 64.2\% of the change across all features
-and 36.6\% in texture, against faithful and exact-differences values of 92.5\% and 67.4\% overall
-(Appendix~\ref{app:sdturbo}); it reuses the references and serves as a retrospective check.
-
-\paragraph{Reference sources.} The shared fraction does not depend on the reference collection; its
-benchmarks and the agreement scores do. AI assistants audited all 870 reference and development
-reproductions and cropped peripheral artifacts such as frames and calibration strips from 131 of
-them; the crops were not verified by a human. With the cropped regions and the original feature
-scaling, FLUX.2 Max's error becomes 0.832, all six aligned amplitudes remain above zero, and of the
-pairwise differences only Flare--FLUX.2 Max remains resolved. After also refitting the feature
-scaling, FLUX.2 Max's error is 0.872, the amplitudes remain above zero, and Flare--FLUX.2 Max and GPT
-Image 1--FLUX.2 Max are resolved.
-
-\paragraph{Other checks.} FLUX.2 Max keeps the lowest 31-feature error estimate under every
-single-scene deletion, square measurement windows, content-matched reference targets, both
-alternative feature weightings and both source corrections (Appendix Table~\ref{tab:sensitivity}),
-but in texture features alone Nano Banana 2 is lower, 0.886 against 0.906 (Appendix
-Table~\ref{tab:family-agreement}). Correcting the reference spread $H$ for its finite-sample bias
-(6.7\%) scales $\beta$, $Q$ and $D-1$ by the same factor: the aligned amplitudes become
-0.474--1.071, FLUX.2 Max's error 0.787, no ordering changes, and the exact-differences fractions
-rise to 59.3--85.1\% (Appendix Table~\ref{tab:robustness}). The named images of every configuration
-are less varied than the painter's reference works (trace ratios 0.25--0.88), and they are closer
-to the painter's works than the generic images in 21 of 24 configuration--painter combinations
-(Appendix Table~\ref{tab:diversity}).
+Appendix~\ref{app:sensitivity} reports the shared fraction by feature family, an earlier SD-Turbo
+collection with a different template, corrections of the reference sources and further
+sensitivity checks. Averaged over configurations, every feature family shares most of the change
+and lies below its exact-differences benchmark, and FLUX.2 Max keeps the lowest 31-feature error
+estimate under every single-scene deletion, measurement window, reference target, feature weighting
+and source correction, though not in texture features alone.
 
 \section{Discussion}\label{sec:discussion}
 
@@ -686,15 +709,21 @@ to the painter's works than the generic images in 21 of 24 configuration--painte
 The shared change points toward the centroid of these reference reproductions in the 31 features
 and increases similarity to their average prototype in both embeddings. Toward that centroid a
 faithful imitator would move even further, so a large shared fraction is expected for related
-painters and says little about specificity. The second collection supports this reading: painters
-far apart leave much less of the change shared, and pair by pair the name differences follow the
-reference differences. For Nano Banana 2 and FLUX.2 Max, about half of the shared change also
+painters and says little about specificity. The second collection is consistent with this reading:
+painters far apart leave much less of the change shared, and the name differences follow the
+reference differences within the distant group and across the groups. Closeness alone, however,
+predicts only 42--58\% of the gap between the groups, and within the Hudson River School the names
+barely differ, so part of the gap reflects how strongly the generators separate particular names.
+For Nano Banana 2 and FLUX.2 Max, about half of the shared change also
 continues the generic painting instruction. The centroid carries the properties of old,
 photographed paintings as well as the painters' common style, and our design still cannot tell
-movement toward a group from a generic effect that any artist name would have; a fictitious name
-or a clause naming the group (``Impressionist'') would. Nor can it separate closeness from
-familiarity: van Gogh and Canaletto are far more widely reproduced than Durand or Cole, so the
-Hudson River School's small differences may partly reflect names the generators know less well.
+movement toward a group from a generic effect that any artist name would have. Two further arms
+would: a fictitious painter name shows the effect of any artist name, and a clause naming the group
+(``in the style of Impressionism'') shows the movement toward the group without a particular
+painter. Nor can the design separate closeness from familiarity: van Gogh and Canaletto are far
+more widely reproduced than Durand or Cole, so the Hudson River School's small differences may
+partly reflect names the generators know less well; the groups' reference works also differ in
+subject matter.
 The intervention identifies differences between prompt conditions; their causes inside the
 generators remain open.
 
@@ -716,8 +745,9 @@ reference target to the content of the prompts where possible, and state whether
 per scene or after averaging, since the aggregation changed the ordering here. Fourth, treat
 recognition as its own readout, report how stable rankings are under scene resampling, and note
 that recognition responds to shared offsets that leave every painter difference unchanged. None of
-these readouts has been validated against perceptual or expert judgments or against a positive
-control with known painter differences.
+these readouts has been validated against perceptual or expert judgments. The genuine-painting
+control checks them on known painter differences among reference works only; a generator-side
+positive control, with painter differences known in advance, is missing.
 
 \section{Limitations}\label{sec:limitations}
 
@@ -727,7 +757,7 @@ repeats per cell, and four of the six configurations are OpenAI variants. The se
 was added after the first results; its tests were fixed before it was collected. The Hudson River
 School's reference collections are small (36--92 works), two refusals cost the tests across groups
 two of the 14 scenes, and between the groups closeness is confounded with how familiar the names
-are. The findings describe these painters and configurations. The faithful benchmark mixes painter style with
+are and with subject matter. The findings describe these painters and configurations. The faithful benchmark mixes painter style with
 differences in content and image formation between generated images and photographed paintings; the
 exact-differences benchmark avoids this but assumes the observed shared change.
 
@@ -747,7 +777,10 @@ whereas errors above 1 could fall below it (at a repeat correlation of 0.22 for 
 features and 0.03--0.14 in CLIP), and under a common correlation of 0.251 the Nano Banana 2 and
 FLUX.2 Max error estimates would swap order. The two repeats of a cell were requested a median of
 3.1 minutes apart, and a linear drift model does not predict their differences
-(Appendix~\ref{app:provenance}), but this cannot rule out shared state. The SD-Turbo collection
+(Appendix~\ref{app:provenance}), but this cannot rule out shared state. The identical no-clause
+and generic requests of the two collections, three weeks apart, differ by no more than repeat noise
+(Appendix Table~\ref{tab:v3-drift}), which argues against slow drift of the services but not against
+dependence between repeats requested minutes apart. The SD-Turbo collection
 shares the historical references. The generated images are not part of the anonymous supplement, so
 features cannot yet be re-extracted from pixels by others.
 

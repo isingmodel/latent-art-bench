@@ -202,6 +202,7 @@ the mean reduction in squared distance to the painters' reference means is
 \frac14\sum_a\bigl(\|\mu_a-\bar z_{\mathrm{g}}\|^2-\|\mu_a-\bar z_a\|^2\bigr)
 =\underbrace{2\ip{c}{t}-\|c\|^2}_{\text{shared}}
 +\underbrace{\tfrac12\textstyle\sum_a\ip{e_a}{r_a}-\tfrac14\sum_a\|e_a\|^2}_{\text{between-name}},
+\label{eq:centroid}
 \end{equation}
 which holds exactly with symmetrized cross-repeat products.
 
@@ -244,8 +245,9 @@ closed service drifted or cached state during the collection so that both repeat
 moved together, the cross-repeat products no longer remove the noise, and every interval is shifted.
 Two repeats cannot rule it out, which is why repeat dependence is listed as a limitation.
 Reference resampling draws 1,000 bootstrap samples of the reference works within painter, holding
-the generated vectors fixed. Scene-bootstrap draws in which a denominator is not positive are
-dropped and counted.
+the generated vectors fixed. In the first collection's analyses, scene-bootstrap draws in which a
+denominator is not positive are dropped and counted; the second collection's prespecified test H1
+keeps them (Appendix~\ref{app:second}).
 
 \FloatBarrier
 \section{Additional results for the 31 features}\label{app:hand}
@@ -352,6 +354,42 @@ frames, margins, labels and calibration strips; 43 uncertain boundaries were lef
 visual content audit of the same reproductions disagreed with the title-derived class for 230
 works; replacing the title-derived with visual labels also leaves FLUX.2 Max with the lowest
 error. All works and features are retained under every correction.
+
+\FloatBarrier
+\section{Feature families and sensitivity}\label{app:sensitivity}
+
+\paragraph{Feature families.} Averaged over configurations, the shared fraction is 74.3\% in color,
+71.5\% in spatial and 68.2\% in texture features, but the exact-differences benchmark is also lower
+for texture (74.7\%, against 77.8\% for color and 79.1\% for spatial), and every family lies 3.6--7.6
+points below its benchmark (Table~\ref{tab:families}). The texture--color difference of
+$-$6.1 points [$-$13.5, $-$2.0] is therefore partly expected from the reference differences, and the
+texture--spatial ordering is not resolved (texture lower in 65.2\% of paired scene resamples). GPT
+Image 1's texture fraction, 48.6\%, the only value below 50\%, comes from oversized texture
+differences ($B/H=$ 3.11; exact-differences value 74.6\%). An earlier collection of 2,000 SD-Turbo
+images with a different template and seed design shares 64.2\% of the change across all features
+and 36.6\% in texture, against faithful and exact-differences values of 92.5\% and 67.4\% overall
+(Appendix~\ref{app:sdturbo}); it reuses the references and serves as a retrospective check.
+
+\paragraph{Reference sources.} The shared fraction does not depend on the reference collection; its
+benchmarks and the agreement scores do. AI assistants audited all 870 reference and development
+reproductions and cropped peripheral artifacts such as frames and calibration strips from 131 of
+them; the crops were not verified by a human. With the cropped regions and the original feature
+scaling, FLUX.2 Max's error becomes 0.832, all six aligned amplitudes remain above zero, and of the
+pairwise differences only Flare--FLUX.2 Max remains resolved. After also refitting the feature
+scaling, FLUX.2 Max's error is 0.872, the amplitudes remain above zero, and Flare--FLUX.2 Max and GPT
+Image 1--FLUX.2 Max are resolved.
+
+\paragraph{Other checks.} FLUX.2 Max keeps the lowest 31-feature error estimate under every
+single-scene deletion, square measurement windows, content-matched reference targets, both
+alternative feature weightings and both source corrections (Table~\ref{tab:sensitivity}),
+but in texture features alone Nano Banana 2 is lower, 0.886 against 0.906 (Appendix
+Table~\ref{tab:family-agreement}). Correcting the reference spread $H$ for its finite-sample bias
+(6.7\%) scales $\beta$, $Q$ and $D-1$ by the same factor: the aligned amplitudes become
+0.474--1.071, FLUX.2 Max's error 0.787, no ordering changes, and the exact-differences fractions
+rise to 59.3--85.1\% (Table~\ref{tab:robustness}). The named images of every configuration
+are less varied than the painter's reference works (trace ratios 0.25--0.88), and they are closer
+to the painter's works than the generic images in 21 of 24 configuration--painter combinations
+(Table~\ref{tab:diversity}).
 
 \FloatBarrier
 \section{Learned embeddings}\label{app:learned}
@@ -465,10 +503,12 @@ scene-averaged error 0.917 and its scene-wise error 1.637, and its Monet--Sisley
 \FloatBarrier
 \section{The second collection}\label{app:second}
 
-\paragraph{Protocol and amendments.} After the four-painter results and the first rounds of
-review, a protocol for a second collection named the two further groups, fixed the tests H1 and H2
+\paragraph{Protocol and amendments.} After the four-painter results were known, a protocol for a
+second collection named the two further groups, fixed the tests H1 and H2
 (Section~\ref{sec:inference}) and the per-group analysis, and was frozen with the request frame
-before any image was generated; the plan for the embedding readouts (shared-fraction intervals,
+before any image was generated. The freeze record binds the hashes of the protocol file and of the
+analysis code as approved, so the protocol's header still reads ``draft''; the correction of H2 for
+panel size is in that frozen code. The plan for the embedding readouts (shared-fraction intervals,
 recognition and proximity) was fixed while the images were being collected and before any was
 measured. The reference rules were amended twice before the first request. First, the protocol's
 minimum of 60 works per painter was withdrawn so that the new collections are treated exactly like
@@ -508,14 +548,30 @@ recorded amendment, which changed no other rule.
 
 \input{generated/tab_v3_tests.tex}
 
-\paragraph{Tests and sensitivity.} H1 and H2 hold in every representation, in the central square
-window and, for H2, without the correction for panel size (Table~\ref{tab:v3-tests}). The
-per-configuration differences in shared fraction are large in every configuration; for FLUX.2
-Max the adjusted interval is wide because both of its fractions are unstable under resampling
-(Table~\ref{tab:v3-shared}).
+\paragraph{Tests and sensitivity.} H1 and H2 hold in every representation, and H2 also holds in the
+central square window and without the correction for panel size (Table~\ref{tab:v3-tests}); H1 is
+unchanged in the central square window by construction, because the generated images are square
+and the shared fraction does not use the references. The per-configuration differences in shared
+fraction are large in every configuration. For FLUX.2 Max the adjusted interval is wide because
+both of its fractions are unstable under resampling: the prespecified H1 code keeps resamples whose
+denominator is not positive, and for FLUX.2 Max with the Hudson River School $N+B\le0$ in 90 of the
+5,000 draws, while a fraction lies outside $[0,1]$ in 150 draws for the century group and 237 for
+the Hudson River School (Table~\ref{tab:v3-shared}). No other configuration has a non-positive
+denominator.
+
+\paragraph{Breakdowns defined after review.} Table~\ref{tab:v3-closeness} splits the two tests
+descriptively, under a plan written after a first review of these results; the reviewers had
+already computed the point values, and the intervals are new. H2 holds within the century group and
+across the groups, and is weak within the Hudson River School, where the reference differences are
+small and only six pairs enter. A faithful imitator would show a century-minus-Hudson difference of
+30.9 points in the features, so the remaining 41.8 points come from how strongly the generators
+separate the names. Table~\ref{tab:v3-readouts} adds the readouts of the embedding plan that the
+main text does not quote.
 
 \input{generated/tab_v3_detail.tex}
 \input{generated/tab_v3_embeddings.tex}
+\input{generated/tab_v3_closeness.tex}
+\input{generated/tab_v3_readouts.tex}
 
 \paragraph{Change between the collections.} The no-clause and generic requests of the two
 collections are identical. Relative to the first collection's repeat noise, the squared distance

@@ -9,7 +9,7 @@ PDF, and no review is replaced or discarded. A round runs only when the owner as
 
 | Round | Reviewed PDF | Methods | Empirical | Editor | Passes rubric |
 | --- | --- | --- | --- | --- | --- |
-| [01](round_01/) | `af4eea64…`, 38 pages | minor revision | minor revision | minor revision | no: criterion 1 *partially* for all three; 4 factual errors confirmed ([triage](round_01/triage.md)) |
+| [01](round_01/) | `af4eea64…`, 38 pages | minor revision | minor revision | minor revision | no: criterion 1 *partially* for all three; 4 factual errors confirmed ([triage](round_01/triage.md)); [revision, not reviewed](round_01/revision.md) |
 
 Each round folder holds:
 

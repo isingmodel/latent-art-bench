@@ -45,6 +45,7 @@ EXTRA = (
     "studies/painter_specificity_v3/PROTOCOL.md",
     "studies/painter_specificity_v3/REFERENCES.md",
     "studies/painter_tmlr_diagnostics_v6/PLAN.md",
+    "studies/painter_tmlr_diagnostics_v7/PLAN.md",
     "data/manifests/painter_specificity_v3/psv3-r1/requests.jsonl",
     "data/manifests/painter_specificity_v3/psv3-r1/measurements.jsonl",
     "data/manifests/painter_specificity_v3/psv3-r1/embeddings_clip.npz",
