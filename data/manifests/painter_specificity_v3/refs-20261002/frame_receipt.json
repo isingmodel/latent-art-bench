@@ -1,0 +1,35 @@
+{
+  "admitted_items": 1142,
+  "completed_at_utc": "2026-10-02T23:42:52.955748+00:00",
+  "conflicts": [],
+  "inputs": [
+    {
+      "path": "data/manifests/painter_specificity_v3/refs-20261002/determination.jsonl",
+      "sha256": "876243ed3a559d0a48c095394aaa54ff3569b151e94b5e36cadbec66ed004c5c"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v3/refs-20261002/frame.jsonl",
+      "sha256": "ea96fe8f0fb685f68a98df995d8b010a579d6c481fcf642b8fb1499e58132861"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v3/references.py",
+      "sha256": "c2193db55f9d7d8d6d1151f20f5d9f2d85ff4d1334dbc37bbdff9744a84d17d5"
+    }
+  ],
+  "merged": 2,
+  "stage": "frame",
+  "works": 1140,
+  "works_by_painter": {
+    "albert_bierstadt": 92,
+    "asher_brown_durand": 37,
+    "canaletto": 158,
+    "edvard_munch": 256,
+    "ernst_ludwig_kirchner": 42,
+    "frederic_edwin_church": 47,
+    "jacob_van_ruisdael": 123,
+    "jasper_francis_cropsey": 44,
+    "john_frederick_kensett": 50,
+    "thomas_cole": 36,
+    "vincent_van_gogh": 255
+  }
+}

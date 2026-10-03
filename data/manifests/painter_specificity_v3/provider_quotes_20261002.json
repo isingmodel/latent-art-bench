@@ -1,0 +1,526 @@
+{
+  "method": "unauthenticated GET of the public OpenRouter image-model endpoint catalogue",
+  "quotes": [
+    {
+      "data": {
+        "endpoints": [
+          {
+            "allowed_passthrough_parameters": [
+              "steps",
+              "guidance",
+              "safety_tolerance"
+            ],
+            "pricing": [
+              {
+                "billable": "output_image",
+                "cost_usd": 0.07,
+                "unit": "megapixel"
+              }
+            ],
+            "provider_name": "Black Forest Labs",
+            "provider_slug": "black-forest-labs/us-3",
+            "provider_tag": "black-forest-labs/us-3",
+            "supported_parameters": {
+              "aspect_ratio": {
+                "type": "enum",
+                "values": [
+                  "1:1",
+                  "4:3",
+                  "3:4",
+                  "3:2",
+                  "2:3",
+                  "16:9",
+                  "9:16",
+                  "21:9",
+                  "auto"
+                ]
+              },
+              "input_references": {
+                "max": 8,
+                "min": 0,
+                "type": "range"
+              },
+              "n": {
+                "max": 1,
+                "min": 1,
+                "type": "range"
+              },
+              "output_format": {
+                "type": "enum",
+                "values": [
+                  "png",
+                  "jpeg"
+                ]
+              },
+              "seed": {
+                "type": "boolean"
+              }
+            },
+            "supports_streaming": false
+          }
+        ],
+        "id": "black-forest-labs/flux.2-max"
+      },
+      "model": "black-forest-labs/flux.2-max",
+      "response_sha256": "765c865e57488f2620f6860c6562b4d4696460e442f596c24bdb89895f7ea99d",
+      "url": "https://openrouter.ai/api/v1/images/models/black-forest-labs/flux.2-max/endpoints"
+    },
+    {
+      "data": {
+        "endpoints": [
+          {
+            "allowed_passthrough_parameters": [
+              "cachedContent"
+            ],
+            "pricing": [
+              {
+                "billable": "output_image",
+                "cost_usd": 6e-05,
+                "unit": "token"
+              }
+            ],
+            "provider_name": "Google AI Studio",
+            "provider_slug": "google-ai-studio",
+            "provider_tag": "google-ai-studio",
+            "supported_parameters": {
+              "aspect_ratio": {
+                "type": "enum",
+                "values": [
+                  "1:1",
+                  "1:4",
+                  "1:8",
+                  "2:3",
+                  "3:2",
+                  "3:4",
+                  "4:1",
+                  "4:3",
+                  "4:5",
+                  "5:4",
+                  "8:1",
+                  "9:16",
+                  "16:9",
+                  "21:9"
+                ]
+              },
+              "input_references": {
+                "max": 14,
+                "min": 0,
+                "type": "range"
+              },
+              "n": {
+                "max": 1,
+                "min": 1,
+                "type": "range"
+              },
+              "resolution": {
+                "type": "enum",
+                "values": [
+                  "512",
+                  "1K",
+                  "2K",
+                  "4K"
+                ]
+              }
+            },
+            "supports_streaming": false
+          },
+          {
+            "allowed_passthrough_parameters": [
+              "cachedContent"
+            ],
+            "pricing": [
+              {
+                "billable": "output_image",
+                "cost_usd": 6e-05,
+                "unit": "token"
+              }
+            ],
+            "provider_name": "Google Vertex",
+            "provider_slug": "google-vertex/global",
+            "provider_tag": "google-vertex/global",
+            "supported_parameters": {
+              "aspect_ratio": {
+                "type": "enum",
+                "values": [
+                  "1:1",
+                  "1:4",
+                  "1:8",
+                  "2:3",
+                  "3:2",
+                  "3:4",
+                  "4:1",
+                  "4:3",
+                  "4:5",
+                  "5:4",
+                  "8:1",
+                  "9:16",
+                  "16:9",
+                  "21:9"
+                ]
+              },
+              "input_references": {
+                "max": 14,
+                "min": 0,
+                "type": "range"
+              },
+              "n": {
+                "max": 1,
+                "min": 1,
+                "type": "range"
+              },
+              "resolution": {
+                "type": "enum",
+                "values": [
+                  "512",
+                  "1K",
+                  "2K",
+                  "4K"
+                ]
+              }
+            },
+            "supports_streaming": false
+          }
+        ],
+        "id": "google/gemini-3.1-flash-image"
+      },
+      "model": "google/gemini-3.1-flash-image",
+      "response_sha256": "8368c87b9e74d5487fe23c2ef2e32c3154d62ee3e09b7de7b8ae4f17fd263b44",
+      "url": "https://openrouter.ai/api/v1/images/models/google/gemini-3.1-flash-image/endpoints"
+    },
+    {
+      "data": {
+        "endpoints": [
+          {
+            "allowed_passthrough_parameters": [
+              "moderation"
+            ],
+            "pricing": [
+              {
+                "billable": "input_image",
+                "cost_usd": 1e-05,
+                "unit": "token"
+              },
+              {
+                "billable": "input_text",
+                "cost_usd": 5e-06,
+                "unit": "token"
+              },
+              {
+                "billable": "output_image",
+                "cost_usd": 4e-05,
+                "unit": "token"
+              }
+            ],
+            "provider_name": "OpenAI",
+            "provider_slug": "openai",
+            "provider_tag": "openai",
+            "supported_parameters": {
+              "aspect_ratio": {
+                "type": "enum",
+                "values": [
+                  "1:1",
+                  "3:2",
+                  "2:3",
+                  "auto"
+                ]
+              },
+              "background": {
+                "type": "enum",
+                "values": [
+                  "auto",
+                  "transparent",
+                  "opaque"
+                ]
+              },
+              "input_references": {
+                "max": 16,
+                "min": 0,
+                "type": "range"
+              },
+              "n": {
+                "max": 10,
+                "min": 1,
+                "type": "range"
+              },
+              "output_compression": {
+                "max": 100,
+                "min": 0,
+                "type": "range"
+              },
+              "quality": {
+                "type": "enum",
+                "values": [
+                  "auto",
+                  "low",
+                  "medium",
+                  "high"
+                ]
+              }
+            },
+            "supports_streaming": true
+          }
+        ],
+        "id": "openai/gpt-image-1"
+      },
+      "model": "openai/gpt-image-1",
+      "response_sha256": "5a1e4ddd7f77ab65bf32a4a7f2c4dcc313cb5ba42d11964e2ef6ce848c79d3d3",
+      "url": "https://openrouter.ai/api/v1/images/models/openai/gpt-image-1/endpoints"
+    },
+    {
+      "data": {
+        "endpoints": [
+          {
+            "allowed_passthrough_parameters": [
+              "moderation"
+            ],
+            "pricing": [
+              {
+                "billable": "input_image",
+                "cost_usd": 8e-06,
+                "unit": "token"
+              },
+              {
+                "billable": "input_text",
+                "cost_usd": 5e-06,
+                "unit": "token"
+              },
+              {
+                "billable": "output_image",
+                "cost_usd": 3e-05,
+                "unit": "token"
+              }
+            ],
+            "provider_name": "OpenAI",
+            "provider_slug": "openai",
+            "provider_tag": "openai",
+            "supported_parameters": {
+              "aspect_ratio": {
+                "type": "enum",
+                "values": [
+                  "1:1",
+                  "3:2",
+                  "2:3",
+                  "4:3",
+                  "3:4",
+                  "16:9",
+                  "9:16",
+                  "21:9",
+                  "auto"
+                ]
+              },
+              "background": {
+                "type": "enum",
+                "values": [
+                  "auto",
+                  "transparent",
+                  "opaque"
+                ]
+              },
+              "input_references": {
+                "max": 16,
+                "min": 0,
+                "type": "range"
+              },
+              "n": {
+                "max": 10,
+                "min": 1,
+                "type": "range"
+              },
+              "output_compression": {
+                "max": 100,
+                "min": 0,
+                "type": "range"
+              },
+              "quality": {
+                "type": "enum",
+                "values": [
+                  "auto",
+                  "low",
+                  "medium",
+                  "high",
+                  "xhigh",
+                  "max"
+                ]
+              }
+            },
+            "supports_streaming": true
+          }
+        ],
+        "id": "openai/gpt-image-2.5-flare"
+      },
+      "model": "openai/gpt-image-2.5-flare",
+      "response_sha256": "df320c557e638013d24a7fe0221505e1d7645398a50add0fbee2eb5899d62423",
+      "url": "https://openrouter.ai/api/v1/images/models/openai/gpt-image-2.5-flare/endpoints"
+    },
+    {
+      "data": {
+        "endpoints": [
+          {
+            "allowed_passthrough_parameters": [
+              "moderation"
+            ],
+            "pricing": [
+              {
+                "billable": "input_image",
+                "cost_usd": 8e-06,
+                "unit": "token"
+              },
+              {
+                "billable": "input_text",
+                "cost_usd": 5e-06,
+                "unit": "token"
+              },
+              {
+                "billable": "output_image",
+                "cost_usd": 3e-05,
+                "unit": "token"
+              }
+            ],
+            "provider_name": "OpenAI",
+            "provider_slug": "openai",
+            "provider_tag": "openai",
+            "supported_parameters": {
+              "aspect_ratio": {
+                "type": "enum",
+                "values": [
+                  "1:1",
+                  "3:2",
+                  "2:3",
+                  "4:3",
+                  "3:4",
+                  "16:9",
+                  "9:16",
+                  "21:9",
+                  "auto"
+                ]
+              },
+              "background": {
+                "type": "enum",
+                "values": [
+                  "auto",
+                  "transparent",
+                  "opaque"
+                ]
+              },
+              "input_references": {
+                "max": 16,
+                "min": 0,
+                "type": "range"
+              },
+              "n": {
+                "max": 10,
+                "min": 1,
+                "type": "range"
+              },
+              "output_compression": {
+                "max": 100,
+                "min": 0,
+                "type": "range"
+              },
+              "quality": {
+                "type": "enum",
+                "values": [
+                  "auto",
+                  "low",
+                  "medium",
+                  "high",
+                  "xhigh",
+                  "max"
+                ]
+              }
+            },
+            "supports_streaming": true
+          }
+        ],
+        "id": "openai/gpt-image-2.5-sunburst"
+      },
+      "model": "openai/gpt-image-2.5-sunburst",
+      "response_sha256": "e9478c8079b4b45640257ebf018411816fb455e7874d8e4a11b377374768b3ee",
+      "url": "https://openrouter.ai/api/v1/images/models/openai/gpt-image-2.5-sunburst/endpoints"
+    },
+    {
+      "data": {
+        "endpoints": [
+          {
+            "allowed_passthrough_parameters": [
+              "moderation"
+            ],
+            "pricing": [
+              {
+                "billable": "input_image",
+                "cost_usd": 8e-06,
+                "unit": "token"
+              },
+              {
+                "billable": "input_text",
+                "cost_usd": 5e-06,
+                "unit": "token"
+              },
+              {
+                "billable": "output_image",
+                "cost_usd": 3e-05,
+                "unit": "token"
+              }
+            ],
+            "provider_name": "OpenAI",
+            "provider_slug": "openai",
+            "provider_tag": "openai",
+            "supported_parameters": {
+              "aspect_ratio": {
+                "type": "enum",
+                "values": [
+                  "1:1",
+                  "3:2",
+                  "2:3",
+                  "4:3",
+                  "3:4",
+                  "16:9",
+                  "9:16",
+                  "21:9",
+                  "auto"
+                ]
+              },
+              "background": {
+                "type": "enum",
+                "values": [
+                  "auto",
+                  "opaque"
+                ]
+              },
+              "input_references": {
+                "max": 16,
+                "min": 0,
+                "type": "range"
+              },
+              "n": {
+                "max": 10,
+                "min": 1,
+                "type": "range"
+              },
+              "output_compression": {
+                "max": 100,
+                "min": 0,
+                "type": "range"
+              },
+              "quality": {
+                "type": "enum",
+                "values": [
+                  "auto",
+                  "low",
+                  "medium",
+                  "high"
+                ]
+              }
+            },
+            "supports_streaming": true
+          }
+        ],
+        "id": "openai/gpt-image-2"
+      },
+      "model": "openai/gpt-image-2",
+      "response_sha256": "23861fb9c18a36763e4eab32f81c568b3bf6b8b59fc62c873aeb68fb7f843326",
+      "url": "https://openrouter.ai/api/v1/images/models/openai/gpt-image-2/endpoints"
+    }
+  ],
+  "retrieved_at_utc": "2026-10-02T14:29:05.093216+00:00"
+}

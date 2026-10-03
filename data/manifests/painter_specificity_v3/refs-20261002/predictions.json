@@ -1,0 +1,125 @@
+{
+  "clip": {
+    "century": {
+      "H": 0.45973530139502017,
+      "faithful_shared_fraction": [
+        0.673872442764848,
+        0.7003186401907474,
+        0.7134532932371969,
+        0.716040315869873,
+        0.7475747045609547,
+        0.7046963493483609
+      ]
+    },
+    "hudson": {
+      "H": 0.08237464398023481,
+      "faithful_shared_fraction": [
+        0.9268515923948377,
+        0.9281200334448079,
+        0.9317450443006062,
+        0.934989016551433,
+        0.9432627435231311,
+        0.9275261378318402
+      ]
+    },
+    "impressionists": {
+      "H": 0.13880060793303833,
+      "faithful_shared_fraction": [
+        0.8609928243665871,
+        0.8712699102929674,
+        0.8869269610397738,
+        0.8894523133535878,
+        0.9120180403884964,
+        0.8852052586860923
+      ]
+    }
+  },
+  "counts": {
+    "albert_bierstadt": 92,
+    "asher_brown_durand": 37,
+    "canaletto": 157,
+    "ernst_ludwig_kirchner": 41,
+    "frederic_edwin_church": 47,
+    "jacob_van_ruisdael": 123,
+    "thomas_cole": 36,
+    "vincent_van_gogh": 255
+  },
+  "csd": {
+    "century": {
+      "H": 1.0478016585190957,
+      "faithful_shared_fraction": [
+        0.664290918374585,
+        0.6339920428966624,
+        0.6930039280186591,
+        0.6917916376000868,
+        0.7028033700551486,
+        0.6347948771170236
+      ]
+    },
+    "hudson": {
+      "H": 0.14157297738171976,
+      "faithful_shared_fraction": [
+        0.9343180755179136,
+        0.9405210766881922,
+        0.952291419612155,
+        0.954944340165007,
+        0.9549114825019825,
+        0.9220184935815313
+      ]
+    },
+    "impressionists": {
+      "H": 0.3250013606846089,
+      "faithful_shared_fraction": [
+        0.8920330020364027,
+        0.8235259772651589,
+        0.8640569655004209,
+        0.8685814555126968,
+        0.8973320300699795,
+        0.8768352923854387
+      ]
+    }
+  },
+  "generic_source": "psv2-20260911 generic arm (September)",
+  "hand31": {
+    "century": {
+      "H": 34.60721265575421,
+      "faithful_shared_fraction": [
+        0.6878613713430074,
+        0.514903126125525,
+        0.6461745524317095,
+        0.6901078153603601,
+        0.733213877778454,
+        0.469610348822986
+      ]
+    },
+    "hudson": {
+      "H": 6.23515441070308,
+      "faithful_shared_fraction": [
+        0.9052429952626908,
+        0.9192986857246112,
+        0.9572409013855512,
+        0.9638322774430313,
+        0.9687931753026541,
+        0.9013263926154829
+      ]
+    },
+    "impressionists": {
+      "H": 5.9150074798210355,
+      "faithful_shared_fraction": [
+        0.9515599314116295,
+        0.8929614689143076,
+        0.8481478534899455,
+        0.868679265787605,
+        0.9247514710154526,
+        0.9043871608726676
+      ]
+    }
+  },
+  "inputs": {
+    "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/scaler.json": "71f511235081dfc1e9846976320c69477bcbd04dd43fc9a2e271f7b0375497b9",
+    "data/manifests/painter_specificity_v2/psv2-20260911/measurements.jsonl": "5db95709f48a25e31ef212b588c2aa3e0f7af4fb5dbaf413cfc16690de60cac1",
+    "data/manifests/painter_specificity_v3/refs-20261002/features.jsonl": "05b689cce1960c423186b32cae97cf0e2dcc13df8d3be2b206aba59cb1fa2331",
+    "src/latent_art_bench/painter_specificity_v3/analysis.py": "897f8727381f1c4aabe68e3546c0e4918dbab7b50510600a4d1d0e19651982c1",
+    "src/latent_art_bench/painter_specificity_v3/predict.py": "1e56e68649253509151849a06c79439c18c59b39a9a6f19779f57d5bd0fe1c47"
+  }
+}

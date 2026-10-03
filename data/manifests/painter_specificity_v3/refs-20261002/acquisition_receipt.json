@@ -1,0 +1,36 @@
+{
+  "acquired_by_painter": {
+    "albert_bierstadt": 92,
+    "asher_brown_durand": 37,
+    "canaletto": 158,
+    "ernst_ludwig_kirchner": 41,
+    "frederic_edwin_church": 47,
+    "jacob_van_ruisdael": 123,
+    "thomas_cole": 36,
+    "vincent_van_gogh": 255
+  },
+  "completed_at_utc": "2026-10-03T00:50:45.335547+00:00",
+  "inputs": [
+    {
+      "path": "data/manifests/painter_specificity_v3/refs-20261002/acquisition_events.jsonl",
+      "sha256": "5afa5ae98baed9176598a1408beaf3aacaac9cf3d6ed1a79a6bc91e9f9354dad"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v3/refs-20261002/acquisitions.jsonl",
+      "sha256": "0cd4e20a3267dc4f2592ebf4480ff9130e3a8d146ee741fb72a91a230bcfe0ee"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v3/refs-20261002/renderings.jsonl",
+      "sha256": "f9aca7bcc717c53eed23c7385c008200aa4ee9464058a5cd5f0725c7838ecbaf"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v3/references.py",
+      "sha256": "892e1b6d1884aea58142c44a8dc219bf787892500b54e077ce882431657cc239"
+    }
+  ],
+  "stage": "acquisition",
+  "statuses": {
+    "acquired": 789,
+    "failed": 1
+  }
+}

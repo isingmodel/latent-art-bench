@@ -1,0 +1,44 @@
+{
+  "below_floor": [
+    "asher_brown_durand",
+    "ernst_ludwig_kirchner",
+    "frederic_edwin_church",
+    "thomas_cole"
+  ],
+  "completed_at_utc": "2026-10-03T01:04:59.234379+00:00",
+  "failures": [
+    {
+      "error": "ValueError: unprofiled non-RGB color space",
+      "work_id": "wikidata:Q19660300"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "data/manifests/painter_specificity_v3/refs-20261002/acquisitions.jsonl",
+      "sha256": "0cd4e20a3267dc4f2592ebf4480ff9130e3a8d146ee741fb72a91a230bcfe0ee"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v3/refs-20261002/features.jsonl",
+      "sha256": "05b689cce1960c423186b32cae97cf0e2dcc13df8d3be2b206aba59cb1fa2331"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/features.py",
+      "sha256": "b295c2de1a8501e8ab335d88ed56ab8f2dc8b3ca704141b92e02ef586d48d172"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v3/references.py",
+      "sha256": "892e1b6d1884aea58142c44a8dc219bf787892500b54e077ce882431657cc239"
+    }
+  ],
+  "measured_by_painter": {
+    "albert_bierstadt": 92,
+    "asher_brown_durand": 37,
+    "canaletto": 157,
+    "ernst_ludwig_kirchner": 41,
+    "frederic_edwin_church": 47,
+    "jacob_van_ruisdael": 123,
+    "thomas_cole": 36,
+    "vincent_van_gogh": 255
+  },
+  "stage": "measurement"
+}

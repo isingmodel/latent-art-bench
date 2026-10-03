@@ -1,0 +1,212 @@
+{
+  "completed_at_utc": "2026-10-02T23:42:47.615955+00:00",
+  "funnel": {
+    "albert_bierstadt": {
+      "classes": {
+        "built_place_organized": 5,
+        "open_or_wooded_land": 51,
+        "water_organized": 36
+      },
+      "discovered": 481,
+      "passed_collection": 138,
+      "passed_content": 92,
+      "passed_creator": 481,
+      "passed_geometry": 103,
+      "passed_medium": 228,
+      "passed_painting": 481,
+      "passed_rights": 138
+    },
+    "asher_brown_durand": {
+      "classes": {
+        "built_place_organized": 2,
+        "open_or_wooded_land": 26,
+        "route_organized": 1,
+        "water_organized": 9
+      },
+      "discovered": 204,
+      "passed_collection": 163,
+      "passed_content": 38,
+      "passed_creator": 204,
+      "passed_geometry": 57,
+      "passed_medium": 183,
+      "passed_painting": 204,
+      "passed_rights": 163
+    },
+    "canaletto": {
+      "classes": {
+        "built_place_organized": 37,
+        "open_or_wooded_land": 1,
+        "water_organized": 120
+      },
+      "discovered": 408,
+      "passed_collection": 306,
+      "passed_content": 158,
+      "passed_creator": 404,
+      "passed_geometry": 166,
+      "passed_medium": 342,
+      "passed_painting": 404,
+      "passed_rights": 306
+    },
+    "edvard_munch": {
+      "classes": {
+        "built_place_organized": 27,
+        "open_or_wooded_land": 168,
+        "route_organized": 7,
+        "water_organized": 54
+      },
+      "discovered": 1787,
+      "passed_collection": 1148,
+      "passed_content": 256,
+      "passed_creator": 1787,
+      "passed_geometry": 919,
+      "passed_medium": 1403,
+      "passed_painting": 1787,
+      "passed_rights": 1146
+    },
+    "ernst_ludwig_kirchner": {
+      "classes": {
+        "built_place_organized": 17,
+        "open_or_wooded_land": 14,
+        "route_organized": 2,
+        "water_organized": 10
+      },
+      "discovered": 273,
+      "passed_collection": 190,
+      "passed_content": 43,
+      "passed_creator": 273,
+      "passed_geometry": 153,
+      "passed_medium": 207,
+      "passed_painting": 273,
+      "passed_rights": 187
+    },
+    "frederic_edwin_church": {
+      "classes": {
+        "built_place_organized": 3,
+        "open_or_wooded_land": 33,
+        "water_organized": 11
+      },
+      "discovered": 153,
+      "passed_collection": 81,
+      "passed_content": 47,
+      "passed_creator": 152,
+      "passed_geometry": 51,
+      "passed_medium": 101,
+      "passed_painting": 152,
+      "passed_rights": 81
+    },
+    "jacob_van_ruisdael": {
+      "classes": {
+        "built_place_organized": 31,
+        "open_or_wooded_land": 31,
+        "route_organized": 3,
+        "water_organized": 58
+      },
+      "discovered": 485,
+      "passed_collection": 219,
+      "passed_content": 123,
+      "passed_creator": 470,
+      "passed_geometry": 127,
+      "passed_medium": 261,
+      "passed_painting": 470,
+      "passed_rights": 218
+    },
+    "jasper_francis_cropsey": {
+      "classes": {
+        "built_place_organized": 5,
+        "open_or_wooded_land": 21,
+        "route_organized": 1,
+        "water_organized": 17
+      },
+      "discovered": 120,
+      "passed_collection": 78,
+      "passed_content": 44,
+      "passed_creator": 120,
+      "passed_geometry": 46,
+      "passed_medium": 95,
+      "passed_painting": 120,
+      "passed_rights": 78
+    },
+    "john_frederick_kensett": {
+      "classes": {
+        "built_place_organized": 3,
+        "open_or_wooded_land": 12,
+        "water_organized": 35
+      },
+      "discovered": 84,
+      "passed_collection": 73,
+      "passed_content": 50,
+      "passed_creator": 84,
+      "passed_geometry": 53,
+      "passed_medium": 76,
+      "passed_painting": 84,
+      "passed_rights": 73
+    },
+    "thomas_cole": {
+      "classes": {
+        "built_place_organized": 7,
+        "open_or_wooded_land": 22,
+        "water_organized": 7
+      },
+      "discovered": 172,
+      "passed_collection": 99,
+      "passed_content": 36,
+      "passed_creator": 172,
+      "passed_geometry": 63,
+      "passed_medium": 108,
+      "passed_painting": 172,
+      "passed_rights": 99
+    },
+    "vincent_van_gogh": {
+      "classes": {
+        "built_place_organized": 95,
+        "open_or_wooded_land": 123,
+        "route_organized": 12,
+        "water_organized": 25
+      },
+      "discovered": 887,
+      "passed_collection": 638,
+      "passed_content": 255,
+      "passed_creator": 887,
+      "passed_geometry": 587,
+      "passed_medium": 818,
+      "passed_painting": 887,
+      "passed_rights": 638
+    }
+  },
+  "gate_order": [
+    "creator",
+    "painting",
+    "medium",
+    "collection",
+    "rights",
+    "geometry",
+    "content"
+  ],
+  "inputs": [
+    {
+      "path": "data/manifests/painter_specificity_v3/refs-20261002/content_lexicon.json",
+      "sha256": "13b54b3ba8d8c4cc11fb1c2743e2cd240ccb15339c36efaeb27851e6baa2df87"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v3/refs-20261002/determination.jsonl",
+      "sha256": "876243ed3a559d0a48c095394aaa54ff3569b151e94b5e36cadbec66ed004c5c"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v3/refs-20261002/metadata.jsonl",
+      "sha256": "f2d1d75655d2fac45d4ee580418a0f313bf5caf4030ea396b97fcb4805656379"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v3/lexicon.py",
+      "sha256": "35f9a7584f544f11308e54ccf142851cd9d35e2d03e7c14c219ca8bb840d879b"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v3/references.py",
+      "sha256": "c2193db55f9d7d8d6d1151f20f5d9f2d85ff4d1334dbc37bbdff9744a84d17d5"
+    },
+    {
+      "path": "studies/painter_specificity_v3/REFERENCES.md",
+      "sha256": "b9cd03c98b69a4b12bde9a74f77753da8cb4cac20d8d56e0c2c108e0833ffe08"
+    }
+  ],
+  "stage": "determination"
+}

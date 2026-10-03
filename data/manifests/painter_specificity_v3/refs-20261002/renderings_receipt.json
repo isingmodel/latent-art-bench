@@ -1,0 +1,36 @@
+{
+  "completed_at_utc": "2026-10-02T23:55:16.500179+00:00",
+  "inputs": [
+    {
+      "path": "data/manifests/painter_specificity_v3/refs-20261002/frame.jsonl",
+      "sha256": "ea96fe8f0fb685f68a98df995d8b010a579d6c481fcf642b8fb1499e58132861"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v3/refs-20261002/rendering_events.jsonl",
+      "sha256": "124d390503a8bcda321c36c0fd6e69e6e1a345a6332c959636a05d2b904e2ceb"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v3/refs-20261002/renderings.jsonl",
+      "sha256": "f9aca7bcc717c53eed23c7385c008200aa4ee9464058a5cd5f0725c7838ecbaf"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v3/references.py",
+      "sha256": "c2193db55f9d7d8d6d1151f20f5d9f2d85ff4d1334dbc37bbdff9744a84d17d5"
+    }
+  ],
+  "painters": [
+    "albert_bierstadt",
+    "asher_brown_durand",
+    "canaletto",
+    "ernst_ludwig_kirchner",
+    "frederic_edwin_church",
+    "jacob_van_ruisdael",
+    "thomas_cole",
+    "vincent_van_gogh"
+  ],
+  "requests": 135,
+  "stage": "renderings",
+  "statuses": {
+    "rendering_registered": 790
+  }
+}

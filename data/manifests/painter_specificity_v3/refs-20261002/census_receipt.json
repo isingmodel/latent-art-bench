@@ -1,0 +1,41 @@
+{
+  "completed_at_utc": "2026-10-02T14:27:07.270145+00:00",
+  "inputs": [
+    {
+      "path": "data/manifests/painter_specificity_v3/refs-20261002/census.jsonl",
+      "sha256": "85c9a46b888eea37f110f948ae871d7183e80095e628ad4cf75835d61abe1367"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v3/refs-20261002/census_events.jsonl",
+      "sha256": "5248fc71f9862503b4ebba13400e9a9ea9441235f67f9ffe53b740e4dbb7492a"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v3/panel.py",
+      "sha256": "7be336691508bf879478cc97e7ae719c52db54521effd163db3f6042519e745c"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v3/references.py",
+      "sha256": "94761027d28c89cfc47134d5d1aef0be0e7b92a9adf5b1a41cc6ff0865fa3559"
+    },
+    {
+      "path": "studies/painter_specificity_v3/REFERENCES.md",
+      "sha256": "0b18a76c0046943015d894de143adeae1dacfd3ca6d4c66eed2523c9139c710e"
+    }
+  ],
+  "items_by_painter": {
+    "albert_bierstadt": 481,
+    "asher_brown_durand": 204,
+    "canaletto": 408,
+    "edvard_munch": 1787,
+    "ernst_ludwig_kirchner": 273,
+    "frederic_edwin_church": 153,
+    "jacob_van_ruisdael": 485,
+    "jasper_francis_cropsey": 120,
+    "john_frederick_kensett": 84,
+    "thomas_cole": 172,
+    "vincent_van_gogh": 887
+  },
+  "query_template": "SELECT DISTINCT ?item ?image WHERE {{ ?item wdt:P170 wd:{qid}; wdt:P31 wd:Q3305213; wdt:P18 ?image. }} ORDER BY STR(?item) STR(?image)",
+  "rows": 5213,
+  "stage": "census"
+}

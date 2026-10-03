@@ -1,0 +1,3997 @@
+{
+  "embeddings_sha256": "30efdba2a88587c9ea9913e8556efc0236cec4151efde66d647b0086b491c0cf",
+  "ended_utc": "2026-10-03T01:15:25.952357+00:00",
+  "environment": {
+    "batch_size": 4,
+    "device": "mps",
+    "numpy": "2.5.2",
+    "python": "3.13.11",
+    "torch": "2.13.0",
+    "transformers": "4.57.6"
+  },
+  "features_sha256": "05b689cce1960c423186b32cae97cf0e2dcc13df8d3be2b206aba59cb1fa2331",
+  "implementation_sha256": "ff9ed66ad51c73b275093a95a32214a51e07e28a554cd795d135286ffb9ad0dc",
+  "model": {
+    "directory": "csd-vit-large",
+    "file": "pytorch_model.bin",
+    "repository": "tomg-group-umd/CSD-ViT-L",
+    "revision": "5bc26a6fb0487f3f00a2a7313135103a005b1b67",
+    "sha256": "40e92fad63a361b8136100cd234c42d401ef9b34ff1748234318929ebcc7e7a1"
+  },
+  "processor": {
+    "adapter_sha256": "787b95697b6c48910a880c66961af4ea21c05d77184ddd0e8e7d2ff27395fb3e",
+    "binding_path": "csd_adapter_inputs_v2.json",
+    "binding_sha256": "29107601907b257798a24bc01615c86e5984e11de0843c3dc8b4eb7685cf2567",
+    "conversion": "uint8 RGB -> float32 / 255",
+    "crop_offset": "int(round((resized_dimension - 224) / 2.0))",
+    "crop_size": 224,
+    "interpolation": "PIL bicubic",
+    "kind": "official CSD torchvision-equivalent PIL resize/round-center-crop",
+    "loader": "CSD model_state_dict; weights_only=True with fixed standard metadata types",
+    "mean": [
+      0.48145466,
+      0.4578275,
+      0.40821073
+    ],
+    "shortest_edge": 224,
+    "std": [
+      0.26862954,
+      0.26130258,
+      0.27577711
+    ]
+  },
+  "rows": [
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q6675297"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q7761325"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q17026086"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q19900788"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q19900789"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q19900790"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q19900791"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q19900792"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q19900796"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q19900801"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q19900805"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q19900807"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q19900810"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q19900812"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q19900813"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q19901152"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q19924706"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q19924804"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q19967964"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20170835"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20170866"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20175400"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20188398"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20188717"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20188820"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20197779"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20199477"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20441219"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20441230"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20441234"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20441238"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20441239"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20441250"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20441257"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20441261"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20441319"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20441344"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20441359"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20441386"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20475372"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20486851"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20487147"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20487688"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20487753"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20487784"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20487813"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20487820"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20487844"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20487848"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20487920"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20487922"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20487927"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20487930"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20487949"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20487961"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20487969"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20487980"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20488039"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20488061"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20488085"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20488114"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20488116"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20488159"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20537321"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20537326"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20537328"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20537765"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20537954"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20538014"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20538025"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20538027"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20538385"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20538779"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20538814"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20576233"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20579274"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20584868"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20585065"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20586760"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20588033"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20588520"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20588537"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q20588542"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q27897302"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q60515700"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q64532270"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q79282184"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q79314221"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q106627296"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q106769957"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q108055670"
+    },
+    {
+      "painter_id": "albert_bierstadt",
+      "work_id": "wikidata:Q123397019"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q7721749"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q19924670"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q19925280"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q20170024"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q20188557"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q20488015"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q20634471"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q20634473"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q20634476"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q20634477"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q20737205"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q20737212"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q20737231"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q20737264"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q20737303"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q20737306"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q20737312"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q20737330"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q20737393"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q20737399"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q20737400"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q20737401"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q20737406"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q20737409"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q27898460"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q49181999"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q49182212"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q60465282"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q64569250"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q64569483"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q64569598"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q106776576"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q111011963"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q112264649"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q112635694"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q115764414"
+    },
+    {
+      "painter_id": "asher_brown_durand",
+      "work_id": "wikidata:Q123180078"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q2943415"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q3902309"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q5884258"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q5884261"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q5977784"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q6073024"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q6109001"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q11152607"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q11918733"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q11931775"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q11945113"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q16839893"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q17334275"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q17334277"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q17435911"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q17435948"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q18646235"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q18683500"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q18683513"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q18748415"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660301"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660304"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660305"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660307"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660309"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660324"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660332"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660334"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660340"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660345"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660347"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660349"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660351"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660360"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660364"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660365"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660368"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660370"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660377"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660379"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660383"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660384"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660386"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660388"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660389"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660391"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660392"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660393"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660396"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660411"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660417"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660422"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660424"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660427"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660428"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660431"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660437"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660440"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660444"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660445"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660446"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660455"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660461"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660462"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660464"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660466"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660473"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660477"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660483"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660484"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660491"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660492"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660495"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660501"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660512"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660558"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660561"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660570"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660573"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660574"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660575"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660582"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660595"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660598"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660601"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660602"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660603"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660605"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660607"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660608"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660610"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660612"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660613"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660616"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660618"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660620"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660624"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660625"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660630"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660631"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660633"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660635"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660637"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660638"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660642"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660643"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660646"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660652"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660655"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660657"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660658"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660661"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660663"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660665"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660668"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660670"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660673"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660675"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660677"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660680"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660687"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660697"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660709"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660716"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660720"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660730"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660739"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660753"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660756"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660759"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660761"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660764"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660765"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19660767"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q19928518"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q20538509"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q20538522"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q20538530"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q20891072"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q28126418"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q40457051"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q41255148"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q41597104"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q78611272"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q78639801"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q78639914"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q78640156"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q78640265"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q78640358"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q107443563"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q113638119"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q131939473"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q131940111"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q132943938"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q135901866"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q140240945"
+    },
+    {
+      "painter_id": "canaletto",
+      "work_id": "wikidata:Q141176048"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q3476580"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q16937014"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q18920504"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q19883652"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q19883778"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q20192734"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q20539380"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q20881310"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q20890885"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q20891000"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q21680164"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q21711777"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q21711779"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q21713107"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q21713199"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q27062264"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q27062267"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q27074619"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q27075180"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q27075253"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q27075278"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q30070474"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q50333004"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q59773374"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q64576438"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q64787779"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q77493770"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q106429930"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q111798848"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q111798862"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q111798881"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q116284759"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q121027490"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q124512846"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q126718788"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q129167673"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q131596960"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q133289063"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q133289074"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q139551810"
+    },
+    {
+      "painter_id": "ernst_ludwig_kirchner",
+      "work_id": "wikidata:Q139763798"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q334604"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q575573"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q4822496"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q16680559"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q18353189"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q18685520"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q18748517"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q19923916"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q19924868"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q19967974"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q20188200"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q20196403"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q20198471"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q20199319"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q20199398"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q20199443"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q20199530"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q20199533"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q20199536"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q20201642"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q20201694"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q20201731"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q20201734"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q20201775"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q20201848"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q20201926"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q20201928"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q20201931"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q20202077"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q20202092"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q20202094"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q20202113"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q20202130"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q20202132"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q20202133"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q20202148"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q20202154"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q20202156"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q20202175"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q20634882"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q20634883"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q28771285"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q56879420"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q98636746"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q106769293"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q122260004"
+    },
+    {
+      "painter_id": "frederic_edwin_church",
+      "work_id": "wikidata:Q123821744"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q2881603"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q3661546"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q3793357"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q3892842"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q5813781"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q5824293"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q11747757"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q15805700"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q17275829"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q17275831"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q17276086"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q17320342"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q17320343"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q17320344"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q17320346"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q17334212"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q17342203"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q17342207"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q17813694"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q18592052"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q18640743"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q18686208"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q18686212"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q19857380"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q19905217"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q19905278"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q19912779"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q19925615"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q19926042"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q19927934"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q19928870"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q19967269"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20177382"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20177629"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20177647"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20179227"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20181956"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20273922"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20440691"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20469421"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20540238"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20540244"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20770603"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20770924"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20771122"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20789608"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20789646"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20794975"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20795794"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20804129"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20804479"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20809948"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20809994"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20809998"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20809999"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20810000"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20810001"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20810002"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20810008"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20816224"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20821296"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20821753"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20823411"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20824168"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20856047"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20857280"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20871074"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20871785"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20889302"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20889320"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20900713"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20900826"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20901667"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20916957"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20925107"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20926427"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20926430"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20963042"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20963306"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20966442"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20971448"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20971523"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20974025"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20978558"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20978696"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20979474"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20979507"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20989240"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q20989257"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q21013842"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q21014088"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q21015614"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q21029029"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q21079462"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q21084417"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q21129730"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q21615088"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q21921439"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q26505517"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q27978073"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q28039479"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q28060880"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q29856602"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q29856636"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q38232929"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q46694033"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q50868648"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q55432607"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q61994030"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q62507687"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q66389686"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q104445144"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q104834610"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q106774704"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q106824326"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q117355695"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q117663587"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q119803243"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q120692415"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q138710294"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q138710341"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q139935065"
+    },
+    {
+      "painter_id": "jacob_van_ruisdael",
+      "work_id": "wikidata:Q141169113"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q3172259"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q16934583"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q18674639"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q18689372"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q18689374"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q18946480"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q19899757"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q19899771"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q19900023"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q19900155"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q19900509"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q19900511"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q19900512"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q19900514"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q19900517"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q19900652"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q19900654"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q19900658"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q19900660"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q19900672"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q19900684"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q19900690"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q19900695"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q19900707"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q19900717"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q19900720"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q19900727"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q19900734"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q20170988"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q20776173"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q27898275"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q49425481"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q64569347"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q106875488"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q115773924"
+    },
+    {
+      "painter_id": "thomas_cole",
+      "work_id": "wikidata:Q120734125"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q45585"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q262360"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q634122"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q650526"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q867510"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q1025704"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q1171740"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q1194578"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q1213917"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q1464531"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q1926628"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q2200610"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q2269835"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q2884896"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q3220982"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q3314658"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q3661863"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q3847052"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q3933507"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q4103022"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q4110564"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q4126322"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q4233325"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q4439851"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q4497499"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q4657632"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q4657634"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q4792194"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q4828221"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q4828222"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q4892867"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q4987244"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q5179827"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q5287337"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q5435846"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q5435849"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q5435853"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q5930190"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q7930704"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q7973322"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q9145110"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q9212498"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q9339733"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q9371890"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q9372580"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q9372585"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q9385636"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q9390988"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q9391004"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q11694587"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q11747755"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q11751766"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q11815443"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q11815446"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q11815448"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q11815452"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q11821612"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q11821614"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q16579374"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q16589468"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q17492017"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q17493783"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q17780730"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q18573955"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q18608298"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q18650971"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q18686440"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q18689429"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q18689433"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q18689434"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q18689435"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q18689436"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q18689437"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q18689438"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q18689439"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q18689444"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q18689447"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q18689448"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q18689450"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q18689453"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q18689454"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q18689455"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q18689458"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q18689641"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19829089"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19833776"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19833790"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19833792"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19833793"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19833820"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19835871"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19835896"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19835986"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836023"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836028"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836037"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836055"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836059"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836065"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836069"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836090"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836093"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836097"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836101"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836104"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836140"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836168"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836174"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836177"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836180"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836190"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836192"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836206"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836211"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836214"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836217"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836218"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836223"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836234"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836255"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836257"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836258"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836259"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836262"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836263"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836309"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836315"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836316"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836317"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836319"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19836328"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19868602"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19883059"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19911620"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19911891"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19924843"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19925373"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19938762"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q19938777"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q20190016"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q20190142"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q20198643"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q20266924"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q20270893"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q20271276"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q20630409"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q20630410"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q20890801"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q21693144"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q21712190"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q23940134"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q24020196"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q24020406"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q24020419"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q24020449"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q24020494"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q24020507"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q24020514"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q24022705"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q24022708"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q24022713"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q24022720"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q24022727"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q24022730"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q24022739"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q24022741"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q24022746"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q24022750"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q24022751"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q24022771"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q24022798"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q24022806"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q24022809"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q24046497"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q24046967"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q24062912"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26163258"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220091"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220097"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220110"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220117"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220118"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220124"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220132"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220163"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220167"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220182"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220184"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220185"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220186"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220187"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220203"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220209"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220210"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220217"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220224"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220226"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220238"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220242"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220244"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220247"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220256"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220257"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220262"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220263"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220268"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220278"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220289"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26220290"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221132"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221134"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221135"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221143"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221144"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221146"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221147"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221149"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221151"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221153"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221154"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221156"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221157"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221160"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221169"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221175"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221176"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221180"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221183"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221184"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221192"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221193"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221201"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221203"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221204"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221205"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221206"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221212"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221215"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221221"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221225"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221226"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221227"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221228"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221232"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221234"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221236"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221237"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221239"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221240"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q26221244"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q28146907"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q28146909"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q28146915"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q28146935"
+    },
+    {
+      "painter_id": "vincent_van_gogh",
+      "work_id": "wikidata:Q32785836"
+    }
+  ],
+  "shape": [
+    788,
+    768
+  ],
+  "started_utc": "2026-10-03T01:10:09.697626+00:00",
+  "tensor_sha256": [
+    "960cc8919bc3a550c18e68b318f16e429d531c415e56e21fcc81939e42028ed7",
+    "6b04d7c9792c198c472468469ec5072490d6814b215e2afcb00c684bbde4b247",
+    "73ddac3be61ba1a50c5f5fa29d62397d6f0c8b1bec23b5f570c7c7200a669ff5",
+    "aac14d24b53a2292a751454c12f786cdaefc5bc3648a95ef250dc24ea683a6ed",
+    "d37c906c66bb19f4c570fc0ac2c48bd7427f83c52e82320168533c06b908ee15",
+    "3e5c5b06d5243a1395cfe8b6fe05c578ef5205c76b687fce15d81211f0f9a285",
+    "968508fcb103db92909741b9cfa2d217f279bfc16198403ef586ddfa9453c96a",
+    "275293271c6c06171577475b5fff2aae695ed8347211942229a0d098f0df9145",
+    "57b64b3b188dcd8bb89d6f9388bbdf4c585ab6b3367b5864c1dfbac1e556afbc",
+    "3c824a91ddb426e1cb9f0334fcbc18324697445bf72d5eff4c8abc4a49bb0bc2",
+    "8f666625185b84b7bf1072f021aa3501faf6413f769a1ffa90a7587490a42c76",
+    "948905505834138d276fd77cf55a1791bbb5f9aec1cc6c28f1851edb292b240a",
+    "7513883ca2375af936257a08eef34ff6fcb15a5ab3d02f886a8d8ffd7301c05d",
+    "6235950b3cfdc17e151bbc168d9e4be748a96a863997a3750fc8fdb461936016",
+    "00465d19898f25681d54f067b5b5faf7a211b8d839783272154f79a2ba888f79",
+    "d07e9cac04c8886ac42284f343bdbee12a9fcfea8e6b4db996b7a5a8e52c84ee",
+    "807c8c996192ced9adeed346e4a0459166a45d7aec351b089f037ecaca413457",
+    "e0c695591c8daac4b9f259ee1836cd7619194447b190d26708c5f3ae61216baa",
+    "c58ae93c2d63c41458b3d4184f6ca8072a6be6e67f4497d1aea645d2422de3e3",
+    "98be07b5f5efef1a1042bf681f9de171a8c119a93cf6acd6be8ce955836abc97",
+    "f24ef46d4c124bb4dec83b1bc4a07e2e17c8510aadae4a6c4acf3cf6130216af",
+    "57dce698a71b11efcccdb3644129ba5f6fd2049a20aae04a70bbba019370da9a",
+    "33f800a5859d6c37ced8f83bfc9d3b439f60894bab70f4b5566077831cb688bb",
+    "29c598daff2ef427ecef8bad67e7433f2be380150e62416c6d5d59691ad3bcb2",
+    "6e7d0c9b263fbde4dd48cfe4574842b2fdd817b0876b016b209f3442ca69ab2e",
+    "d1821c6b49ee01315ab0af2a83ef01c49cf3ab6070624e8730fd1f1d80a702d9",
+    "710b5f6eed35883f45466377fd7563e8eea4ad592d79d24f5e7b8324047fe35b",
+    "6ae203edb90481c62add1eee7c03433fd166d367931a0fec0779804a224f22b0",
+    "48beea2f1ad48a2c109d89639ed1b239727803428318e251254e9fb6b0fc30d7",
+    "82e8e1fc114b9fecf1fb6798505d23ac99d63e20b8aa33f306d1ac6458b5e8f3",
+    "6408396035a4a9d5aa04e7892a6918e65907d7761fa20490e484c2003131aa3a",
+    "8f332a7461520bff46db74322e8abafe1d0ebdac045aa21b7743cd9ca33c2f0c",
+    "b9372a628b79d8e24208f27f12d64064a4eaef10658ae28dabe47b0fd3e333c1",
+    "f5c13ac1ead0832b2d1e8b5b2a588271c3f47f6ec26a87b2345babb82cffe9de",
+    "a765a9ea9ca9ad6f9754ac57bf1355e504b87d11a1626bab24091f0e20a95d64",
+    "3ff650e7932b89b5d4e5d898db33d6fbc7991e02071748deef60e1b4514c14ab",
+    "09cbfd02bfa933a1c90c8ebd8b8721417beb1d53f150ac29ced6b933cdc8db16",
+    "de4bd6effc284de1f59b2c3b513e102799334261ad683c4f39800131d3d52647",
+    "ee5b6c4623a982b9e48e9f2e4d1331086353c13226b5427c48bea04281805628",
+    "c714502d76c3478486449d00b1c76e4b5fdb7c101ddbaf9241469b1aab30227b",
+    "7071295a3667cb9c285278ea01288ad63111b5560566f4b0e740a7bcc2633126",
+    "4a46e1f2dbce5a93cd765d2c440a542d03041b080cfcaa07c00534eee01fb6c3",
+    "cc0423e73324f4cc0c044b7567f4e435d350bd5433ef831e11653e3420fd44a1",
+    "96f0ef1972c4253a3948fc1a3b65c8e5cf2d3a9c1755295e13a7bc1ffc8b14c0",
+    "b39694c859453e57ac7899d6695d407d732e380791feb1c8aec534e2b0ce7be9",
+    "951dccbd8f449f8c28c9879e6c19533eed4e3999eccc4737ec274bd30ab8fd59",
+    "425e35b97dfc921b4b939c72c507886db51ce4b3f61a0e4cfd95ceb77a4a5f77",
+    "f4a18c85239380a6dac6ec8fe648afe921e1ddaacf050e05690b4df13759304a",
+    "4c3c31824f5a697fd5b26153d01ec331708ef5bb129b3dd961efb9b3437d31d8",
+    "38ed82f39dc9edbe118902e4634ccc4edf4e68cff218324b2ff5abaae257df73",
+    "ab20b8d7632b41602369e376f8c7d218f7866bae2758dc2cabf01dd1d9781d43",
+    "ef1c9f6dd989818e276a832b0f2f071b3ae97005f5f94ccedc0c82557bfd27c3",
+    "482a3dec5ca5711f756322e00a8834a8e14b96bae2f04928ddbb6017ce4afc98",
+    "ce25f2350c5e637d6e3f33342b53d95d6a179d066b372bfc2920f39306261875",
+    "5616e4b7c4857684fcaebe78335e0a7a398c8d4148ee3fe26136a26a72155918",
+    "b57f181eb284ab346443154c9a9984c9f4b3c92d0b72390fc240f0545a9c7d8f",
+    "06b313d4c3286382a3d0773783ff1230e177061495a0528dc19c71f394544644",
+    "594ed141bed9504ec08e55526b5de1d409b76d348a511fa93e98fea70246c849",
+    "3fb1fa64e82db4999dbfb32db9d020c501b4aeddd10b180510cb3f27e1f0888f",
+    "d5711daa4a2066b71212744d95aea6fda4e6242b30f6fb344bba5fcfd3f5e9a0",
+    "5bb84a79f6246a399348a26fd7d8b185b1680498edaaea92eb2d47bd9ffea40d",
+    "bfbe491cf5a26e84f9e8d76a2b2a99f275a6e660c21f6a9d36add68a9e0f8d7f",
+    "01846079f401770319e24fa92122231bbd5462adfccafd939a3e50bd827bcac4",
+    "167f0dbd6e8de459e94be5f076fc1f4c6b435c939a1915f3958e24a21dcb3fd0",
+    "c11e112001b3b68cce8f93c65dad90a3ecb1c1a505228b46202005580f858c0f",
+    "68d1eaf886ef6c88cf4939681b9094499689aa779913e7670ee9929a44876671",
+    "c859b0eb823e8cd06c7cb33b7a0a890e9ee6b8d8965df495fd91c14f8ecbfcf8",
+    "f2cb255d1fb08cab344a2e342b91def91f7ebe0b408aaf04a77013cd8f1450cc",
+    "80383b638aa6a808718a55b3648ba4e6ab4631430f7f6f6b69b80e21b3a327b9",
+    "1c250bd30026eee1bc6e30c8dfac369c0b370adefe85609f351142c9bd782208",
+    "b757d9fc44eca52598d8a0266dd94bf44c607de9362a9248328d032791d8a078",
+    "a4874f8e7a3641a3c3e8a78553ed61f9289a1ecd4646ac71b0e186061d9d8bcb",
+    "3fa4882b34f644967491f1e587af47e050b1f7b12a5c87c1d80bcde318f431c8",
+    "7995b56e62527863b75c5cd2e07df5b826bfb91b8548f9ac92b9ca410f3e630f",
+    "74947de1065c31304ebdb02bcf80728e074819625acb24cecc60c069444d244d",
+    "58b3cb54c54319c28fc0c4910ff3aad07760de34ecabc9cd9494cf7710bda429",
+    "0efdd19d80f0ae0ce47a135ef8c3c42d8210ff9dd03decea997a2080494397e8",
+    "765c462e68aafb5d35bc77eec7d25e6668aeab7c7729c2509c36b13ff6c17188",
+    "21647d0c6b9f6d4f9a905331cf8e638e3d6199a9fbe58c918f060a78e3ac50cf",
+    "dd0a07bf7c71621d7ff11f828f36cfa89b755dfffe40887e9a336c21e4ec4b03",
+    "148cf292c04a25ff11d02bfaca2a8796f3a0ca4cfff21f2a7efdd1b9c31d94be",
+    "19b4a24ee6b7217d98e32b6be907d30e5a9353b51ec95f4f102256bcf76311eb",
+    "8ef0fbd94d0e3892881d3687ac2fd74ca2d66c6ded435a28568580ee6f62cda5",
+    "c48eca8ebc692e21631b7479b487a8bd7bec9e9e7a7db620566c459e6d942792",
+    "4481205e70ad26cb6ee8bf5eb46ed98439dd2b70c81fdf6ef6c1b44b7ebec890",
+    "10a8526da928dcab7f73045630124fbbd913836465147c39cde8582a091d266b",
+    "2d32f4919f517ef45df6c43014a169621a4d7737af5ab92b536b762986409fee",
+    "7cbdc5183e371be3b7615b2cea376af94e23a55bbd068a53d7a80a2b9d4930cd",
+    "97ac9dc21418c0a7b904b0683213db61bc8e08adb84b9e4bf66b350778859413",
+    "caa1f49fc95611b017bbd626a63323a0e675329e2586ae83b732414b4e0826f0",
+    "7d59d3831d669a8aea56c37b9b4808ac4c230586b79c4403fa5fac4fe8bc4296",
+    "c3abdad1e821f6e8c0508fdfdcbfbe7c629ffa67475922f6eaaaac4147b230ed",
+    "c585ea5081cd0af08acf28c01afb2ddc6063df9b03c5e3f0a73c2d1b2ad15994",
+    "c3b4ed38dd51773cb7fa727218d272e11409ab31ec0a017ef6e02b9304cfd388",
+    "9643fc72cf95faf1fad965439b78d07e233064721ed38c76d46f080d9f60596b",
+    "b39c786c1f4c6294c62be32fd5e1df403230acaa4fded8a83e4e9a632e92ab9a",
+    "ee7a8b7039e519673a286d30f3214b80589c9ffc97d49d566981deeaef41b231",
+    "fdaafbf6dadf3fd275010b5f3c4f194c9b321af1aaca14ad4d1bcc1548526be7",
+    "ac120c3e5408874f1857d6de5b3214706dd2c7cd5f52881d6b4e17bde8983123",
+    "3641545daf0875ca4b9a3638328f99dcf899980927419a446d8160d7ca9abd91",
+    "f060fe4257df13c390ff3f57ec9ebe41192b2686fdd19e9b14707cac6126a67a",
+    "55cb2a4be163036e17a5022d1a18b289205bef70524f5f8dfed140b9a94f54e1",
+    "299c7b325646cea89f9a6a3e235b129f802533d983554ed11e9186e902070ce5",
+    "f03e81a8e02949213ec5fc9677b034e01b4c3e824fb53c08c27c60aa7e5256dc",
+    "e0ddd8c53c78568a8878506bc719a95aa86f071909ebef39799fc1fe76d94cb1",
+    "fd0c0c1043094af44519dee0bbd18b0bb6f15dddf516d5570dd1cbf78be3f2b9",
+    "a258a8c60baf83fbff87cb02af013ba97dbde140bfd7b587ff99b7a786de0801",
+    "34a4617f4116a7f091e091bb6323b7545c2b7dc678ef3216e68c528b0566285f",
+    "c770710c00148fefd23667d048b8b60ba8cb049b7b7fa9d76f62937b6d6b7f87",
+    "92b7107c1e051d671edf5c4b01d89d4efb1fe84468b40068143fa0b77393a376",
+    "1e5113cb2802747f6bf81c4ee91b9ed25b228b9a6a06c8a189994dee3f84d13c",
+    "f16c80034b7bd806afcd0463ae1285435bf1ada5f87dea648b1f7fc9c984a190",
+    "94213cf92c6aed225300d7367187a6224a734789caa82a7655b843dd56d67aa0",
+    "abb314f2af2a262fbde0b0b69c03b38d92e8838d2f2f8606585cd5737454c531",
+    "d7cd7542e7d4f6a5f6e48e174815b844d42461397b65aaba42feec1e3fe010cd",
+    "9140a0f359d053a0fa126082f80aab559f0e55e3e85fd4624c3dc56c558193cb",
+    "edf2d2e8fbc05a14a4a52a0a92ec7b52ff0705692f71ef1933aa842a557c8774",
+    "91ef21410050248652ab07c68a4df0d389b7675a195261c47c71a1fd67167fab",
+    "eac0384f058f08180228f70e6e0486f9d53b671f812d79af74d0b48029f0dd23",
+    "2f45a85a1701f86f9b5c74a9633a771c169bdb286496b899094b7845ec7d85d2",
+    "af573b8496e1ad14cb67adb9edd12e2cb34b3da944ed3a85b86a2957403c29dd",
+    "0bf0af66f7908f1064c1f6aa9453245cf154763ca6d62e390e4990cc939edf0e",
+    "a0e7f3e8187a6127a3b1bc1b6b59c736a563cdc14356f2b69d3767c65d918137",
+    "8619c713eb2c5e4d53e5a5c5af3ca7aabe8f835eedb465292317f69cf7c3238d",
+    "1a23eda5b9c9e8a26f81deb1403712d3aa956069c64e350f63f76fe250c1240d",
+    "218998bd8b4a3f2c91849e7005f28d898aea1eb71f9554886d20c57b24cecd41",
+    "224a9946f5c682d4f9fe3c9f53ac938a34e0f65ba0f676ef793d0934098787a6",
+    "cacfcbaadcfbb7e65758546b82374f5cbfe7435e6b99c4398d87dd05122b1f70",
+    "88df64e0f8267fef2b688e51fc98fecdbab4ec4d9a088a033711ef5933c4d73f",
+    "1cb6645f68508f721326f18e7a5c4c6da8c8985e9f6ad726ad52f0662a1260ea",
+    "6ec8b12e4547ab1364f3fa8a589ff84f8812e6dcef0903bd2f1d8cd487a88657",
+    "8d78948455d10e3215b95325fde76e9b9190f015f83ddd9f35015aee739119ef",
+    "6201a2f5fd6bdeec3aa1bb40e5ee32f1c0e22a3870a0dec8c4775f7063caf4ed",
+    "4699396618d91fcb40603e557c24b2b486ef4afd0392a035ba2eb8b9feb208e8",
+    "26ba962dea901bfdd34d243edb7e8c1912f0f20db12fc6a2664940b38103337d",
+    "d44ec267a54fecc6afa53142651c4214ec5c40b9df085dca289e49e165d36fc9",
+    "02c7a8a9722fe1fe2e31268d59a8550c2050d759506ebf4d45c6792e36279a87",
+    "b901ebf95301e945316ff167df7a063fbbf340961f8745cb0b91eed240532978",
+    "5650efa3fefbf9813e89144a9f27715ea5ef7cd02683766fdffcc625f179270f",
+    "5d1949a74944fceaa0aa36d6f0f399571e405e1abd20459a969787846ebf4adb",
+    "2b7c829edd5f8d3365d98859ea9cb374ba377d57e1f52070e603ec03fb08d155",
+    "868fac6331709291efe9902a012252609fab958a630c1047e0a8a2349613ded7",
+    "082cd4a28e99170dab34fd64626d65d278ee0a68413a41fc08ade52e8e3bc519",
+    "73b74c97c26fa06aeafc70fa2a6dc8b5bd6d842db27c147d614cc6ca49fa0be2",
+    "4573d7d3ded6144b56fbaa5923e0d552ec3af2aced775d62bf7524df48d724df",
+    "f69f535a1ed7952b904454e3e2d2d354a8bc2dee24a91cfd6b2baeee3c165a69",
+    "d0678df5f9b18152da443a1f953338c4138d66d6fff2d9003a1917482d5f83c1",
+    "080b4892b5528ce54a179bef373b5389dc81cd93cf6cf77bdbb4e5b9c016a0ef",
+    "6142f435059d9b3552015a726592263faceb45a8ca8e0e5a7d7658d0337e31cf",
+    "a49c7e1cc472d2afc914c9864e450f5939a90fff348abb0d0204a9215788e99b",
+    "522db943ddf2d480af52a6e6a32b32390e298b9c13cff238136feb0a844e9bcc",
+    "91b6b1d38f2290c9cdd60aea8a03b80a196dbc9af03516ebe5cc378bdc6d10dd",
+    "61d7ab8669133081b22344e69b5d4eca2b2c8bad0954bcb90daaf5334afce117",
+    "c16cedb0d040db8d4c3095c4efd13d33fac2950132237eb1da52c0a435eeaeb2",
+    "74de5b768d0800288517403739afb286e76c225ea3b0b2726d51f2fea2791d1b",
+    "e86c8171cb969b4ba1854fab03a7a7a0e3290a4b815f79a8b4a66bda3f40e75f",
+    "c7a9f8aeb240805421de429651873306e51cb4f4b94a1c8c51fe399fa66f6b9e",
+    "9b87a0adb0b5659cdfa3ef648e63bc4a9adf35bd7598e49e718805d2422f2da3",
+    "55edf30764a6795b4f6b3b2c34915251be832ca79216c3367e2c40f79883c956",
+    "0640b9c9b5411fa3611512c160869de32c0159fc9a1fc2f0fc47e2848cd01af9",
+    "f8e241363a1a0ecbd8863cdbef0ec4d18f47ad7f3386205ec694847d37519d15",
+    "52fd872e95585d5bafc51de88eb70fcf06fb25621711a2e00f618c9368ec9db7",
+    "4abef658c7a17ebebab2fa93db4f89581389d83b0554ee2e53b59eba7ccc0637",
+    "dc536dc2b5286ad6ad9e26c6faff260e2728c01bb98ac28b7f17fc4df363f3e3",
+    "1bfd1a42d3f06912b5460767ff7e1b1185730dbe612a74904908fca0f9326e2d",
+    "493e76a366ac10b5828d2e3a73d120f43bd27ac3530190078caf2f1ae5ae703a",
+    "11296bc615239dc2417727c6423af8cc2554ff82121e3206d672c79d54e767fe",
+    "3407bb2d307aed387f22b001c6f8dbddb89cf3b878014e02814100d6fb0fd2dd",
+    "db18575615bbbde0d8b793bbe5e31c39a0705b52a242d9911fe8d0fcdad9f51f",
+    "1f90bd7d8188e5c73ba92987bc6e331e4ad5b1e9ec9aab56bb38a1530ad7fc2d",
+    "9b2bc26445a9f6465943132cf0823f1f0adb4cdacfa833cc7afbd744a9bda855",
+    "263304eb95c4eb8d5b287ebe96c6068cb95ca6f9ca9a06f193260bb9c28cd2dd",
+    "810db1d8df59b660f69b2f3b776218817a042fe322e6de510559fffa01b360ab",
+    "47a3e5a5591a1b73f1b09761f57809a370ca5e3c2350b48ed61e8dc803fedc32",
+    "9f736bcf6558db44af4d7f12f929f34a1edeea9394bfad2557e5d37fad54c16c",
+    "87cdb349116594feff82d524b2d7fe4e40d7d398a8d8899208b549ec6dc9263e",
+    "62a0148e036eea828cc3f538fd01c2d37f666658dc7c5ed67aa0c13bf0a84872",
+    "f9096b6771b67c401dc4f9eeedd686dd8192e14867ea95293d0f1d38a76b376b",
+    "1d271d81e1fffc153247c21b24247470f3e43b4a45b966b84032b3f95c0afa9e",
+    "09ff2a2534c29620219a283351266d636f999625f45d118783f83ed759a24bbb",
+    "94bb42d7d2803e3b9d22aed0a9cdd0f735ef384bda84e16323449eb0cfa11450",
+    "5902c21d56c8b76284128fcbf35edae9e76ae7e97e21da22a291f88a0059769c",
+    "141c4cae191b6b69ccfa588eb1aaf31266a684d3b4e86d27e03068147bb311ed",
+    "797fcd0ac57af9ea28c54161949a99313fca6db2335d59a129e5eb060ddc95c6",
+    "521a35cce8afea30472b548d679e0cde6695031d028eb1c82223c960e79857cd",
+    "5903000d7f5d293cfd7c674e13794af5f93a508d590cf60704fcf6e5a8ddfe0e",
+    "a20b24116141d3792bfb626adad9cadcd2f947cc90b57e17d1b0bf3e6598a0a4",
+    "0bcfe7f687636ae4a63cde2213a8bd3eeadc3a16da3ef0360ffc32db4e1d897a",
+    "c0a8d9df30f8e19d06fe1f1d88f74f060f3bf4ab6de51f2fff6bc53ad43c6ae3",
+    "9259c80fe203010bf6de655f6c7a9603cf9fc62b1dc1752681e4a5a091724d0f",
+    "46703938542ba41fa7ff0e742377c858d056612d388190d1be5c517aca0f9017",
+    "476cfbd2b7f4b480a5256a990a51d6668d532a4b9751bbd7029780f1a6e22048",
+    "36ddaf86df503be55fb600e883339a5e2eea461bcac8e7e4965f72ab2ae50d4b",
+    "b68012b643b51b729394ad520697a42bb1de14e1551161c86ef9b90e8ae384e7",
+    "edf8209fa59b69f56f73ed2c635adf558efab0eb8afc9c53c9f0b38e17fb678d",
+    "62ae02f3d3129841929385ad14a82b00fe15a3f12d008997792a701ab31b3cf8",
+    "34d8c32d525b50ef0103a46eb78a7ab9a17371e957db7b347c0d56546f31d72c",
+    "43b641f20d06452c99dee2118b6342eac53f6957dbc3eb6925aeeb8c9c196699",
+    "9ce1f2aa23aade19f0a70da2ed48491364912d2278bad6f39da4fc6cbff107f3",
+    "53c370dd68a5acbdcd5f5ce08d3579e59c95b635d873c79f66fc483eef6b7dc8",
+    "6efc575c913b097ce6abee89f1b5c25b263c77f76d9c3c21d7b555f378ce79d1",
+    "07b3fb79dc9bc84088904b88bdd53733efe735d62036f6486667ed85cb8e4a33",
+    "306a5bad5e59f11bf5990039e4154af8851f25a72e924c8629d0992d24743e5f",
+    "9458bc1f5d9142759e43d0656e0d95623faf82336c96f25502fabe473748856f",
+    "80707b85018514a80f803f9309649ba2ece6f02945e89e3b9923c16650a4fad9",
+    "70e8c4774567bfd3e294e9f5d155f45ac386e5dbdcf054fe0994cf952eaa7c38",
+    "418346aa3aaa3d39087b68fd983767d205598f60f76ffbb8f0159a8f327b90e1",
+    "ab39826f3fe3bddf6958775adaeb0f3d813b153b340b5c1dc9a95bc9a28d3cf9",
+    "b08e17e9072f10fc23ef8964a4e07471098f2472c33bfcb4c91eb8a295be73a3",
+    "6b40ba509f774eb7f1c0af4f38669280d047300dae21e84ddae9cc94d8129986",
+    "0c7595b1b60320abdbc9c7b123e676310c62681ac3eda8c5f27a1f1ced6341a2",
+    "b09219b6dae34881262f9cb8cafce472db8edfc3b99a471fe8eceb2f8317c019",
+    "0f616acaaa5d06e88958e210beedeb4c5e5bfe1f3562c453281d21f5af82ae0b",
+    "9cb0a99941abb63f7777e60feb52400cd261646924574d235069b3ea68d2067e",
+    "3f915947b85abb5e9cf43bef2a63b6eccab399d4af715ebcafcf55f44b0acf2c",
+    "6acda283d49eeec15d5326e9932faa34dac5e3283d75789c68a1eb68b8d1bb31",
+    "3479fbbf7e954043d53feef071e04a3f4da481b2c279e7d49da99aa48e0d91a3",
+    "b0f8df62eb9fc47edaf151c1cf723f8bf2625dbc8a297c3b23e6e65f1757ca6a",
+    "32453bafa5993231fd7ff8f35e6c337606cb2ef3f326a32bd6ebf7a333c72c77",
+    "49c3337cbe9a78f401466f0a94d5a3dae66e86ea6573cac37d59219aba3f4215",
+    "afc26f747d178114a998f11278f9f77264648dfd7aa94827259c438139c41324",
+    "450a659d4ee040f5c0aaec26093d37a02f0e5fd7253b180126997fd5cbba6203",
+    "7626b9e4d298aac0b30f1b486c3e315e5d385b08f08c8daee42d03d36dbd8751",
+    "55dfec22336c3d93554e804ecdbcb6931357a1a3baec437dfab2c9f9197762f5",
+    "8f358355e76140a43e8926674c1ba7510ba0debd8ca65d45eafa761b0200c4d9",
+    "44d219f8b85fb7357444a0df173722622d9b03a9d2acfe5277d44419d427efb1",
+    "9a2dee7eab881529807332437a0a7c0282aee0850fca2b9d5a301cae58d2fac4",
+    "22f0455b982807c3a6fa94095821cfefe3871e67f01aafc4043cc13aa420f4da",
+    "b7516e00b28922f43d400dd3a2f1e0f30cce8b85b0420ccfad5441c6355de3c5",
+    "25439c9cf87bd68e60da9187da243c8ee9ef50dbdbfe45b93e36597654f778af",
+    "aff711a95700520dec3d73380872dc75dce12839d6997a52962ed42ff1858639",
+    "35867b308954f0ee7f9775e43c7f2e2d78e67ad718ac0ec8d43df40ca3435f6b",
+    "3d16c6b2c529c809ac73656f56301a365bcdfc8ae41000024a51528b186ee60d",
+    "443901d6ceab01ce253f2753d698d858159be370f946b49c6c6d76b0505dd500",
+    "a21671dc4b84b8b04c097c31a4ab1abee2e919f64641cf57ad7eb67b2bc26a74",
+    "ee3e04923a0cc3f0aa1c1ac40e35d5da986b2fa4e0cd9b5d346c80b9925df9c8",
+    "8a9d51abc01aa9a04a2a52f32032adaaa4addf9cdd7f0b28fc28d1079b0f2fd0",
+    "efee84e42ab42b292bc2bdfacbc3c910588566feab6cbc9537332cdda0517f6f",
+    "669674b7dfb9f279ad67d22cd0660b2144f60d10eddad4c701d2c2f5359b048c",
+    "e745bb737c135c32666b1db19f1911851963ae38997962e06afb8ceffb5084a4",
+    "eb84189e453d9e598aa05c098492a625d0c2c55a8dd4eb017dc50f59eb26ff58",
+    "e2f78fc3d18233816f7ad8f6739705dbe1d3c32c5e2f2b24fa37168f5a77bc5c",
+    "c8c02f424eb27e8cfefa7bf8739502b170926f45b4d021961bbad7e9c4e6a8a8",
+    "7dd874505f990775968d8f16abd84edbf2a77608846b62586525b58852205fbb",
+    "54bb4b156bcbf629e1e05dc88ce3d8aa3a65e744beb988a56c94aa0a53571ab4",
+    "89a117b8ab36526cd33bdc0501c4b59c623c7c90cef9ab2b88850a358f5b69b1",
+    "aeb1dfd20874101854fffd009e37e5fc69e551f4558696923ebed51045bf10ab",
+    "4939ae2502b27cbcaf03959e2aa08bbf1f3dad7c11502309916281e052697aea",
+    "2885d0c35300521ac72e92ec300e7e31eb5e49ab5ef603c383e30ed7aa0e1f26",
+    "49ee7ae80d13e8005170bf58579ce14a399af5fee9c4439efde1caad78457c94",
+    "b5c3511ba10d3c2e76a591c5948dcca794c11255ac7dbe08e2fe50df9ad216a2",
+    "10f08c49d548dda0b2d0e6155de0e9a890993d32b51600ee2dd0b7179b8ad7de",
+    "da42c3bf4cb1b2b4f8e8fe125364a64d20143b31066dc653422b7ff689964aea",
+    "a828462627f8456bf2007b94f82a6b4b35621b5303ea26bfa8838cee95909380",
+    "0c511f14b6e8051beb277814b92fffaa04e6ab7ab1b6ab4c287e307796c0d87b",
+    "57a5648e1dc12a336e1cc3c5455894f8ff736a570c20583cc103b1e9356b943e",
+    "bb7cb45f3c72a1a6dad8decc8b7c83b013655e5a1677fdc14bd513a5f13496e0",
+    "8344444a6fff3ae266041ba733258681b3780abc4c1736c3cfa1f992bf9a8762",
+    "fb72f51523a11af1253749741a8f4d7ba2535221de2627d9fd962a30063d39ae",
+    "e1c9d134ce52378a740f634f89cf3c030e8277cce70c6c0dcd64f1faeea2ea1f",
+    "12b5bc5bcd7b3a3b8d77e33a175e926de34e54b1dbbeaec15502eb0cb01680a8",
+    "783c4cde58f0f58b070f13934dd45e7c3019bbdc7d06b43fdb938dd4b651bc8f",
+    "c341d3121cd589d5ac5561a2286ec776dcb5deaa25c3e91e5951560bfbdbbbf4",
+    "85fa90fe460e4b0a504225a5ef9b5ef5a22a13f965c8d995f2b5c4f03aaf75a0",
+    "0bafd0398efe2a139f7ef79bb9d850fa331af9c644d148aa485711f374049cf2",
+    "cd062e113d3d6ccc0ce1651a54324b4ddefba737af179d206ff1d93cba406127",
+    "299d03ce996e71c6ee9ca9f16f9739f995547b5a59c075d918488cf2419ae03e",
+    "61ec18d15768ed65f8bea94d1876ac25ad81234168b09ea7c730426b10cf4031",
+    "d36b6506dffcb959edc741e37a1bb0a4f3c5d4ee9b9eaaf5fed8ab4483fd0890",
+    "02f074d4519a07530ed1e3a04b6cc2f65ebe16eace77fb29449edbf16cb4894f",
+    "c916c9ab4e3e4ba5726f96a409cd49e0fc070f52f9019557b31ec4dda5370334",
+    "1fb19f99c09c56b2367fe6345469b429fcd9a99b2e15f26b35b3d1088e4a7e56",
+    "df041670abc735bc2b9510962f696dec16d21541a620e2a48e662a7fbfc25b40",
+    "1e7acf581f2ee7fe44bf00bd3789e24b28aca8aaca53e7ca157f8b2a8c5be31e",
+    "4e2de5d1169b8f2be9efca360d534eec020c93c446adce71d0f2473a26b91234",
+    "1e95ed4afb6b9ecd15484172ec1b8dea1e75aeb31b6f1f60621672719e13b68f",
+    "aebadeb3562b91b87e677d2669e193acf0eedfb9103e525649582144e8aad2fd",
+    "4c3e13ed81c0c1fa19d6c555445cb89532519640a366a4541af51186b1dd166a",
+    "0d2077a06b772c71a82a9477af4ce81fc4ddc72e1e02f5695e4435e8747603de",
+    "bef5158f48ee93decedc3de2fa80dccf868e0a775e585ac2fef054b6729cacdb",
+    "c540680974071520f98a93939a8b25c0e86ae1ba5733c1727ba49a4871500259",
+    "05dc57fc2f709aec52c9a7a66255023fdb0a69c8ffa252364e224c5b64d835b7",
+    "69896cfad41c0f401c6532baefd31f0ccdceb79b4266746d8e9220dc1b1dafc4",
+    "6edeef5f423b5958a9192eedcac97dc404667d672c1d29cd65ecc2e776dbb667",
+    "3b51c04a1158c4fa0afb700a287d04c839d42fe6608366167cd97a887fcda10f",
+    "327009f10cfdfd7aa3585775d1aaf0a5a543c45cf897671c0056662f57d911c4",
+    "5711da944bddb2fd35f86b8843df15936faf6619016551a8ce3315cb1c7f9c1e",
+    "b7a1d4d1e16ca3ca280c469766b5aebacdf963041b2415118bcc4e315758b978",
+    "d243972b96c9eae3efe1698d9042c91e23cc67dce398fd46bf2be34100cce1f7",
+    "46cda23df54d29fa1484904b71368ff6d3dff0ab15eae7767f0bb3c66018f688",
+    "b373c4868a5e96d20e79fc40b24ec2c9416bca2492eaa31fffb60848d9dfeda5",
+    "9142d08f9258dcf4415d95dc8bd2597ab4bfd7f18a29d9a96ea50918d5849220",
+    "bba239203fff3bd45fd0f01718a63afd5dd51f28eb84c2fac889a94064b5ffaf",
+    "5266f53a62f080eb769416d03304198cb2d75c4ad4f0296f70de39b8aec0db79",
+    "80a73a6d29b1b3eb3fc654a0d658b667263edf4e424165a444de4c120a11abc4",
+    "ca1c2dd6335e214655eeaa9204281090832ab51cc0045e5ccc6e1ed7805b40c3",
+    "3ad6c4593e6eda7b91bb131fbdf2423a4be58f23c1ac45609506516c32fb1470",
+    "7cb7c2b073095708547e3793d823a26f19a8b1a892d1f10b427cf425d13cca12",
+    "3a4de3cf8fb272444b4299925f625306d5ec54b7c6a20b4efaa611fbd4b0c070",
+    "16527b6b9aa5216b19ee7649d9dd6a496a2bdfd10a2ec6a2758818db1a9088c4",
+    "756e90068f7a0607dfc84bba6c753d3c35534e518aa40cfaba54bc1ad4fa97ea",
+    "561b77ff017160c379be887c5cf2ed139588ddbba74ede52aa6d6898b97d7b32",
+    "5cdb78077d4665c242b4cd6c5b31513c298b49164c2e3232db2c670560da5305",
+    "6b41adfc3842d3bc56c0997ab01e5dc9a9a5e7bdb5fac7f06a55528a39acea61",
+    "6ab78799c85d94ef0a8641279ebff5e25468d5956a186e2d3599a4d3f7288c1c",
+    "40505339c670da4d01b898250d56bdf863ec3749e73c39cd7b8e5d45ba0e37a0",
+    "f5f6f154516a1fdc5681a24de002398660700098e4417bce7d8da89233d9947c",
+    "2a2ff87a9cd40b143a238a04254e3a7b48d3a67c554de81d0ad895fb82971b19",
+    "d5bc5f86a1e6e5c8e48738766cf92639d3e5b715e0af29fbe855d2eb4ee6c736",
+    "bd747bac3ac01f4500425a90c0069ec1ca8ca3e932258a0f7b4f1314190ecdda",
+    "e6fcff2da54bcf9e3b547510b365ceb182765d88bd5a0075504cc4ea4e956271",
+    "6453925024766ec07e0356313eff1b5cfb329a856cd23284597ef6305eae3474",
+    "5309f86073cc644bfd77bd0f7d355e1a9718f1f6e6dccd28c76a4ef185f5bf28",
+    "0c012cd0584f77618d439a888a35cbed004021546be0de4c8949dc077dabfa60",
+    "93fdefe4695d6e2ae2f144150a366dcb6a27d4c71c6d275b90d11e809c2a90b5",
+    "05062b71ca8c81a1f3207704f617c971b2ba50278b25eb42b8af0cb23a0a6510",
+    "732010dbde765b5996875c68641038100bea3dca9b875fb2e24f254670a80be6",
+    "c76948d8f92ea322f46674628ba094ceab0a26f6f44cda2b49c9c8f75b0b4155",
+    "03206190a840c5fe07344bce0258e8181be25d52bec36e62e2e2467f88354b93",
+    "ad096bacf3d01d9db2dbf558dc1d46ac234d67d67f2168fb02dd8bbc2949bf7b",
+    "0b2bfb10f2bcf327339e4964eaa02fac6c88651a58624bc1a558a7f6f52b5893",
+    "528c247bc32c9701e3e3470f540d54d8fd6fb5ccbace7c954fc6ce61dff4a6f7",
+    "a80fc389a25316d60c9583a5ab46834bbed93a2b8a7828b169dc2561efc1a457",
+    "dc1dfc103b75faf5ec258f345de8c3c422f96a544b474afa58c22392534f4ea0",
+    "14ccb2fe0f9fd96f490f542c7a2e25a93fe696fdfe80e4332eb5596c031d1f41",
+    "72d705ea745b6a662aed236189a87de2c07990df05aecc136457c3ad88b73926",
+    "6e881aeddf36c184163509f0d3e144f764962211709f55b0fdaa1fa807e80c0b",
+    "0aaa6caf9e2360008c008147cd0678c39a133dbf64ba78cf149d23a3b461771a",
+    "36d6261abae8eebca0ef239a99ed1a993b988f89744c5acc7aa2762ce074076b",
+    "6267ea1189f28ba535eaf1452af82e23e6706e53dc7970b4c7bd0d2e523a1667",
+    "125e4560d4bcb659d517e50850d6ee99713d24776bfda83d03cc1809f22cd49d",
+    "e8b3a9a6108de90de068d23836e9182dedd070605ef2e3dec8e0de123b8a7d5b",
+    "65ec5ae55de2fa6db054e9150a5b26e3f82b04028cc75fdf8d43c2c3260751f2",
+    "9582373b8bc8ed386a7b5bdbd5dd5215572f27b786a8ae7f2dd3caeb05a7f6dd",
+    "d585d5309411302df5e32d96ce554b3ecbbdfd5bb74484185f618981104c01c4",
+    "c8be9a0dc0d7221905410d788d7d282baedaf9500f62926a2c628bf96b497ff1",
+    "b294815d2fe3a8ac3151ddef3757360b013965c828b724ee4e45bb681ead1618",
+    "2d80dc51d0368f3fbb849520b4737ded28b33c2f9aea625566c468026a8b2684",
+    "3703d8c5c1c05f0d7c2d9243d0ddc2872e1db8075c69b55024328f4a7caf487b",
+    "4220185de975b154f00adce67a541714997aba21aeb77ea50d3bcf98251cdf78",
+    "fbd8a8a85f55201ca93c958344cb59b07853e171b1e10953f0550c04637ee60d",
+    "1b112cfc41084d6cd3261c4c1df71cc24c1a008527a774aa14ab82cdb58ac495",
+    "5908437e2df394bf149dd12fcea676b07165a8687b3ae431689dfab63498a9a8",
+    "de7cf7a12da5ef6d734ee899b7aff18b4269063ee9775a67ec4f48f0daad6ee0",
+    "ee2da42900a55a5b182faab3d01ea3ce8f345a34c00e65306c4024d2fb2295e9",
+    "5d2164a5e50bce31c2984c70661dd8c01165950f60495570c84ef98028fcfde4",
+    "3209c3744ab307560d8637319f191236f9c35315beda8cdfe09ad0817f5078a9",
+    "9b3741da30afb7d32423753f8ef5aa1571a90a21914b8b2f064b26b25e821cf1",
+    "18014810da6ad30b6fd3eed462fb6266278b08f78f653853676855cddbb82be5",
+    "2871c88677da543bc481ca1a8bab44077b162437f8d0f5cf3a0f36a77a904d4a",
+    "36be345c87e5ee4635835e29f3012d4e37801a71d753e7f2c7c06d646f5450af",
+    "e838477b87b4680c358036a2185dfe046652be3f8659bcb2848122a12731389e",
+    "cb9da7807856d74fe27e1c62671631028a27681bfc97d55e382e7cf808f0c456",
+    "a05210ed441d70e0c0280a6ed43e56dfa417a0176b80427f203c95882d75a82e",
+    "904e2b5997d39bde697711e4c1ac59ab9ec70551a1275691c81595924373a9c9",
+    "e5726cbe3fa65697cfaa9505dfe0aebd0c2f1fd3b3abb8cd869dee26db14360d",
+    "5c928800ddd28c61f1a087d049f8b55deb84966f24af9db3af8fe3c2786d5580",
+    "48655191a177653cf4c2f04ceebc4e587b66452780e04af09e43e61e92cf78f7",
+    "f8cbe520b47e30749cf14c2ac3a31e86d7bea239f634f4bd4ad9484a403a8b31",
+    "9acf12a27af7e5db0c8238a0739b33c04b71f4df43f687bb125622a0e07406ed",
+    "3a8fb28f506cc65d2b87fd332e95170cf2f7156f8fb0f62178b601531ea1f15b",
+    "c36ad0cb96a0af69b18bc64a052b8ee938af446f7eeef0116ca250ffd4302e4b",
+    "f7e182f8523adf1753e14669bba1049b6e1ff71d394fe44b83b458f36960197c",
+    "ed7d920b22993c53aeeab820703b54b283c6c8c03b34f02ee4f1ff07561479a2",
+    "e2aa38f40ce20d091deafa7357e8114db610cf8e56c543058145234d868c23cf",
+    "962a1a418c576c2ca52379ce2d6e5a22d7f38b02f9d436e64e0109901ee67071",
+    "cec0cc9378b93aece241b5a98998ebb4cb05e7a8a1199afb4cb4848d2e699730",
+    "081f5dbfaad95783b216fe1d5f63f76cdece727776802cc76809a7ac993e454d",
+    "53bc125239938fa3424cd3954e9976e1fe5b3b0b2d6c795f8d7f030d4b320da3",
+    "f766f533a940e7e938f5ee052792ee2395a914c1d3138fdd269207d1ea8c5a44",
+    "a05210ed441d70e0c0280a6ed43e56dfa417a0176b80427f203c95882d75a82e",
+    "ec9628284a695290650779357537e914d88654c9cdf660567bb04de2082f704e",
+    "ed5323a55d7a226eb3d165ba7af04098d85699bba9912e7c33315da95ffac870",
+    "bb98bd07ca2a59df17cc1520cfa04370f7107d094e67b3d645475db4084f2ff0",
+    "fdb7b18320d94d54e221fd9aabbf3fe9227e0884d7bd7d56033af644b30e98f5",
+    "cc099747c41421e67c766aff03787c19f8003b9c7d904ca0affe5a62a8ee1b5c",
+    "6163e80d140ae1011a9b0b853b21b5118138ea15b2b2a1826062bd242ad6e014",
+    "5cee1cf3d4d0040c6f6bcf07a5b4c6f13d185133e7974b828e6935c339eaf7e5",
+    "66b733d619a05136c3491804739193ba4776e9228814557196fa6acbb061b385",
+    "bbcf2527c8fbab32b67366621b6f6073ed2fe4acc0de2b0927e9aa5bc8b3835a",
+    "4bfa3e8132505acd1b1cffbe360a7c983782ef24d0b9efec4eb096897f20785d",
+    "0aa633aeb2bcc21530e9d0f233ac9e883d76d9a405ced7d572efbf0311a6d75b",
+    "43a7c81833c0e6b989bbb00fdab92c443f7aabaefe81fb2bead94bbb5dc59bfa",
+    "f184ae25e43b2ec30aa26a107c9e0e94bd8db3acb58c1c7447ac618ccc96f3b1",
+    "c1c5800a48b3d1b3c08472c77d1f1d54c880dbf93f0d8912b1ec3cb006702afe",
+    "ac0436e2970a4ba4d08be18f484cb3c1e652b86a7bb638fb1380015599c945af",
+    "4abb409f5342e382a93054a7dcc4de6695efff9b3bcd60853678ababcc1c17e0",
+    "d70984f11d5196b6d5bc400778af1e6f5265f39a66c7c053fdb6108c709ac34b",
+    "deae791c4fe322e664873e244532cc57afbe677dd7da67184e3a32c993567bc6",
+    "e7586ec3306db49ae1c8fb6fa45664ebc39a2ed7fd02b1715b20e801c322a226",
+    "b9defdb77d416d323411921034d84ec3482692404e4171f0e730b3b5ba5c1998",
+    "fbf89d6534a353f2135621e22fe11ac86cbb4c3d7b2f8c5fd343778e32cb2e34",
+    "c35efb9e190be645f7a8937fd74094518fd65d6442e81b374e4fb86354ae2a90",
+    "602edc143796d108f25a7e9c861ef171e26213e0eef29850fc2e5391a89e754a",
+    "51cc2d929b4ebb219804cd17f7fedcad8ecb7b24ab14e8f964681887b8beeda4",
+    "e80a8682261a39370d8a04478792d2be71c2c89cd654e85a811372ed61a1dbb0",
+    "2bd9157809bc9f81f8afddc1b1fc3572aa22830d001a685450a6a822ac54a75f",
+    "fcf7fe683644ac426be35e5a958d8095b111532ab20a1b6aa7769a36e3c91552",
+    "17a8bf48f507c07b7e3c0ca25974fb2ee9ab9e311b33ed68df8a879e69b6caff",
+    "b7955474c9a98f0c75e2ac8383ac96a6d23c6fcb9cdc4e23e6bd06d73ac3814c",
+    "bcf20b807e623ebb4f85529e8ca1c6d7af4323effa277ee1425d4b7b9ce1c526",
+    "ffd549d8117ab354948e36141d92e9a88d3aaece89b024d6aaf48e16b2f4adaf",
+    "ddde3140dfd8eabdba8aa7e49e5be2c044490a76a8849e10475b03a12787cb77",
+    "4678cdae110c42b7e94b97c731db9cdabe0d9c4d525afc52e3e584166393c517",
+    "7e8e82620e341e85a4790a719933ebadeea9fbda6b9716246a9ad2d7ae154d96",
+    "76bcbe907471cb867cebd64f980857699f26a4ad26e48e6b96a1fafeac2fb979",
+    "697f6b751361c4c622ab48cd7c83c6bd30c67b13b7bdb062115955956d781454",
+    "23b74f0a1d65cb038df953c3beb766832868753c322777f54b3198fdb9e45c5a",
+    "0c852e34084cd0bccbc4adc552f5b0988af94232dcc0d5dc41ea0976e59029b4",
+    "0c37cbf92c2b4c1c00982be72413ebbacffb1e35801d700786d46565a4725764",
+    "5411663772dfddd33cf3345bd8fe2560a07003000d27ff4bc0ef92eb96276c64",
+    "a1ec2cd70575cd49e17df4154fd5c2e2923711bd1b341da7d06aa45833e6ea38",
+    "12da35200b91aa3ee100e009b2944e18211a16826b33b7b40cf5673f7b14e3e2",
+    "4bd3cef9ea740263f97c1a7fd703304a00ba89a73464690f901f459ee0ec67b8",
+    "aa22cf37a46b0e4758cde442d5cbc7a58a566f4984b30e9d98cb5e10224174b7",
+    "c48ad468d1c5bdd64c893de8a44642db483101e9a1f39316693aa5901cd437cb",
+    "d34189c637a1f6e355dbe807f0a14edd411d62611ac152149e436428b9697fc0",
+    "5b53267292979ed83f3998294da3245aeb723207e61d508e2cc21b3482d87eb3",
+    "fbae423c9b62d635d938f0b99561faf9f015c5a70ebe4d9aa431f3304f1b29ca",
+    "1a9347111efa9da32a367be5145e2ef82d96f255ecd4abe8ab414b186d3fb785",
+    "5ce38826b1d365e6c80e2328d3777dabfc379a51e8411824284481f02fe84430",
+    "12c8fe0daa1d944681e3cf3582d649ba7e23002a66e355c8394bae5e47efdb15",
+    "4a7fe06ba737f878993bf2f8bd5e194498817ba6355455ce7ca3c2f82dc249a8",
+    "62253492c9355e81e6298100efaffbdeeb37d8416ce801662f4853665d3e5fc6",
+    "dc459c9c6afb3e979b899c24e7807ee7be7c8d7afc49409aab83ada22a0a94f2",
+    "1cde558bbe8002236a2a821b4d2caafa9f214b8fee6487f5511943ab14747974",
+    "1bdc838f9803a0a4ad79602d08c00da33992d6a012e286aca16fe4d6291a4ced",
+    "5328d6bebb0e672b83a5b4a9343ffbd7b294fbe236cbccff3d5ddaf4fd7b369b",
+    "0f13a4fc3ea26c730931dc40e82ffa63f58ef6b097fd274b1ff8fdce1a61f4b2",
+    "c17fc0859c4a37fc73b6e107fd12bbb98a0a03929077fe983edf4f2f263a5cc3",
+    "5421a1c71edeb1974ba0dbd94bab47443d6c6220564005aacc31dec23cc9db42",
+    "ae99cd2090f7a2d7fd62754f63a30a4e3995245aac3516c4fcf001d31bef482b",
+    "a27939d0f054e68aaaa5b9b72edaa2528a7dfb1ee46cd162c01e7e487e68224a",
+    "5869623157ad7f5e6d2a2ed69857f8a9ffd8fa564e49e3d7959cbab62bfb4661",
+    "21e9fdfa1d1ad16423b78bed7e601a4cd93e83011522593cf070d03cba863dd4",
+    "49e642c35c5630857ede0af7fb38ae29b0a6d0112b41b8774481ef0a6c36f4d3",
+    "b2b7f58d0552599400628e245be334fde8e6b88bb1124c96a88c06225a436d6e",
+    "f8737e38118296ac54da190aeaf54ac5414307b488b1a7a77a58a16d43e6e671",
+    "34c00518bb68b3ef78cae8941921ec521e051b07a8a69995bd64b830fff9e1ce",
+    "af4ce557501125a08bf955ede565c551fe10b645952bf099e86f01f28ac64c19",
+    "f2d96f60102698044654001cf1d68a1cda4bd3d64706acc54e49172a9de16565",
+    "9c519e1a2e4c43b54a7e8d678394bdaf619793dac06590a5236aa68f9797e5b5",
+    "60778ee609b4907c027d396fb7e5b9efeddaa66af06bbad0222e4c61164caeef",
+    "e02d8501477279c28d6ce995c1643c0c6bd318693b308f6713b27188fc6152a3",
+    "93eb5d151e725566a35c9328904b8c462e6c96622489d8e07be3851534c9c52d",
+    "2eab0321d6c5b89274b24cd6ea5a6bc2cd72746007cf597bca070d57235d1af4",
+    "bd7d0823fc4188cfc9460fc05b6139ce2ac96800d3fc44c783ead55a1eca80fa",
+    "53a07dfcced8598424fc2cd8220b114e8713f1a4b7a3f0dd22bad69314790d1d",
+    "9e3b27a4afbd1a676fcaafe1dc79d37f9a8e0cfa3453302f03f90cb8dba84121",
+    "85b2759298d1e003deb436a11183ca220606a66b61220fb7915249eb40aac23c",
+    "460003cac5da60773dbce678c1877af218a270b8f7662ba6c88b408e9a6f1256",
+    "b0865825676b8f5d4fc008132cc02236144e51db49215c01665cec9d5a65dbc2",
+    "9ff2d7afb37287aa7fe6ac6eb21e6b66efecc1a8dcb174092152f9ab88c45411",
+    "7016e7c60cd4e3fc30386ce8c158d561c9d12da75f9641debf332ebe6b0bc664",
+    "abbcb9edae5a1abb9e7aacc0aa28ff347f82b614b1392b7f3df63bb58ce70232",
+    "71865db3a6655b973ca84deef043912fec22ce3075d3f39a8978a700a3062d95",
+    "831b2857ebc1564570f62e805d7f73c87559642591d7e6d41f851f50826e2629",
+    "f30e49d0b779db7500d0f780c363c0a1f0b050024d9184d713933005f881e8c6",
+    "f27ca07be4d87315499d92e4829324ee7695dfcec85240e14db1177c86b22f16",
+    "65ca44e99f49b459d2e7f891d646b2e61031f2efc212bd6898bf257d0df5ef5f",
+    "8c7d6ba23e75f68670297777bb59e46fb36642472feb5500400b3911eb5bdf45",
+    "94ae0bd43253497fc9494a8aedb848b015478a0d2e83d3ab4e55c1ebcb3e8ab3",
+    "3697a3eaaab48123ccf583664bb994c4b719a29e903698d4d43260a94838ff62",
+    "e5bd1e70ce2d7f4db4869746b86ebfd1f605c1b62d4e75c67dead7290fc5ff64",
+    "3695b81024357242ed2c8120e1bedc8ab2dea25019a96f5b83e14570cc022326",
+    "f165a774ba813649af942a71ed1348777c3486606817d662df623a40b23796ef",
+    "000154e6d12fb700f61be29b26ca45f5f06ee5c6d4541b0dcfccbc8b90d89db7",
+    "f681761d0f83613fe815f58344d57d2b463907509c7c58ce7aeac4c291a3b7bc",
+    "83b1f55585cee9e2b00774d291e698d1db251987f7858f28d72735481717ab53",
+    "057a20f5ec53d37501edae3973c63180862352cbb506fefe8f325f8fcc54a7b4",
+    "460b029d6c856952ee78e13b93754006c7aa3f66d505c06401c41637475e47aa",
+    "432e1aff00565aa91aa41d4c6175efc5ccfde68585489b58bf646dd4b9108a2a",
+    "0bff92124e07a7d200eb6d32b3ceee685c7e28f363f548cde6bf1e93a7595281",
+    "81267030b98b29cb5cece9366f3dd4e376894d8b33cc1d25c7bb62e492a25508",
+    "1a828c07b5c035cdf7ac18c5745f931ab41e684f740986afefad6a82860d928d",
+    "1840ff720bc5a9238d3f4ae94555dd07eeec406f4f2f8b80e5b3c61edceef1bb",
+    "b9ae5123016d64170a091ea32f49a43627906a77b5a0d21807330f4c34d07fce",
+    "273926e9e3b7302e87400a62429873f68552b67ac0af34a5b5c563a9cba12271",
+    "9f6bcc9a8354e8e6f0cba23b61ce1e3bc93db8a15e5119a2c6819cce17fd0987",
+    "ff10050d17a0e6633b832bf81903122f3b1447a0c942ec60fe76eb4d9b9db97f",
+    "a9c69701f7c4c3cbb2bc0c68b054cd7e10afa6551c3c1d3113b7632a1ae6740e",
+    "d65be5e4be8ff6ca19d98dfcd2736904117644816ebe44eedaacffc00865899e",
+    "f17452f718d8c1f42fa5117a5f4dd4c017e975953310d0b14aaf233bf7c1ab22",
+    "40f155f1c2156a3b195c14e000857f8e38611799e24ad404111570e2208b53a4",
+    "5f2e149ce05cf966418f5ec76cfda5ee0a68a87e22fa45ac0ce5c575aa5a70d4",
+    "dec7555ab91d7a565beba941aad84f599a4c55ffee750e40afdc308a8fe78993",
+    "4c2316c8206783bb76483e64d17d558005bf11b8a7367db0fb489f870027b47d",
+    "ae9ba33240bba9b271b2f73bfd7c53d0edeb8cf6c3468b7e944d888f4257379d",
+    "a3bdfb19de7f8b5aa7753bd575b0d727ebcaad0b13aa75bb2837d651acc0d2eb",
+    "270f7456d07dc36473c54c9d18fe81d8dbacb1adecf6d66a42c4074c8f3cfff8",
+    "d2446fc7cce399f652387d2d4770efb1eeafe24bc6033fc36fe0007eb59f3c0d",
+    "89ae187af93c85b85fc2e0d840c2fa5d1dd38a47b89a69b5790c6346659bf7b8",
+    "7c90d2a460c5221fab0d7e1f8da51f48efc61c7da285218a8dffe6f2d5179ca9",
+    "d6ad7d27da033c3c638cb220c5f23c99065ac960e33ee177c5653cca41b7ffa4",
+    "86b676ad127ae8251f8f64e1a3c27273965d5e55d7585e35d6a841f8c066fd98",
+    "b8b302775b9a2c90fbcf07cf125a6d4c678eabe7eda99d42eedfa634a44f8c69",
+    "6decc9449752cb954d5096f3511d9c2e1cc796bf8b1b597badccc645ab2b6faf",
+    "13db04e8423ea926a49b003f340ba8532b3d92d52e217c92741c2cad6928e56f",
+    "7bc0b6d587bb05c6a079537209ad5816ed68b161cd3a227f2fff589e391a2a76",
+    "7d8f523f1940307618a97a62e0b7177e524e872a9e63737d90c645add01bb2a0",
+    "c867dd530e9055a572d9957053fac4a3ada48deb5b113255957d2633368f048e",
+    "e4fd67b4a9e058ce82dcc0a3c61363b422fd42a2ee77f2684aac8269cc2bec12",
+    "7f1d08e4940950be80ee54af9d57f812395a712217f583283c99099713943176",
+    "ba55b05bf438bfcdecb422964d8f01e64afd1b22fb5ecb76a8588b30de98dae0",
+    "67800daca0b8182972286dc453cee3d6f9fb56e0737af7b27f34bc3e06e03f76",
+    "801393ca21f8dcd7a9aed52acb71327527fea26e4ea3e71cab818ad6d01ef8a5",
+    "f71993f2bd9efe48c9aba865afdb002c8d4f93f7d863624df72ad97ee97c3d76",
+    "e159f6378d682f3036b34f968dc742e9f51964af1f88b2c9f8d9aa81b00c6f25",
+    "c60e5b123399cfd8efabc4d08110ac7d81158a06264a5c4aeff7bf51d60e9ede",
+    "346e25297b74dd24d6ede5786b5b6a2a72bf65274bd1be438625cfd3026b8734",
+    "761f947db503da9342990c88facd6ab9bbdb175d687788d950657e9810f15e9e",
+    "0f76ece8af39cd4448ec08d6403e15e79ea3c954d6c573ce11994bc5b0131b76",
+    "c79353ddfba922b9fad00d94d8b8a26db5865988cc980712144cbcf31b1fa2d6",
+    "49bf2f2918030ad321fa33556746133c63b3d8870c9dbbdf1fea373dfc9dcab9",
+    "825ddd19e4e1b11f992303582c36d013f3a9b437fde10d32dbbbd8e73032c200",
+    "b150607d7cb38d8ecf069ea28bf14434431a63728aa85365a78d8bb4ec9af4c4",
+    "50dbaf688151e61d2036153b0f479033ff7c9a2ac747ffbe91e77229364c4666",
+    "42b10412d4a9fa4226e431602abcdd9fef91b2f0e415e5c91620914c0eb49e30",
+    "39bf87a1d759c2bf20fa0beafcb194ab3532c45b22b44fcb5b9deb0134731cc4",
+    "3079fc63c66741f8f13fe5ef4d3a0e4e23215bcb02dfd64bf6aa566e94069761",
+    "0ed31c619cf95bd70562d08771772eba5a5fbebb153651288f7e1a31282b8923",
+    "95af3ac59ec3999d61b82719f4da91cd7ee3201a92b36a53bd880a89591e8391",
+    "cd619f26bc8fafd10c71fff1a087cba265086e8cf0eb122ea24f93d00daebd22",
+    "10c49f7e8948743f94a8790a599932f2a9a0e91b7990f05b8db77d0671e7e1db",
+    "34af66849b06839ef21b6a3fc42932f83ee4e27347b3c606a725875d1c75804c",
+    "a5ed0a69094f9c9eff315338a29b2efd55b1957c90bb4d463d7fe85b45100922",
+    "a863b8182fefcdddeb4e3ba176e5ff7b40b37bd64f0f200b8d05a6f135f76235",
+    "4675a05d945779f8b7582c2c2e7eec1335e2b868471c8f7ab8357bcff6d8cb13",
+    "fa9221cad5c8af9c078600b9eb6ef7b4119a93f59f731fb0bbf42eec81b7ca6d",
+    "db532af2749fbf4a972c1b991829c66c4de30aa00065efffef0530bed7e514a1",
+    "07ab9b10d181aaa04474459b791c81dd95205af282c3ea4039e52a87a0ecfbfe",
+    "ff3cb32863cc145d4cb1e22147d4a3d60205ff46d9d8275fc7d75d226bc725e5",
+    "9024a85e023029e0817af8639ce882171c3b976b1a12ba6ff9c9ef4b0f63c180",
+    "24cb55d71fe1a66d6dd147683cacb018a0fa4087bb60dc63d05b59124e557c60",
+    "933088ba34cdbf6899ad902f975096ce3c4d18df296170a5d93becf8c33b3c05",
+    "25ba03c4e30b102064b3bb6bab0edebeef9d2979e87c598a1ad1a121f8098887",
+    "8d96d7d5ab44e381da6e30b18f45724c6b713f87bcf7de62a5110f62e2181ab8",
+    "5ee0e5fdd519db46f49681283fc234b5513d001d1e9e3fd88717abd30e427d4a",
+    "32eda5a3488b3da7081ea3b08c106f9485c8f3841701ba39019bf2d254f7ec12",
+    "d7424e5be7a230f3346436f9414d708dd8c3f9cf357ad0e97cc0990b39bf2325",
+    "aae04fa2f610b8fedbad5dd698dd232a219ba6baee1ec57b5bbede14994689c5",
+    "f5fafcab2b98c18b7268429b6ca42731fba0064a501f340437bb899dc64e477f",
+    "72d12b9bf95c955a50246471646aec25e0442201a87e44928c67e90b544fd29e",
+    "4136106fd9cd50f8668a7b9963f3b7eeaa4e3ddae22149dc4fc440c1ac0e1ed7",
+    "67d8aa1fafb4426ef8cef961bbce32dfdaaf716b5b6c6cefd162f7fcd709f54e",
+    "b3270c0c3b4e73214b2636fa1e138c001688366a59542e074027f428bbc13e00",
+    "460d73c6042f13efb10a5b592cfcfcc542e552c124296210c468ce48fdfa9233",
+    "7891d8445cc826ff02b0d028d7b38701468e6b0763c688910f60b2b24b087937",
+    "72dd21aa5440fbaa21d99184ffd5636d105d9b4d3f692a7d8588839474163e7d",
+    "5db0deb9bc1325141f6f6342cafd42a3351937c3744555373ffde3309b6e28f1",
+    "68e959967389c7fd49f667194975a6dc77e4733706a5da3cf5236a6351992cd1",
+    "0a83283a676b43267b4d91830457fed221e5fcbd011e7977987bcc5626dc73e1",
+    "bebdea057d1cb38f9757facc891914b21f3c9e2d4e0317eeb2a0f15879757b91",
+    "a9e001abb074348e1aba3b538ebe30af68ba66eb94c0c22e7374baf7b4752ee9",
+    "8b8a49f0f334af33940f137d50c6e77e892f5ed457d5ca3a23d55b2a80e6efed",
+    "6eafe9d5b7f479d66f8833b9b1a3f9640b7b1a7c2d1a5afc724c4d7773cb7767",
+    "b0fde55a43ede24c55fae979a2e62bbe54f8c33c794785f9a0bd111ae5ddafd3",
+    "96acd10bcce8a79c1a47c4c99b4016400cc9bebee5a3d9cfe845b78836cbb174",
+    "bdbd0f8778b790e66776315efbd1db498f517542c9d4cd046d1627b62223382b",
+    "a03ed07aea6593492de583585fba9099dd8480324918b65da09001e6037bef65",
+    "7aaaa92d0c7b6a564ac07e56e3f6ff0aabac5b1331ac5b627f874ad37593b72f",
+    "04ab047c6880cfdf05e8cf7575db615e518bfb8f1b632b1dfdd7793c7c8dcef4",
+    "e997236c0b3b611304eb68565a7adc60fb3d010b8f8a2d44f7f400094f682d2f",
+    "6fed524454ee68b714c97a2f8f25371d00fdc7ba5c122f1e40fdd9edbaaed5ec",
+    "5cfaded500ea76e1e6d743408557e2d2fef9473bc3dd1032b00528171f559e29",
+    "d6ff16fb39eef10d958141f8e4e8f6927b71275b8ce305b7d7ec9b92f1a48dd4",
+    "fb78ef007388a18730796ec4e6bbd27f5e4109bb5cd267050833f14a26b560fa",
+    "88f8cb0f669581b9807eccfa0b338037f54b6a1f5c0062bd10b2e800065c908d",
+    "3c95274dbc69eb9628440058978671ba6a74bbc743340ca105374aa1047c3aa9",
+    "dc5884b5acf71b58ae1f14d7c9e0c4925f295aa4bb1c23a6076736d36762f358",
+    "7e5910a098bf084f6af77c5221a4d4e3125f8deac6a2dc275ca66fe8e840ba50",
+    "6331c796b9e683aced8d44a62388c186c5ca66810350ef170addc972ab1b39ef",
+    "b6d16d680254e6ddbea32c1af16419f75644774ce847f0e32555217496647a62",
+    "b683623d431c6cb94fc76041b84f300f97eea06c4bbf94f1bf2ad9e50792094c",
+    "3df7a706043e9050cc9675cb2d8ae7978312aa2af73cd419b84e7d59f8e140f6",
+    "d12910a58b1e178674fbd1bad778eda6414a1b05bdd5e49b9f25921715241a3a",
+    "fcbb36ac6811bb5116a02b1b4254731dd792c71f83395b26fe5d111dc52ec3fb",
+    "81932cf041217e198e47a84083152cb585d8c53d79b7d1eefecad04924c22a2d",
+    "f8bb1972356502ee3e02895eb2a9218655efad68cbb238ba419372af25909360",
+    "bf79693fc8b585a4a73e0dc7730ebb9189fe6f4fdae30e5230b3c29632e488a7",
+    "6bf1f9b35b34ed794c7762779b01effdad613f86191dc6f106ea999f42b73f18",
+    "af1b1429ecbd922eef04b49273ed15e92a449fca73c0f354f2396940a9d56439",
+    "9e7ad37605aaf359c3417f1383b6a5ab7bf267771a091fa0edbc391be2867f4c",
+    "5d71834aa32da558eb7bf324d255babb56ed2b4ffa711c5bd006d9b3d617326a",
+    "6c68aa201cccee621429f9603aebd11e61ce4b86b689450053419225862dc7ec",
+    "089537f197e431d92a2b3105f1b6279e9115f3fc4e34b88599060e0a7057e135",
+    "495cb385542d54a7fff93e5c4560543088b0c11b3d3ce49ac19e00f35951663e",
+    "b6e20d5e594f2916ab6aefe92e52e19980e6d59442544a50ed9e6f55a8126e96",
+    "9bb34f13bce0af7b22432d77c6621ecf9a907d3fe71181776b560f2f40e28a3c",
+    "03af0431dd4fe7ec34330bd6897c72d823f3896517761a91e100b4d20f711d74",
+    "c07abca9011c5d4a701dc6e6073f127c63b0ee2e758927e43559fd793902d0b3",
+    "59a9832ab3e9fad361c9bacab7df48ca97d7c31a6fa35e434451dc9c3c8284b6",
+    "9efb52eed65ff5aaf0ddeff3b20b36d6248d2ae7503b3596b829ca9bb19190a4",
+    "b07a0e79f3ea53b969bf3ce4be5e77d5b999249a970433a32d89204c9859f7d7",
+    "f95263666f2317024722210f314e51f2a8f90de95dd10fc621f259f92fd70df8",
+    "6d854a22e18eb2fe367e4ebd6bb4c0c12b98b91482c895c72572d0a2ee9ac0e3",
+    "51f95950f542175cb72c92be4706aeab65b530166644f6b105f6bc440c4c2ce4",
+    "021b550720843634555343809d53f5091b345ec875e7a6fa12c710b1d30357f4",
+    "fca716312bfff8e44b181c8e4201f87a01f416b9acc74deaf8a83b48f664d6d3",
+    "325fb9fca1ea5c63aeadb3702ba1b7092faf35425f15bb51044d410a60a8c574",
+    "12499b241435aaa8f516573dd0308b28017dd3992cba3f52ebe79e8e700edcb5",
+    "996248ca92dc55dd9b72bb788aa80295c9cbd4c1277ea502a7174ee0971a249a",
+    "a0596e7f0fe517832492d05fb6a059ccb48f154a595399d5e866b2ccf4e0d9ea",
+    "1fdcbba15d4e6e5e5d26f300583e73dacb7d02626574a433da34b506720c0aa5",
+    "c194d49593de043d7caaa4105e2d8d937a2f5314141766892ee33be91ddd0392",
+    "b911289e50c920fdaf70906ad0562aea8dd32309752868ce3749ac54a9f6aea0",
+    "ab57282f3d6474ac6120363138dd115edbceb7e390c1b7a4f3799ed870ae6eab",
+    "4b9bf1d8d76bed9711dd83022b3e712ae62bc24265b0ea8e5867c5fcf01dd5bd",
+    "de3a5b284653daedbb0688c15d7e29a622a660df697500bba429ad8dbf5b1559",
+    "9796fae3d23ebf8c57b5d8c0cd57b5c501317ad343bb8b4825a4fa4716706678",
+    "72b1182256b895d5304566cb1dfa5792a137d6ee8c6653ce63deb1f320cfe84b",
+    "ec23fd770caa3d1fbc5c597cb565f6758297f989ffd70ca793c60f0d95d4901d",
+    "a7813040c946b4e2fc7822b07b292a1076f1399d9eba3c0846707b8b855acbeb",
+    "ed98f9c1f23dbd6fcbf94b240ba7fa106408481ac789fdb24684b24289b97e73",
+    "7984aaf296dfe1929fd53ec4c3b125ecb73ce0164ffb39996474e5cad1ce66aa",
+    "3cc1b121ba0273e861e80683e74f02bfe1f83f0f394aba1f28f5f52861c23ccf",
+    "99178cb062b1cc2c0614055c97a23f9445a7b2f8a6c1b7139b204dfb1fcd15f0",
+    "ba48e9ab2bb628f3a2024d9bdaedb5ab22dcae5deaf6ae91eb3def6755c4dae7",
+    "4309b95c023595b0e1018d93aae3f62967c0784faa9f89a32149bfedf13f3b82",
+    "f9ca3827e391b71f748a1fcd875ecdffebea67874cf516e92a5f13c79b021c04",
+    "37889bf36e5512c3f49e76d3074258c681bff7c3bf8067dfd9ab60847e0db0a3",
+    "0fa85b98d7b56c2302ef54af7ad29350799b7ae8dad94accf24527578f85f370",
+    "33b2c5343f0227b39cfa8a268db5a3ce51079d75083be46454f8617b0a2dd472",
+    "4bb27ce776de70fda7a3b9a477bf9a510afb37be1a36e9546d50e6896990097b",
+    "2b3274dab4e786d9d91661d28427a5e0feee3f49747d4b42cc29750c47a0ce31",
+    "3ae5a274c25bc55300f25611fdbf33055926c5bfc137b1bf01f5b4bc3f883b5d",
+    "dc30b31b9a3829404fe7679f247c9aed55e35488282f82b34d0bdd3c913609f5",
+    "9a905b9b69048803d7f8492ab5fd2be5c3938f1620a94dc6695c8f78a0f21974",
+    "b84de27b5023358b01b6567624113682fb22a59db63ce554594fa1bb7c2fb0a8",
+    "65dfe5c67b942a442045aa6af7c36009f8153a92652cec4f26440c1f78ba9df3",
+    "6bf4b19943078cce2543a290f7d887fd7e42920d0426de38779809fe8b97efd7",
+    "482bbacc99bff7f81bcef7322f9b53bb73b590f3ad3c05f06196b11e3a1eca57",
+    "81a929e2eb6eafb10b00c9c9bf030294edb8edb4de3816b9592294236a294971",
+    "4d207e1d74a016956055463099e0687e586216187debf7beddf0a0c11a222453",
+    "d6e5163a7213d2e9455f5bdd6ff57f4e2e71dc7a45819d4a30cc44a67afc6a81",
+    "f69e7d8d5b0cdc76276307584a3ff6d7ca396f29d56604a10d1bda80e69e453a",
+    "85261655cb97e28c58a4bd4b479d2e058c34459a4f14502ea236734271d7555d",
+    "e0d2a4fe484db58ca18e1c9aabc01e08b142cb8f80cdc3485bd096430d0cdb0f",
+    "b7a0e9c0de84e0dfc0b47f2e91594bbe7318af119aa82f1053966cab8108bea4",
+    "3b6edf396a2ec94830ef1b40b445f2d60cf3742f29d0e33ff29a1bb54482e174",
+    "bb975ecd68d50033245b3f46f10ef8fb8af5181ab95b29dfbf25899b53c6ae8a",
+    "4cc4ae03c3386989cf384edd196da7824c42b616b9d4eea20c89a3b767658ac9",
+    "60ce198a152d80f471b2d020c9b3ef61abad6e302b581101fa645252603165c0",
+    "c1b4e6a0090151978429530305663c3005588b0e428b9f6bb4bc341ecc189928",
+    "7a40a11cca2a06184cb6d69b5db5f5f68c26fd49fa6a7d6a75b43d48da9bc021",
+    "6e88da048ff1a797950b2da7db82599e5e7a969d41b26c3785a3c10504e8b147",
+    "310ce3a6d7b75f808e55eec09e3f0b46252ef0947df75889459be1c6bcadbf35",
+    "da6bf77cda8a41c9963bf66835b1fe9b9c47b4926f7baf1b38382d65147794df",
+    "2724d9738968c7213a4187b822d5f5af060fdde7de9402d4127dd64a6d531936",
+    "58f957e35d99b4e92526ecdea2888d973b012fee7eadec57ad9dc6f7e6a8717c",
+    "75f0424e2b573a96d16d6c295f09fd3f29491d66e7969cc7757486a9791cb352",
+    "6e8665fd26b7899f8f10bf44da64f086e61d8e9fb943e3af9ca5fb20da4ca5f9",
+    "265de4c0358ab51fee5af3fecbdad62f80788838a3c9141fbeb4a1eb0b8688ae",
+    "b86206b4f77de2f1457e63aebf7091d6e81d4ccec5dfe5244b557b1fc560569f",
+    "8a67525f5d547a281c24bd0b840a29e7756423e8f0678067ebc6a7ba9d9fd3aa",
+    "8049cf67d6cdadb19ef32e840c557e061ddeea716959a73ad9a44b411fe014bf",
+    "0efa9877ee0aaa727d4d21253358aae47ce73c30a39a7024f8a8c6ef28213310",
+    "8ff8cf7e2111c03134fa4fda6dcc55db473a4521f7be397596f017371ba1f45a",
+    "27532afc167751b1bb1a978adc90bfcf494442d478ad306ecbb9aeb09966a0a4",
+    "2e389b565aa75030a138b3599889f2768c51c17e8c4f18385543b5607747b88b",
+    "1f2043e3cfb8c62493882ddb1b7fd18d029cdba8d3ac7f49aef120d1d3bbb1f0",
+    "fcaaafdf8693a075827ac40d48a5cff33b274115d9e1830b16fd620d371f5a00",
+    "f5143cd24f09cfa71c96ddcdf68774e736598d0932bd0a929667d6598b0a6b8f",
+    "fe20ddf4f5e4f7380f3fd5a1086aad42c28e9bd4f26582a5cb1544c8e1576bf8",
+    "75c4131363218793c6b76ebd632c97f4c3997a57faa81325245fc6a8605b01bd",
+    "34f15b14e1e1b71ef7bc525a044be3857ee5b097d6c2e218982431e285602407",
+    "748d3e35c5769b0261d9ec33198db51b00b3ff62dd6542a16b5f239e00cd8acf",
+    "29fe0578daa165a4e98ef14c05e72f6b55bcefbe77ec194ddb4eef36965e7e4f",
+    "77428cee56377c3ea4132b6167e3262f130ea1a3dea8754b94b3101fcfe0ed59",
+    "864c07337807a7e37822920f72717e955e15dd8720b925cb40fbf0315377c136",
+    "ca3a1a4756f857a3a2b1570f46f33387707e6e067093d95a6aaa7e44fd373849",
+    "a188595258e0ec2f4689df56240caa002d817095f2792a1f3ff5f2f63efab253",
+    "00df05db56d2af925152aa019510c94939e9243d70a7acc2032c9896c425cd72",
+    "36d7999cb515bfd80c76cf0bbad492ac6214c5b9356aa68e3d9d62dda62d23cb",
+    "b31b96753db7c420db30c6c5f58a331a0c5528f68522b6b2bece09ec4134c9c5",
+    "f066660bd3b89b1e5a0a4302185304bfbea526184d1c9f2def81a1dd2f284456",
+    "ce54d3585517c8914ac0043a19864514f3e265b85df9b918b4cd89b1677e09cf",
+    "cdf6f374ff32ffb3d2bcd37f200c46c4b8ddf70025c1409dd4ae4954a386102f",
+    "27bf83373e9f03df709a469de1ec32d78223d0c35839935f514595076074e426",
+    "0ad54084000bba7f2bc9a4e6a8df4f4646373dbd1e814061a6cef84019d1f37f",
+    "253997bf1613457efec38291b69897a3df602b343e721cd2bf7a187c199c53e3",
+    "2cbf8ae92922a2695b975ddd99c35791dfa90d2c83ffc6e793b105f3708d3937",
+    "149fcc3aaaba47c3940741f4171d67deb4c8c4577ba0a9f2a09efad77e516f11",
+    "b38b1296c71f391e24e200b7890c15bc662eaa22981dba99eacde2b9c91baa7f",
+    "cd2a3462523404d8a5e8740abdc5ab3ec72d7b5e8cac0d4932377292f29ac946",
+    "7195f4091013648be56dc8bec8fafb87bbf2b42b7833616b747c1067fda87c3c",
+    "ffd7729cd6b2f67bdc650883d8eba109fee80510364fe3e2c018de4a0a470aa7",
+    "d11ea11e1aae2c59c19da6c129cb17c209fff3e4aa0d93994cb78f437acceb5d",
+    "710631bd77308a48ec478fb6c12aaaea43809de9ee6097bfae7d375c7e868d45",
+    "ec002cf40adca519c7e16abea15c0bfa0e7c23f58c52cc085b5f2a015b49235b",
+    "f5d7d1e05081f70cca96513478886c446ed04a57699a16ee5d71aa3ed83211b7",
+    "c71edb265248a4e02766bed32a993d2a03d4a42605174a89ac0d88282f5d40c7",
+    "aa1de5485e818a8a9d987fd701a69792ed0cd70c7364532e9c83184137781843",
+    "dd0511e6100779d48f2e89db06c47499079bf2064eb582e103e57d5b48ffc24e",
+    "f635a979c6eaa2aa8d140911f1d7d5eb5ee03df23e3a2f3fcf32b97586c53f4c",
+    "76044ee03504447b62e9c872ef3fc10b5da2f5cc81ea1580807703786b13763f",
+    "b7694aba1f978ebb093438f518b76a47bca6c9f9f2ef569e24b6ef3d41d632b9",
+    "97815f733d4e28cc86ae17cb08c273e7dad1b0b394578ea5d658116899d19bb2",
+    "25b3f0a85a19aed21df4734e5c2e339d01b838a5fc922247f1f9362494362a63",
+    "6c3ed84dab127a0f74aac6af6502e7012d0dcfbeb32fc9f47b2edb8085a3c186",
+    "85b4fda797ad4f9edcdb58e088f41f2552e2e990a49747cf9b263cf70d26bc4a",
+    "ead06dd1ea72215b9bab30acf46b2990e08a799234a1927331c7eea9febb35f5",
+    "771b93b4a6eab2fc735b1fc2f3f4b65c89f066b8c447670c4931c427f609b8b6",
+    "9ce7bc285f28aecb2b42754012fbe745d3bf0d13734d40333bf8d4e6755ca3bb",
+    "4fe0a92e0a527c6cf5e935ab1282795ad1e52ca2aacc14cd9b6e2b98d384b391",
+    "f71d2b2dfdf52713a7c914368d3e69fcd50b3ef63207d526016ea0966b8ccc5f",
+    "213a22de37501493b583812ca4c1efc6dbaecdc4089c4c60adf47fbfb1d67d39",
+    "69a675e12a09a18514700d02688f7038e8b8b17bf2085939bed6d193b45d41c9",
+    "359de39a78552aa79418d1cfae092b1c964c3b85802b8c6a1bbde68b1502dd8d",
+    "69b5f7fe4592908c29def3be8615c440814c968c644183d4eec3bd44aeb60753",
+    "ec057403a8d65fb9a861215066026f0752b0006f8e1c048219f5a258c70b531d",
+    "c6073343c1b0920c53883576a8f4f9740a334af8bfc18665190667fbd74880da",
+    "2486dd997537ea234b8055694e1ae732cadf52d40126c7770351055ff5425fad",
+    "ab3a9b69819e8bc20c1e87a56d63c6788d5e559c57fa8a0af8a2d43be346e63d",
+    "dcd98dd55be5d5db0767fbb7a82b77866c000c56fdb9a71285ec42f7516d5298",
+    "8558efa9eaf24c9692115ef8b5262d825703a72c0376a77c28447263f28e5ca8",
+    "14f8ad5b289779fe4f2d4d1820097db1fefd56764323fdc29b060e27faaa9ea8",
+    "2f1b77cc4a4de149ca6b6c26e230aff4e7982d474033ce4032b67f8ab8c157b0",
+    "eb51cca50b6ab05c2b56511e41c51bc67f48a0ef9f5d6d3eef2ef55c5076aa3d",
+    "97ac99354b4e94a78c021a4f76ec29bdb104264cd67f13d27d4672d8471ba672",
+    "e4cf46410476fbc711972510588bc94c80c7f072d927303b2dc4454ab0c977b2",
+    "ed1dd5502b8371bd4cece0b524446164b7f4ffe3d65728853b7eea761b236608",
+    "7b135caef1d656239ac128a53e0a888eebc436e22fa6adfd3a1eb7257ae82e4a",
+    "609fb729fd07fd03c89a8d5bcc3e3ea40006446c53bf62e0c1142ef60d663c43",
+    "127a0d94e07b48b938706d66fa3128124fa985d631d76880544b710aa058152d",
+    "b4eb1857ba1e0e3f6c373dbd2dc163cdf1d85bc3ad6aade781aec51ebe0d1e53",
+    "3b4eb405ae40d3438ef3405648296376ea147b3c9ea359269c6ef15e0ff4ec0e",
+    "a5e2c8f4e3826a0da1519990db0f343b994d71444914d46d16654aff2793d40c",
+    "45c4b764b84f8f5e1854c1f5f9616cf99163f1a2698c247f291c1fb77a913d57",
+    "014ff3dfdb8851333fed4e4c6d21ab5882444dbc73f08091f910ba837ff387e5",
+    "f8d7a3f7e5a85cbfcb7fce6afbc2f043164b13217592a6bfbed14e8aa1878e3a",
+    "47261cb77ff63807bc96abbb8cad11df8ac638bf1683cd1c39c3b584a7e07d24",
+    "2b84656bf04368b550545a1bd23687cb5e9eb26ad3ff2061a55c87dc59284702",
+    "fdfe8a53a6b0ad22491868377b9c4210f5f1d7ba4352541e87d512f33caa50c4",
+    "fe27ee96d383b35c9f0475d72f5f78bfce7e388c65f74572c2f90b8f3f1913be",
+    "27513dd6e818a9e6d3784dd81a083d3ff1a1988f2c4d339e170fd16529757071",
+    "bb94e831b6391faae2dc8f9e1d217034cc0af723fc617ad2d15e40175794e908",
+    "9232065247d10db203e5e3043fa9a343897c3a465307fd9ad6a2bd0d6bf8717b",
+    "3761d5be6cfdb2be8a3e4798f48deb595fd16aa7855b955653c51ff32900f098",
+    "55df646ff9f3fce7325b9b6d8f59a8713ab2b81105e411b2f1222d55a057f3c1",
+    "99d96f18f0071a7fab7062d848840258e90ee725a5df56ee06fdae58a8f9bdf4",
+    "2b5b8091e8db5812d0fd82a6dbc3940fb89d383ae328805bea15ae88f539ddc1",
+    "1c21e72fdcc4474f37bc61515ed63d4bac2004b7e30a9e553b7312bf94cf7dce",
+    "8ca12fc45e2f368215f367920126c9ba060d9c72945aaa8a98769dbfdba7405c",
+    "a6ec760fa36ed52b5718cad51ef83145ef6672d2bd19ad141bc62f92abf92aec",
+    "bf1afc66d5cc7fdcc9e295fcf6c9c47e29b8710a9fb33f22f02f7f68d354670f",
+    "eb2de15d8e8405f97a53b1ed99b1671c0266475617f990a288eb233a9acccef6",
+    "907c8819f8539ed7c3a08011e3f74eada5ac17f8b36ff18e9a1427815756c6b2",
+    "50bd57d30bc66874c77cea67e3aafb86e18197132d02f3fc1e554200abfd2ab3",
+    "c2712afed725684723f4b0ec36f2f7f3063a335484c7ee6c3d089717bc389478",
+    "1de770e6e24dd2d3f645713de0685364c8369bf8bf03c976bb6d11bfeed49007",
+    "82fa26e01ac836922890a1b83e5fa0cd1c1298f4c2ba6bffe8369673b15c318d",
+    "dd0ad7ea78d1676a60cfb53ff94de81112fd56a774a7a977434e35ee3a445313",
+    "abc061d084f2b4fc06df6313abb8ac4df530ac118f64e147b6effc09c3f3519a",
+    "bbfc5c047855b033de65c2533795e5852ed496bdb95be626195dcf4c2f6a8823",
+    "1933e40e1e6936b59f12f4a1445bd23f0cb49b1d2b55d8473039d0e2349167aa",
+    "81648a53fd6a5f8298f6c4cdf4f5072d4d55c2c1214eb5060579f77d131a8e08",
+    "de40da5e2ead7616329953613babcc6f61e68ad146fb65bc20b19f082ae5e496",
+    "b524638a7fc8a9790fdce7fe2653f47e37170f3d9094530c25a8bcd7a716443a",
+    "63b0c99d9261d2aa9ffec9292c8af84823da43adaa255422b299c46ce424e103",
+    "b7d41fff079e08a392058f8a6df4cbec2aa9fc85b8731d72f61e80b5723f32fa",
+    "5b7d94c23f486c4df516a482b4cab0954568b2b8515b0210734c62f1d21aa715",
+    "a515dc050ab1fb9743358f482355c7b03472f235878411184bd757e0fc2d6f4a",
+    "1eb2e51725b89aed9eeed22f2e2fed3a2c82953b2d6d6a74ce7d3d0ff6a58bfd",
+    "703f97a2619d1c6c024fb6c44d3725d66d9cb5bf81bd6fe28cdd6b35ae346c58",
+    "eb443bb90887944df8ded2609460fa4745f3f389137d23ad4d3155fcd3aa5424",
+    "299770de0d9da44c5373272f54a08e1929dbcd4e1e71b7582b41179a748e2bdf",
+    "70c8e6b973f83b83dc753a00c5ada01126d28b8e09eb9f41d4b13d99628bf87c",
+    "8a94cfe47e1c24c42fd00d27040cca83ab388d7b033f9a65f69fa37d593bc7ee",
+    "1d09dfd9a98d0ab7aa7af23311f21bbb288a29ad6e9583dc976bf2cd1eafe952",
+    "1b7bf1a01606144932d59e95a0c0699cd7af614073ba9215e67b50314cccf418",
+    "b79f6866f1f360e4ec2b5cf7a9414d815aa09e582b3dc08524e930547f862732",
+    "c91148a55474bbee65cfcfa720b11ce81d1f3e22d0dc3ca4f1fc2801b1cdb546",
+    "115387ec4cd328142e24a987a6496ed50b8de7c20dd0d8422d1bbe86f1e33824",
+    "969e010e20d64282a1e6290bd4df2451f95fc992080ba16683aad6a8c1bd838b",
+    "89713499ce23da779b68c147eb142ddf6e6c7e0450ae54984060b63dc789f479",
+    "9af36d507e2bd60913166a89227bffb49ee8aaead0d26ee99ae7177a7af57c6e",
+    "b8ff04b79bcdea3d1727ec80a6b64c02c9305280a4114b793074edd08f67d903",
+    "e47de5508544970b1ceb2a40c4cd7056db2f8a086dd6799f7af74174aa2c5351",
+    "dbb351adb7ea91d371f33a323e2c1087a4ec7e9193005090c14a4fa9bb98ca6e",
+    "67d5cb61724168e0e5da7cf1ec6d8dbff6e8fe861283c154553e6b64155f6159",
+    "0e519744655bc0daee2e9d629b713af2ed262fd3d4f5a17cd05ec19b16ac47c3",
+    "1380b9d7cb387bd640033ec0ce56aec31b0ed892aaffd5aa6915702c4a274f31",
+    "aad60021e7b4dcebd924833aeef47b77b2bbc36db6d813b81ad5f4621d34c5b5",
+    "d42de187f72be02b7d0f627173cc090d70437ba08254cde665678987a5c162b9",
+    "256f01762902b1bf0c7039fba314c1ad311f5426344e5684c45c33a6fc54199c",
+    "272d6c6d33c3fddbe74483e1c63d1191fc750e6bb76061034e29b2efa18bae38",
+    "e3a486be40eb79afe2f633cc80a7df4ed4e06e505ae273f85b6d33e3a1538a2c"
+  ],
+  "validation": {
+    "batched_single_max_abs": 1.4901161193847656e-08,
+    "cpu_device_max_abs": 1.560896635055542e-06,
+    "tolerance": 5e-05
+  }
+}

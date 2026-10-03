@@ -1,0 +1,27 @@
+{
+  "completed_at_utc": "2026-10-02T15:04:29.773860+00:00",
+  "entities": 5054,
+  "files": 5205,
+  "inputs": [
+    {
+      "path": "data/manifests/painter_specificity_v3/refs-20261002/census.jsonl",
+      "sha256": "85c9a46b888eea37f110f948ae871d7183e80095e628ad4cf75835d61abe1367"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v3/refs-20261002/metadata.jsonl",
+      "sha256": "f2d1d75655d2fac45d4ee580418a0f313bf5caf4030ea396b97fcb4805656379"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v3/refs-20261002/metadata_events.jsonl",
+      "sha256": "4b8743fe57b60b2b129a93439d0e02015e1eb5ad047a8e4e5ce9e87b8261a92f"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v3/references.py",
+      "sha256": "c2193db55f9d7d8d6d1151f20f5d9f2d85ff4d1334dbc37bbdff9744a84d17d5"
+    }
+  ],
+  "missing_entities": 0,
+  "missing_files": 0,
+  "rows": 5213,
+  "stage": "metadata"
+}
