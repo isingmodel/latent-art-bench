@@ -109,6 +109,18 @@ INPUTS = {
         "data/manifests/painter_specificity_v3/refs-20261002/predictions.json",
         "65a12c297f2f2e0c2d6d7afbb313e590bf7360001cbe82c5edc5fed20040414f",
     ),
+    "v3": (
+        "reports/painter_specificity_v3/analysis.json",
+        "75ef2a23c04a5c570fd224a0ada396271ad7026ef0657a1908023daca709cbc4",
+    ),
+    "v3_readouts": (
+        "reports/painter_tmlr_diagnostics_v6/analysis.json",
+        "16b91e3b0151ab29ef142cdea4a5951a2df40e87d4058ff255eeb20094f4f4af",
+    ),
+    "v3_collection": (
+        "data/manifests/painter_specificity_v3/psv3-r1/collection.json",
+        "c850b97c8051dcc6c35de9a506ce15217f1763c2588551cd1fe06332e8edde86",
+    ),
 }
 
 STYLE = json.loads((HERE / "STYLE_PROVENANCE.json").read_text())["sha256"]
@@ -591,7 +603,7 @@ def table_v3_predictions(pred) -> str:
         "lrrrrrr",
         "& \\multicolumn{2}{c}{31 features} & \\multicolumn{2}{c}{CLIP} & "
         "\\multicolumn{2}{c}{CSD} \\\\\n\\cmidrule(lr){2-3}\\cmidrule(lr){4-5}\\cmidrule(lr){6-7}\n"
-        "Group & $H$ & Faithful & $H$ & Faithful & $H$ & Faithful \\\\",
+        "Group & $H$ & faithful (\\%) & $H$ & faithful (\\%) & $H$ & faithful (\\%) \\\\",
         body, "v3_predictions")
 
 
@@ -765,6 +777,38 @@ def figure_v3_pairs(v3) -> bytes:
     axes[0].legend(fontsize=6, frameon=False, loc="upper left")
     fig.subplots_adjust(left=0.08, right=0.99, bottom=0.18, top=0.88, wspace=0.3)
     return _pdf_bytes(fig, plt)
+
+
+def table_v3_embeddings(v3, readouts) -> str:
+    body = []
+    for rep, title in (("clip", "CLIP"), ("csd", "CSD")):
+        for group, gtitle, _ in V3_GROUPS:
+            body.append(f"\\multicolumn{{9}}{{l}}{{\\emph{{{title}, {gtitle}}}}}\\\\")
+            rows = v3rep(v3, rep)["groups"][group]
+            extra = readouts["representations"][rep]["groups"][group]
+            for m, name in enumerate(SHORT):
+                row, more = rows[m], extra["configurations"][m]
+                require(abs(more["shared"]["observed"] - row["shared_fraction"]) < 1e-12,
+                        "v6 and v3 shared fraction")
+                body.append(
+                    f"{name} & {pct(row['shared_fraction'])} & {rng(more['shared']['ci95'])}"
+                    f" & {pct(row['faithful_shared_fraction'])} & {f2(row['beta'])}"
+                    f" & {f2(row['alignment_ratio'])} & {f2(row['D'])}"
+                    f" & {pct(extra['proximity']['shared_share'][m])}"
+                    f" & {pct(more['recognition_four_way'])}\\\\"
+                )
+    header = (
+        "Configuration & shared (\\%) & 95\\% & faithful (\\%) & $\\beta$ & $\\beta/\\sqrt{Q}$"
+        " & $D$ & shared gain (\\%) & recognized (\\%)\\\\"
+    )
+    caption = (
+        "The two further groups in the embeddings: shared fraction with a 95\\% interval from "
+        "5,000 scene resamples and the faithful benchmark, aligned amplitude, alignment ratio, "
+        "error, the share of the proximity gain carried by the shared term "
+        "(Eq.~\\ref{eq:prototype-gain}) and four-way recognition (macro accuracy, chance 25\\%)."
+    )
+    return table("tab:v3-embeddings", caption, "@{}lrcrrrrrr@{}", header, body, "v3",
+                 "v3_readouts", size="\\footnotesize\\setlength{\\tabcolsep}{3.5pt}")
 
 
 def pvalue(p: float) -> str:
@@ -2018,6 +2062,80 @@ def pair_frequency(diag, rep, key, first, second) -> float:
     return 1 - pairs[f"{b}|{a}"]
 
 
+def v3_claims(data) -> dict[str, str]:
+    """Numbers quoted about the second collection (painter_specificity_v3, diagnostics v6)."""
+    v3, more = data["v3"], data["v3_readouts"]
+    hand, clip, csd = (v3rep(v3, r) for r in ("hand31", "clip", "csd"))
+    for rep in ("hand31", "hand31_square", "clip", "csd"):
+        out = v3rep(v3, rep)
+        require(out["closeness"]["supported"] and out["dose_response"]["supported"],
+                f"v3 tests in {rep}")
+    require(hand["complete_scenes"] == [0, 1, 2, 3, 4, 6, 7, 9, 10, 11, 12, 13],
+            "v3 complete scenes")
+
+    def col(out, group, key):
+        return [r[key] for r in out["groups"][group]]
+
+    def readout(rep, group, key):
+        return [r[key] for r in more["representations"][rep]["groups"][group]["configurations"]]
+
+    def both(key_fn):
+        return key_fn("clip") + key_fn("csd")
+
+    imp_align = [r["alignment"] for r in data["diagnostics5"]["agreement"]["hand31"]]
+    cen_align = col(hand, "century", "alignment_ratio")
+    require(min(cen_align) > max(imp_align), "century alignment above every Impressionist one")
+    hud_shared, hud_faith = col(hand, "hudson", "shared_fraction"), \
+        col(hand, "hudson", "faithful_shared_fraction")
+    above = [i for i in range(6) if hud_shared[i] > hud_faith[i] + 1e-9]
+    require(above == [0, 1, 5] or above == [0, 1], f"Hudson above faithful: {above}")
+    require(hud_shared[0] - hud_faith[0] > 0.01 and hud_shared[1] - hud_faith[1] > 0.01,
+            "GPT Image 1 and 2 clearly above faithful for the Hudson River School")
+    spread = hand["reference_spread"]
+    prox = {(rep, g): more["representations"][rep]["groups"][g]["proximity"]["shared_share"]
+            for rep in ("clip", "csd") for g in ("century", "hudson")}
+    drift = [d[arm]["ratio"] for d in hand["drift"] for arm in ("free", "generic")]
+    drift_emb = [d[arm]["ratio"] for rep in (clip, csd) for d in rep["drift"]
+                 for arm in ("free", "generic")]
+    counts = data["v3_references"]["measured_by_painter"]
+    collection = data["v3_collection"]
+    hb = col(hand, "hudson", "beta")
+    return {
+        "v3_century_shared": span(col(hand, "century", "shared_fraction"), pct),
+        "v3_hudson_shared": span(hud_shared, pct),
+        "v3_h1": pct(-hand["closeness"]["pooled_difference"]),
+        "v3_h1_ci": f"{pct(-hand['closeness']['pooled_ci95'][1])}--"
+                    f"{pct(-hand['closeness']['pooled_ci95'][0])}",
+        "v3_h1_clip": pct(-clip["closeness"]["pooled_difference"]),
+        "v3_h1_csd": pct(-csd["closeness"]["pooled_difference"]),
+        "v3_rho_hand": f2(hand["dose_response"]["pooled_spearman"]),
+        "v3_rho_clip": f2(clip["dose_response"]["pooled_spearman"]),
+        "v3_rho_csd": f2(csd["dose_response"]["pooled_spearman"]),
+        "v3_faith_century": span(col(hand, "century", "faithful_shared_fraction"), pct),
+        "v3_faith_hudson": span(hud_faith, pct),
+        "v3_beta_century": span(col(hand, "century", "beta"), f3),
+        "v3_align_century": span(cen_align, f3),
+        "v3_recog_century": span(both(lambda r: readout(r, "century", "recognition_four_way")),
+                                 pct),
+        "v3_beta_hudson": f"{f3(min(hb))} to {f3(max(hb))}".replace("-", "$-$"),
+        "v3_beta_hudson_emb": span(col(clip, "hudson", "beta") + col(csd, "hudson", "beta"), f3),
+        "v3_recog_hudson": span(both(lambda r: readout(r, "hudson", "recognition_four_way")), pct),
+        "v3_prox_hudson": span(prox[("clip", "hudson")] + prox[("csd", "hudson")], pct),
+        "v3_prox_century": span(prox[("clip", "century")] + prox[("csd", "century")], pct),
+        "v3_refs": f"{sum(counts.values()):,}",
+        "v3_ref_range": f"{min(counts.values())}--{max(counts.values())}",
+        "v3_hudson_range": span([counts[p] for p, _ in V3_GROUPS[1][2]], str),
+        "v3_images": f"{collection['successful']:,}",
+        "v3_h_ratio": f"{spread['century']['H'] / spread['hudson']['H']:.1f}",
+        "v3_hudson_h": f2(spread["hudson"]["H"]),
+        "v3_hudson_hc": f2(spread["hudson"]["H_corrected"]),
+        "v3_hudson_attenuation": f2(spread["hudson"]["ratio"]),
+        "v3_drift": f"{f2(min(drift))} to {f2(max(drift))}".replace("-", "$-$"),
+        "v3_drift_emb": f"{f2(min(drift_emb))} to {f2(max(drift_emb))}".replace("-", "$-$"),
+        "v3_charges": f"{sum(o['cost_usd'] or 0 for o in collection['outcomes']):.2f}",
+    }
+
+
 def claims(data) -> dict[str, str]:
     hand = hand_decomposition(data)
     agree = agreement(data)
@@ -2331,7 +2449,7 @@ def claims(data) -> dict[str, str]:
         for t in data["learned"]["clip"]["original"]["targets"]["primary"]["models"]
     ]
     require(max(clip_dagg) < 1, "CLIP scene-averaged errors below 1")
-    return {
+    values = {
         "H": f3(h),
         "sa_align_gpt2": ", ".join(f3(sa_align[r][gpt2]) for r in ("hand31", "clip", "csd")),
         "clip_dagg": span(clip_dagg, f3),
@@ -2615,6 +2733,8 @@ def claims(data) -> dict[str, str]:
             transfer_setting_means(data, "csd"), lambda v: f"{100 * v:.1f}"
         ),
     }
+    values.update(v3_claims(data))
+    return values
 
 
 def all_outputs(data) -> dict[str, str | bytes]:
@@ -2664,6 +2784,12 @@ def all_outputs(data) -> dict[str, str | bytes]:
         "fig_pairs.pdf": figure_pairs(diag2),
         "tab_v3_panels.tex": table_v3_panels(data["v3_determination"], data["v3_references"]),
         "tab_v3_predictions.tex": table_v3_predictions(data["v3_predictions"]),
+        "tab_v3_shared.tex": table_v3_shared(data["v3"], diag2),
+        "tab_v3_tests.tex": table_v3_tests(data["v3"]),
+        "tab_v3_detail.tex": table_v3_detail(data["v3"]),
+        "tab_v3_drift.tex": table_v3_drift(data["v3"]),
+        "tab_v3_embeddings.tex": table_v3_embeddings(data["v3"], data["v3_readouts"]),
+        "fig_v3_pairs.pdf": figure_v3_pairs(data["v3"]),
     }
 
 
@@ -2682,11 +2808,12 @@ def check_claims(values: dict[str, str], registry_path: Path) -> list[str]:
     problems = []
     for key, entry in registry.items():
         literal, context = entry["value"], entry["context"]
-        if key not in values:
+        base = key.split("@")[0]  # "key@where" registers a further occurrence of the same value
+        if base not in values:
             problems.append(f"unknown claim key {key}")
             continue
-        if literal != values[key]:
-            problems.append(f"{key}: manuscript registry {literal!r} != computed {values[key]!r}")
+        if literal != values[base]:
+            problems.append(f"{key}: manuscript registry {literal!r} != computed {values[base]!r}")
         elif context.count("{}") != 1 or context.replace("{}", literal) not in text:
             problems.append(f"{key}: {literal!r} not found in context {context!r}")
     return problems

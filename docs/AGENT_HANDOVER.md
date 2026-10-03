@@ -12,15 +12,17 @@ should stay that way unless the user says otherwise.
   translation of the full-length paper (in `paper/archive/`) is the user's work;
   preserve it. The Korean translation of the TMLR manuscript (`paper/tmlr_ko/`) was
   made by an AI assistant at the user's request and follows the English sources.
-- Keep all four painters in the main scientific scope.
+- Keep all four painters in the main scientific scope. The second collection's two further
+  groups (`painter_specificity_v3`) extend it; they do not replace it.
 - Do not add human evaluation. The lead manuscript is the anonymous TMLR
   submission in `paper/tmlr/`; TMLR has no page limit, but keep the main text
   near 12 pages. The full-length paper and its Korean translation are frozen in
   `paper/archive/full_length_2026-09-15/`.
-- Paid generation stays strictly below the $120 ceiling ($112.293676 recorded).
-  The $350 family-control proposal is not approved. Collectors are terminal, and
-  no live request may be made without explicit authorization; routine tests
-  exclude the `live` marker.
+- Paid generation: $112.293676 was recorded before 2026-10-03; the user then approved the
+  second collection (ceiling $200, raised to $220 during collection), which charged $72.93
+  (about $185.22 in total; its accounting closes at $195.22 with two unreleased $5 holds).
+  Both collectors are terminal. No further paid or live request is authorized; the $350
+  family-control proposal is not approved. Routine tests exclude the `live` marker.
 - On 2026-10-01 the user retargeted the paper from ICML to TMLR, retired the
   ICML draft and asked for subagent reviews with revision until the rubric in
   [reports/tmlr_review_v1](../reports/tmlr_review_v1/README.md) passes. Do not
@@ -31,6 +33,7 @@ should stay that way unless the user says otherwise.
 | Component | Entry point |
 | --- | --- |
 | Six-model design and numerics | [painter_specificity_v2](../src/latent_art_bench/painter_specificity_v2/), [protocol](../studies/painter_specificity_v2/PROTOCOL.md) |
+| Second collection (two further painter groups) | [painter_specificity_v3](../src/latent_art_bench/painter_specificity_v3/), [references](../studies/painter_specificity_v3/REFERENCES.md), [protocol](../studies/painter_specificity_v3/PROTOCOL.md), records in `data/manifests/painter_specificity_v3/` |
 | Corrected reference reader and four replay views | [workflow.py](../src/latent_art_bench/painter_specificity_measurement_v1/workflow.py), [correction](../studies/painter_specificity_measurement_v1/CORRECTION.md) |
 | Post-result diagnostics and source quality | `painter_specificity_review_v1.py`, `_v2.py`, `painter_reference_quality_v1.py` in [src/latent_art_bench/](../src/latent_art_bench/) |
 | Retrospective analyses | Seven modules, plans and reports listed in the [analysis catalog](ANALYSES.md#retrospective-analyses) |

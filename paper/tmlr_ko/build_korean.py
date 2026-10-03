@@ -29,10 +29,10 @@ TERMS = json.loads((HERE / "tables_ko.json").read_text())
 CAPTIONS, CELLS, KEEP = TERMS["captions"], TERMS["cells"], set(TERMS["keep"])
 
 # Korean count minus English count for numbers that one language writes as a word:
-# "zero" (0), "Fourteen" (14), "two of the 15" (2), "second difference" (2), dates (9),
+# "zero" (0), "Fourteen" (14), "two of the 15" (2), "second difference" (2), dates (9, 10),
 # fractions such as "a quarter" (4분의 1), and one sentence that names the level 1 twice.
 EXPECTED = {
-    "main.tex": {"0": 6, "1": 6, "14": 1, "2": 1, "3": 1, "4": 3, "5": 1, "9": 1},
+    "main.tex": {"0": 6, "1": 6, "10": 1, "14": 1, "2": 1, "3": 1, "4": 3, "5": 1, "9": 1},
     "appendix.tex": {"0": 5, "1": 1, "2": 1, "3": 1, "9": 2},
 }
 

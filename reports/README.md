@@ -40,6 +40,8 @@ fixed before its new outcomes; none collects new observations.
 | [TMLR revision diagnostics v3](painter_tmlr_diagnostics_v3/REPORT.md) | Genuine-painting controls with two distinct works per pseudo-repeat in all three representations, CLIP and CSD agreement intervals, normalized-prototype shares and paired feature-family contrasts; added 2026-10-01 after the round-3 reviews |
 | [TMLR revision diagnostics v4](painter_tmlr_diagnostics_v4/REPORT.md) | CLIP and CSD agreement against title-derived content-class targets on the 11 non-mixed scenes, with scene intervals; added 2026-10-01 after the round-4 reviews |
 | [TMLR revision diagnostics v5](painter_tmlr_diagnostics_v5/REPORT.md) | Direction-only agreement (alignment ratio, held-out rescaled error) and its scene stability in all three representations, the split of D along and off the reference pattern in the embeddings, Student intervals, repeat-dependence thresholds, proximity correlations across configurations and configuration distinctness; added 2026-10-01 after the round-5 reviews |
+| [Painter specificity v3](painter_specificity_v3/REPORT.md) | Prespecified analysis of the second collection (two further painter groups, 1,678 images): H1 and H2 in every representation, per-group estimators and the paper's primary analysis per group, drift between the collections; written once on 2026-10-03 |
+| [TMLR diagnostics v6](painter_tmlr_diagnostics_v6/REPORT.md) | Shared-fraction intervals, recognition and proximity readouts for the two further groups; plan fixed before the second collection was measured |
 
 ## Review records
 

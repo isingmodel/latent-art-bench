@@ -449,7 +449,7 @@
  },
  "proto_share_all": {
   "value": "54.2--83.8",
-  "context": "gain that ignores which name was used supplies {}\\% of it, close to"
+  "context": "gain that ignores which name was used supplies {}\\% of it for the Impressionists, close to"
  },
  "proto_above_half": {
   "value": "11",
@@ -730,5 +730,173 @@
  "csd_flux_class_d": {
   "value": "0.699",
   "context": "scene-averaged alignment, $\\beta/\\sqrt{B/H}$, at {}, 0.711, 0.782. Across"
+ },
+ "v3_century_shared@abstract": {
+  "value": "17.7--29.5",
+  "context": "for four painters from four centuries the shared fraction is {}\\%, for four painters"
+ },
+ "v3_hudson_shared@abstract": {
+  "value": "89.4--98.6",
+  "context": "for four painters of the Hudson River School {}\\%, and across their 28"
+ },
+ "v3_rho_hand@abstract": {
+  "value": "0.85",
+  "context": "painters' works (Spearman {}; CLIP and CSD embeddings agree)"
+ },
+ "v3_century_shared@intro": {
+  "value": "17.7--29.5",
+  "context": "four painters from four centuries leave {}\\% of the change shared"
+ },
+ "v3_hudson_shared@intro": {
+  "value": "89.4--98.6",
+  "context": "School painters {}\\%, a difference of 72.7 points"
+ },
+ "v3_h1@intro": {
+  "value": "72.7",
+  "context": "a difference of {} points (95\\% interval 62.6--76.5)"
+ },
+ "v3_h1_ci@intro": {
+  "value": "62.6--76.5",
+  "context": "a difference of 72.7 points (95\\% interval {}), and across"
+ },
+ "v3_rho_hand@intro": {
+  "value": "0.85",
+  "context": "(Spearman {} in the features, 0.86 in CLIP, 0.92 in CSD;"
+ },
+ "v3_rho_clip@intro": {
+  "value": "0.86",
+  "context": "(Spearman 0.85 in the features, {} in CLIP, 0.92 in CSD;"
+ },
+ "v3_rho_csd@intro": {
+  "value": "0.92",
+  "context": "0.85 in the features, 0.86 in CLIP, {} in CSD; exact $p<0.001$ each"
+ },
+ "v3_prox_hudson@intro": {
+  "value": "92.5--98.3",
+  "context": "It supplies {}\\% for the Hudson River School but"
+ },
+ "v3_prox_century@intro": {
+  "value": "6.5--49.0",
+  "context": "for the Hudson River School but {}\\% for the distant painters."
+ },
+ "v3_refs": {
+  "value": "788",
+  "context": "and no minimum size: {} works, 36--255 per painter"
+ },
+ "v3_ref_range": {
+  "value": "36--255",
+  "context": "minimum size: 788 works, {} per painter"
+ },
+ "v3_h_ratio": {
+  "value": "5.6",
+  "context": "the century group's reference painter spread is {} times the Hudson River School's"
+ },
+ "v3_images": {
+  "value": "1,678",
+  "context": "In the second, {} of the 1,680 requests returned images"
+ },
+ "v3_century_shared": {
+  "value": "17.7--29.5",
+  "context": "the century group's shared fraction is {}\\% and the Hudson River School's"
+ },
+ "v3_hudson_shared": {
+  "value": "89.4--98.6",
+  "context": "and the Hudson River School's {}\\%; averaged over configurations"
+ },
+ "v3_h1": {
+  "value": "72.7",
+  "context": "the century group's is lower by {} points, and by 40.1 points in CLIP"
+ },
+ "v3_h1_clip": {
+  "value": "40.1",
+  "context": "lower by 72.7 points, and by {} points in CLIP and 47.4 in CSD"
+ },
+ "v3_h1_csd": {
+  "value": "47.4",
+  "context": "and by 40.1 points in CLIP and {} in CSD (Appendix"
+ },
+ "v3_faith_century": {
+  "value": "45.0--75.4",
+  "context": "a faithful imitator would show {}\\% for the century group"
+ },
+ "v3_faith_hudson": {
+  "value": "89.4--97.0",
+  "context": "for the century group and {}\\% for the Hudson River School. Across the 28"
+ },
+ "v3_rho_hand": {
+  "value": "0.85",
+  "context": "with Spearman correlations of {} in the 31 features, 0.86 in CLIP"
+ },
+ "v3_rho_clip": {
+  "value": "0.86",
+  "context": "correlations of 0.85 in the 31 features, {} in CLIP and 0.92 in CSD."
+ },
+ "v3_rho_csd": {
+  "value": "0.92",
+  "context": "0.85 in the 31 features, 0.86 in CLIP and {} in CSD."
+ },
+ "v3_beta_century": {
+  "value": "0.840--1.292",
+  "context": "$\\beta$ is {} in the 31 features, with alignment ratios"
+ },
+ "v3_align_century": {
+  "value": "0.698--0.805",
+  "context": "with alignment ratios of {}, above that of every configuration"
+ },
+ "v3_recog_century": {
+  "value": "71.9--89.6",
+  "context": "the prompted painter is recognized in {}\\% of images in the embeddings"
+ },
+ "v3_beta_hudson": {
+  "value": "$-$0.014 to 0.198",
+  "context": "names barely differ: $\\beta$ is {} in the features and"
+ },
+ "v3_beta_hudson_emb": {
+  "value": "0.095--0.395",
+  "context": "in the features and {} in the embeddings, recognition is"
+ },
+ "v3_recog_hudson": {
+  "value": "29.2--50.0",
+  "context": "in the embeddings, recognition is {}\\%, and for GPT Image 1"
+ },
+ "v3_hudson_h": {
+  "value": "6.24",
+  "context": "for panel size lowers it from {} to 4.21,"
+ },
+ "v3_hudson_hc": {
+  "value": "4.21",
+  "context": "lowers it from 6.24 to {}, so an imitator"
+ },
+ "v3_hudson_attenuation": {
+  "value": "0.68",
+  "context": "would still show $\\beta$ near {} against the observed pattern"
+ },
+ "v3_prox_hudson": {
+  "value": "92.5--98.3",
+  "context": "supplies {}\\% of the embedding proximity gain for the Hudson River School"
+ },
+ "v3_prox_century": {
+  "value": "6.5--49.0",
+  "context": "for the Hudson River School but {}\\% for the century group."
+ },
+ "v3_hudson_range": {
+  "value": "36--92",
+  "context": "School's reference collections are small ({} works)"
+ },
+ "v3_charges": {
+  "value": "72.93",
+  "context": "The new charges were \\${}."
+ },
+ "v3_drift": {
+  "value": "$-$0.61 to 0.48",
+  "context": "estimated without repeat noise, ranges from {} over configurations and arms"
+ },
+ "v3_drift_emb": {
+  "value": "$-$0.29 to 0.24",
+  "context": "in the 31 features and from {} in the embeddings"
+ },
+ "v3_refs@appendix": {
+  "value": "788",
+  "context": "as for the four-painter collection, leaving {} (Table"
  }
 }

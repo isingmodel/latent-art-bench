@@ -42,6 +42,20 @@ EXTRA = (
     "studies/painter_request_timing_v1/PLAN.md",
     "studies/painter_specificity_v2/PROTOCOL.md",
     "studies/painter_specificity_v1/PROTOCOL.md",
+    "studies/painter_specificity_v3/PROTOCOL.md",
+    "studies/painter_specificity_v3/REFERENCES.md",
+    "studies/painter_tmlr_diagnostics_v6/PLAN.md",
+    "data/manifests/painter_specificity_v3/psv3-r1/requests.jsonl",
+    "data/manifests/painter_specificity_v3/psv3-r1/measurements.jsonl",
+    "data/manifests/painter_specificity_v3/psv3-r1/embeddings_clip.npz",
+    "data/manifests/painter_specificity_v3/psv3-r1/embeddings_csd.npz",
+    "data/manifests/painter_specificity_v3/psv3-r1/extraction_clip.json",
+    "data/manifests/painter_specificity_v3/psv3-r1/extraction_csd.json",
+    "data/manifests/painter_specificity_v3/refs-20261002/features.jsonl",
+    "data/manifests/painter_specificity_v3/refs-20261002/embeddings_clip.npz",
+    "data/manifests/painter_specificity_v3/refs-20261002/embeddings_csd.npz",
+    "data/manifests/painter_specificity_v3/refs-20261002/extraction_clip.json",
+    "data/manifests/painter_specificity_v3/refs-20261002/extraction_csd.json",
 )
 TRANSFER = "reports/painter_prototype_transfer_v1/analysis.json"
 EVIDENCE = tuple(

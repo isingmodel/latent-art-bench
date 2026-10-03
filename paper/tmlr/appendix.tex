@@ -463,10 +463,73 @@ scene-averaged error 0.917 and its scene-wise error 1.637, and its Monet--Sisley
 \input{generated/tab_sdturbo.tex}
 
 \FloatBarrier
+\section{The second collection}\label{app:second}
+
+\paragraph{Protocol and amendments.} After the four-painter results and the first rounds of
+review, a protocol for a second collection named the two further groups, fixed the tests H1 and H2
+(Section~\ref{sec:inference}) and the per-group analysis, and was frozen with the request frame
+before any image was generated; the plan for the embedding readouts (shared-fraction intervals,
+recognition and proximity) was fixed while the images were being collected and before any was
+measured. The reference rules were amended twice before the first request. First, the protocol's
+minimum of 60 works per painter was withdrawn so that the new collections are treated exactly like
+the four-painter collection, which had none; three Hudson River painters and Kirchner fall below it
+(Table~\ref{tab:v3-panels}). Second, Wikimedia Commons now serves only standard thumbnail widths,
+so the rendered files are 1,280, 1,920 or 3,840 pixels wide (or the original), all reduced to a
+512-pixel short side for measurement. The title lexicon keeps every term of the four-painter
+lexicon and adds place and landscape terms for the new painters' titles (for example Yosemite,
+Catskill, piazza and wheatfield) and exclusion terms for figure and interior titles that those
+words would otherwise admit; the terms were fixed from the titles before any image was requested.
+A first proposal for the related group, four Russian landscape painters, was replaced before any
+reference was acquired, because Wikidata records too few documented oil paintings for three of them.
+
+\input{generated/tab_v3_panels.tex}
+
+\paragraph{References and predictions.} Of 790 works admitted after merging two duplicates, one
+file in an unsupported format could not be read and one in an unprofiled non-RGB color space could
+not be measured, as for the four-painter collection, leaving 788 (Table~\ref{tab:v3-panels}). The
+predictions recorded before collection (Table~\ref{tab:v3-predictions}) use the first collection's
+generic outputs; the four-painter rows reproduce this paper's values. The CLIP and CSD checkpoints,
+deleted after the first collection's extraction, were downloaded again at the same revisions and
+matched their recorded hashes.
+
+\input{generated/tab_v3_predictions.tex}
+
+\paragraph{Collection.} The six configurations kept the first collection's routes and request
+fields; tests in the code check that the no-clause and generic requests are identical to the first
+collection's for every configuration and scene, and the gateway listed every route at unchanged
+prices on the day of collection. The 1,680 requests were randomized within scene blocks of 120
+with a new seed. Two requests were refused by the provider's safety system (HTTP 400, no charge)
+for prompts that name Durand and Bierstadt with ordinary landscape scenes; under the protocol they
+are recorded and not repeated. Two gateway timeouts (HTTP 503) were repeated successfully. The new
+charges were \$72.93. The collector reserves \$5 for every request until its charge is known and
+keeps that reservation when a failure reports no charge, so the two timeouts held \$10 that the
+bookkeeping never released; the spending ceiling was therefore raised from \$200 to \$220 in a
+recorded amendment, which changed no other rule.
+
+\input{generated/tab_v3_tests.tex}
+
+\paragraph{Tests and sensitivity.} H1 and H2 hold in every representation, in the central square
+window and, for H2, without the correction for panel size (Table~\ref{tab:v3-tests}). The
+per-configuration differences in shared fraction are large in every configuration; for FLUX.2
+Max the adjusted interval is wide because both of its fractions are unstable under resampling
+(Table~\ref{tab:v3-shared}).
+
+\input{generated/tab_v3_detail.tex}
+\input{generated/tab_v3_embeddings.tex}
+
+\paragraph{Change between the collections.} The no-clause and generic requests of the two
+collections are identical. Relative to the first collection's repeat noise, the squared distance
+between their scene means, estimated without repeat noise, ranges from $-$0.61 to 0.48 over
+configurations and arms in the 31 features and from $-$0.29 to 0.24 in the embeddings
+(Table~\ref{tab:v3-drift}); values near zero mean no change beyond the noise between two repeats.
+
+\input{generated/tab_v3_drift.tex}
+
+\FloatBarrier
 \section{Evidence and replay}\label{app:replay}
 
 Every analysis in this paper reads retained feature vectors or embeddings and writes a versioned
-result file whose inputs are recorded by SHA-256. All tables and Figures~\ref{fig:benchmark}, \ref{fig:pairs}
+result file whose inputs are recorded by SHA-256. All tables and Figures~\ref{fig:benchmark}, \ref{fig:v3-pairs}, \ref{fig:pairs}
 and~\ref{fig:projection} are generated from those result files, and Figure~\ref{fig:schematic} by
 the same script; Figure~\ref{fig:examples} is a static image panel whose bytes and selection manifest are
 checked by hash. The check script verifies the input hashes, regenerates every generated table and

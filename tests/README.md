@@ -6,7 +6,10 @@
    are excluded.
 2. The routine suite selected by [pytest-paper.ini](../pytest-paper.ini).
 3. The newer routine suites in the Makefile's `ROUTINE_EXTRA` list
-   (SD-Turbo cross-cohort, selective attribution and the TMLR diagnostics v1–v5).
+   (SD-Turbo cross-cohort, selective attribution, the TMLR diagnostics v1–v6 and the
+   second collection, `painter_specificity_v3`: reference gates and lexicon, payload identity
+   with the first collection, the collector with a mocked transport, and the analysis on
+   constructed data).
 
 Together they cover the 31-feature calculations, four-painter comparisons,
 weighting and randomization, missing observations, palette response, geometry,
@@ -68,3 +71,4 @@ software checks, not scientific validation.
 | 2026-10-01 | 1,251 + 136 passed | Not rerun | After the TMLR round-4 revision (diagnostics v4 added); all offline check targets pass |
 | 2026-10-01 | 1,251 + 141 passed | Not rerun | After the TMLR round-5 revision (diagnostics v5 added); all offline check targets pass |
 | 2026-10-01 | 1,251 + 141 passed | Not rerun | After the final post-round-6 TMLR revision; all offline check targets pass |
+| 2026-10-03 | 1,251 + 174 passed | Not rerun | After the second collection and the paper revision; `retrospective-check` (including the v3 analysis and diagnostics v6), `tmlr-check` (37 generated files, 225 claims) and `tmlr-ko-check` pass; supplement 100 files, 69.5 MiB, no identifier found |

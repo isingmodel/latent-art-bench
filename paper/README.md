@@ -25,8 +25,8 @@ paper/
 
 | Manuscript | Source | State |
 | --- | --- | --- |
-| **TMLR submission** | [tmlr/main.tex](tmlr/main.tex) | Lead manuscript. *Proximity Is Not Specificity: What Four Painter Names Add in Text-to-Image Generation.* Built locally to `output/pdf/latent_art_bench_tmlr.pdf`; review record in [reports/tmlr_review_v1](../reports/tmlr_review_v1/README.md) |
-| Korean translation of the TMLR manuscript | [tmlr_ko/main.tex](tmlr_ko/main.tex) | Translation of the current TMLR sources, made by an AI assistant on 2026-10-01 and not yet reviewed by the author. Same numbers, tables and figures; labels inside figures and the prompt texts stay in English. Built locally to `output/pdf/latent_art_bench_tmlr_korean.pdf` |
+| **TMLR submission** | [tmlr/main.tex](tmlr/main.tex) | Lead manuscript. *Proximity Is Not Specificity: What Painter Names Add in Text-to-Image Generation.* Revised on 2026-10-03 for the second collection (two further painter groups). Built locally to `output/pdf/latent_art_bench_tmlr.pdf`; review record in [reports/tmlr_review_v1](../reports/tmlr_review_v1/README.md) |
+| Korean translation of the TMLR manuscript | [tmlr_ko/main.tex](tmlr_ko/main.tex) | Translation of the current TMLR sources, made by an AI assistant on 2026-10-01, updated on 2026-10-03, and not yet reviewed by the author. Same numbers, tables and figures; labels inside figures and the prompt texts stay in English. Built locally to `output/pdf/latent_art_bench_tmlr_korean.pdf` |
 | Full-length paper | [archive/full_length_2026-09-15/paper.tex](archive/full_length_2026-09-15/paper.tex), [PDF](archive/full_length_2026-09-15/paper.pdf) | Frozen: 23 pages, final editorial update of 2026-09-15 |
 | Korean translation of the full-length paper | [archive/full_length_2026-09-15/latent_art_bench_korean.tex](archive/full_length_2026-09-15/latent_art_bench_korean.tex) | Frozen: the user's 26-page translation of the full-length paper, preserved as written |
 | ICML-format draft | [reports/icml_review_v1/round_04/input/](../reports/icml_review_v1/round_04/input/) | Retired on 2026-10-01; exact sources kept only in its review record |
