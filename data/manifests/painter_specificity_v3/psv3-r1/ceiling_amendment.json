@@ -1,0 +1,14 @@
+{
+  "accounted_usd_at_amendment": 145.1378605,
+  "approval": "Owner approval in the working session, 2026-10-03: asked 'Raise the ceiling to absorb the $5 holds that gateway errors leave in the accounting? ...', answered 'Raise to $220 (Recommended)'.",
+  "ceiling_usd": 220.0,
+  "created_at": "2026-10-03T04:24:16.949192+00:00",
+  "freeze_sha256": "83cfeca93af41810888c53c224fd079c3eff3d9e9e3d8fac1b93c3dd32a62e21",
+  "frozen_ceiling_usd": 200.0,
+  "reason": "Gateway 503 errors without a reported charge keep $5 each in the frozen accounting (psv3-0458, psv3-0522); expected actual new charges remain about $73.",
+  "run_id": "psv3-r1",
+  "unknown_charge_holds": [
+    "psv3-0458",
+    "psv3-0522"
+  ]
+}

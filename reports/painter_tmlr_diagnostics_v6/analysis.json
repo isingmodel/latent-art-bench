@@ -1,0 +1,586 @@
+{
+  "plan_sha256": "bcfe818e73b9eca4d98d0c976a74deca86834d1d581f27705cb298da19114b6a",
+  "representations": {
+    "clip": {
+      "groups": {
+        "century": {
+          "configurations": [
+            {
+              "proximity_gain": 0.09404278251875094,
+              "proximity_shared": 0.027743091343256393,
+              "recognition_eight_way": 0.65625,
+              "recognition_four_way": 0.71875,
+              "shared": {
+                "ci95": [
+                  0.44652970037797923,
+                  0.5035497468254189
+                ],
+                "faithful": 0.6459803747412145,
+                "observed": 0.4704578456459952,
+                "observed_below_faithful": 1.0
+              }
+            },
+            {
+              "proximity_gain": 0.14648825038576682,
+              "proximity_shared": 0.06661996786359199,
+              "recognition_eight_way": 0.78125,
+              "recognition_four_way": 0.8541666666666667,
+              "shared": {
+                "ci95": [
+                  0.465367651336314,
+                  0.5194088372208991
+                ],
+                "faithful": 0.685825422045169,
+                "observed": 0.479106512051415,
+                "observed_below_faithful": 1.0
+              }
+            },
+            {
+              "proximity_gain": 0.12832567366676056,
+              "proximity_shared": 0.06255254795786847,
+              "recognition_eight_way": 0.625,
+              "recognition_four_way": 0.8333333333333333,
+              "shared": {
+                "ci95": [
+                  0.49979686402633977,
+                  0.5532081362914685
+                ],
+                "faithful": 0.7109901531865133,
+                "observed": 0.5184249677039813,
+                "observed_below_faithful": 1.0
+              }
+            },
+            {
+              "proximity_gain": 0.14388870894122988,
+              "proximity_shared": 0.06646734523399146,
+              "recognition_eight_way": 0.6979166666666666,
+              "recognition_four_way": 0.8541666666666667,
+              "shared": {
+                "ci95": [
+                  0.5002754971059002,
+                  0.5528068820163541
+                ],
+                "faithful": 0.7161227647380863,
+                "observed": 0.5198178426172502,
+                "observed_below_faithful": 1.0
+              }
+            },
+            {
+              "proximity_gain": 0.13995209373057682,
+              "proximity_shared": 0.06859324577923111,
+              "recognition_eight_way": 0.7395833333333333,
+              "recognition_four_way": 0.8125,
+              "shared": {
+                "ci95": [
+                  0.5725413862043617,
+                  0.6455279539003922
+                ],
+                "faithful": 0.7430882246946496,
+                "observed": 0.6070987531139632,
+                "observed_below_faithful": 1.0
+              }
+            },
+            {
+              "proximity_gain": 0.1338531203073968,
+              "proximity_shared": 0.06180187613046308,
+              "recognition_eight_way": 0.6875,
+              "recognition_four_way": 0.7604166666666666,
+              "shared": {
+                "ci95": [
+                  0.5118294525957834,
+                  0.5756895295737021
+                ],
+                "faithful": 0.7087091232463281,
+                "observed": 0.5391138563872471,
+                "observed_below_faithful": 1.0
+              }
+            }
+          ],
+          "proximity": {
+            "corr_shared": 0.9698960825874375,
+            "corr_specific": 0.7496022749485306,
+            "shared_share": [
+              0.2950050030444896,
+              0.4547802822967224,
+              0.48745154551307124,
+              0.46193579554000647,
+              0.49011946838952375,
+              0.46171412357465885
+            ]
+          },
+          "spearman_alignment_recognition": 0.2898855178262242
+        },
+        "hudson": {
+          "configurations": [
+            {
+              "proximity_gain": 0.07307592252260708,
+              "proximity_shared": 0.07027610075369287,
+              "recognition_eight_way": 0.34375,
+              "recognition_four_way": 0.35416666666666663,
+              "shared": {
+                "ci95": [
+                  0.9505052376304239,
+                  0.9961692036144347
+                ],
+                "faithful": 0.9207556279096574,
+                "observed": 0.9745377071694719,
+                "observed_below_faithful": 0.0004
+              }
+            },
+            {
+              "proximity_gain": 0.10705422296926874,
+              "proximity_shared": 0.10509023287599494,
+              "recognition_eight_way": 0.2916666666666667,
+              "recognition_four_way": 0.2916666666666667,
+              "shared": {
+                "ci95": [
+                  0.967238384305847,
+                  0.9895439187990482
+                ],
+                "faithful": 0.9233211725098244,
+                "observed": 0.9805480313760545,
+                "observed_below_faithful": 0.0
+              }
+            },
+            {
+              "proximity_gain": 0.10323489259147173,
+              "proximity_shared": 0.09803447450611531,
+              "recognition_eight_way": 0.38541666666666663,
+              "recognition_four_way": 0.38541666666666663,
+              "shared": {
+                "ci95": [
+                  0.8529239130603824,
+                  0.9344490750922955
+                ],
+                "faithful": 0.9323827149155084,
+                "observed": 0.8966618075875767,
+                "observed_below_faithful": 0.9858
+              }
+            },
+            {
+              "proximity_gain": 0.11350141336774928,
+              "proximity_shared": 0.10720765489819799,
+              "recognition_eight_way": 0.4375,
+              "recognition_four_way": 0.4375,
+              "shared": {
+                "ci95": [
+                  0.8346076525226541,
+                  0.9270745593102161
+                ],
+                "faithful": 0.9363355154983128,
+                "observed": 0.8858599684958192,
+                "observed_below_faithful": 0.998
+              }
+            },
+            {
+              "proximity_gain": 0.10805538028910988,
+              "proximity_shared": 0.09992633326956167,
+              "recognition_eight_way": 0.5,
+              "recognition_four_way": 0.5,
+              "shared": {
+                "ci95": [
+                  0.8396339978149674,
+                  0.9090570191777073
+                ],
+                "faithful": 0.9413467326229589,
+                "observed": 0.8744702025105495,
+                "observed_below_faithful": 1.0
+              }
+            },
+            {
+              "proximity_gain": 0.08389377666072835,
+              "proximity_shared": 0.08025556188366365,
+              "recognition_eight_way": 0.3541666666666667,
+              "recognition_four_way": 0.3541666666666667,
+              "shared": {
+                "ci95": [
+                  0.8702898576126948,
+                  0.9628160711519682
+                ],
+                "faithful": 0.9276602978683576,
+                "observed": 0.9301925225954681,
+                "observed_below_faithful": 0.548
+              }
+            }
+          ],
+          "proximity": {
+            "corr_shared": 0.9913196921298563,
+            "corr_specific": 0.5389000966182023,
+            "shared_share": [
+              0.9616861248922577,
+              0.9816542492318346,
+              0.9496253838715571,
+              0.9445490740352346,
+              0.9247696227823329,
+              0.9566330790926498
+            ]
+          },
+          "spearman_alignment_recognition": 0.942857142857143
+        }
+      }
+    },
+    "csd": {
+      "groups": {
+        "century": {
+          "configurations": [
+            {
+              "proximity_gain": 0.21054745416387577,
+              "proximity_shared": 0.013698327344446426,
+              "recognition_eight_way": 0.6458333333333334,
+              "recognition_four_way": 0.7604166666666666,
+              "shared": {
+                "ci95": [
+                  0.4483677642698344,
+                  0.48237710978584153
+                ],
+                "faithful": 0.6619434151174792,
+                "observed": 0.462249607950663,
+                "observed_below_faithful": 1.0
+              }
+            },
+            {
+              "proximity_gain": 0.29350983354043253,
+              "proximity_shared": 0.04526444212118863,
+              "recognition_eight_way": 0.875,
+              "recognition_four_way": 0.8958333333333334,
+              "shared": {
+                "ci95": [
+                  0.39791634777044393,
+                  0.42746389610683494
+                ],
+                "faithful": 0.6276406089654368,
+                "observed": 0.4055289008576708,
+                "observed_below_faithful": 1.0
+              }
+            },
+            {
+              "proximity_gain": 0.2837733840712868,
+              "proximity_shared": 0.06641530854089515,
+              "recognition_eight_way": 0.7604166666666667,
+              "recognition_four_way": 0.8333333333333333,
+              "shared": {
+                "ci95": [
+                  0.43162104594381556,
+                  0.4651632054199924
+                ],
+                "faithful": 0.6920696138862008,
+                "observed": 0.4429967539928744,
+                "observed_below_faithful": 1.0
+              }
+            },
+            {
+              "proximity_gain": 0.32755742218916545,
+              "proximity_shared": 0.08485522072020181,
+              "recognition_eight_way": 0.8333333333333334,
+              "recognition_four_way": 0.8541666666666667,
+              "shared": {
+                "ci95": [
+                  0.4304200425307386,
+                  0.46617951686714354
+                ],
+                "faithful": 0.6855359588362703,
+                "observed": 0.44185811410028003,
+                "observed_below_faithful": 1.0
+              }
+            },
+            {
+              "proximity_gain": 0.3261256820015095,
+              "proximity_shared": 0.1326746621492559,
+              "recognition_eight_way": 0.7499999999999999,
+              "recognition_four_way": 0.7604166666666666,
+              "shared": {
+                "ci95": [
+                  0.5208986019602591,
+                  0.5855807317717273
+                ],
+                "faithful": 0.7062009258781154,
+                "observed": 0.5540837523879193,
+                "observed_below_faithful": 1.0
+              }
+            },
+            {
+              "proximity_gain": 0.2928660942675166,
+              "proximity_shared": 0.09541454167727166,
+              "recognition_eight_way": 0.6979166666666667,
+              "recognition_four_way": 0.7291666666666667,
+              "shared": {
+                "ci95": [
+                  0.4889497812080155,
+                  0.5494536901365841
+                ],
+                "faithful": 0.6363387431364885,
+                "observed": 0.5170774399305689,
+                "observed_below_faithful": 1.0
+              }
+            }
+          ],
+          "proximity": {
+            "corr_shared": 0.831584376245938,
+            "corr_specific": 0.3389326161383943,
+            "shared_share": [
+              0.06506052233614082,
+              0.15421780447759076,
+              0.23404347366210687,
+              0.2590544892956132,
+              0.4068206506614276,
+              0.3257957938624192
+            ]
+          },
+          "spearman_alignment_recognition": 0.6377481392176932
+        },
+        "hudson": {
+          "configurations": [
+            {
+              "proximity_gain": 0.08898894564417277,
+              "proximity_shared": 0.08460828872606924,
+              "recognition_eight_way": 0.3125,
+              "recognition_four_way": 0.3125,
+              "shared": {
+                "ci95": [
+                  0.9614215517612843,
+                  0.9817978558216622
+                ],
+                "faithful": 0.932228293692399,
+                "observed": 0.9728511085690946,
+                "observed_below_faithful": 0.0
+              }
+            },
+            {
+              "proximity_gain": 0.22773357881382125,
+              "proximity_shared": 0.22378621850323518,
+              "recognition_eight_way": 0.32291666666666663,
+              "recognition_four_way": 0.32291666666666663,
+              "shared": {
+                "ci95": [
+                  0.9718266000815066,
+                  0.9895643756154479
+                ],
+                "faithful": 0.9361540108012162,
+                "observed": 0.9828303819499256,
+                "observed_below_faithful": 0.0
+              }
+            },
+            {
+              "proximity_gain": 0.1921171056175359,
+              "proximity_shared": 0.18545964789815603,
+              "recognition_eight_way": 0.34375,
+              "recognition_four_way": 0.34375,
+              "shared": {
+                "ci95": [
+                  0.9184628623459077,
+                  0.9443052169046415
+                ],
+                "faithful": 0.9527801225117509,
+                "observed": 0.9320779197869186,
+                "observed_below_faithful": 0.9998
+              }
+            },
+            {
+              "proximity_gain": 0.23138969770391596,
+              "proximity_shared": 0.22072250530598644,
+              "recognition_eight_way": 0.45833333333333337,
+              "recognition_four_way": 0.45833333333333337,
+              "shared": {
+                "ci95": [
+                  0.9039257338599656,
+                  0.9392412688880202
+                ],
+                "faithful": 0.9541964207642779,
+                "observed": 0.92287172568887,
+                "observed_below_faithful": 1.0
+              }
+            },
+            {
+              "proximity_gain": 0.23496036108341112,
+              "proximity_shared": 0.22162674378207084,
+              "recognition_eight_way": 0.44791666666666663,
+              "recognition_four_way": 0.44791666666666663,
+              "shared": {
+                "ci95": [
+                  0.8942784098806136,
+                  0.9458212782703057
+                ],
+                "faithful": 0.9538293675461463,
+                "observed": 0.9227658463822901,
+                "observed_below_faithful": 0.9992
+              }
+            },
+            {
+              "proximity_gain": 0.13931904947134724,
+              "proximity_shared": 0.13214933627116532,
+              "recognition_eight_way": 0.38541666666666663,
+              "recognition_four_way": 0.38541666666666663,
+              "shared": {
+                "ci95": [
+                  0.8845408635044639,
+                  0.9671868379906717
+                ],
+                "faithful": 0.9210725325792015,
+                "observed": 0.9324858772149796,
+                "observed_below_faithful": 0.3424
+              }
+            }
+          ],
+          "proximity": {
+            "corr_shared": 0.9985862658973165,
+            "corr_specific": 0.543731229083898,
+            "shared_share": [
+              0.9507730214534754,
+              0.9826667620508737,
+              0.9653468768541962,
+              0.9538994496998775,
+              0.9432516308714437,
+              0.9485374525064035
+            ]
+          },
+          "spearman_alignment_recognition": 0.6571428571428573
+        }
+      }
+    },
+    "hand31": {
+      "groups": {
+        "century": {
+          "configurations": [
+            {
+              "shared": {
+                "ci95": [
+                  0.23257714364860532,
+                  0.36687620917688113
+                ],
+                "faithful": 0.6755194333512177,
+                "observed": 0.2954331799920835,
+                "observed_below_faithful": 1.0
+              }
+            },
+            {
+              "shared": {
+                "ci95": [
+                  0.1465344398726451,
+                  0.2587761659630814
+                ],
+                "faithful": 0.5326026467591424,
+                "observed": 0.18515692004901077,
+                "observed_below_faithful": 1.0
+              }
+            },
+            {
+              "shared": {
+                "ci95": [
+                  0.16457513149909542,
+                  0.23998986481772844
+                ],
+                "faithful": 0.6681805954045552,
+                "observed": 0.1885973296572325,
+                "observed_below_faithful": 1.0
+              }
+            },
+            {
+              "shared": {
+                "ci95": [
+                  0.1960171987042515,
+                  0.2883650742207792
+                ],
+                "faithful": 0.6784462794489129,
+                "observed": 0.23643407809498154,
+                "observed_below_faithful": 1.0
+              }
+            },
+            {
+              "shared": {
+                "ci95": [
+                  0.1791470735733843,
+                  0.31484811568904564
+                ],
+                "faithful": 0.7536721715693934,
+                "observed": 0.21585990273232777,
+                "observed_below_faithful": 1.0
+              }
+            },
+            {
+              "shared": {
+                "ci95": [
+                  -0.027561968562730497,
+                  0.2789923268210567
+                ],
+                "faithful": 0.4501764055151732,
+                "observed": 0.17743868304271723,
+                "observed_below_faithful": 1.0
+              }
+            }
+          ]
+        },
+        "hudson": {
+          "configurations": [
+            {
+              "shared": {
+                "ci95": [
+                  0.9269809198559805,
+                  0.9931773584341402
+                ],
+                "faithful": 0.9016876798334068,
+                "observed": 0.9567828566888916,
+                "observed_below_faithful": 0.0022
+              }
+            },
+            {
+              "shared": {
+                "ci95": [
+                  0.9723853296144312,
+                  0.9948179027186007
+                ],
+                "faithful": 0.9247857889370903,
+                "observed": 0.9857363173434746,
+                "observed_below_faithful": 0.0
+              }
+            },
+            {
+              "shared": {
+                "ci95": [
+                  0.9203813348145105,
+                  0.9537269986051184
+                ],
+                "faithful": 0.9598873645072361,
+                "observed": 0.9383725049223962,
+                "observed_below_faithful": 1.0
+              }
+            },
+            {
+              "shared": {
+                "ci95": [
+                  0.9099813856613476,
+                  0.9578188103426449
+                ],
+                "faithful": 0.9623750616212896,
+                "observed": 0.935394115344813,
+                "observed_below_faithful": 0.9882
+              }
+            },
+            {
+              "shared": {
+                "ci95": [
+                  0.8872495544911951,
+                  0.9957619286886022
+                ],
+                "faithful": 0.9702419779871637,
+                "observed": 0.9510876634721414,
+                "observed_below_faithful": 0.8198
+              }
+            },
+            {
+              "shared": {
+                "ci95": [
+                  0.5011546815711587,
+                  1.057666159676173
+                ],
+                "faithful": 0.8935115510131517,
+                "observed": 0.8937879130560833,
+                "observed_below_faithful": 0.5176
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "v3_analysis_sha256": "75ef2a23c04a5c570fd224a0ada396271ad7026ef0657a1908023daca709cbc4"
+}

@@ -190,6 +190,8 @@ retrospective-check: restore-analysis
 	$(PYTHON) -m latent_art_bench.painter_tmlr_diagnostics_v3 check
 	$(PYTHON) -m latent_art_bench.painter_tmlr_diagnostics_v4 check
 	$(PYTHON) -m latent_art_bench.painter_tmlr_diagnostics_v5 check
+	$(PYTHON) -m latent_art_bench.painter_specificity_v3.report check
+	$(PYTHON) -m latent_art_bench.painter_tmlr_diagnostics_v6 check
 
 extensions-check:
 	$(PYTHON) -m latent_art_bench.painter_cross_cohort_v1 check --execute-real \

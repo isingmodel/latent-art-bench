@@ -1,0 +1,146 @@
+{
+  "approval": "Owner approval in the working session, 2026-10-03: asked 'Approve the paid collection? 1,680 images on OpenRouter; forecast $72.98 ...', answered 'Approve, lower ceiling'; asked 'Which cumulative ceiling (including the $112.29 already spent)?', answered '$200'. Earlier instructions: 'Finish generating the images, and update the whole analysis and paper.' (2026-10-03) and 'Commit everything' (commit of inputs).",
+  "baseline_usd": 112.293676,
+  "ceiling_usd": 200.0,
+  "created_at": "2026-10-03T01:16:15.520256+00:00",
+  "expected_usd": 72.97721000000001,
+  "inputs": [
+    {
+      "path": "studies/painter_specificity_v3/PROTOCOL.md",
+      "sha256": "fb85328b293ed455b5e483018cb1a022027459f760312d1ed68cedcb69d96d36"
+    },
+    {
+      "path": "studies/painter_specificity_v3/REFERENCES.md",
+      "sha256": "4ed79709a4b0c27370e3dbbfcb269f43f9c250d9624d9f1b63ce42f8cd1f62be"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v3/provider_quotes_20261002.json",
+      "sha256": "78c0cd841299a302316cc816bb44a7b8712c3eb32d9312146ab0edb6a8da0b5b"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v2/psv2-20260911/collection.json",
+      "sha256": "3491468b0dc6875d28e530595341d2a5a659a5aec175e5f6f7999f05b5851480"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v2/psv2-20260911/requests.jsonl",
+      "sha256": "0aa60f491be08dbd48f1f018e225b22bcae2aacd724abf3371a6312d59acc679"
+    },
+    {
+      "path": "data/manifests/painter_feature_generation_v2/pfg2-method-20260905/scaler.json",
+      "sha256": "71f511235081dfc1e9846976320c69477bcbd04dd43fc9a2e271f7b0375497b9"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "5eb878e4cd9607f6dde074f4a341d54889f6405d65621821cdc4beb6713a2bf8"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "d78b12a1ae92d586b9945d4bf50ed4398300780c462867e634abaab78941eb5a"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v3/refs-20261002/features.jsonl",
+      "sha256": "05b689cce1960c423186b32cae97cf0e2dcc13df8d3be2b206aba59cb1fa2331"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v3/refs-20261002/measurement_receipt.json",
+      "sha256": "debf37377410a96cd64f1714a277ade667d959714c0c13bbd7af986de0795c16"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v3/refs-20261002/frame.jsonl",
+      "sha256": "ea96fe8f0fb685f68a98df995d8b010a579d6c481fcf642b8fb1499e58132861"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v3/refs-20261002/determination.jsonl",
+      "sha256": "876243ed3a559d0a48c095394aaa54ff3569b151e94b5e36cadbec66ed004c5c"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v3/__init__.py",
+      "sha256": "7e07d404f1131fcd47423ec7f244b9e4a1efd1fe9c563d1e60c8de5a635e649d"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v3/__main__.py",
+      "sha256": "c15e24d0824fe1237aaf8b1c5ec2917d38742f5cff6bca89f6629d738dac552a"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v3/analysis.py",
+      "sha256": "897f8727381f1c4aabe68e3546c0e4918dbab7b50510600a4d1d0e19651982c1"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v3/collect.py",
+      "sha256": "4d9de8a341a07892d96f031ad9b67cea0c23dc04e5838fa4084d56260d3684c3"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v3/embeddings.py",
+      "sha256": "ff9ed66ad51c73b275093a95a32214a51e07e28a554cd795d135286ffb9ad0dc"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v3/lexicon.py",
+      "sha256": "35f9a7584f544f11308e54ccf142851cd9d35e2d03e7c14c219ca8bb840d879b"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v3/panel.py",
+      "sha256": "0fdc978d551be9fe7f4c1344911da98830a81aaca0450bf473ced8f11a7c97fc"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v3/predict.py",
+      "sha256": "1e56e68649253509151849a06c79439c18c59b39a9a6f19779f57d5bd0fe1c47"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v3/references.py",
+      "sha256": "892e1b6d1884aea58142c44a8dc219bf787892500b54e077ce882431657cc239"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v3/report.py",
+      "sha256": "83328f050af903cdaf64bb84ab1ce6cc185047cb010227a1b71a789dc712e272"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v3/study.py",
+      "sha256": "a254a477f427d317e9f1c55a07e5928d075460a6c80c6a03553301866e0494dc"
+    },
+    {
+      "path": "tests/painter_specificity_v3/test_analysis.py",
+      "sha256": "9fa43a9f4981fed3ff58a67cf3451b995ca61ef3eccb7596bada1d2194db527e"
+    },
+    {
+      "path": "tests/painter_specificity_v3/test_collection.py",
+      "sha256": "33170cb8cf29609d41b680da4af7e76c58bf54c162339153c7eb53d6130d16f1"
+    },
+    {
+      "path": "tests/painter_specificity_v3/test_references.py",
+      "sha256": "81ff700b8e3667d13e5ae0d6750b19d3705d2f75638a678cbdffb1f67bf317d5"
+    },
+    {
+      "path": "tests/painter_specificity_v3/test_report.py",
+      "sha256": "3cb805285afe1d3c9c78caaf290306a0e12c91ea4ad7e3e7001e20f13b7fe3b4"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v1/study.py",
+      "sha256": "e2da0d39e65f7f069c3b05cc959b0ee7dfd771944cabf7966baad573d6d84688"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v1/workflow.py",
+      "sha256": "504c87bf7d4161d537d0cdf59f2015a42e2a63224ebab83e3a1db1c9927fc018"
+    },
+    {
+      "path": "src/latent_art_bench/painter_specificity_v2/study.py",
+      "sha256": "cfd1c0ea94951db592945745137a609400f31d2c1b12a56da5bc1b9feb19e46b"
+    },
+    {
+      "path": "src/latent_art_bench/painter_feature_generation_v2/features.py",
+      "sha256": "b295c2de1a8501e8ab335d88ed56ab8f2dc8b3ca704141b92e02ef586d48d172"
+    },
+    {
+      "path": "src/latent_art_bench/painter_distribution_study_v1/discovery.py",
+      "sha256": "211fe3d93077aec9861915b58fa57b2e8954dd17cdc291fdc1e5d33072d1d0eb"
+    },
+    {
+      "path": "data/manifests/painter_specificity_v3/psv3-r1/requests.jsonl",
+      "sha256": "d298b36967073da32a335a920853923a7701b50048e2319fb63965539b08a7e5"
+    }
+  ],
+  "margin_over_forecast_usd": 14.729113999999981,
+  "predecessor_sha256": "3491468b0dc6875d28e530595341d2a5a659a5aec175e5f6f7999f05b5851480",
+  "recorded_git_commit": "0fcd0c4498f5be4339f09eb072188c8f190db8f9",
+  "requests": 1680,
+  "run_id": "psv3-r1"
+}

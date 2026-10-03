@@ -97,6 +97,18 @@ INPUTS = {
         "data/manifests/painter_specificity_v2/psv2-20260911/requests.jsonl",
         "0aa60f491be08dbd48f1f018e225b22bcae2aacd724abf3371a6312d59acc679",
     ),
+    "v3_determination": (
+        "data/manifests/painter_specificity_v3/refs-20261002/determination_receipt.json",
+        "39e289f1ba44c7d5fe8ae18d59d076a07eb1cefd6d105859b3565bb6576fa982",
+    ),
+    "v3_references": (
+        "data/manifests/painter_specificity_v3/refs-20261002/measurement_receipt.json",
+        "debf37377410a96cd64f1714a277ade667d959714c0c13bbd7af986de0795c16",
+    ),
+    "v3_predictions": (
+        "data/manifests/painter_specificity_v3/refs-20261002/predictions.json",
+        "65a12c297f2f2e0c2d6d7afbb313e590bf7360001cbe82c5edc5fed20040414f",
+    ),
 }
 
 STYLE = json.loads((HERE / "STYLE_PROVENANCE.json").read_text())["sha256"]
@@ -130,6 +142,15 @@ CLAUSES = {
     "paul_cezanne": "Render as an oil painting in the style of Paul Cezanne. ",
 }
 SUFFIX = " No text or frame."
+V3_GROUPS = (
+    ("century", "Century group", (
+        ("jacob_van_ruisdael", "van Ruisdael"), ("canaletto", "Canaletto"),
+        ("vincent_van_gogh", "van Gogh"), ("ernst_ludwig_kirchner", "Kirchner"))),
+    ("hudson", "Hudson River School", (
+        ("albert_bierstadt", "Bierstadt"), ("frederic_edwin_church", "Church"),
+        ("thomas_cole", "Cole"), ("asher_brown_durand", "Durand"))),
+)
+V3_PAINTERS = tuple(p for _, _, painters in V3_GROUPS for p in painters)
 BLUE, ORANGE = "#2a78d6", "#eb6834"  # validated categorical slots 1-2 (light surface)
 INK, MUTED = "#0b0b0b", "#52514e"
 
@@ -516,6 +537,242 @@ def table(label, caption, spec, header, body, *keys, size="\\small") -> str:
 
 def rng(pair, fmt=pct) -> str:
     return f"[{fmt(pair[0])}, {fmt(pair[1])}]"
+
+
+# ---------------------------------------------------------------------------
+# Two further painter groups (painter_specificity_v3)
+
+
+def table_v3_panels(det, meas) -> str:
+    gates = ("passed_creator", "passed_medium", "passed_collection", "passed_rights",
+             "passed_geometry", "passed_content")
+    body = []
+    for group, title, painters in V3_GROUPS:
+        body.append(f"\\multicolumn{{10}}{{l}}{{\\emph{{{title}}}}} \\\\")
+        for pid, name in painters:
+            f = det["funnel"][pid]
+            classes = f["classes"]
+            mix = "/".join(str(classes.get(c, 0)) for c in (
+                "water_organized", "built_place_organized", "route_organized",
+                "open_or_wooded_land"))
+            body.append(" & ".join([name, str(f["discovered"]), *(str(f[g]) for g in gates),
+                                    str(meas["measured_by_painter"][pid]), mix]) + " \\\\")
+    total = sum(meas["measured_by_painter"][p] for p, _ in V3_PAINTERS)
+    require(total == 788, "v3 reference panel size")
+    return table(
+        "tab:v3-panels",
+        "Reference panels of the two further painter groups: Wikidata paintings with a Commons "
+        "image, and how many remain after each gate, applied in order as for the four-painter "
+        "panel (single creator, oil on canvas, a collection, an open licence, a short side of at "
+        "least 1,024 pixels, an outdoor title); then works measured after merging duplicates and "
+        "excluding unreadable files. Classes are water/built/route/land by title.",
+        "lrrrrrrrrr",
+        "Painter & Found & Creator & Medium & Coll. & Rights & Size & Title & Measured & "
+        "W/B/R/L \\\\",
+        body, "v3_determination", "v3_references", size="\\footnotesize")
+
+
+def table_v3_predictions(pred) -> str:
+    names = {"impressionists": "Four Impressionists", "century": "Century group",
+             "hudson": "Hudson River School"}
+    reps = (("hand31", "31 features", f2), ("clip", "CLIP", m3), ("csd", "CSD", m3))
+    body = []
+    for key, title in names.items():
+        cells = [title]
+        for rep, _, fmt in reps:
+            v = pred[rep][key]
+            cells += [fmt(v["H"]), span(v["faithful_shared_fraction"], pct)]
+        body.append(" & ".join(cells) + " \\\\")
+    return table(
+        "tab:v3-predictions",
+        "Predictions recorded before the second collection: the reference spread $H$ of each "
+        "group and the faithful benchmark $N^*/(N^*+H)$ over the six configurations, with "
+        "September's generic outputs. The four-painter rows reproduce the paper's values.",
+        "lrrrrrr",
+        "& \\multicolumn{2}{c}{31 features} & \\multicolumn{2}{c}{CLIP} & "
+        "\\multicolumn{2}{c}{CSD} \\\\\n\\cmidrule(lr){2-3}\\cmidrule(lr){4-5}\\cmidrule(lr){6-7}\n"
+        "Group & $H$ & Faithful & $H$ & Faithful & $H$ & Faithful \\\\",
+        body, "v3_predictions")
+
+
+AQUA = "#1baf7a"  # validated categorical slot 3 (light surface); relief by marker shape
+V3_REPS = (("hand31", "31 features"), ("hand31_square", "31 features, central square"),
+           ("clip", "CLIP"), ("csd", "CSD"))
+
+
+def v3rep(v3, rep):
+    out = v3["representations"][rep]
+    require(out["available"], f"v3 {rep} analysis unavailable")
+    return out
+
+
+def table_v3_shared(v3, diag2) -> str:
+    hand = v3rep(v3, "hand31")
+    close = hand["closeness"]
+    body = []
+    for m, name in enumerate(SHORT):
+        imp = diag2["hand31"][m]["point"]["all31"]
+        cen, hud = hand["groups"]["century"][m], hand["groups"]["hudson"][m]
+        diff = close["difference_by_configuration"][m]
+        require(abs(diff - (cen["shared_fraction"] - hud["shared_fraction"])) < 1e-12,
+                "v3 closeness difference")
+        lo, hi = close["simultaneous_ci_by_configuration"][m]
+        body.append(
+            f"{name} & {pct(imp['observed'])} & {pct(imp['faithful'])}"
+            f" & {pct(cen['shared_fraction'])} & {pct(cen['faithful_shared_fraction'])}"
+            f" & {pct(hud['shared_fraction'])} & {pct(hud['faithful_shared_fraction'])}"
+            f" & {signed_pct(diff)} & {rng((lo, hi), signed_pct)}\\\\"
+        )
+    lo, hi = close["pooled_ci95"]
+    body.append("\\midrule")
+    body.append(
+        f"Mean & & & & & & & {signed_pct(close['pooled_difference'])} & {rng((lo, hi), signed_pct)}"
+        "\\\\"
+    )
+    header = (
+        " & \\multicolumn{2}{c}{Impressionists} & \\multicolumn{2}{c}{Century group}"
+        " & \\multicolumn{2}{c}{Hudson River} & \\multicolumn{2}{c}{Century $-$ Hudson}\\\\\n"
+        "\\cmidrule(lr){2-3}\\cmidrule(lr){4-5}\\cmidrule(lr){6-7}\\cmidrule(l){8-9}\n"
+        "Configuration & obs. & faithful & obs. & faithful & obs. & faithful & diff. & 95\\%\\\\"
+    )
+    caption = (
+        "Shared fraction $N/(N+B)$ (\\%) of what the four names add beyond the generic clause, "
+        "observed and for a faithful imitator, in the 31 features, for the four Impressionists "
+        "(first collection) and the two further groups (second collection, each with its own "
+        "generic arm). Last columns: the century group's fraction minus the Hudson River "
+        "School's, with Bonferroni-adjusted (six configurations) percentile intervals from "
+        "5,000 paired scene resamples; the mean row is the prespecified test H1, with its "
+        "95\\% interval."
+    )
+    return table("tab:v3-shared", caption, "@{}lrrrrrrrc@{}", header, body, "diagnostics2", "v3",
+                 size="\\small\\setlength{\\tabcolsep}{3.5pt}")
+
+
+def table_v3_tests(v3) -> str:
+    body = []
+    for rep, title in V3_REPS:
+        out = v3rep(v3, rep)
+        c, d, u = out["closeness"], out["dose_response"], out["dose_response_uncorrected"]
+        spread = out["reference_spread"]
+        hfmt = f2 if rep.startswith("hand31") else m3
+        body.append(
+            f"{title} & {signed_pct(c['pooled_difference'])} & {rng(c['pooled_ci95'], signed_pct)}"
+            f" & {f2(d['pooled_spearman'])} & {pvalue(d['exact_p_one_sided'])}"
+            f" & {f2(u['pooled_spearman'])} & {pvalue(u['exact_p_one_sided'])}"
+            f" & {hfmt(spread['century']['H_corrected'])} & {hfmt(spread['hudson']['H_corrected'])}"
+            "\\\\"
+        )
+    header = (
+        " & \\multicolumn{2}{c}{H1: century $-$ Hudson} & \\multicolumn{2}{c}{H2: Mantel}"
+        " & \\multicolumn{2}{c}{H2, uncorrected} & \\multicolumn{2}{c}{$H$, noise-corrected}\\\\\n"
+        "\\cmidrule(lr){2-3}\\cmidrule(lr){4-5}\\cmidrule(lr){6-7}\\cmidrule(l){8-9}\n"
+        "Representation & diff. & 95\\% & $\\rho$ & $p$ & $\\rho$ & $p$ & century & Hudson\\\\"
+    )
+    caption = (
+        "The two prespecified tests in every representation (the 31 features in the full view "
+        "are primary). H1: mean over configurations of the century group's shared fraction "
+        "minus the Hudson River School's (percentage points), with a 95\\% interval from 5,000 "
+        "paired scene resamples. H2: Spearman correlation over the 28 painter pairs between the "
+        "name distance and the reference distance, averaged over configurations, with the exact "
+        "one-sided $p$-value over all 40,320 relabellings of the eight painters; the reference "
+        "distances are corrected for panel size, and the uncorrected test is shown beside it. "
+        "Last columns: reference spread corrected for panel size."
+    )
+    return table("tab:v3-tests", caption, "@{}lrcrrrrrr@{}", header, body, "v3",
+                 size="\\small\\setlength{\\tabcolsep}{4pt}")
+
+
+def table_v3_detail(v3) -> str:
+    hand = v3rep(v3, "hand31")
+    body = []
+    for group, title, _ in V3_GROUPS:
+        body.append(f"\\multicolumn{{9}}{{l}}{{\\emph{{{title}}}}}\\\\")
+        for name, row in zip(SHORT, hand["groups"][group], strict=True):
+            body.append(
+                f"{name} & {f2(row['beta'])} & {rng(row['beta_ci95'], f2)} & {f2(row['Q'])}"
+                f" & {f2(row['alignment_ratio'])} & {f2(row['D'])} & {rng(row['D_ci95'], f2)}"
+                f" & {f2(row['D_held'])} & {opt(row['centroid_gain_shared_fraction'], pct)}\\\\"
+            )
+    header = (
+        "Configuration & $\\beta$ & 95\\% & $Q$ & $\\beta/\\sqrt{Q}$ & $D$ & 95\\%"
+        " & $D_{\\mathrm{held}}$ & shared gain (\\%)\\\\"
+    )
+    caption = (
+        "Agreement of the between-name differences with each group's reference differences "
+        "(31 features, second collection), as in Table~\\ref{tab:agreement}: aligned amplitude "
+        "$\\beta$ and error $D$ with unadjusted paired-scene Student intervals, relative size "
+        "$Q$, alignment ratio, held-out rescaled error, and the share of the centroid proximity "
+        "gain (Eq.~\\ref{eq:prototype-gain}, here in the features) carried by the shared term."
+    )
+    return table("tab:v3-detail", caption, "@{}lrcrrrcrr@{}", header, body, "v3",
+                 size="\\small\\setlength{\\tabcolsep}{4pt}")
+
+
+def table_v3_drift(v3) -> str:
+    body = []
+    reps = (("hand31", "31 features"), ("clip", "CLIP"), ("csd", "CSD"))
+    for m, name in enumerate(SHORT):
+        cells = [name]
+        for rep, _ in reps:
+            drift = v3rep(v3, rep)["drift"][m]
+            cells += [f2(drift["free"]["ratio"]), f2(drift["generic"]["ratio"])]
+        body.append(" & ".join(cells) + "\\\\")
+    header = (
+        " & \\multicolumn{2}{c}{31 features} & \\multicolumn{2}{c}{CLIP}"
+        " & \\multicolumn{2}{c}{CSD}\\\\\n"
+        "\\cmidrule(lr){2-3}\\cmidrule(lr){4-5}\\cmidrule(l){6-7}\n"
+        "Configuration & none & generic & none & generic & none & generic\\\\"
+    )
+    caption = (
+        "Change between the two collections for identical requests: the squared distance "
+        "between the September and October scene means of the no-clause and generic arms, "
+        "estimated without repeat noise, divided by September's repeat noise (0 means no "
+        "change; values near or above 1 mean a change as large as two repeats differ)."
+    )
+    return table("tab:v3-drift", caption, "@{}lrrrrrr@{}", header, body, "v3")
+
+
+def figure_v3_pairs(v3) -> bytes:
+    """Name distance against reference distance for the 28 pairs of the eight new painters."""
+    plt = _matplotlib()
+    import numpy as np
+
+    group_of = [g for g, _, painters in V3_GROUPS for _ in painters]
+    pairs = [(a, b) for a in range(8) for b in range(a + 1, 8)]
+    kinds = ["century" if group_of[a] == group_of[b] == "century"
+             else "hudson" if group_of[a] == group_of[b] == "hudson" else "cross"
+             for a, b in pairs]
+    style = {"century": (BLUE, "o", "within century group"),
+             "hudson": (ORANGE, "s", "within Hudson River School"),
+             "cross": (AQUA, "^", "across groups")}
+    reps = (("hand31", "31 features"), ("clip", "CLIP"), ("csd", "CSD"))
+    fig, axes = plt.subplots(1, 3, figsize=(6.6, 2.4))
+    for ax, (rep, title) in zip(axes, reps, strict=True):
+        d = v3rep(v3, rep)["dose_response"]
+        x = np.array(d["reference_pairs"])
+        y = np.array(d["name_pairs_by_configuration"]).mean(axis=0)
+        for kind, (color, marker, label) in style.items():
+            keep = [i for i, k in enumerate(kinds) if k == kind]
+            ax.scatter(x[keep], y[keep], s=16, c=color, marker=marker, label=label,
+                       edgecolors="white", linewidths=0.5)
+        ax.set_title(f"{title}: $\\rho$ = {d['pooled_spearman']:.2f}", fontsize=8, color=INK)
+        ax.set_xlabel("reference distance$^2$", fontsize=7, color=MUTED)
+        if ax is axes[0]:
+            ax.set_ylabel("name distance$^2$", fontsize=7, color=MUTED)
+        ax.tick_params(labelsize=6, colors=MUTED)
+        for side in ("top", "right"):
+            ax.spines[side].set_visible(False)
+    axes[0].legend(fontsize=6, frameon=False, loc="upper left")
+    fig.subplots_adjust(left=0.08, right=0.99, bottom=0.18, top=0.88, wspace=0.3)
+    return _pdf_bytes(fig, plt)
+
+
+def pvalue(p: float) -> str:
+    return "$<$0.001" if p < 0.001 else f"{p:.3f}"
+
+
+def opt(value, fmt) -> str:
+    return "--" if value is None else fmt(value)
 
 
 # ---------------------------------------------------------------------------
@@ -2405,6 +2662,8 @@ def all_outputs(data) -> dict[str, str | bytes]:
         "fig_schematic.pdf": figure_schematic(),
         "fig_benchmark.pdf": figure_benchmark(diag2),
         "fig_pairs.pdf": figure_pairs(diag2),
+        "tab_v3_panels.tex": table_v3_panels(data["v3_determination"], data["v3_references"]),
+        "tab_v3_predictions.tex": table_v3_predictions(data["v3_predictions"]),
     }
 
 
