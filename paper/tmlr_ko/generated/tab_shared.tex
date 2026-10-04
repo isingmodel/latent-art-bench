@@ -3,13 +3,13 @@
 % input reports/painter_tmlr_diagnostics_v1/analysis.json sha256 76792fa35f90e3d8fec1a75b0eec27d69cac14ed875fce8b64096b8e2525a4d4
 % input reports/painter_tmlr_diagnostics_v2/analysis.json sha256 bed891f767a98f4b281b6783b1021956f4d2c3ff80becbf6b2693ee45987ef1a
 \begin{table}[t]
-\caption{일반 지시문에 더해 네 이름이 추가하는 변화의 공통 비율 $N/(N+B)$(31개 특징)과 장면 재표집 5,000회에서 구한 95\% 구간, 그리고 참조 화가 산포 $H$에 대한 공통 변화($N$)와 이름 간 차이($B$)의 제곱 크기. 충실: 같은 일반 출력에서 출발하여 화가를 지정한 각 평균이 그 화가의 참조 평균과 같을 때의 비율. 정확 차이: 관측된 공통 변화를 유지하고 $B/H$가 1일 때의 비율, $N/(N+H)$. 관측$<$충실: 관측 비율이 충실한 모방자의 비율보다 낮은 장면 재표집의 비율. 공통 변화의 방향은 부록 표~\ref{tab:direction}에 있다. 일반 기준선은 수집 이후에 골랐으며, 화가 미지정 기준선에 대한 사전 지정 분해는 부록~\ref{app:hand}에 있다.}
+\caption{일반 지시문을 넘어 네 이름이 더하는 것의 공통 비율 $N/(N+B)$(특징 31개)와 장면 재표집 5,000회로 얻은 95\% 구간, 그리고 공통 변화($N$)와 이름 간 차이($B$)의 제곱 크기를 참조 화가 산포 $H$에 대해 나타낸 값. 충실: 같은 일반 출력에서 출발해 각 이름 지정 평균이 그 화가의 참조 평균과 같을 때의 비율. 정확 차이: 관측된 공통 변화를 유지하고 $B/H$가 1일 때의 비율, $N/(N+H)$. 관측$<$충실: 관측 비율이 충실 기준값보다 낮은 장면 재표집의 비율. 공통 변화의 방향은 부록 표~\ref{tab:direction}에 있다. 일반 기준선은 수집 후에 정했으며, 화가 미지정 기준선에 대한 사전 지정 분할은 부록~\ref{app:hand}에 있다.}
 \label{tab:shared}
 \vspace{2pt}
 \centering\small\setlength{\tabcolsep}{4pt}
 \begin{tabular}{@{}lrcrrrrr@{}}
 \toprule
- & \multicolumn{4}{c}{관측} & \multicolumn{3}{c}{벤치마크}\\
+ & \multicolumn{4}{c}{관측} & \multicolumn{3}{c}{기준}\\
 \cmidrule(lr){2-5}\cmidrule(l){6-8}
 구성 & 비율 (\%) & 장면 95\% & $N/H$ & $B/H$ & 충실 (\%) & 정확 차이 (\%) & 관측$<$충실 (\%)\\
 \midrule

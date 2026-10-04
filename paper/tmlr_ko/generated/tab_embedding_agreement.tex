@@ -4,13 +4,13 @@
 % input reports/painter_tmlr_diagnostics_v4/analysis.json sha256 67431bd384586f294651136b214b9649cfd911059133ec79181eec7527d6b67b
 % input reports/painter_tmlr_diagnostics_v5/analysis.json sha256 5747902e4fae5ff111a52b5f2b8da112bc26c611555e82314b278de953981f6b
 \begin{table}[t]
-\caption{임베딩에서 이름 간 차이와 참조 차이의 일치. $\beta/\sqrt{Q}$(정렬 비)와 $D_{\mathrm{held}}$(홀드아웃 재조정 후의 오차)는 차이의 크기를 재조정해도 변하지 않는다. 굵은 글씨는 각 임베딩에서 가장 좋은 값이다. 장면: 표~\ref{tab:agreement}의 $D$와 같은 미보정 장면 대응 95\% 스튜던트 구간. $D<1$: 장면과 참조의 결합 재표집 2,000회 가운데의 비율. 11개 장면: 혼합이 아닌 장면에서 통합 목표와 제목 기반 내용 범주별 목표에 대한 $D$.}
+\caption{임베딩에서 본 이름 간 차이와 참조 차이의 일치. $\beta/\sqrt{Q}$(정렬 비)와 $D_{\mathrm{held}}$(홀드아웃 배율 조정 후의 오차)는 차이의 배율 조정에 영향을 받지 않는다. 굵은 글씨는 각 임베딩에서 가장 좋은 값이다. 장면: 표~\ref{tab:agreement}의 $D$와 같은 미보정 대응 장면 스튜던트 $t$ 95\% 구간. $D<1$: 장면과 참조를 함께 재표집한 2,000회 가운데의 비율. 장면 11개: 혼합 장면을 뺀 장면에서 통합 목표와 제목 기반 내용 범주 목표에 대해 각각 계산한 $D$.}
 \label{tab:embedding-agreement}
 \vspace{2pt}
 \centering\small\setlength{\tabcolsep}{3.5pt}
 \begin{tabular}{@{}lrrrrcrrrr@{}}
 \toprule
- & & & & \multicolumn{3}{c}{오차 $D$} & & \multicolumn{2}{c}{11개 장면}\\
+ & & & & \multicolumn{3}{c}{오차 $D$} & & \multicolumn{2}{c}{장면 11개}\\
 \cmidrule(lr){5-7}\cmidrule(l){9-10}
 구성 & $\beta$ & $Q$ & $\beta/\sqrt{Q}$ & 추정 & 장면 & $D<1$ (\%) & $D_{\mathrm{held}}$ & 통합 & 범주\\
 \midrule

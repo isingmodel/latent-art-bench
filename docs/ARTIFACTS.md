@@ -134,6 +134,14 @@ paths. A complete copy of the previous `paper/` folder is in
 offline check targets were run before and after these changes; see
 [STATUS.md](STATUS.md#verification).
 
+On 2026-10-04, at the user's request, `paper/archive/` was deleted: the full-length
+paper of 2026-09-15, its Korean translation, their inputs and five figures (20 tracked
+files, 9.3 MiB), together with the `paper-archive` target. Records under `reports/`
+still list their hashes; Git history holds every file (last in commit `a55a2b4`), and
+`generative_art_diff_archive/2026-10-01/paper_before_cleanup/` holds the same bytes
+under their earlier paths. No check target read the folder; the targets run with it
+removed are listed in [tests/README.md](../tests/README.md).
+
 Test caches, `__pycache__` and `.DS_Store` files are disposable.
 
 ## Retired documentation

@@ -4,15 +4,15 @@
 % input reports/painter_specificity_review_v3/analysis.json sha256 79fa5ca28900e852c072e2a52d35f3cb400ee053935d857729b4ad4aa3bc542c
 % input reports/painter_learned_audit_v1/analysis.json sha256 06c77de4be133afc203dda122b2816d4f866e1389999f18bc94b3d9c668f28f7
 \begin{table}[t]
-\caption{어떤 화가 간 차이가 정렬 반응을 담고 있는가. 성분: 중심화한 참조 평균의 각 특이 성분(산포의 66.3\%, 20.6\%, 13.0\%) 방향의 정렬 진폭. 화가 한 명을 제외하면 나머지 셋을 다시 중심화하여 $\beta$를 다시 계산한다. 모네--시슬레 $\beta$: 그 쌍만의 정렬 진폭으로, 31개 특징(전체 프레임 및 중앙 정사각형 참조 창)과 각 임베딩에서의 값.}
+\caption{정렬된 반응을 떠받치는 화가 간 차이. 성분: 중심화한 참조 평균의 각 특잇값 성분 방향의 정렬 진폭(각 성분은 참조 산포의 66.3\%, 20.6\%, 13.0\%). 한 화가를 빼면 나머지 세 화가를 다시 중심화하고 $\beta$를 다시 계산한다. 모네--시슬레 $\beta$: 이 쌍만의 정렬 진폭으로, 특징 31개(전체 프레임과 중앙 정사각형 참조 창)와 각 임베딩에서 계산했다.}
 \label{tab:coverage}
 \vspace{2pt}
 \centering\footnotesize
 \begin{tabular}{@{}l*{11}{r}@{}}
 \toprule
- & \multicolumn{3}{c}{성분} & \multicolumn{4}{c}{제외 후 $\beta$} & \multicolumn{4}{c}{모네--시슬레 $\beta$}\\
+ & \multicolumn{3}{c}{성분} & \multicolumn{4}{c}{한 화가를 뺀 $\beta$} & \multicolumn{4}{c}{모네--시슬레 $\beta$}\\
 \cmidrule(lr){2-4}\cmidrule(lr){5-8}\cmidrule(l){9-12}
-구성 & 제1 & 제2 & 제3 & 모네 & 시슬레 & 피사로 & 세잔 & 31 & 정사각형 & CLIP & CSD\\
+구성 & 첫째 & 둘째 & 셋째 & 모네 & 시슬레 & 피사로 & 세잔 & 31 & 정사각형 & CLIP & CSD\\
 \midrule
 GPT Image 1 & 1.248 & 0.310 & 0.356 & 1.140 & 1.072 & 0.840 & 0.389 & 0.074 & 0.038 & 0.301 & 0.446\\
 GPT Image 2 & 1.156 & 0.617 & 0.800 & 1.195 & 0.972 & 0.992 & 0.651 & 0.402 & 0.408 & 0.532 & 0.587\\

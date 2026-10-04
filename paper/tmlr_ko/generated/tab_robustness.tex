@@ -3,13 +3,13 @@
 % input reports/painter_tmlr_diagnostics_v1/analysis.json sha256 76792fa35f90e3d8fec1a75b0eec27d69cac14ed875fce8b64096b8e2525a4d4
 % input reports/painter_specificity_v2/psv2-20260911/models.csv sha256 eed121f77626d8a37235b5bb19e370e3fbd7b6bae44b559d1b866e27e9cac41c
 \begin{table}[t]
-\caption{31개 특징에서의 추가 진단. 반복 잡음: 두 반복의 중심화한 대조값 차이 제곱의 절반을 $H$에 대한 상대값으로 나타낸 것. 보정된 $H$: $H$의 유한 표본 편향(6.7\%)을 제거한 뒤의 $\beta$와 $D$. $\beta$, $Q$, $D-1$이 모두 같은 배율로 조정되므로 순서는 바뀌지 않는다. 중심점 근접도 이득: 일반 지시문에서 화가 지정 지시문으로 바뀔 때 생성 평균에서 각 화가의 참조 평균까지의 제곱 거리가 평균적으로 줄어드는 양으로, 공통 부분과 이름 간 부분으로 정확히 분해된다(부록~\ref{app:estimators}).}
+\caption{특징 31개에서의 추가 진단. 반복 잡음: 두 반복의 중심화한 대비 사이 제곱 차이의 절반을 $H$에 대해 나타낸 값. 보정한 $H$: $H$의 유한 표본 편향(6.7\%)을 제거한 뒤의 $\beta$와 $D$. $\beta$, $Q$, $D-1$이 모두 같은 배율로 바뀌므로 어떤 순서도 바뀌지 않는다. 중심 근접도 이득: 일반 지시문에서 이름 지시문으로 바꿀 때 생성 평균에서 각 화가의 참조 평균까지의 제곱 거리가 평균적으로 줄어든 양으로, 공통 부분과 이름 간 부분으로 정확히 나뉜다(부록~\ref{app:estimators}).}
 \label{tab:robustness}
 \vspace{2pt}
 \centering\small
 \begin{tabular}{@{}lrrrrrr@{}}
 \toprule
- & 반복 잡음 & \multicolumn{2}{c}{보정된 $H$} & \multicolumn{3}{c}{중심점 근접도 이득}\\
+ & 반복 잡음 & \multicolumn{2}{c}{보정한 $H$} & \multicolumn{3}{c}{중심 근접도 이득}\\
 \cmidrule(lr){3-4}\cmidrule(l){5-7}
 구성 & $/H$ & $\beta$ & $D$ & 전체 & 공통 & 이름 간\\
 \midrule

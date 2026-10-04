@@ -43,8 +43,6 @@ research_workspace/
 !/paper/figures/*.pdf
 !/paper/tmlr/figures/*.pdf
 !/paper/tmlr/generated/*.pdf
-!/paper/archive/*/*.pdf
-!/paper/archive/*/figures/*.pdf
 !/reports/**/plots/*.png
 !/reports/painter_distribution_study_v1/*/*.png
 # Preserve this terminal raw ledger locally; its portable view is committed.

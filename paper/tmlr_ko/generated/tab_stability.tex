@@ -3,26 +3,26 @@
 % input reports/painter_tmlr_diagnostics_v1/analysis.json sha256 76792fa35f90e3d8fec1a75b0eec27d69cac14ed875fce8b64096b8e2525a4d4
 % input reports/painter_tmlr_diagnostics_v5/analysis.json sha256 5747902e4fae5ff111a52b5f2b8da112bc26c611555e82314b278de953981f6b
 \begin{table}[t]
-\caption{14개 장면을 복원 재표집할 때 각 지표에서 가장 좋은 구성(대응 재표집 5,000회; 모든 구성에 같은 장면). 백분율은 직접 작성한 장면에 대한 의존성을 나타낸다. 인식에서 생기는 동률은 먼저 나열된 구성에 귀속한다. 아래쪽 행: 정렬 비와 $D_{\mathrm{held}}$(별도의 재표집).}
+\caption{14개 장면을 복원 추출로 재표집할 때 각 지표에서 최선인 구성(대응 재표집 5,000회. 모든 구성에 같은 장면을 쓴다). 백분율은 저자가 작성한 장면에 결과가 얼마나 의존하는지를 나타낸다. 인식에서 생기는 동률은 먼저 나열된 구성에 돌린다. 아래 행: 정렬 비와 $D_{\mathrm{held}}$(별도 재표집).}
 \label{tab:stability}
 \vspace{2pt}
 \centering\small
 \begin{tabular}{@{}llrlr@{}}
 \toprule
-지표 & 가장 자주 최고 & \% & 그다음 & \%\\
+지표 & 가장 자주 최선 & \% & 다음 & \%\\
 \midrule
 근접도 이득, CLIP & Nano Banana 2 & 85.8 & Sunburst & 9.5\\
 근접도 이득, CSD & FLUX.2 Max & 33.6 & GPT Image 1 & 26.2\\
 인식, CLIP & GPT Image 2 & 98.7 & GPT Image 1 & 0.8\\
 인식, CSD & GPT Image 2 & 80.4 & GPT Image 1 & 19.6\\
-오차 $D$, 31개 특징 & FLUX.2 Max & 84.7 & Nano Banana 2 & 15.3\\
+오차 $D$, 특징 31개 & FLUX.2 Max & 84.7 & Nano Banana 2 & 15.3\\
 오차 $D$, CLIP & GPT Image 1 & 99.3 & GPT Image 2 & 0.6\\
 오차 $D$, CSD & FLUX.2 Max & 47.2 & GPT Image 1 & 26.8\\
 \midrule
-정렬 비, 31개 특징 & GPT Image 2 & 98.0 & Nano Banana 2 & 0.7\\
+정렬 비, 특징 31개 & GPT Image 2 & 98.0 & Nano Banana 2 & 0.7\\
 정렬 비, CLIP & GPT Image 2 & 99.7 & GPT Image 1 & 0.3\\
 정렬 비, CSD & GPT Image 2 & 100.0 & FLUX.2 Max & 0.0\\
-$D_{\mathrm{held}}$, 31개 특징 & GPT Image 2 & 99.0 & GPT Image 1 & 0.6\\
+$D_{\mathrm{held}}$, 특징 31개 & GPT Image 2 & 99.0 & GPT Image 1 & 0.6\\
 $D_{\mathrm{held}}$, CLIP & GPT Image 2 & 99.8 & GPT Image 1 & 0.2\\
 $D_{\mathrm{held}}$, CSD & GPT Image 2 & 100.0 & FLUX.2 Max & 0.0\\
 \bottomrule

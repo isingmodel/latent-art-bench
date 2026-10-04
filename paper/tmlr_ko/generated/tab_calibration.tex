@@ -3,15 +3,15 @@
 % input reports/painter_specificity_review_v1/analysis.json sha256 2fabb78e15dfcc7b027a73170f6ad0c87af0196c754b4e6f45275269c2c961e2
 % input data/manifests/painter_specificity_v2/psv2-20260911/analysis.json sha256 c1d21b16f840a10fd253c1d558743a09671acf3d4e48601ddcc96625a5a90be0
 \begin{table}[t]
-\caption{31개 특징에서 오차의 성분과 대조값의 크기. 패턴 방향과 패턴 외: 사전 지정한 $D$의 정확한 분해로, 참조 패턴 방향 진폭의 오차 $(s_1-1)(s_2-1)$(반복별 기울기 $s_k$)와 그 패턴에 직교하는 잔차의 교차 반복 곱($H$에 대한 상대값)이다. $D=D_{\mathrm{agg}}+V_{\mathrm{scene}}$이고 $\beta/\sqrt{Q}$는 정렬 비이다. $D_{\mathrm{held}}$: 중심화한 생성 대조값 전체에, 나머지 13개 장면에서 적합한 음이 아닌 스칼라를 곱한 뒤의 오차. 적합 범위는 14개 폴드에 대한 것이다. 재조정은 특징 벡터에만 적용된다.}
+\caption{특징 31개에서 본 오차의 구성 부분과 대비의 크기. 패턴 방향과 패턴 밖: 사전 지정한 대로 $D$를 정확히 나눈 두 부분으로, 참조 패턴 방향 진폭의 오차 $(s_1-1)(s_2-1)$($s_k$는 반복별 기울기)와 그 패턴에 직교하는 잔차의 반복 간 곱이며, 둘 다 $H$에 대한 값이다. $D=D_{\mathrm{agg}}+V_{\mathrm{scene}}$이고 $\beta/\sqrt{Q}$는 정렬 비이다. $D_{\mathrm{held}}$: 중심화한 생성 대비를 모두 나머지 13개 장면에서 적합한 음이 아닌 스칼라로 곱한 뒤의 오차. 적합 스칼라의 범위는 14개 폴드에 걸친 범위이다. 배율 조정은 특징 벡터에만 적용한다.}
 \label{tab:calibration}
 \vspace{2pt}
 \centering\small\setlength{\tabcolsep}{3.5pt}
 \begin{tabular}{@{}lrrrrrrcr@{}}
 \toprule
- & & \multicolumn{2}{c}{$D$의 분해} & \multicolumn{2}{c}{장면 분해} & & &\\
+ & & \multicolumn{2}{c}{$D$의 분할} & \multicolumn{2}{c}{장면 분할} & & &\\
 \cmidrule(lr){3-4}\cmidrule(lr){5-6}
-구성 & $D$ & 패턴 방향 & 패턴 외 & $D_{\mathrm{agg}}$ & $V_{\mathrm{scene}}$ & $\beta/\sqrt{Q}$ & 적합 스칼라 & $D_{\mathrm{held}}$\\
+구성 & $D$ & 패턴 방향 & 패턴 밖 & $D_{\mathrm{agg}}$ & $V_{\mathrm{scene}}$ & $\beta/\sqrt{Q}$ & 적합 스칼라 & $D_{\mathrm{held}}$\\
 \midrule
 GPT Image 1 & 1.572 & 0.029 & 1.543 & 1.239 & 0.333 & 0.600 & 0.366--0.398 & 0.645\\
 GPT Image 2 & 1.226 & $-$0.003 & 1.229 & 1.044 & 0.182 & 0.670 & 0.438--0.459 & \textbf{0.554}\\

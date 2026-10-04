@@ -13,12 +13,10 @@ paper/
   tmlr_ko/                       Korean translation of the TMLR manuscript
     main.tex, appendix.tex       Korean prose; figures and bibliography come from tmlr/
     tables_ko.json               Korean captions, headers and row labels of the tables
+    GLOSSARY.md                  style rules and terms of the translation
     build_korean.py              builds generated/ from tmlr/generated and checks that
                                  the Korean text has the same numbers as the English
     generated/                   Korean tables (do not edit)
-  archive/
-    full_length_2026-09-15/      frozen full-length paper (paper.tex, paper.pdf) and
-                                 its Korean translation, with their inputs and figures
   replay_palette.py              kept here: hash-bound routine tests read these
   figures/palette_blocks.pdf     two paths directly
 ```
@@ -26,9 +24,8 @@ paper/
 | Manuscript | Source | State |
 | --- | --- | --- |
 | **TMLR submission** | [tmlr/main.tex](tmlr/main.tex) | Lead manuscript. *Proximity Is Not Specificity: What Painter Names Add in Text-to-Image Generation.* Revised on 2026-10-03 for the second collection (two further painter groups) and on 2026-10-04 after review round 1 of the second series. Built locally to `output/pdf/latent_art_bench_tmlr.pdf`; review records in [reports/tmlr_review_v1](../reports/tmlr_review_v1/README.md) and [reports/tmlr_review_v2](../reports/tmlr_review_v2/README.md) |
-| Korean translation of the TMLR manuscript | [tmlr_ko/main.tex](tmlr_ko/main.tex) | Translation of the current TMLR sources, made by an AI assistant on 2026-10-01, updated on 2026-10-03, and not yet reviewed by the author. Same numbers, tables and figures; labels inside figures and the prompt texts stay in English. Built locally to `output/pdf/latent_art_bench_tmlr_korean.pdf` |
-| Full-length paper | [archive/full_length_2026-09-15/paper.tex](archive/full_length_2026-09-15/paper.tex), [PDF](archive/full_length_2026-09-15/paper.pdf) | Frozen: 23 pages, final editorial update of 2026-09-15 |
-| Korean translation of the full-length paper | [archive/full_length_2026-09-15/latent_art_bench_korean.tex](archive/full_length_2026-09-15/latent_art_bench_korean.tex) | Frozen: the user's 26-page translation of the full-length paper, preserved as written |
+| Korean translation of the TMLR manuscript | [tmlr_ko/main.tex](tmlr_ko/main.tex) | Translation of the current TMLR sources by an AI assistant, made anew on 2026-10-04 after the user had the earlier translation (2026-10-01) deleted; not yet reviewed by the author. Style and terms in [tmlr_ko/GLOSSARY.md](tmlr_ko/GLOSSARY.md). Same numbers, tables and figures; labels inside figures and the prompt texts stay in English. Built locally to `output/pdf/latent_art_bench_tmlr_korean.pdf` |
+| Full-length paper and its Korean translation | Deleted on 2026-10-04 | The 23-page version of 2026-09-15 and the user's 26-page translation were deleted at the user's request; Git history keeps them (last in commit `a55a2b4`) |
 | ICML-format draft | [reports/icml_review_v1/round_04/input/](../reports/icml_review_v1/round_04/input/) | Retired on 2026-10-01; exact sources kept only in its review record |
 
 Keep the TMLR manuscript anonymous (`\usepackage{tmlr}`) until acceptance; use
@@ -46,7 +43,6 @@ make paper-tmlr     # tmlr-check, then compile into tmp/paper/tmlr-build and cop
 make tmlr-assets    # Regenerate tmlr/generated/ after changing build_assets.py
 make paper-tmlr-ko  # Check and compile the Korean translation into tmp/paper/tmlr-ko-build and output/pdf/
 make tmlr-ko-assets # Regenerate tmlr_ko/generated/ after the English tables or tables_ko.json change
-make paper-archive  # Recompile the frozen full-length paper and Korean translation into tmp/
 ```
 
 `build_assets.py` reads only completed analysis outputs, each checked against a
@@ -56,7 +52,7 @@ in the prose, update `claims.json` (it must equal the recomputed value) or
 substantive edit, render and inspect every page.
 
 The Korean translation follows the English sources by hand: after editing
-`tmlr/main.tex` or `tmlr/appendix.tex`, edit the same passage in `tmlr_ko/`.
+`tmlr/main.tex` or `tmlr/appendix.tex`, edit the same passage in `tmlr_ko/`, using the terms of `tmlr_ko/GLOSSARY.md`.
 `make tmlr-ko-check` then fails if a number differs between the two languages
 (numbers that one language writes as a word are listed in `EXPECTED` in
 `build_korean.py`) or if a Korean table is out of date. It uses the macOS fonts
@@ -85,7 +81,7 @@ The ICML style files and draft sources, the full-length paper's presentation
 builders (`make_specificity_*`, `make_review_figures`, `make_example_figures`,
 `make_figures`, `make_validation_figure`, `make_geometry_figure`), the
 retrospective-table builders (`make_icml_*`) with their nine generated tables,
-and 18 figures that neither the TMLR manuscript nor the archived papers use. Numerical results are unaffected:
+and 18 figures that neither the TMLR manuscript nor the then-archived papers used. Numerical results are unaffected:
 they live in `reports/` and are replayed by `make retrospective-check`,
 `make extensions-check`, `make review-check` and the other analysis targets.
 A complete copy of the previous `paper/` folder, with a SHA-256 inventory, is in

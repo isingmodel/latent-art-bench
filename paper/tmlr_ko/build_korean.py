@@ -28,12 +28,12 @@ OUT = HERE / "generated"
 TERMS = json.loads((HERE / "tables_ko.json").read_text())
 CAPTIONS, CELLS, KEEP = TERMS["captions"], TERMS["cells"], set(TERMS["keep"])
 
-# Korean count minus English count for numbers that one language writes as a word:
-# "zero" (0), "Fourteen" (14), "two of the 15" (2), "second difference" (2), dates (9, 10),
-# fractions such as "a quarter" (4분의 1), and one sentence that names the level 1 twice.
+# Korean count minus English count for numbers that the English writes as a word and the
+# Korean as digits: the months of dates (9, 10), "a third" (3분의 1), "a quarter" (4분의 1),
+# and "zero" (0) where Korean writes the digit ("평균이 0", "0을 포함", "가이던스 척도는 0").
 EXPECTED = {
-    "main.tex": {"0": 4, "1": 6, "10": 1, "14": 1, "2": 1, "3": 1, "4": 3, "5": 1, "9": 2},
-    "appendix.tex": {"0": 7, "1": 1, "2": 1, "3": 1, "9": 2},
+    "main.tex": {"0": 2, "1": 4, "10": 1, "3": 1, "4": 3, "9": 2},
+    "appendix.tex": {"0": 1, "1": 1, "3": 1, "9": 2},
 }
 
 CAPTION = re.compile(r"\\caption\{(.*)\}\n\\label\{(.*?)\}", re.S)

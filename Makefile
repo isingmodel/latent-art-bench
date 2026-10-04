@@ -4,7 +4,6 @@ UV := uv run --locked
 PYTHON := $(UV) python
 CONTROLLED := latent_art_bench.painter_distribution_study_v1
 REVISION := latent_art_bench.painter_distribution_revision_v1
-ARCHIVE_PAPER := paper/archive/full_length_2026-09-15
 # TMLR manuscript builds go here; the PDF is copied to output/pdf/ (ignored by Git).
 # The build fixes the PDF date (2026-01-01 UTC) so that no local time zone is embedded.
 TMLR_BUILD ?= tmp/paper/tmlr-build
@@ -17,7 +16,7 @@ ROUTINE_EXTRA := tests/painter_cross_cohort_v1 tests/painter_selective_attributi
 
 .PHONY: restore-analysis install-hooks git-size-check
 
-.PHONY: help check check-all evidence analysis four-painter-analysis plots responsiveness computational-responsiveness palette-check validation-check replication-check geometry-check clause-check clause-successor-check figures-check specificity-check specificity-audit review-check reference-quality-check reference-quality-images-check editorial-check paper-archive paper-tmlr paper-tmlr-ko tmlr-ko-assets tmlr-ko-check tmlr-assets tmlr-check retrospective-check extensions-check artifact-check icml-evidence-check icml-extensions-check icml-artifact-check
+.PHONY: help check check-all evidence analysis four-painter-analysis plots responsiveness computational-responsiveness palette-check validation-check replication-check geometry-check clause-check clause-successor-check figures-check specificity-check specificity-audit review-check reference-quality-check reference-quality-images-check editorial-check paper-tmlr paper-tmlr-ko tmlr-ko-assets tmlr-ko-check tmlr-assets tmlr-check retrospective-check extensions-check artifact-check icml-evidence-check icml-extensions-check icml-artifact-check
 
 help:
 	@echo 'Start with docs/STATUS.md, then paper/README.md and docs/AGENT_HANDOVER.md'
@@ -25,7 +24,6 @@ help:
 	@echo 'make tmlr-check  Verify TMLR tables, figure, quoted numbers and style files'
 	@echo 'make paper-tmlr-ko  Build the Korean translation of the TMLR manuscript'
 	@echo 'make tmlr-assets  Regenerate the TMLR tables and figure from retained analyses'
-	@echo 'make paper-archive  Compile the archived full-length paper and Korean translation into tmp/'
 	@echo 'make retrospective-check  Replay the direct-naming, timing, learned, transfer, covariance and TMLR diagnostics'
 	@echo 'make extensions-check  Replay the SD-Turbo and selective-attribution analyses'
 	@echo 'make artifact-check  Verify the selected exact-pixel inventory locally'
@@ -143,12 +141,6 @@ specificity-audit:
 # the palette figure stays because hash-bound routine tests read it at this path.
 figures-check:
 	$(PYTHON) paper/replay_palette.py --check-figure paper/figures/palette_blocks.pdf
-
-# Archived manuscripts are frozen snapshots; this only recompiles them into tmp/.
-paper-archive:
-	mkdir -p tmp/paper/archive-build
-	cd $(ARCHIVE_PAPER) && tectonic --outdir ../../../tmp/paper/archive-build paper.tex
-	cd $(ARCHIVE_PAPER) && tectonic --outdir ../../../tmp/paper/archive-build latent_art_bench_korean.tex
 
 tmlr-assets: restore-analysis
 	$(PYTHON) paper/tmlr/build_assets.py

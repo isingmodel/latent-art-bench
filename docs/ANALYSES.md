@@ -116,12 +116,11 @@ Independent audit and replay scripts for these analyses are frozen records in
 | TMLR tables, component figure and every quoted number | [paper/tmlr/build_assets.py](../paper/tmlr/build_assets.py) | `make tmlr-check` |
 | TMLR Figures 1 and 3 (example images, painter pairs) | Static copies with hashes in [paper/tmlr/figures/PROVENANCE.json](../paper/tmlr/figures/PROVENANCE.json) | `make tmlr-check` |
 | Palette block display | [paper/replay_palette.py](../paper/replay_palette.py) | `make figures-check`, `make palette-check` |
-| Frozen full-length paper and Korean translation | None (snapshot in `paper/archive/`) | `make paper-archive` recompiles them |
+| Full-length paper and Korean translation | Deleted on 2026-10-04; Git history keeps them | None |
 
 ```bash
 make tmlr-check           # TMLR assets, quoted numbers, style and figure hashes
 make paper-tmlr           # Check assets and compile the TMLR submission
-make paper-archive        # Recompile the frozen full-length paper and translation
 make figures-check        # Palette figure against its replay
 ```
 

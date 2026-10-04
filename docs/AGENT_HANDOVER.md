@@ -8,16 +8,15 @@ should stay that way unless the user says otherwise.
 
 ## Standing instructions
 
-- Write documentation and the English manuscripts in English. The Korean
-  translation of the full-length paper (in `paper/archive/`) is the user's work;
-  preserve it. The Korean translation of the TMLR manuscript (`paper/tmlr_ko/`) was
-  made by an AI assistant at the user's request and follows the English sources.
+- Write documentation and the English manuscripts in English. The Korean translation of the TMLR manuscript (`paper/tmlr_ko/`) was
+  made by an AI assistant at the user's request and follows the English sources; it was
+  deleted and translated anew on 2026-10-04 (terms in `paper/tmlr_ko/GLOSSARY.md`).
 - Keep all four painters in the main scientific scope. The second collection's two further
   groups (`painter_specificity_v3`) extend it; they do not replace it.
 - Do not add human evaluation. The lead manuscript is the anonymous TMLR
   submission in `paper/tmlr/`; TMLR has no page limit, but keep the main text
-  near 12 pages. The full-length paper and its Korean translation are frozen in
-  `paper/archive/full_length_2026-09-15/`.
+  near 12 pages. The full-length paper and its Korean translation were deleted on
+  2026-10-04 at the user's request; Git history keeps them (last in `a55a2b4`).
 - Paid generation: $112.293676 was recorded before 2026-10-03; the user then approved the
   second collection (ceiling $200, raised to $220 during collection), which charged $72.93
   (about $185.22 in total; its accounting closes at $195.22 with two unreleased $5 holds).
@@ -97,9 +96,10 @@ Files that look editable but are bound:
   them from lint rather than reformatting them.
 - `paper/replay_palette.py` and `paper/figures/palette_blocks.pdf` must stay at
   these paths: hash-bound routine tests read them.
-- The frozen manuscripts in `paper/archive/` keep the bytes that the editorial
+- The full-length manuscripts that the editorial
   [final snapshot](../reports/paper_editorial_review_v1/final_update/FINAL_SNAPSHOT.json)
-  records (their paths moved on 2026-10-01). The retired ICML draft's sources are
+  records were deleted from `paper/archive/` on 2026-10-04; their bytes remain in Git
+  history. The retired ICML draft's sources are
   frozen copies in `reports/icml_review_v1/round_04/input/`. Records under
   `reports/` still name the removed presentation builders and tables; Git history
   and `generative_art_diff_archive/2026-10-01/` hold them. Never edit the frozen
@@ -133,10 +133,10 @@ number differs between the two languages or a Korean table is out of date
 corrections are in [reports/icml_review_v1](../reports/icml_review_v1/README.md);
 the TMLR manuscript applies the substance of those corrections.
 
-**Full-length paper and Korean translation.** Frozen snapshots in
-`paper/archive/full_length_2026-09-15/`; `make paper-archive` recompiles both into
-`tmp/paper/archive-build/`. Their presentation builders were retired, so a new
-revision would start from the TMLR manuscript instead.
+**Full-length paper and Korean translation.** Deleted on 2026-10-04 at the user's
+request, together with the `paper-archive` target; Git history keeps them (last in
+`a55a2b4`). Their presentation builders were retired earlier, so a new revision
+would start from the TMLR manuscript instead.
 
 For a scientific correction, define a separate versioned result with explicit
 inputs and compare it with the preserved original. A frozen result is not a

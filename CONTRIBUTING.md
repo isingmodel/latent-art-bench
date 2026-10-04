@@ -8,8 +8,8 @@ scientific work needs a new instruction.
 
 ## Where changes belong
 
-- `paper/`: the TMLR manuscript and its asset builder (`paper/tmlr/`), and the
-  frozen full-length paper and Korean translation (`paper/archive/`).
+- `paper/`: the TMLR manuscript and its asset builder (`paper/tmlr/`), and its
+  Korean translation (`paper/tmlr_ko/`).
   [paper/README.md](paper/README.md) owns the builds.
 - Versioned packages in `src/latent_art_bench/`: scientific computation, with
   corresponding tests, study plans, manifests and result directories.

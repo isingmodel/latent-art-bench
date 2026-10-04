@@ -3,7 +3,7 @@
 % input reports/painter_specificity_v3/analysis.json sha256 75ef2a23c04a5c570fd224a0ada396271ad7026ef0657a1908023daca709cbc4
 % input reports/painter_tmlr_diagnostics_v6/analysis.json sha256 16b91e3b0151ab29ef142cdea4a5951a2df40e87d4058ff255eeb20094f4f4af
 \begin{table}[t]
-\caption{두 번째 수집의 추가 임베딩 지표로, 이미지를 측정하기 전에 정했다. 위: 여덟 화가 전체 중에서의 인식(매크로 정확도, \%, 우연 수준 12.5\%). 아래, 여섯 구성에 걸쳐: 정렬 비와 네 화가 중 인식 사이의 스피어만 상관, 그리고 근접도 이득과 두 항(식~\ref{eq:prototype-gain}) 사이의 피어슨 상관.}
+\caption{두 번째 수집의 추가 임베딩 지표로, 이미지를 측정하기 전에 정했다. 위: 여덟 화가 전체 중 인식(매크로 정확도, \%, 우연 수준 12.5\%). 아래, 여섯 구성에 걸쳐: 정렬 비와 네 화가 중 인식 사이의 스피어만 상관, 그리고 근접도 이득과 그 두 항 사이의 피어슨 상관(식~\ref{eq:prototype-gain}).}
 \label{tab:v3-readouts}
 \vspace{2pt}
 \centering\small
@@ -20,9 +20,9 @@ Sunburst & 69.8 & 43.8 & 83.3 & 45.8\\
 Nano Banana 2 & 74.0 & 50.0 & 75.0 & 44.8\\
 FLUX.2 Max & 68.8 & 35.4 & 69.8 & 38.5\\
 \midrule
-스피어만, 정렬 비와 네 화가 중 인식 & 0.29 & 0.94 & 0.64 & 0.66\\
+스피어만: 정렬 비와 네 화가 중 인식 & 0.29 & 0.94 & 0.64 & 0.66\\
 이득과 공통 항의 상관 & 0.97 & 0.99 & 0.83 & 1.00\\
-이득과 화가 특이적 항의 상관 & 0.75 & 0.54 & 0.34 & 0.54\\
+이득과 화가 특이 항의 상관 & 0.75 & 0.54 & 0.34 & 0.54\\
 \bottomrule
 \end{tabular}
 \end{table}

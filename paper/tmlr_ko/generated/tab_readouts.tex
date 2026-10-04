@@ -3,7 +3,7 @@
 % input reports/painter_learned_audit_v1/analysis.json sha256 06c77de4be133afc203dda122b2816d4f866e1389999f18bc94b3d9c668f28f7
 % input reports/painter_tmlr_diagnostics_v5/analysis.json sha256 5747902e4fae5ff111a52b5f2b8da112bc26c611555e82314b278de953981f6b
 \begin{table}[t]
-\caption{각 임베딩에서 같은 이미지에 대한 지표. 근접도: 프롬프트에 지정한 화가의 참조 작품과의 평균 코사인 유사도에서 화가 지정 조건이 일반 조건보다 얻는 이득으로, 식~\ref{eq:prototype-gain}에 따라 공통 항과 화가 특이적 항 $H\beta/4$로 나뉜다. 인식: 화가 지정 이미지 112개 각각을 가장 가까운 참조 프로토타입으로 프롬프트의 화가에 배정할 때의 매크로 정확도(우연 수준 25\%). 일치: 정렬 비(높을수록 좋음)와 오차 $D$(낮을수록 좋음). 31개 특징의 값은 표~\ref{tab:agreement}에 있다. 굵은 글씨는 각 열과 임베딩에서 가장 큰 값($D$는 가장 낮은 값)을 나타낸다. 장면 재표집에서 각 구성이 얼마나 자주 가장 좋은지는 부록 표~\ref{tab:stability}에 있다.}
+\caption{각 임베딩에서 같은 이미지로 계산한 지표들. 근접도: 프롬프트에 지정한 화가의 참조 작품에 대한 평균 코사인 유사도가 일반 조건보다 이름 지정 조건에서 얼마나 높은지로, 식~\ref{eq:prototype-gain}에 따라 공통 항과 화가 특이 항 $H\beta/4$로 나뉜다. 인식: 이름 지정 이미지 112개를 각각 가장 가까운 참조 프로토타입의 화가에 배정했을 때 프롬프트의 화가와 맞는 매크로 정확도(우연 수준 25\%). 일치: 정렬 비(높을수록 좋음)와 오차 $D$(낮을수록 좋음). 특징 31개의 값은 표~\ref{tab:agreement}에 있다. 굵은 글씨는 각 열과 임베딩에서 가장 큰 값($D$는 가장 작은 값)이다. 장면 재표집에서 각 구성이 얼마나 자주 최선인지는 부록 표~\ref{tab:stability}에 있다.}
 \label{tab:readouts}
 \vspace{2pt}
 \centering\small
@@ -11,7 +11,7 @@
 \toprule
  & \multicolumn{3}{c}{근접도 이득} & 인식 & \multicolumn{2}{c}{일치}\\
 \cmidrule(lr){2-4}\cmidrule(l){6-7}
-구성 & 전체 & 공통 & 화가 특이적 & (\%) & $\beta/\sqrt{Q}$ & $D$\\
+구성 & 전체 & 공통 & 화가 특이 & (\%) & $\beta/\sqrt{Q}$ & $D$\\
 \midrule
 \multicolumn{7}{@{}l}{\textit{CLIP}}\\
 GPT Image 1 & 0.072 & 0.053 & 0.018 & 60.7 & 0.555 & \textbf{0.847}\\

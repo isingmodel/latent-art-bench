@@ -35,11 +35,9 @@ analyses, open decisions and limits.
 | Manuscript | Source | Scope |
 | --- | --- | --- |
 | TMLR submission (lead) | [paper/tmlr/main.tex](paper/tmlr/main.tex) | Anonymous TMLR-format manuscript: the shared/between-name decomposition, learned embeddings, readout disagreement and the SD-Turbo check; its PDF is built locally with `make paper-tmlr` |
-| Korean translation of the TMLR manuscript | [paper/tmlr_ko/main.tex](paper/tmlr_ko/main.tex) | Same content, tables and figures as the TMLR manuscript; built locally with `make paper-tmlr-ko` |
-| Full-length paper (frozen) | [paper/archive/full_length_2026-09-15/paper.tex](paper/archive/full_length_2026-09-15/paper.tex), [PDF](paper/archive/full_length_2026-09-15/paper.pdf) | 23-page version of 2026-09-15, without the later retrospective analyses |
-| Korean translation (frozen) | [paper/archive/full_length_2026-09-15/latent_art_bench_korean.tex](paper/archive/full_length_2026-09-15/latent_art_bench_korean.tex) | Translation of the full-length paper |
+| Korean translation of the TMLR manuscript | [paper/tmlr_ko/main.tex](paper/tmlr_ko/main.tex) | Translation by an AI assistant, made anew on 2026-10-04 and not yet reviewed by the author; same numbers, tables and figures as the TMLR manuscript; built locally with `make paper-tmlr-ko` |
 
-The [paper guide](paper/README.md) explains the layout and builds.
+The full-length paper of 2026-09-15 and its Korean translation were deleted on 2026-10-04 at the user's request; Git history keeps them (last in commit `a55a2b4`). The [paper guide](paper/README.md) explains the layout and builds.
 
 ## Reproduce
 
